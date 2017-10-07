@@ -1,0 +1,103 @@
+// Generated from /POI/java/org/apache/poi/ss/usermodel/charts/LegendPosition.java
+#include <org/apache/poi/ss/usermodel/charts/LegendPosition.hpp>
+
+#include <java/io/Serializable.hpp>
+#include <java/lang/ArrayStoreException.hpp>
+#include <java/lang/Comparable.hpp>
+#include <java/lang/Enum.hpp>
+#include <java/lang/IllegalArgumentException.hpp>
+#include <java/lang/String.hpp>
+#include <SubArray.hpp>
+#include <ObjectArray.hpp>
+
+template<typename ComponentType, typename... Bases> struct SubArray;
+namespace java
+{
+    namespace io
+    {
+typedef ::SubArray< ::java::io::Serializable, ::java::lang::ObjectArray > SerializableArray;
+    } // io
+
+    namespace lang
+    {
+typedef ::SubArray< ::java::lang::Comparable, ObjectArray > ComparableArray;
+typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io::SerializableArray > EnumArray;
+    } // lang
+} // java
+
+namespace org
+{
+    namespace apache
+    {
+        namespace poi
+        {
+            namespace ss
+            {
+                namespace usermodel
+                {
+                    namespace charts
+                    {
+typedef ::SubArray< ::org::apache::poi::ss::usermodel::charts::LegendPosition, ::java::lang::EnumArray > LegendPositionArray;
+                    } // charts
+                } // usermodel
+            } // ss
+        } // poi
+    } // apache
+} // org
+
+org::apache::poi::ss::usermodel::charts::LegendPosition::LegendPosition(const ::default_init_tag&)
+    : super(*static_cast< ::default_init_tag* >(0))
+{
+    clinit();
+}
+
+org::apache::poi::ss::usermodel::charts::LegendPosition::LegendPosition(::java::lang::String* name, int ordinal)
+    : LegendPosition(*static_cast< ::default_init_tag* >(0))
+{
+    ctor(name, ordinal);
+}
+
+org::apache::poi::ss::usermodel::charts::LegendPosition* org::apache::poi::ss::usermodel::charts::LegendPosition::BOTTOM = new ::org::apache::poi::ss::usermodel::charts::LegendPosition(u"BOTTOM"_j, 0);
+org::apache::poi::ss::usermodel::charts::LegendPosition* org::apache::poi::ss::usermodel::charts::LegendPosition::LEFT = new ::org::apache::poi::ss::usermodel::charts::LegendPosition(u"LEFT"_j, 1);
+org::apache::poi::ss::usermodel::charts::LegendPosition* org::apache::poi::ss::usermodel::charts::LegendPosition::RIGHT = new ::org::apache::poi::ss::usermodel::charts::LegendPosition(u"RIGHT"_j, 2);
+org::apache::poi::ss::usermodel::charts::LegendPosition* org::apache::poi::ss::usermodel::charts::LegendPosition::TOP = new ::org::apache::poi::ss::usermodel::charts::LegendPosition(u"TOP"_j, 3);
+org::apache::poi::ss::usermodel::charts::LegendPosition* org::apache::poi::ss::usermodel::charts::LegendPosition::TOP_RIGHT = new ::org::apache::poi::ss::usermodel::charts::LegendPosition(u"TOP_RIGHT"_j, 4);
+extern java::lang::Class *class_(const char16_t *c, int n);
+
+java::lang::Class* org::apache::poi::ss::usermodel::charts::LegendPosition::class_()
+{
+    static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.usermodel.charts.LegendPosition", 49);
+    return c;
+}
+
+org::apache::poi::ss::usermodel::charts::LegendPosition* org::apache::poi::ss::usermodel::charts::LegendPosition::valueOf(::java::lang::String* a0)
+{
+    if(BOTTOM->toString()->equals(a0))
+        return BOTTOM;
+    if(LEFT->toString()->equals(a0))
+        return LEFT;
+    if(RIGHT->toString()->equals(a0))
+        return RIGHT;
+    if(TOP->toString()->equals(a0))
+        return TOP;
+    if(TOP_RIGHT->toString()->equals(a0))
+        return TOP_RIGHT;
+    throw new ::java::lang::IllegalArgumentException(a0);
+}
+
+org::apache::poi::ss::usermodel::charts::LegendPositionArray* org::apache::poi::ss::usermodel::charts::LegendPosition::values()
+{
+    return new org::apache::poi::ss::usermodel::charts::LegendPositionArray({
+        BOTTOM,
+        LEFT,
+        RIGHT,
+        TOP,
+        TOP_RIGHT,
+    });
+}
+
+java::lang::Class* org::apache::poi::ss::usermodel::charts::LegendPosition::getClass0()
+{
+    return class_();
+}
+

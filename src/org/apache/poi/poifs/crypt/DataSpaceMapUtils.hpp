@@ -1,0 +1,45 @@
+// Generated from /POI/java/org/apache/poi/poifs/crypt/DataSpaceMapUtils.java
+
+#pragma once
+
+#include <java/lang/fwd-POI.hpp>
+#include <org/apache/poi/poifs/crypt/fwd-POI.hpp>
+#include <org/apache/poi/poifs/crypt/standard/fwd-POI.hpp>
+#include <org/apache/poi/poifs/filesystem/fwd-POI.hpp>
+#include <org/apache/poi/util/fwd-POI.hpp>
+#include <java/lang/Object.hpp>
+
+struct default_init_tag;
+
+class org::apache::poi::poifs::crypt::DataSpaceMapUtils
+    : public virtual ::java::lang::Object
+{
+
+public:
+    typedef ::java::lang::Object super;
+    static void addDefaultDataSpace(::org::apache::poi::poifs::filesystem::DirectoryEntry* dir) /* throws(IOException) */;
+    static ::org::apache::poi::poifs::filesystem::DocumentEntry* createEncryptionEntry(::org::apache::poi::poifs::filesystem::DirectoryEntry* dir, ::java::lang::String* path, ::org::apache::poi::poifs::crypt::standard::EncryptionRecord* out) /* throws(IOException) */;
+    static ::java::lang::String* readUnicodeLPP4(::org::apache::poi::util::LittleEndianInput* is);
+    static void writeUnicodeLPP4(::org::apache::poi::util::LittleEndianOutput* os, ::java::lang::String* string);
+    static ::java::lang::String* readUtf8LPP4(::org::apache::poi::util::LittleEndianInput* is);
+    static void writeUtf8LPP4(::org::apache::poi::util::LittleEndianOutput* os, ::java::lang::String* str);
+
+    // Generated
+    DataSpaceMapUtils();
+protected:
+    DataSpaceMapUtils(const ::default_init_tag&);
+
+
+public:
+    static ::java::lang::Class *class_();
+
+private:
+    virtual ::java::lang::Class* getClass0();
+    friend class DataSpaceMapUtils_createEncryptionEntry_1;
+    friend class DataSpaceMapUtils_DataSpaceMap;
+    friend class DataSpaceMapUtils_DataSpaceMapEntry;
+    friend class DataSpaceMapUtils_DataSpaceDefinition;
+    friend class DataSpaceMapUtils_IRMDSTransformInfo;
+    friend class DataSpaceMapUtils_TransformInfoHeader;
+    friend class DataSpaceMapUtils_DataSpaceVersionInfo;
+};
