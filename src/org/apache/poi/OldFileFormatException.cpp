@@ -13,7 +13,6 @@ poi::OldFileFormatException::OldFileFormatException(::java::lang::String* s)
     ctor(s);
 }
 
-constexpr int64_t poi::OldFileFormatException::serialVersionUID;
 
 void poi::OldFileFormatException::ctor(::java::lang::String* s)
 {

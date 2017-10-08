@@ -21,7 +21,6 @@ poi::ss::formula::eval::NotImplementedFunctionException::NotImplementedFunctionE
     ctor(functionName,cause);
 }
 
-constexpr int64_t poi::ss::formula::eval::NotImplementedFunctionException::serialVersionUID;
 
 void poi::ss::formula::eval::NotImplementedFunctionException::ctor(::java::lang::String* functionName)
 {

@@ -25,7 +25,6 @@ poi::EncryptedDocumentException::EncryptedDocumentException(::java::lang::Throwa
     ctor(cause);
 }
 
-constexpr int64_t poi::EncryptedDocumentException::serialVersionUID;
 
 void poi::EncryptedDocumentException::ctor(::java::lang::String* s)
 {

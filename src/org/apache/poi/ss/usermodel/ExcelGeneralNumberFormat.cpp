@@ -45,7 +45,6 @@ poi::ss::usermodel::ExcelGeneralNumberFormat::ExcelGeneralNumberFormat(::java::u
     ctor(locale);
 }
 
-constexpr int64_t poi::ss::usermodel::ExcelGeneralNumberFormat::serialVersionUID;
 
 java::math::MathContext*& poi::ss::usermodel::ExcelGeneralNumberFormat::TO_10_SF()
 {

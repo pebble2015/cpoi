@@ -13,7 +13,6 @@ poi::ss::formula::CollaboratingWorkbooksEnvironment_WorkbookNotFoundException::C
     ctor(msg);
 }
 
-constexpr int64_t poi::ss::formula::CollaboratingWorkbooksEnvironment_WorkbookNotFoundException::serialVersionUID;
 
 void poi::ss::formula::CollaboratingWorkbooksEnvironment_WorkbookNotFoundException::ctor(::java::lang::String* msg)
 {

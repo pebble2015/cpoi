@@ -33,7 +33,6 @@ poi::hpsf::HPSFRuntimeException::HPSFRuntimeException(::java::lang::String* msg,
     ctor(msg,reason);
 }
 
-constexpr int64_t poi::hpsf::HPSFRuntimeException::serialVersionUID;
 
 void poi::hpsf::HPSFRuntimeException::ctor()
 {

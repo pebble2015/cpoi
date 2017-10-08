@@ -15,7 +15,6 @@ poi::util::LittleEndian_BufferUnderrunException::LittleEndian_BufferUnderrunExce
     ctor();
 }
 
-constexpr int64_t poi::util::LittleEndian_BufferUnderrunException::serialVersionUID;
 
 void poi::util::LittleEndian_BufferUnderrunException::ctor()
 {

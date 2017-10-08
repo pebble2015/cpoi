@@ -19,7 +19,6 @@ poi::ss::formula::eval::NotImplementedException::NotImplementedException(::java:
     ctor(message,cause);
 }
 
-constexpr int64_t poi::ss::formula::eval::NotImplementedException::serialVersionUID;
 
 void poi::ss::formula::eval::NotImplementedException::ctor(::java::lang::String* message)
 {

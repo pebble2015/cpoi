@@ -13,7 +13,6 @@ poi::UnsupportedFileFormatException::UnsupportedFileFormatException(::java::lang
     ctor(s);
 }
 
-constexpr int64_t poi::UnsupportedFileFormatException::serialVersionUID;
 
 void poi::UnsupportedFileFormatException::ctor(::java::lang::String* s)
 {

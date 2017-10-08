@@ -15,7 +15,6 @@ poi::EmptyFileException::EmptyFileException()
     ctor();
 }
 
-constexpr int64_t poi::EmptyFileException::serialVersionUID;
 
 void poi::EmptyFileException::ctor()
 {
