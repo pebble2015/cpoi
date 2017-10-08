@@ -41,29 +41,23 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace ss
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::FormulaEvaluator, ::java::lang::ObjectArray > FormulaEvaluatorArray;
-                } // usermodel
+typedef ::SubArray< ::poi::ss::usermodel::FormulaEvaluator, ::java::lang::ObjectArray > FormulaEvaluatorArray;
+        } // usermodel
 
-                namespace formula
-                {
-typedef ::SubArray< ::org::apache::poi::ss::formula::WorkbookEvaluatorProvider, ::java::lang::ObjectArray > WorkbookEvaluatorProviderArray;
-typedef ::SubArray< ::org::apache::poi::ss::formula::BaseFormulaEvaluator, ::java::lang::ObjectArray, ::org::apache::poi::ss::usermodel::FormulaEvaluatorArray, WorkbookEvaluatorProviderArray > BaseFormulaEvaluatorArray;
-typedef ::SubArray< ::org::apache::poi::ss::formula::WorkbookEvaluator, ::java::lang::ObjectArray > WorkbookEvaluatorArray;
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+        namespace formula
+        {
+typedef ::SubArray< ::poi::ss::formula::WorkbookEvaluatorProvider, ::java::lang::ObjectArray > WorkbookEvaluatorProviderArray;
+typedef ::SubArray< ::poi::ss::formula::BaseFormulaEvaluator, ::java::lang::ObjectArray, ::poi::ss::usermodel::FormulaEvaluatorArray, WorkbookEvaluatorProviderArray > BaseFormulaEvaluatorArray;
+typedef ::SubArray< ::poi::ss::formula::WorkbookEvaluator, ::java::lang::ObjectArray > WorkbookEvaluatorArray;
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -81,25 +75,25 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::BaseFormulaEvaluator::BaseFormulaEvaluator(const ::default_init_tag&)
+poi::ss::formula::BaseFormulaEvaluator::BaseFormulaEvaluator(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::BaseFormulaEvaluator::BaseFormulaEvaluator(WorkbookEvaluator* bookEvaluator) 
+poi::ss::formula::BaseFormulaEvaluator::BaseFormulaEvaluator(WorkbookEvaluator* bookEvaluator) 
     : BaseFormulaEvaluator(*static_cast< ::default_init_tag* >(0))
 {
     ctor(bookEvaluator);
 }
 
-void org::apache::poi::ss::formula::BaseFormulaEvaluator::ctor(WorkbookEvaluator* bookEvaluator)
+void poi::ss::formula::BaseFormulaEvaluator::ctor(WorkbookEvaluator* bookEvaluator)
 {
     super::ctor();
     this->_bookEvaluator = bookEvaluator;
 }
 
-void org::apache::poi::ss::formula::BaseFormulaEvaluator::setupEnvironment(::java::lang::StringArray* workbookNames, BaseFormulaEvaluatorArray* evaluators)
+void poi::ss::formula::BaseFormulaEvaluator::setupEnvironment(::java::lang::StringArray* workbookNames, BaseFormulaEvaluatorArray* evaluators)
 {
     clinit();
     auto wbEvals = new WorkbookEvaluatorArray(npc(evaluators)->length);
@@ -109,47 +103,47 @@ void org::apache::poi::ss::formula::BaseFormulaEvaluator::setupEnvironment(::jav
     CollaboratingWorkbooksEnvironment::setup(workbookNames, wbEvals);
 }
 
-void org::apache::poi::ss::formula::BaseFormulaEvaluator::setupReferencedWorkbooks(::java::util::Map* evaluators)
+void poi::ss::formula::BaseFormulaEvaluator::setupReferencedWorkbooks(::java::util::Map* evaluators)
 {
     CollaboratingWorkbooksEnvironment::setupFormulaEvaluator(evaluators);
 }
 
-org::apache::poi::ss::formula::WorkbookEvaluator* org::apache::poi::ss::formula::BaseFormulaEvaluator::_getWorkbookEvaluator()
+poi::ss::formula::WorkbookEvaluator* poi::ss::formula::BaseFormulaEvaluator::_getWorkbookEvaluator()
 {
     return _bookEvaluator;
 }
 
-void org::apache::poi::ss::formula::BaseFormulaEvaluator::clearAllCachedResultValues()
+void poi::ss::formula::BaseFormulaEvaluator::clearAllCachedResultValues()
 {
     npc(_bookEvaluator)->clearAllCachedResultValues();
 }
 
-org::apache::poi::ss::usermodel::CellValue* org::apache::poi::ss::formula::BaseFormulaEvaluator::evaluate(::org::apache::poi::ss::usermodel::Cell* cell)
+poi::ss::usermodel::CellValue* poi::ss::formula::BaseFormulaEvaluator::evaluate(::poi::ss::usermodel::Cell* cell)
 {
     if(cell == nullptr) {
         return nullptr;
     }
     {
         auto v = npc(cell)->getCellTypeEnum();
-        if((v == ::org::apache::poi::ss::usermodel::CellType::BOOLEAN)) {
-            return ::org::apache::poi::ss::usermodel::CellValue::valueOf(npc(cell)->getBooleanCellValue());
+        if((v == ::poi::ss::usermodel::CellType::BOOLEAN)) {
+            return ::poi::ss::usermodel::CellValue::valueOf(npc(cell)->getBooleanCellValue());
         }
-        if((v == ::org::apache::poi::ss::usermodel::CellType::ERROR)) {
-            return ::org::apache::poi::ss::usermodel::CellValue::getError(npc(cell)->getErrorCellValue());
+        if((v == ::poi::ss::usermodel::CellType::ERROR)) {
+            return ::poi::ss::usermodel::CellValue::getError(npc(cell)->getErrorCellValue());
         }
-        if((v == ::org::apache::poi::ss::usermodel::CellType::FORMULA)) {
+        if((v == ::poi::ss::usermodel::CellType::FORMULA)) {
             return evaluateFormulaCellValue(cell);
         }
-        if((v == ::org::apache::poi::ss::usermodel::CellType::NUMERIC)) {
-            return new ::org::apache::poi::ss::usermodel::CellValue(npc(cell)->getNumericCellValue());
+        if((v == ::poi::ss::usermodel::CellType::NUMERIC)) {
+            return new ::poi::ss::usermodel::CellValue(npc(cell)->getNumericCellValue());
         }
-        if((v == ::org::apache::poi::ss::usermodel::CellType::STRING)) {
-            return new ::org::apache::poi::ss::usermodel::CellValue(npc(npc(cell)->getRichStringCellValue())->getString());
+        if((v == ::poi::ss::usermodel::CellType::STRING)) {
+            return new ::poi::ss::usermodel::CellValue(npc(npc(cell)->getRichStringCellValue())->getString());
         }
-        if((v == ::org::apache::poi::ss::usermodel::CellType::BLANK)) {
+        if((v == ::poi::ss::usermodel::CellType::BLANK)) {
             return nullptr;
         }
-        if((((v != ::org::apache::poi::ss::usermodel::CellType::BOOLEAN) && (v != ::org::apache::poi::ss::usermodel::CellType::ERROR) && (v != ::org::apache::poi::ss::usermodel::CellType::FORMULA) && (v != ::org::apache::poi::ss::usermodel::CellType::NUMERIC) && (v != ::org::apache::poi::ss::usermodel::CellType::STRING) && (v != ::org::apache::poi::ss::usermodel::CellType::BLANK)))) {
+        if((((v != ::poi::ss::usermodel::CellType::BOOLEAN) && (v != ::poi::ss::usermodel::CellType::ERROR) && (v != ::poi::ss::usermodel::CellType::FORMULA) && (v != ::poi::ss::usermodel::CellType::NUMERIC) && (v != ::poi::ss::usermodel::CellType::STRING) && (v != ::poi::ss::usermodel::CellType::BLANK)))) {
             throw new ::java::lang::IllegalStateException(::java::lang::StringBuilder().append(u"Bad cell type ("_j)->append(static_cast< ::java::lang::Object* >(npc(cell)->getCellTypeEnum()))
                 ->append(u")"_j)->toString());
         }
@@ -158,13 +152,13 @@ end_switch0:;
 
 }
 
-org::apache::poi::ss::usermodel::Cell* org::apache::poi::ss::formula::BaseFormulaEvaluator::evaluateInCell(::org::apache::poi::ss::usermodel::Cell* cell)
+poi::ss::usermodel::Cell* poi::ss::formula::BaseFormulaEvaluator::evaluateInCell(::poi::ss::usermodel::Cell* cell)
 {
     if(cell == nullptr) {
         return nullptr;
     }
     auto result = cell;
-    if(npc(cell)->getCellTypeEnum() == ::org::apache::poi::ss::usermodel::CellType::FORMULA) {
+    if(npc(cell)->getCellTypeEnum() == ::poi::ss::usermodel::CellType::FORMULA) {
         auto cv = evaluateFormulaCellValue(cell);
         setCellValue(cell, cv);
         setCellType(cell, cv);
@@ -172,38 +166,38 @@ org::apache::poi::ss::usermodel::Cell* org::apache::poi::ss::formula::BaseFormul
     return result;
 }
 
-int32_t org::apache::poi::ss::formula::BaseFormulaEvaluator::evaluateFormulaCell(::org::apache::poi::ss::usermodel::Cell* cell)
+int32_t poi::ss::formula::BaseFormulaEvaluator::evaluateFormulaCell(::poi::ss::usermodel::Cell* cell)
 {
     return npc(evaluateFormulaCellEnum(cell))->getCode();
 }
 
-org::apache::poi::ss::usermodel::CellType* org::apache::poi::ss::formula::BaseFormulaEvaluator::evaluateFormulaCellEnum(::org::apache::poi::ss::usermodel::Cell* cell)
+poi::ss::usermodel::CellType* poi::ss::formula::BaseFormulaEvaluator::evaluateFormulaCellEnum(::poi::ss::usermodel::Cell* cell)
 {
-    if(cell == nullptr || npc(cell)->getCellTypeEnum() != ::org::apache::poi::ss::usermodel::CellType::FORMULA) {
-        return ::org::apache::poi::ss::usermodel::CellType::_NONE;
+    if(cell == nullptr || npc(cell)->getCellTypeEnum() != ::poi::ss::usermodel::CellType::FORMULA) {
+        return ::poi::ss::usermodel::CellType::_NONE;
     }
     auto cv = evaluateFormulaCellValue(cell);
     setCellValue(cell, cv);
     return npc(cv)->getCellTypeEnum();
 }
 
-void org::apache::poi::ss::formula::BaseFormulaEvaluator::setCellType(::org::apache::poi::ss::usermodel::Cell* cell, ::org::apache::poi::ss::usermodel::CellValue* cv)
+void poi::ss::formula::BaseFormulaEvaluator::setCellType(::poi::ss::usermodel::Cell* cell, ::poi::ss::usermodel::CellValue* cv)
 {
     clinit();
     auto cellType = npc(cv)->getCellTypeEnum();
     {
         auto v = cellType;
-        if((v == ::org::apache::poi::ss::usermodel::CellType::BOOLEAN) || (v == ::org::apache::poi::ss::usermodel::CellType::ERROR) || (v == ::org::apache::poi::ss::usermodel::CellType::NUMERIC) || (v == ::org::apache::poi::ss::usermodel::CellType::STRING)) {
+        if((v == ::poi::ss::usermodel::CellType::BOOLEAN) || (v == ::poi::ss::usermodel::CellType::ERROR) || (v == ::poi::ss::usermodel::CellType::NUMERIC) || (v == ::poi::ss::usermodel::CellType::STRING)) {
             npc(cell)->setCellType(cellType);
             return;
         }
-        if((v == ::org::apache::poi::ss::usermodel::CellType::BLANK)) {
+        if((v == ::poi::ss::usermodel::CellType::BLANK)) {
             throw new ::java::lang::IllegalArgumentException(u"This should never happen. Blanks eventually get translated to zero."_j);
         }
-        if((v == ::org::apache::poi::ss::usermodel::CellType::BLANK) || (v == ::org::apache::poi::ss::usermodel::CellType::FORMULA)) {
+        if((v == ::poi::ss::usermodel::CellType::BLANK) || (v == ::poi::ss::usermodel::CellType::FORMULA)) {
             throw new ::java::lang::IllegalArgumentException(u"This should never happen. Formulas should have already been evaluated."_j);
         }
-        if(((v == ::org::apache::poi::ss::usermodel::CellType::BLANK) || (v == ::org::apache::poi::ss::usermodel::CellType::FORMULA) || ((v != ::org::apache::poi::ss::usermodel::CellType::BOOLEAN) && (v != ::org::apache::poi::ss::usermodel::CellType::ERROR) && (v != ::org::apache::poi::ss::usermodel::CellType::NUMERIC) && (v != ::org::apache::poi::ss::usermodel::CellType::STRING) && (v != ::org::apache::poi::ss::usermodel::CellType::BLANK) && (v != ::org::apache::poi::ss::usermodel::CellType::FORMULA)))) {
+        if(((v == ::poi::ss::usermodel::CellType::BLANK) || (v == ::poi::ss::usermodel::CellType::FORMULA) || ((v != ::poi::ss::usermodel::CellType::BOOLEAN) && (v != ::poi::ss::usermodel::CellType::ERROR) && (v != ::poi::ss::usermodel::CellType::NUMERIC) && (v != ::poi::ss::usermodel::CellType::STRING) && (v != ::poi::ss::usermodel::CellType::BLANK) && (v != ::poi::ss::usermodel::CellType::FORMULA)))) {
             throw new ::java::lang::IllegalStateException(::java::lang::StringBuilder().append(u"Unexpected cell value type ("_j)->append(static_cast< ::java::lang::Object* >(cellType))
                 ->append(u")"_j)->toString());
         }
@@ -212,28 +206,28 @@ end_switch1:;
 
 }
 
-void org::apache::poi::ss::formula::BaseFormulaEvaluator::setCellValue(::org::apache::poi::ss::usermodel::Cell* cell, ::org::apache::poi::ss::usermodel::CellValue* cv)
+void poi::ss::formula::BaseFormulaEvaluator::setCellValue(::poi::ss::usermodel::Cell* cell, ::poi::ss::usermodel::CellValue* cv)
 {
     auto cellType = npc(cv)->getCellTypeEnum();
     {
         auto v = cellType;
-        if((v == ::org::apache::poi::ss::usermodel::CellType::BOOLEAN)) {
+        if((v == ::poi::ss::usermodel::CellType::BOOLEAN)) {
             npc(cell)->setCellValue(npc(cv)->getBooleanValue());
             goto end_switch2;;
         }
-        if((v == ::org::apache::poi::ss::usermodel::CellType::ERROR)) {
+        if((v == ::poi::ss::usermodel::CellType::ERROR)) {
             npc(cell)->setCellErrorValue(npc(cv)->getErrorValue());
             goto end_switch2;;
         }
-        if((v == ::org::apache::poi::ss::usermodel::CellType::NUMERIC)) {
+        if((v == ::poi::ss::usermodel::CellType::NUMERIC)) {
             npc(cell)->setCellValue(npc(cv)->getNumberValue());
             goto end_switch2;;
         }
-        if((v == ::org::apache::poi::ss::usermodel::CellType::STRING)) {
+        if((v == ::poi::ss::usermodel::CellType::STRING)) {
             npc(cell)->setCellValue(createRichTextString(npc(cv)->getStringValue()));
             goto end_switch2;;
         }
-        if(((v == ::org::apache::poi::ss::usermodel::CellType::BLANK) || (v == ::org::apache::poi::ss::usermodel::CellType::FORMULA) || ((v != ::org::apache::poi::ss::usermodel::CellType::BOOLEAN) && (v != ::org::apache::poi::ss::usermodel::CellType::ERROR) && (v != ::org::apache::poi::ss::usermodel::CellType::NUMERIC) && (v != ::org::apache::poi::ss::usermodel::CellType::STRING) && (v != ::org::apache::poi::ss::usermodel::CellType::BLANK) && (v != ::org::apache::poi::ss::usermodel::CellType::FORMULA)))) {
+        if(((v == ::poi::ss::usermodel::CellType::BLANK) || (v == ::poi::ss::usermodel::CellType::FORMULA) || ((v != ::poi::ss::usermodel::CellType::BOOLEAN) && (v != ::poi::ss::usermodel::CellType::ERROR) && (v != ::poi::ss::usermodel::CellType::NUMERIC) && (v != ::poi::ss::usermodel::CellType::STRING) && (v != ::poi::ss::usermodel::CellType::BLANK) && (v != ::poi::ss::usermodel::CellType::FORMULA)))) {
             throw new ::java::lang::IllegalStateException(::java::lang::StringBuilder().append(u"Unexpected cell value type ("_j)->append(static_cast< ::java::lang::Object* >(cellType))
                 ->append(u")"_j)->toString());
         }
@@ -242,25 +236,25 @@ end_switch2:;
 
 }
 
-void org::apache::poi::ss::formula::BaseFormulaEvaluator::evaluateAllFormulaCells(::org::apache::poi::ss::usermodel::Workbook* wb)
+void poi::ss::formula::BaseFormulaEvaluator::evaluateAllFormulaCells(::poi::ss::usermodel::Workbook* wb)
 {
     clinit();
     auto evaluator = npc(npc(wb)->getCreationHelper())->createFormulaEvaluator();
     evaluateAllFormulaCells(wb, evaluator);
 }
 
-void org::apache::poi::ss::formula::BaseFormulaEvaluator::evaluateAllFormulaCells(::org::apache::poi::ss::usermodel::Workbook* wb, ::org::apache::poi::ss::usermodel::FormulaEvaluator* evaluator)
+void poi::ss::formula::BaseFormulaEvaluator::evaluateAllFormulaCells(::poi::ss::usermodel::Workbook* wb, ::poi::ss::usermodel::FormulaEvaluator* evaluator)
 {
     clinit();
     for (auto i = int32_t(0); i < npc(wb)->getNumberOfSheets(); i++) {
         auto sheet = npc(wb)->getSheetAt(i);
         for (auto _i = npc(sheet)->iterator(); _i->hasNext(); ) {
-            ::org::apache::poi::ss::usermodel::Row* r = java_cast< ::org::apache::poi::ss::usermodel::Row* >(_i->next());
+            ::poi::ss::usermodel::Row* r = java_cast< ::poi::ss::usermodel::Row* >(_i->next());
             {
                 for (auto _i = npc(r)->iterator(); _i->hasNext(); ) {
-                    ::org::apache::poi::ss::usermodel::Cell* c = java_cast< ::org::apache::poi::ss::usermodel::Cell* >(_i->next());
+                    ::poi::ss::usermodel::Cell* c = java_cast< ::poi::ss::usermodel::Cell* >(_i->next());
                     {
-                        if(npc(c)->getCellTypeEnum() == ::org::apache::poi::ss::usermodel::CellType::FORMULA) {
+                        if(npc(c)->getCellTypeEnum() == ::poi::ss::usermodel::CellType::FORMULA) {
                             npc(evaluator)->evaluateFormulaCellEnum(c);
                         }
                     }
@@ -270,25 +264,25 @@ void org::apache::poi::ss::formula::BaseFormulaEvaluator::evaluateAllFormulaCell
     }
 }
 
-void org::apache::poi::ss::formula::BaseFormulaEvaluator::setIgnoreMissingWorkbooks(bool ignore)
+void poi::ss::formula::BaseFormulaEvaluator::setIgnoreMissingWorkbooks(bool ignore)
 {
     npc(_bookEvaluator)->setIgnoreMissingWorkbooks(ignore);
 }
 
-void org::apache::poi::ss::formula::BaseFormulaEvaluator::setDebugEvaluationOutputForNextEval(bool value)
+void poi::ss::formula::BaseFormulaEvaluator::setDebugEvaluationOutputForNextEval(bool value)
 {
     npc(_bookEvaluator)->setDebugEvaluationOutputForNextEval(value);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::BaseFormulaEvaluator::class_()
+java::lang::Class* poi::ss::formula::BaseFormulaEvaluator::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.BaseFormulaEvaluator", 46);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::BaseFormulaEvaluator::getClass0()
+java::lang::Class* poi::ss::formula::BaseFormulaEvaluator::getClass0()
 {
     return class_();
 }

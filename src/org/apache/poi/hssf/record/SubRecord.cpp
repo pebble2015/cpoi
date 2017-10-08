@@ -26,24 +26,24 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::SubRecord::SubRecord(const ::default_init_tag&)
+poi::hssf::record::SubRecord::SubRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::SubRecord::SubRecord() 
+poi::hssf::record::SubRecord::SubRecord() 
     : SubRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::hssf::record::SubRecord::ctor()
+void poi::hssf::record::SubRecord::ctor()
 {
     super::ctor();
 }
 
-org::apache::poi::hssf::record::SubRecord* org::apache::poi::hssf::record::SubRecord::createSubRecord(::org::apache::poi::util::LittleEndianInput* in, int32_t cmoOt)
+poi::hssf::record::SubRecord* poi::hssf::record::SubRecord::createSubRecord(::poi::util::LittleEndianInput* in, int32_t cmoOt)
 {
     clinit();
     auto sid = npc(in)->readUShort();
@@ -72,31 +72,31 @@ org::apache::poi::hssf::record::SubRecord* org::apache::poi::hssf::record::SubRe
     return new SubRecord_UnknownSubRecord(in, sid, secondUShort);
 }
 
-int8_tArray* org::apache::poi::hssf::record::SubRecord::serialize()
+int8_tArray* poi::hssf::record::SubRecord::serialize()
 {
     auto size = getDataSize() + int32_t(4);
     auto baos = new ::java::io::ByteArrayOutputStream(size);
-    serialize(new ::org::apache::poi::util::LittleEndianOutputStream(baos));
+    serialize(new ::poi::util::LittleEndianOutputStream(baos));
     if(npc(baos)->size() != size) {
         throw new ::java::lang::RuntimeException(u"write size mismatch"_j);
     }
     return npc(baos)->toByteArray_();
 }
 
-bool org::apache::poi::hssf::record::SubRecord::isTerminating()
+bool poi::hssf::record::SubRecord::isTerminating()
 {
     return false;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::SubRecord::class_()
+java::lang::Class* poi::hssf::record::SubRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.SubRecord", 36);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::record::SubRecord::getClass0()
+java::lang::Class* poi::hssf::record::SubRecord::getClass0()
 {
     return class_();
 }

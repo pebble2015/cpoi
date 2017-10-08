@@ -55,24 +55,24 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::usermodel::FontDetails::FontDetails(const ::default_init_tag&)
+poi::hssf::usermodel::FontDetails::FontDetails(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::usermodel::FontDetails::FontDetails(::java::lang::String* fontName, int32_t height) 
+poi::hssf::usermodel::FontDetails::FontDetails(::java::lang::String* fontName, int32_t height) 
     : FontDetails(*static_cast< ::default_init_tag* >(0))
 {
     ctor(fontName,height);
 }
 
-void org::apache::poi::hssf::usermodel::FontDetails::init()
+void poi::hssf::usermodel::FontDetails::init()
 {
     charWidths = new ::java::util::HashMap();
 }
 
-void org::apache::poi::hssf::usermodel::FontDetails::ctor(::java::lang::String* fontName, int32_t height)
+void poi::hssf::usermodel::FontDetails::ctor(::java::lang::String* fontName, int32_t height)
 {
     super::ctor();
     init();
@@ -80,22 +80,22 @@ void org::apache::poi::hssf::usermodel::FontDetails::ctor(::java::lang::String* 
     _height = height;
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::FontDetails::getFontName()
+java::lang::String* poi::hssf::usermodel::FontDetails::getFontName()
 {
     return _fontName;
 }
 
-int32_t org::apache::poi::hssf::usermodel::FontDetails::getHeight()
+int32_t poi::hssf::usermodel::FontDetails::getHeight()
 {
     return _height;
 }
 
-void org::apache::poi::hssf::usermodel::FontDetails::addChar(char16_t c, int32_t width)
+void poi::hssf::usermodel::FontDetails::addChar(char16_t c, int32_t width)
 {
     npc(charWidths)->put(::java::lang::Character::valueOf(c), ::java::lang::Integer::valueOf(width));
 }
 
-int32_t org::apache::poi::hssf::usermodel::FontDetails::getCharWidth(char16_t c)
+int32_t poi::hssf::usermodel::FontDetails::getCharWidth(char16_t c)
 {
     auto widthInteger = java_cast< ::java::lang::Integer* >(npc(charWidths)->get(::java::lang::Character::valueOf(c)));
     if(widthInteger == nullptr) {
@@ -104,35 +104,35 @@ int32_t org::apache::poi::hssf::usermodel::FontDetails::getCharWidth(char16_t c)
     return (npc(widthInteger))->intValue();
 }
 
-void org::apache::poi::hssf::usermodel::FontDetails::addChars(::char16_tArray* characters, ::int32_tArray* widths)
+void poi::hssf::usermodel::FontDetails::addChars(::char16_tArray* characters, ::int32_tArray* widths)
 {
     for (auto i = int32_t(0); i < npc(characters)->length; i++) {
         npc(charWidths)->put(::java::lang::Character::valueOf((*characters)[i]), ::java::lang::Integer::valueOf((*widths)[i]));
     }
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::FontDetails::buildFontHeightProperty(::java::lang::String* fontName)
+java::lang::String* poi::hssf::usermodel::FontDetails::buildFontHeightProperty(::java::lang::String* fontName)
 {
     clinit();
     return ::java::lang::StringBuilder().append(u"font."_j)->append(fontName)
         ->append(u".height"_j)->toString();
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::FontDetails::buildFontWidthsProperty(::java::lang::String* fontName)
+java::lang::String* poi::hssf::usermodel::FontDetails::buildFontWidthsProperty(::java::lang::String* fontName)
 {
     clinit();
     return ::java::lang::StringBuilder().append(u"font."_j)->append(fontName)
         ->append(u".widths"_j)->toString();
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::FontDetails::buildFontCharactersProperty(::java::lang::String* fontName)
+java::lang::String* poi::hssf::usermodel::FontDetails::buildFontCharactersProperty(::java::lang::String* fontName)
 {
     clinit();
     return ::java::lang::StringBuilder().append(u"font."_j)->append(fontName)
         ->append(u".characters"_j)->toString();
 }
 
-org::apache::poi::hssf::usermodel::FontDetails* org::apache::poi::hssf::usermodel::FontDetails::create(::java::lang::String* fontName, ::java::util::Properties* fontMetricsProps)
+poi::hssf::usermodel::FontDetails* poi::hssf::usermodel::FontDetails::create(::java::lang::String* fontName, ::java::util::Properties* fontMetricsProps)
 {
     clinit();
     auto heightStr = npc(fontMetricsProps)->getProperty(buildFontHeightProperty(fontName));
@@ -157,7 +157,7 @@ org::apache::poi::hssf::usermodel::FontDetails* org::apache::poi::hssf::usermode
     return d;
 }
 
-int32_t org::apache::poi::hssf::usermodel::FontDetails::getStringWidth(::java::lang::String* str)
+int32_t poi::hssf::usermodel::FontDetails::getStringWidth(::java::lang::String* str)
 {
     auto width = int32_t(0);
     for (auto i = int32_t(0); i < npc(str)->length(); i++) {
@@ -166,7 +166,7 @@ int32_t org::apache::poi::hssf::usermodel::FontDetails::getStringWidth(::java::l
     return width;
 }
 
-java::lang::StringArray* org::apache::poi::hssf::usermodel::FontDetails::split(::java::lang::String* text, ::java::lang::String* separator, int32_t max)
+java::lang::StringArray* poi::hssf::usermodel::FontDetails::split(::java::lang::String* text, ::java::lang::String* separator, int32_t max)
 {
     clinit();
     auto tok = new ::java::util::StringTokenizer(text, separator);
@@ -194,13 +194,13 @@ java::lang::StringArray* org::apache::poi::hssf::usermodel::FontDetails::split(:
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::usermodel::FontDetails::class_()
+java::lang::Class* poi::hssf::usermodel::FontDetails::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.usermodel.FontDetails", 41);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::usermodel::FontDetails::getClass0()
+java::lang::Class* poi::hssf::usermodel::FontDetails::getClass0()
 {
     return class_();
 }

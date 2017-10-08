@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::FormulaParseException final
+class poi::ss::formula::FormulaParseException final
     : public ::java::lang::RuntimeException
 {
 

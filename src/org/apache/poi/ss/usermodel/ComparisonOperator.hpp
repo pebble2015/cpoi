@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::usermodel::ComparisonOperator final
+class poi::ss::usermodel::ComparisonOperator final
     : public ::java::lang::Object
 {
 

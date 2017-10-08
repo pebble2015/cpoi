@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::eventusermodel::HSSFUserException
+class poi::hssf::eventusermodel::HSSFUserException
     : public ::java::lang::Exception
 {
 

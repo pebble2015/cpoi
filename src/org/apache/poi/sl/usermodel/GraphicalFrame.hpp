@@ -10,7 +10,7 @@
 #include <org/apache/poi/sl/usermodel/ShapeContainer.hpp>
 #include <org/apache/poi/sl/usermodel/Sheet.hpp>
 
-struct org::apache::poi::sl::usermodel::GraphicalFrame
+struct poi::sl::usermodel::GraphicalFrame
     : public virtual Shape
     , public virtual PlaceableShape
 {

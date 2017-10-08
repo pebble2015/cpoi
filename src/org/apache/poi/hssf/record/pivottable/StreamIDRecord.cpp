@@ -16,69 +16,69 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::pivottable::StreamIDRecord::StreamIDRecord(const ::default_init_tag&)
+poi::hssf::record::pivottable::StreamIDRecord::StreamIDRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::pivottable::StreamIDRecord::StreamIDRecord(::org::apache::poi::hssf::record::RecordInputStream* in) 
+poi::hssf::record::pivottable::StreamIDRecord::StreamIDRecord(::poi::hssf::record::RecordInputStream* in) 
     : StreamIDRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::pivottable::StreamIDRecord::sid;
+constexpr int16_t poi::hssf::record::pivottable::StreamIDRecord::sid;
 
-void org::apache::poi::hssf::record::pivottable::StreamIDRecord::ctor(::org::apache::poi::hssf::record::RecordInputStream* in)
+void poi::hssf::record::pivottable::StreamIDRecord::ctor(::poi::hssf::record::RecordInputStream* in)
 {
     super::ctor();
     idstm = npc(in)->readShort();
 }
 
-void org::apache::poi::hssf::record::pivottable::StreamIDRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::pivottable::StreamIDRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(idstm);
 }
 
-int32_t org::apache::poi::hssf::record::pivottable::StreamIDRecord::getDataSize()
+int32_t poi::hssf::record::pivottable::StreamIDRecord::getDataSize()
 {
     return 2;
 }
 
-int16_t org::apache::poi::hssf::record::pivottable::StreamIDRecord::getSid()
+int16_t poi::hssf::record::pivottable::StreamIDRecord::getSid()
 {
     return sid;
 }
 
-java::lang::String* org::apache::poi::hssf::record::pivottable::StreamIDRecord::toString()
+java::lang::String* poi::hssf::record::pivottable::StreamIDRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[SXIDSTM]\n"_j);
-    npc(npc(npc(buffer)->append(u"    .idstm      ="_j))->append(::org::apache::poi::util::HexDump::shortToHex(idstm)))->append(u'\u000a');
+    npc(npc(npc(buffer)->append(u"    .idstm      ="_j))->append(::poi::util::HexDump::shortToHex(idstm)))->append(u'\u000a');
     npc(buffer)->append(u"[/SXIDSTM]\n"_j);
     return npc(buffer)->toString();
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::pivottable::StreamIDRecord::class_()
+java::lang::Class* poi::hssf::record::pivottable::StreamIDRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.pivottable.StreamIDRecord", 52);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::pivottable::StreamIDRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::pivottable::StreamIDRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::pivottable::StreamIDRecord::serialize()
+int8_tArray* poi::hssf::record::pivottable::StreamIDRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::pivottable::StreamIDRecord::getClass0()
+java::lang::Class* poi::hssf::record::pivottable::StreamIDRecord::getClass0()
 {
     return class_();
 }

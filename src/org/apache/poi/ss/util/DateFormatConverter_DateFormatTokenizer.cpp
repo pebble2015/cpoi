@@ -47,25 +47,25 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::util::DateFormatConverter_DateFormatTokenizer::DateFormatConverter_DateFormatTokenizer(const ::default_init_tag&)
+poi::ss::util::DateFormatConverter_DateFormatTokenizer::DateFormatConverter_DateFormatTokenizer(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::util::DateFormatConverter_DateFormatTokenizer::DateFormatConverter_DateFormatTokenizer(::java::lang::String* format) 
+poi::ss::util::DateFormatConverter_DateFormatTokenizer::DateFormatConverter_DateFormatTokenizer(::java::lang::String* format) 
     : DateFormatConverter_DateFormatTokenizer(*static_cast< ::default_init_tag* >(0))
 {
     ctor(format);
 }
 
-void org::apache::poi::ss::util::DateFormatConverter_DateFormatTokenizer::ctor(::java::lang::String* format)
+void poi::ss::util::DateFormatConverter_DateFormatTokenizer::ctor(::java::lang::String* format)
 {
     super::ctor();
     this->format = format;
 }
 
-java::lang::String* org::apache::poi::ss::util::DateFormatConverter_DateFormatTokenizer::getNextToken()
+java::lang::String* poi::ss::util::DateFormatConverter_DateFormatTokenizer::getNextToken()
 {
     if(pos >= npc(format)->length()) {
         return nullptr;
@@ -89,7 +89,7 @@ java::lang::String* org::apache::poi::ss::util::DateFormatConverter_DateFormatTo
     return npc(format)->substring(subStart, pos);
 }
 
-java::lang::StringArray* org::apache::poi::ss::util::DateFormatConverter_DateFormatTokenizer::tokenize(::java::lang::String* format)
+java::lang::StringArray* poi::ss::util::DateFormatConverter_DateFormatTokenizer::tokenize(::java::lang::String* format)
 {
     clinit();
     ::java::util::List* result = new ::java::util::ArrayList();
@@ -101,7 +101,7 @@ java::lang::StringArray* org::apache::poi::ss::util::DateFormatConverter_DateFor
     return java_cast< ::java::lang::StringArray* >(npc(result)->toArray_(static_cast< ::java::lang::ObjectArray* >(new ::java::lang::StringArray(int32_t(0)))));
 }
 
-java::lang::String* org::apache::poi::ss::util::DateFormatConverter_DateFormatTokenizer::toString()
+java::lang::String* poi::ss::util::DateFormatConverter_DateFormatTokenizer::toString()
 {
     auto result = new ::java::lang::StringBuilder();
     auto tokenizer = new DateFormatConverter_DateFormatTokenizer(format);
@@ -117,13 +117,13 @@ java::lang::String* org::apache::poi::ss::util::DateFormatConverter_DateFormatTo
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::util::DateFormatConverter_DateFormatTokenizer::class_()
+java::lang::Class* poi::ss::util::DateFormatConverter_DateFormatTokenizer::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.util.DateFormatConverter.DateFormatTokenizer", 62);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::util::DateFormatConverter_DateFormatTokenizer::getClass0()
+java::lang::Class* poi::ss::util::DateFormatConverter_DateFormatTokenizer::getClass0()
 {
     return class_();
 }

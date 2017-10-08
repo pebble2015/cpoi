@@ -2,20 +2,14 @@
 #pragma once
 
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace eventmodel
         {
-            namespace hssf
-            {
-                namespace eventmodel
-                {
-                    struct ERFListener;
-                    class EventRecordFactory;
-                } // eventmodel
-            } // hssf
-        } // poi
-    } // apache
-} // org
+            struct ERFListener;
+            class EventRecordFactory;
+        } // eventmodel
+    } // hssf
+} // poi

@@ -60,25 +60,25 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hpsf::CustomProperties::CustomProperties(const ::default_init_tag&)
+poi::hpsf::CustomProperties::CustomProperties(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hpsf::CustomProperties::CustomProperties()
+poi::hpsf::CustomProperties::CustomProperties()
     : CustomProperties(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::hpsf::CustomProperties::ctor()
+void poi::hpsf::CustomProperties::ctor()
 {
     super::ctor();
     init();
 }
 
-void org::apache::poi::hpsf::CustomProperties::init()
+void poi::hpsf::CustomProperties::init()
 {
     props = new ::java::util::HashMap();
     dictionary = new ::org::apache::commons::collections4::bidimap::TreeBidiMap();
@@ -86,14 +86,14 @@ void org::apache::poi::hpsf::CustomProperties::init()
     codepage = -int32_t(1);
 }
 
-org::apache::poi::util::POILogger*& org::apache::poi::hpsf::CustomProperties::LOG()
+poi::util::POILogger*& poi::hpsf::CustomProperties::LOG()
 {
     clinit();
     return LOG_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::hpsf::CustomProperties::LOG_;
+poi::util::POILogger* poi::hpsf::CustomProperties::LOG_;
 
-org::apache::poi::hpsf::CustomProperty* org::apache::poi::hpsf::CustomProperties::put(::java::lang::String* name, CustomProperty* cp)
+poi::hpsf::CustomProperty* poi::hpsf::CustomProperties::put(::java::lang::String* name, CustomProperty* cp)
 {
     if(name == nullptr) {
         isPure_ = false;
@@ -111,7 +111,7 @@ org::apache::poi::hpsf::CustomProperty* org::apache::poi::hpsf::CustomProperties
     return java_cast< CustomProperty* >(npc(props)->put(::java::lang::Long::valueOf(npc(cp)->getID()), static_cast< ::java::lang::Object* >(cp)));
 }
 
-java::lang::Object* org::apache::poi::hpsf::CustomProperties::put(::java::lang::String* key, ::java::lang::Object* value)
+java::lang::Object* poi::hpsf::CustomProperties::put(::java::lang::String* key, ::java::lang::Object* value)
 {
     int32_t variantType;
     if(dynamic_cast< ::java::lang::String* >(value) != nullptr) {
@@ -139,45 +139,45 @@ java::lang::Object* org::apache::poi::hpsf::CustomProperties::put(::java::lang::
     return put(new CustomProperty(p, key));
 }
 
-java::lang::Object* org::apache::poi::hpsf::CustomProperties::put(::java::lang::Object* key, ::java::lang::Object* value)
+java::lang::Object* poi::hpsf::CustomProperties::put(::java::lang::Object* key, ::java::lang::Object* value)
 { 
     return put(dynamic_cast< ::java::lang::String* >(key), dynamic_cast< ::java::lang::Object* >(value));
 }
 
-java::lang::Object* org::apache::poi::hpsf::CustomProperties::get(::java::lang::Object* key)
+java::lang::Object* poi::hpsf::CustomProperties::get(::java::lang::Object* key)
 {
     auto const id = java_cast< ::java::lang::Long* >(npc(dictionary)->getKey(key));
     auto const cp = java_cast< CustomProperty* >(npc(props)->get(static_cast< ::java::lang::Object* >(id)));
     return cp != nullptr ? npc(cp)->getValue() : static_cast< ::java::lang::Object* >(nullptr);
 }
 
-org::apache::poi::hpsf::CustomProperty* org::apache::poi::hpsf::CustomProperties::remove(::java::lang::Object* key)
+poi::hpsf::CustomProperty* poi::hpsf::CustomProperties::remove(::java::lang::Object* key)
 {
     auto const id = java_cast< ::java::lang::Long* >(npc(dictionary)->removeValue(key));
     return java_cast< CustomProperty* >(npc(props)->remove(static_cast< ::java::lang::Object* >(id)));
 }
 
-int32_t org::apache::poi::hpsf::CustomProperties::size()
+int32_t poi::hpsf::CustomProperties::size()
 {
     return npc(props)->size();
 }
 
-bool org::apache::poi::hpsf::CustomProperties::isEmpty()
+bool poi::hpsf::CustomProperties::isEmpty()
 {
     return npc(props)->isEmpty();
 }
 
-void org::apache::poi::hpsf::CustomProperties::clear()
+void poi::hpsf::CustomProperties::clear()
 {
     npc(props)->clear();
 }
 
-int32_t org::apache::poi::hpsf::CustomProperties::hashCode()
+int32_t poi::hpsf::CustomProperties::hashCode()
 {
     return npc(props)->hashCode();
 }
 
-bool org::apache::poi::hpsf::CustomProperties::equals(::java::lang::Object* obj)
+bool poi::hpsf::CustomProperties::equals(::java::lang::Object* obj)
 {
     if(!(dynamic_cast< CustomProperties* >(obj) != nullptr)) {
         return false;
@@ -185,7 +185,7 @@ bool org::apache::poi::hpsf::CustomProperties::equals(::java::lang::Object* obj)
     return npc(props)->equals(static_cast< ::java::lang::Object* >(java_cast< ::java::util::HashMap* >(npc((java_cast< CustomProperties* >(obj)))->props)));
 }
 
-void org::apache::poi::hpsf::CustomProperties::putAll(::java::util::Map* m)
+void poi::hpsf::CustomProperties::putAll(::java::util::Map* m)
 {
     for (auto _i = npc(npc(m)->entrySet())->iterator(); _i->hasNext(); ) {
         ::java::util::Map_Entry* me = java_cast< ::java::util::Map_Entry* >(_i->next());
@@ -195,7 +195,7 @@ void org::apache::poi::hpsf::CustomProperties::putAll(::java::util::Map* m)
     }
 }
 
-java::util::List* org::apache::poi::hpsf::CustomProperties::properties()
+java::util::List* poi::hpsf::CustomProperties::properties()
 {
     ::java::util::List* list = new ::java::util::ArrayList(npc(props)->size());
     for (auto _i = npc(npc(dictionary)->keySet())->iterator(); _i->hasNext(); ) {
@@ -207,7 +207,7 @@ java::util::List* org::apache::poi::hpsf::CustomProperties::properties()
     return ::java::util::Collections::unmodifiableList(list);
 }
 
-java::util::Collection* org::apache::poi::hpsf::CustomProperties::values()
+java::util::Collection* poi::hpsf::CustomProperties::values()
 {
     ::java::util::List* list = new ::java::util::ArrayList(npc(props)->size());
     for (auto _i = npc(npc(dictionary)->keySet())->iterator(); _i->hasNext(); ) {
@@ -219,7 +219,7 @@ java::util::Collection* org::apache::poi::hpsf::CustomProperties::values()
     return ::java::util::Collections::unmodifiableCollection(list);
 }
 
-java::util::Set* org::apache::poi::hpsf::CustomProperties::entrySet()
+java::util::Set* poi::hpsf::CustomProperties::entrySet()
 {
     ::java::util::Map* set = new ::java::util::LinkedHashMap(npc(props)->size());
     for (auto _i = npc(npc(dictionary)->entrySet())->iterator(); _i->hasNext(); ) {
@@ -231,42 +231,42 @@ java::util::Set* org::apache::poi::hpsf::CustomProperties::entrySet()
     return ::java::util::Collections::unmodifiableSet(npc(set)->entrySet());
 }
 
-java::util::Set* org::apache::poi::hpsf::CustomProperties::keySet()
+java::util::Set* poi::hpsf::CustomProperties::keySet()
 {
     return ::java::util::Collections::unmodifiableSet(npc(dictionary)->values());
 }
 
-java::util::Set* org::apache::poi::hpsf::CustomProperties::nameSet()
+java::util::Set* poi::hpsf::CustomProperties::nameSet()
 {
     return ::java::util::Collections::unmodifiableSet(npc(dictionary)->values());
 }
 
-java::util::Set* org::apache::poi::hpsf::CustomProperties::idSet()
+java::util::Set* poi::hpsf::CustomProperties::idSet()
 {
     return ::java::util::Collections::unmodifiableSet(npc(dictionary)->keySet());
 }
 
-void org::apache::poi::hpsf::CustomProperties::setCodepage(int32_t codepage)
+void poi::hpsf::CustomProperties::setCodepage(int32_t codepage)
 {
     this->codepage = codepage;
 }
 
-int32_t org::apache::poi::hpsf::CustomProperties::getCodepage()
+int32_t poi::hpsf::CustomProperties::getCodepage()
 {
     return codepage;
 }
 
-java::util::Map* org::apache::poi::hpsf::CustomProperties::getDictionary()
+java::util::Map* poi::hpsf::CustomProperties::getDictionary()
 {
     return dictionary;
 }
 
-bool org::apache::poi::hpsf::CustomProperties::containsKey(::java::lang::Object* key)
+bool poi::hpsf::CustomProperties::containsKey(::java::lang::Object* key)
 {
     return ((dynamic_cast< ::java::lang::Long* >(key) != nullptr && npc(dictionary)->containsKey(key)) || npc(dictionary)->containsValue(key));
 }
 
-bool org::apache::poi::hpsf::CustomProperties::containsValue(::java::lang::Object* value)
+bool poi::hpsf::CustomProperties::containsValue(::java::lang::Object* value)
 {
     if(dynamic_cast< CustomProperty* >(value) != nullptr) {
         return npc(props)->containsValue(value);
@@ -282,17 +282,17 @@ bool org::apache::poi::hpsf::CustomProperties::containsValue(::java::lang::Objec
     return false;
 }
 
-bool org::apache::poi::hpsf::CustomProperties::isPure()
+bool poi::hpsf::CustomProperties::isPure()
 {
     return isPure_;
 }
 
-void org::apache::poi::hpsf::CustomProperties::setPure(bool isPure)
+void poi::hpsf::CustomProperties::setPure(bool isPure)
 {
     this->isPure_ = isPure;
 }
 
-java::lang::Object* org::apache::poi::hpsf::CustomProperties::put(CustomProperty* customProperty) /* throws(ClassCastException) */
+java::lang::Object* poi::hpsf::CustomProperties::put(CustomProperty* customProperty) /* throws(ClassCastException) */
 {
     auto const name = npc(customProperty)->getName();
     auto const oldId = (name == nullptr) ? static_cast< ::java::lang::Long* >(nullptr) : java_cast< ::java::lang::Long* >(npc(dictionary)->getKey(static_cast< ::java::lang::Object* >(name)));
@@ -300,54 +300,54 @@ java::lang::Object* org::apache::poi::hpsf::CustomProperties::put(CustomProperty
         npc(customProperty)->setID((npc(oldId))->longValue());
     } else {
         auto lastKey = (npc(dictionary)->isEmpty()) ? static_cast< int64_t >(int32_t(0)) : (npc(java_cast< ::java::lang::Long* >(npc(dictionary)->lastKey())))->longValue();
-        auto nextKey = ::java::lang::Math::max(lastKey, static_cast< int64_t >(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_MAX)) + int32_t(1);
+        auto nextKey = ::java::lang::Math::max(lastKey, static_cast< int64_t >(::poi::hpsf::wellknown::PropertyIDMap::PID_MAX)) + int32_t(1);
         npc(customProperty)->setID(nextKey);
     }
     return this->put(name, customProperty);
 }
 
-void org::apache::poi::hpsf::CustomProperties::checkCodePage(::java::lang::String* value)
+void poi::hpsf::CustomProperties::checkCodePage(::java::lang::String* value)
 {
     auto cp = getCodepage();
     if(cp == -int32_t(1)) {
         cp = Property::DEFAULT_CODEPAGE;
     }
-    if(cp == ::org::apache::poi::util::CodePageUtil::CP_UNICODE) {
+    if(cp == ::poi::util::CodePageUtil::CP_UNICODE) {
         return;
     }
     auto cps = u""_j;
     try {
-        cps = ::org::apache::poi::util::CodePageUtil::codepageToEncoding(cp, false);
+        cps = ::poi::util::CodePageUtil::codepageToEncoding(cp, false);
     } catch (::java::io::UnsupportedEncodingException* e) {
-        npc(LOG_)->log(::org::apache::poi::util::POILogger::ERROR, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Codepage '"_j)->append(cp)
+        npc(LOG_)->log(::poi::util::POILogger::ERROR, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Codepage '"_j)->append(cp)
             ->append(u"' can't be found."_j)->toString())}));
     }
     if(!npc(cps)->isEmpty() && npc(npc(::java::nio::charset::Charset::forName(cps))->newEncoder())->canEncode(static_cast< ::java::lang::CharSequence* >(value))) {
         return;
     }
-    npc(LOG_)->log(::org::apache::poi::util::POILogger::DEBUG, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Charset '"_j)->append(cps)
+    npc(LOG_)->log(::poi::util::POILogger::DEBUG, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Charset '"_j)->append(cps)
         ->append(u"' can't encode '"_j)
         ->append(value)
         ->append(u"' - switching to unicode."_j)->toString())}));
-    setCodepage(::org::apache::poi::util::CodePageUtil::CP_UNICODE);
+    setCodepage(::poi::util::CodePageUtil::CP_UNICODE);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hpsf::CustomProperties::class_()
+java::lang::Class* poi::hpsf::CustomProperties::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hpsf.CustomProperties", 36);
     return c;
 }
 
-void org::apache::poi::hpsf::CustomProperties::clinit()
+void poi::hpsf::CustomProperties::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        LOG_ = ::org::apache::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(CustomProperties::class_()));
+        LOG_ = ::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(CustomProperties::class_()));
     }
 };
 
@@ -356,12 +356,12 @@ struct clinit_ {
     }
 }
 
-bool org::apache::poi::hpsf::CustomProperties::remove(::java::lang::Object* key, ::java::lang::Object* value)
+bool poi::hpsf::CustomProperties::remove(::java::lang::Object* key, ::java::lang::Object* value)
 {
     return remove(key, value);
 }
 
-java::lang::Class* org::apache::poi::hpsf::CustomProperties::getClass0()
+java::lang::Class* poi::hpsf::CustomProperties::getClass0()
 {
     return class_();
 }

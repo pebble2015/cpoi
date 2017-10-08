@@ -9,26 +9,20 @@
 #include <org/apache/poi/poifs/storage/BlockList.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace poifs
     {
-        namespace poi
+        namespace storage
         {
-            namespace poifs
-            {
-                namespace storage
-                {
-typedef ::SubArray< ::org::apache::poi::poifs::storage::ListManagedBlock, ::java::lang::ObjectArray > ListManagedBlockArray;
-                } // storage
-            } // poifs
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::poifs::storage::ListManagedBlock, ::java::lang::ObjectArray > ListManagedBlockArray;
+        } // storage
+    } // poifs
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::storage::BlockListImpl
+class poi::poifs::storage::BlockListImpl
     : public virtual ::java::lang::Object
     , public virtual BlockList
 {

@@ -27,50 +27,50 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::usermodel::HSSFHyperlink::HSSFHyperlink(const ::default_init_tag&)
+poi::hssf::usermodel::HSSFHyperlink::HSSFHyperlink(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::usermodel::HSSFHyperlink::HSSFHyperlink(::org::apache::poi::common::usermodel::HyperlinkType* type) 
+poi::hssf::usermodel::HSSFHyperlink::HSSFHyperlink(::poi::common::usermodel::HyperlinkType* type) 
     : HSSFHyperlink(*static_cast< ::default_init_tag* >(0))
 {
     ctor(type);
 }
 
-org::apache::poi::hssf::usermodel::HSSFHyperlink::HSSFHyperlink(::org::apache::poi::hssf::record::HyperlinkRecord* record) 
+poi::hssf::usermodel::HSSFHyperlink::HSSFHyperlink(::poi::hssf::record::HyperlinkRecord* record) 
     : HSSFHyperlink(*static_cast< ::default_init_tag* >(0))
 {
     ctor(record);
 }
 
-org::apache::poi::hssf::usermodel::HSSFHyperlink::HSSFHyperlink(::org::apache::poi::ss::usermodel::Hyperlink* other) 
+poi::hssf::usermodel::HSSFHyperlink::HSSFHyperlink(::poi::ss::usermodel::Hyperlink* other) 
     : HSSFHyperlink(*static_cast< ::default_init_tag* >(0))
 {
     ctor(other);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFHyperlink::ctor(::org::apache::poi::common::usermodel::HyperlinkType* type)
+void poi::hssf::usermodel::HSSFHyperlink::ctor(::poi::common::usermodel::HyperlinkType* type)
 {
     super::ctor();
     this->link_type = type;
-    record = new ::org::apache::poi::hssf::record::HyperlinkRecord();
+    record = new ::poi::hssf::record::HyperlinkRecord();
     {
         auto v = type;
-        if((v == ::org::apache::poi::common::usermodel::HyperlinkType::URL) || (v == ::org::apache::poi::common::usermodel::HyperlinkType::EMAIL)) {
+        if((v == ::poi::common::usermodel::HyperlinkType::URL) || (v == ::poi::common::usermodel::HyperlinkType::EMAIL)) {
             npc(record)->newUrlLink();
             goto end_switch0;;
         }
-        if((v == ::org::apache::poi::common::usermodel::HyperlinkType::FILE)) {
+        if((v == ::poi::common::usermodel::HyperlinkType::FILE)) {
             npc(record)->newFileLink();
             goto end_switch0;;
         }
-        if((v == ::org::apache::poi::common::usermodel::HyperlinkType::DOCUMENT)) {
+        if((v == ::poi::common::usermodel::HyperlinkType::DOCUMENT)) {
             npc(record)->newDocumentLink();
             goto end_switch0;;
         }
-        if((((v != ::org::apache::poi::common::usermodel::HyperlinkType::URL) && (v != ::org::apache::poi::common::usermodel::HyperlinkType::EMAIL) && (v != ::org::apache::poi::common::usermodel::HyperlinkType::FILE) && (v != ::org::apache::poi::common::usermodel::HyperlinkType::DOCUMENT)))) {
+        if((((v != ::poi::common::usermodel::HyperlinkType::URL) && (v != ::poi::common::usermodel::HyperlinkType::EMAIL) && (v != ::poi::common::usermodel::HyperlinkType::FILE) && (v != ::poi::common::usermodel::HyperlinkType::DOCUMENT)))) {
             throw new ::java::lang::IllegalArgumentException(::java::lang::StringBuilder().append(u"Invalid type: "_j)->append(static_cast< ::java::lang::Object* >(type))->toString());
         }
 end_switch0:;
@@ -78,32 +78,32 @@ end_switch0:;
 
 }
 
-void org::apache::poi::hssf::usermodel::HSSFHyperlink::ctor(::org::apache::poi::hssf::record::HyperlinkRecord* record)
+void poi::hssf::usermodel::HSSFHyperlink::ctor(::poi::hssf::record::HyperlinkRecord* record)
 {
     super::ctor();
     this->record = record;
     link_type = getType(record);
 }
 
-org::apache::poi::common::usermodel::HyperlinkType* org::apache::poi::hssf::usermodel::HSSFHyperlink::getType(::org::apache::poi::hssf::record::HyperlinkRecord* record)
+poi::common::usermodel::HyperlinkType* poi::hssf::usermodel::HSSFHyperlink::getType(::poi::hssf::record::HyperlinkRecord* record)
 {
     clinit();
-    ::org::apache::poi::common::usermodel::HyperlinkType* link_type;
+    ::poi::common::usermodel::HyperlinkType* link_type;
     if(npc(record)->isFileLink()) {
-        link_type = ::org::apache::poi::common::usermodel::HyperlinkType::FILE;
+        link_type = ::poi::common::usermodel::HyperlinkType::FILE;
     } else if(npc(record)->isDocumentLink()) {
-        link_type = ::org::apache::poi::common::usermodel::HyperlinkType::DOCUMENT;
+        link_type = ::poi::common::usermodel::HyperlinkType::DOCUMENT;
     } else {
         if(npc(record)->getAddress() != nullptr && npc(npc(record)->getAddress())->startsWith(u"mailto:"_j)) {
-            link_type = ::org::apache::poi::common::usermodel::HyperlinkType::EMAIL;
+            link_type = ::poi::common::usermodel::HyperlinkType::EMAIL;
         } else {
-            link_type = ::org::apache::poi::common::usermodel::HyperlinkType::URL;
+            link_type = ::poi::common::usermodel::HyperlinkType::URL;
         }
     }
     return link_type;
 }
 
-void org::apache::poi::hssf::usermodel::HSSFHyperlink::ctor(::org::apache::poi::ss::usermodel::Hyperlink* other)
+void poi::hssf::usermodel::HSSFHyperlink::ctor(::poi::ss::usermodel::Hyperlink* other)
 {
     super::ctor();
     if(dynamic_cast< HSSFHyperlink* >(other) != nullptr) {
@@ -112,7 +112,7 @@ void org::apache::poi::hssf::usermodel::HSSFHyperlink::ctor(::org::apache::poi::
         link_type = getType(record);
     } else {
         link_type = npc(other)->getTypeEnum();
-        record = new ::org::apache::poi::hssf::record::HyperlinkRecord();
+        record = new ::poi::hssf::record::HyperlinkRecord();
         setFirstRow(npc(other)->getFirstRow());
         setFirstColumn(npc(other)->getFirstColumn());
         setLastRow(npc(other)->getLastRow());
@@ -120,97 +120,97 @@ void org::apache::poi::hssf::usermodel::HSSFHyperlink::ctor(::org::apache::poi::
     }
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFHyperlink::getFirstRow()
+int32_t poi::hssf::usermodel::HSSFHyperlink::getFirstRow()
 {
     return npc(record)->getFirstRow();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFHyperlink::setFirstRow(int32_t row)
+void poi::hssf::usermodel::HSSFHyperlink::setFirstRow(int32_t row)
 {
     npc(record)->setFirstRow(row);
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFHyperlink::getLastRow()
+int32_t poi::hssf::usermodel::HSSFHyperlink::getLastRow()
 {
     return npc(record)->getLastRow();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFHyperlink::setLastRow(int32_t row)
+void poi::hssf::usermodel::HSSFHyperlink::setLastRow(int32_t row)
 {
     npc(record)->setLastRow(row);
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFHyperlink::getFirstColumn()
+int32_t poi::hssf::usermodel::HSSFHyperlink::getFirstColumn()
 {
     return npc(record)->getFirstColumn();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFHyperlink::setFirstColumn(int32_t col)
+void poi::hssf::usermodel::HSSFHyperlink::setFirstColumn(int32_t col)
 {
     npc(record)->setFirstColumn(static_cast< int16_t >(col));
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFHyperlink::getLastColumn()
+int32_t poi::hssf::usermodel::HSSFHyperlink::getLastColumn()
 {
     return npc(record)->getLastColumn();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFHyperlink::setLastColumn(int32_t col)
+void poi::hssf::usermodel::HSSFHyperlink::setLastColumn(int32_t col)
 {
     npc(record)->setLastColumn(static_cast< int16_t >(col));
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HSSFHyperlink::getAddress()
+java::lang::String* poi::hssf::usermodel::HSSFHyperlink::getAddress()
 {
     return npc(record)->getAddress();
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HSSFHyperlink::getTextMark()
+java::lang::String* poi::hssf::usermodel::HSSFHyperlink::getTextMark()
 {
     return npc(record)->getTextMark();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFHyperlink::setTextMark(::java::lang::String* textMark)
+void poi::hssf::usermodel::HSSFHyperlink::setTextMark(::java::lang::String* textMark)
 {
     npc(record)->setTextMark(textMark);
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HSSFHyperlink::getShortFilename()
+java::lang::String* poi::hssf::usermodel::HSSFHyperlink::getShortFilename()
 {
     return npc(record)->getShortFilename();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFHyperlink::setShortFilename(::java::lang::String* shortFilename)
+void poi::hssf::usermodel::HSSFHyperlink::setShortFilename(::java::lang::String* shortFilename)
 {
     npc(record)->setShortFilename(shortFilename);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFHyperlink::setAddress(::java::lang::String* address)
+void poi::hssf::usermodel::HSSFHyperlink::setAddress(::java::lang::String* address)
 {
     npc(record)->setAddress(address);
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HSSFHyperlink::getLabel()
+java::lang::String* poi::hssf::usermodel::HSSFHyperlink::getLabel()
 {
     return npc(record)->getLabel();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFHyperlink::setLabel(::java::lang::String* label)
+void poi::hssf::usermodel::HSSFHyperlink::setLabel(::java::lang::String* label)
 {
     npc(record)->setLabel(label);
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFHyperlink::getType()
+int32_t poi::hssf::usermodel::HSSFHyperlink::getType()
 {
     return npc(link_type)->getCode();
 }
 
-org::apache::poi::common::usermodel::HyperlinkType* org::apache::poi::hssf::usermodel::HSSFHyperlink::getTypeEnum()
+poi::common::usermodel::HyperlinkType* poi::hssf::usermodel::HSSFHyperlink::getTypeEnum()
 {
     return link_type;
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFHyperlink::equals(::java::lang::Object* other)
+bool poi::hssf::usermodel::HSSFHyperlink::equals(::java::lang::Object* other)
 {
     if(static_cast< ::java::lang::Object* >(this) == other)
         return true;
@@ -222,20 +222,20 @@ bool org::apache::poi::hssf::usermodel::HSSFHyperlink::equals(::java::lang::Obje
     return record == npc(otherLink)->record;
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFHyperlink::hashCode()
+int32_t poi::hssf::usermodel::HSSFHyperlink::hashCode()
 {
     return npc(record)->hashCode();
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFHyperlink::class_()
+java::lang::Class* poi::hssf::usermodel::HSSFHyperlink::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.usermodel.HSSFHyperlink", 43);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFHyperlink::getClass0()
+java::lang::Class* poi::hssf::usermodel::HSSFHyperlink::getClass0()
 {
     return class_();
 }

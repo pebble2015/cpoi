@@ -12,7 +12,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::dev::BiffViewer_BiffRecordListener final
+class poi::hssf::dev::BiffViewer_BiffRecordListener final
     : public virtual ::java::lang::Object
     , public BiffViewer_IBiffRecordListener
 {

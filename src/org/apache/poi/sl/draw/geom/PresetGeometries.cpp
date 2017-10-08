@@ -60,48 +60,48 @@ namespace
 
     template<typename F> finally_<F> finally(F f) { return finally_<F>(f); }
 }
-org::apache::poi::sl::draw::geom::PresetGeometries::PresetGeometries(const ::default_init_tag&)
+poi::sl::draw::geom::PresetGeometries::PresetGeometries(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::draw::geom::PresetGeometries::PresetGeometries() 
+poi::sl::draw::geom::PresetGeometries::PresetGeometries() 
     : PresetGeometries(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::util::POILogger*& org::apache::poi::sl::draw::geom::PresetGeometries::LOG()
+poi::util::POILogger*& poi::sl::draw::geom::PresetGeometries::LOG()
 {
     clinit();
     return LOG_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::sl::draw::geom::PresetGeometries::LOG_;
+poi::util::POILogger* poi::sl::draw::geom::PresetGeometries::LOG_;
 
-java::lang::String*& org::apache::poi::sl::draw::geom::PresetGeometries::BINDING_PACKAGE()
+java::lang::String*& poi::sl::draw::geom::PresetGeometries::BINDING_PACKAGE()
 {
     clinit();
     return BINDING_PACKAGE_;
 }
-java::lang::String* org::apache::poi::sl::draw::geom::PresetGeometries::BINDING_PACKAGE_;
+java::lang::String* poi::sl::draw::geom::PresetGeometries::BINDING_PACKAGE_;
 
-org::apache::poi::sl::draw::geom::PresetGeometries*& org::apache::poi::sl::draw::geom::PresetGeometries::_inst()
+poi::sl::draw::geom::PresetGeometries*& poi::sl::draw::geom::PresetGeometries::_inst()
 {
     clinit();
     return _inst_;
 }
-org::apache::poi::sl::draw::geom::PresetGeometries* org::apache::poi::sl::draw::geom::PresetGeometries::_inst_;
+poi::sl::draw::geom::PresetGeometries* poi::sl::draw::geom::PresetGeometries::_inst_;
 
-void org::apache::poi::sl::draw::geom::PresetGeometries::ctor()
+void poi::sl::draw::geom::PresetGeometries::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::sl::draw::geom::PresetGeometries::init_(::java::io::InputStream* is) /* throws(XMLStreamException, JAXBException) */
+void poi::sl::draw::geom::PresetGeometries::init_(::java::io::InputStream* is) /* throws(XMLStreamException, JAXBException) */
 {
     ::javax::xml::stream::EventFilter* startElementFilter = new PresetGeometries_init_1(this);
-    auto staxFactory = ::org::apache::poi::util::StaxHelper::newXMLInputFactory();
+    auto staxFactory = ::poi::util::StaxHelper::newXMLInputFactory();
     auto staxReader = npc(staxFactory)->createXMLEventReader(is);
     auto staxFiltRd = npc(staxFactory)->createFilteredReader(staxReader, startElementFilter);
     npc(staxFiltRd)->nextEvent();
@@ -111,31 +111,31 @@ void org::apache::poi::sl::draw::geom::PresetGeometries::init_(::java::io::Input
     while (npc(staxFiltRd)->peek() != nullptr) {
         auto evRoot = java_cast< ::javax::xml::stream::events::StartElement* >(npc(staxFiltRd)->peek());
         auto name = npc(npc(evRoot)->getName())->getLocalPart();
-        auto el = npc(unmarshaller)->unmarshal(staxReader, static_cast< ::java::lang::Class* >(::org::apache::poi::sl::draw::binding::CTCustomGeometry2D::class_()));
-        auto cus = java_cast< ::org::apache::poi::sl::draw::binding::CTCustomGeometry2D* >(npc(el)->getValue());
+        auto el = npc(unmarshaller)->unmarshal(staxReader, static_cast< ::java::lang::Class* >(::poi::sl::draw::binding::CTCustomGeometry2D::class_()));
+        auto cus = java_cast< ::poi::sl::draw::binding::CTCustomGeometry2D* >(npc(el)->getValue());
         cntElem++;
         if(containsKey(static_cast< ::java::lang::Object* >(name))) {
-            npc(LOG_)->log(::org::apache::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Duplicate definition of "_j)->append(name)->toString())}));
+            npc(LOG_)->log(::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Duplicate definition of "_j)->append(name)->toString())}));
         }
         put(static_cast< ::java::lang::Object* >(name), static_cast< ::java::lang::Object* >(new CustomGeometry(cus)));
     }
 }
 
-org::apache::poi::sl::draw::geom::CustomGeometry* org::apache::poi::sl::draw::geom::PresetGeometries::convertCustomGeometry(::javax::xml::stream::XMLStreamReader* staxReader)
+poi::sl::draw::geom::CustomGeometry* poi::sl::draw::geom::PresetGeometries::convertCustomGeometry(::javax::xml::stream::XMLStreamReader* staxReader)
 {
     clinit();
     try {
         auto jaxbContext = ::javax::xml::bind::JAXBContext::newInstance(BINDING_PACKAGE_);
         auto unmarshaller = npc(jaxbContext)->createUnmarshaller();
-        auto el = npc(unmarshaller)->unmarshal(staxReader, static_cast< ::java::lang::Class* >(::org::apache::poi::sl::draw::binding::CTCustomGeometry2D::class_()));
-        return new CustomGeometry(java_cast< ::org::apache::poi::sl::draw::binding::CTCustomGeometry2D* >(npc(el)->getValue()));
+        auto el = npc(unmarshaller)->unmarshal(staxReader, static_cast< ::java::lang::Class* >(::poi::sl::draw::binding::CTCustomGeometry2D::class_()));
+        return new CustomGeometry(java_cast< ::poi::sl::draw::binding::CTCustomGeometry2D* >(npc(el)->getValue()));
     } catch (::javax::xml::bind::JAXBException* e) {
-        npc(LOG_)->log(::org::apache::poi::util::POILogger::ERROR, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"Unable to parse single custom geometry"_j), static_cast< ::java::lang::Object* >(e)}));
+        npc(LOG_)->log(::poi::util::POILogger::ERROR, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"Unable to parse single custom geometry"_j), static_cast< ::java::lang::Object* >(e)}));
         return nullptr;
     }
 }
 
-org::apache::poi::sl::draw::geom::PresetGeometries* org::apache::poi::sl::draw::geom::PresetGeometries::getInstance()
+poi::sl::draw::geom::PresetGeometries* poi::sl::draw::geom::PresetGeometries::getInstance()
 {
     clinit();
     if(_inst_ == nullptr) {
@@ -161,13 +161,13 @@ org::apache::poi::sl::draw::geom::PresetGeometries* org::apache::poi::sl::draw::
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::draw::geom::PresetGeometries::class_()
+java::lang::Class* poi::sl::draw::geom::PresetGeometries::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.draw.geom.PresetGeometries", 44);
     return c;
 }
 
-void org::apache::poi::sl::draw::geom::PresetGeometries::clinit()
+void poi::sl::draw::geom::PresetGeometries::clinit()
 {
 struct string_init_ {
     string_init_() {
@@ -182,7 +182,7 @@ struct string_init_ {
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        LOG_ = ::org::apache::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(PresetGeometries::class_()));
+        LOG_ = ::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(PresetGeometries::class_()));
     }
 };
 
@@ -191,7 +191,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::sl::draw::geom::PresetGeometries::getClass0()
+java::lang::Class* poi::sl::draw::geom::PresetGeometries::getClass0()
 {
     return class_();
 }

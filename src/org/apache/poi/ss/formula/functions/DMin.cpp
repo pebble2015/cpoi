@@ -23,26 +23,26 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::DMin::DMin(const ::default_init_tag&)
+poi::ss::formula::functions::DMin::DMin(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::DMin::DMin()
+poi::ss::formula::functions::DMin::DMin()
     : DMin(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-bool org::apache::poi::ss::formula::functions::DMin::processMatch(::org::apache::poi::ss::formula::eval::ValueEval* eval)
+bool poi::ss::formula::functions::DMin::processMatch(::poi::ss::formula::eval::ValueEval* eval)
 {
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::NumericValueEval* >(eval) != nullptr) {
+    if(dynamic_cast< ::poi::ss::formula::eval::NumericValueEval* >(eval) != nullptr) {
         if(minimumValue == nullptr) {
             minimumValue = eval;
         } else {
-            auto currentValue = npc((java_cast< ::org::apache::poi::ss::formula::eval::NumericValueEval* >(eval)))->getNumberValue();
-            auto oldValue = npc((java_cast< ::org::apache::poi::ss::formula::eval::NumericValueEval* >(minimumValue)))->getNumberValue();
+            auto currentValue = npc((java_cast< ::poi::ss::formula::eval::NumericValueEval* >(eval)))->getNumberValue();
+            auto oldValue = npc((java_cast< ::poi::ss::formula::eval::NumericValueEval* >(minimumValue)))->getNumberValue();
             if(currentValue < oldValue) {
                 minimumValue = eval;
             }
@@ -51,10 +51,10 @@ bool org::apache::poi::ss::formula::functions::DMin::processMatch(::org::apache:
     return true;
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::DMin::getResult()
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::DMin::getResult()
 {
     if(minimumValue == nullptr) {
-        return ::org::apache::poi::ss::formula::eval::NumberEval::ZERO();
+        return ::poi::ss::formula::eval::NumberEval::ZERO();
     } else {
         return minimumValue;
     }
@@ -62,13 +62,13 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::f
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::DMin::class_()
+java::lang::Class* poi::ss::formula::functions::DMin::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.DMin", 40);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::DMin::getClass0()
+java::lang::Class* poi::ss::formula::functions::DMin::getClass0()
 {
     return class_();
 }

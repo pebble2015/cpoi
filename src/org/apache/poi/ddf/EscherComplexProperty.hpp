@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ddf::EscherComplexProperty
+class poi::ddf::EscherComplexProperty
     : public EscherProperty
 {
 

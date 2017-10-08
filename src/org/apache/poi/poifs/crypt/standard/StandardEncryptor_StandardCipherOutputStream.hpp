@@ -11,9 +11,9 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::crypt::standard::StandardEncryptor_StandardCipherOutputStream
+class poi::poifs::crypt::standard::StandardEncryptor_StandardCipherOutputStream
     : public ::java::io::FilterOutputStream
-    , public virtual ::org::apache::poi::poifs::filesystem::POIFSWriterListener
+    , public virtual ::poi::poifs::filesystem::POIFSWriterListener
 {
 
 public:
@@ -22,10 +22,10 @@ public:
 public: /* protected */
     int64_t countBytes {  };
     ::java::io::File* fileOut {  };
-    ::org::apache::poi::poifs::filesystem::DirectoryNode* dir {  };
+    ::poi::poifs::filesystem::DirectoryNode* dir {  };
 protected:
-    void ctor(::org::apache::poi::poifs::filesystem::DirectoryNode* dir, ::java::io::File* fileOut) /* throws(IOException) */;
-    void ctor(::org::apache::poi::poifs::filesystem::DirectoryNode* dir) /* throws(IOException) */;
+    void ctor(::poi::poifs::filesystem::DirectoryNode* dir, ::java::io::File* fileOut) /* throws(IOException) */;
+    void ctor(::poi::poifs::filesystem::DirectoryNode* dir) /* throws(IOException) */;
 
 public:
     void write(::int8_tArray* b, int32_t off, int32_t len) /* throws(IOException) */ override;
@@ -36,15 +36,15 @@ public: /* package */
     virtual void writeToPOIFS() /* throws(IOException) */;
 
 public:
-    void processPOIFSWriterEvent(::org::apache::poi::poifs::filesystem::POIFSWriterEvent* event) override;
+    void processPOIFSWriterEvent(::poi::poifs::filesystem::POIFSWriterEvent* event) override;
 
     // Generated
 
 private:
-    StandardEncryptor_StandardCipherOutputStream(StandardEncryptor *StandardEncryptor_this, ::org::apache::poi::poifs::filesystem::DirectoryNode* dir, ::java::io::File* fileOut);
+    StandardEncryptor_StandardCipherOutputStream(StandardEncryptor *StandardEncryptor_this, ::poi::poifs::filesystem::DirectoryNode* dir, ::java::io::File* fileOut);
 
 public: /* protected */
-    StandardEncryptor_StandardCipherOutputStream(StandardEncryptor *StandardEncryptor_this, ::org::apache::poi::poifs::filesystem::DirectoryNode* dir);
+    StandardEncryptor_StandardCipherOutputStream(StandardEncryptor *StandardEncryptor_this, ::poi::poifs::filesystem::DirectoryNode* dir);
 protected:
     StandardEncryptor_StandardCipherOutputStream(StandardEncryptor *StandardEncryptor_this, const ::default_init_tag&);
 

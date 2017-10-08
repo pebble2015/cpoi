@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::eval::OperandResolver final
+class poi::ss::formula::eval::OperandResolver final
     : public ::java::lang::Object
 {
 

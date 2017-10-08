@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::Finance
+class poi::ss::formula::functions::Finance
     : public virtual ::java::lang::Object
 {
 

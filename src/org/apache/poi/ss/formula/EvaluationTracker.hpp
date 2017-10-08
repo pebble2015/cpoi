@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::EvaluationTracker final
+class poi::ss::formula::EvaluationTracker final
     : public ::java::lang::Object
 {
 
@@ -26,10 +26,10 @@ protected:
 
 public:
     bool startEvaluate(FormulaCellCacheEntry* cce);
-    void updateCacheResult(::org::apache::poi::ss::formula::eval::ValueEval* result);
+    void updateCacheResult(::poi::ss::formula::eval::ValueEval* result);
     void endEvaluate(CellCacheEntry* cce);
     void acceptFormulaDependency(CellCacheEntry* cce);
-    void acceptPlainValueDependency(int32_t bookIndex, int32_t sheetIndex, int32_t rowIndex, int32_t columnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* value);
+    void acceptPlainValueDependency(int32_t bookIndex, int32_t sheetIndex, int32_t rowIndex, int32_t columnIndex, ::poi::ss::formula::eval::ValueEval* value);
 
     // Generated
     EvaluationTracker(EvaluationCache* cache);

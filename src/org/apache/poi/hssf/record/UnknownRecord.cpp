@@ -20,79 +20,79 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::UnknownRecord::UnknownRecord(const ::default_init_tag&)
+poi::hssf::record::UnknownRecord::UnknownRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::UnknownRecord::UnknownRecord(int32_t id, ::int8_tArray* data) 
+poi::hssf::record::UnknownRecord::UnknownRecord(int32_t id, ::int8_tArray* data) 
     : UnknownRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(id,data);
 }
 
-org::apache::poi::hssf::record::UnknownRecord::UnknownRecord(RecordInputStream* in) 
+poi::hssf::record::UnknownRecord::UnknownRecord(RecordInputStream* in) 
     : UnknownRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int32_t org::apache::poi::hssf::record::UnknownRecord::PRINTSIZE_0033;
+constexpr int32_t poi::hssf::record::UnknownRecord::PRINTSIZE_0033;
 
-constexpr int32_t org::apache::poi::hssf::record::UnknownRecord::PLS_004D;
+constexpr int32_t poi::hssf::record::UnknownRecord::PLS_004D;
 
-constexpr int32_t org::apache::poi::hssf::record::UnknownRecord::SHEETPR_0081;
+constexpr int32_t poi::hssf::record::UnknownRecord::SHEETPR_0081;
 
-constexpr int32_t org::apache::poi::hssf::record::UnknownRecord::SORT_0090;
+constexpr int32_t poi::hssf::record::UnknownRecord::SORT_0090;
 
-constexpr int32_t org::apache::poi::hssf::record::UnknownRecord::STANDARDWIDTH_0099;
+constexpr int32_t poi::hssf::record::UnknownRecord::STANDARDWIDTH_0099;
 
-constexpr int32_t org::apache::poi::hssf::record::UnknownRecord::SCL_00A0;
+constexpr int32_t poi::hssf::record::UnknownRecord::SCL_00A0;
 
-constexpr int32_t org::apache::poi::hssf::record::UnknownRecord::BITMAP_00E9;
+constexpr int32_t poi::hssf::record::UnknownRecord::BITMAP_00E9;
 
-constexpr int32_t org::apache::poi::hssf::record::UnknownRecord::PHONETICPR_00EF;
+constexpr int32_t poi::hssf::record::UnknownRecord::PHONETICPR_00EF;
 
-constexpr int32_t org::apache::poi::hssf::record::UnknownRecord::LABELRANGES_015F;
+constexpr int32_t poi::hssf::record::UnknownRecord::LABELRANGES_015F;
 
-constexpr int32_t org::apache::poi::hssf::record::UnknownRecord::QUICKTIP_0800;
+constexpr int32_t poi::hssf::record::UnknownRecord::QUICKTIP_0800;
 
-constexpr int32_t org::apache::poi::hssf::record::UnknownRecord::SHEETEXT_0862;
+constexpr int32_t poi::hssf::record::UnknownRecord::SHEETEXT_0862;
 
-constexpr int32_t org::apache::poi::hssf::record::UnknownRecord::SHEETPROTECTION_0867;
+constexpr int32_t poi::hssf::record::UnknownRecord::SHEETPROTECTION_0867;
 
-constexpr int32_t org::apache::poi::hssf::record::UnknownRecord::HEADER_FOOTER_089C;
+constexpr int32_t poi::hssf::record::UnknownRecord::HEADER_FOOTER_089C;
 
-constexpr int32_t org::apache::poi::hssf::record::UnknownRecord::CODENAME_1BA;
+constexpr int32_t poi::hssf::record::UnknownRecord::CODENAME_1BA;
 
-constexpr int32_t org::apache::poi::hssf::record::UnknownRecord::PLV_MAC;
+constexpr int32_t poi::hssf::record::UnknownRecord::PLV_MAC;
 
-void org::apache::poi::hssf::record::UnknownRecord::ctor(int32_t id, ::int8_tArray* data)
+void poi::hssf::record::UnknownRecord::ctor(int32_t id, ::int8_tArray* data)
 {
     super::ctor();
     _sid = id & int32_t(65535);
     _rawData = data;
 }
 
-void org::apache::poi::hssf::record::UnknownRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::UnknownRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     _sid = npc(in)->getSid();
     _rawData = npc(in)->readRemainder();
 }
 
-void org::apache::poi::hssf::record::UnknownRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::UnknownRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->write(_rawData);
 }
 
-int32_t org::apache::poi::hssf::record::UnknownRecord::getDataSize()
+int32_t poi::hssf::record::UnknownRecord::getDataSize()
 {
     return npc(_rawData)->length;
 }
 
-java::lang::String* org::apache::poi::hssf::record::UnknownRecord::toString()
+java::lang::String* poi::hssf::record::UnknownRecord::toString()
 {
     auto biffName = getBiffName(_sid);
     if(biffName == nullptr) {
@@ -102,18 +102,18 @@ java::lang::String* org::apache::poi::hssf::record::UnknownRecord::toString()
     npc(npc(npc(sb)->append(u"["_j))->append(biffName))->append(u"] (0x"_j);
     npc(sb)->append(::java::lang::StringBuilder().append(npc(::java::lang::Integer::toHexString(_sid))->toUpperCase(::java::util::Locale::ROOT()))->append(u")\n"_j)->toString());
     if(npc(_rawData)->length > 0) {
-        npc(npc(npc(sb)->append(u"  rawData="_j))->append(::org::apache::poi::util::HexDump::toHex(_rawData)))->append(u"\n"_j);
+        npc(npc(npc(sb)->append(u"  rawData="_j))->append(::poi::util::HexDump::toHex(_rawData)))->append(u"\n"_j);
     }
     npc(npc(npc(sb)->append(u"[/"_j))->append(biffName))->append(u"]\n"_j);
     return npc(sb)->toString();
 }
 
-int16_t org::apache::poi::hssf::record::UnknownRecord::getSid()
+int16_t poi::hssf::record::UnknownRecord::getSid()
 {
     return static_cast< int16_t >(_sid);
 }
 
-java::lang::String* org::apache::poi::hssf::record::UnknownRecord::getBiffName(int32_t sid)
+java::lang::String* poi::hssf::record::UnknownRecord::getBiffName(int32_t sid)
 {
     clinit();
     switch (sid) {
@@ -257,7 +257,7 @@ java::lang::String* org::apache::poi::hssf::record::UnknownRecord::getBiffName(i
     return nullptr;
 }
 
-bool org::apache::poi::hssf::record::UnknownRecord::isObservedButUnknown(int32_t sid)
+bool poi::hssf::record::UnknownRecord::isObservedButUnknown(int32_t sid)
 {
     clinit();
     switch (sid) {
@@ -315,30 +315,30 @@ bool org::apache::poi::hssf::record::UnknownRecord::isObservedButUnknown(int32_t
     return false;
 }
 
-java::lang::Object* org::apache::poi::hssf::record::UnknownRecord::clone()
+java::lang::Object* poi::hssf::record::UnknownRecord::clone()
 {
     return this;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::UnknownRecord::class_()
+java::lang::Class* poi::hssf::record::UnknownRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.UnknownRecord", 40);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::UnknownRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::UnknownRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::UnknownRecord::serialize()
+int8_tArray* poi::hssf::record::UnknownRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::UnknownRecord::getClass0()
+java::lang::Class* poi::hssf::record::UnknownRecord::getClass0()
 {
     return class_();
 }

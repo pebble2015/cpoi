@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::TableStylesRecord final
+class poi::hssf::record::TableStylesRecord final
     : public StandardRecord
 {
 
@@ -29,7 +29,7 @@ protected:
     void ctor(RecordInputStream* in);
 
 public: /* protected */
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
     int32_t getDataSize() override;
 
 public:

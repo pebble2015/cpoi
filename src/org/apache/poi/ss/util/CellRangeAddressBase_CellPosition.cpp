@@ -25,49 +25,43 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace util
         {
-            namespace ss
-            {
-                namespace util
-                {
-typedef ::SubArray< ::org::apache::poi::ss::util::CellRangeAddressBase_CellPosition, ::java::lang::EnumArray > CellRangeAddressBase_CellPositionArray;
-                } // util
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::util::CellRangeAddressBase_CellPosition, ::java::lang::EnumArray > CellRangeAddressBase_CellPositionArray;
+        } // util
+    } // ss
+} // poi
 
-org::apache::poi::ss::util::CellRangeAddressBase_CellPosition::CellRangeAddressBase_CellPosition(const ::default_init_tag&)
+poi::ss::util::CellRangeAddressBase_CellPosition::CellRangeAddressBase_CellPosition(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::util::CellRangeAddressBase_CellPosition::CellRangeAddressBase_CellPosition(::java::lang::String* name, int ordinal)
+poi::ss::util::CellRangeAddressBase_CellPosition::CellRangeAddressBase_CellPosition(::java::lang::String* name, int ordinal)
     : CellRangeAddressBase_CellPosition(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal);
 }
 
-org::apache::poi::ss::util::CellRangeAddressBase_CellPosition* org::apache::poi::ss::util::CellRangeAddressBase_CellPosition::TOP = new ::org::apache::poi::ss::util::CellRangeAddressBase_CellPosition(u"TOP"_j, 0);
-org::apache::poi::ss::util::CellRangeAddressBase_CellPosition* org::apache::poi::ss::util::CellRangeAddressBase_CellPosition::BOTTOM = new ::org::apache::poi::ss::util::CellRangeAddressBase_CellPosition(u"BOTTOM"_j, 1);
-org::apache::poi::ss::util::CellRangeAddressBase_CellPosition* org::apache::poi::ss::util::CellRangeAddressBase_CellPosition::LEFT = new ::org::apache::poi::ss::util::CellRangeAddressBase_CellPosition(u"LEFT"_j, 2);
-org::apache::poi::ss::util::CellRangeAddressBase_CellPosition* org::apache::poi::ss::util::CellRangeAddressBase_CellPosition::RIGHT = new ::org::apache::poi::ss::util::CellRangeAddressBase_CellPosition(u"RIGHT"_j, 3);
-org::apache::poi::ss::util::CellRangeAddressBase_CellPosition* org::apache::poi::ss::util::CellRangeAddressBase_CellPosition::INSIDE = new ::org::apache::poi::ss::util::CellRangeAddressBase_CellPosition(u"INSIDE"_j, 4);
+poi::ss::util::CellRangeAddressBase_CellPosition* poi::ss::util::CellRangeAddressBase_CellPosition::TOP = new ::poi::ss::util::CellRangeAddressBase_CellPosition(u"TOP"_j, 0);
+poi::ss::util::CellRangeAddressBase_CellPosition* poi::ss::util::CellRangeAddressBase_CellPosition::BOTTOM = new ::poi::ss::util::CellRangeAddressBase_CellPosition(u"BOTTOM"_j, 1);
+poi::ss::util::CellRangeAddressBase_CellPosition* poi::ss::util::CellRangeAddressBase_CellPosition::LEFT = new ::poi::ss::util::CellRangeAddressBase_CellPosition(u"LEFT"_j, 2);
+poi::ss::util::CellRangeAddressBase_CellPosition* poi::ss::util::CellRangeAddressBase_CellPosition::RIGHT = new ::poi::ss::util::CellRangeAddressBase_CellPosition(u"RIGHT"_j, 3);
+poi::ss::util::CellRangeAddressBase_CellPosition* poi::ss::util::CellRangeAddressBase_CellPosition::INSIDE = new ::poi::ss::util::CellRangeAddressBase_CellPosition(u"INSIDE"_j, 4);
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::util::CellRangeAddressBase_CellPosition::class_()
+java::lang::Class* poi::ss::util::CellRangeAddressBase_CellPosition::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.util.CellRangeAddressBase.CellPosition", 56);
     return c;
 }
 
-org::apache::poi::ss::util::CellRangeAddressBase_CellPosition* org::apache::poi::ss::util::CellRangeAddressBase_CellPosition::valueOf(::java::lang::String* a0)
+poi::ss::util::CellRangeAddressBase_CellPosition* poi::ss::util::CellRangeAddressBase_CellPosition::valueOf(::java::lang::String* a0)
 {
     if(BOTTOM->toString()->equals(a0))
         return BOTTOM;
@@ -82,9 +76,9 @@ org::apache::poi::ss::util::CellRangeAddressBase_CellPosition* org::apache::poi:
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::ss::util::CellRangeAddressBase_CellPositionArray* org::apache::poi::ss::util::CellRangeAddressBase_CellPosition::values()
+poi::ss::util::CellRangeAddressBase_CellPositionArray* poi::ss::util::CellRangeAddressBase_CellPosition::values()
 {
-    return new org::apache::poi::ss::util::CellRangeAddressBase_CellPositionArray({
+    return new poi::ss::util::CellRangeAddressBase_CellPositionArray({
         BOTTOM,
         INSIDE,
         LEFT,
@@ -93,7 +87,7 @@ org::apache::poi::ss::util::CellRangeAddressBase_CellPositionArray* org::apache:
     });
 }
 
-java::lang::Class* org::apache::poi::ss::util::CellRangeAddressBase_CellPosition::getClass0()
+java::lang::Class* poi::ss::util::CellRangeAddressBase_CellPosition::getClass0()
 {
     return class_();
 }

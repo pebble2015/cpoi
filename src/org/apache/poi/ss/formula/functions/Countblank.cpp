@@ -15,25 +15,19 @@
 #include <org/apache/poi/ss/formula/functions/Countblank_1.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -51,48 +45,48 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::Countblank::Countblank(const ::default_init_tag&)
+poi::ss::formula::functions::Countblank::Countblank(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::Countblank::Countblank()
+poi::ss::formula::functions::Countblank::Countblank()
     : Countblank(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Countblank::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* arg0)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Countblank::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::poi::ss::formula::eval::ValueEval* arg0)
 {
     double result;
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::RefEval* >(arg0) != nullptr) {
-        result = CountUtils::countMatchingCellsInRef(java_cast< ::org::apache::poi::ss::formula::eval::RefEval* >(arg0), predicate_);
-    } else if(dynamic_cast< ::org::apache::poi::ss::formula::ThreeDEval* >(arg0) != nullptr) {
-        result = CountUtils::countMatchingCellsInArea(java_cast< ::org::apache::poi::ss::formula::ThreeDEval* >(arg0), predicate_);
+    if(dynamic_cast< ::poi::ss::formula::eval::RefEval* >(arg0) != nullptr) {
+        result = CountUtils::countMatchingCellsInRef(java_cast< ::poi::ss::formula::eval::RefEval* >(arg0), predicate_);
+    } else if(dynamic_cast< ::poi::ss::formula::ThreeDEval* >(arg0) != nullptr) {
+        result = CountUtils::countMatchingCellsInArea(java_cast< ::poi::ss::formula::ThreeDEval* >(arg0), predicate_);
     } else {
         throw new ::java::lang::IllegalArgumentException(::java::lang::StringBuilder().append(u"Bad range arg type ("_j)->append(npc(npc(arg0)->getClass())->getName())
             ->append(u")"_j)->toString());
     }
-    return new ::org::apache::poi::ss::formula::eval::NumberEval(result);
+    return new ::poi::ss::formula::eval::NumberEval(result);
 }
 
-org::apache::poi::ss::formula::functions::CountUtils_I_MatchPredicate*& org::apache::poi::ss::formula::functions::Countblank::predicate()
+poi::ss::formula::functions::CountUtils_I_MatchPredicate*& poi::ss::formula::functions::Countblank::predicate()
 {
     clinit();
     return predicate_;
 }
-org::apache::poi::ss::formula::functions::CountUtils_I_MatchPredicate* org::apache::poi::ss::formula::functions::Countblank::predicate_;
+poi::ss::formula::functions::CountUtils_I_MatchPredicate* poi::ss::formula::functions::Countblank::predicate_;
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Countblank::class_()
+java::lang::Class* poi::ss::formula::functions::Countblank::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.Countblank", 46);
     return c;
 }
 
-void org::apache::poi::ss::formula::functions::Countblank::clinit()
+void poi::ss::formula::functions::Countblank::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -108,12 +102,12 @@ struct clinit_ {
     }
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Countblank::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Countblank::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
 {
     return super::evaluate(args, srcRowIndex, srcColumnIndex);
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Countblank::getClass0()
+java::lang::Class* poi::ss::formula::functions::Countblank::getClass0()
 {
     return class_();
 }

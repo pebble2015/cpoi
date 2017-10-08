@@ -16,25 +16,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -43,25 +37,25 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::Irr::Irr(const ::default_init_tag&)
+poi::ss::formula::functions::Irr::Irr(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::Irr::Irr()
+poi::ss::formula::functions::Irr::Irr()
     : Irr(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Irr::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Irr::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
 {
     if(npc(args)->length == 0 || npc(args)->length > 2) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
     try {
-        auto values = AggregateFunction_ValueCollector::collectValues(new ::org::apache::poi::ss::formula::eval::ValueEvalArray({(*args)[int32_t(0)]}));
+        auto values = AggregateFunction_ValueCollector::collectValues(new ::poi::ss::formula::eval::ValueEvalArray({(*args)[int32_t(0)]}));
         double guess;
         if(npc(args)->length == 2) {
             guess = NumericFunction::singleOperandEvaluate((*args)[int32_t(1)], srcRowIndex, srcColumnIndex);
@@ -70,19 +64,19 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::f
         }
         auto result = irr(values, guess);
         NumericFunction::checkValue(result);
-        return new ::org::apache::poi::ss::formula::eval::NumberEval(result);
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+        return new ::poi::ss::formula::eval::NumberEval(result);
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
         return npc(e)->getErrorEval();
     }
 }
 
-double org::apache::poi::ss::formula::functions::Irr::irr(::doubleArray* income)
+double poi::ss::formula::functions::Irr::irr(::doubleArray* income)
 {
     clinit();
     return irr(income, 0.1);
 }
 
-double org::apache::poi::ss::formula::functions::Irr::irr(::doubleArray* values, double guess)
+double poi::ss::formula::functions::Irr::irr(::doubleArray* values, double guess)
 {
     clinit();
     auto const maxIterationCount = int32_t(20);
@@ -113,13 +107,13 @@ double org::apache::poi::ss::formula::functions::Irr::irr(::doubleArray* values,
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Irr::class_()
+java::lang::Class* poi::ss::formula::functions::Irr::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.Irr", 39);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Irr::getClass0()
+java::lang::Class* poi::ss::formula::functions::Irr::getClass0()
 {
     return class_();
 }

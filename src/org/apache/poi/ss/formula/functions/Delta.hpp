@@ -11,29 +11,23 @@
 #include <org/apache/poi/ss/formula/functions/FreeRefFunction.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::Delta final
+class poi::ss::formula::functions::Delta final
     : public Fixed2ArgFunction
     , public FreeRefFunction
 {
@@ -43,12 +37,12 @@ public:
 
 private:
     static FreeRefFunction* instance_;
-    static ::org::apache::poi::ss::formula::eval::NumberEval* ONE_;
-    static ::org::apache::poi::ss::formula::eval::NumberEval* ZERO_;
+    static ::poi::ss::formula::eval::NumberEval* ONE_;
+    static ::poi::ss::formula::eval::NumberEval* ZERO_;
 
 public:
-    ::org::apache::poi::ss::formula::eval::ValueEval* evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* arg1, ::org::apache::poi::ss::formula::eval::ValueEval* arg2) override;
-    ::org::apache::poi::ss::formula::eval::ValueEval* evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, ::org::apache::poi::ss::formula::OperationEvaluationContext* ec) override;
+    ::poi::ss::formula::eval::ValueEval* evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::poi::ss::formula::eval::ValueEval* arg1, ::poi::ss::formula::eval::ValueEval* arg2) override;
+    ::poi::ss::formula::eval::ValueEval* evaluate(::poi::ss::formula::eval::ValueEvalArray* args, ::poi::ss::formula::OperationEvaluationContext* ec) override;
 
     // Generated
     Delta();
@@ -59,11 +53,11 @@ protected:
 public:
     static ::java::lang::Class *class_();
     static void clinit();
-    ::org::apache::poi::ss::formula::eval::ValueEval* evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex);
+    ::poi::ss::formula::eval::ValueEval* evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex);
     static FreeRefFunction*& instance();
 
 private:
-    static ::org::apache::poi::ss::formula::eval::NumberEval*& ONE();
-    static ::org::apache::poi::ss::formula::eval::NumberEval*& ZERO();
+    static ::poi::ss::formula::eval::NumberEval*& ONE();
+    static ::poi::ss::formula::eval::NumberEval*& ZERO();
     virtual ::java::lang::Class* getClass0();
 };

@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::ptg::MemAreaPtg final
+class poi::ss::formula::ptg::MemAreaPtg final
     : public OperandPtg
 {
 
@@ -24,11 +24,11 @@ private:
     int32_t field_2_subex_len {  };
 protected:
     void ctor(int32_t subexLen);
-    void ctor(::org::apache::poi::util::LittleEndianInput* in);
+    void ctor(::poi::util::LittleEndianInput* in);
 
 public:
     int32_t getLenRefSubexpression();
-    void write(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void write(::poi::util::LittleEndianOutput* out) override;
     int32_t getSize() override;
     ::java::lang::String* toFormulaString() override;
     int8_t getDefaultOperandClass() override;
@@ -36,7 +36,7 @@ public:
 
     // Generated
     MemAreaPtg(int32_t subexLen);
-    MemAreaPtg(::org::apache::poi::util::LittleEndianInput* in);
+    MemAreaPtg(::poi::util::LittleEndianInput* in);
 protected:
     MemAreaPtg(const ::default_init_tag&);
 

@@ -27,7 +27,7 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::filesystem::POIFSDocumentPath
+class poi::poifs::filesystem::POIFSDocumentPath
     : public virtual ::java::lang::Object
 {
 
@@ -35,7 +35,7 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    static ::org::apache::poi::util::POILogger* log_;
+    static ::poi::util::POILogger* log_;
     ::java::lang::StringArray* components {  };
     int32_t hashcode {  };
 protected:
@@ -71,6 +71,6 @@ public:
 
 private:
     void init();
-    static ::org::apache::poi::util::POILogger*& log();
+    static ::poi::util::POILogger*& log();
     virtual ::java::lang::Class* getClass0();
 };

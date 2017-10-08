@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::DBCellRecord_Builder final
+class poi::hssf::record::DBCellRecord_Builder final
     : public ::java::lang::Object
 {
 

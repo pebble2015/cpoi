@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::usermodel::ShapeTypes
+class poi::ss::usermodel::ShapeTypes
     : public virtual ::java::lang::Object
 {
 

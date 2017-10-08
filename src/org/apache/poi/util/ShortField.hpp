@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::util::ShortField
+class poi::util::ShortField
     : public virtual ::java::lang::Object
     , public virtual FixedField
 {

@@ -26,628 +26,628 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ddf::EscherProperties::EscherProperties(const ::default_init_tag&)
+poi::ddf::EscherProperties::EscherProperties(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ddf::EscherProperties::EscherProperties()
+poi::ddf::EscherProperties::EscherProperties()
     : EscherProperties(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::TRANSFORM__ROTATION;
+constexpr int16_t poi::ddf::EscherProperties::TRANSFORM__ROTATION;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::PROTECTION__LOCKROTATION;
+constexpr int16_t poi::ddf::EscherProperties::PROTECTION__LOCKROTATION;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::PROTECTION__LOCKASPECTRATIO;
+constexpr int16_t poi::ddf::EscherProperties::PROTECTION__LOCKASPECTRATIO;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::PROTECTION__LOCKPOSITION;
+constexpr int16_t poi::ddf::EscherProperties::PROTECTION__LOCKPOSITION;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::PROTECTION__LOCKAGAINSTSELECT;
+constexpr int16_t poi::ddf::EscherProperties::PROTECTION__LOCKAGAINSTSELECT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::PROTECTION__LOCKCROPPING;
+constexpr int16_t poi::ddf::EscherProperties::PROTECTION__LOCKCROPPING;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::PROTECTION__LOCKVERTICES;
+constexpr int16_t poi::ddf::EscherProperties::PROTECTION__LOCKVERTICES;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::PROTECTION__LOCKTEXT;
+constexpr int16_t poi::ddf::EscherProperties::PROTECTION__LOCKTEXT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::PROTECTION__LOCKADJUSTHANDLES;
+constexpr int16_t poi::ddf::EscherProperties::PROTECTION__LOCKADJUSTHANDLES;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::PROTECTION__LOCKAGAINSTGROUPING;
+constexpr int16_t poi::ddf::EscherProperties::PROTECTION__LOCKAGAINSTGROUPING;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::TEXT__TEXTID;
+constexpr int16_t poi::ddf::EscherProperties::TEXT__TEXTID;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::TEXT__TEXTLEFT;
+constexpr int16_t poi::ddf::EscherProperties::TEXT__TEXTLEFT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::TEXT__TEXTTOP;
+constexpr int16_t poi::ddf::EscherProperties::TEXT__TEXTTOP;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::TEXT__TEXTRIGHT;
+constexpr int16_t poi::ddf::EscherProperties::TEXT__TEXTRIGHT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::TEXT__TEXTBOTTOM;
+constexpr int16_t poi::ddf::EscherProperties::TEXT__TEXTBOTTOM;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::TEXT__WRAPTEXT;
+constexpr int16_t poi::ddf::EscherProperties::TEXT__WRAPTEXT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::TEXT__SCALETEXT;
+constexpr int16_t poi::ddf::EscherProperties::TEXT__SCALETEXT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::TEXT__ANCHORTEXT;
+constexpr int16_t poi::ddf::EscherProperties::TEXT__ANCHORTEXT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::TEXT__TEXTFLOW;
+constexpr int16_t poi::ddf::EscherProperties::TEXT__TEXTFLOW;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::TEXT__FONTROTATION;
+constexpr int16_t poi::ddf::EscherProperties::TEXT__FONTROTATION;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::TEXT__IDOFNEXTSHAPE;
+constexpr int16_t poi::ddf::EscherProperties::TEXT__IDOFNEXTSHAPE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::TEXT__BIDIR;
+constexpr int16_t poi::ddf::EscherProperties::TEXT__BIDIR;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::TEXT__SINGLECLICKSELECTS;
+constexpr int16_t poi::ddf::EscherProperties::TEXT__SINGLECLICKSELECTS;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::TEXT__USEHOSTMARGINS;
+constexpr int16_t poi::ddf::EscherProperties::TEXT__USEHOSTMARGINS;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::TEXT__ROTATETEXTWITHSHAPE;
+constexpr int16_t poi::ddf::EscherProperties::TEXT__ROTATETEXTWITHSHAPE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::TEXT__SIZESHAPETOFITTEXT;
+constexpr int16_t poi::ddf::EscherProperties::TEXT__SIZESHAPETOFITTEXT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::TEXT__SIZE_TEXT_TO_FIT_SHAPE;
+constexpr int16_t poi::ddf::EscherProperties::TEXT__SIZE_TEXT_TO_FIT_SHAPE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOTEXT__UNICODE;
+constexpr int16_t poi::ddf::EscherProperties::GEOTEXT__UNICODE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOTEXT__RTFTEXT;
+constexpr int16_t poi::ddf::EscherProperties::GEOTEXT__RTFTEXT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOTEXT__ALIGNMENTONCURVE;
+constexpr int16_t poi::ddf::EscherProperties::GEOTEXT__ALIGNMENTONCURVE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOTEXT__DEFAULTPOINTSIZE;
+constexpr int16_t poi::ddf::EscherProperties::GEOTEXT__DEFAULTPOINTSIZE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOTEXT__TEXTSPACING;
+constexpr int16_t poi::ddf::EscherProperties::GEOTEXT__TEXTSPACING;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOTEXT__FONTFAMILYNAME;
+constexpr int16_t poi::ddf::EscherProperties::GEOTEXT__FONTFAMILYNAME;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOTEXT__REVERSEROWORDER;
+constexpr int16_t poi::ddf::EscherProperties::GEOTEXT__REVERSEROWORDER;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOTEXT__HASTEXTEFFECT;
+constexpr int16_t poi::ddf::EscherProperties::GEOTEXT__HASTEXTEFFECT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOTEXT__ROTATECHARACTERS;
+constexpr int16_t poi::ddf::EscherProperties::GEOTEXT__ROTATECHARACTERS;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOTEXT__KERNCHARACTERS;
+constexpr int16_t poi::ddf::EscherProperties::GEOTEXT__KERNCHARACTERS;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOTEXT__TIGHTORTRACK;
+constexpr int16_t poi::ddf::EscherProperties::GEOTEXT__TIGHTORTRACK;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOTEXT__STRETCHTOFITSHAPE;
+constexpr int16_t poi::ddf::EscherProperties::GEOTEXT__STRETCHTOFITSHAPE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOTEXT__CHARBOUNDINGBOX;
+constexpr int16_t poi::ddf::EscherProperties::GEOTEXT__CHARBOUNDINGBOX;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOTEXT__SCALETEXTONPATH;
+constexpr int16_t poi::ddf::EscherProperties::GEOTEXT__SCALETEXTONPATH;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOTEXT__STRETCHCHARHEIGHT;
+constexpr int16_t poi::ddf::EscherProperties::GEOTEXT__STRETCHCHARHEIGHT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOTEXT__NOMEASUREALONGPATH;
+constexpr int16_t poi::ddf::EscherProperties::GEOTEXT__NOMEASUREALONGPATH;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOTEXT__BOLDFONT;
+constexpr int16_t poi::ddf::EscherProperties::GEOTEXT__BOLDFONT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOTEXT__ITALICFONT;
+constexpr int16_t poi::ddf::EscherProperties::GEOTEXT__ITALICFONT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOTEXT__UNDERLINEFONT;
+constexpr int16_t poi::ddf::EscherProperties::GEOTEXT__UNDERLINEFONT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOTEXT__SHADOWFONT;
+constexpr int16_t poi::ddf::EscherProperties::GEOTEXT__SHADOWFONT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOTEXT__SMALLCAPSFONT;
+constexpr int16_t poi::ddf::EscherProperties::GEOTEXT__SMALLCAPSFONT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOTEXT__STRIKETHROUGHFONT;
+constexpr int16_t poi::ddf::EscherProperties::GEOTEXT__STRIKETHROUGHFONT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::BLIP__CROPFROMTOP;
+constexpr int16_t poi::ddf::EscherProperties::BLIP__CROPFROMTOP;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::BLIP__CROPFROMBOTTOM;
+constexpr int16_t poi::ddf::EscherProperties::BLIP__CROPFROMBOTTOM;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::BLIP__CROPFROMLEFT;
+constexpr int16_t poi::ddf::EscherProperties::BLIP__CROPFROMLEFT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::BLIP__CROPFROMRIGHT;
+constexpr int16_t poi::ddf::EscherProperties::BLIP__CROPFROMRIGHT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::BLIP__BLIPTODISPLAY;
+constexpr int16_t poi::ddf::EscherProperties::BLIP__BLIPTODISPLAY;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::BLIP__BLIPFILENAME;
+constexpr int16_t poi::ddf::EscherProperties::BLIP__BLIPFILENAME;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::BLIP__BLIPFLAGS;
+constexpr int16_t poi::ddf::EscherProperties::BLIP__BLIPFLAGS;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::BLIP__TRANSPARENTCOLOR;
+constexpr int16_t poi::ddf::EscherProperties::BLIP__TRANSPARENTCOLOR;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::BLIP__CONTRASTSETTING;
+constexpr int16_t poi::ddf::EscherProperties::BLIP__CONTRASTSETTING;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::BLIP__BRIGHTNESSSETTING;
+constexpr int16_t poi::ddf::EscherProperties::BLIP__BRIGHTNESSSETTING;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::BLIP__GAMMA;
+constexpr int16_t poi::ddf::EscherProperties::BLIP__GAMMA;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::BLIP__PICTUREID;
+constexpr int16_t poi::ddf::EscherProperties::BLIP__PICTUREID;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::BLIP__DOUBLEMOD;
+constexpr int16_t poi::ddf::EscherProperties::BLIP__DOUBLEMOD;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::BLIP__PICTUREFILLMOD;
+constexpr int16_t poi::ddf::EscherProperties::BLIP__PICTUREFILLMOD;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::BLIP__PICTURELINE;
+constexpr int16_t poi::ddf::EscherProperties::BLIP__PICTURELINE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::BLIP__PRINTBLIP;
+constexpr int16_t poi::ddf::EscherProperties::BLIP__PRINTBLIP;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::BLIP__PRINTBLIPFILENAME;
+constexpr int16_t poi::ddf::EscherProperties::BLIP__PRINTBLIPFILENAME;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::BLIP__PRINTFLAGS;
+constexpr int16_t poi::ddf::EscherProperties::BLIP__PRINTFLAGS;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::BLIP__NOHITTESTPICTURE;
+constexpr int16_t poi::ddf::EscherProperties::BLIP__NOHITTESTPICTURE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::BLIP__PICTUREGRAY;
+constexpr int16_t poi::ddf::EscherProperties::BLIP__PICTUREGRAY;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::BLIP__PICTUREBILEVEL;
+constexpr int16_t poi::ddf::EscherProperties::BLIP__PICTUREBILEVEL;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::BLIP__PICTUREACTIVE;
+constexpr int16_t poi::ddf::EscherProperties::BLIP__PICTUREACTIVE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOMETRY__LEFT;
+constexpr int16_t poi::ddf::EscherProperties::GEOMETRY__LEFT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOMETRY__TOP;
+constexpr int16_t poi::ddf::EscherProperties::GEOMETRY__TOP;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOMETRY__RIGHT;
+constexpr int16_t poi::ddf::EscherProperties::GEOMETRY__RIGHT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOMETRY__BOTTOM;
+constexpr int16_t poi::ddf::EscherProperties::GEOMETRY__BOTTOM;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOMETRY__SHAPEPATH;
+constexpr int16_t poi::ddf::EscherProperties::GEOMETRY__SHAPEPATH;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOMETRY__VERTICES;
+constexpr int16_t poi::ddf::EscherProperties::GEOMETRY__VERTICES;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOMETRY__SEGMENTINFO;
+constexpr int16_t poi::ddf::EscherProperties::GEOMETRY__SEGMENTINFO;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOMETRY__ADJUSTVALUE;
+constexpr int16_t poi::ddf::EscherProperties::GEOMETRY__ADJUSTVALUE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOMETRY__ADJUST2VALUE;
+constexpr int16_t poi::ddf::EscherProperties::GEOMETRY__ADJUST2VALUE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOMETRY__ADJUST3VALUE;
+constexpr int16_t poi::ddf::EscherProperties::GEOMETRY__ADJUST3VALUE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOMETRY__ADJUST4VALUE;
+constexpr int16_t poi::ddf::EscherProperties::GEOMETRY__ADJUST4VALUE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOMETRY__ADJUST5VALUE;
+constexpr int16_t poi::ddf::EscherProperties::GEOMETRY__ADJUST5VALUE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOMETRY__ADJUST6VALUE;
+constexpr int16_t poi::ddf::EscherProperties::GEOMETRY__ADJUST6VALUE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOMETRY__ADJUST7VALUE;
+constexpr int16_t poi::ddf::EscherProperties::GEOMETRY__ADJUST7VALUE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOMETRY__ADJUST8VALUE;
+constexpr int16_t poi::ddf::EscherProperties::GEOMETRY__ADJUST8VALUE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOMETRY__ADJUST9VALUE;
+constexpr int16_t poi::ddf::EscherProperties::GEOMETRY__ADJUST9VALUE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOMETRY__ADJUST10VALUE;
+constexpr int16_t poi::ddf::EscherProperties::GEOMETRY__ADJUST10VALUE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOMETRY__SHADOWok;
+constexpr int16_t poi::ddf::EscherProperties::GEOMETRY__SHADOWok;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOMETRY__3DOK;
+constexpr int16_t poi::ddf::EscherProperties::GEOMETRY__3DOK;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOMETRY__LINEOK;
+constexpr int16_t poi::ddf::EscherProperties::GEOMETRY__LINEOK;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOMETRY__GEOTEXTOK;
+constexpr int16_t poi::ddf::EscherProperties::GEOMETRY__GEOTEXTOK;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOMETRY__FILLSHADESHAPEOK;
+constexpr int16_t poi::ddf::EscherProperties::GEOMETRY__FILLSHADESHAPEOK;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GEOMETRY__FILLOK;
+constexpr int16_t poi::ddf::EscherProperties::GEOMETRY__FILLOK;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::FILL__FILLTYPE;
+constexpr int16_t poi::ddf::EscherProperties::FILL__FILLTYPE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::FILL__FILLCOLOR;
+constexpr int16_t poi::ddf::EscherProperties::FILL__FILLCOLOR;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::FILL__FILLOPACITY;
+constexpr int16_t poi::ddf::EscherProperties::FILL__FILLOPACITY;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::FILL__FILLBACKCOLOR;
+constexpr int16_t poi::ddf::EscherProperties::FILL__FILLBACKCOLOR;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::FILL__BACKOPACITY;
+constexpr int16_t poi::ddf::EscherProperties::FILL__BACKOPACITY;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::FILL__CRMOD;
+constexpr int16_t poi::ddf::EscherProperties::FILL__CRMOD;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::FILL__PATTERNTEXTURE;
+constexpr int16_t poi::ddf::EscherProperties::FILL__PATTERNTEXTURE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::FILL__BLIPFILENAME;
+constexpr int16_t poi::ddf::EscherProperties::FILL__BLIPFILENAME;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::FILL__BLIPFLAGS;
+constexpr int16_t poi::ddf::EscherProperties::FILL__BLIPFLAGS;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::FILL__WIDTH;
+constexpr int16_t poi::ddf::EscherProperties::FILL__WIDTH;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::FILL__HEIGHT;
+constexpr int16_t poi::ddf::EscherProperties::FILL__HEIGHT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::FILL__ANGLE;
+constexpr int16_t poi::ddf::EscherProperties::FILL__ANGLE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::FILL__FOCUS;
+constexpr int16_t poi::ddf::EscherProperties::FILL__FOCUS;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::FILL__TOLEFT;
+constexpr int16_t poi::ddf::EscherProperties::FILL__TOLEFT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::FILL__TOTOP;
+constexpr int16_t poi::ddf::EscherProperties::FILL__TOTOP;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::FILL__TORIGHT;
+constexpr int16_t poi::ddf::EscherProperties::FILL__TORIGHT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::FILL__TOBOTTOM;
+constexpr int16_t poi::ddf::EscherProperties::FILL__TOBOTTOM;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::FILL__RECTLEFT;
+constexpr int16_t poi::ddf::EscherProperties::FILL__RECTLEFT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::FILL__RECTTOP;
+constexpr int16_t poi::ddf::EscherProperties::FILL__RECTTOP;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::FILL__RECTRIGHT;
+constexpr int16_t poi::ddf::EscherProperties::FILL__RECTRIGHT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::FILL__RECTBOTTOM;
+constexpr int16_t poi::ddf::EscherProperties::FILL__RECTBOTTOM;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::FILL__DZTYPE;
+constexpr int16_t poi::ddf::EscherProperties::FILL__DZTYPE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::FILL__SHADEPRESET;
+constexpr int16_t poi::ddf::EscherProperties::FILL__SHADEPRESET;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::FILL__SHADECOLORS;
+constexpr int16_t poi::ddf::EscherProperties::FILL__SHADECOLORS;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::FILL__ORIGINX;
+constexpr int16_t poi::ddf::EscherProperties::FILL__ORIGINX;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::FILL__ORIGINY;
+constexpr int16_t poi::ddf::EscherProperties::FILL__ORIGINY;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::FILL__SHAPEORIGINX;
+constexpr int16_t poi::ddf::EscherProperties::FILL__SHAPEORIGINX;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::FILL__SHAPEORIGINY;
+constexpr int16_t poi::ddf::EscherProperties::FILL__SHAPEORIGINY;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::FILL__SHADETYPE;
+constexpr int16_t poi::ddf::EscherProperties::FILL__SHADETYPE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::FILL__FILLED;
+constexpr int16_t poi::ddf::EscherProperties::FILL__FILLED;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::FILL__HITTESTFILL;
+constexpr int16_t poi::ddf::EscherProperties::FILL__HITTESTFILL;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::FILL__SHAPE;
+constexpr int16_t poi::ddf::EscherProperties::FILL__SHAPE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::FILL__USERECT;
+constexpr int16_t poi::ddf::EscherProperties::FILL__USERECT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::FILL__NOFILLHITTEST;
+constexpr int16_t poi::ddf::EscherProperties::FILL__NOFILLHITTEST;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::LINESTYLE__COLOR;
+constexpr int16_t poi::ddf::EscherProperties::LINESTYLE__COLOR;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::LINESTYLE__OPACITY;
+constexpr int16_t poi::ddf::EscherProperties::LINESTYLE__OPACITY;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::LINESTYLE__BACKCOLOR;
+constexpr int16_t poi::ddf::EscherProperties::LINESTYLE__BACKCOLOR;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::LINESTYLE__CRMOD;
+constexpr int16_t poi::ddf::EscherProperties::LINESTYLE__CRMOD;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::LINESTYLE__LINETYPE;
+constexpr int16_t poi::ddf::EscherProperties::LINESTYLE__LINETYPE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::LINESTYLE__FILLBLIP;
+constexpr int16_t poi::ddf::EscherProperties::LINESTYLE__FILLBLIP;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::LINESTYLE__FILLBLIPNAME;
+constexpr int16_t poi::ddf::EscherProperties::LINESTYLE__FILLBLIPNAME;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::LINESTYLE__FILLBLIPFLAGS;
+constexpr int16_t poi::ddf::EscherProperties::LINESTYLE__FILLBLIPFLAGS;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::LINESTYLE__FILLWIDTH;
+constexpr int16_t poi::ddf::EscherProperties::LINESTYLE__FILLWIDTH;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::LINESTYLE__FILLHEIGHT;
+constexpr int16_t poi::ddf::EscherProperties::LINESTYLE__FILLHEIGHT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::LINESTYLE__FILLDZTYPE;
+constexpr int16_t poi::ddf::EscherProperties::LINESTYLE__FILLDZTYPE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::LINESTYLE__LINEWIDTH;
+constexpr int16_t poi::ddf::EscherProperties::LINESTYLE__LINEWIDTH;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::LINESTYLE__LINEMITERLIMIT;
+constexpr int16_t poi::ddf::EscherProperties::LINESTYLE__LINEMITERLIMIT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::LINESTYLE__LINESTYLE;
+constexpr int16_t poi::ddf::EscherProperties::LINESTYLE__LINESTYLE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::LINESTYLE__LINEDASHING;
+constexpr int16_t poi::ddf::EscherProperties::LINESTYLE__LINEDASHING;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::LINESTYLE__LINEDASHSTYLE;
+constexpr int16_t poi::ddf::EscherProperties::LINESTYLE__LINEDASHSTYLE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::LINESTYLE__LINESTARTARROWHEAD;
+constexpr int16_t poi::ddf::EscherProperties::LINESTYLE__LINESTARTARROWHEAD;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::LINESTYLE__LINEENDARROWHEAD;
+constexpr int16_t poi::ddf::EscherProperties::LINESTYLE__LINEENDARROWHEAD;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::LINESTYLE__LINESTARTARROWWIDTH;
+constexpr int16_t poi::ddf::EscherProperties::LINESTYLE__LINESTARTARROWWIDTH;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::LINESTYLE__LINESTARTARROWLENGTH;
+constexpr int16_t poi::ddf::EscherProperties::LINESTYLE__LINESTARTARROWLENGTH;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::LINESTYLE__LINEENDARROWWIDTH;
+constexpr int16_t poi::ddf::EscherProperties::LINESTYLE__LINEENDARROWWIDTH;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::LINESTYLE__LINEENDARROWLENGTH;
+constexpr int16_t poi::ddf::EscherProperties::LINESTYLE__LINEENDARROWLENGTH;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::LINESTYLE__LINEJOINSTYLE;
+constexpr int16_t poi::ddf::EscherProperties::LINESTYLE__LINEJOINSTYLE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::LINESTYLE__LINEENDCAPSTYLE;
+constexpr int16_t poi::ddf::EscherProperties::LINESTYLE__LINEENDCAPSTYLE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::LINESTYLE__ARROWHEADSOK;
+constexpr int16_t poi::ddf::EscherProperties::LINESTYLE__ARROWHEADSOK;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::LINESTYLE__ANYLINE;
+constexpr int16_t poi::ddf::EscherProperties::LINESTYLE__ANYLINE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::LINESTYLE__HITLINETEST;
+constexpr int16_t poi::ddf::EscherProperties::LINESTYLE__HITLINETEST;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::LINESTYLE__LINEFILLSHAPE;
+constexpr int16_t poi::ddf::EscherProperties::LINESTYLE__LINEFILLSHAPE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::LINESTYLE__NOLINEDRAWDASH;
+constexpr int16_t poi::ddf::EscherProperties::LINESTYLE__NOLINEDRAWDASH;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::LINESTYLE__NOLINEDRAWDASH_LEFT;
+constexpr int16_t poi::ddf::EscherProperties::LINESTYLE__NOLINEDRAWDASH_LEFT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::LINESTYLE__NOLINEDRAWDASH_TOP;
+constexpr int16_t poi::ddf::EscherProperties::LINESTYLE__NOLINEDRAWDASH_TOP;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::LINESTYLE__NOLINEDRAWDASH_BOTTOM;
+constexpr int16_t poi::ddf::EscherProperties::LINESTYLE__NOLINEDRAWDASH_BOTTOM;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::LINESTYLE__NOLINEDRAWDASH_RIGHT;
+constexpr int16_t poi::ddf::EscherProperties::LINESTYLE__NOLINEDRAWDASH_RIGHT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::SHADOWSTYLE__TYPE;
+constexpr int16_t poi::ddf::EscherProperties::SHADOWSTYLE__TYPE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::SHADOWSTYLE__COLOR;
+constexpr int16_t poi::ddf::EscherProperties::SHADOWSTYLE__COLOR;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::SHADOWSTYLE__HIGHLIGHT;
+constexpr int16_t poi::ddf::EscherProperties::SHADOWSTYLE__HIGHLIGHT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::SHADOWSTYLE__CRMOD;
+constexpr int16_t poi::ddf::EscherProperties::SHADOWSTYLE__CRMOD;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::SHADOWSTYLE__OPACITY;
+constexpr int16_t poi::ddf::EscherProperties::SHADOWSTYLE__OPACITY;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::SHADOWSTYLE__OFFSETX;
+constexpr int16_t poi::ddf::EscherProperties::SHADOWSTYLE__OFFSETX;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::SHADOWSTYLE__OFFSETY;
+constexpr int16_t poi::ddf::EscherProperties::SHADOWSTYLE__OFFSETY;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::SHADOWSTYLE__SECONDOFFSETX;
+constexpr int16_t poi::ddf::EscherProperties::SHADOWSTYLE__SECONDOFFSETX;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::SHADOWSTYLE__SECONDOFFSETY;
+constexpr int16_t poi::ddf::EscherProperties::SHADOWSTYLE__SECONDOFFSETY;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::SHADOWSTYLE__SCALEXTOX;
+constexpr int16_t poi::ddf::EscherProperties::SHADOWSTYLE__SCALEXTOX;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::SHADOWSTYLE__SCALEYTOX;
+constexpr int16_t poi::ddf::EscherProperties::SHADOWSTYLE__SCALEYTOX;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::SHADOWSTYLE__SCALEXTOY;
+constexpr int16_t poi::ddf::EscherProperties::SHADOWSTYLE__SCALEXTOY;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::SHADOWSTYLE__SCALEYTOY;
+constexpr int16_t poi::ddf::EscherProperties::SHADOWSTYLE__SCALEYTOY;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::SHADOWSTYLE__PERSPECTIVEX;
+constexpr int16_t poi::ddf::EscherProperties::SHADOWSTYLE__PERSPECTIVEX;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::SHADOWSTYLE__PERSPECTIVEY;
+constexpr int16_t poi::ddf::EscherProperties::SHADOWSTYLE__PERSPECTIVEY;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::SHADOWSTYLE__WEIGHT;
+constexpr int16_t poi::ddf::EscherProperties::SHADOWSTYLE__WEIGHT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::SHADOWSTYLE__ORIGINX;
+constexpr int16_t poi::ddf::EscherProperties::SHADOWSTYLE__ORIGINX;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::SHADOWSTYLE__ORIGINY;
+constexpr int16_t poi::ddf::EscherProperties::SHADOWSTYLE__ORIGINY;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::SHADOWSTYLE__SHADOW;
+constexpr int16_t poi::ddf::EscherProperties::SHADOWSTYLE__SHADOW;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::SHADOWSTYLE__SHADOWOBSURED;
+constexpr int16_t poi::ddf::EscherProperties::SHADOWSTYLE__SHADOWOBSURED;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::PERSPECTIVE__TYPE;
+constexpr int16_t poi::ddf::EscherProperties::PERSPECTIVE__TYPE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::PERSPECTIVE__OFFSETX;
+constexpr int16_t poi::ddf::EscherProperties::PERSPECTIVE__OFFSETX;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::PERSPECTIVE__OFFSETY;
+constexpr int16_t poi::ddf::EscherProperties::PERSPECTIVE__OFFSETY;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::PERSPECTIVE__SCALEXTOX;
+constexpr int16_t poi::ddf::EscherProperties::PERSPECTIVE__SCALEXTOX;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::PERSPECTIVE__SCALEYTOX;
+constexpr int16_t poi::ddf::EscherProperties::PERSPECTIVE__SCALEYTOX;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::PERSPECTIVE__SCALEXTOY;
+constexpr int16_t poi::ddf::EscherProperties::PERSPECTIVE__SCALEXTOY;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::PERSPECTIVE__SCALEYTOY;
+constexpr int16_t poi::ddf::EscherProperties::PERSPECTIVE__SCALEYTOY;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::PERSPECTIVE__PERSPECTIVEX;
+constexpr int16_t poi::ddf::EscherProperties::PERSPECTIVE__PERSPECTIVEX;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::PERSPECTIVE__PERSPECTIVEY;
+constexpr int16_t poi::ddf::EscherProperties::PERSPECTIVE__PERSPECTIVEY;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::PERSPECTIVE__WEIGHT;
+constexpr int16_t poi::ddf::EscherProperties::PERSPECTIVE__WEIGHT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::PERSPECTIVE__ORIGINX;
+constexpr int16_t poi::ddf::EscherProperties::PERSPECTIVE__ORIGINX;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::PERSPECTIVE__ORIGINY;
+constexpr int16_t poi::ddf::EscherProperties::PERSPECTIVE__ORIGINY;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::PERSPECTIVE__PERSPECTIVEON;
+constexpr int16_t poi::ddf::EscherProperties::PERSPECTIVE__PERSPECTIVEON;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREED__SPECULARAMOUNT;
+constexpr int16_t poi::ddf::EscherProperties::THREED__SPECULARAMOUNT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREED__DIFFUSEAMOUNT;
+constexpr int16_t poi::ddf::EscherProperties::THREED__DIFFUSEAMOUNT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREED__SHININESS;
+constexpr int16_t poi::ddf::EscherProperties::THREED__SHININESS;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREED__EDGETHICKNESS;
+constexpr int16_t poi::ddf::EscherProperties::THREED__EDGETHICKNESS;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREED__EXTRUDEFORWARD;
+constexpr int16_t poi::ddf::EscherProperties::THREED__EXTRUDEFORWARD;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREED__EXTRUDEBACKWARD;
+constexpr int16_t poi::ddf::EscherProperties::THREED__EXTRUDEBACKWARD;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREED__EXTRUDEPLANE;
+constexpr int16_t poi::ddf::EscherProperties::THREED__EXTRUDEPLANE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREED__EXTRUSIONCOLOR;
+constexpr int16_t poi::ddf::EscherProperties::THREED__EXTRUSIONCOLOR;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREED__CRMOD;
+constexpr int16_t poi::ddf::EscherProperties::THREED__CRMOD;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREED__3DEFFECT;
+constexpr int16_t poi::ddf::EscherProperties::THREED__3DEFFECT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREED__METALLIC;
+constexpr int16_t poi::ddf::EscherProperties::THREED__METALLIC;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREED__USEEXTRUSIONCOLOR;
+constexpr int16_t poi::ddf::EscherProperties::THREED__USEEXTRUSIONCOLOR;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREED__LIGHTFACE;
+constexpr int16_t poi::ddf::EscherProperties::THREED__LIGHTFACE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREEDSTYLE__YROTATIONANGLE;
+constexpr int16_t poi::ddf::EscherProperties::THREEDSTYLE__YROTATIONANGLE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREEDSTYLE__XROTATIONANGLE;
+constexpr int16_t poi::ddf::EscherProperties::THREEDSTYLE__XROTATIONANGLE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREEDSTYLE__ROTATIONAXISX;
+constexpr int16_t poi::ddf::EscherProperties::THREEDSTYLE__ROTATIONAXISX;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREEDSTYLE__ROTATIONAXISY;
+constexpr int16_t poi::ddf::EscherProperties::THREEDSTYLE__ROTATIONAXISY;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREEDSTYLE__ROTATIONAXISZ;
+constexpr int16_t poi::ddf::EscherProperties::THREEDSTYLE__ROTATIONAXISZ;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREEDSTYLE__ROTATIONANGLE;
+constexpr int16_t poi::ddf::EscherProperties::THREEDSTYLE__ROTATIONANGLE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREEDSTYLE__ROTATIONCENTERX;
+constexpr int16_t poi::ddf::EscherProperties::THREEDSTYLE__ROTATIONCENTERX;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREEDSTYLE__ROTATIONCENTERY;
+constexpr int16_t poi::ddf::EscherProperties::THREEDSTYLE__ROTATIONCENTERY;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREEDSTYLE__ROTATIONCENTERZ;
+constexpr int16_t poi::ddf::EscherProperties::THREEDSTYLE__ROTATIONCENTERZ;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREEDSTYLE__RENDERMODE;
+constexpr int16_t poi::ddf::EscherProperties::THREEDSTYLE__RENDERMODE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREEDSTYLE__TOLERANCE;
+constexpr int16_t poi::ddf::EscherProperties::THREEDSTYLE__TOLERANCE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREEDSTYLE__XVIEWPOINT;
+constexpr int16_t poi::ddf::EscherProperties::THREEDSTYLE__XVIEWPOINT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREEDSTYLE__YVIEWPOINT;
+constexpr int16_t poi::ddf::EscherProperties::THREEDSTYLE__YVIEWPOINT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREEDSTYLE__ZVIEWPOINT;
+constexpr int16_t poi::ddf::EscherProperties::THREEDSTYLE__ZVIEWPOINT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREEDSTYLE__ORIGINX;
+constexpr int16_t poi::ddf::EscherProperties::THREEDSTYLE__ORIGINX;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREEDSTYLE__ORIGINY;
+constexpr int16_t poi::ddf::EscherProperties::THREEDSTYLE__ORIGINY;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREEDSTYLE__SKEWANGLE;
+constexpr int16_t poi::ddf::EscherProperties::THREEDSTYLE__SKEWANGLE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREEDSTYLE__SKEWAMOUNT;
+constexpr int16_t poi::ddf::EscherProperties::THREEDSTYLE__SKEWAMOUNT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREEDSTYLE__AMBIENTINTENSITY;
+constexpr int16_t poi::ddf::EscherProperties::THREEDSTYLE__AMBIENTINTENSITY;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREEDSTYLE__KEYX;
+constexpr int16_t poi::ddf::EscherProperties::THREEDSTYLE__KEYX;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREEDSTYLE__KEYY;
+constexpr int16_t poi::ddf::EscherProperties::THREEDSTYLE__KEYY;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREEDSTYLE__KEYZ;
+constexpr int16_t poi::ddf::EscherProperties::THREEDSTYLE__KEYZ;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREEDSTYLE__KEYINTENSITY;
+constexpr int16_t poi::ddf::EscherProperties::THREEDSTYLE__KEYINTENSITY;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREEDSTYLE__FILLX;
+constexpr int16_t poi::ddf::EscherProperties::THREEDSTYLE__FILLX;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREEDSTYLE__FILLY;
+constexpr int16_t poi::ddf::EscherProperties::THREEDSTYLE__FILLY;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREEDSTYLE__FILLZ;
+constexpr int16_t poi::ddf::EscherProperties::THREEDSTYLE__FILLZ;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREEDSTYLE__FILLINTENSITY;
+constexpr int16_t poi::ddf::EscherProperties::THREEDSTYLE__FILLINTENSITY;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREEDSTYLE__CONSTRAINROTATION;
+constexpr int16_t poi::ddf::EscherProperties::THREEDSTYLE__CONSTRAINROTATION;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREEDSTYLE__ROTATIONCENTERAUTO;
+constexpr int16_t poi::ddf::EscherProperties::THREEDSTYLE__ROTATIONCENTERAUTO;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREEDSTYLE__PARALLEL;
+constexpr int16_t poi::ddf::EscherProperties::THREEDSTYLE__PARALLEL;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREEDSTYLE__KEYHARSH;
+constexpr int16_t poi::ddf::EscherProperties::THREEDSTYLE__KEYHARSH;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::THREEDSTYLE__FILLHARSH;
+constexpr int16_t poi::ddf::EscherProperties::THREEDSTYLE__FILLHARSH;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::SHAPE__MASTER;
+constexpr int16_t poi::ddf::EscherProperties::SHAPE__MASTER;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::SHAPE__CONNECTORSTYLE;
+constexpr int16_t poi::ddf::EscherProperties::SHAPE__CONNECTORSTYLE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::SHAPE__BLACKANDWHITESETTINGS;
+constexpr int16_t poi::ddf::EscherProperties::SHAPE__BLACKANDWHITESETTINGS;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::SHAPE__WMODEPUREBW;
+constexpr int16_t poi::ddf::EscherProperties::SHAPE__WMODEPUREBW;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::SHAPE__WMODEBW;
+constexpr int16_t poi::ddf::EscherProperties::SHAPE__WMODEBW;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::SHAPE__OLEICON;
+constexpr int16_t poi::ddf::EscherProperties::SHAPE__OLEICON;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::SHAPE__PREFERRELATIVERESIZE;
+constexpr int16_t poi::ddf::EscherProperties::SHAPE__PREFERRELATIVERESIZE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::SHAPE__LOCKSHAPETYPE;
+constexpr int16_t poi::ddf::EscherProperties::SHAPE__LOCKSHAPETYPE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::SHAPE__DELETEATTACHEDOBJECT;
+constexpr int16_t poi::ddf::EscherProperties::SHAPE__DELETEATTACHEDOBJECT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::SHAPE__BACKGROUNDSHAPE;
+constexpr int16_t poi::ddf::EscherProperties::SHAPE__BACKGROUNDSHAPE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::CALLOUT__CALLOUTTYPE;
+constexpr int16_t poi::ddf::EscherProperties::CALLOUT__CALLOUTTYPE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::CALLOUT__XYCALLOUTGAP;
+constexpr int16_t poi::ddf::EscherProperties::CALLOUT__XYCALLOUTGAP;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::CALLOUT__CALLOUTANGLE;
+constexpr int16_t poi::ddf::EscherProperties::CALLOUT__CALLOUTANGLE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::CALLOUT__CALLOUTDROPTYPE;
+constexpr int16_t poi::ddf::EscherProperties::CALLOUT__CALLOUTDROPTYPE;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::CALLOUT__CALLOUTDROPSPECIFIED;
+constexpr int16_t poi::ddf::EscherProperties::CALLOUT__CALLOUTDROPSPECIFIED;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::CALLOUT__CALLOUTLENGTHSPECIFIED;
+constexpr int16_t poi::ddf::EscherProperties::CALLOUT__CALLOUTLENGTHSPECIFIED;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::CALLOUT__ISCALLOUT;
+constexpr int16_t poi::ddf::EscherProperties::CALLOUT__ISCALLOUT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::CALLOUT__CALLOUTACCENTBAR;
+constexpr int16_t poi::ddf::EscherProperties::CALLOUT__CALLOUTACCENTBAR;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::CALLOUT__CALLOUTTEXTBORDER;
+constexpr int16_t poi::ddf::EscherProperties::CALLOUT__CALLOUTTEXTBORDER;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::CALLOUT__CALLOUTMINUSX;
+constexpr int16_t poi::ddf::EscherProperties::CALLOUT__CALLOUTMINUSX;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::CALLOUT__CALLOUTMINUSY;
+constexpr int16_t poi::ddf::EscherProperties::CALLOUT__CALLOUTMINUSY;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::CALLOUT__DROPAUTO;
+constexpr int16_t poi::ddf::EscherProperties::CALLOUT__DROPAUTO;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::CALLOUT__LENGTHSPECIFIED;
+constexpr int16_t poi::ddf::EscherProperties::CALLOUT__LENGTHSPECIFIED;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GROUPSHAPE__SHAPENAME;
+constexpr int16_t poi::ddf::EscherProperties::GROUPSHAPE__SHAPENAME;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GROUPSHAPE__DESCRIPTION;
+constexpr int16_t poi::ddf::EscherProperties::GROUPSHAPE__DESCRIPTION;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GROUPSHAPE__HYPERLINK;
+constexpr int16_t poi::ddf::EscherProperties::GROUPSHAPE__HYPERLINK;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GROUPSHAPE__WRAPPOLYGONVERTICES;
+constexpr int16_t poi::ddf::EscherProperties::GROUPSHAPE__WRAPPOLYGONVERTICES;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GROUPSHAPE__WRAPDISTLEFT;
+constexpr int16_t poi::ddf::EscherProperties::GROUPSHAPE__WRAPDISTLEFT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GROUPSHAPE__WRAPDISTTOP;
+constexpr int16_t poi::ddf::EscherProperties::GROUPSHAPE__WRAPDISTTOP;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GROUPSHAPE__WRAPDISTRIGHT;
+constexpr int16_t poi::ddf::EscherProperties::GROUPSHAPE__WRAPDISTRIGHT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GROUPSHAPE__WRAPDISTBOTTOM;
+constexpr int16_t poi::ddf::EscherProperties::GROUPSHAPE__WRAPDISTBOTTOM;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GROUPSHAPE__REGROUPID;
+constexpr int16_t poi::ddf::EscherProperties::GROUPSHAPE__REGROUPID;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GROUPSHAPE__UNUSED906;
+constexpr int16_t poi::ddf::EscherProperties::GROUPSHAPE__UNUSED906;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GROUPSHAPE__TOOLTIP;
+constexpr int16_t poi::ddf::EscherProperties::GROUPSHAPE__TOOLTIP;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GROUPSHAPE__SCRIPT;
+constexpr int16_t poi::ddf::EscherProperties::GROUPSHAPE__SCRIPT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GROUPSHAPE__POSH;
+constexpr int16_t poi::ddf::EscherProperties::GROUPSHAPE__POSH;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GROUPSHAPE__POSRELH;
+constexpr int16_t poi::ddf::EscherProperties::GROUPSHAPE__POSRELH;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GROUPSHAPE__POSV;
+constexpr int16_t poi::ddf::EscherProperties::GROUPSHAPE__POSV;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GROUPSHAPE__POSRELV;
+constexpr int16_t poi::ddf::EscherProperties::GROUPSHAPE__POSRELV;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GROUPSHAPE__HR_PCT;
+constexpr int16_t poi::ddf::EscherProperties::GROUPSHAPE__HR_PCT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GROUPSHAPE__HR_ALIGN;
+constexpr int16_t poi::ddf::EscherProperties::GROUPSHAPE__HR_ALIGN;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GROUPSHAPE__HR_HEIGHT;
+constexpr int16_t poi::ddf::EscherProperties::GROUPSHAPE__HR_HEIGHT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GROUPSHAPE__HR_WIDTH;
+constexpr int16_t poi::ddf::EscherProperties::GROUPSHAPE__HR_WIDTH;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GROUPSHAPE__SCRIPTEXT;
+constexpr int16_t poi::ddf::EscherProperties::GROUPSHAPE__SCRIPTEXT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GROUPSHAPE__SCRIPTLANG;
+constexpr int16_t poi::ddf::EscherProperties::GROUPSHAPE__SCRIPTLANG;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GROUPSHAPE__BORDERTOPCOLOR;
+constexpr int16_t poi::ddf::EscherProperties::GROUPSHAPE__BORDERTOPCOLOR;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GROUPSHAPE__BORDERLEFTCOLOR;
+constexpr int16_t poi::ddf::EscherProperties::GROUPSHAPE__BORDERLEFTCOLOR;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GROUPSHAPE__BORDERBOTTOMCOLOR;
+constexpr int16_t poi::ddf::EscherProperties::GROUPSHAPE__BORDERBOTTOMCOLOR;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GROUPSHAPE__BORDERRIGHTCOLOR;
+constexpr int16_t poi::ddf::EscherProperties::GROUPSHAPE__BORDERRIGHTCOLOR;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GROUPSHAPE__TABLEPROPERTIES;
+constexpr int16_t poi::ddf::EscherProperties::GROUPSHAPE__TABLEPROPERTIES;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GROUPSHAPE__TABLEROWPROPERTIES;
+constexpr int16_t poi::ddf::EscherProperties::GROUPSHAPE__TABLEROWPROPERTIES;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GROUPSHAPE__WEBBOT;
+constexpr int16_t poi::ddf::EscherProperties::GROUPSHAPE__WEBBOT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GROUPSHAPE__METROBLOB;
+constexpr int16_t poi::ddf::EscherProperties::GROUPSHAPE__METROBLOB;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GROUPSHAPE__ZORDER;
+constexpr int16_t poi::ddf::EscherProperties::GROUPSHAPE__ZORDER;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GROUPSHAPE__FLAGS;
+constexpr int16_t poi::ddf::EscherProperties::GROUPSHAPE__FLAGS;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GROUPSHAPE__EDITEDWRAP;
+constexpr int16_t poi::ddf::EscherProperties::GROUPSHAPE__EDITEDWRAP;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GROUPSHAPE__BEHINDDOCUMENT;
+constexpr int16_t poi::ddf::EscherProperties::GROUPSHAPE__BEHINDDOCUMENT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GROUPSHAPE__ONDBLCLICKNOTIFY;
+constexpr int16_t poi::ddf::EscherProperties::GROUPSHAPE__ONDBLCLICKNOTIFY;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GROUPSHAPE__ISBUTTON;
+constexpr int16_t poi::ddf::EscherProperties::GROUPSHAPE__ISBUTTON;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GROUPSHAPE__1DADJUSTMENT;
+constexpr int16_t poi::ddf::EscherProperties::GROUPSHAPE__1DADJUSTMENT;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GROUPSHAPE__HIDDEN;
+constexpr int16_t poi::ddf::EscherProperties::GROUPSHAPE__HIDDEN;
 
-constexpr int16_t org::apache::poi::ddf::EscherProperties::GROUPSHAPE__PRINT;
+constexpr int16_t poi::ddf::EscherProperties::GROUPSHAPE__PRINT;
 
-java::util::Map*& org::apache::poi::ddf::EscherProperties::properties()
+java::util::Map*& poi::ddf::EscherProperties::properties()
 {
     clinit();
     return properties_;
 }
-java::util::Map* org::apache::poi::ddf::EscherProperties::properties_;
+java::util::Map* poi::ddf::EscherProperties::properties_;
 
-java::util::Map* org::apache::poi::ddf::EscherProperties::initProps()
+java::util::Map* poi::ddf::EscherProperties::initProps()
 {
     clinit();
     ::java::util::Map* m = new ::java::util::HashMap();
@@ -955,26 +955,26 @@ java::util::Map* org::apache::poi::ddf::EscherProperties::initProps()
     return m;
 }
 
-void org::apache::poi::ddf::EscherProperties::addProp(::java::util::Map* m, int32_t s, ::java::lang::String* propName)
+void poi::ddf::EscherProperties::addProp(::java::util::Map* m, int32_t s, ::java::lang::String* propName)
 {
     clinit();
     npc(m)->put(::java::lang::Short::valueOf(static_cast< int16_t >(s)), new EscherPropertyMetaData(propName));
 }
 
-void org::apache::poi::ddf::EscherProperties::addProp(::java::util::Map* m, int32_t s, ::java::lang::String* propName, int8_t type)
+void poi::ddf::EscherProperties::addProp(::java::util::Map* m, int32_t s, ::java::lang::String* propName, int8_t type)
 {
     clinit();
     npc(m)->put(::java::lang::Short::valueOf(static_cast< int16_t >(s)), new EscherPropertyMetaData(propName, type));
 }
 
-java::lang::String* org::apache::poi::ddf::EscherProperties::getPropertyName(int16_t propertyId)
+java::lang::String* poi::ddf::EscherProperties::getPropertyName(int16_t propertyId)
 {
     clinit();
     auto o = java_cast< EscherPropertyMetaData* >(npc(properties_)->get(::java::lang::Short::valueOf(propertyId)));
     return o == nullptr ? u"unknown"_j : npc(o)->getDescription();
 }
 
-int8_t org::apache::poi::ddf::EscherProperties::getPropertyType(int16_t propertyId)
+int8_t poi::ddf::EscherProperties::getPropertyType(int16_t propertyId)
 {
     clinit();
     auto escherPropertyMetaData = java_cast< EscherPropertyMetaData* >(npc(properties_)->get(::java::lang::Short::valueOf(propertyId)));
@@ -983,13 +983,13 @@ int8_t org::apache::poi::ddf::EscherProperties::getPropertyType(int16_t property
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ddf::EscherProperties::class_()
+java::lang::Class* poi::ddf::EscherProperties::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ddf.EscherProperties", 35);
     return c;
 }
 
-void org::apache::poi::ddf::EscherProperties::clinit()
+void poi::ddf::EscherProperties::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -1005,7 +1005,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ddf::EscherProperties::getClass0()
+java::lang::Class* poi::ddf::EscherProperties::getClass0()
 {
     return class_();
 }

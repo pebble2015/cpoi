@@ -109,32 +109,32 @@ namespace
 
     template<typename F> finally_<F> finally(F f) { return finally_<F>(f); }
 }
-org::apache::poi::sl::draw::DrawFactory::DrawFactory(const ::default_init_tag&)
+poi::sl::draw::DrawFactory::DrawFactory(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::draw::DrawFactory::DrawFactory()
+poi::sl::draw::DrawFactory::DrawFactory()
     : DrawFactory(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-java::lang::ThreadLocal*& org::apache::poi::sl::draw::DrawFactory::defaultFactory()
+java::lang::ThreadLocal*& poi::sl::draw::DrawFactory::defaultFactory()
 {
     clinit();
     return defaultFactory_;
 }
-java::lang::ThreadLocal* org::apache::poi::sl::draw::DrawFactory::defaultFactory_;
+java::lang::ThreadLocal* poi::sl::draw::DrawFactory::defaultFactory_;
 
-void org::apache::poi::sl::draw::DrawFactory::setDefaultFactory(DrawFactory* factory)
+void poi::sl::draw::DrawFactory::setDefaultFactory(DrawFactory* factory)
 {
     clinit();
     npc(defaultFactory_)->set(factory);
 }
 
-org::apache::poi::sl::draw::DrawFactory* org::apache::poi::sl::draw::DrawFactory::getInstance(::java::awt::Graphics2D* graphics)
+poi::sl::draw::DrawFactory* poi::sl::draw::DrawFactory::getInstance(::java::awt::Graphics2D* graphics)
 {
     clinit();
     DrawFactory* factory = nullptr;
@@ -155,114 +155,114 @@ org::apache::poi::sl::draw::DrawFactory* org::apache::poi::sl::draw::DrawFactory
     return factory;
 }
 
-org::apache::poi::sl::draw::Drawable* org::apache::poi::sl::draw::DrawFactory::getDrawable(::org::apache::poi::sl::usermodel::Shape* shape)
+poi::sl::draw::Drawable* poi::sl::draw::DrawFactory::getDrawable(::poi::sl::usermodel::Shape* shape)
 {
-    if(dynamic_cast< ::org::apache::poi::sl::usermodel::TextBox* >(shape) != nullptr) {
-        return getDrawable(static_cast< ::org::apache::poi::sl::usermodel::TextBox* >(java_cast< ::org::apache::poi::sl::usermodel::TextBox* >(shape)));
-    } else if(dynamic_cast< ::org::apache::poi::sl::usermodel::FreeformShape* >(shape) != nullptr) {
-        return getDrawable(static_cast< ::org::apache::poi::sl::usermodel::FreeformShape* >(java_cast< ::org::apache::poi::sl::usermodel::FreeformShape* >(shape)));
-    } else if(dynamic_cast< ::org::apache::poi::sl::usermodel::TextShape* >(shape) != nullptr) {
-        return getDrawable(static_cast< ::org::apache::poi::sl::usermodel::TextShape* >(java_cast< ::org::apache::poi::sl::usermodel::TextShape* >(shape)));
-    } else if(dynamic_cast< ::org::apache::poi::sl::usermodel::TableShape* >(shape) != nullptr) {
-        return getDrawable(static_cast< ::org::apache::poi::sl::usermodel::TableShape* >(java_cast< ::org::apache::poi::sl::usermodel::TableShape* >(shape)));
-    } else if(dynamic_cast< ::org::apache::poi::sl::usermodel::GroupShape* >(shape) != nullptr) {
-        return getDrawable(static_cast< ::org::apache::poi::sl::usermodel::GroupShape* >(java_cast< ::org::apache::poi::sl::usermodel::GroupShape* >(shape)));
-    } else if(dynamic_cast< ::org::apache::poi::sl::usermodel::PictureShape* >(shape) != nullptr) {
-        return getDrawable(static_cast< ::org::apache::poi::sl::usermodel::PictureShape* >(java_cast< ::org::apache::poi::sl::usermodel::PictureShape* >(shape)));
-    } else if(dynamic_cast< ::org::apache::poi::sl::usermodel::GraphicalFrame* >(shape) != nullptr) {
-        return getDrawable(static_cast< ::org::apache::poi::sl::usermodel::GraphicalFrame* >(java_cast< ::org::apache::poi::sl::usermodel::GraphicalFrame* >(shape)));
-    } else if(dynamic_cast< ::org::apache::poi::sl::usermodel::Background* >(shape) != nullptr) {
-        return getDrawable(static_cast< ::org::apache::poi::sl::usermodel::Background* >(java_cast< ::org::apache::poi::sl::usermodel::Background* >(shape)));
-    } else if(dynamic_cast< ::org::apache::poi::sl::usermodel::ConnectorShape* >(shape) != nullptr) {
-        return getDrawable(static_cast< ::org::apache::poi::sl::usermodel::ConnectorShape* >(java_cast< ::org::apache::poi::sl::usermodel::ConnectorShape* >(shape)));
-    } else if(dynamic_cast< ::org::apache::poi::sl::usermodel::Slide* >(shape) != nullptr) {
-        return getDrawable(static_cast< ::org::apache::poi::sl::usermodel::Slide* >(java_cast< ::org::apache::poi::sl::usermodel::Slide* >(shape)));
-    } else if(dynamic_cast< ::org::apache::poi::sl::usermodel::MasterSheet* >(shape) != nullptr) {
-        return getDrawable(static_cast< ::org::apache::poi::sl::usermodel::MasterSheet* >(java_cast< ::org::apache::poi::sl::usermodel::MasterSheet* >(shape)));
-    } else if(dynamic_cast< ::org::apache::poi::sl::usermodel::Sheet* >(shape) != nullptr) {
-        return getDrawable(static_cast< ::org::apache::poi::sl::usermodel::Sheet* >(java_cast< ::org::apache::poi::sl::usermodel::Sheet* >(shape)));
+    if(dynamic_cast< ::poi::sl::usermodel::TextBox* >(shape) != nullptr) {
+        return getDrawable(static_cast< ::poi::sl::usermodel::TextBox* >(java_cast< ::poi::sl::usermodel::TextBox* >(shape)));
+    } else if(dynamic_cast< ::poi::sl::usermodel::FreeformShape* >(shape) != nullptr) {
+        return getDrawable(static_cast< ::poi::sl::usermodel::FreeformShape* >(java_cast< ::poi::sl::usermodel::FreeformShape* >(shape)));
+    } else if(dynamic_cast< ::poi::sl::usermodel::TextShape* >(shape) != nullptr) {
+        return getDrawable(static_cast< ::poi::sl::usermodel::TextShape* >(java_cast< ::poi::sl::usermodel::TextShape* >(shape)));
+    } else if(dynamic_cast< ::poi::sl::usermodel::TableShape* >(shape) != nullptr) {
+        return getDrawable(static_cast< ::poi::sl::usermodel::TableShape* >(java_cast< ::poi::sl::usermodel::TableShape* >(shape)));
+    } else if(dynamic_cast< ::poi::sl::usermodel::GroupShape* >(shape) != nullptr) {
+        return getDrawable(static_cast< ::poi::sl::usermodel::GroupShape* >(java_cast< ::poi::sl::usermodel::GroupShape* >(shape)));
+    } else if(dynamic_cast< ::poi::sl::usermodel::PictureShape* >(shape) != nullptr) {
+        return getDrawable(static_cast< ::poi::sl::usermodel::PictureShape* >(java_cast< ::poi::sl::usermodel::PictureShape* >(shape)));
+    } else if(dynamic_cast< ::poi::sl::usermodel::GraphicalFrame* >(shape) != nullptr) {
+        return getDrawable(static_cast< ::poi::sl::usermodel::GraphicalFrame* >(java_cast< ::poi::sl::usermodel::GraphicalFrame* >(shape)));
+    } else if(dynamic_cast< ::poi::sl::usermodel::Background* >(shape) != nullptr) {
+        return getDrawable(static_cast< ::poi::sl::usermodel::Background* >(java_cast< ::poi::sl::usermodel::Background* >(shape)));
+    } else if(dynamic_cast< ::poi::sl::usermodel::ConnectorShape* >(shape) != nullptr) {
+        return getDrawable(static_cast< ::poi::sl::usermodel::ConnectorShape* >(java_cast< ::poi::sl::usermodel::ConnectorShape* >(shape)));
+    } else if(dynamic_cast< ::poi::sl::usermodel::Slide* >(shape) != nullptr) {
+        return getDrawable(static_cast< ::poi::sl::usermodel::Slide* >(java_cast< ::poi::sl::usermodel::Slide* >(shape)));
+    } else if(dynamic_cast< ::poi::sl::usermodel::MasterSheet* >(shape) != nullptr) {
+        return getDrawable(static_cast< ::poi::sl::usermodel::MasterSheet* >(java_cast< ::poi::sl::usermodel::MasterSheet* >(shape)));
+    } else if(dynamic_cast< ::poi::sl::usermodel::Sheet* >(shape) != nullptr) {
+        return getDrawable(static_cast< ::poi::sl::usermodel::Sheet* >(java_cast< ::poi::sl::usermodel::Sheet* >(shape)));
     } else if(npc(npc(shape)->getClass())->isAnnotationPresent(static_cast< ::java::lang::Class* >(DrawNotImplemented::class_()))) {
         return new DrawNothing(shape);
     }
     throw new ::java::lang::IllegalArgumentException(::java::lang::StringBuilder().append(u"Unsupported shape type: "_j)->append(static_cast< ::java::lang::Object* >(npc(shape)->getClass()))->toString());
 }
 
-org::apache::poi::sl::draw::DrawSlide* org::apache::poi::sl::draw::DrawFactory::getDrawable(::org::apache::poi::sl::usermodel::Slide* sheet)
+poi::sl::draw::DrawSlide* poi::sl::draw::DrawFactory::getDrawable(::poi::sl::usermodel::Slide* sheet)
 {
     return new DrawSlide(sheet);
 }
 
-org::apache::poi::sl::draw::DrawSheet* org::apache::poi::sl::draw::DrawFactory::getDrawable(::org::apache::poi::sl::usermodel::Sheet* sheet)
+poi::sl::draw::DrawSheet* poi::sl::draw::DrawFactory::getDrawable(::poi::sl::usermodel::Sheet* sheet)
 {
     return new DrawSheet(sheet);
 }
 
-org::apache::poi::sl::draw::DrawMasterSheet* org::apache::poi::sl::draw::DrawFactory::getDrawable(::org::apache::poi::sl::usermodel::MasterSheet* sheet)
+poi::sl::draw::DrawMasterSheet* poi::sl::draw::DrawFactory::getDrawable(::poi::sl::usermodel::MasterSheet* sheet)
 {
     return new DrawMasterSheet(sheet);
 }
 
-org::apache::poi::sl::draw::DrawTextBox* org::apache::poi::sl::draw::DrawFactory::getDrawable(::org::apache::poi::sl::usermodel::TextBox* shape)
+poi::sl::draw::DrawTextBox* poi::sl::draw::DrawFactory::getDrawable(::poi::sl::usermodel::TextBox* shape)
 {
     return new DrawTextBox(shape);
 }
 
-org::apache::poi::sl::draw::DrawFreeformShape* org::apache::poi::sl::draw::DrawFactory::getDrawable(::org::apache::poi::sl::usermodel::FreeformShape* shape)
+poi::sl::draw::DrawFreeformShape* poi::sl::draw::DrawFactory::getDrawable(::poi::sl::usermodel::FreeformShape* shape)
 {
     return new DrawFreeformShape(shape);
 }
 
-org::apache::poi::sl::draw::DrawConnectorShape* org::apache::poi::sl::draw::DrawFactory::getDrawable(::org::apache::poi::sl::usermodel::ConnectorShape* shape)
+poi::sl::draw::DrawConnectorShape* poi::sl::draw::DrawFactory::getDrawable(::poi::sl::usermodel::ConnectorShape* shape)
 {
     return new DrawConnectorShape(shape);
 }
 
-org::apache::poi::sl::draw::DrawTableShape* org::apache::poi::sl::draw::DrawFactory::getDrawable(::org::apache::poi::sl::usermodel::TableShape* shape)
+poi::sl::draw::DrawTableShape* poi::sl::draw::DrawFactory::getDrawable(::poi::sl::usermodel::TableShape* shape)
 {
     return new DrawTableShape(shape);
 }
 
-org::apache::poi::sl::draw::DrawTextShape* org::apache::poi::sl::draw::DrawFactory::getDrawable(::org::apache::poi::sl::usermodel::TextShape* shape)
+poi::sl::draw::DrawTextShape* poi::sl::draw::DrawFactory::getDrawable(::poi::sl::usermodel::TextShape* shape)
 {
     return new DrawTextShape(shape);
 }
 
-org::apache::poi::sl::draw::DrawGroupShape* org::apache::poi::sl::draw::DrawFactory::getDrawable(::org::apache::poi::sl::usermodel::GroupShape* shape)
+poi::sl::draw::DrawGroupShape* poi::sl::draw::DrawFactory::getDrawable(::poi::sl::usermodel::GroupShape* shape)
 {
     return new DrawGroupShape(shape);
 }
 
-org::apache::poi::sl::draw::DrawPictureShape* org::apache::poi::sl::draw::DrawFactory::getDrawable(::org::apache::poi::sl::usermodel::PictureShape* shape)
+poi::sl::draw::DrawPictureShape* poi::sl::draw::DrawFactory::getDrawable(::poi::sl::usermodel::PictureShape* shape)
 {
     return new DrawPictureShape(shape);
 }
 
-org::apache::poi::sl::draw::DrawGraphicalFrame* org::apache::poi::sl::draw::DrawFactory::getDrawable(::org::apache::poi::sl::usermodel::GraphicalFrame* shape)
+poi::sl::draw::DrawGraphicalFrame* poi::sl::draw::DrawFactory::getDrawable(::poi::sl::usermodel::GraphicalFrame* shape)
 {
     return new DrawGraphicalFrame(shape);
 }
 
-org::apache::poi::sl::draw::DrawTextParagraph* org::apache::poi::sl::draw::DrawFactory::getDrawable(::org::apache::poi::sl::usermodel::TextParagraph* paragraph)
+poi::sl::draw::DrawTextParagraph* poi::sl::draw::DrawFactory::getDrawable(::poi::sl::usermodel::TextParagraph* paragraph)
 {
     return new DrawTextParagraph(paragraph);
 }
 
-org::apache::poi::sl::draw::DrawBackground* org::apache::poi::sl::draw::DrawFactory::getDrawable(::org::apache::poi::sl::usermodel::Background* shape)
+poi::sl::draw::DrawBackground* poi::sl::draw::DrawFactory::getDrawable(::poi::sl::usermodel::Background* shape)
 {
     return new DrawBackground(shape);
 }
 
-org::apache::poi::sl::draw::DrawTextFragment* org::apache::poi::sl::draw::DrawFactory::getTextFragment(::java::awt::font::TextLayout* layout, ::java::text::AttributedString* str)
+poi::sl::draw::DrawTextFragment* poi::sl::draw::DrawFactory::getTextFragment(::java::awt::font::TextLayout* layout, ::java::text::AttributedString* str)
 {
     return new DrawTextFragment(layout, str);
 }
 
-org::apache::poi::sl::draw::DrawPaint* org::apache::poi::sl::draw::DrawFactory::getPaint(::org::apache::poi::sl::usermodel::PlaceableShape* shape)
+poi::sl::draw::DrawPaint* poi::sl::draw::DrawFactory::getPaint(::poi::sl::usermodel::PlaceableShape* shape)
 {
     return new DrawPaint(shape);
 }
 
-void org::apache::poi::sl::draw::DrawFactory::drawShape(::java::awt::Graphics2D* graphics, ::org::apache::poi::sl::usermodel::Shape* shape, ::java::awt::geom::Rectangle2D* bounds)
+void poi::sl::draw::DrawFactory::drawShape(::java::awt::Graphics2D* graphics, ::poi::sl::usermodel::Shape* shape, ::java::awt::geom::Rectangle2D* bounds)
 {
     auto shapeBounds = npc(shape)->getAnchor();
     if(npc(shapeBounds)->isEmpty() || (bounds != nullptr && npc(bounds)->isEmpty())) {
@@ -283,7 +283,7 @@ void org::apache::poi::sl::draw::DrawFactory::drawShape(::java::awt::Graphics2D*
                 npc(tx)->translate(-npc(shapeBounds)->getCenterX(), -npc(shapeBounds)->getCenterY());
             }
             npc(graphics)->setRenderingHint(Drawable::GROUP_TRANSFORM(), tx);
-            auto d = getDrawable(static_cast< ::org::apache::poi::sl::usermodel::Shape* >(shape));
+            auto d = getDrawable(static_cast< ::poi::sl::usermodel::Shape* >(shape));
             npc(d)->applyTransform(graphics);
             npc(d)->draw(graphics);
         }
@@ -291,9 +291,9 @@ void org::apache::poi::sl::draw::DrawFactory::drawShape(::java::awt::Graphics2D*
 
 }
 
-void org::apache::poi::sl::draw::DrawFactory::fixFonts(::java::awt::Graphics2D* graphics)
+void poi::sl::draw::DrawFactory::fixFonts(::java::awt::Graphics2D* graphics)
 {
-    if(!::org::apache::poi::util::JvmBugs::hasLineBreakMeasurerBug())
+    if(!::poi::util::JvmBugs::hasLineBreakMeasurerBug())
         return;
 
     auto fontMap = java_cast< ::java::util::Map* >(npc(graphics)->getRenderingHint(Drawable::FONT_MAP()));
@@ -326,7 +326,7 @@ void org::apache::poi::sl::draw::DrawFactory::fixFonts(::java::awt::Graphics2D* 
     }
 }
 
-org::apache::poi::sl::draw::DrawFontManager* org::apache::poi::sl::draw::DrawFactory::getFontManager(::java::awt::Graphics2D* graphics)
+poi::sl::draw::DrawFontManager* poi::sl::draw::DrawFactory::getFontManager(::java::awt::Graphics2D* graphics)
 {
     auto fontHandler = java_cast< DrawFontManager* >(npc(graphics)->getRenderingHint(Drawable::FONT_HANDLER()));
     return (fontHandler != nullptr) ? fontHandler : static_cast< DrawFontManager* >(new DrawFontManagerDefault());
@@ -334,13 +334,13 @@ org::apache::poi::sl::draw::DrawFontManager* org::apache::poi::sl::draw::DrawFac
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::draw::DrawFactory::class_()
+java::lang::Class* poi::sl::draw::DrawFactory::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.draw.DrawFactory", 34);
     return c;
 }
 
-void org::apache::poi::sl::draw::DrawFactory::clinit()
+void poi::sl::draw::DrawFactory::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -356,7 +356,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::sl::draw::DrawFactory::getClass0()
+java::lang::Class* poi::sl::draw::DrawFactory::getClass0()
 {
     return class_();
 }

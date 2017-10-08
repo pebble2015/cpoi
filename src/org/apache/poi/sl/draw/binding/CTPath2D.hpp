@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::binding::CTPath2D
+class poi::sl::draw::binding::CTPath2D
     : public virtual ::java::lang::Object
 {
 

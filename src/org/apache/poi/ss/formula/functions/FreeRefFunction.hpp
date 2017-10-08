@@ -9,30 +9,24 @@
 #include <java/lang/Object.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
-struct org::apache::poi::ss::formula::functions::FreeRefFunction
+struct poi::ss::formula::functions::FreeRefFunction
     : public virtual ::java::lang::Object
 {
-    virtual ::org::apache::poi::ss::formula::eval::ValueEval* evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, ::org::apache::poi::ss::formula::OperationEvaluationContext* ec) = 0;
+    virtual ::poi::ss::formula::eval::ValueEval* evaluate(::poi::ss::formula::eval::ValueEvalArray* args, ::poi::ss::formula::OperationEvaluationContext* ec) = 0;
 
     // Generated
     static ::java::lang::Class *class_();

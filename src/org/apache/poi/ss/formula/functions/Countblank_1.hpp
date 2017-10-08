@@ -10,14 +10,14 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::Countblank_1
+class poi::ss::formula::functions::Countblank_1
     : public virtual ::java::lang::Object
     , public virtual CountUtils_I_MatchPredicate
 {
 
 public:
     typedef ::java::lang::Object super;
-    bool matches(::org::apache::poi::ss::formula::eval::ValueEval* valueEval) override;
+    bool matches(::poi::ss::formula::eval::ValueEval* valueEval) override;
 
     // Generated
     Countblank_1();

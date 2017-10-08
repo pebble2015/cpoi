@@ -11,27 +11,27 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::helpers::HSSFRowShifter final
-    : public ::org::apache::poi::ss::usermodel::helpers::RowShifter
+class poi::hssf::usermodel::helpers::HSSFRowShifter final
+    : public ::poi::ss::usermodel::helpers::RowShifter
 {
 
 public:
-    typedef ::org::apache::poi::ss::usermodel::helpers::RowShifter super;
+    typedef ::poi::ss::usermodel::helpers::RowShifter super;
 
 private:
-    static ::org::apache::poi::util::POILogger* logger_;
+    static ::poi::util::POILogger* logger_;
 protected:
-    void ctor(::org::apache::poi::hssf::usermodel::HSSFSheet* sh);
+    void ctor(::poi::hssf::usermodel::HSSFSheet* sh);
 
 public:
-    void updateNamedRanges(::org::apache::poi::ss::formula::FormulaShifter* shifter) override;
-    void updateFormulas(::org::apache::poi::ss::formula::FormulaShifter* shifter) override;
-    void updateRowFormulas(::org::apache::poi::ss::usermodel::Row* row, ::org::apache::poi::ss::formula::FormulaShifter* shifter) override;
-    void updateConditionalFormatting(::org::apache::poi::ss::formula::FormulaShifter* shifter) override;
-    void updateHyperlinks(::org::apache::poi::ss::formula::FormulaShifter* shifter) override;
+    void updateNamedRanges(::poi::ss::formula::FormulaShifter* shifter) override;
+    void updateFormulas(::poi::ss::formula::FormulaShifter* shifter) override;
+    void updateRowFormulas(::poi::ss::usermodel::Row* row, ::poi::ss::formula::FormulaShifter* shifter) override;
+    void updateConditionalFormatting(::poi::ss::formula::FormulaShifter* shifter) override;
+    void updateHyperlinks(::poi::ss::formula::FormulaShifter* shifter) override;
 
     // Generated
-    HSSFRowShifter(::org::apache::poi::hssf::usermodel::HSSFSheet* sh);
+    HSSFRowShifter(::poi::hssf::usermodel::HSSFSheet* sh);
 protected:
     HSSFRowShifter(const ::default_init_tag&);
 
@@ -41,6 +41,6 @@ public:
     static void clinit();
 
 private:
-    static ::org::apache::poi::util::POILogger*& logger();
+    static ::poi::util::POILogger*& logger();
     virtual ::java::lang::Class* getClass0();
 };

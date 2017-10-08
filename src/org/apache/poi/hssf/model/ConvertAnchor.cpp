@@ -27,25 +27,25 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::model::ConvertAnchor::ConvertAnchor(const ::default_init_tag&)
+poi::hssf::model::ConvertAnchor::ConvertAnchor(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::model::ConvertAnchor::ConvertAnchor()
+poi::hssf::model::ConvertAnchor::ConvertAnchor()
     : ConvertAnchor(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ddf::EscherRecord* org::apache::poi::hssf::model::ConvertAnchor::createAnchor(::org::apache::poi::hssf::usermodel::HSSFAnchor* userAnchor)
+poi::ddf::EscherRecord* poi::hssf::model::ConvertAnchor::createAnchor(::poi::hssf::usermodel::HSSFAnchor* userAnchor)
 {
     clinit();
-    if(dynamic_cast< ::org::apache::poi::hssf::usermodel::HSSFClientAnchor* >(userAnchor) != nullptr) {
-        auto a = java_cast< ::org::apache::poi::hssf::usermodel::HSSFClientAnchor* >(userAnchor);
-        auto anchor = new ::org::apache::poi::ddf::EscherClientAnchorRecord();
-        npc(anchor)->setRecordId(::org::apache::poi::ddf::EscherClientAnchorRecord::RECORD_ID);
+    if(dynamic_cast< ::poi::hssf::usermodel::HSSFClientAnchor* >(userAnchor) != nullptr) {
+        auto a = java_cast< ::poi::hssf::usermodel::HSSFClientAnchor* >(userAnchor);
+        auto anchor = new ::poi::ddf::EscherClientAnchorRecord();
+        npc(anchor)->setRecordId(::poi::ddf::EscherClientAnchorRecord::RECORD_ID);
         npc(anchor)->setOptions(static_cast< int16_t >(int32_t(0)));
         npc(anchor)->setFlag(npc(npc(a)->getAnchorType())->value);
         npc(anchor)->setCol1(static_cast< int16_t >(::java::lang::Math::min(static_cast< int32_t >(npc(a)->getCol1()), static_cast< int32_t >(npc(a)->getCol2()))));
@@ -58,9 +58,9 @@ org::apache::poi::ddf::EscherRecord* org::apache::poi::hssf::model::ConvertAncho
         npc(anchor)->setDy2(static_cast< int16_t >(npc(a)->getDy2()));
         return anchor;
     }
-    auto a = java_cast< ::org::apache::poi::hssf::usermodel::HSSFChildAnchor* >(userAnchor);
-    auto anchor = new ::org::apache::poi::ddf::EscherChildAnchorRecord();
-    npc(anchor)->setRecordId(::org::apache::poi::ddf::EscherChildAnchorRecord::RECORD_ID);
+    auto a = java_cast< ::poi::hssf::usermodel::HSSFChildAnchor* >(userAnchor);
+    auto anchor = new ::poi::ddf::EscherChildAnchorRecord();
+    npc(anchor)->setRecordId(::poi::ddf::EscherChildAnchorRecord::RECORD_ID);
     npc(anchor)->setOptions(static_cast< int16_t >(int32_t(0)));
     npc(anchor)->setDx1(static_cast< int16_t >(::java::lang::Math::min(npc(a)->getDx1(), npc(a)->getDx2())));
     npc(anchor)->setDy1(static_cast< int16_t >(::java::lang::Math::min(npc(a)->getDy1(), npc(a)->getDy2())));
@@ -71,13 +71,13 @@ org::apache::poi::ddf::EscherRecord* org::apache::poi::hssf::model::ConvertAncho
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::model::ConvertAnchor::class_()
+java::lang::Class* poi::hssf::model::ConvertAnchor::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.model.ConvertAnchor", 39);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::model::ConvertAnchor::getClass0()
+java::lang::Class* poi::hssf::model::ConvertAnchor::getClass0()
 {
     return class_();
 }

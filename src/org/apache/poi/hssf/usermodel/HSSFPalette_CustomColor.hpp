@@ -9,12 +9,12 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFPalette_CustomColor final
-    : public ::org::apache::poi::hssf::util::HSSFColor
+class poi::hssf::usermodel::HSSFPalette_CustomColor final
+    : public ::poi::hssf::util::HSSFColor
 {
 
 public:
-    typedef ::org::apache::poi::hssf::util::HSSFColor super;
+    typedef ::poi::hssf::util::HSSFColor super;
 
 private:
     int16_t _byteOffset {  };

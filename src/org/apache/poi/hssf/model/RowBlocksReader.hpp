@@ -18,29 +18,23 @@ typedef ::SubArray< ::java::lang::Cloneable, ObjectArray > CloneableArray;
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
-            {
-                namespace record
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::Record, RecordBaseArray > RecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::StandardRecord, RecordArray > StandardRecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::MergeCellsRecord, StandardRecordArray, ::java::lang::CloneableArray > MergeCellsRecordArray;
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
+typedef ::SubArray< ::poi::hssf::record::Record, RecordBaseArray > RecordArray;
+typedef ::SubArray< ::poi::hssf::record::StandardRecord, RecordArray > StandardRecordArray;
+typedef ::SubArray< ::poi::hssf::record::MergeCellsRecord, StandardRecordArray, ::java::lang::CloneableArray > MergeCellsRecordArray;
+        } // record
+    } // hssf
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::model::RowBlocksReader final
+class poi::hssf::model::RowBlocksReader final
     : public ::java::lang::Object
 {
 
@@ -49,14 +43,14 @@ public:
 
 private:
     ::java::util::List* _plainRecords {  };
-    ::org::apache::poi::hssf::record::aggregates::SharedValueManager* _sfm {  };
-    ::org::apache::poi::hssf::record::MergeCellsRecordArray* _mergedCellsRecords {  };
+    ::poi::hssf::record::aggregates::SharedValueManager* _sfm {  };
+    ::poi::hssf::record::MergeCellsRecordArray* _mergedCellsRecords {  };
 protected:
     void ctor(RecordStream* rs);
 
 public:
-    ::org::apache::poi::hssf::record::MergeCellsRecordArray* getLooseMergedCells();
-    ::org::apache::poi::hssf::record::aggregates::SharedValueManager* getSharedFormulaManager();
+    ::poi::hssf::record::MergeCellsRecordArray* getLooseMergedCells();
+    ::poi::hssf::record::aggregates::SharedValueManager* getSharedFormulaManager();
     RecordStream* getPlainRecordStream();
 
     // Generated

@@ -35,39 +35,39 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::PageBreakRecord::PageBreakRecord(const ::default_init_tag&)
+poi::hssf::record::PageBreakRecord::PageBreakRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::PageBreakRecord::PageBreakRecord() 
+poi::hssf::record::PageBreakRecord::PageBreakRecord() 
     : PageBreakRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::PageBreakRecord::PageBreakRecord(RecordInputStream* in) 
+poi::hssf::record::PageBreakRecord::PageBreakRecord(RecordInputStream* in) 
     : PageBreakRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-int32_tArray*& org::apache::poi::hssf::record::PageBreakRecord::EMPTY_INT_ARRAY()
+int32_tArray*& poi::hssf::record::PageBreakRecord::EMPTY_INT_ARRAY()
 {
     clinit();
     return EMPTY_INT_ARRAY_;
 }
-int32_tArray* org::apache::poi::hssf::record::PageBreakRecord::EMPTY_INT_ARRAY_;
+int32_tArray* poi::hssf::record::PageBreakRecord::EMPTY_INT_ARRAY_;
 
-void org::apache::poi::hssf::record::PageBreakRecord::ctor()
+void poi::hssf::record::PageBreakRecord::ctor()
 {
     super::ctor();
     _breaks = new ::java::util::ArrayList();
     _breakMap = new ::java::util::HashMap();
 }
 
-void org::apache::poi::hssf::record::PageBreakRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::PageBreakRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     int32_t nBreaks = npc(in)->readShort();
@@ -80,17 +80,17 @@ void org::apache::poi::hssf::record::PageBreakRecord::ctor(RecordInputStream* in
     }
 }
 
-bool org::apache::poi::hssf::record::PageBreakRecord::isEmpty()
+bool poi::hssf::record::PageBreakRecord::isEmpty()
 {
     return npc(_breaks)->isEmpty();
 }
 
-int32_t org::apache::poi::hssf::record::PageBreakRecord::getDataSize()
+int32_t poi::hssf::record::PageBreakRecord::getDataSize()
 {
     return int32_t(2) + npc(_breaks)->size() * PageBreakRecord_Break::ENCODED_SIZE;
 }
 
-void org::apache::poi::hssf::record::PageBreakRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::PageBreakRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     auto nBreaks = npc(_breaks)->size();
     npc(out)->writeShort(nBreaks);
@@ -99,17 +99,17 @@ void org::apache::poi::hssf::record::PageBreakRecord::serialize(::org::apache::p
     }
 }
 
-int32_t org::apache::poi::hssf::record::PageBreakRecord::getNumBreaks()
+int32_t poi::hssf::record::PageBreakRecord::getNumBreaks()
 {
     return npc(_breaks)->size();
 }
 
-java::util::Iterator* org::apache::poi::hssf::record::PageBreakRecord::getBreaksIterator()
+java::util::Iterator* poi::hssf::record::PageBreakRecord::getBreaksIterator()
 {
     return npc(_breaks)->iterator();
 }
 
-java::lang::String* org::apache::poi::hssf::record::PageBreakRecord::toString()
+java::lang::String* poi::hssf::record::PageBreakRecord::toString()
 {
     auto retval = new ::java::lang::StringBuffer();
     ::java::lang::String* label;
@@ -140,7 +140,7 @@ java::lang::String* org::apache::poi::hssf::record::PageBreakRecord::toString()
     return npc(retval)->toString();
 }
 
-void org::apache::poi::hssf::record::PageBreakRecord::addBreak(int32_t main, int32_t subFrom, int32_t subTo)
+void poi::hssf::record::PageBreakRecord::addBreak(int32_t main, int32_t subFrom, int32_t subTo)
 {
     auto key = ::java::lang::Integer::valueOf(main);
     auto region = java_cast< PageBreakRecord_Break* >(npc(_breakMap)->get(key));
@@ -155,7 +155,7 @@ void org::apache::poi::hssf::record::PageBreakRecord::addBreak(int32_t main, int
     }
 }
 
-void org::apache::poi::hssf::record::PageBreakRecord::removeBreak(int32_t main)
+void poi::hssf::record::PageBreakRecord::removeBreak(int32_t main)
 {
     auto rowKey = ::java::lang::Integer::valueOf(main);
     auto region = java_cast< PageBreakRecord_Break* >(npc(_breakMap)->get(rowKey));
@@ -163,13 +163,13 @@ void org::apache::poi::hssf::record::PageBreakRecord::removeBreak(int32_t main)
     npc(_breakMap)->remove(rowKey);
 }
 
-org::apache::poi::hssf::record::PageBreakRecord_Break* org::apache::poi::hssf::record::PageBreakRecord::getBreak(int32_t main)
+poi::hssf::record::PageBreakRecord_Break* poi::hssf::record::PageBreakRecord::getBreak(int32_t main)
 {
     auto rowKey = ::java::lang::Integer::valueOf(main);
     return java_cast< PageBreakRecord_Break* >(npc(_breakMap)->get(rowKey));
 }
 
-int32_tArray* org::apache::poi::hssf::record::PageBreakRecord::getBreaks()
+int32_tArray* poi::hssf::record::PageBreakRecord::getBreaks()
 {
     auto count = getNumBreaks();
     if(count < 1) {
@@ -185,13 +185,13 @@ int32_tArray* org::apache::poi::hssf::record::PageBreakRecord::getBreaks()
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::PageBreakRecord::class_()
+java::lang::Class* poi::hssf::record::PageBreakRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.PageBreakRecord", 42);
     return c;
 }
 
-void org::apache::poi::hssf::record::PageBreakRecord::clinit()
+void poi::hssf::record::PageBreakRecord::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -207,17 +207,17 @@ struct clinit_ {
     }
 }
 
-int32_t org::apache::poi::hssf::record::PageBreakRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::PageBreakRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::PageBreakRecord::serialize()
+int8_tArray* poi::hssf::record::PageBreakRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::PageBreakRecord::getClass0()
+java::lang::Class* poi::hssf::record::PageBreakRecord::getClass0()
 {
     return class_();
 }

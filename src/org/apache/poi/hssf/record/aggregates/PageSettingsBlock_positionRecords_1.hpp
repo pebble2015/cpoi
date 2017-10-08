@@ -10,14 +10,14 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::aggregates::PageSettingsBlock_positionRecords_1
+class poi::hssf::record::aggregates::PageSettingsBlock_positionRecords_1
     : public virtual ::java::lang::Object
     , public virtual RecordAggregate_RecordVisitor
 {
 
 public:
     typedef ::java::lang::Object super;
-    void visitRecord(::org::apache::poi::hssf::record::Record* r) override;
+    void visitRecord(::poi::hssf::record::Record* r) override;
 
     // Generated
     PageSettingsBlock_positionRecords_1(PageSettingsBlock *PageSettingsBlock_this, ::java::util::Map* hfGuidMap, CustomViewSettingsRecordAggregate* cv);

@@ -25,48 +25,42 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace sl
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace sl
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::sl::usermodel::TableCell_BorderEdge, ::java::lang::EnumArray > TableCell_BorderEdgeArray;
-                } // usermodel
-            } // sl
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::sl::usermodel::TableCell_BorderEdge, ::java::lang::EnumArray > TableCell_BorderEdgeArray;
+        } // usermodel
+    } // sl
+} // poi
 
-org::apache::poi::sl::usermodel::TableCell_BorderEdge::TableCell_BorderEdge(const ::default_init_tag&)
+poi::sl::usermodel::TableCell_BorderEdge::TableCell_BorderEdge(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::usermodel::TableCell_BorderEdge::TableCell_BorderEdge(::java::lang::String* name, int ordinal)
+poi::sl::usermodel::TableCell_BorderEdge::TableCell_BorderEdge(::java::lang::String* name, int ordinal)
     : TableCell_BorderEdge(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal);
 }
 
-org::apache::poi::sl::usermodel::TableCell_BorderEdge* org::apache::poi::sl::usermodel::TableCell_BorderEdge::bottom = new ::org::apache::poi::sl::usermodel::TableCell_BorderEdge(u"bottom"_j, 0);
-org::apache::poi::sl::usermodel::TableCell_BorderEdge* org::apache::poi::sl::usermodel::TableCell_BorderEdge::left = new ::org::apache::poi::sl::usermodel::TableCell_BorderEdge(u"left"_j, 1);
-org::apache::poi::sl::usermodel::TableCell_BorderEdge* org::apache::poi::sl::usermodel::TableCell_BorderEdge::top = new ::org::apache::poi::sl::usermodel::TableCell_BorderEdge(u"top"_j, 2);
-org::apache::poi::sl::usermodel::TableCell_BorderEdge* org::apache::poi::sl::usermodel::TableCell_BorderEdge::right = new ::org::apache::poi::sl::usermodel::TableCell_BorderEdge(u"right"_j, 3);
+poi::sl::usermodel::TableCell_BorderEdge* poi::sl::usermodel::TableCell_BorderEdge::bottom = new ::poi::sl::usermodel::TableCell_BorderEdge(u"bottom"_j, 0);
+poi::sl::usermodel::TableCell_BorderEdge* poi::sl::usermodel::TableCell_BorderEdge::left = new ::poi::sl::usermodel::TableCell_BorderEdge(u"left"_j, 1);
+poi::sl::usermodel::TableCell_BorderEdge* poi::sl::usermodel::TableCell_BorderEdge::top = new ::poi::sl::usermodel::TableCell_BorderEdge(u"top"_j, 2);
+poi::sl::usermodel::TableCell_BorderEdge* poi::sl::usermodel::TableCell_BorderEdge::right = new ::poi::sl::usermodel::TableCell_BorderEdge(u"right"_j, 3);
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::usermodel::TableCell_BorderEdge::class_()
+java::lang::Class* poi::sl::usermodel::TableCell_BorderEdge::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.usermodel.TableCell.BorderEdge", 48);
     return c;
 }
 
-org::apache::poi::sl::usermodel::TableCell_BorderEdge* org::apache::poi::sl::usermodel::TableCell_BorderEdge::valueOf(::java::lang::String* a0)
+poi::sl::usermodel::TableCell_BorderEdge* poi::sl::usermodel::TableCell_BorderEdge::valueOf(::java::lang::String* a0)
 {
     if(bottom->toString()->equals(a0))
         return bottom;
@@ -79,9 +73,9 @@ org::apache::poi::sl::usermodel::TableCell_BorderEdge* org::apache::poi::sl::use
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::sl::usermodel::TableCell_BorderEdgeArray* org::apache::poi::sl::usermodel::TableCell_BorderEdge::values()
+poi::sl::usermodel::TableCell_BorderEdgeArray* poi::sl::usermodel::TableCell_BorderEdge::values()
 {
-    return new org::apache::poi::sl::usermodel::TableCell_BorderEdgeArray({
+    return new poi::sl::usermodel::TableCell_BorderEdgeArray({
         bottom,
         left,
         right,
@@ -89,7 +83,7 @@ org::apache::poi::sl::usermodel::TableCell_BorderEdgeArray* org::apache::poi::sl
     });
 }
 
-java::lang::Class* org::apache::poi::sl::usermodel::TableCell_BorderEdge::getClass0()
+java::lang::Class* poi::sl::usermodel::TableCell_BorderEdge::getClass0()
 {
     return class_();
 }

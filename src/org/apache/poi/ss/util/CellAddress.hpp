@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::util::CellAddress
+class poi::ss::util::CellAddress
     : public virtual ::java::lang::Object
     , public virtual ::java::lang::Comparable
 {
@@ -28,7 +28,7 @@ protected:
     void ctor(::java::lang::String* address);
     void ctor(CellReference* reference);
     void ctor(CellAddress* address);
-    void ctor(::org::apache::poi::ss::usermodel::Cell* cell);
+    void ctor(::poi::ss::usermodel::Cell* cell);
 
 public:
     virtual int32_t getRow();
@@ -44,7 +44,7 @@ public:
     CellAddress(::java::lang::String* address);
     CellAddress(CellReference* reference);
     CellAddress(CellAddress* address);
-    CellAddress(::org::apache::poi::ss::usermodel::Cell* cell);
+    CellAddress(::poi::ss::usermodel::Cell* cell);
 protected:
     CellAddress(const ::default_init_tag&);
 

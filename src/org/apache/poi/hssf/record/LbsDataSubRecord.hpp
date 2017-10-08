@@ -28,7 +28,7 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::LbsDataSubRecord
+class poi::hssf::record::LbsDataSubRecord
     : public SubRecord
 {
 
@@ -39,7 +39,7 @@ public:
 private:
     int32_t _cbFContinued {  };
     int32_t _unknownPreFormulaInt {  };
-    ::org::apache::poi::ss::formula::ptg::Ptg* _linkPtg {  };
+    ::poi::ss::formula::ptg::Ptg* _linkPtg {  };
     ::java::lang::Byte* _unknownPostFormulaByte {  };
     int32_t _cLines {  };
     int32_t _iSel {  };
@@ -49,7 +49,7 @@ private:
     ::java::lang::StringArray* _rgLines {  };
     ::boolArray* _bsels {  };
 protected:
-    void ctor(::org::apache::poi::util::LittleEndianInput* in, int32_t cbFContinued, int32_t cmoOt);
+    void ctor(::poi::util::LittleEndianInput* in, int32_t cbFContinued, int32_t cmoOt);
     void ctor();
 
 public:
@@ -60,14 +60,14 @@ public: /* protected */
     int32_t getDataSize() override;
 
 public:
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
     LbsDataSubRecord* clone() override;
     ::java::lang::String* toString() override;
-    virtual ::org::apache::poi::ss::formula::ptg::Ptg* getFormula();
+    virtual ::poi::ss::formula::ptg::Ptg* getFormula();
     virtual int32_t getNumberOfItems();
 
     // Generated
-    LbsDataSubRecord(::org::apache::poi::util::LittleEndianInput* in, int32_t cbFContinued, int32_t cmoOt);
+    LbsDataSubRecord(::poi::util::LittleEndianInput* in, int32_t cbFContinued, int32_t cmoOt);
 
 public: /* package */
     LbsDataSubRecord();

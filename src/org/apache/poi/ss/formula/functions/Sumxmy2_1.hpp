@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::Sumxmy2_1
+class poi::ss::formula::functions::Sumxmy2_1
     : public virtual ::java::lang::Object
     , public virtual XYNumericFunction_Accumulator
 {

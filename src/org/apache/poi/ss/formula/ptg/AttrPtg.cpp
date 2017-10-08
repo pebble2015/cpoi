@@ -43,85 +43,85 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::ptg::AttrPtg::AttrPtg(const ::default_init_tag&)
+poi::ss::formula::ptg::AttrPtg::AttrPtg(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::ptg::AttrPtg::AttrPtg(::org::apache::poi::util::LittleEndianInput* in) 
+poi::ss::formula::ptg::AttrPtg::AttrPtg(::poi::util::LittleEndianInput* in) 
     : AttrPtg(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-org::apache::poi::ss::formula::ptg::AttrPtg::AttrPtg(int32_t options, int32_t data, ::int32_tArray* jt, int32_t chooseFuncOffset) 
+poi::ss::formula::ptg::AttrPtg::AttrPtg(int32_t options, int32_t data, ::int32_tArray* jt, int32_t chooseFuncOffset) 
     : AttrPtg(*static_cast< ::default_init_tag* >(0))
 {
     ctor(options,data,jt,chooseFuncOffset);
 }
 
-constexpr int8_t org::apache::poi::ss::formula::ptg::AttrPtg::sid;
+constexpr int8_t poi::ss::formula::ptg::AttrPtg::sid;
 
-constexpr int32_t org::apache::poi::ss::formula::ptg::AttrPtg::SIZE;
+constexpr int32_t poi::ss::formula::ptg::AttrPtg::SIZE;
 
-org::apache::poi::util::BitField*& org::apache::poi::ss::formula::ptg::AttrPtg::semiVolatile()
+poi::util::BitField*& poi::ss::formula::ptg::AttrPtg::semiVolatile()
 {
     clinit();
     return semiVolatile_;
 }
-org::apache::poi::util::BitField* org::apache::poi::ss::formula::ptg::AttrPtg::semiVolatile_;
+poi::util::BitField* poi::ss::formula::ptg::AttrPtg::semiVolatile_;
 
-org::apache::poi::util::BitField*& org::apache::poi::ss::formula::ptg::AttrPtg::optiIf()
+poi::util::BitField*& poi::ss::formula::ptg::AttrPtg::optiIf()
 {
     clinit();
     return optiIf_;
 }
-org::apache::poi::util::BitField* org::apache::poi::ss::formula::ptg::AttrPtg::optiIf_;
+poi::util::BitField* poi::ss::formula::ptg::AttrPtg::optiIf_;
 
-org::apache::poi::util::BitField*& org::apache::poi::ss::formula::ptg::AttrPtg::optiChoose()
+poi::util::BitField*& poi::ss::formula::ptg::AttrPtg::optiChoose()
 {
     clinit();
     return optiChoose_;
 }
-org::apache::poi::util::BitField* org::apache::poi::ss::formula::ptg::AttrPtg::optiChoose_;
+poi::util::BitField* poi::ss::formula::ptg::AttrPtg::optiChoose_;
 
-org::apache::poi::util::BitField*& org::apache::poi::ss::formula::ptg::AttrPtg::optiSkip()
+poi::util::BitField*& poi::ss::formula::ptg::AttrPtg::optiSkip()
 {
     clinit();
     return optiSkip_;
 }
-org::apache::poi::util::BitField* org::apache::poi::ss::formula::ptg::AttrPtg::optiSkip_;
+poi::util::BitField* poi::ss::formula::ptg::AttrPtg::optiSkip_;
 
-org::apache::poi::util::BitField*& org::apache::poi::ss::formula::ptg::AttrPtg::optiSum()
+poi::util::BitField*& poi::ss::formula::ptg::AttrPtg::optiSum()
 {
     clinit();
     return optiSum_;
 }
-org::apache::poi::util::BitField* org::apache::poi::ss::formula::ptg::AttrPtg::optiSum_;
+poi::util::BitField* poi::ss::formula::ptg::AttrPtg::optiSum_;
 
-org::apache::poi::util::BitField*& org::apache::poi::ss::formula::ptg::AttrPtg::baxcel()
+poi::util::BitField*& poi::ss::formula::ptg::AttrPtg::baxcel()
 {
     clinit();
     return baxcel_;
 }
-org::apache::poi::util::BitField* org::apache::poi::ss::formula::ptg::AttrPtg::baxcel_;
+poi::util::BitField* poi::ss::formula::ptg::AttrPtg::baxcel_;
 
-org::apache::poi::util::BitField*& org::apache::poi::ss::formula::ptg::AttrPtg::space()
+poi::util::BitField*& poi::ss::formula::ptg::AttrPtg::space()
 {
     clinit();
     return space_;
 }
-org::apache::poi::util::BitField* org::apache::poi::ss::formula::ptg::AttrPtg::space_;
+poi::util::BitField* poi::ss::formula::ptg::AttrPtg::space_;
 
-org::apache::poi::ss::formula::ptg::AttrPtg*& org::apache::poi::ss::formula::ptg::AttrPtg::SUM()
+poi::ss::formula::ptg::AttrPtg*& poi::ss::formula::ptg::AttrPtg::SUM()
 {
     clinit();
     return SUM_;
 }
-org::apache::poi::ss::formula::ptg::AttrPtg* org::apache::poi::ss::formula::ptg::AttrPtg::SUM_;
+poi::ss::formula::ptg::AttrPtg* poi::ss::formula::ptg::AttrPtg::SUM_;
 
-void org::apache::poi::ss::formula::ptg::AttrPtg::ctor(::org::apache::poi::util::LittleEndianInput* in)
+void poi::ss::formula::ptg::AttrPtg::ctor(::poi::util::LittleEndianInput* in)
 {
     super::ctor();
     _options = npc(in)->readByte();
@@ -140,7 +140,7 @@ void org::apache::poi::ss::formula::ptg::AttrPtg::ctor(::org::apache::poi::util:
     }
 }
 
-void org::apache::poi::ss::formula::ptg::AttrPtg::ctor(int32_t options, int32_t data, ::int32_tArray* jt, int32_t chooseFuncOffset)
+void poi::ss::formula::ptg::AttrPtg::ctor(int32_t options, int32_t data, ::int32_tArray* jt, int32_t chooseFuncOffset)
 {
     super::ctor();
     _options = static_cast< int8_t >(options);
@@ -149,77 +149,77 @@ void org::apache::poi::ss::formula::ptg::AttrPtg::ctor(int32_t options, int32_t 
     _chooseFuncOffset = chooseFuncOffset;
 }
 
-org::apache::poi::ss::formula::ptg::AttrPtg* org::apache::poi::ss::formula::ptg::AttrPtg::createSpace(int32_t type, int32_t count)
+poi::ss::formula::ptg::AttrPtg* poi::ss::formula::ptg::AttrPtg::createSpace(int32_t type, int32_t count)
 {
     clinit();
     auto data = type & int32_t(255) | (count << int32_t(8)) & int32_t(65535);
     return new AttrPtg(npc(space_)->set(0), data, nullptr, -int32_t(1));
 }
 
-org::apache::poi::ss::formula::ptg::AttrPtg* org::apache::poi::ss::formula::ptg::AttrPtg::createIf(int32_t dist)
+poi::ss::formula::ptg::AttrPtg* poi::ss::formula::ptg::AttrPtg::createIf(int32_t dist)
 {
     clinit();
     return new AttrPtg(npc(optiIf_)->set(0), dist, nullptr, -int32_t(1));
 }
 
-org::apache::poi::ss::formula::ptg::AttrPtg* org::apache::poi::ss::formula::ptg::AttrPtg::createSkip(int32_t dist)
+poi::ss::formula::ptg::AttrPtg* poi::ss::formula::ptg::AttrPtg::createSkip(int32_t dist)
 {
     clinit();
     return new AttrPtg(npc(optiSkip_)->set(0), dist, nullptr, -int32_t(1));
 }
 
-org::apache::poi::ss::formula::ptg::AttrPtg* org::apache::poi::ss::formula::ptg::AttrPtg::getSumSingle()
+poi::ss::formula::ptg::AttrPtg* poi::ss::formula::ptg::AttrPtg::getSumSingle()
 {
     clinit();
     return new AttrPtg(npc(optiSum_)->set(0), int32_t(0), nullptr, -int32_t(1));
 }
 
-bool org::apache::poi::ss::formula::ptg::AttrPtg::isSemiVolatile()
+bool poi::ss::formula::ptg::AttrPtg::isSemiVolatile()
 {
     return npc(semiVolatile_)->isSet(_options);
 }
 
-bool org::apache::poi::ss::formula::ptg::AttrPtg::isOptimizedIf()
+bool poi::ss::formula::ptg::AttrPtg::isOptimizedIf()
 {
     return npc(optiIf_)->isSet(_options);
 }
 
-bool org::apache::poi::ss::formula::ptg::AttrPtg::isOptimizedChoose()
+bool poi::ss::formula::ptg::AttrPtg::isOptimizedChoose()
 {
     return npc(optiChoose_)->isSet(_options);
 }
 
-bool org::apache::poi::ss::formula::ptg::AttrPtg::isSum()
+bool poi::ss::formula::ptg::AttrPtg::isSum()
 {
     return npc(optiSum_)->isSet(_options);
 }
 
-bool org::apache::poi::ss::formula::ptg::AttrPtg::isSkip()
+bool poi::ss::formula::ptg::AttrPtg::isSkip()
 {
     return npc(optiSkip_)->isSet(_options);
 }
 
-bool org::apache::poi::ss::formula::ptg::AttrPtg::isBaxcel()
+bool poi::ss::formula::ptg::AttrPtg::isBaxcel()
 {
     return npc(baxcel_)->isSet(_options);
 }
 
-bool org::apache::poi::ss::formula::ptg::AttrPtg::isSpace()
+bool poi::ss::formula::ptg::AttrPtg::isSpace()
 {
     return npc(space_)->isSet(_options);
 }
 
-int16_t org::apache::poi::ss::formula::ptg::AttrPtg::getData()
+int16_t poi::ss::formula::ptg::AttrPtg::getData()
 {
     return _data;
 }
 
-int32_tArray* org::apache::poi::ss::formula::ptg::AttrPtg::getJumpTable()
+int32_tArray* poi::ss::formula::ptg::AttrPtg::getJumpTable()
 {
     return npc(_jumpTable)->clone();
 }
 
-int32_t org::apache::poi::ss::formula::ptg::AttrPtg::getChooseFuncOffset()
+int32_t poi::ss::formula::ptg::AttrPtg::getChooseFuncOffset()
 {
     if(_jumpTable == nullptr) {
         throw new ::java::lang::IllegalStateException(u"Not tAttrChoose"_j);
@@ -227,7 +227,7 @@ int32_t org::apache::poi::ss::formula::ptg::AttrPtg::getChooseFuncOffset()
     return _chooseFuncOffset;
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::AttrPtg::toString()
+java::lang::String* poi::ss::formula::ptg::AttrPtg::toString()
 {
     auto sb = new ::java::lang::StringBuffer(int32_t(64));
     npc(npc(sb)->append(npc(getClass())->getName()))->append(u" ["_j);
@@ -253,7 +253,7 @@ java::lang::String* org::apache::poi::ss::formula::ptg::AttrPtg::toString()
     return npc(sb)->toString();
 }
 
-void org::apache::poi::ss::formula::ptg::AttrPtg::write(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::ss::formula::ptg::AttrPtg::write(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeByte(sid + getPtgClass());
     npc(out)->writeByte(_options);
@@ -267,15 +267,15 @@ void org::apache::poi::ss::formula::ptg::AttrPtg::write(::org::apache::poi::util
     }
 }
 
-int32_t org::apache::poi::ss::formula::ptg::AttrPtg::getSize()
+int32_t poi::ss::formula::ptg::AttrPtg::getSize()
 {
     if(_jumpTable != nullptr) {
-        return SIZE + (npc(_jumpTable)->length + int32_t(1)) * ::org::apache::poi::util::LittleEndian::SHORT_SIZE;
+        return SIZE + (npc(_jumpTable)->length + int32_t(1)) * ::poi::util::LittleEndian::SHORT_SIZE;
     }
     return SIZE;
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::AttrPtg::toFormulaString(::java::lang::StringArray* operands)
+java::lang::String* poi::ss::formula::ptg::AttrPtg::toFormulaString(::java::lang::StringArray* operands)
 {
     if(npc(space_)->isSet(_options)) {
         return (*operands)[int32_t(0)];
@@ -292,17 +292,17 @@ java::lang::String* org::apache::poi::ss::formula::ptg::AttrPtg::toFormulaString
     }
 }
 
-int32_t org::apache::poi::ss::formula::ptg::AttrPtg::getNumberOfOperands()
+int32_t poi::ss::formula::ptg::AttrPtg::getNumberOfOperands()
 {
     return 1;
 }
 
-int32_t org::apache::poi::ss::formula::ptg::AttrPtg::getType()
+int32_t poi::ss::formula::ptg::AttrPtg::getType()
 {
     return -int32_t(1);
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::AttrPtg::toFormulaString()
+java::lang::String* poi::ss::formula::ptg::AttrPtg::toFormulaString()
 {
     if(npc(semiVolatile_)->isSet(_options)) {
         return u"ATTR(semiVolatile)"_j;
@@ -330,26 +330,26 @@ java::lang::String* org::apache::poi::ss::formula::ptg::AttrPtg::toFormulaString
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::AttrPtg::class_()
+java::lang::Class* poi::ss::formula::ptg::AttrPtg::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.ptg.AttrPtg", 37);
     return c;
 }
 
-void org::apache::poi::ss::formula::ptg::AttrPtg::clinit()
+void poi::ss::formula::ptg::AttrPtg::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        semiVolatile_ = ::org::apache::poi::util::BitFieldFactory::getInstance(1);
-        optiIf_ = ::org::apache::poi::util::BitFieldFactory::getInstance(2);
-        optiChoose_ = ::org::apache::poi::util::BitFieldFactory::getInstance(4);
-        optiSkip_ = ::org::apache::poi::util::BitFieldFactory::getInstance(8);
-        optiSum_ = ::org::apache::poi::util::BitFieldFactory::getInstance(16);
-        baxcel_ = ::org::apache::poi::util::BitFieldFactory::getInstance(32);
-        space_ = ::org::apache::poi::util::BitFieldFactory::getInstance(64);
+        semiVolatile_ = ::poi::util::BitFieldFactory::getInstance(1);
+        optiIf_ = ::poi::util::BitFieldFactory::getInstance(2);
+        optiChoose_ = ::poi::util::BitFieldFactory::getInstance(4);
+        optiSkip_ = ::poi::util::BitFieldFactory::getInstance(8);
+        optiSum_ = ::poi::util::BitFieldFactory::getInstance(16);
+        baxcel_ = ::poi::util::BitFieldFactory::getInstance(32);
+        space_ = ::poi::util::BitFieldFactory::getInstance(64);
         SUM_ = new AttrPtg(int32_t(16), int32_t(0), nullptr, -int32_t(1));
     }
 };
@@ -359,7 +359,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::AttrPtg::getClass0()
+java::lang::Class* poi::ss::formula::ptg::AttrPtg::getClass0()
 {
     return class_();
 }

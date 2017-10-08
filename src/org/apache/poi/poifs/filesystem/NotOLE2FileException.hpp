@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::filesystem::NotOLE2FileException
+class poi::poifs::filesystem::NotOLE2FileException
     : public ::java::io::IOException
 {
 

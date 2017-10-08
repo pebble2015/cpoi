@@ -10,12 +10,12 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::LazyRefEval final
-    : public ::org::apache::poi::ss::formula::eval::RefEvalBase
+class poi::ss::formula::LazyRefEval final
+    : public ::poi::ss::formula::eval::RefEvalBase
 {
 
 public:
-    typedef ::org::apache::poi::ss::formula::eval::RefEvalBase super;
+    typedef ::poi::ss::formula::eval::RefEvalBase super;
 
 private:
     SheetRangeEvaluator* _evaluator {  };
@@ -23,8 +23,8 @@ protected:
     void ctor(int32_t rowIndex, int32_t columnIndex, SheetRangeEvaluator* sre);
 
 public:
-    ::org::apache::poi::ss::formula::eval::ValueEval* getInnerValueEval(int32_t sheetIndex) override;
-    ::org::apache::poi::ss::formula::eval::AreaEval* offset(int32_t relFirstRowIx, int32_t relLastRowIx, int32_t relFirstColIx, int32_t relLastColIx) override;
+    ::poi::ss::formula::eval::ValueEval* getInnerValueEval(int32_t sheetIndex) override;
+    ::poi::ss::formula::eval::AreaEval* offset(int32_t relFirstRowIx, int32_t relLastRowIx, int32_t relFirstColIx, int32_t relLastColIx) override;
     bool isSubTotal();
     ::java::lang::String* toString() override;
 

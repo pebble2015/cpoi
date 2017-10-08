@@ -7,7 +7,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::eval::EvaluationException final
+class poi::ss::formula::eval::EvaluationException final
     : public ::java::lang::Exception
 {
 

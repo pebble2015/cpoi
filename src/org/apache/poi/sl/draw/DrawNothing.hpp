@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::DrawNothing
+class poi::sl::draw::DrawNothing
     : public virtual ::java::lang::Object
     , public virtual Drawable
 {
@@ -19,9 +19,9 @@ public:
     typedef ::java::lang::Object super;
 
 public: /* protected */
-    ::org::apache::poi::sl::usermodel::Shape* shape {  };
+    ::poi::sl::usermodel::Shape* shape {  };
 protected:
-    void ctor(::org::apache::poi::sl::usermodel::Shape* shape);
+    void ctor(::poi::sl::usermodel::Shape* shape);
 
 public:
     void applyTransform(::java::awt::Graphics2D* graphics) override;
@@ -29,7 +29,7 @@ public:
     void drawContent(::java::awt::Graphics2D* context) override;
 
     // Generated
-    DrawNothing(::org::apache::poi::sl::usermodel::Shape* shape);
+    DrawNothing(::poi::sl::usermodel::Shape* shape);
 protected:
     DrawNothing(const ::default_init_tag&);
 

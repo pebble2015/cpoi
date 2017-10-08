@@ -7,7 +7,7 @@
 #include <org/apache/poi/common/usermodel/fonts/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::common::usermodel::fonts::FontInfo
+struct poi::common::usermodel::fonts::FontInfo
     : public virtual ::java::lang::Object
 {
     virtual ::java::lang::Integer* getIndex() = 0;

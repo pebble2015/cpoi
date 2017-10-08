@@ -23,26 +23,20 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
-            {
-                namespace formula
-                {
-typedef ::SubArray< ::org::apache::poi::ss::formula::FormulaType, ::java::lang::EnumArray > FormulaTypeArray;
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::FormulaType, ::java::lang::EnumArray > FormulaTypeArray;
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::FormulaType final
+class poi::ss::formula::FormulaType final
     : public ::java::lang::Enum
 {
 

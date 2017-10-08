@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::SharedValueRecordBase
+class poi::hssf::record::SharedValueRecordBase
     : public StandardRecord
 {
 
@@ -18,14 +18,14 @@ public:
     typedef StandardRecord super;
 
 private:
-    ::org::apache::poi::hssf::util::CellRangeAddress8Bit* _range {  };
+    ::poi::hssf::util::CellRangeAddress8Bit* _range {  };
 protected:
-    void ctor(::org::apache::poi::hssf::util::CellRangeAddress8Bit* range);
+    void ctor(::poi::hssf::util::CellRangeAddress8Bit* range);
     void ctor();
-    void ctor(::org::apache::poi::util::LittleEndianInput* in);
+    void ctor(::poi::util::LittleEndianInput* in);
 
 public:
-    ::org::apache::poi::hssf::util::CellRangeAddress8Bit* getRange();
+    ::poi::hssf::util::CellRangeAddress8Bit* getRange();
     int32_t getFirstRow();
     int32_t getLastRow();
     int32_t getFirstColumn();
@@ -34,21 +34,21 @@ public:
 public: /* protected */
     int32_t getDataSize() override;
     virtual int32_t getExtraDataSize() = 0;
-    virtual void serializeExtraData(::org::apache::poi::util::LittleEndianOutput* out) = 0;
+    virtual void serializeExtraData(::poi::util::LittleEndianOutput* out) = 0;
 
 public:
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
     bool isInRange(int32_t rowIx, int32_t colIx);
     bool isFirstCell(int32_t rowIx, int32_t colIx);
 
     // Generated
 
 public: /* protected */
-    SharedValueRecordBase(::org::apache::poi::hssf::util::CellRangeAddress8Bit* range);
+    SharedValueRecordBase(::poi::hssf::util::CellRangeAddress8Bit* range);
     SharedValueRecordBase();
 
 public:
-    SharedValueRecordBase(::org::apache::poi::util::LittleEndianInput* in);
+    SharedValueRecordBase(::poi::util::LittleEndianInput* in);
 protected:
     SharedValueRecordBase(const ::default_init_tag&);
 

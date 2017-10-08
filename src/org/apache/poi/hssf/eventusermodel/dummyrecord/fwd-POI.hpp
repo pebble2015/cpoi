@@ -2,25 +2,19 @@
 #pragma once
 
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace eventusermodel
         {
-            namespace hssf
+            namespace dummyrecord
             {
-                namespace eventusermodel
-                {
-                    namespace dummyrecord
-                    {
-                        class DummyRecordBase;
-                        class LastCellOfRowDummyRecord;
-                        class MissingCellDummyRecord;
-                        class MissingRowDummyRecord;
-                    } // dummyrecord
-                } // eventusermodel
-            } // hssf
-        } // poi
-    } // apache
-} // org
+                class DummyRecordBase;
+                class LastCellOfRowDummyRecord;
+                class MissingCellDummyRecord;
+                class MissingRowDummyRecord;
+            } // dummyrecord
+        } // eventusermodel
+    } // hssf
+} // poi

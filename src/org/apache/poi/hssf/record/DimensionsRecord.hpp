@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::DimensionsRecord final
+class poi::hssf::record::DimensionsRecord final
     : public StandardRecord
     , public ::java::lang::Cloneable
 {
@@ -20,7 +20,7 @@ public:
     typedef StandardRecord super;
 
 private:
-    static ::org::apache::poi::util::POILogger* logger_;
+    static ::poi::util::POILogger* logger_;
 
 public:
     static constexpr int16_t sid { int16_t(512) };
@@ -45,7 +45,7 @@ public:
     int16_t getFirstCol();
     int16_t getLastCol();
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;
@@ -68,6 +68,6 @@ public:
     ::int8_tArray* serialize();
 
 private:
-    static ::org::apache::poi::util::POILogger*& logger();
+    static ::poi::util::POILogger*& logger();
     virtual ::java::lang::Class* getClass0();
 };

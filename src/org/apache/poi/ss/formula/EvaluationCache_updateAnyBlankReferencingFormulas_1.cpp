@@ -12,7 +12,7 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::EvaluationCache_updateAnyBlankReferencingFormulas_1::EvaluationCache_updateAnyBlankReferencingFormulas_1(EvaluationCache *EvaluationCache_this, FormulaUsedBlankCellSet_BookSheetKey* bsk, int32_t rowIndex, int32_t columnIndex)
+poi::ss::formula::EvaluationCache_updateAnyBlankReferencingFormulas_1::EvaluationCache_updateAnyBlankReferencingFormulas_1(EvaluationCache *EvaluationCache_this, FormulaUsedBlankCellSet_BookSheetKey* bsk, int32_t rowIndex, int32_t columnIndex)
     : super(*static_cast< ::default_init_tag* >(0))
     , EvaluationCache_this(EvaluationCache_this)
     , bsk(bsk)
@@ -23,20 +23,20 @@ org::apache::poi::ss::formula::EvaluationCache_updateAnyBlankReferencingFormulas
     ctor();
 }
 
-void org::apache::poi::ss::formula::EvaluationCache_updateAnyBlankReferencingFormulas_1::processEntry(FormulaCellCacheEntry* entry)
+void poi::ss::formula::EvaluationCache_updateAnyBlankReferencingFormulas_1::processEntry(FormulaCellCacheEntry* entry)
 {
     npc(entry)->notifyUpdatedBlankCell(bsk, rowIndex, columnIndex, EvaluationCache_this->_evaluationListener);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::EvaluationCache_updateAnyBlankReferencingFormulas_1::class_()
+java::lang::Class* poi::ss::formula::EvaluationCache_updateAnyBlankReferencingFormulas_1::class_()
 {
     static ::java::lang::Class* c = ::class_(u"", 0);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::EvaluationCache_updateAnyBlankReferencingFormulas_1::getClass0()
+java::lang::Class* poi::ss::formula::EvaluationCache_updateAnyBlankReferencingFormulas_1::getClass0()
 {
     return class_();
 }

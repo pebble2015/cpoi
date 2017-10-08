@@ -11,52 +11,46 @@
 #include <org/apache/poi/ss/formula/EvaluationName.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFEvaluationWorkbook_Name final
+class poi::hssf::usermodel::HSSFEvaluationWorkbook_Name final
     : public virtual ::java::lang::Object
-    , public ::org::apache::poi::ss::formula::EvaluationName
+    , public ::poi::ss::formula::EvaluationName
 {
 
 public:
     typedef ::java::lang::Object super;
 
 private:
-    ::org::apache::poi::hssf::record::NameRecord* _nameRecord {  };
+    ::poi::hssf::record::NameRecord* _nameRecord {  };
     int32_t _index {  };
 protected:
-    void ctor(::org::apache::poi::hssf::record::NameRecord* nameRecord, int32_t index);
+    void ctor(::poi::hssf::record::NameRecord* nameRecord, int32_t index);
 
 public:
-    ::org::apache::poi::ss::formula::ptg::PtgArray* getNameDefinition() override;
+    ::poi::ss::formula::ptg::PtgArray* getNameDefinition() override;
     ::java::lang::String* getNameText() override;
     bool hasFormula() override;
     bool isFunctionName() override;
     bool isRange() override;
-    ::org::apache::poi::ss::formula::ptg::NamePtg* createPtg() override;
+    ::poi::ss::formula::ptg::NamePtg* createPtg() override;
 
     // Generated
-    HSSFEvaluationWorkbook_Name(::org::apache::poi::hssf::record::NameRecord* nameRecord, int32_t index);
+    HSSFEvaluationWorkbook_Name(::poi::hssf::record::NameRecord* nameRecord, int32_t index);
 protected:
     HSSFEvaluationWorkbook_Name(const ::default_init_tag&);
 

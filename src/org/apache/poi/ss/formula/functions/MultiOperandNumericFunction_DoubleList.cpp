@@ -13,26 +13,26 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::MultiOperandNumericFunction_DoubleList::MultiOperandNumericFunction_DoubleList(const ::default_init_tag&)
+poi::ss::formula::functions::MultiOperandNumericFunction_DoubleList::MultiOperandNumericFunction_DoubleList(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::MultiOperandNumericFunction_DoubleList::MultiOperandNumericFunction_DoubleList() 
+poi::ss::formula::functions::MultiOperandNumericFunction_DoubleList::MultiOperandNumericFunction_DoubleList() 
     : MultiOperandNumericFunction_DoubleList(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::ss::formula::functions::MultiOperandNumericFunction_DoubleList::ctor()
+void poi::ss::formula::functions::MultiOperandNumericFunction_DoubleList::ctor()
 {
     super::ctor();
     _array = new ::doubleArray(int32_t(8));
     _count = 0;
 }
 
-doubleArray* org::apache::poi::ss::formula::functions::MultiOperandNumericFunction_DoubleList::toArray_()
+doubleArray* poi::ss::formula::functions::MultiOperandNumericFunction_DoubleList::toArray_()
 {
     if(_count < 1) {
         return MultiOperandNumericFunction::EMPTY_DOUBLE_ARRAY();
@@ -42,7 +42,7 @@ doubleArray* org::apache::poi::ss::formula::functions::MultiOperandNumericFuncti
     return result;
 }
 
-void org::apache::poi::ss::formula::functions::MultiOperandNumericFunction_DoubleList::ensureCapacity(int32_t reqSize)
+void poi::ss::formula::functions::MultiOperandNumericFunction_DoubleList::ensureCapacity(int32_t reqSize)
 {
     if(reqSize > npc(_array)->length) {
         auto newSize = reqSize * int32_t(3) / int32_t(2);
@@ -52,7 +52,7 @@ void org::apache::poi::ss::formula::functions::MultiOperandNumericFunction_Doubl
     }
 }
 
-void org::apache::poi::ss::formula::functions::MultiOperandNumericFunction_DoubleList::add(double value)
+void poi::ss::formula::functions::MultiOperandNumericFunction_DoubleList::add(double value)
 {
     ensureCapacity(_count + int32_t(1));
     (*_array)[_count] = value;
@@ -61,13 +61,13 @@ void org::apache::poi::ss::formula::functions::MultiOperandNumericFunction_Doubl
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::MultiOperandNumericFunction_DoubleList::class_()
+java::lang::Class* poi::ss::formula::functions::MultiOperandNumericFunction_DoubleList::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.MultiOperandNumericFunction.DoubleList", 74);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::MultiOperandNumericFunction_DoubleList::getClass0()
+java::lang::Class* poi::ss::formula::functions::MultiOperandNumericFunction_DoubleList::getClass0()
 {
     return class_();
 }

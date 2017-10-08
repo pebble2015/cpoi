@@ -6,7 +6,7 @@
 #include <org/apache/poi/poifs/storage/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::poifs::storage::BlockWritable
+struct poi::poifs::storage::BlockWritable
     : public virtual ::java::lang::Object
 {
     virtual void writeBlocks(::java::io::OutputStream* stream) /* throws(IOException) */ = 0;

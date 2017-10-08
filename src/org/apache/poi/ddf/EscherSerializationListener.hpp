@@ -6,7 +6,7 @@
 #include <org/apache/poi/ddf/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ddf::EscherSerializationListener
+struct poi::ddf::EscherSerializationListener
     : public virtual ::java::lang::Object
 {
     virtual void beforeRecordSerialize(int32_t offset, int16_t recordId, EscherRecord* record) = 0;

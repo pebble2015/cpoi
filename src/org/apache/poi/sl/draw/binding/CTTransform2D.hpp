@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::binding::CTTransform2D
+class poi::sl::draw::binding::CTTransform2D
     : public virtual ::java::lang::Object
 {
 

@@ -31,22 +31,16 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace hssf
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag, ::java::lang::EnumArray > HeaderFooter_MarkupTagArray;
-                } // usermodel
-            } // hssf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hssf::usermodel::HeaderFooter_MarkupTag, ::java::lang::EnumArray > HeaderFooter_MarkupTagArray;
+        } // usermodel
+    } // hssf
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -55,24 +49,24 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::usermodel::HeaderFooter::HeaderFooter(const ::default_init_tag&)
+poi::hssf::usermodel::HeaderFooter::HeaderFooter(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::usermodel::HeaderFooter::HeaderFooter() 
+poi::hssf::usermodel::HeaderFooter::HeaderFooter() 
     : HeaderFooter(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::hssf::usermodel::HeaderFooter::ctor()
+void poi::hssf::usermodel::HeaderFooter::ctor()
 {
     super::ctor();
 }
 
-java::lang::StringArray* org::apache::poi::hssf::usermodel::HeaderFooter::splitParts()
+java::lang::StringArray* poi::hssf::usermodel::HeaderFooter::splitParts()
 {
     auto text = getRawText();
     auto _left = u""_j;
@@ -132,44 +126,44 @@ outer0_break:;
     });
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HeaderFooter::getLeft()
+java::lang::String* poi::hssf::usermodel::HeaderFooter::getLeft()
 {
     return (*splitParts())[int32_t(0)];
 }
 
-void org::apache::poi::hssf::usermodel::HeaderFooter::setLeft(::java::lang::String* newLeft)
+void poi::hssf::usermodel::HeaderFooter::setLeft(::java::lang::String* newLeft)
 {
     updatePart(0, newLeft);
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HeaderFooter::getCenter()
+java::lang::String* poi::hssf::usermodel::HeaderFooter::getCenter()
 {
     return (*splitParts())[int32_t(1)];
 }
 
-void org::apache::poi::hssf::usermodel::HeaderFooter::setCenter(::java::lang::String* newCenter)
+void poi::hssf::usermodel::HeaderFooter::setCenter(::java::lang::String* newCenter)
 {
     updatePart(1, newCenter);
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HeaderFooter::getRight()
+java::lang::String* poi::hssf::usermodel::HeaderFooter::getRight()
 {
     return (*splitParts())[int32_t(2)];
 }
 
-void org::apache::poi::hssf::usermodel::HeaderFooter::setRight(::java::lang::String* newRight)
+void poi::hssf::usermodel::HeaderFooter::setRight(::java::lang::String* newRight)
 {
     updatePart(2, newRight);
 }
 
-void org::apache::poi::hssf::usermodel::HeaderFooter::updatePart(int32_t partIndex, ::java::lang::String* newValue)
+void poi::hssf::usermodel::HeaderFooter::updatePart(int32_t partIndex, ::java::lang::String* newValue)
 {
     auto parts = splitParts();
     parts->set(partIndex, newValue == nullptr ? u""_j : newValue);
     updateHeaderFooterText(parts);
 }
 
-void org::apache::poi::hssf::usermodel::HeaderFooter::updateHeaderFooterText(::java::lang::StringArray* parts)
+void poi::hssf::usermodel::HeaderFooter::updateHeaderFooterText(::java::lang::StringArray* parts)
 {
     auto _left = (*parts)[int32_t(0)];
     auto _center = (*parts)[int32_t(1)];
@@ -189,13 +183,13 @@ void org::apache::poi::hssf::usermodel::HeaderFooter::updateHeaderFooterText(::j
     setHeaderFooterText(text);
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HeaderFooter::fontSize(int16_t size)
+java::lang::String* poi::hssf::usermodel::HeaderFooter::fontSize(int16_t size)
 {
     clinit();
     return ::java::lang::StringBuilder().append(u"&"_j)->append(size)->toString();
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HeaderFooter::font(::java::lang::String* font, ::java::lang::String* style)
+java::lang::String* poi::hssf::usermodel::HeaderFooter::font(::java::lang::String* font, ::java::lang::String* style)
 {
     clinit();
     return ::java::lang::StringBuilder().append(u"&\""_j)->append(font)
@@ -204,79 +198,79 @@ java::lang::String* org::apache::poi::hssf::usermodel::HeaderFooter::font(::java
         ->append(u"\""_j)->toString();
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HeaderFooter::page()
+java::lang::String* poi::hssf::usermodel::HeaderFooter::page()
 {
     clinit();
     return npc(HeaderFooter_MarkupTag::PAGE_FIELD)->getRepresentation();
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HeaderFooter::numPages()
+java::lang::String* poi::hssf::usermodel::HeaderFooter::numPages()
 {
     clinit();
     return npc(HeaderFooter_MarkupTag::NUM_PAGES_FIELD)->getRepresentation();
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HeaderFooter::date()
+java::lang::String* poi::hssf::usermodel::HeaderFooter::date()
 {
     clinit();
     return npc(HeaderFooter_MarkupTag::DATE_FIELD)->getRepresentation();
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HeaderFooter::time()
+java::lang::String* poi::hssf::usermodel::HeaderFooter::time()
 {
     clinit();
     return npc(HeaderFooter_MarkupTag::TIME_FIELD)->getRepresentation();
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HeaderFooter::file()
+java::lang::String* poi::hssf::usermodel::HeaderFooter::file()
 {
     clinit();
     return npc(HeaderFooter_MarkupTag::FILE_FIELD)->getRepresentation();
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HeaderFooter::tab()
+java::lang::String* poi::hssf::usermodel::HeaderFooter::tab()
 {
     clinit();
     return npc(HeaderFooter_MarkupTag::SHEET_NAME_FIELD)->getRepresentation();
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HeaderFooter::startBold()
+java::lang::String* poi::hssf::usermodel::HeaderFooter::startBold()
 {
     clinit();
     return npc(HeaderFooter_MarkupTag::BOLD_FIELD)->getRepresentation();
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HeaderFooter::endBold()
+java::lang::String* poi::hssf::usermodel::HeaderFooter::endBold()
 {
     clinit();
     return npc(HeaderFooter_MarkupTag::BOLD_FIELD)->getRepresentation();
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HeaderFooter::startUnderline()
+java::lang::String* poi::hssf::usermodel::HeaderFooter::startUnderline()
 {
     clinit();
     return npc(HeaderFooter_MarkupTag::UNDERLINE_FIELD)->getRepresentation();
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HeaderFooter::endUnderline()
+java::lang::String* poi::hssf::usermodel::HeaderFooter::endUnderline()
 {
     clinit();
     return npc(HeaderFooter_MarkupTag::UNDERLINE_FIELD)->getRepresentation();
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HeaderFooter::startDoubleUnderline()
+java::lang::String* poi::hssf::usermodel::HeaderFooter::startDoubleUnderline()
 {
     clinit();
     return npc(HeaderFooter_MarkupTag::DOUBLE_UNDERLINE_FIELD)->getRepresentation();
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HeaderFooter::endDoubleUnderline()
+java::lang::String* poi::hssf::usermodel::HeaderFooter::endDoubleUnderline()
 {
     clinit();
     return npc(HeaderFooter_MarkupTag::DOUBLE_UNDERLINE_FIELD)->getRepresentation();
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HeaderFooter::stripFields(::java::lang::String* pText)
+java::lang::String* poi::hssf::usermodel::HeaderFooter::stripFields(::java::lang::String* pText)
 {
     clinit();
     int32_t pos;
@@ -297,13 +291,13 @@ java::lang::String* org::apache::poi::hssf::usermodel::HeaderFooter::stripFields
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HeaderFooter::class_()
+java::lang::Class* poi::hssf::usermodel::HeaderFooter::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.usermodel.HeaderFooter", 42);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HeaderFooter::getClass0()
+java::lang::Class* poi::hssf::usermodel::HeaderFooter::getClass0()
 {
     return class_();
 }

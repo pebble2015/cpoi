@@ -6,7 +6,7 @@
 #include <org/apache/poi/wp/usermodel/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::wp::usermodel::Paragraph
+struct poi::wp::usermodel::Paragraph
     : public virtual ::java::lang::Object
 {
     virtual int32_t getIndentFromRight() = 0;

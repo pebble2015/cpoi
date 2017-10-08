@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::NameIdentifier
+class poi::ss::formula::NameIdentifier
     : public virtual ::java::lang::Object
 {
 

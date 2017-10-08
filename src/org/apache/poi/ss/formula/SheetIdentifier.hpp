@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::SheetIdentifier
+class poi::ss::formula::SheetIdentifier
     : public virtual ::java::lang::Object
 {
 

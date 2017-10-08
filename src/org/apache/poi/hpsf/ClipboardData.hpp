@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hpsf::ClipboardData
+class poi::hpsf::ClipboardData
     : public virtual ::java::lang::Object
 {
 
@@ -17,14 +17,14 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    static ::org::apache::poi::util::POILogger* LOG_;
+    static ::poi::util::POILogger* LOG_;
     int32_t _format {  };
     ::int8_tArray* _value {  };
 protected:
     void ctor();
 
 public: /* package */
-    virtual void read(::org::apache::poi::util::LittleEndianByteArrayInputStream* lei);
+    virtual void read(::poi::util::LittleEndianByteArrayInputStream* lei);
     virtual ::int8_tArray* getValue();
     virtual ::int8_tArray* toByteArray_();
     virtual void setValue(::int8_tArray* value);
@@ -41,6 +41,6 @@ public:
 
 private:
     void init();
-    static ::org::apache::poi::util::POILogger*& LOG();
+    static ::poi::util::POILogger*& LOG();
     virtual ::java::lang::Class* getClass0();
 };

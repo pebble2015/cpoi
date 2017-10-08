@@ -7,7 +7,7 @@
 #include <org/apache/poi/ss/usermodel/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::usermodel::RichTextString
+struct poi::ss::usermodel::RichTextString
     : public virtual ::java::lang::Object
 {
     virtual void applyFont(int32_t startIndex, int32_t endIndex, int16_t fontIndex) = 0;

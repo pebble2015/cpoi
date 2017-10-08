@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::LookupUtils_StringLookupComparer final
+class poi::ss::formula::functions::LookupUtils_StringLookupComparer final
     : public LookupUtils_LookupValueComparerBase
 {
 
@@ -24,14 +24,14 @@ private:
     bool _matchExact {  };
     bool _isMatchFunction {  };
 protected:
-    void ctor(::org::apache::poi::ss::formula::eval::StringEval* se, bool matchExact, bool isMatchFunction);
+    void ctor(::poi::ss::formula::eval::StringEval* se, bool matchExact, bool isMatchFunction);
 
 public: /* protected */
-    LookupUtils_CompareResult* compareSameType(::org::apache::poi::ss::formula::eval::ValueEval* other) override;
+    LookupUtils_CompareResult* compareSameType(::poi::ss::formula::eval::ValueEval* other) override;
     ::java::lang::String* getValueAsString() override;
 
     // Generated
-    LookupUtils_StringLookupComparer(::org::apache::poi::ss::formula::eval::StringEval* se, bool matchExact, bool isMatchFunction);
+    LookupUtils_StringLookupComparer(::poi::ss::formula::eval::StringEval* se, bool matchExact, bool isMatchFunction);
 protected:
     LookupUtils_StringLookupComparer(const ::default_init_tag&);
 

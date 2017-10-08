@@ -33,22 +33,16 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace ss
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::FormulaError, ::java::lang::EnumArray > FormulaErrorArray;
-                } // usermodel
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::usermodel::FormulaError, ::java::lang::EnumArray > FormulaErrorArray;
+        } // usermodel
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -66,29 +60,29 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::usermodel::FormulaError::FormulaError(const ::default_init_tag&)
+poi::ss::usermodel::FormulaError::FormulaError(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::usermodel::FormulaError::FormulaError(::java::lang::String* name, int ordinal, int32_t type, ::java::lang::String* repr) 
+poi::ss::usermodel::FormulaError::FormulaError(::java::lang::String* name, int ordinal, int32_t type, ::java::lang::String* repr) 
     : FormulaError(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal, type,repr);
 }
 
-org::apache::poi::ss::usermodel::FormulaError* org::apache::poi::ss::usermodel::FormulaError::_NO_ERROR = new ::org::apache::poi::ss::usermodel::FormulaError(u"_NO_ERROR"_j, 0, -int32_t(1), u"(no error)"_j);
-org::apache::poi::ss::usermodel::FormulaError* org::apache::poi::ss::usermodel::FormulaError::NULL_ = new ::org::apache::poi::ss::usermodel::FormulaError(u"NULL_"_j, 1, int32_t(0), u"#NULL!"_j);
-org::apache::poi::ss::usermodel::FormulaError* org::apache::poi::ss::usermodel::FormulaError::DIV0 = new ::org::apache::poi::ss::usermodel::FormulaError(u"DIV0"_j, 2, int32_t(7), u"#DIV/0!"_j);
-org::apache::poi::ss::usermodel::FormulaError* org::apache::poi::ss::usermodel::FormulaError::VALUE = new ::org::apache::poi::ss::usermodel::FormulaError(u"VALUE"_j, 3, int32_t(15), u"#VALUE!"_j);
-org::apache::poi::ss::usermodel::FormulaError* org::apache::poi::ss::usermodel::FormulaError::REF = new ::org::apache::poi::ss::usermodel::FormulaError(u"REF"_j, 4, int32_t(23), u"#REF!"_j);
-org::apache::poi::ss::usermodel::FormulaError* org::apache::poi::ss::usermodel::FormulaError::NAME = new ::org::apache::poi::ss::usermodel::FormulaError(u"NAME"_j, 5, int32_t(29), u"#NAME?"_j);
-org::apache::poi::ss::usermodel::FormulaError* org::apache::poi::ss::usermodel::FormulaError::NUM = new ::org::apache::poi::ss::usermodel::FormulaError(u"NUM"_j, 6, int32_t(36), u"#NUM!"_j);
-org::apache::poi::ss::usermodel::FormulaError* org::apache::poi::ss::usermodel::FormulaError::NA = new ::org::apache::poi::ss::usermodel::FormulaError(u"NA"_j, 7, int32_t(42), u"#N/A"_j);
-org::apache::poi::ss::usermodel::FormulaError* org::apache::poi::ss::usermodel::FormulaError::CIRCULAR_REF = new ::org::apache::poi::ss::usermodel::FormulaError(u"CIRCULAR_REF"_j, 8, int32_t(-60), u"~CIRCULAR~REF~"_j);
-org::apache::poi::ss::usermodel::FormulaError* org::apache::poi::ss::usermodel::FormulaError::FUNCTION_NOT_IMPLEMENTED = new ::org::apache::poi::ss::usermodel::FormulaError(u"FUNCTION_NOT_IMPLEMENTED"_j, 9, int32_t(-30), u"~FUNCTION~NOT~IMPLEMENTED~"_j);
-void org::apache::poi::ss::usermodel::FormulaError::ctor(::java::lang::String* name, int ordinal, int32_t type, ::java::lang::String* repr)
+poi::ss::usermodel::FormulaError* poi::ss::usermodel::FormulaError::_NO_ERROR = new ::poi::ss::usermodel::FormulaError(u"_NO_ERROR"_j, 0, -int32_t(1), u"(no error)"_j);
+poi::ss::usermodel::FormulaError* poi::ss::usermodel::FormulaError::NULL_ = new ::poi::ss::usermodel::FormulaError(u"NULL_"_j, 1, int32_t(0), u"#NULL!"_j);
+poi::ss::usermodel::FormulaError* poi::ss::usermodel::FormulaError::DIV0 = new ::poi::ss::usermodel::FormulaError(u"DIV0"_j, 2, int32_t(7), u"#DIV/0!"_j);
+poi::ss::usermodel::FormulaError* poi::ss::usermodel::FormulaError::VALUE = new ::poi::ss::usermodel::FormulaError(u"VALUE"_j, 3, int32_t(15), u"#VALUE!"_j);
+poi::ss::usermodel::FormulaError* poi::ss::usermodel::FormulaError::REF = new ::poi::ss::usermodel::FormulaError(u"REF"_j, 4, int32_t(23), u"#REF!"_j);
+poi::ss::usermodel::FormulaError* poi::ss::usermodel::FormulaError::NAME = new ::poi::ss::usermodel::FormulaError(u"NAME"_j, 5, int32_t(29), u"#NAME?"_j);
+poi::ss::usermodel::FormulaError* poi::ss::usermodel::FormulaError::NUM = new ::poi::ss::usermodel::FormulaError(u"NUM"_j, 6, int32_t(36), u"#NUM!"_j);
+poi::ss::usermodel::FormulaError* poi::ss::usermodel::FormulaError::NA = new ::poi::ss::usermodel::FormulaError(u"NA"_j, 7, int32_t(42), u"#N/A"_j);
+poi::ss::usermodel::FormulaError* poi::ss::usermodel::FormulaError::CIRCULAR_REF = new ::poi::ss::usermodel::FormulaError(u"CIRCULAR_REF"_j, 8, int32_t(-60), u"~CIRCULAR~REF~"_j);
+poi::ss::usermodel::FormulaError* poi::ss::usermodel::FormulaError::FUNCTION_NOT_IMPLEMENTED = new ::poi::ss::usermodel::FormulaError(u"FUNCTION_NOT_IMPLEMENTED"_j, 9, int32_t(-30), u"~FUNCTION~NOT~IMPLEMENTED~"_j);
+void poi::ss::usermodel::FormulaError::ctor(::java::lang::String* name, int ordinal, int32_t type, ::java::lang::String* repr)
 {
     super::ctor(name, ordinal);
     this->type = static_cast< int8_t >(type);
@@ -96,43 +90,43 @@ void org::apache::poi::ss::usermodel::FormulaError::ctor(::java::lang::String* n
     this->repr = repr;
 }
 
-int8_t org::apache::poi::ss::usermodel::FormulaError::getCode()
+int8_t poi::ss::usermodel::FormulaError::getCode()
 {
     return type;
 }
 
-int32_t org::apache::poi::ss::usermodel::FormulaError::getLongCode()
+int32_t poi::ss::usermodel::FormulaError::getLongCode()
 {
     return longType;
 }
 
-java::lang::String* org::apache::poi::ss::usermodel::FormulaError::getString()
+java::lang::String* poi::ss::usermodel::FormulaError::getString()
 {
     return repr;
 }
 
-java::util::Map*& org::apache::poi::ss::usermodel::FormulaError::smap()
+java::util::Map*& poi::ss::usermodel::FormulaError::smap()
 {
     clinit();
     return smap_;
 }
-java::util::Map* org::apache::poi::ss::usermodel::FormulaError::smap_;
+java::util::Map* poi::ss::usermodel::FormulaError::smap_;
 
-java::util::Map*& org::apache::poi::ss::usermodel::FormulaError::bmap()
+java::util::Map*& poi::ss::usermodel::FormulaError::bmap()
 {
     clinit();
     return bmap_;
 }
-java::util::Map* org::apache::poi::ss::usermodel::FormulaError::bmap_;
+java::util::Map* poi::ss::usermodel::FormulaError::bmap_;
 
-java::util::Map*& org::apache::poi::ss::usermodel::FormulaError::imap()
+java::util::Map*& poi::ss::usermodel::FormulaError::imap()
 {
     clinit();
     return imap_;
 }
-java::util::Map* org::apache::poi::ss::usermodel::FormulaError::imap_;
+java::util::Map* poi::ss::usermodel::FormulaError::imap_;
 
-bool org::apache::poi::ss::usermodel::FormulaError::isValidCode(int32_t errorCode)
+bool poi::ss::usermodel::FormulaError::isValidCode(int32_t errorCode)
 {
     clinit();
     for(auto error : *npc(values())) {
@@ -146,7 +140,7 @@ bool org::apache::poi::ss::usermodel::FormulaError::isValidCode(int32_t errorCod
     return false;
 }
 
-org::apache::poi::ss::usermodel::FormulaError* org::apache::poi::ss::usermodel::FormulaError::forInt(int8_t type) /* throws(IllegalArgumentException) */
+poi::ss::usermodel::FormulaError* poi::ss::usermodel::FormulaError::forInt(int8_t type) /* throws(IllegalArgumentException) */
 {
     clinit();
     auto err = java_cast< FormulaError* >(npc(bmap_)->get(::java::lang::Byte::valueOf(type)));
@@ -156,7 +150,7 @@ org::apache::poi::ss::usermodel::FormulaError* org::apache::poi::ss::usermodel::
     return err;
 }
 
-org::apache::poi::ss::usermodel::FormulaError* org::apache::poi::ss::usermodel::FormulaError::forInt(int32_t type) /* throws(IllegalArgumentException) */
+poi::ss::usermodel::FormulaError* poi::ss::usermodel::FormulaError::forInt(int32_t type) /* throws(IllegalArgumentException) */
 {
     clinit();
     auto err = java_cast< FormulaError* >(npc(imap_)->get(::java::lang::Integer::valueOf(type)));
@@ -169,7 +163,7 @@ org::apache::poi::ss::usermodel::FormulaError* org::apache::poi::ss::usermodel::
     return err;
 }
 
-org::apache::poi::ss::usermodel::FormulaError* org::apache::poi::ss::usermodel::FormulaError::forString(::java::lang::String* code) /* throws(IllegalArgumentException) */
+poi::ss::usermodel::FormulaError* poi::ss::usermodel::FormulaError::forString(::java::lang::String* code) /* throws(IllegalArgumentException) */
 {
     clinit();
     auto err = java_cast< FormulaError* >(npc(smap_)->get(code));
@@ -181,13 +175,13 @@ org::apache::poi::ss::usermodel::FormulaError* org::apache::poi::ss::usermodel::
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::usermodel::FormulaError::class_()
+java::lang::Class* poi::ss::usermodel::FormulaError::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.usermodel.FormulaError", 40);
     return c;
 }
 
-void org::apache::poi::ss::usermodel::FormulaError::clinit()
+void poi::ss::usermodel::FormulaError::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -212,7 +206,7 @@ struct clinit_ {
     }
 }
 
-org::apache::poi::ss::usermodel::FormulaError* org::apache::poi::ss::usermodel::FormulaError::valueOf(::java::lang::String* a0)
+poi::ss::usermodel::FormulaError* poi::ss::usermodel::FormulaError::valueOf(::java::lang::String* a0)
 {
     if(CIRCULAR_REF->toString()->equals(a0))
         return CIRCULAR_REF;
@@ -237,9 +231,9 @@ org::apache::poi::ss::usermodel::FormulaError* org::apache::poi::ss::usermodel::
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::ss::usermodel::FormulaErrorArray* org::apache::poi::ss::usermodel::FormulaError::values()
+poi::ss::usermodel::FormulaErrorArray* poi::ss::usermodel::FormulaError::values()
 {
-    return new org::apache::poi::ss::usermodel::FormulaErrorArray({
+    return new poi::ss::usermodel::FormulaErrorArray({
         CIRCULAR_REF,
         DIV0,
         FUNCTION_NOT_IMPLEMENTED,
@@ -253,7 +247,7 @@ org::apache::poi::ss::usermodel::FormulaErrorArray* org::apache::poi::ss::usermo
     });
 }
 
-java::lang::Class* org::apache::poi::ss::usermodel::FormulaError::getClass0()
+java::lang::Class* poi::ss::usermodel::FormulaError::getClass0()
 {
     return class_();
 }

@@ -7,7 +7,7 @@ int main(int argc, char** argv)
 {
     init_jvm();
     
-    ::org::apache::poi::ddf::EscherDump::main(make_args(argc, argv));
+    ::poi::ddf::EscherDump::main(make_args(argc, argv));
     
     return 0;
 }

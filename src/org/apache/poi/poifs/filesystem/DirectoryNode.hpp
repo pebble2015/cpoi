@@ -16,10 +16,10 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::filesystem::DirectoryNode
+class poi::poifs::filesystem::DirectoryNode
     : public EntryNode
     , public virtual DirectoryEntry
-    , public virtual ::org::apache::poi::poifs::dev::POIFSViewable
+    , public virtual ::poi::poifs::dev::POIFSViewable
     , public virtual ::java::lang::Iterable
 {
 
@@ -33,9 +33,9 @@ private:
     NPOIFSFileSystem* _nfilesystem {  };
     POIFSDocumentPath* _path {  };
 protected:
-    void ctor(::org::apache::poi::poifs::property::DirectoryProperty* property, OPOIFSFileSystem* filesystem, DirectoryNode* parent);
-    void ctor(::org::apache::poi::poifs::property::DirectoryProperty* property, NPOIFSFileSystem* nfilesystem, DirectoryNode* parent);
-    void ctor(::org::apache::poi::poifs::property::DirectoryProperty* property, DirectoryNode* parent, OPOIFSFileSystem* ofilesystem, NPOIFSFileSystem* nfilesystem);
+    void ctor(::poi::poifs::property::DirectoryProperty* property, OPOIFSFileSystem* filesystem, DirectoryNode* parent);
+    void ctor(::poi::poifs::property::DirectoryProperty* property, NPOIFSFileSystem* nfilesystem, DirectoryNode* parent);
+    void ctor(::poi::poifs::property::DirectoryProperty* property, DirectoryNode* parent, OPOIFSFileSystem* ofilesystem, NPOIFSFileSystem* nfilesystem);
 
 public:
     virtual POIFSDocumentPath* getPath();
@@ -62,8 +62,8 @@ public:
     DocumentEntry* createDocument(::java::lang::String* name, int32_t size, POIFSWriterListener* writer) /* throws(IOException) */ override;
     DirectoryEntry* createDirectory(::java::lang::String* name) /* throws(IOException) */ override;
     virtual DocumentEntry* createOrUpdateDocument(::java::lang::String* name, ::java::io::InputStream* stream) /* throws(IOException) */;
-    ::org::apache::poi::hpsf::ClassID* getStorageClsid() override;
-    void setStorageClsid(::org::apache::poi::hpsf::ClassID* clsidStorage) override;
+    ::poi::hpsf::ClassID* getStorageClsid() override;
+    void setStorageClsid(::poi::hpsf::ClassID* clsidStorage) override;
     bool isDirectoryEntry() override;
 
 public: /* protected */
@@ -79,11 +79,11 @@ public:
     // Generated
 
 public: /* package */
-    DirectoryNode(::org::apache::poi::poifs::property::DirectoryProperty* property, OPOIFSFileSystem* filesystem, DirectoryNode* parent);
-    DirectoryNode(::org::apache::poi::poifs::property::DirectoryProperty* property, NPOIFSFileSystem* nfilesystem, DirectoryNode* parent);
+    DirectoryNode(::poi::poifs::property::DirectoryProperty* property, OPOIFSFileSystem* filesystem, DirectoryNode* parent);
+    DirectoryNode(::poi::poifs::property::DirectoryProperty* property, NPOIFSFileSystem* nfilesystem, DirectoryNode* parent);
 
 private:
-    DirectoryNode(::org::apache::poi::poifs::property::DirectoryProperty* property, DirectoryNode* parent, OPOIFSFileSystem* ofilesystem, NPOIFSFileSystem* nfilesystem);
+    DirectoryNode(::poi::poifs::property::DirectoryProperty* property, DirectoryNode* parent, OPOIFSFileSystem* ofilesystem, NPOIFSFileSystem* nfilesystem);
 protected:
     DirectoryNode(const ::default_init_tag&);
 

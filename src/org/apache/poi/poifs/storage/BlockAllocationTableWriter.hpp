@@ -14,43 +14,37 @@
 #include <org/apache/poi/poifs/filesystem/BATManaged.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace poifs
     {
-        namespace poi
+        namespace storage
         {
-            namespace poifs
-            {
-                namespace storage
-                {
-typedef ::SubArray< ::org::apache::poi::poifs::storage::BlockWritable, ::java::lang::ObjectArray > BlockWritableArray;
-typedef ::SubArray< ::org::apache::poi::poifs::storage::BigBlock, ::java::lang::ObjectArray, BlockWritableArray > BigBlockArray;
-typedef ::SubArray< ::org::apache::poi::poifs::storage::BATBlock, BigBlockArray > BATBlockArray;
-                } // storage
-            } // poifs
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::poifs::storage::BlockWritable, ::java::lang::ObjectArray > BlockWritableArray;
+typedef ::SubArray< ::poi::poifs::storage::BigBlock, ::java::lang::ObjectArray, BlockWritableArray > BigBlockArray;
+typedef ::SubArray< ::poi::poifs::storage::BATBlock, BigBlockArray > BATBlockArray;
+        } // storage
+    } // poifs
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::storage::BlockAllocationTableWriter final
+class poi::poifs::storage::BlockAllocationTableWriter final
     : public virtual ::java::lang::Object
     , public BlockWritable
-    , public ::org::apache::poi::poifs::filesystem::BATManaged
+    , public ::poi::poifs::filesystem::BATManaged
 {
 
 public:
     typedef ::java::lang::Object super;
 
 private:
-    ::org::apache::poi::util::IntList* _entries {  };
+    ::poi::util::IntList* _entries {  };
     BATBlockArray* _blocks {  };
     int32_t _start_block {  };
-    ::org::apache::poi::poifs::common::POIFSBigBlockSize* _bigBlockSize {  };
+    ::poi::poifs::common::POIFSBigBlockSize* _bigBlockSize {  };
 protected:
-    void ctor(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize);
+    void ctor(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize);
 
 public:
     int32_t createBlocks();
@@ -67,7 +61,7 @@ public:
     void setStartBlock(int32_t start_block) override;
 
     // Generated
-    BlockAllocationTableWriter(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize);
+    BlockAllocationTableWriter(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize);
 protected:
     BlockAllocationTableWriter(const ::default_init_tag&);
 

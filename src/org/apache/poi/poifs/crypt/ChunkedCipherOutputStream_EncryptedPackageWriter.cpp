@@ -44,25 +44,25 @@ namespace
 
     template<typename F> finally_<F> finally(F f) { return finally_<F>(f); }
 }
-org::apache::poi::poifs::crypt::ChunkedCipherOutputStream_EncryptedPackageWriter::ChunkedCipherOutputStream_EncryptedPackageWriter(ChunkedCipherOutputStream *ChunkedCipherOutputStream_this, const ::default_init_tag&)
+poi::poifs::crypt::ChunkedCipherOutputStream_EncryptedPackageWriter::ChunkedCipherOutputStream_EncryptedPackageWriter(ChunkedCipherOutputStream *ChunkedCipherOutputStream_this, const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
     , ChunkedCipherOutputStream_this(ChunkedCipherOutputStream_this)
 {
     clinit();
 }
 
-org::apache::poi::poifs::crypt::ChunkedCipherOutputStream_EncryptedPackageWriter::ChunkedCipherOutputStream_EncryptedPackageWriter(ChunkedCipherOutputStream *ChunkedCipherOutputStream_this)
+poi::poifs::crypt::ChunkedCipherOutputStream_EncryptedPackageWriter::ChunkedCipherOutputStream_EncryptedPackageWriter(ChunkedCipherOutputStream *ChunkedCipherOutputStream_this)
     : ChunkedCipherOutputStream_EncryptedPackageWriter(ChunkedCipherOutputStream_this, *static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::poifs::crypt::ChunkedCipherOutputStream_EncryptedPackageWriter::processPOIFSWriterEvent(::org::apache::poi::poifs::filesystem::POIFSWriterEvent* event)
+void poi::poifs::crypt::ChunkedCipherOutputStream_EncryptedPackageWriter::processPOIFSWriterEvent(::poi::poifs::filesystem::POIFSWriterEvent* event)
 {
     try {
         ::java::io::OutputStream* os = npc(event)->getStream();
-        auto buf = new ::int8_tArray(::org::apache::poi::util::LittleEndianConsts::LONG_SIZE);
-        ::org::apache::poi::util::LittleEndian::putLong(buf, 0, ChunkedCipherOutputStream_this->pos);
+        auto buf = new ::int8_tArray(::poi::util::LittleEndianConsts::LONG_SIZE);
+        ::poi::util::LittleEndian::putLong(buf, 0, ChunkedCipherOutputStream_this->pos);
         npc(os)->write(buf);
         auto fis = new ::java::io::FileInputStream(ChunkedCipherOutputStream_this->fileOut);
         {
@@ -70,28 +70,28 @@ void org::apache::poi::poifs::crypt::ChunkedCipherOutputStream_EncryptedPackageW
                 npc(fis)->close();
             });
             {
-                ::org::apache::poi::util::IOUtils::copy(fis, os);
+                ::poi::util::IOUtils::copy(fis, os);
             }
         }
 
         npc(os)->close();
         if(!npc(ChunkedCipherOutputStream_this->fileOut)->delete_()) {
-            npc(ChunkedCipherOutputStream::LOG())->log(::org::apache::poi::util::POILogger::ERROR, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Can't delete temporary encryption file: "_j)->append(static_cast< ::java::lang::Object* >(ChunkedCipherOutputStream_this->fileOut))->toString())}));
+            npc(ChunkedCipherOutputStream::LOG())->log(::poi::util::POILogger::ERROR, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Can't delete temporary encryption file: "_j)->append(static_cast< ::java::lang::Object* >(ChunkedCipherOutputStream_this->fileOut))->toString())}));
         }
     } catch (::java::io::IOException* e) {
-        throw new ::org::apache::poi::EncryptedDocumentException(static_cast< ::java::lang::Throwable* >(e));
+        throw new ::poi::EncryptedDocumentException(static_cast< ::java::lang::Throwable* >(e));
     }
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::crypt::ChunkedCipherOutputStream_EncryptedPackageWriter::class_()
+java::lang::Class* poi::poifs::crypt::ChunkedCipherOutputStream_EncryptedPackageWriter::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.crypt.ChunkedCipherOutputStream.EncryptedPackageWriter", 75);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::crypt::ChunkedCipherOutputStream_EncryptedPackageWriter::getClass0()
+java::lang::Class* poi::poifs::crypt::ChunkedCipherOutputStream_EncryptedPackageWriter::getClass0()
 {
     return class_();
 }

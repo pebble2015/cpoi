@@ -27,25 +27,19 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace sl
     {
-        namespace poi
+        namespace draw
         {
-            namespace sl
+            namespace binding
             {
-                namespace draw
-                {
-                    namespace binding
-                    {
-typedef ::SubArray< ::org::apache::poi::sl::draw::binding::STSchemeColorVal, ::java::lang::EnumArray > STSchemeColorValArray;
-                    } // binding
-                } // draw
-            } // sl
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::sl::draw::binding::STSchemeColorVal, ::java::lang::EnumArray > STSchemeColorValArray;
+            } // binding
+        } // draw
+    } // sl
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -54,47 +48,47 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::sl::draw::binding::STSchemeColorVal::STSchemeColorVal(const ::default_init_tag&)
+poi::sl::draw::binding::STSchemeColorVal::STSchemeColorVal(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::draw::binding::STSchemeColorVal::STSchemeColorVal(::java::lang::String* name, int ordinal, ::java::lang::String* v) 
+poi::sl::draw::binding::STSchemeColorVal::STSchemeColorVal(::java::lang::String* name, int ordinal, ::java::lang::String* v) 
     : STSchemeColorVal(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal, v);
 }
 
-org::apache::poi::sl::draw::binding::STSchemeColorVal* org::apache::poi::sl::draw::binding::STSchemeColorVal::BG_1 = new ::org::apache::poi::sl::draw::binding::STSchemeColorVal(u"BG_1"_j, 0, u"bg1"_j);
-org::apache::poi::sl::draw::binding::STSchemeColorVal* org::apache::poi::sl::draw::binding::STSchemeColorVal::TX_1 = new ::org::apache::poi::sl::draw::binding::STSchemeColorVal(u"TX_1"_j, 1, u"tx1"_j);
-org::apache::poi::sl::draw::binding::STSchemeColorVal* org::apache::poi::sl::draw::binding::STSchemeColorVal::BG_2 = new ::org::apache::poi::sl::draw::binding::STSchemeColorVal(u"BG_2"_j, 2, u"bg2"_j);
-org::apache::poi::sl::draw::binding::STSchemeColorVal* org::apache::poi::sl::draw::binding::STSchemeColorVal::TX_2 = new ::org::apache::poi::sl::draw::binding::STSchemeColorVal(u"TX_2"_j, 3, u"tx2"_j);
-org::apache::poi::sl::draw::binding::STSchemeColorVal* org::apache::poi::sl::draw::binding::STSchemeColorVal::ACCENT_1 = new ::org::apache::poi::sl::draw::binding::STSchemeColorVal(u"ACCENT_1"_j, 4, u"accent1"_j);
-org::apache::poi::sl::draw::binding::STSchemeColorVal* org::apache::poi::sl::draw::binding::STSchemeColorVal::ACCENT_2 = new ::org::apache::poi::sl::draw::binding::STSchemeColorVal(u"ACCENT_2"_j, 5, u"accent2"_j);
-org::apache::poi::sl::draw::binding::STSchemeColorVal* org::apache::poi::sl::draw::binding::STSchemeColorVal::ACCENT_3 = new ::org::apache::poi::sl::draw::binding::STSchemeColorVal(u"ACCENT_3"_j, 6, u"accent3"_j);
-org::apache::poi::sl::draw::binding::STSchemeColorVal* org::apache::poi::sl::draw::binding::STSchemeColorVal::ACCENT_4 = new ::org::apache::poi::sl::draw::binding::STSchemeColorVal(u"ACCENT_4"_j, 7, u"accent4"_j);
-org::apache::poi::sl::draw::binding::STSchemeColorVal* org::apache::poi::sl::draw::binding::STSchemeColorVal::ACCENT_5 = new ::org::apache::poi::sl::draw::binding::STSchemeColorVal(u"ACCENT_5"_j, 8, u"accent5"_j);
-org::apache::poi::sl::draw::binding::STSchemeColorVal* org::apache::poi::sl::draw::binding::STSchemeColorVal::ACCENT_6 = new ::org::apache::poi::sl::draw::binding::STSchemeColorVal(u"ACCENT_6"_j, 9, u"accent6"_j);
-org::apache::poi::sl::draw::binding::STSchemeColorVal* org::apache::poi::sl::draw::binding::STSchemeColorVal::HLINK = new ::org::apache::poi::sl::draw::binding::STSchemeColorVal(u"HLINK"_j, 10, u"hlink"_j);
-org::apache::poi::sl::draw::binding::STSchemeColorVal* org::apache::poi::sl::draw::binding::STSchemeColorVal::FOL_HLINK = new ::org::apache::poi::sl::draw::binding::STSchemeColorVal(u"FOL_HLINK"_j, 11, u"folHlink"_j);
-org::apache::poi::sl::draw::binding::STSchemeColorVal* org::apache::poi::sl::draw::binding::STSchemeColorVal::PH_CLR = new ::org::apache::poi::sl::draw::binding::STSchemeColorVal(u"PH_CLR"_j, 12, u"phClr"_j);
-org::apache::poi::sl::draw::binding::STSchemeColorVal* org::apache::poi::sl::draw::binding::STSchemeColorVal::DK_1 = new ::org::apache::poi::sl::draw::binding::STSchemeColorVal(u"DK_1"_j, 13, u"dk1"_j);
-org::apache::poi::sl::draw::binding::STSchemeColorVal* org::apache::poi::sl::draw::binding::STSchemeColorVal::LT_1 = new ::org::apache::poi::sl::draw::binding::STSchemeColorVal(u"LT_1"_j, 14, u"lt1"_j);
-org::apache::poi::sl::draw::binding::STSchemeColorVal* org::apache::poi::sl::draw::binding::STSchemeColorVal::DK_2 = new ::org::apache::poi::sl::draw::binding::STSchemeColorVal(u"DK_2"_j, 15, u"dk2"_j);
-org::apache::poi::sl::draw::binding::STSchemeColorVal* org::apache::poi::sl::draw::binding::STSchemeColorVal::LT_2 = new ::org::apache::poi::sl::draw::binding::STSchemeColorVal(u"LT_2"_j, 16, u"lt2"_j);
-void org::apache::poi::sl::draw::binding::STSchemeColorVal::ctor(::java::lang::String* name, int ordinal, ::java::lang::String* v)
+poi::sl::draw::binding::STSchemeColorVal* poi::sl::draw::binding::STSchemeColorVal::BG_1 = new ::poi::sl::draw::binding::STSchemeColorVal(u"BG_1"_j, 0, u"bg1"_j);
+poi::sl::draw::binding::STSchemeColorVal* poi::sl::draw::binding::STSchemeColorVal::TX_1 = new ::poi::sl::draw::binding::STSchemeColorVal(u"TX_1"_j, 1, u"tx1"_j);
+poi::sl::draw::binding::STSchemeColorVal* poi::sl::draw::binding::STSchemeColorVal::BG_2 = new ::poi::sl::draw::binding::STSchemeColorVal(u"BG_2"_j, 2, u"bg2"_j);
+poi::sl::draw::binding::STSchemeColorVal* poi::sl::draw::binding::STSchemeColorVal::TX_2 = new ::poi::sl::draw::binding::STSchemeColorVal(u"TX_2"_j, 3, u"tx2"_j);
+poi::sl::draw::binding::STSchemeColorVal* poi::sl::draw::binding::STSchemeColorVal::ACCENT_1 = new ::poi::sl::draw::binding::STSchemeColorVal(u"ACCENT_1"_j, 4, u"accent1"_j);
+poi::sl::draw::binding::STSchemeColorVal* poi::sl::draw::binding::STSchemeColorVal::ACCENT_2 = new ::poi::sl::draw::binding::STSchemeColorVal(u"ACCENT_2"_j, 5, u"accent2"_j);
+poi::sl::draw::binding::STSchemeColorVal* poi::sl::draw::binding::STSchemeColorVal::ACCENT_3 = new ::poi::sl::draw::binding::STSchemeColorVal(u"ACCENT_3"_j, 6, u"accent3"_j);
+poi::sl::draw::binding::STSchemeColorVal* poi::sl::draw::binding::STSchemeColorVal::ACCENT_4 = new ::poi::sl::draw::binding::STSchemeColorVal(u"ACCENT_4"_j, 7, u"accent4"_j);
+poi::sl::draw::binding::STSchemeColorVal* poi::sl::draw::binding::STSchemeColorVal::ACCENT_5 = new ::poi::sl::draw::binding::STSchemeColorVal(u"ACCENT_5"_j, 8, u"accent5"_j);
+poi::sl::draw::binding::STSchemeColorVal* poi::sl::draw::binding::STSchemeColorVal::ACCENT_6 = new ::poi::sl::draw::binding::STSchemeColorVal(u"ACCENT_6"_j, 9, u"accent6"_j);
+poi::sl::draw::binding::STSchemeColorVal* poi::sl::draw::binding::STSchemeColorVal::HLINK = new ::poi::sl::draw::binding::STSchemeColorVal(u"HLINK"_j, 10, u"hlink"_j);
+poi::sl::draw::binding::STSchemeColorVal* poi::sl::draw::binding::STSchemeColorVal::FOL_HLINK = new ::poi::sl::draw::binding::STSchemeColorVal(u"FOL_HLINK"_j, 11, u"folHlink"_j);
+poi::sl::draw::binding::STSchemeColorVal* poi::sl::draw::binding::STSchemeColorVal::PH_CLR = new ::poi::sl::draw::binding::STSchemeColorVal(u"PH_CLR"_j, 12, u"phClr"_j);
+poi::sl::draw::binding::STSchemeColorVal* poi::sl::draw::binding::STSchemeColorVal::DK_1 = new ::poi::sl::draw::binding::STSchemeColorVal(u"DK_1"_j, 13, u"dk1"_j);
+poi::sl::draw::binding::STSchemeColorVal* poi::sl::draw::binding::STSchemeColorVal::LT_1 = new ::poi::sl::draw::binding::STSchemeColorVal(u"LT_1"_j, 14, u"lt1"_j);
+poi::sl::draw::binding::STSchemeColorVal* poi::sl::draw::binding::STSchemeColorVal::DK_2 = new ::poi::sl::draw::binding::STSchemeColorVal(u"DK_2"_j, 15, u"dk2"_j);
+poi::sl::draw::binding::STSchemeColorVal* poi::sl::draw::binding::STSchemeColorVal::LT_2 = new ::poi::sl::draw::binding::STSchemeColorVal(u"LT_2"_j, 16, u"lt2"_j);
+void poi::sl::draw::binding::STSchemeColorVal::ctor(::java::lang::String* name, int ordinal, ::java::lang::String* v)
 {
     super::ctor(name, ordinal);
     value_ = v;
 }
 
-java::lang::String* org::apache::poi::sl::draw::binding::STSchemeColorVal::value()
+java::lang::String* poi::sl::draw::binding::STSchemeColorVal::value()
 {
     return value_;
 }
 
-org::apache::poi::sl::draw::binding::STSchemeColorVal* org::apache::poi::sl::draw::binding::STSchemeColorVal::fromValue(::java::lang::String* v)
+poi::sl::draw::binding::STSchemeColorVal* poi::sl::draw::binding::STSchemeColorVal::fromValue(::java::lang::String* v)
 {
     clinit();
     for(auto c : *npc(STSchemeColorVal::values())) {
@@ -107,13 +101,13 @@ org::apache::poi::sl::draw::binding::STSchemeColorVal* org::apache::poi::sl::dra
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::draw::binding::STSchemeColorVal::class_()
+java::lang::Class* poi::sl::draw::binding::STSchemeColorVal::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.draw.binding.STSchemeColorVal", 47);
     return c;
 }
 
-org::apache::poi::sl::draw::binding::STSchemeColorVal* org::apache::poi::sl::draw::binding::STSchemeColorVal::valueOf(::java::lang::String* a0)
+poi::sl::draw::binding::STSchemeColorVal* poi::sl::draw::binding::STSchemeColorVal::valueOf(::java::lang::String* a0)
 {
     if(ACCENT_1->toString()->equals(a0))
         return ACCENT_1;
@@ -152,9 +146,9 @@ org::apache::poi::sl::draw::binding::STSchemeColorVal* org::apache::poi::sl::dra
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::sl::draw::binding::STSchemeColorValArray* org::apache::poi::sl::draw::binding::STSchemeColorVal::values()
+poi::sl::draw::binding::STSchemeColorValArray* poi::sl::draw::binding::STSchemeColorVal::values()
 {
-    return new org::apache::poi::sl::draw::binding::STSchemeColorValArray({
+    return new poi::sl::draw::binding::STSchemeColorValArray({
         ACCENT_1,
         ACCENT_2,
         ACCENT_3,
@@ -175,7 +169,7 @@ org::apache::poi::sl::draw::binding::STSchemeColorValArray* org::apache::poi::sl
     });
 }
 
-java::lang::Class* org::apache::poi::sl::draw::binding::STSchemeColorVal::getClass0()
+java::lang::Class* poi::sl::draw::binding::STSchemeColorVal::getClass0()
 {
     return class_();
 }

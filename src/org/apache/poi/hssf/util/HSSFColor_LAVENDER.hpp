@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::util::HSSFColor_LAVENDER
+class poi::hssf::util::HSSFColor_LAVENDER
     : public HSSFColor_HSSFColorRef
 {
 

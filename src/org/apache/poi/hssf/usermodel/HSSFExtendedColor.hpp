@@ -9,20 +9,20 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFExtendedColor
-    : public ::org::apache::poi::ss::usermodel::ExtendedColor
+class poi::hssf::usermodel::HSSFExtendedColor
+    : public ::poi::ss::usermodel::ExtendedColor
 {
 
 public:
-    typedef ::org::apache::poi::ss::usermodel::ExtendedColor super;
+    typedef ::poi::ss::usermodel::ExtendedColor super;
 
 private:
-    ::org::apache::poi::hssf::record::common::ExtendedColor* color {  };
+    ::poi::hssf::record::common::ExtendedColor* color {  };
 protected:
-    void ctor(::org::apache::poi::hssf::record::common::ExtendedColor* color);
+    void ctor(::poi::hssf::record::common::ExtendedColor* color);
 
 public: /* protected */
-    virtual ::org::apache::poi::hssf::record::common::ExtendedColor* getExtendedColor();
+    virtual ::poi::hssf::record::common::ExtendedColor* getExtendedColor();
 
 public:
     bool isAuto() override;
@@ -48,7 +48,7 @@ public: /* protected */
     // Generated
 
 public:
-    HSSFExtendedColor(::org::apache::poi::hssf::record::common::ExtendedColor* color);
+    HSSFExtendedColor(::poi::hssf::record::common::ExtendedColor* color);
 protected:
     HSSFExtendedColor(const ::default_init_tag&);
 

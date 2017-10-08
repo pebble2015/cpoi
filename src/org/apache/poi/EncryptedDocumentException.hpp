@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::EncryptedDocumentException
+class poi::EncryptedDocumentException
     : public ::java::lang::IllegalStateException
 {
 

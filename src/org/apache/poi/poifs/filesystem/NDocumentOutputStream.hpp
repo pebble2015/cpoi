@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::filesystem::NDocumentOutputStream final
+class poi::poifs::filesystem::NDocumentOutputStream final
     : public ::java::io::OutputStream
 {
 
@@ -22,7 +22,7 @@ private:
     int32_t _document_size {  };
     bool _closed {  };
     NPOIFSDocument* _document {  };
-    ::org::apache::poi::poifs::property::DocumentProperty* _property {  };
+    ::poi::poifs::property::DocumentProperty* _property {  };
     ::java::io::ByteArrayOutputStream* _buffer {  };
     NPOIFSStream* _stream {  };
     ::java::io::OutputStream* _stream_output {  };

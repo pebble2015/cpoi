@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::property::RootProperty final
+class poi::poifs::property::RootProperty final
     : public DirectoryProperty
 {
 

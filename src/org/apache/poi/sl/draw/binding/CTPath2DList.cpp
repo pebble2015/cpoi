@@ -22,19 +22,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::sl::draw::binding::CTPath2DList::CTPath2DList(const ::default_init_tag&)
+poi::sl::draw::binding::CTPath2DList::CTPath2DList(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::draw::binding::CTPath2DList::CTPath2DList()
+poi::sl::draw::binding::CTPath2DList::CTPath2DList()
     : CTPath2DList(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-java::util::List* org::apache::poi::sl::draw::binding::CTPath2DList::getPath()
+java::util::List* poi::sl::draw::binding::CTPath2DList::getPath()
 {
     if(path == nullptr) {
         path = new ::java::util::ArrayList();
@@ -42,25 +42,25 @@ java::util::List* org::apache::poi::sl::draw::binding::CTPath2DList::getPath()
     return java_cast< ::java::util::List* >(this->path);
 }
 
-bool org::apache::poi::sl::draw::binding::CTPath2DList::isSetPath()
+bool poi::sl::draw::binding::CTPath2DList::isSetPath()
 {
     return ((java_cast< ::java::util::List* >(this->path) != nullptr) && (!npc(java_cast< ::java::util::List* >(this->path))->isEmpty()));
 }
 
-void org::apache::poi::sl::draw::binding::CTPath2DList::unsetPath()
+void poi::sl::draw::binding::CTPath2DList::unsetPath()
 {
     this->path = nullptr;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::draw::binding::CTPath2DList::class_()
+java::lang::Class* poi::sl::draw::binding::CTPath2DList::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.draw.binding.CTPath2DList", 43);
     return c;
 }
 
-java::lang::Class* org::apache::poi::sl::draw::binding::CTPath2DList::getClass0()
+java::lang::Class* poi::sl::draw::binding::CTPath2DList::getClass0()
 {
     return class_();
 }

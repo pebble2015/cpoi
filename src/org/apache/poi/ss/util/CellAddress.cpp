@@ -28,57 +28,57 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::util::CellAddress::CellAddress(const ::default_init_tag&)
+poi::ss::util::CellAddress::CellAddress(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::util::CellAddress::CellAddress(int32_t row, int32_t column) 
+poi::ss::util::CellAddress::CellAddress(int32_t row, int32_t column) 
     : CellAddress(*static_cast< ::default_init_tag* >(0))
 {
     ctor(row,column);
 }
 
-org::apache::poi::ss::util::CellAddress::CellAddress(::java::lang::String* address) 
+poi::ss::util::CellAddress::CellAddress(::java::lang::String* address) 
     : CellAddress(*static_cast< ::default_init_tag* >(0))
 {
     ctor(address);
 }
 
-org::apache::poi::ss::util::CellAddress::CellAddress(CellReference* reference) 
+poi::ss::util::CellAddress::CellAddress(CellReference* reference) 
     : CellAddress(*static_cast< ::default_init_tag* >(0))
 {
     ctor(reference);
 }
 
-org::apache::poi::ss::util::CellAddress::CellAddress(CellAddress* address) 
+poi::ss::util::CellAddress::CellAddress(CellAddress* address) 
     : CellAddress(*static_cast< ::default_init_tag* >(0))
 {
     ctor(address);
 }
 
-org::apache::poi::ss::util::CellAddress::CellAddress(::org::apache::poi::ss::usermodel::Cell* cell) 
+poi::ss::util::CellAddress::CellAddress(::poi::ss::usermodel::Cell* cell) 
     : CellAddress(*static_cast< ::default_init_tag* >(0))
 {
     ctor(cell);
 }
 
-org::apache::poi::ss::util::CellAddress*& org::apache::poi::ss::util::CellAddress::A1()
+poi::ss::util::CellAddress*& poi::ss::util::CellAddress::A1()
 {
     clinit();
     return A1_;
 }
-org::apache::poi::ss::util::CellAddress* org::apache::poi::ss::util::CellAddress::A1_;
+poi::ss::util::CellAddress* poi::ss::util::CellAddress::A1_;
 
-void org::apache::poi::ss::util::CellAddress::ctor(int32_t row, int32_t column)
+void poi::ss::util::CellAddress::ctor(int32_t row, int32_t column)
 {
     super::ctor();
     this->_row = row;
     this->_col = column;
 }
 
-void org::apache::poi::ss::util::CellAddress::ctor(::java::lang::String* address)
+void poi::ss::util::CellAddress::ctor(::java::lang::String* address)
 {
     super::ctor();
     auto length = npc(address)->length();
@@ -95,32 +95,32 @@ void org::apache::poi::ss::util::CellAddress::ctor(::java::lang::String* address
     this->_col = CellReference::convertColStringToIndex(sCol);
 }
 
-void org::apache::poi::ss::util::CellAddress::ctor(CellReference* reference)
+void poi::ss::util::CellAddress::ctor(CellReference* reference)
 {
     ctor(npc(reference)->getRow(), npc(reference)->getCol());
 }
 
-void org::apache::poi::ss::util::CellAddress::ctor(CellAddress* address)
+void poi::ss::util::CellAddress::ctor(CellAddress* address)
 {
     ctor(npc(address)->getRow(), npc(address)->getColumn());
 }
 
-void org::apache::poi::ss::util::CellAddress::ctor(::org::apache::poi::ss::usermodel::Cell* cell)
+void poi::ss::util::CellAddress::ctor(::poi::ss::usermodel::Cell* cell)
 {
     ctor(npc(cell)->getRowIndex(), npc(cell)->getColumnIndex());
 }
 
-int32_t org::apache::poi::ss::util::CellAddress::getRow()
+int32_t poi::ss::util::CellAddress::getRow()
 {
     return _row;
 }
 
-int32_t org::apache::poi::ss::util::CellAddress::getColumn()
+int32_t poi::ss::util::CellAddress::getColumn()
 {
     return _col;
 }
 
-int32_t org::apache::poi::ss::util::CellAddress::compareTo(CellAddress* other)
+int32_t poi::ss::util::CellAddress::compareTo(CellAddress* other)
 {
     auto r = this->_row - npc(other)->_row;
     if(r != 0)
@@ -133,12 +133,12 @@ int32_t org::apache::poi::ss::util::CellAddress::compareTo(CellAddress* other)
     return 0;
 }
 
-int32_t org::apache::poi::ss::util::CellAddress::compareTo(::java::lang::Object* o)
+int32_t poi::ss::util::CellAddress::compareTo(::java::lang::Object* o)
 { 
     return compareTo(dynamic_cast< CellAddress* >(o));
 }
 
-bool org::apache::poi::ss::util::CellAddress::equals(::java::lang::Object* o)
+bool poi::ss::util::CellAddress::equals(::java::lang::Object* o)
 {
     if(static_cast< ::java::lang::Object* >(this) == o) {
         return true;
@@ -150,30 +150,30 @@ bool org::apache::poi::ss::util::CellAddress::equals(::java::lang::Object* o)
     return _row == npc(other)->_row && _col == npc(other)->_col;
 }
 
-int32_t org::apache::poi::ss::util::CellAddress::hashCode()
+int32_t poi::ss::util::CellAddress::hashCode()
 {
     return this->_row + this->_col << int32_t(16);
 }
 
-java::lang::String* org::apache::poi::ss::util::CellAddress::toString()
+java::lang::String* poi::ss::util::CellAddress::toString()
 {
     return formatAsString();
 }
 
-java::lang::String* org::apache::poi::ss::util::CellAddress::formatAsString()
+java::lang::String* poi::ss::util::CellAddress::formatAsString()
 {
     return ::java::lang::StringBuilder().append(CellReference::convertNumToColString(this->_col))->append((this->_row + int32_t(1)))->toString();
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::util::CellAddress::class_()
+java::lang::Class* poi::ss::util::CellAddress::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.util.CellAddress", 34);
     return c;
 }
 
-void org::apache::poi::ss::util::CellAddress::clinit()
+void poi::ss::util::CellAddress::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -189,7 +189,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::util::CellAddress::getClass0()
+java::lang::Class* poi::ss::util::CellAddress::getClass0()
 {
     return class_();
 }

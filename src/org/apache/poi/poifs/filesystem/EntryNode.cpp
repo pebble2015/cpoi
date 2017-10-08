@@ -13,56 +13,56 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::filesystem::EntryNode::EntryNode(const ::default_init_tag&)
+poi::poifs::filesystem::EntryNode::EntryNode(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::filesystem::EntryNode::EntryNode(::org::apache::poi::poifs::property::Property* property, DirectoryNode* parent) 
+poi::poifs::filesystem::EntryNode::EntryNode(::poi::poifs::property::Property* property, DirectoryNode* parent) 
     : EntryNode(*static_cast< ::default_init_tag* >(0))
 {
     ctor(property,parent);
 }
 
-void org::apache::poi::poifs::filesystem::EntryNode::ctor(::org::apache::poi::poifs::property::Property* property, DirectoryNode* parent)
+void poi::poifs::filesystem::EntryNode::ctor(::poi::poifs::property::Property* property, DirectoryNode* parent)
 {
     super::ctor();
     _property = property;
     _parent = parent;
 }
 
-org::apache::poi::poifs::property::Property* org::apache::poi::poifs::filesystem::EntryNode::getProperty()
+poi::poifs::property::Property* poi::poifs::filesystem::EntryNode::getProperty()
 {
     return _property;
 }
 
-bool org::apache::poi::poifs::filesystem::EntryNode::isRoot()
+bool poi::poifs::filesystem::EntryNode::isRoot()
 {
     return (_parent == nullptr);
 }
 
-java::lang::String* org::apache::poi::poifs::filesystem::EntryNode::getName()
+java::lang::String* poi::poifs::filesystem::EntryNode::getName()
 {
     return npc(_property)->getName();
 }
 
-bool org::apache::poi::poifs::filesystem::EntryNode::isDirectoryEntry()
+bool poi::poifs::filesystem::EntryNode::isDirectoryEntry()
 {
     return false;
 }
 
-bool org::apache::poi::poifs::filesystem::EntryNode::isDocumentEntry()
+bool poi::poifs::filesystem::EntryNode::isDocumentEntry()
 {
     return false;
 }
 
-org::apache::poi::poifs::filesystem::DirectoryEntry* org::apache::poi::poifs::filesystem::EntryNode::getParent()
+poi::poifs::filesystem::DirectoryEntry* poi::poifs::filesystem::EntryNode::getParent()
 {
     return _parent;
 }
 
-bool org::apache::poi::poifs::filesystem::EntryNode::delete_()
+bool poi::poifs::filesystem::EntryNode::delete_()
 {
     auto rval = false;
     if((!isRoot()) && isDeleteOK()) {
@@ -71,7 +71,7 @@ bool org::apache::poi::poifs::filesystem::EntryNode::delete_()
     return rval;
 }
 
-bool org::apache::poi::poifs::filesystem::EntryNode::renameTo(::java::lang::String* newName)
+bool poi::poifs::filesystem::EntryNode::renameTo(::java::lang::String* newName)
 {
     auto rval = false;
     if(!isRoot()) {
@@ -82,13 +82,13 @@ bool org::apache::poi::poifs::filesystem::EntryNode::renameTo(::java::lang::Stri
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::filesystem::EntryNode::class_()
+java::lang::Class* poi::poifs::filesystem::EntryNode::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.filesystem.EntryNode", 41);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::filesystem::EntryNode::getClass0()
+java::lang::Class* poi::poifs::filesystem::EntryNode::getClass0()
 {
     return class_();
 }

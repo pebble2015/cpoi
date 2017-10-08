@@ -12,25 +12,19 @@
 #include <org/apache/poi/ss/formula/eval/ValueEval.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -39,60 +33,60 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::IfFunc::IfFunc(const ::default_init_tag&)
+poi::ss::formula::functions::IfFunc::IfFunc(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::IfFunc::IfFunc()
+poi::ss::formula::functions::IfFunc::IfFunc()
     : IfFunc(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::IfFunc::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* arg0, ::org::apache::poi::ss::formula::eval::ValueEval* arg1)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::IfFunc::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::poi::ss::formula::eval::ValueEval* arg0, ::poi::ss::formula::eval::ValueEval* arg1)
 {
     bool b;
     try {
         b = evaluateFirstArg(arg0, srcRowIndex, srcColumnIndex);
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
         return npc(e)->getErrorEval();
     }
     if(b) {
-        if(arg1 == static_cast< ::org::apache::poi::ss::formula::eval::ValueEval* >(::org::apache::poi::ss::formula::eval::MissingArgEval::instance())) {
-            return ::org::apache::poi::ss::formula::eval::BlankEval::instance();
+        if(arg1 == static_cast< ::poi::ss::formula::eval::ValueEval* >(::poi::ss::formula::eval::MissingArgEval::instance())) {
+            return ::poi::ss::formula::eval::BlankEval::instance();
         }
         return arg1;
     }
-    return ::org::apache::poi::ss::formula::eval::BoolEval::FALSE();
+    return ::poi::ss::formula::eval::BoolEval::FALSE();
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::IfFunc::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* arg0, ::org::apache::poi::ss::formula::eval::ValueEval* arg1, ::org::apache::poi::ss::formula::eval::ValueEval* arg2)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::IfFunc::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::poi::ss::formula::eval::ValueEval* arg0, ::poi::ss::formula::eval::ValueEval* arg1, ::poi::ss::formula::eval::ValueEval* arg2)
 {
     bool b;
     try {
         b = evaluateFirstArg(arg0, srcRowIndex, srcColumnIndex);
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
         return npc(e)->getErrorEval();
     }
     if(b) {
-        if(arg1 == static_cast< ::org::apache::poi::ss::formula::eval::ValueEval* >(::org::apache::poi::ss::formula::eval::MissingArgEval::instance())) {
-            return ::org::apache::poi::ss::formula::eval::BlankEval::instance();
+        if(arg1 == static_cast< ::poi::ss::formula::eval::ValueEval* >(::poi::ss::formula::eval::MissingArgEval::instance())) {
+            return ::poi::ss::formula::eval::BlankEval::instance();
         }
         return arg1;
     }
-    if(arg2 == static_cast< ::org::apache::poi::ss::formula::eval::ValueEval* >(::org::apache::poi::ss::formula::eval::MissingArgEval::instance())) {
-        return ::org::apache::poi::ss::formula::eval::BlankEval::instance();
+    if(arg2 == static_cast< ::poi::ss::formula::eval::ValueEval* >(::poi::ss::formula::eval::MissingArgEval::instance())) {
+        return ::poi::ss::formula::eval::BlankEval::instance();
     }
     return arg2;
 }
 
-bool org::apache::poi::ss::formula::functions::IfFunc::evaluateFirstArg(::org::apache::poi::ss::formula::eval::ValueEval* arg, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */
+bool poi::ss::formula::functions::IfFunc::evaluateFirstArg(::poi::ss::formula::eval::ValueEval* arg, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */
 {
     clinit();
-    auto ve = ::org::apache::poi::ss::formula::eval::OperandResolver::getSingleValue(arg, srcCellRow, srcCellCol);
-    auto b = ::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToBoolean(ve, false);
+    auto ve = ::poi::ss::formula::eval::OperandResolver::getSingleValue(arg, srcCellRow, srcCellCol);
+    auto b = ::poi::ss::formula::eval::OperandResolver::coerceValueToBoolean(ve, false);
     if(b == nullptr) {
         return false;
     }
@@ -101,18 +95,18 @@ bool org::apache::poi::ss::formula::functions::IfFunc::evaluateFirstArg(::org::a
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::IfFunc::class_()
+java::lang::Class* poi::ss::formula::functions::IfFunc::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.IfFunc", 42);
     return c;
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::IfFunc::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::IfFunc::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
 {
     return super::evaluate(args, srcRowIndex, srcColumnIndex);
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::IfFunc::getClass0()
+java::lang::Class* poi::ss::formula::functions::IfFunc::getClass0()
 {
     return class_();
 }

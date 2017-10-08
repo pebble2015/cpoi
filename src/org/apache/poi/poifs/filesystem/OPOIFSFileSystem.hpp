@@ -32,25 +32,25 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::filesystem::OPOIFSFileSystem
+class poi::poifs::filesystem::OPOIFSFileSystem
     : public virtual ::java::lang::Object
-    , public virtual ::org::apache::poi::poifs::dev::POIFSViewable
+    , public virtual ::poi::poifs::dev::POIFSViewable
 {
 
 public:
     typedef ::java::lang::Object super;
 
 private:
-    static ::org::apache::poi::util::POILogger* _logger_;
+    static ::poi::util::POILogger* _logger_;
 
 public:
     static ::java::io::InputStream* createNonClosingInputStream(::java::io::InputStream* is);
 
 private:
-    ::org::apache::poi::poifs::property::PropertyTable* _property_table {  };
+    ::poi::poifs::property::PropertyTable* _property_table {  };
     ::java::util::List* _documents {  };
     DirectoryNode* _root {  };
-    ::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize {  };
+    ::poi::poifs::common::POIFSBigBlockSize* bigBlockSize {  };
 protected:
     void ctor();
     void ctor(::java::io::InputStream* stream) /* throws(IOException) */;
@@ -71,11 +71,11 @@ public:
 
 public: /* package */
     virtual void addDocument(OPOIFSDocument* document);
-    virtual void addDirectory(::org::apache::poi::poifs::property::DirectoryProperty* directory);
+    virtual void addDirectory(::poi::poifs::property::DirectoryProperty* directory);
     virtual void remove(EntryNode* entry);
 
 private:
-    void processProperties(::org::apache::poi::poifs::storage::BlockList* small_blocks, ::org::apache::poi::poifs::storage::BlockList* big_blocks, ::java::util::Iterator* properties, DirectoryNode* dir, int32_t headerPropertiesStartAt) /* throws(IOException) */;
+    void processProperties(::poi::poifs::storage::BlockList* small_blocks, ::poi::poifs::storage::BlockList* big_blocks, ::java::util::Iterator* properties, DirectoryNode* dir, int32_t headerPropertiesStartAt) /* throws(IOException) */;
 
 public:
     ::java::lang::ObjectArray* getViewableArray_() override;
@@ -83,7 +83,7 @@ public:
     bool preferArray_() override;
     ::java::lang::String* getShortDescription() override;
     virtual int32_t getBigBlockSize();
-    virtual ::org::apache::poi::poifs::common::POIFSBigBlockSize* getBigBlockSizeDetails();
+    virtual ::poi::poifs::common::POIFSBigBlockSize* getBigBlockSizeDetails();
 
     // Generated
     OPOIFSFileSystem();
@@ -98,6 +98,6 @@ public:
 
 private:
     void init();
-    static ::org::apache::poi::util::POILogger*& _logger();
+    static ::poi::util::POILogger*& _logger();
     virtual ::java::lang::Class* getClass0();
 };

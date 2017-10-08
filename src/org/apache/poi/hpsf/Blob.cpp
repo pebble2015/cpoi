@@ -12,24 +12,24 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hpsf::Blob::Blob(const ::default_init_tag&)
+poi::hpsf::Blob::Blob(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hpsf::Blob::Blob() 
+poi::hpsf::Blob::Blob() 
     : Blob(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::hpsf::Blob::ctor()
+void poi::hpsf::Blob::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hpsf::Blob::read(::org::apache::poi::util::LittleEndianInput* lei)
+void poi::hpsf::Blob::read(::poi::util::LittleEndianInput* lei)
 {
     auto size = npc(lei)->readInt();
     _value = new ::int8_tArray(size);
@@ -40,13 +40,13 @@ void org::apache::poi::hpsf::Blob::read(::org::apache::poi::util::LittleEndianIn
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hpsf::Blob::class_()
+java::lang::Class* poi::hpsf::Blob::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hpsf.Blob", 24);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hpsf::Blob::getClass0()
+java::lang::Class* poi::hpsf::Blob::getClass0()
 {
     return class_();
 }

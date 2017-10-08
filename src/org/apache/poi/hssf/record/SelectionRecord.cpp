@@ -15,30 +15,24 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace util
         {
-            namespace ss
-            {
-                namespace util
-                {
-typedef ::SubArray< ::org::apache::poi::ss::util::CellRangeAddressBase, ::java::lang::ObjectArray > CellRangeAddressBaseArray;
-                } // util
-            } // ss
+typedef ::SubArray< ::poi::ss::util::CellRangeAddressBase, ::java::lang::ObjectArray > CellRangeAddressBaseArray;
+        } // util
+    } // ss
 
-            namespace hssf
-            {
-                namespace util
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::util::CellRangeAddress8Bit, ::org::apache::poi::ss::util::CellRangeAddressBaseArray > CellRangeAddress8BitArray;
-                } // util
-            } // hssf
-        } // poi
-    } // apache
-} // org
+    namespace hssf
+    {
+        namespace util
+        {
+typedef ::SubArray< ::poi::hssf::util::CellRangeAddress8Bit, ::poi::ss::util::CellRangeAddressBaseArray > CellRangeAddress8BitArray;
+        } // util
+    } // hssf
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -47,37 +41,37 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::SelectionRecord::SelectionRecord(const ::default_init_tag&)
+poi::hssf::record::SelectionRecord::SelectionRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::SelectionRecord::SelectionRecord(int32_t activeCellRow, int32_t activeCellCol) 
+poi::hssf::record::SelectionRecord::SelectionRecord(int32_t activeCellRow, int32_t activeCellCol) 
     : SelectionRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(activeCellRow,activeCellCol);
 }
 
-org::apache::poi::hssf::record::SelectionRecord::SelectionRecord(RecordInputStream* in) 
+poi::hssf::record::SelectionRecord::SelectionRecord(RecordInputStream* in) 
     : SelectionRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::SelectionRecord::sid;
+constexpr int16_t poi::hssf::record::SelectionRecord::sid;
 
-void org::apache::poi::hssf::record::SelectionRecord::ctor(int32_t activeCellRow, int32_t activeCellCol)
+void poi::hssf::record::SelectionRecord::ctor(int32_t activeCellRow, int32_t activeCellCol)
 {
     super::ctor();
     field_1_pane = 3;
     field_2_row_active_cell = activeCellRow;
     field_3_col_active_cell = activeCellCol;
     field_4_active_cell_ref_index = 0;
-    field_6_refs = new ::org::apache::poi::hssf::util::CellRangeAddress8BitArray({new ::org::apache::poi::hssf::util::CellRangeAddress8Bit(activeCellRow, activeCellRow, activeCellCol, activeCellCol)});
+    field_6_refs = new ::poi::hssf::util::CellRangeAddress8BitArray({new ::poi::hssf::util::CellRangeAddress8Bit(activeCellRow, activeCellRow, activeCellCol, activeCellCol)});
 }
 
-void org::apache::poi::hssf::record::SelectionRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::SelectionRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     field_1_pane = npc(in)->readByte();
@@ -85,71 +79,71 @@ void org::apache::poi::hssf::record::SelectionRecord::ctor(RecordInputStream* in
     field_3_col_active_cell = npc(in)->readShort();
     field_4_active_cell_ref_index = npc(in)->readShort();
     auto field_5_num_refs = npc(in)->readUShort();
-    field_6_refs = new ::org::apache::poi::hssf::util::CellRangeAddress8BitArray(field_5_num_refs);
+    field_6_refs = new ::poi::hssf::util::CellRangeAddress8BitArray(field_5_num_refs);
     for (auto i = int32_t(0); i < npc(field_6_refs)->length; i++) {
-        field_6_refs->set(i, new ::org::apache::poi::hssf::util::CellRangeAddress8Bit(in));
+        field_6_refs->set(i, new ::poi::hssf::util::CellRangeAddress8Bit(in));
     }
 }
 
-void org::apache::poi::hssf::record::SelectionRecord::setPane(int8_t pane)
+void poi::hssf::record::SelectionRecord::setPane(int8_t pane)
 {
     field_1_pane = pane;
 }
 
-void org::apache::poi::hssf::record::SelectionRecord::setActiveCellRow(int32_t row)
+void poi::hssf::record::SelectionRecord::setActiveCellRow(int32_t row)
 {
     field_2_row_active_cell = row;
 }
 
-void org::apache::poi::hssf::record::SelectionRecord::setActiveCellCol(int16_t col)
+void poi::hssf::record::SelectionRecord::setActiveCellCol(int16_t col)
 {
     field_3_col_active_cell = col;
 }
 
-void org::apache::poi::hssf::record::SelectionRecord::setActiveCellRef(int16_t ref)
+void poi::hssf::record::SelectionRecord::setActiveCellRef(int16_t ref)
 {
     field_4_active_cell_ref_index = ref;
 }
 
-int8_t org::apache::poi::hssf::record::SelectionRecord::getPane()
+int8_t poi::hssf::record::SelectionRecord::getPane()
 {
     return field_1_pane;
 }
 
-int32_t org::apache::poi::hssf::record::SelectionRecord::getActiveCellRow()
+int32_t poi::hssf::record::SelectionRecord::getActiveCellRow()
 {
     return field_2_row_active_cell;
 }
 
-int32_t org::apache::poi::hssf::record::SelectionRecord::getActiveCellCol()
+int32_t poi::hssf::record::SelectionRecord::getActiveCellCol()
 {
     return field_3_col_active_cell;
 }
 
-int32_t org::apache::poi::hssf::record::SelectionRecord::getActiveCellRef()
+int32_t poi::hssf::record::SelectionRecord::getActiveCellRef()
 {
     return field_4_active_cell_ref_index;
 }
 
-java::lang::String* org::apache::poi::hssf::record::SelectionRecord::toString()
+java::lang::String* poi::hssf::record::SelectionRecord::toString()
 {
     auto sb = new ::java::lang::StringBuffer();
     npc(sb)->append(u"[SELECTION]\n"_j);
-    npc(npc(npc(sb)->append(u"    .pane            = "_j))->append(::org::apache::poi::util::HexDump::byteToHex(getPane())))->append(u"\n"_j);
-    npc(npc(npc(sb)->append(u"    .activecellrow   = "_j))->append(::org::apache::poi::util::HexDump::shortToHex(getActiveCellRow())))->append(u"\n"_j);
-    npc(npc(npc(sb)->append(u"    .activecellcol   = "_j))->append(::org::apache::poi::util::HexDump::shortToHex(getActiveCellCol())))->append(u"\n"_j);
-    npc(npc(npc(sb)->append(u"    .activecellref   = "_j))->append(::org::apache::poi::util::HexDump::shortToHex(getActiveCellRef())))->append(u"\n"_j);
-    npc(npc(npc(sb)->append(u"    .numrefs         = "_j))->append(::org::apache::poi::util::HexDump::shortToHex(npc(field_6_refs)->length)))->append(u"\n"_j);
+    npc(npc(npc(sb)->append(u"    .pane            = "_j))->append(::poi::util::HexDump::byteToHex(getPane())))->append(u"\n"_j);
+    npc(npc(npc(sb)->append(u"    .activecellrow   = "_j))->append(::poi::util::HexDump::shortToHex(getActiveCellRow())))->append(u"\n"_j);
+    npc(npc(npc(sb)->append(u"    .activecellcol   = "_j))->append(::poi::util::HexDump::shortToHex(getActiveCellCol())))->append(u"\n"_j);
+    npc(npc(npc(sb)->append(u"    .activecellref   = "_j))->append(::poi::util::HexDump::shortToHex(getActiveCellRef())))->append(u"\n"_j);
+    npc(npc(npc(sb)->append(u"    .numrefs         = "_j))->append(::poi::util::HexDump::shortToHex(npc(field_6_refs)->length)))->append(u"\n"_j);
     npc(sb)->append(u"[/SELECTION]\n"_j);
     return npc(sb)->toString();
 }
 
-int32_t org::apache::poi::hssf::record::SelectionRecord::getDataSize()
+int32_t poi::hssf::record::SelectionRecord::getDataSize()
 {
-    return int32_t(9) + ::org::apache::poi::hssf::util::CellRangeAddress8Bit::getEncodedSize(npc(field_6_refs)->length);
+    return int32_t(9) + ::poi::hssf::util::CellRangeAddress8Bit::getEncodedSize(npc(field_6_refs)->length);
 }
 
-void org::apache::poi::hssf::record::SelectionRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::SelectionRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeByte(getPane());
     npc(out)->writeShort(getActiveCellRow());
@@ -162,12 +156,12 @@ void org::apache::poi::hssf::record::SelectionRecord::serialize(::org::apache::p
     }
 }
 
-int16_t org::apache::poi::hssf::record::SelectionRecord::getSid()
+int16_t poi::hssf::record::SelectionRecord::getSid()
 {
     return sid;
 }
 
-java::lang::Object* org::apache::poi::hssf::record::SelectionRecord::clone()
+java::lang::Object* poi::hssf::record::SelectionRecord::clone()
 {
     auto rec = new SelectionRecord(field_2_row_active_cell, field_3_col_active_cell);
     npc(rec)->field_1_pane = field_1_pane;
@@ -178,23 +172,23 @@ java::lang::Object* org::apache::poi::hssf::record::SelectionRecord::clone()
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::SelectionRecord::class_()
+java::lang::Class* poi::hssf::record::SelectionRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.SelectionRecord", 42);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::SelectionRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::SelectionRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::SelectionRecord::serialize()
+int8_tArray* poi::hssf::record::SelectionRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::SelectionRecord::getClass0()
+java::lang::Class* poi::hssf::record::SelectionRecord::getClass0()
 {
     return class_();
 }

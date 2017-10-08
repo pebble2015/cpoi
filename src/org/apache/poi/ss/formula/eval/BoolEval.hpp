@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::eval::BoolEval final
+class poi::ss::formula::eval::BoolEval final
     : public virtual ::java::lang::Object
     , public NumericValueEval
     , public StringValueEval

@@ -44,106 +44,106 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::FilePassRecord::FilePassRecord(const ::default_init_tag&)
+poi::hssf::record::FilePassRecord::FilePassRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::FilePassRecord::FilePassRecord(FilePassRecord* other) 
+poi::hssf::record::FilePassRecord::FilePassRecord(FilePassRecord* other) 
     : FilePassRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(other);
 }
 
-org::apache::poi::hssf::record::FilePassRecord::FilePassRecord(::org::apache::poi::poifs::crypt::EncryptionMode* encryptionMode) 
+poi::hssf::record::FilePassRecord::FilePassRecord(::poi::poifs::crypt::EncryptionMode* encryptionMode) 
     : FilePassRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(encryptionMode);
 }
 
-org::apache::poi::hssf::record::FilePassRecord::FilePassRecord(RecordInputStream* in) 
+poi::hssf::record::FilePassRecord::FilePassRecord(RecordInputStream* in) 
     : FilePassRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::FilePassRecord::sid;
+constexpr int16_t poi::hssf::record::FilePassRecord::sid;
 
-constexpr int32_t org::apache::poi::hssf::record::FilePassRecord::ENCRYPTION_XOR;
+constexpr int32_t poi::hssf::record::FilePassRecord::ENCRYPTION_XOR;
 
-constexpr int32_t org::apache::poi::hssf::record::FilePassRecord::ENCRYPTION_OTHER;
+constexpr int32_t poi::hssf::record::FilePassRecord::ENCRYPTION_OTHER;
 
-void org::apache::poi::hssf::record::FilePassRecord::ctor(FilePassRecord* other)
+void poi::hssf::record::FilePassRecord::ctor(FilePassRecord* other)
 {
     super::ctor();
     encryptionType = npc(other)->encryptionType;
     try {
         encryptionInfo = npc(npc(other)->encryptionInfo)->clone();
     } catch (::java::lang::CloneNotSupportedException* e) {
-        throw new ::org::apache::poi::EncryptedDocumentException(static_cast< ::java::lang::Throwable* >(e));
+        throw new ::poi::EncryptedDocumentException(static_cast< ::java::lang::Throwable* >(e));
     }
 }
 
-void org::apache::poi::hssf::record::FilePassRecord::ctor(::org::apache::poi::poifs::crypt::EncryptionMode* encryptionMode)
+void poi::hssf::record::FilePassRecord::ctor(::poi::poifs::crypt::EncryptionMode* encryptionMode)
 {
     super::ctor();
-    encryptionType = (encryptionMode == ::org::apache::poi::poifs::crypt::EncryptionMode::xor_) ? ENCRYPTION_XOR : ENCRYPTION_OTHER;
-    encryptionInfo = new ::org::apache::poi::poifs::crypt::EncryptionInfo(encryptionMode);
+    encryptionType = (encryptionMode == ::poi::poifs::crypt::EncryptionMode::xor_) ? ENCRYPTION_XOR : ENCRYPTION_OTHER;
+    encryptionInfo = new ::poi::poifs::crypt::EncryptionInfo(encryptionMode);
 }
 
-void org::apache::poi::hssf::record::FilePassRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::FilePassRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     encryptionType = npc(in)->readUShort();
-    ::org::apache::poi::poifs::crypt::EncryptionMode* preferredMode;
+    ::poi::poifs::crypt::EncryptionMode* preferredMode;
     switch (encryptionType) {
     case ENCRYPTION_XOR:
-        preferredMode = ::org::apache::poi::poifs::crypt::EncryptionMode::xor_;
+        preferredMode = ::poi::poifs::crypt::EncryptionMode::xor_;
         break;
     case ENCRYPTION_OTHER:
-        preferredMode = ::org::apache::poi::poifs::crypt::EncryptionMode::cryptoAPI;
+        preferredMode = ::poi::poifs::crypt::EncryptionMode::cryptoAPI;
         break;
     default:
-        throw new ::org::apache::poi::EncryptedDocumentException(u"invalid encryption type"_j);
+        throw new ::poi::EncryptedDocumentException(u"invalid encryption type"_j);
     }
 
     try {
-        encryptionInfo = new ::org::apache::poi::poifs::crypt::EncryptionInfo(in, preferredMode);
+        encryptionInfo = new ::poi::poifs::crypt::EncryptionInfo(in, preferredMode);
     } catch (::java::io::IOException* e) {
-        throw new ::org::apache::poi::EncryptedDocumentException(static_cast< ::java::lang::Throwable* >(e));
+        throw new ::poi::EncryptedDocumentException(static_cast< ::java::lang::Throwable* >(e));
     }
 }
 
-void org::apache::poi::hssf::record::FilePassRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::FilePassRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(encryptionType);
     auto data = new ::int8_tArray(int32_t(1024));
-    auto bos = new ::org::apache::poi::util::LittleEndianByteArrayOutputStream(data, int32_t(0));
+    auto bos = new ::poi::util::LittleEndianByteArrayOutputStream(data, int32_t(0));
     {
         auto v = npc(encryptionInfo)->getEncryptionMode();
-        if((v == ::org::apache::poi::poifs::crypt::EncryptionMode::xor_)) {
-            npc((java_cast< ::org::apache::poi::poifs::crypt::xor_::XOREncryptionHeader* >(npc(encryptionInfo)->getHeader())))->write(bos);
-            npc((java_cast< ::org::apache::poi::poifs::crypt::xor_::XOREncryptionVerifier* >(npc(encryptionInfo)->getVerifier())))->write(bos);
+        if((v == ::poi::poifs::crypt::EncryptionMode::xor_)) {
+            npc((java_cast< ::poi::poifs::crypt::xor_::XOREncryptionHeader* >(npc(encryptionInfo)->getHeader())))->write(bos);
+            npc((java_cast< ::poi::poifs::crypt::xor_::XOREncryptionVerifier* >(npc(encryptionInfo)->getVerifier())))->write(bos);
             goto end_switch0;;
         }
-        if((v == ::org::apache::poi::poifs::crypt::EncryptionMode::binaryRC4)) {
+        if((v == ::poi::poifs::crypt::EncryptionMode::binaryRC4)) {
             npc(out)->writeShort(npc(encryptionInfo)->getVersionMajor());
             npc(out)->writeShort(npc(encryptionInfo)->getVersionMinor());
-            npc((java_cast< ::org::apache::poi::poifs::crypt::binaryrc4::BinaryRC4EncryptionHeader* >(npc(encryptionInfo)->getHeader())))->write(bos);
-            npc((java_cast< ::org::apache::poi::poifs::crypt::binaryrc4::BinaryRC4EncryptionVerifier* >(npc(encryptionInfo)->getVerifier())))->write(bos);
+            npc((java_cast< ::poi::poifs::crypt::binaryrc4::BinaryRC4EncryptionHeader* >(npc(encryptionInfo)->getHeader())))->write(bos);
+            npc((java_cast< ::poi::poifs::crypt::binaryrc4::BinaryRC4EncryptionVerifier* >(npc(encryptionInfo)->getVerifier())))->write(bos);
             goto end_switch0;;
         }
-        if((v == ::org::apache::poi::poifs::crypt::EncryptionMode::cryptoAPI)) {
+        if((v == ::poi::poifs::crypt::EncryptionMode::cryptoAPI)) {
             npc(out)->writeShort(npc(encryptionInfo)->getVersionMajor());
             npc(out)->writeShort(npc(encryptionInfo)->getVersionMinor());
             npc(out)->writeInt(npc(encryptionInfo)->getEncryptionFlags());
-            npc((java_cast< ::org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIEncryptionHeader* >(npc(encryptionInfo)->getHeader())))->write(bos);
-            npc((java_cast< ::org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIEncryptionVerifier* >(npc(encryptionInfo)->getVerifier())))->write(bos);
+            npc((java_cast< ::poi::poifs::crypt::cryptoapi::CryptoAPIEncryptionHeader* >(npc(encryptionInfo)->getHeader())))->write(bos);
+            npc((java_cast< ::poi::poifs::crypt::cryptoapi::CryptoAPIEncryptionVerifier* >(npc(encryptionInfo)->getVerifier())))->write(bos);
             goto end_switch0;;
         }
-        if((((v != ::org::apache::poi::poifs::crypt::EncryptionMode::xor_) && (v != ::org::apache::poi::poifs::crypt::EncryptionMode::binaryRC4) && (v != ::org::apache::poi::poifs::crypt::EncryptionMode::cryptoAPI)))) {
-            throw new ::org::apache::poi::EncryptedDocumentException(u"not supported"_j);
+        if((((v != ::poi::poifs::crypt::EncryptionMode::xor_) && (v != ::poi::poifs::crypt::EncryptionMode::binaryRC4) && (v != ::poi::poifs::crypt::EncryptionMode::cryptoAPI)))) {
+            throw new ::poi::EncryptedDocumentException(u"not supported"_j);
         }
 end_switch0:;
     }
@@ -151,63 +151,63 @@ end_switch0:;
     npc(out)->write(data, 0, npc(bos)->getWriteIndex());
 }
 
-int32_t org::apache::poi::hssf::record::FilePassRecord::getDataSize()
+int32_t poi::hssf::record::FilePassRecord::getDataSize()
 {
     auto bos = new ::java::io::ByteArrayOutputStream();
-    auto leos = new ::org::apache::poi::util::LittleEndianOutputStream(bos);
-    serialize(static_cast< ::org::apache::poi::util::LittleEndianOutput* >(leos));
+    auto leos = new ::poi::util::LittleEndianOutputStream(bos);
+    serialize(static_cast< ::poi::util::LittleEndianOutput* >(leos));
     return npc(bos)->size();
 }
 
-org::apache::poi::poifs::crypt::EncryptionInfo* org::apache::poi::hssf::record::FilePassRecord::getEncryptionInfo()
+poi::poifs::crypt::EncryptionInfo* poi::hssf::record::FilePassRecord::getEncryptionInfo()
 {
     return encryptionInfo;
 }
 
-int16_t org::apache::poi::hssf::record::FilePassRecord::getSid()
+int16_t poi::hssf::record::FilePassRecord::getSid()
 {
     return sid;
 }
 
-org::apache::poi::hssf::record::FilePassRecord* org::apache::poi::hssf::record::FilePassRecord::clone()
+poi::hssf::record::FilePassRecord* poi::hssf::record::FilePassRecord::clone()
 {
     return new FilePassRecord(this);
 }
 
-java::lang::String* org::apache::poi::hssf::record::FilePassRecord::toString()
+java::lang::String* poi::hssf::record::FilePassRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuilder();
     npc(buffer)->append(u"[FILEPASS]\n"_j);
-    npc(npc(npc(buffer)->append(u"    .type = "_j))->append(::org::apache::poi::util::HexDump::shortToHex(encryptionType)))->append(u'\u000a');
+    npc(npc(npc(buffer)->append(u"    .type = "_j))->append(::poi::util::HexDump::shortToHex(encryptionType)))->append(u'\u000a');
     auto prefix = ::java::lang::StringBuilder().append(u"     ."_j)->append(static_cast< ::java::lang::Object* >(npc(encryptionInfo)->getEncryptionMode()))->toString();
-    npc(npc(npc(buffer)->append(::java::lang::StringBuilder().append(prefix)->append(u".info = "_j)->toString()))->append(::org::apache::poi::util::HexDump::shortToHex(npc(encryptionInfo)->getVersionMajor())))->append(u'\u000a');
-    npc(npc(npc(buffer)->append(::java::lang::StringBuilder().append(prefix)->append(u".ver  = "_j)->toString()))->append(::org::apache::poi::util::HexDump::shortToHex(npc(encryptionInfo)->getVersionMinor())))->append(u'\u000a');
-    npc(npc(npc(buffer)->append(::java::lang::StringBuilder().append(prefix)->append(u".salt = "_j)->toString()))->append(::org::apache::poi::util::HexDump::toHex(npc(npc(encryptionInfo)->getVerifier())->getSalt())))->append(u'\u000a');
-    npc(npc(npc(buffer)->append(::java::lang::StringBuilder().append(prefix)->append(u".verifier = "_j)->toString()))->append(::org::apache::poi::util::HexDump::toHex(npc(npc(encryptionInfo)->getVerifier())->getEncryptedVerifier())))->append(u'\u000a');
-    npc(npc(npc(buffer)->append(::java::lang::StringBuilder().append(prefix)->append(u".verifierHash = "_j)->toString()))->append(::org::apache::poi::util::HexDump::toHex(npc(npc(encryptionInfo)->getVerifier())->getEncryptedVerifierHash())))->append(u'\u000a');
+    npc(npc(npc(buffer)->append(::java::lang::StringBuilder().append(prefix)->append(u".info = "_j)->toString()))->append(::poi::util::HexDump::shortToHex(npc(encryptionInfo)->getVersionMajor())))->append(u'\u000a');
+    npc(npc(npc(buffer)->append(::java::lang::StringBuilder().append(prefix)->append(u".ver  = "_j)->toString()))->append(::poi::util::HexDump::shortToHex(npc(encryptionInfo)->getVersionMinor())))->append(u'\u000a');
+    npc(npc(npc(buffer)->append(::java::lang::StringBuilder().append(prefix)->append(u".salt = "_j)->toString()))->append(::poi::util::HexDump::toHex(npc(npc(encryptionInfo)->getVerifier())->getSalt())))->append(u'\u000a');
+    npc(npc(npc(buffer)->append(::java::lang::StringBuilder().append(prefix)->append(u".verifier = "_j)->toString()))->append(::poi::util::HexDump::toHex(npc(npc(encryptionInfo)->getVerifier())->getEncryptedVerifier())))->append(u'\u000a');
+    npc(npc(npc(buffer)->append(::java::lang::StringBuilder().append(prefix)->append(u".verifierHash = "_j)->toString()))->append(::poi::util::HexDump::toHex(npc(npc(encryptionInfo)->getVerifier())->getEncryptedVerifierHash())))->append(u'\u000a');
     npc(buffer)->append(u"[/FILEPASS]\n"_j);
     return npc(buffer)->toString();
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::FilePassRecord::class_()
+java::lang::Class* poi::hssf::record::FilePassRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.FilePassRecord", 41);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::FilePassRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::FilePassRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::FilePassRecord::serialize()
+int8_tArray* poi::hssf::record::FilePassRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::FilePassRecord::getClass0()
+java::lang::Class* poi::hssf::record::FilePassRecord::getClass0()
 {
     return class_();
 }

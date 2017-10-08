@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::EndSubRecord final
+class poi::hssf::record::EndSubRecord final
     : public SubRecord
     , public ::java::lang::Cloneable
 {
@@ -24,12 +24,12 @@ private:
     static constexpr int32_t ENCODED_SIZE { int32_t(0) };
 protected:
     void ctor();
-    void ctor(::org::apache::poi::util::LittleEndianInput* in, int32_t size);
+    void ctor(::poi::util::LittleEndianInput* in, int32_t size);
 
 public:
     bool isTerminating() override;
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;
@@ -40,7 +40,7 @@ public:
 
     // Generated
     EndSubRecord();
-    EndSubRecord(::org::apache::poi::util::LittleEndianInput* in, int32_t size);
+    EndSubRecord(::poi::util::LittleEndianInput* in, int32_t size);
 protected:
     EndSubRecord(const ::default_init_tag&);
 

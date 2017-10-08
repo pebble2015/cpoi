@@ -18,37 +18,37 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::nio::ByteArrayBackedDataSource::ByteArrayBackedDataSource(const ::default_init_tag&)
+poi::poifs::nio::ByteArrayBackedDataSource::ByteArrayBackedDataSource(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::nio::ByteArrayBackedDataSource::ByteArrayBackedDataSource(::int8_tArray* data, int32_t size) 
+poi::poifs::nio::ByteArrayBackedDataSource::ByteArrayBackedDataSource(::int8_tArray* data, int32_t size) 
     : ByteArrayBackedDataSource(*static_cast< ::default_init_tag* >(0))
 {
     ctor(data,size);
 }
 
-org::apache::poi::poifs::nio::ByteArrayBackedDataSource::ByteArrayBackedDataSource(::int8_tArray* data) 
+poi::poifs::nio::ByteArrayBackedDataSource::ByteArrayBackedDataSource(::int8_tArray* data) 
     : ByteArrayBackedDataSource(*static_cast< ::default_init_tag* >(0))
 {
     ctor(data);
 }
 
-void org::apache::poi::poifs::nio::ByteArrayBackedDataSource::ctor(::int8_tArray* data, int32_t size)
+void poi::poifs::nio::ByteArrayBackedDataSource::ctor(::int8_tArray* data, int32_t size)
 {
     super::ctor();
     this->buffer = data;
     this->size_ = size;
 }
 
-void org::apache::poi::poifs::nio::ByteArrayBackedDataSource::ctor(::int8_tArray* data)
+void poi::poifs::nio::ByteArrayBackedDataSource::ctor(::int8_tArray* data)
 {
     ctor(data, npc(data)->length);
 }
 
-java::nio::ByteBuffer* org::apache::poi::poifs::nio::ByteArrayBackedDataSource::read(int32_t length, int64_t position)
+java::nio::ByteBuffer* poi::poifs::nio::ByteArrayBackedDataSource::read(int32_t length, int64_t position)
 {
     if(position >= size_) {
         throw new ::java::lang::IndexOutOfBoundsException(::java::lang::StringBuilder().append(u"Unable to read "_j)->append(length)
@@ -61,7 +61,7 @@ java::nio::ByteBuffer* org::apache::poi::poifs::nio::ByteArrayBackedDataSource::
     return ::java::nio::ByteBuffer::wrap(buffer, static_cast< int32_t >(position), toRead);
 }
 
-void org::apache::poi::poifs::nio::ByteArrayBackedDataSource::write(::java::nio::ByteBuffer* src, int64_t position)
+void poi::poifs::nio::ByteArrayBackedDataSource::write(::java::nio::ByteBuffer* src, int64_t position)
 {
     auto endPosition = position + npc(src)->capacity();
     if(endPosition > npc(buffer)->length) {
@@ -73,7 +73,7 @@ void org::apache::poi::poifs::nio::ByteArrayBackedDataSource::write(::java::nio:
     }
 }
 
-void org::apache::poi::poifs::nio::ByteArrayBackedDataSource::extend(int64_t length)
+void poi::poifs::nio::ByteArrayBackedDataSource::extend(int64_t length)
 {
     auto difference = length - npc(buffer)->length;
     if(difference < npc(buffer)->length * 0.25) {
@@ -87,17 +87,17 @@ void org::apache::poi::poifs::nio::ByteArrayBackedDataSource::extend(int64_t len
     buffer = nb;
 }
 
-void org::apache::poi::poifs::nio::ByteArrayBackedDataSource::copyTo(::java::io::OutputStream* stream) /* throws(IOException) */
+void poi::poifs::nio::ByteArrayBackedDataSource::copyTo(::java::io::OutputStream* stream) /* throws(IOException) */
 {
     npc(stream)->write(buffer, 0, static_cast< int32_t >(size_));
 }
 
-int64_t org::apache::poi::poifs::nio::ByteArrayBackedDataSource::size()
+int64_t poi::poifs::nio::ByteArrayBackedDataSource::size()
 {
     return size_;
 }
 
-void org::apache::poi::poifs::nio::ByteArrayBackedDataSource::close()
+void poi::poifs::nio::ByteArrayBackedDataSource::close()
 {
     buffer = nullptr;
     size_ = -int32_t(1);
@@ -105,13 +105,13 @@ void org::apache::poi::poifs::nio::ByteArrayBackedDataSource::close()
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::nio::ByteArrayBackedDataSource::class_()
+java::lang::Class* poi::poifs::nio::ByteArrayBackedDataSource::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.nio.ByteArrayBackedDataSource", 50);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::nio::ByteArrayBackedDataSource::getClass0()
+java::lang::Class* poi::poifs::nio::ByteArrayBackedDataSource::getClass0()
 {
     return class_();
 }

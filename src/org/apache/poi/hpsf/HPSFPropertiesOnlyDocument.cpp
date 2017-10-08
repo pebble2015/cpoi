@@ -33,46 +33,46 @@ namespace
 
     template<typename F> finally_<F> finally(F f) { return finally_<F>(f); }
 }
-org::apache::poi::hpsf::HPSFPropertiesOnlyDocument::HPSFPropertiesOnlyDocument(const ::default_init_tag&)
+poi::hpsf::HPSFPropertiesOnlyDocument::HPSFPropertiesOnlyDocument(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hpsf::HPSFPropertiesOnlyDocument::HPSFPropertiesOnlyDocument(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs) 
+poi::hpsf::HPSFPropertiesOnlyDocument::HPSFPropertiesOnlyDocument(::poi::poifs::filesystem::NPOIFSFileSystem* fs) 
     : HPSFPropertiesOnlyDocument(*static_cast< ::default_init_tag* >(0))
 {
     ctor(fs);
 }
 
-org::apache::poi::hpsf::HPSFPropertiesOnlyDocument::HPSFPropertiesOnlyDocument(::org::apache::poi::poifs::filesystem::OPOIFSFileSystem* fs) 
+poi::hpsf::HPSFPropertiesOnlyDocument::HPSFPropertiesOnlyDocument(::poi::poifs::filesystem::OPOIFSFileSystem* fs) 
     : HPSFPropertiesOnlyDocument(*static_cast< ::default_init_tag* >(0))
 {
     ctor(fs);
 }
 
-org::apache::poi::hpsf::HPSFPropertiesOnlyDocument::HPSFPropertiesOnlyDocument(::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs) 
+poi::hpsf::HPSFPropertiesOnlyDocument::HPSFPropertiesOnlyDocument(::poi::poifs::filesystem::POIFSFileSystem* fs) 
     : HPSFPropertiesOnlyDocument(*static_cast< ::default_init_tag* >(0))
 {
     ctor(fs);
 }
 
-void org::apache::poi::hpsf::HPSFPropertiesOnlyDocument::ctor(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs)
+void poi::hpsf::HPSFPropertiesOnlyDocument::ctor(::poi::poifs::filesystem::NPOIFSFileSystem* fs)
 {
     super::ctor(npc(fs)->getRoot());
 }
 
-void org::apache::poi::hpsf::HPSFPropertiesOnlyDocument::ctor(::org::apache::poi::poifs::filesystem::OPOIFSFileSystem* fs)
+void poi::hpsf::HPSFPropertiesOnlyDocument::ctor(::poi::poifs::filesystem::OPOIFSFileSystem* fs)
 {
     super::ctor(fs);
 }
 
-void org::apache::poi::hpsf::HPSFPropertiesOnlyDocument::ctor(::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs)
+void poi::hpsf::HPSFPropertiesOnlyDocument::ctor(::poi::poifs::filesystem::POIFSFileSystem* fs)
 {
     super::ctor(fs);
 }
 
-void org::apache::poi::hpsf::HPSFPropertiesOnlyDocument::write() /* throws(IOException) */
+void poi::hpsf::HPSFPropertiesOnlyDocument::write() /* throws(IOException) */
 {
     auto fs = npc(getDirectory())->getFileSystem();
     validateInPlaceWritePossible();
@@ -80,24 +80,24 @@ void org::apache::poi::hpsf::HPSFPropertiesOnlyDocument::write() /* throws(IOExc
     npc(fs)->writeFilesystem();
 }
 
-void org::apache::poi::hpsf::HPSFPropertiesOnlyDocument::write(::java::io::File* newFile) /* throws(IOException) */
+void poi::hpsf::HPSFPropertiesOnlyDocument::write(::java::io::File* newFile) /* throws(IOException) */
 {
-    auto fs = ::org::apache::poi::poifs::filesystem::POIFSFileSystem::create(newFile);
+    auto fs = ::poi::poifs::filesystem::POIFSFileSystem::create(newFile);
     {
         auto finally0 = finally([&] {
             npc(fs)->close();
         });
         {
-            write(static_cast< ::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* >(fs));
+            write(static_cast< ::poi::poifs::filesystem::NPOIFSFileSystem* >(fs));
             npc(fs)->writeFilesystem();
         }
     }
 
 }
 
-void org::apache::poi::hpsf::HPSFPropertiesOnlyDocument::write(::java::io::OutputStream* out) /* throws(IOException) */
+void poi::hpsf::HPSFPropertiesOnlyDocument::write(::java::io::OutputStream* out) /* throws(IOException) */
 {
-    auto fs = new ::org::apache::poi::poifs::filesystem::NPOIFSFileSystem();
+    auto fs = new ::poi::poifs::filesystem::NPOIFSFileSystem();
     {
         auto finally1 = finally([&] {
             npc(fs)->close();
@@ -110,24 +110,24 @@ void org::apache::poi::hpsf::HPSFPropertiesOnlyDocument::write(::java::io::Outpu
 
 }
 
-void org::apache::poi::hpsf::HPSFPropertiesOnlyDocument::write(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs) /* throws(IOException) */
+void poi::hpsf::HPSFPropertiesOnlyDocument::write(::poi::poifs::filesystem::NPOIFSFileSystem* fs) /* throws(IOException) */
 {
     ::java::util::List* excepts = new ::java::util::ArrayList(int32_t(2));
     writeProperties(fs, excepts);
-    auto src = new ::org::apache::poi::poifs::filesystem::FilteringDirectoryNode(getDirectory(), excepts);
-    auto dest = new ::org::apache::poi::poifs::filesystem::FilteringDirectoryNode(npc(fs)->getRoot(), excepts);
-    ::org::apache::poi::poifs::filesystem::EntryUtils::copyNodes(src, dest);
+    auto src = new ::poi::poifs::filesystem::FilteringDirectoryNode(getDirectory(), excepts);
+    auto dest = new ::poi::poifs::filesystem::FilteringDirectoryNode(npc(fs)->getRoot(), excepts);
+    ::poi::poifs::filesystem::EntryUtils::copyNodes(src, dest);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hpsf::HPSFPropertiesOnlyDocument::class_()
+java::lang::Class* poi::hpsf::HPSFPropertiesOnlyDocument::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hpsf.HPSFPropertiesOnlyDocument", 46);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hpsf::HPSFPropertiesOnlyDocument::getClass0()
+java::lang::Class* poi::hpsf::HPSFPropertiesOnlyDocument::getClass0()
 {
     return class_();
 }

@@ -29,9 +29,9 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFDataFormat final
+class poi::hssf::usermodel::HSSFDataFormat final
     : public virtual ::java::lang::Object
-    , public ::org::apache::poi::ss::usermodel::DataFormat
+    , public ::poi::ss::usermodel::DataFormat
 {
 
 public:
@@ -40,10 +40,10 @@ public:
 private:
     static ::java::lang::StringArray* _builtinFormats_;
     ::java::util::Vector* _formats {  };
-    ::org::apache::poi::hssf::model::InternalWorkbook* _workbook {  };
+    ::poi::hssf::model::InternalWorkbook* _workbook {  };
     bool _movedBuiltins {  };
 protected:
-    void ctor(::org::apache::poi::hssf::model::InternalWorkbook* workbook);
+    void ctor(::poi::hssf::model::InternalWorkbook* workbook);
 
 public:
     static ::java::util::List* getBuiltinFormats();
@@ -59,7 +59,7 @@ private:
     // Generated
 
 public: /* package */
-    HSSFDataFormat(::org::apache::poi::hssf::model::InternalWorkbook* workbook);
+    HSSFDataFormat(::poi::hssf::model::InternalWorkbook* workbook);
 protected:
     HSSFDataFormat(const ::default_init_tag&);
 

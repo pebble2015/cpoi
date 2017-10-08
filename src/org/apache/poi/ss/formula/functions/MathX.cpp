@@ -18,59 +18,59 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::MathX::MathX(const ::default_init_tag&)
+poi::ss::formula::functions::MathX::MathX(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::MathX::MathX() 
+poi::ss::formula::functions::MathX::MathX() 
     : MathX(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::ss::formula::functions::MathX::ctor()
+void poi::ss::formula::functions::MathX::ctor()
 {
     super::ctor();
 }
 
-double org::apache::poi::ss::formula::functions::MathX::round(double n, int32_t p)
+double poi::ss::formula::functions::MathX::round(double n, int32_t p)
 {
     clinit();
     return round(n, p, ::java::math::RoundingMode::HALF_UP);
 }
 
-double org::apache::poi::ss::formula::functions::MathX::roundUp(double n, int32_t p)
+double poi::ss::formula::functions::MathX::roundUp(double n, int32_t p)
 {
     clinit();
     return round(n, p, ::java::math::RoundingMode::UP);
 }
 
-double org::apache::poi::ss::formula::functions::MathX::roundDown(double n, int32_t p)
+double poi::ss::formula::functions::MathX::roundDown(double n, int32_t p)
 {
     clinit();
     return round(n, p, ::java::math::RoundingMode::DOWN);
 }
 
-double org::apache::poi::ss::formula::functions::MathX::round(double n, int32_t p, ::java::math::RoundingMode* rounding)
+double poi::ss::formula::functions::MathX::round(double n, int32_t p, ::java::math::RoundingMode* rounding)
 {
     clinit();
     if(::java::lang::Double::isNaN(n) || ::java::lang::Double::isInfinite(n)) {
         return ::java::lang::Double::NaN;
     } else {
-        auto const excelNumber = ::org::apache::poi::ss::util::NumberToTextConverter::toText(n);
+        auto const excelNumber = ::poi::ss::util::NumberToTextConverter::toText(n);
         return npc((new ::java::math::BigDecimal(excelNumber))->setScale(p, rounding))->doubleValue();
     }
 }
 
-int16_t org::apache::poi::ss::formula::functions::MathX::sign(double d)
+int16_t poi::ss::formula::functions::MathX::sign(double d)
 {
     clinit();
     return static_cast< int16_t >(((d == 0) ? int32_t(0) : (d < 0) ? -int32_t(1) : int32_t(1)));
 }
 
-double org::apache::poi::ss::formula::functions::MathX::average(::doubleArray* values)
+double poi::ss::formula::functions::MathX::average(::doubleArray* values)
 {
     clinit();
     double ave = int32_t(0);
@@ -82,7 +82,7 @@ double org::apache::poi::ss::formula::functions::MathX::average(::doubleArray* v
     return ave;
 }
 
-double org::apache::poi::ss::formula::functions::MathX::sum(::doubleArray* values)
+double poi::ss::formula::functions::MathX::sum(::doubleArray* values)
 {
     clinit();
     double sum = int32_t(0);
@@ -92,7 +92,7 @@ double org::apache::poi::ss::formula::functions::MathX::sum(::doubleArray* value
     return sum;
 }
 
-double org::apache::poi::ss::formula::functions::MathX::sumsq(::doubleArray* values)
+double poi::ss::formula::functions::MathX::sumsq(::doubleArray* values)
 {
     clinit();
     double sumsq = int32_t(0);
@@ -102,7 +102,7 @@ double org::apache::poi::ss::formula::functions::MathX::sumsq(::doubleArray* val
     return sumsq;
 }
 
-double org::apache::poi::ss::formula::functions::MathX::product(::doubleArray* values)
+double poi::ss::formula::functions::MathX::product(::doubleArray* values)
 {
     clinit();
     double product = int32_t(0);
@@ -115,7 +115,7 @@ double org::apache::poi::ss::formula::functions::MathX::product(::doubleArray* v
     return product;
 }
 
-double org::apache::poi::ss::formula::functions::MathX::min(::doubleArray* values)
+double poi::ss::formula::functions::MathX::min(::doubleArray* values)
 {
     clinit();
     auto min = ::java::lang::Double::POSITIVE_INFINITY;
@@ -125,7 +125,7 @@ double org::apache::poi::ss::formula::functions::MathX::min(::doubleArray* value
     return min;
 }
 
-double org::apache::poi::ss::formula::functions::MathX::max(::doubleArray* values)
+double poi::ss::formula::functions::MathX::max(::doubleArray* values)
 {
     clinit();
     auto max = ::java::lang::Double::NEGATIVE_INFINITY;
@@ -135,7 +135,7 @@ double org::apache::poi::ss::formula::functions::MathX::max(::doubleArray* value
     return max;
 }
 
-double org::apache::poi::ss::formula::functions::MathX::floor(double n, double s)
+double poi::ss::formula::functions::MathX::floor(double n, double s)
 {
     clinit();
     double f;
@@ -147,7 +147,7 @@ double org::apache::poi::ss::formula::functions::MathX::floor(double n, double s
     return f;
 }
 
-double org::apache::poi::ss::formula::functions::MathX::ceiling(double n, double s)
+double poi::ss::formula::functions::MathX::ceiling(double n, double s)
 {
     clinit();
     double c;
@@ -159,7 +159,7 @@ double org::apache::poi::ss::formula::functions::MathX::ceiling(double n, double
     return c;
 }
 
-double org::apache::poi::ss::formula::functions::MathX::factorial(int32_t n)
+double poi::ss::formula::functions::MathX::factorial(int32_t n)
 {
     clinit();
     double d = int32_t(1);
@@ -177,7 +177,7 @@ double org::apache::poi::ss::formula::functions::MathX::factorial(int32_t n)
     return d;
 }
 
-double org::apache::poi::ss::formula::functions::MathX::mod(double n, double d)
+double poi::ss::formula::functions::MathX::mod(double n, double d)
 {
     clinit();
     double result = int32_t(0);
@@ -191,25 +191,25 @@ double org::apache::poi::ss::formula::functions::MathX::mod(double n, double d)
     return result;
 }
 
-double org::apache::poi::ss::formula::functions::MathX::acosh(double d)
+double poi::ss::formula::functions::MathX::acosh(double d)
 {
     clinit();
     return ::java::lang::Math::log(::java::lang::Math::sqrt(::java::lang::Math::pow(d, 2) - int32_t(1)) + d);
 }
 
-double org::apache::poi::ss::formula::functions::MathX::asinh(double d)
+double poi::ss::formula::functions::MathX::asinh(double d)
 {
     clinit();
     return ::java::lang::Math::log(::java::lang::Math::sqrt(d * d + int32_t(1)) + d);
 }
 
-double org::apache::poi::ss::formula::functions::MathX::atanh(double d)
+double poi::ss::formula::functions::MathX::atanh(double d)
 {
     clinit();
     return ::java::lang::Math::log((int32_t(1) + d) / (int32_t(1) - d)) / int32_t(2);
 }
 
-double org::apache::poi::ss::formula::functions::MathX::cosh(double d)
+double poi::ss::formula::functions::MathX::cosh(double d)
 {
     clinit();
     auto ePowX = ::java::lang::Math::pow(::java::lang::Math::E, d);
@@ -217,7 +217,7 @@ double org::apache::poi::ss::formula::functions::MathX::cosh(double d)
     return (ePowX + ePowNegX) / int32_t(2);
 }
 
-double org::apache::poi::ss::formula::functions::MathX::sinh(double d)
+double poi::ss::formula::functions::MathX::sinh(double d)
 {
     clinit();
     auto ePowX = ::java::lang::Math::pow(::java::lang::Math::E, d);
@@ -225,7 +225,7 @@ double org::apache::poi::ss::formula::functions::MathX::sinh(double d)
     return (ePowX - ePowNegX) / int32_t(2);
 }
 
-double org::apache::poi::ss::formula::functions::MathX::tanh(double d)
+double poi::ss::formula::functions::MathX::tanh(double d)
 {
     clinit();
     auto ePowX = ::java::lang::Math::pow(::java::lang::Math::E, d);
@@ -233,7 +233,7 @@ double org::apache::poi::ss::formula::functions::MathX::tanh(double d)
     return (ePowX - ePowNegX) / (ePowX + ePowNegX);
 }
 
-double org::apache::poi::ss::formula::functions::MathX::nChooseK(int32_t n, int32_t k)
+double poi::ss::formula::functions::MathX::nChooseK(int32_t n, int32_t k)
 {
     clinit();
     double d = int32_t(1);
@@ -252,13 +252,13 @@ double org::apache::poi::ss::formula::functions::MathX::nChooseK(int32_t n, int3
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::MathX::class_()
+java::lang::Class* poi::ss::formula::functions::MathX::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.MathX", 41);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::MathX::getClass0()
+java::lang::Class* poi::ss::formula::functions::MathX::getClass0()
 {
     return class_();
 }

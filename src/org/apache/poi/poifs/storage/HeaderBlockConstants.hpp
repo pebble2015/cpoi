@@ -6,7 +6,7 @@
 #include <org/apache/poi/poifs/storage/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::poifs::storage::HeaderBlockConstants
+struct poi::poifs::storage::HeaderBlockConstants
     : public virtual ::java::lang::Object
 {
     static constexpr int64_t _signature { int64_t(-2226271756974174256LL) };

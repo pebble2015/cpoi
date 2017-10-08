@@ -47,35 +47,35 @@ namespace
 
     template<typename F> finally_<F> finally(F f) { return finally_<F>(f); }
 }
-org::apache::poi::ss::format::CellGeneralFormatter::CellGeneralFormatter(const ::default_init_tag&)
+poi::ss::format::CellGeneralFormatter::CellGeneralFormatter(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::format::CellGeneralFormatter::CellGeneralFormatter() 
+poi::ss::format::CellGeneralFormatter::CellGeneralFormatter() 
     : CellGeneralFormatter(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::format::CellGeneralFormatter::CellGeneralFormatter(::java::util::Locale* locale) 
+poi::ss::format::CellGeneralFormatter::CellGeneralFormatter(::java::util::Locale* locale) 
     : CellGeneralFormatter(*static_cast< ::default_init_tag* >(0))
 {
     ctor(locale);
 }
 
-void org::apache::poi::ss::format::CellGeneralFormatter::ctor()
+void poi::ss::format::CellGeneralFormatter::ctor()
 {
-    ctor(::org::apache::poi::util::LocaleUtil::getUserLocale());
+    ctor(::poi::util::LocaleUtil::getUserLocale());
 }
 
-void org::apache::poi::ss::format::CellGeneralFormatter::ctor(::java::util::Locale* locale)
+void poi::ss::format::CellGeneralFormatter::ctor(::java::util::Locale* locale)
 {
     super::ctor(locale, u"General"_j);
 }
 
-void org::apache::poi::ss::format::CellGeneralFormatter::formatValue(::java::lang::StringBuffer* toAppendTo, ::java::lang::Object* value)
+void poi::ss::format::CellGeneralFormatter::formatValue(::java::lang::StringBuffer* toAppendTo, ::java::lang::Object* value)
 {
     if(dynamic_cast< ::java::lang::Number* >(value) != nullptr) {
         auto val = npc((java_cast< ::java::lang::Number* >(value)))->doubleValue();
@@ -124,20 +124,20 @@ void org::apache::poi::ss::format::CellGeneralFormatter::formatValue(::java::lan
     }
 }
 
-void org::apache::poi::ss::format::CellGeneralFormatter::simpleValue(::java::lang::StringBuffer* toAppendTo, ::java::lang::Object* value)
+void poi::ss::format::CellGeneralFormatter::simpleValue(::java::lang::StringBuffer* toAppendTo, ::java::lang::Object* value)
 {
     formatValue(toAppendTo, value);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::format::CellGeneralFormatter::class_()
+java::lang::Class* poi::ss::format::CellGeneralFormatter::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.format.CellGeneralFormatter", 45);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::format::CellGeneralFormatter::getClass0()
+java::lang::Class* poi::ss::format::CellGeneralFormatter::getClass0()
 {
     return class_();
 }

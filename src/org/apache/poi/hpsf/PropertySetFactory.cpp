@@ -22,19 +22,13 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hpsf
     {
-        namespace poi
-        {
-            namespace hpsf
-            {
-typedef ::SubArray< ::org::apache::poi::hpsf::ClassID, ::java::lang::ObjectArray > ClassIDArray;
-            } // hpsf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hpsf::ClassID, ::java::lang::ObjectArray > ClassIDArray;
+    } // hpsf
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -68,19 +62,19 @@ namespace
 
     template<typename F> finally_<F> finally(F f) { return finally_<F>(f); }
 }
-org::apache::poi::hpsf::PropertySetFactory::PropertySetFactory(const ::default_init_tag&)
+poi::hpsf::PropertySetFactory::PropertySetFactory(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hpsf::PropertySetFactory::PropertySetFactory()
+poi::hpsf::PropertySetFactory::PropertySetFactory()
     : PropertySetFactory(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hpsf::PropertySet* org::apache::poi::hpsf::PropertySetFactory::create(::org::apache::poi::poifs::filesystem::DirectoryEntry* dir, ::java::lang::String* name) /* throws(FileNotFoundException, NoPropertySetStreamException, IOException, UnsupportedEncodingException) */
+poi::hpsf::PropertySet* poi::hpsf::PropertySetFactory::create(::poi::poifs::filesystem::DirectoryEntry* dir, ::java::lang::String* name) /* throws(FileNotFoundException, NoPropertySetStreamException, IOException, UnsupportedEncodingException) */
 {
     clinit();
     ::java::io::InputStream* inp = nullptr;
@@ -91,8 +85,8 @@ org::apache::poi::hpsf::PropertySet* org::apache::poi::hpsf::PropertySetFactory:
             }
         });
         {
-            auto entry = java_cast< ::org::apache::poi::poifs::filesystem::DocumentEntry* >(npc(dir)->getEntry(name));
-            inp = new ::org::apache::poi::poifs::filesystem::DocumentInputStream(entry);
+            auto entry = java_cast< ::poi::poifs::filesystem::DocumentEntry* >(npc(dir)->getEntry(name));
+            inp = new ::poi::poifs::filesystem::DocumentInputStream(entry);
             try {
                 return create(inp);
             } catch (MarkUnsupportedException* e) {
@@ -103,11 +97,11 @@ org::apache::poi::hpsf::PropertySet* org::apache::poi::hpsf::PropertySetFactory:
 
 }
 
-org::apache::poi::hpsf::PropertySet* org::apache::poi::hpsf::PropertySetFactory::create(::java::io::InputStream* stream) /* throws(NoPropertySetStreamException, MarkUnsupportedException, UnsupportedEncodingException, IOException) */
+poi::hpsf::PropertySet* poi::hpsf::PropertySetFactory::create(::java::io::InputStream* stream) /* throws(NoPropertySetStreamException, MarkUnsupportedException, UnsupportedEncodingException, IOException) */
 {
     clinit();
     npc(stream)->mark(PropertySet::OFFSET_HEADER + ClassID::LENGTH + int32_t(1));
-    auto leis = new ::org::apache::poi::util::LittleEndianInputStream(stream);
+    auto leis = new ::poi::util::LittleEndianInputStream(stream);
     auto byteOrder = npc(leis)->readUShort();
     auto format = npc(leis)->readUShort();
     auto osVersion = static_cast< int32_t >(npc(leis)->readUInt());
@@ -122,22 +116,22 @@ org::apache::poi::hpsf::PropertySet* org::apache::poi::hpsf::PropertySetFactory:
     }
     npc(stream)->reset();
     auto clsId = new ClassID(clsIdBuf, int32_t(0));
-    if(sectionCount > 0 && PropertySet::matchesSummary(clsId, new ClassIDArray({::org::apache::poi::hpsf::wellknown::SectionIDMap::SUMMARY_INFORMATION_ID()}))) {
+    if(sectionCount > 0 && PropertySet::matchesSummary(clsId, new ClassIDArray({::poi::hpsf::wellknown::SectionIDMap::SUMMARY_INFORMATION_ID()}))) {
         return new SummaryInformation(stream);
-    } else if(sectionCount > 0 && PropertySet::matchesSummary(clsId, ::org::apache::poi::hpsf::wellknown::SectionIDMap::DOCUMENT_SUMMARY_INFORMATION_ID())) {
+    } else if(sectionCount > 0 && PropertySet::matchesSummary(clsId, ::poi::hpsf::wellknown::SectionIDMap::DOCUMENT_SUMMARY_INFORMATION_ID())) {
         return new DocumentSummaryInformation(stream);
     } else {
         return new PropertySet(stream);
     }
 }
 
-org::apache::poi::hpsf::SummaryInformation* org::apache::poi::hpsf::PropertySetFactory::newSummaryInformation()
+poi::hpsf::SummaryInformation* poi::hpsf::PropertySetFactory::newSummaryInformation()
 {
     clinit();
     return new SummaryInformation();
 }
 
-org::apache::poi::hpsf::DocumentSummaryInformation* org::apache::poi::hpsf::PropertySetFactory::newDocumentSummaryInformation()
+poi::hpsf::DocumentSummaryInformation* poi::hpsf::PropertySetFactory::newDocumentSummaryInformation()
 {
     clinit();
     return new DocumentSummaryInformation();
@@ -145,13 +139,13 @@ org::apache::poi::hpsf::DocumentSummaryInformation* org::apache::poi::hpsf::Prop
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hpsf::PropertySetFactory::class_()
+java::lang::Class* poi::hpsf::PropertySetFactory::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hpsf.PropertySetFactory", 38);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hpsf::PropertySetFactory::getClass0()
+java::lang::Class* poi::hpsf::PropertySetFactory::getClass0()
 {
     return class_();
 }

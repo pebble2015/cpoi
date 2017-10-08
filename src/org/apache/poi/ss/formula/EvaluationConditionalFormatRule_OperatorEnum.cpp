@@ -34,53 +34,47 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
-            {
-                namespace formula
-                {
-typedef ::SubArray< ::org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum, ::java::lang::EnumArray > EvaluationConditionalFormatRule_OperatorEnumArray;
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum, ::java::lang::EnumArray > EvaluationConditionalFormatRule_OperatorEnumArray;
+        } // formula
+    } // ss
+} // poi
 
-org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum::EvaluationConditionalFormatRule_OperatorEnum(const ::default_init_tag&)
+poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum::EvaluationConditionalFormatRule_OperatorEnum(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum::EvaluationConditionalFormatRule_OperatorEnum(::java::lang::String* name, int ordinal)
+poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum::EvaluationConditionalFormatRule_OperatorEnum(::java::lang::String* name, int ordinal)
     : EvaluationConditionalFormatRule_OperatorEnum(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal);
 }
 
-org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum* org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum::NO_COMPARISON = new ::org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum_1(u"NO_COMPARISON"_j, 0);
-org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum* org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum::BETWEEN = new ::org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum_2(u"BETWEEN"_j, 1);
-org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum* org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum::NOT_BETWEEN = new ::org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum_3(u"NOT_BETWEEN"_j, 2);
-org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum* org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum::EQUAL = new ::org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum_4(u"EQUAL"_j, 3);
-org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum* org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum::NOT_EQUAL = new ::org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum_5(u"NOT_EQUAL"_j, 4);
-org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum* org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum::GREATER_THAN = new ::org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum_6(u"GREATER_THAN"_j, 5);
-org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum* org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum::LESS_THAN = new ::org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum_7(u"LESS_THAN"_j, 6);
-org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum* org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum::GREATER_OR_EQUAL = new ::org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum_8(u"GREATER_OR_EQUAL"_j, 7);
-org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum* org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum::LESS_OR_EQUAL = new ::org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum_9(u"LESS_OR_EQUAL"_j, 8);
+poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum* poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum::NO_COMPARISON = new ::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum_1(u"NO_COMPARISON"_j, 0);
+poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum* poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum::BETWEEN = new ::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum_2(u"BETWEEN"_j, 1);
+poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum* poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum::NOT_BETWEEN = new ::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum_3(u"NOT_BETWEEN"_j, 2);
+poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum* poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum::EQUAL = new ::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum_4(u"EQUAL"_j, 3);
+poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum* poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum::NOT_EQUAL = new ::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum_5(u"NOT_EQUAL"_j, 4);
+poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum* poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum::GREATER_THAN = new ::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum_6(u"GREATER_THAN"_j, 5);
+poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum* poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum::LESS_THAN = new ::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum_7(u"LESS_THAN"_j, 6);
+poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum* poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum::GREATER_OR_EQUAL = new ::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum_8(u"GREATER_OR_EQUAL"_j, 7);
+poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum* poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum::LESS_OR_EQUAL = new ::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum_9(u"LESS_OR_EQUAL"_j, 8);
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum::class_()
+java::lang::Class* poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.EvaluationConditionalFormatRule.OperatorEnum", 70);
     return c;
 }
 
-org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum* org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum::valueOf(::java::lang::String* a0)
+poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum* poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum::valueOf(::java::lang::String* a0)
 {
     if(BETWEEN->toString()->equals(a0))
         return BETWEEN;
@@ -103,9 +97,9 @@ org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum* org
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnumArray* org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum::values()
+poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnumArray* poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum::values()
 {
-    return new org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnumArray({
+    return new poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnumArray({
         BETWEEN,
         EQUAL,
         GREATER_OR_EQUAL,
@@ -118,7 +112,7 @@ org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnumArray
     });
 }
 
-java::lang::Class* org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum::getClass0()
+java::lang::Class* poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum::getClass0()
 {
     return class_();
 }

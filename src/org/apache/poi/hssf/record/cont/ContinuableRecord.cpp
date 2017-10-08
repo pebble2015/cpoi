@@ -13,24 +13,24 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::cont::ContinuableRecord::ContinuableRecord(const ::default_init_tag&)
+poi::hssf::record::cont::ContinuableRecord::ContinuableRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::cont::ContinuableRecord::ContinuableRecord() 
+poi::hssf::record::cont::ContinuableRecord::ContinuableRecord() 
     : ContinuableRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::hssf::record::cont::ContinuableRecord::ctor()
+void poi::hssf::record::cont::ContinuableRecord::ctor()
 {
     super::ctor();
 }
 
-int32_t org::apache::poi::hssf::record::cont::ContinuableRecord::getRecordSize()
+int32_t poi::hssf::record::cont::ContinuableRecord::getRecordSize()
 {
     auto out = ContinuableRecordOutput::createForCountingOnly();
     serialize(out);
@@ -38,9 +38,9 @@ int32_t org::apache::poi::hssf::record::cont::ContinuableRecord::getRecordSize()
     return npc(out)->getTotalSize();
 }
 
-int32_t org::apache::poi::hssf::record::cont::ContinuableRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::cont::ContinuableRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
-    ::org::apache::poi::util::LittleEndianOutput* leo = new ::org::apache::poi::util::LittleEndianByteArrayOutputStream(data, offset);
+    ::poi::util::LittleEndianOutput* leo = new ::poi::util::LittleEndianByteArrayOutputStream(data, offset);
     auto out = new ContinuableRecordOutput(leo, getSid());
     serialize(out);
     npc(out)->terminate();
@@ -49,18 +49,18 @@ int32_t org::apache::poi::hssf::record::cont::ContinuableRecord::serialize(int32
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::cont::ContinuableRecord::class_()
+java::lang::Class* poi::hssf::record::cont::ContinuableRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.cont.ContinuableRecord", 49);
     return c;
 }
 
-int8_tArray* org::apache::poi::hssf::record::cont::ContinuableRecord::serialize()
+int8_tArray* poi::hssf::record::cont::ContinuableRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::cont::ContinuableRecord::getClass0()
+java::lang::Class* poi::hssf::record::cont::ContinuableRecord::getClass0()
 {
     return class_();
 }

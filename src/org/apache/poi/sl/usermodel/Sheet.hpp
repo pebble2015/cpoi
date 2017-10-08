@@ -7,7 +7,7 @@
 #include <org/apache/poi/sl/usermodel/fwd-POI.hpp>
 #include <org/apache/poi/sl/usermodel/ShapeContainer.hpp>
 
-struct org::apache::poi::sl::usermodel::Sheet
+struct poi::sl::usermodel::Sheet
     : public virtual ShapeContainer
 {
     virtual SlideShow* getSlideShow() = 0;

@@ -31,51 +31,51 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::DrawingGroupRecord::DrawingGroupRecord(const ::default_init_tag&)
+poi::hssf::record::DrawingGroupRecord::DrawingGroupRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::DrawingGroupRecord::DrawingGroupRecord() 
+poi::hssf::record::DrawingGroupRecord::DrawingGroupRecord() 
     : DrawingGroupRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::DrawingGroupRecord::DrawingGroupRecord(RecordInputStream* in) 
+poi::hssf::record::DrawingGroupRecord::DrawingGroupRecord(RecordInputStream* in) 
     : DrawingGroupRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::DrawingGroupRecord::sid;
+constexpr int16_t poi::hssf::record::DrawingGroupRecord::sid;
 
-constexpr int32_t org::apache::poi::hssf::record::DrawingGroupRecord::MAX_RECORD_SIZE;
+constexpr int32_t poi::hssf::record::DrawingGroupRecord::MAX_RECORD_SIZE;
 
-constexpr int32_t org::apache::poi::hssf::record::DrawingGroupRecord::MAX_DATA_SIZE;
+constexpr int32_t poi::hssf::record::DrawingGroupRecord::MAX_DATA_SIZE;
 
-void org::apache::poi::hssf::record::DrawingGroupRecord::ctor()
+void poi::hssf::record::DrawingGroupRecord::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hssf::record::DrawingGroupRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::DrawingGroupRecord::ctor(RecordInputStream* in)
 {
     super::ctor(in);
 }
 
-java::lang::String* org::apache::poi::hssf::record::DrawingGroupRecord::getRecordName()
+java::lang::String* poi::hssf::record::DrawingGroupRecord::getRecordName()
 {
     return u"MSODRAWINGGROUP"_j;
 }
 
-int16_t org::apache::poi::hssf::record::DrawingGroupRecord::getSid()
+int16_t poi::hssf::record::DrawingGroupRecord::getSid()
 {
     return sid;
 }
 
-int32_t org::apache::poi::hssf::record::DrawingGroupRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::DrawingGroupRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     auto rawData = getRawData();
     if(npc(getEscherRecords())->size() == 0 && rawData != nullptr) {
@@ -84,23 +84,23 @@ int32_t org::apache::poi::hssf::record::DrawingGroupRecord::serialize(int32_t of
     auto buffer = new ::int8_tArray(getRawDataSize());
     auto pos = int32_t(0);
     for (auto *iterator = npc(getEscherRecords())->iterator(); npc(iterator)->hasNext(); ) {
-        auto r = java_cast< ::org::apache::poi::ddf::EscherRecord* >(npc(iterator)->next());
-        pos += npc(r)->serialize(pos, buffer, new ::org::apache::poi::ddf::NullEscherSerializationListener());
+        auto r = java_cast< ::poi::ddf::EscherRecord* >(npc(iterator)->next());
+        pos += npc(r)->serialize(pos, buffer, new ::poi::ddf::NullEscherSerializationListener());
     }
     return writeData(offset, data, buffer);
 }
 
-void org::apache::poi::hssf::record::DrawingGroupRecord::processChildRecords()
+void poi::hssf::record::DrawingGroupRecord::processChildRecords()
 {
     convertRawBytesToEscherRecords();
 }
 
-int32_t org::apache::poi::hssf::record::DrawingGroupRecord::getRecordSize()
+int32_t poi::hssf::record::DrawingGroupRecord::getRecordSize()
 {
     return grossSizeFromDataSize(getRawDataSize());
 }
 
-int32_t org::apache::poi::hssf::record::DrawingGroupRecord::getRawDataSize()
+int32_t poi::hssf::record::DrawingGroupRecord::getRawDataSize()
 {
     auto escherRecords = getEscherRecords();
     auto rawData = getRawData();
@@ -109,19 +109,19 @@ int32_t org::apache::poi::hssf::record::DrawingGroupRecord::getRawDataSize()
     }
     auto size = int32_t(0);
     for (auto *iterator = npc(escherRecords)->iterator(); npc(iterator)->hasNext(); ) {
-        auto r = java_cast< ::org::apache::poi::ddf::EscherRecord* >(npc(iterator)->next());
+        auto r = java_cast< ::poi::ddf::EscherRecord* >(npc(iterator)->next());
         size += npc(r)->getRecordSize();
     }
     return size;
 }
 
-int32_t org::apache::poi::hssf::record::DrawingGroupRecord::grossSizeFromDataSize(int32_t dataSize)
+int32_t poi::hssf::record::DrawingGroupRecord::grossSizeFromDataSize(int32_t dataSize)
 {
     clinit();
     return dataSize + ((dataSize - int32_t(1)) / MAX_DATA_SIZE + int32_t(1)) * int32_t(4);
 }
 
-int32_t org::apache::poi::hssf::record::DrawingGroupRecord::writeData(int32_t offset, ::int8_tArray* data, ::int8_tArray* rawData)
+int32_t poi::hssf::record::DrawingGroupRecord::writeData(int32_t offset, ::int8_tArray* data, ::int8_tArray* rawData)
 {
     auto writtenActualData = int32_t(0);
     auto writtenRawData = int32_t(0);
@@ -141,32 +141,32 @@ int32_t org::apache::poi::hssf::record::DrawingGroupRecord::writeData(int32_t of
     return writtenActualData;
 }
 
-void org::apache::poi::hssf::record::DrawingGroupRecord::writeHeader(::int8_tArray* data, int32_t offset, int32_t sizeExcludingHeader)
+void poi::hssf::record::DrawingGroupRecord::writeHeader(::int8_tArray* data, int32_t offset, int32_t sizeExcludingHeader)
 {
-    ::org::apache::poi::util::LittleEndian::putShort(data, int32_t(0) + offset, getSid());
-    ::org::apache::poi::util::LittleEndian::putShort(data, int32_t(2) + offset, static_cast< int16_t >(sizeExcludingHeader));
+    ::poi::util::LittleEndian::putShort(data, int32_t(0) + offset, getSid());
+    ::poi::util::LittleEndian::putShort(data, int32_t(2) + offset, static_cast< int16_t >(sizeExcludingHeader));
 }
 
-void org::apache::poi::hssf::record::DrawingGroupRecord::writeContinueHeader(::int8_tArray* data, int32_t offset, int32_t sizeExcludingHeader)
+void poi::hssf::record::DrawingGroupRecord::writeContinueHeader(::int8_tArray* data, int32_t offset, int32_t sizeExcludingHeader)
 {
-    ::org::apache::poi::util::LittleEndian::putShort(data, int32_t(0) + offset, ContinueRecord::sid);
-    ::org::apache::poi::util::LittleEndian::putShort(data, int32_t(2) + offset, static_cast< int16_t >(sizeExcludingHeader));
+    ::poi::util::LittleEndian::putShort(data, int32_t(0) + offset, ContinueRecord::sid);
+    ::poi::util::LittleEndian::putShort(data, int32_t(2) + offset, static_cast< int16_t >(sizeExcludingHeader));
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::DrawingGroupRecord::class_()
+java::lang::Class* poi::hssf::record::DrawingGroupRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.DrawingGroupRecord", 45);
     return c;
 }
 
-int8_tArray* org::apache::poi::hssf::record::DrawingGroupRecord::serialize()
+int8_tArray* poi::hssf::record::DrawingGroupRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::DrawingGroupRecord::getClass0()
+java::lang::Class* poi::hssf::record::DrawingGroupRecord::getClass0()
 {
     return class_();
 }

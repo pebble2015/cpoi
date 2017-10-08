@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::RecordInputStream_LeftoverDataException final
+class poi::hssf::record::RecordInputStream_LeftoverDataException final
     : public ::java::lang::RuntimeException
 {
 

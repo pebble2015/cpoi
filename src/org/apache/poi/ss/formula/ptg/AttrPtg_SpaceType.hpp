@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::ptg::AttrPtg_SpaceType final
+class poi::ss::formula::ptg::AttrPtg_SpaceType final
     : public ::java::lang::Object
 {
 

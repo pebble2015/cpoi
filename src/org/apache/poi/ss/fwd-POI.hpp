@@ -2,16 +2,10 @@
 #pragma once
 
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
-        {
-            namespace ss
-            {
-                class SpreadsheetVersion;
-            } // ss
-        } // poi
-    } // apache
-} // org
+        class SpreadsheetVersion;
+    } // ss
+} // poi

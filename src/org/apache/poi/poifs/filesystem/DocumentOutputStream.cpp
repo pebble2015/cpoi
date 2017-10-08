@@ -15,19 +15,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::filesystem::DocumentOutputStream::DocumentOutputStream(const ::default_init_tag&)
+poi::poifs::filesystem::DocumentOutputStream::DocumentOutputStream(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::filesystem::DocumentOutputStream::DocumentOutputStream(::java::io::OutputStream* stream, int32_t limit) 
+poi::poifs::filesystem::DocumentOutputStream::DocumentOutputStream(::java::io::OutputStream* stream, int32_t limit) 
     : DocumentOutputStream(*static_cast< ::default_init_tag* >(0))
 {
     ctor(stream,limit);
 }
 
-void org::apache::poi::poifs::filesystem::DocumentOutputStream::ctor(::java::io::OutputStream* stream, int32_t limit)
+void poi::poifs::filesystem::DocumentOutputStream::ctor(::java::io::OutputStream* stream, int32_t limit)
 {
     super::ctor();
     _stream = stream;
@@ -35,33 +35,33 @@ void org::apache::poi::poifs::filesystem::DocumentOutputStream::ctor(::java::io:
     _written = 0;
 }
 
-void org::apache::poi::poifs::filesystem::DocumentOutputStream::write(int32_t b) /* throws(IOException) */
+void poi::poifs::filesystem::DocumentOutputStream::write(int32_t b) /* throws(IOException) */
 {
     limitCheck(1);
     npc(_stream)->write(b);
 }
 
-void org::apache::poi::poifs::filesystem::DocumentOutputStream::write(::int8_tArray* b) /* throws(IOException) */
+void poi::poifs::filesystem::DocumentOutputStream::write(::int8_tArray* b) /* throws(IOException) */
 {
     write(b, int32_t(0), npc(b)->length);
 }
 
-void org::apache::poi::poifs::filesystem::DocumentOutputStream::write(::int8_tArray* b, int32_t off, int32_t len) /* throws(IOException) */
+void poi::poifs::filesystem::DocumentOutputStream::write(::int8_tArray* b, int32_t off, int32_t len) /* throws(IOException) */
 {
     limitCheck(len);
     npc(_stream)->write(b, off, len);
 }
 
-void org::apache::poi::poifs::filesystem::DocumentOutputStream::flush() /* throws(IOException) */
+void poi::poifs::filesystem::DocumentOutputStream::flush() /* throws(IOException) */
 {
     npc(_stream)->flush();
 }
 
-void org::apache::poi::poifs::filesystem::DocumentOutputStream::close()
+void poi::poifs::filesystem::DocumentOutputStream::close()
 {
 }
 
-void org::apache::poi::poifs::filesystem::DocumentOutputStream::writeFiller(int32_t totalLimit, int8_t fill) /* throws(IOException) */
+void poi::poifs::filesystem::DocumentOutputStream::writeFiller(int32_t totalLimit, int8_t fill) /* throws(IOException) */
 {
     if(totalLimit > _written) {
         auto filler = new ::int8_tArray(totalLimit - _written);
@@ -70,7 +70,7 @@ void org::apache::poi::poifs::filesystem::DocumentOutputStream::writeFiller(int3
     }
 }
 
-void org::apache::poi::poifs::filesystem::DocumentOutputStream::limitCheck(int32_t toBeWritten) /* throws(IOException) */
+void poi::poifs::filesystem::DocumentOutputStream::limitCheck(int32_t toBeWritten) /* throws(IOException) */
 {
     if((_written + toBeWritten) > _limit) {
         throw new ::java::io::IOException(u"tried to write too much data"_j);
@@ -80,13 +80,13 @@ void org::apache::poi::poifs::filesystem::DocumentOutputStream::limitCheck(int32
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::filesystem::DocumentOutputStream::class_()
+java::lang::Class* poi::poifs::filesystem::DocumentOutputStream::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.filesystem.DocumentOutputStream", 52);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::filesystem::DocumentOutputStream::getClass0()
+java::lang::Class* poi::poifs::filesystem::DocumentOutputStream::getClass0()
 {
     return class_();
 }

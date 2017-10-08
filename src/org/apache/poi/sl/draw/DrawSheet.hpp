@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::DrawSheet
+class poi::sl::draw::DrawSheet
     : public virtual ::java::lang::Object
     , public virtual Drawable
 {
@@ -20,9 +20,9 @@ public:
     typedef ::java::lang::Object super;
 
 public: /* protected */
-    ::org::apache::poi::sl::usermodel::Sheet* sheet {  };
+    ::poi::sl::usermodel::Sheet* sheet {  };
 protected:
-    void ctor(::org::apache::poi::sl::usermodel::Sheet* sheet);
+    void ctor(::poi::sl::usermodel::Sheet* sheet);
 
 public:
     void draw(::java::awt::Graphics2D* graphics) override;
@@ -30,12 +30,12 @@ public:
     void drawContent(::java::awt::Graphics2D* context) override;
 
 public: /* protected */
-    virtual bool canDraw(::java::awt::Graphics2D* graphics, ::org::apache::poi::sl::usermodel::Shape* shape);
+    virtual bool canDraw(::java::awt::Graphics2D* graphics, ::poi::sl::usermodel::Shape* shape);
 
     // Generated
 
 public:
-    DrawSheet(::org::apache::poi::sl::usermodel::Sheet* sheet);
+    DrawSheet(::poi::sl::usermodel::Sheet* sheet);
 protected:
     DrawSheet(const ::default_init_tag&);
 

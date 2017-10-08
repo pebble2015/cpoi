@@ -11,9 +11,9 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::DrawFontInfo
+class poi::sl::draw::DrawFontInfo
     : public virtual ::java::lang::Object
-    , public virtual ::org::apache::poi::common::usermodel::fonts::FontInfo
+    , public virtual ::poi::common::usermodel::fonts::FontInfo
 {
 
 public:
@@ -29,12 +29,12 @@ public:
     void setIndex(int32_t index) override;
     ::java::lang::String* getTypeface() override;
     void setTypeface(::java::lang::String* typeface) override;
-    ::org::apache::poi::common::usermodel::fonts::FontCharset* getCharset() override;
-    void setCharset(::org::apache::poi::common::usermodel::fonts::FontCharset* charset) override;
-    ::org::apache::poi::common::usermodel::fonts::FontFamily* getFamily() override;
-    void setFamily(::org::apache::poi::common::usermodel::fonts::FontFamily* family) override;
-    ::org::apache::poi::common::usermodel::fonts::FontPitch* getPitch() override;
-    void setPitch(::org::apache::poi::common::usermodel::fonts::FontPitch* pitch) override;
+    ::poi::common::usermodel::fonts::FontCharset* getCharset() override;
+    void setCharset(::poi::common::usermodel::fonts::FontCharset* charset) override;
+    ::poi::common::usermodel::fonts::FontFamily* getFamily() override;
+    void setFamily(::poi::common::usermodel::fonts::FontFamily* family) override;
+    ::poi::common::usermodel::fonts::FontPitch* getPitch() override;
+    void setPitch(::poi::common::usermodel::fonts::FontPitch* pitch) override;
 
     // Generated
 

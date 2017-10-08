@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::atp::YearFracCalculator final
+class poi::ss::formula::atp::YearFracCalculator final
     : public ::java::lang::Object
 {
 

@@ -20,26 +20,26 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::util::Configurator::Configurator(const ::default_init_tag&)
+poi::util::Configurator::Configurator(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::util::Configurator::Configurator()
+poi::util::Configurator::Configurator()
     : Configurator(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::util::POILogger*& org::apache::poi::util::Configurator::logger()
+poi::util::POILogger*& poi::util::Configurator::logger()
 {
     clinit();
     return logger_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::util::Configurator::logger_;
+poi::util::POILogger* poi::util::Configurator::logger_;
 
-int32_t org::apache::poi::util::Configurator::getIntValue(::java::lang::String* systemProperty, int32_t defaultValue)
+int32_t poi::util::Configurator::getIntValue(::java::lang::String* systemProperty, int32_t defaultValue)
 {
     clinit();
     auto result = defaultValue;
@@ -56,13 +56,13 @@ int32_t org::apache::poi::util::Configurator::getIntValue(::java::lang::String* 
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::util::Configurator::class_()
+java::lang::Class* poi::util::Configurator::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.util.Configurator", 32);
     return c;
 }
 
-void org::apache::poi::util::Configurator::clinit()
+void poi::util::Configurator::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -78,7 +78,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::util::Configurator::getClass0()
+java::lang::Class* poi::util::Configurator::getClass0()
 {
     return class_();
 }

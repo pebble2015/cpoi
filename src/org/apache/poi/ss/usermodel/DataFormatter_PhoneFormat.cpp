@@ -28,38 +28,38 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::usermodel::DataFormatter_PhoneFormat::DataFormatter_PhoneFormat(const ::default_init_tag&)
+poi::ss::usermodel::DataFormatter_PhoneFormat::DataFormatter_PhoneFormat(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::usermodel::DataFormatter_PhoneFormat::DataFormatter_PhoneFormat() 
+poi::ss::usermodel::DataFormatter_PhoneFormat::DataFormatter_PhoneFormat() 
     : DataFormatter_PhoneFormat(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-java::text::Format*& org::apache::poi::ss::usermodel::DataFormatter_PhoneFormat::instance()
+java::text::Format*& poi::ss::usermodel::DataFormatter_PhoneFormat::instance()
 {
     clinit();
     return instance_;
 }
-java::text::Format* org::apache::poi::ss::usermodel::DataFormatter_PhoneFormat::instance_;
+java::text::Format* poi::ss::usermodel::DataFormatter_PhoneFormat::instance_;
 
-java::text::DecimalFormat*& org::apache::poi::ss::usermodel::DataFormatter_PhoneFormat::df()
+java::text::DecimalFormat*& poi::ss::usermodel::DataFormatter_PhoneFormat::df()
 {
     clinit();
     return df_;
 }
-java::text::DecimalFormat* org::apache::poi::ss::usermodel::DataFormatter_PhoneFormat::df_;
+java::text::DecimalFormat* poi::ss::usermodel::DataFormatter_PhoneFormat::df_;
 
-void org::apache::poi::ss::usermodel::DataFormatter_PhoneFormat::ctor()
+void poi::ss::usermodel::DataFormatter_PhoneFormat::ctor()
 {
     super::ctor();
 }
 
-java::lang::String* org::apache::poi::ss::usermodel::DataFormatter_PhoneFormat::format(::java::lang::Number* num)
+java::lang::String* poi::ss::usermodel::DataFormatter_PhoneFormat::format(::java::lang::Number* num)
 {
     clinit();
     auto result = npc(df_)->format(num);
@@ -84,25 +84,25 @@ java::lang::String* org::apache::poi::ss::usermodel::DataFormatter_PhoneFormat::
     return npc(sb)->toString();
 }
 
-java::lang::StringBuffer* org::apache::poi::ss::usermodel::DataFormatter_PhoneFormat::format(::java::lang::Object* obj, ::java::lang::StringBuffer* toAppendTo, ::java::text::FieldPosition* pos)
+java::lang::StringBuffer* poi::ss::usermodel::DataFormatter_PhoneFormat::format(::java::lang::Object* obj, ::java::lang::StringBuffer* toAppendTo, ::java::text::FieldPosition* pos)
 {
     return npc(toAppendTo)->append(format(java_cast< ::java::lang::Number* >(obj)));
 }
 
-java::lang::Object* org::apache::poi::ss::usermodel::DataFormatter_PhoneFormat::parseObject(::java::lang::String* source, ::java::text::ParsePosition* pos)
+java::lang::Object* poi::ss::usermodel::DataFormatter_PhoneFormat::parseObject(::java::lang::String* source, ::java::text::ParsePosition* pos)
 {
     return npc(df_)->parseObject(source, pos);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::usermodel::DataFormatter_PhoneFormat::class_()
+java::lang::Class* poi::ss::usermodel::DataFormatter_PhoneFormat::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.usermodel.DataFormatter.PhoneFormat", 53);
     return c;
 }
 
-void org::apache::poi::ss::usermodel::DataFormatter_PhoneFormat::clinit()
+void poi::ss::usermodel::DataFormatter_PhoneFormat::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -119,17 +119,17 @@ struct clinit_ {
     }
 }
 
-java::lang::String* org::apache::poi::ss::usermodel::DataFormatter_PhoneFormat::format(::java::lang::Object* obj)
+java::lang::String* poi::ss::usermodel::DataFormatter_PhoneFormat::format(::java::lang::Object* obj)
 {
     return super::format(obj);
 }
 
-java::lang::Object* org::apache::poi::ss::usermodel::DataFormatter_PhoneFormat::parseObject(::java::lang::String* source)
+java::lang::Object* poi::ss::usermodel::DataFormatter_PhoneFormat::parseObject(::java::lang::String* source)
 {
     return super::parseObject(source);
 }
 
-java::lang::Class* org::apache::poi::ss::usermodel::DataFormatter_PhoneFormat::getClass0()
+java::lang::Class* poi::ss::usermodel::DataFormatter_PhoneFormat::getClass0()
 {
     return class_();
 }

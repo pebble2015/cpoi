@@ -2,26 +2,20 @@
 #pragma once
 
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
+            namespace cont
             {
-                namespace record
-                {
-                    namespace cont
-                    {
-                        class ContinuableRecord;
-                        class ContinuableRecordInput;
-                        class ContinuableRecordOutput;
-                        class ContinuableRecordOutput_1;
-                        class UnknownLengthRecordOutput;
-                    } // cont
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+                class ContinuableRecord;
+                class ContinuableRecordInput;
+                class ContinuableRecordOutput;
+                class ContinuableRecordOutput_1;
+                class UnknownLengthRecordOutput;
+            } // cont
+        } // record
+    } // hssf
+} // poi

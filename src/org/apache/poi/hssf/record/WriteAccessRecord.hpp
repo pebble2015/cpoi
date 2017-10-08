@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::WriteAccessRecord final
+class poi::hssf::record::WriteAccessRecord final
     : public StandardRecord
 {
 
@@ -31,7 +31,7 @@ public:
     void setUsername(::java::lang::String* username);
     ::java::lang::String* getUsername();
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;

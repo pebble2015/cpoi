@@ -40,70 +40,70 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::common::UnicodeString::UnicodeString(const ::default_init_tag&)
+poi::hssf::record::common::UnicodeString::UnicodeString(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::common::UnicodeString::UnicodeString() 
+poi::hssf::record::common::UnicodeString::UnicodeString() 
     : UnicodeString(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::common::UnicodeString::UnicodeString(::java::lang::String* str) 
+poi::hssf::record::common::UnicodeString::UnicodeString(::java::lang::String* str) 
     : UnicodeString(*static_cast< ::default_init_tag* >(0))
 {
     ctor(str);
 }
 
-org::apache::poi::hssf::record::common::UnicodeString::UnicodeString(::org::apache::poi::hssf::record::RecordInputStream* in) 
+poi::hssf::record::common::UnicodeString::UnicodeString(::poi::hssf::record::RecordInputStream* in) 
     : UnicodeString(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-org::apache::poi::util::POILogger*& org::apache::poi::hssf::record::common::UnicodeString::_logger()
+poi::util::POILogger*& poi::hssf::record::common::UnicodeString::_logger()
 {
     clinit();
     return _logger_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::hssf::record::common::UnicodeString::_logger_;
+poi::util::POILogger* poi::hssf::record::common::UnicodeString::_logger_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::common::UnicodeString::highByte()
+poi::util::BitField*& poi::hssf::record::common::UnicodeString::highByte()
 {
     clinit();
     return highByte_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::common::UnicodeString::highByte_;
+poi::util::BitField* poi::hssf::record::common::UnicodeString::highByte_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::common::UnicodeString::extBit()
+poi::util::BitField*& poi::hssf::record::common::UnicodeString::extBit()
 {
     clinit();
     return extBit_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::common::UnicodeString::extBit_;
+poi::util::BitField* poi::hssf::record::common::UnicodeString::extBit_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::common::UnicodeString::richText()
+poi::util::BitField*& poi::hssf::record::common::UnicodeString::richText()
 {
     clinit();
     return richText_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::common::UnicodeString::richText_;
+poi::util::BitField* poi::hssf::record::common::UnicodeString::richText_;
 
-void org::apache::poi::hssf::record::common::UnicodeString::ctor()
+void poi::hssf::record::common::UnicodeString::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hssf::record::common::UnicodeString::ctor(::java::lang::String* str)
+void poi::hssf::record::common::UnicodeString::ctor(::java::lang::String* str)
 {
     super::ctor();
     setString(str);
 }
 
-int32_t org::apache::poi::hssf::record::common::UnicodeString::hashCode()
+int32_t poi::hssf::record::common::UnicodeString::hashCode()
 {
     auto stringHash = int32_t(0);
     if(field_3_string != nullptr) {
@@ -112,7 +112,7 @@ int32_t org::apache::poi::hssf::record::common::UnicodeString::hashCode()
     return field_1_charCount + stringHash;
 }
 
-bool org::apache::poi::hssf::record::common::UnicodeString::equals(::java::lang::Object* o)
+bool poi::hssf::record::common::UnicodeString::equals(::java::lang::Object* o)
 {
     if(!(dynamic_cast< UnicodeString* >(o) != nullptr)) {
         return false;
@@ -145,7 +145,7 @@ bool org::apache::poi::hssf::record::common::UnicodeString::equals(::java::lang:
     return npc(field_5_ext_rst)->equals(static_cast< ::java::lang::Object* >(npc(other)->field_5_ext_rst));
 }
 
-void org::apache::poi::hssf::record::common::UnicodeString::ctor(::org::apache::poi::hssf::record::RecordInputStream* in)
+void poi::hssf::record::common::UnicodeString::ctor(::poi::hssf::record::RecordInputStream* in)
 {
     super::ctor();
     field_1_charCount = npc(in)->readShort();
@@ -168,16 +168,16 @@ void org::apache::poi::hssf::record::common::UnicodeString::ctor(::org::apache::
         }
     }
     if(isExtendedText() && (extensionLength > 0)) {
-        field_5_ext_rst = new UnicodeString_ExtRst(new ::org::apache::poi::hssf::record::cont::ContinuableRecordInput(in), extensionLength);
+        field_5_ext_rst = new UnicodeString_ExtRst(new ::poi::hssf::record::cont::ContinuableRecordInput(in), extensionLength);
         if(npc(field_5_ext_rst)->getDataSize() + int32_t(4) != extensionLength) {
-            npc(_logger_)->log(::org::apache::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"ExtRst was supposed to be "_j)->append(extensionLength)
+            npc(_logger_)->log(::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"ExtRst was supposed to be "_j)->append(extensionLength)
                 ->append(u" bytes long, but seems to actually be "_j)
                 ->append((npc(field_5_ext_rst)->getDataSize() + int32_t(4)))->toString())}));
         }
     }
 }
 
-int32_t org::apache::poi::hssf::record::common::UnicodeString::getCharCount()
+int32_t poi::hssf::record::common::UnicodeString::getCharCount()
 {
     if(field_1_charCount < 0) {
         return field_1_charCount + int32_t(65536);
@@ -185,32 +185,32 @@ int32_t org::apache::poi::hssf::record::common::UnicodeString::getCharCount()
     return field_1_charCount;
 }
 
-int16_t org::apache::poi::hssf::record::common::UnicodeString::getCharCountShort()
+int16_t poi::hssf::record::common::UnicodeString::getCharCountShort()
 {
     return field_1_charCount;
 }
 
-void org::apache::poi::hssf::record::common::UnicodeString::setCharCount(int16_t cc)
+void poi::hssf::record::common::UnicodeString::setCharCount(int16_t cc)
 {
     field_1_charCount = cc;
 }
 
-int8_t org::apache::poi::hssf::record::common::UnicodeString::getOptionFlags()
+int8_t poi::hssf::record::common::UnicodeString::getOptionFlags()
 {
     return field_2_optionflags;
 }
 
-void org::apache::poi::hssf::record::common::UnicodeString::setOptionFlags(int8_t of)
+void poi::hssf::record::common::UnicodeString::setOptionFlags(int8_t of)
 {
     field_2_optionflags = of;
 }
 
-java::lang::String* org::apache::poi::hssf::record::common::UnicodeString::getString()
+java::lang::String* poi::hssf::record::common::UnicodeString::getString()
 {
     return field_3_string;
 }
 
-void org::apache::poi::hssf::record::common::UnicodeString::setString(::java::lang::String* string)
+void poi::hssf::record::common::UnicodeString::setString(::java::lang::String* string)
 {
     field_3_string = string;
     setCharCount(static_cast< int16_t >(npc(field_3_string)->length()));
@@ -229,12 +229,12 @@ void org::apache::poi::hssf::record::common::UnicodeString::setString(::java::la
     }
 }
 
-int32_t org::apache::poi::hssf::record::common::UnicodeString::getFormatRunCount()
+int32_t poi::hssf::record::common::UnicodeString::getFormatRunCount()
 {
     return (field_4_format_runs == nullptr) ? int32_t(0) : npc(field_4_format_runs)->size();
 }
 
-org::apache::poi::hssf::record::common::UnicodeString_FormatRun* org::apache::poi::hssf::record::common::UnicodeString::getFormatRun(int32_t index)
+poi::hssf::record::common::UnicodeString_FormatRun* poi::hssf::record::common::UnicodeString::getFormatRun(int32_t index)
 {
     if(field_4_format_runs == nullptr) {
         return nullptr;
@@ -245,7 +245,7 @@ org::apache::poi::hssf::record::common::UnicodeString_FormatRun* org::apache::po
     return java_cast< UnicodeString_FormatRun* >(npc(field_4_format_runs)->get(index));
 }
 
-int32_t org::apache::poi::hssf::record::common::UnicodeString::findFormatRunAt(int32_t characterPos)
+int32_t poi::hssf::record::common::UnicodeString::findFormatRunAt(int32_t characterPos)
 {
     auto size = npc(field_4_format_runs)->size();
     for (auto i = int32_t(0); i < size; i++) {
@@ -259,7 +259,7 @@ int32_t org::apache::poi::hssf::record::common::UnicodeString::findFormatRunAt(i
     return -int32_t(1);
 }
 
-void org::apache::poi::hssf::record::common::UnicodeString::addFormatRun(UnicodeString_FormatRun* r)
+void poi::hssf::record::common::UnicodeString::addFormatRun(UnicodeString_FormatRun* r)
 {
     if(field_4_format_runs == nullptr) {
         field_4_format_runs = new ::java::util::ArrayList();
@@ -273,7 +273,7 @@ void org::apache::poi::hssf::record::common::UnicodeString::addFormatRun(Unicode
     field_2_optionflags = npc(richText_)->setByte(field_2_optionflags);
 }
 
-java::util::Iterator* org::apache::poi::hssf::record::common::UnicodeString::formatIterator()
+java::util::Iterator* poi::hssf::record::common::UnicodeString::formatIterator()
 {
     if(field_4_format_runs != nullptr) {
         return npc(field_4_format_runs)->iterator();
@@ -281,7 +281,7 @@ java::util::Iterator* org::apache::poi::hssf::record::common::UnicodeString::for
     return nullptr;
 }
 
-void org::apache::poi::hssf::record::common::UnicodeString::removeFormatRun(UnicodeString_FormatRun* r)
+void poi::hssf::record::common::UnicodeString::removeFormatRun(UnicodeString_FormatRun* r)
 {
     npc(field_4_format_runs)->remove(static_cast< ::java::lang::Object* >(r));
     if(npc(field_4_format_runs)->size() == 0) {
@@ -290,18 +290,18 @@ void org::apache::poi::hssf::record::common::UnicodeString::removeFormatRun(Unic
     }
 }
 
-void org::apache::poi::hssf::record::common::UnicodeString::clearFormatting()
+void poi::hssf::record::common::UnicodeString::clearFormatting()
 {
     field_4_format_runs = nullptr;
     field_2_optionflags = npc(richText_)->clearByte(field_2_optionflags);
 }
 
-org::apache::poi::hssf::record::common::UnicodeString_ExtRst* org::apache::poi::hssf::record::common::UnicodeString::getExtendedRst()
+poi::hssf::record::common::UnicodeString_ExtRst* poi::hssf::record::common::UnicodeString::getExtendedRst()
 {
     return this->field_5_ext_rst;
 }
 
-void org::apache::poi::hssf::record::common::UnicodeString::setExtendedRst(UnicodeString_ExtRst* ext_rst)
+void poi::hssf::record::common::UnicodeString::setExtendedRst(UnicodeString_ExtRst* ext_rst)
 {
     if(ext_rst != nullptr) {
         field_2_optionflags = npc(extBit_)->setByte(field_2_optionflags);
@@ -311,7 +311,7 @@ void org::apache::poi::hssf::record::common::UnicodeString::setExtendedRst(Unico
     this->field_5_ext_rst = ext_rst;
 }
 
-void org::apache::poi::hssf::record::common::UnicodeString::swapFontUse(int16_t oldFontIndex, int16_t newFontIndex)
+void poi::hssf::record::common::UnicodeString::swapFontUse(int16_t oldFontIndex, int16_t newFontIndex)
 {
     for (auto _i = npc(field_4_format_runs)->iterator(); _i->hasNext(); ) {
         UnicodeString_FormatRun* run = java_cast< UnicodeString_FormatRun* >(_i->next());
@@ -323,12 +323,12 @@ void org::apache::poi::hssf::record::common::UnicodeString::swapFontUse(int16_t 
     }
 }
 
-java::lang::String* org::apache::poi::hssf::record::common::UnicodeString::toString()
+java::lang::String* poi::hssf::record::common::UnicodeString::toString()
 {
     return getString();
 }
 
-java::lang::String* org::apache::poi::hssf::record::common::UnicodeString::getDebugInfo()
+java::lang::String* poi::hssf::record::common::UnicodeString::getDebugInfo()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[UNICODESTRING]\n"_j);
@@ -350,7 +350,7 @@ java::lang::String* org::apache::poi::hssf::record::common::UnicodeString::getDe
     return npc(buffer)->toString();
 }
 
-void org::apache::poi::hssf::record::common::UnicodeString::serialize(::org::apache::poi::hssf::record::cont::ContinuableRecordOutput* out)
+void poi::hssf::record::common::UnicodeString::serialize(::poi::hssf::record::cont::ContinuableRecordOutput* out)
 {
     auto numberOfRichTextRuns = int32_t(0);
     auto extendedDataSize = int32_t(0);
@@ -375,7 +375,7 @@ void org::apache::poi::hssf::record::common::UnicodeString::serialize(::org::apa
     }
 }
 
-int32_t org::apache::poi::hssf::record::common::UnicodeString::compareTo(UnicodeString* str)
+int32_t poi::hssf::record::common::UnicodeString::compareTo(UnicodeString* str)
 {
     auto result = npc(getString())->compareTo(npc(str)->getString());
     if(result != 0) {
@@ -407,22 +407,22 @@ int32_t org::apache::poi::hssf::record::common::UnicodeString::compareTo(Unicode
     }
 }
 
-int32_t org::apache::poi::hssf::record::common::UnicodeString::compareTo(::java::lang::Object* o)
+int32_t poi::hssf::record::common::UnicodeString::compareTo(::java::lang::Object* o)
 { 
     return compareTo(dynamic_cast< UnicodeString* >(o));
 }
 
-bool org::apache::poi::hssf::record::common::UnicodeString::isRichText()
+bool poi::hssf::record::common::UnicodeString::isRichText()
 {
     return npc(richText_)->isSet(getOptionFlags());
 }
 
-bool org::apache::poi::hssf::record::common::UnicodeString::isExtendedText()
+bool poi::hssf::record::common::UnicodeString::isExtendedText()
 {
     return npc(extBit_)->isSet(getOptionFlags());
 }
 
-java::lang::Object* org::apache::poi::hssf::record::common::UnicodeString::clone()
+java::lang::Object* poi::hssf::record::common::UnicodeString::clone()
 {
     auto str = new UnicodeString();
     npc(str)->field_1_charCount = field_1_charCount;
@@ -445,23 +445,23 @@ java::lang::Object* org::apache::poi::hssf::record::common::UnicodeString::clone
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::common::UnicodeString::class_()
+java::lang::Class* poi::hssf::record::common::UnicodeString::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.common.UnicodeString", 47);
     return c;
 }
 
-void org::apache::poi::hssf::record::common::UnicodeString::clinit()
+void poi::hssf::record::common::UnicodeString::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        _logger_ = ::org::apache::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(UnicodeString::class_()));
-        highByte_ = ::org::apache::poi::util::BitFieldFactory::getInstance(1);
-        extBit_ = ::org::apache::poi::util::BitFieldFactory::getInstance(4);
-        richText_ = ::org::apache::poi::util::BitFieldFactory::getInstance(8);
+        _logger_ = ::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(UnicodeString::class_()));
+        highByte_ = ::poi::util::BitFieldFactory::getInstance(1);
+        extBit_ = ::poi::util::BitFieldFactory::getInstance(4);
+        richText_ = ::poi::util::BitFieldFactory::getInstance(8);
     }
 };
 
@@ -470,7 +470,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::hssf::record::common::UnicodeString::getClass0()
+java::lang::Class* poi::hssf::record::common::UnicodeString::getClass0()
 {
     return class_();
 }

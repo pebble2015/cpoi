@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::DrawTextParagraph_AttributedStringData
+class poi::sl::draw::DrawTextParagraph_AttributedStringData
     : public virtual ::java::lang::Object
 {
 

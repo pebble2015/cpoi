@@ -26,7 +26,7 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::dev::POIFSViewer
+class poi::poifs::dev::POIFSViewer
     : public virtual ::java::lang::Object
 {
 

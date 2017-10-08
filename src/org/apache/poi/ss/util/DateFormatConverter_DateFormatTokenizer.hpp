@@ -26,7 +26,7 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
 
 struct default_init_tag;
 
-class org::apache::poi::ss::util::DateFormatConverter_DateFormatTokenizer
+class poi::ss::util::DateFormatConverter_DateFormatTokenizer
     : public virtual ::java::lang::Object
 {
 

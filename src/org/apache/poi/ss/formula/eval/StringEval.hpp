@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::eval::StringEval final
+class poi::ss::formula::eval::StringEval final
     : public virtual ::java::lang::Object
     , public StringValueEval
 {
@@ -22,7 +22,7 @@ private:
     static StringEval* EMPTY_INSTANCE_;
     ::java::lang::String* _value {  };
 protected:
-    void ctor(::org::apache::poi::ss::formula::ptg::Ptg* ptg);
+    void ctor(::poi::ss::formula::ptg::Ptg* ptg);
     void ctor(::java::lang::String* value);
 
 public:
@@ -30,7 +30,7 @@ public:
     ::java::lang::String* toString() override;
 
     // Generated
-    StringEval(::org::apache::poi::ss::formula::ptg::Ptg* ptg);
+    StringEval(::poi::ss::formula::ptg::Ptg* ptg);
     StringEval(::java::lang::String* value);
 protected:
     StringEval(const ::default_init_tag&);

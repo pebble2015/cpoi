@@ -2,20 +2,14 @@
 #pragma once
 
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hpsf
     {
-        namespace poi
+        namespace wellknown
         {
-            namespace hpsf
-            {
-                namespace wellknown
-                {
-                    class PropertyIDMap;
-                    class SectionIDMap;
-                } // wellknown
-            } // hpsf
-        } // poi
-    } // apache
-} // org
+            class PropertyIDMap;
+            class SectionIDMap;
+        } // wellknown
+    } // hpsf
+} // poi

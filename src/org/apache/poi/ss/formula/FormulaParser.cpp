@@ -107,27 +107,21 @@ typedef ::SubArray< ::java::lang::Cloneable, ObjectArray > CloneableArray;
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
-            {
-                namespace formula
-                {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ParseNode, ::java::lang::ObjectArray > ParseNodeArray;
+typedef ::SubArray< ::poi::ss::formula::ParseNode, ::java::lang::ObjectArray > ParseNodeArray;
 
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+            namespace ptg
+            {
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 namespace java
 {
@@ -153,44 +147,44 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::FormulaParser::FormulaParser(const ::default_init_tag&)
+poi::ss::formula::FormulaParser::FormulaParser(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::FormulaParser::FormulaParser(::java::lang::String* formula, FormulaParsingWorkbook* book, int32_t sheetIndex, int32_t rowIndex) 
+poi::ss::formula::FormulaParser::FormulaParser(::java::lang::String* formula, FormulaParsingWorkbook* book, int32_t sheetIndex, int32_t rowIndex) 
     : FormulaParser(*static_cast< ::default_init_tag* >(0))
 {
     ctor(formula,book,sheetIndex,rowIndex);
 }
 
-org::apache::poi::util::POILogger*& org::apache::poi::ss::formula::FormulaParser::log()
+poi::util::POILogger*& poi::ss::formula::FormulaParser::log()
 {
     clinit();
     return log_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::ss::formula::FormulaParser::log_;
+poi::util::POILogger* poi::ss::formula::FormulaParser::log_;
 
-constexpr char16_t org::apache::poi::ss::formula::FormulaParser::TAB;
+constexpr char16_t poi::ss::formula::FormulaParser::TAB;
 
-constexpr char16_t org::apache::poi::ss::formula::FormulaParser::CR;
+constexpr char16_t poi::ss::formula::FormulaParser::CR;
 
-constexpr char16_t org::apache::poi::ss::formula::FormulaParser::LF;
+constexpr char16_t poi::ss::formula::FormulaParser::LF;
 
-void org::apache::poi::ss::formula::FormulaParser::ctor(::java::lang::String* formula, FormulaParsingWorkbook* book, int32_t sheetIndex, int32_t rowIndex)
+void poi::ss::formula::FormulaParser::ctor(::java::lang::String* formula, FormulaParsingWorkbook* book, int32_t sheetIndex, int32_t rowIndex)
 {
     super::ctor();
     _formulaString = formula;
     _pointer = 0;
     _book = book;
-    _ssVersion = book == nullptr ? ::org::apache::poi::ss::SpreadsheetVersion::EXCEL97 : npc(book)->getSpreadsheetVersion();
+    _ssVersion = book == nullptr ? ::poi::ss::SpreadsheetVersion::EXCEL97 : npc(book)->getSpreadsheetVersion();
     _formulaLength = npc(_formulaString)->length();
     _sheetIndex = sheetIndex;
     _rowIndex = rowIndex;
 }
 
-org::apache::poi::ss::formula::ptg::PtgArray* org::apache::poi::ss::formula::FormulaParser::parse(::java::lang::String* formula, FormulaParsingWorkbook* workbook, FormulaType* formulaType, int32_t sheetIndex, int32_t rowIndex)
+poi::ss::formula::ptg::PtgArray* poi::ss::formula::FormulaParser::parse(::java::lang::String* formula, FormulaParsingWorkbook* workbook, FormulaType* formulaType, int32_t sheetIndex, int32_t rowIndex)
 {
     clinit();
     auto fp = new FormulaParser(formula, workbook, sheetIndex, rowIndex);
@@ -198,24 +192,24 @@ org::apache::poi::ss::formula::ptg::PtgArray* org::apache::poi::ss::formula::For
     return npc(fp)->getRPNPtg(formulaType);
 }
 
-org::apache::poi::ss::formula::ptg::PtgArray* org::apache::poi::ss::formula::FormulaParser::parse(::java::lang::String* formula, FormulaParsingWorkbook* workbook, FormulaType* formulaType, int32_t sheetIndex)
+poi::ss::formula::ptg::PtgArray* poi::ss::formula::FormulaParser::parse(::java::lang::String* formula, FormulaParsingWorkbook* workbook, FormulaType* formulaType, int32_t sheetIndex)
 {
     clinit();
     return parse(formula, workbook, formulaType, sheetIndex, -int32_t(1));
 }
 
-org::apache::poi::ss::formula::ptg::Area3DPxg* org::apache::poi::ss::formula::FormulaParser::parseStructuredReference(::java::lang::String* tableText, FormulaParsingWorkbook* workbook, int32_t rowIndex)
+poi::ss::formula::ptg::Area3DPxg* poi::ss::formula::FormulaParser::parseStructuredReference(::java::lang::String* tableText, FormulaParsingWorkbook* workbook, int32_t rowIndex)
 {
     clinit();
     auto const sheetIndex = -int32_t(1);
     auto arr = FormulaParser::parse(tableText, workbook, FormulaType::CELL, sheetIndex, rowIndex);
-    if(npc(arr)->length != 1 || !(dynamic_cast< ::org::apache::poi::ss::formula::ptg::Area3DPxg* >((*arr)[int32_t(0)]) != nullptr)) {
+    if(npc(arr)->length != 1 || !(dynamic_cast< ::poi::ss::formula::ptg::Area3DPxg* >((*arr)[int32_t(0)]) != nullptr)) {
         throw new ::java::lang::IllegalStateException(u"Illegal structured reference"_j);
     }
-    return java_cast< ::org::apache::poi::ss::formula::ptg::Area3DPxg* >((*arr)[int32_t(0)]);
+    return java_cast< ::poi::ss::formula::ptg::Area3DPxg* >((*arr)[int32_t(0)]);
 }
 
-void org::apache::poi::ss::formula::FormulaParser::GetChar()
+void poi::ss::formula::FormulaParser::GetChar()
 {
     if(IsWhite(look)) {
         if(look == u' ') {
@@ -236,7 +230,7 @@ void org::apache::poi::ss::formula::FormulaParser::GetChar()
     _pointer += ::java::lang::Character::charCount(look);
 }
 
-void org::apache::poi::ss::formula::FormulaParser::resetPointer(int32_t ptr)
+void poi::ss::formula::FormulaParser::resetPointer(int32_t ptr)
 {
     _pointer = ptr;
     if(_pointer <= _formulaLength) {
@@ -246,7 +240,7 @@ void org::apache::poi::ss::formula::FormulaParser::resetPointer(int32_t ptr)
     }
 }
 
-java::lang::RuntimeException* org::apache::poi::ss::formula::FormulaParser::expected(::java::lang::String* s)
+java::lang::RuntimeException* poi::ss::formula::FormulaParser::expected(::java::lang::String* s)
 {
     ::java::lang::String* msg;
     if(look == u'=' && npc(npc(npc(_formulaString)->substring(0, _pointer - int32_t(1)))->trim())->length() < 1) {
@@ -258,32 +252,32 @@ java::lang::RuntimeException* org::apache::poi::ss::formula::FormulaParser::expe
     return new FormulaParseException(msg);
 }
 
-bool org::apache::poi::ss::formula::FormulaParser::IsAlpha(int32_t c)
+bool poi::ss::formula::FormulaParser::IsAlpha(int32_t c)
 {
     clinit();
     return ::java::lang::Character::isLetter(c) || c == u'$' || c == u'_';
 }
 
-bool org::apache::poi::ss::formula::FormulaParser::IsDigit(int32_t c)
+bool poi::ss::formula::FormulaParser::IsDigit(int32_t c)
 {
     clinit();
     return ::java::lang::Character::isDigit(c);
 }
 
-bool org::apache::poi::ss::formula::FormulaParser::IsWhite(int32_t c)
+bool poi::ss::formula::FormulaParser::IsWhite(int32_t c)
 {
     clinit();
     return c == u' ' || c == TAB || c == CR || c == LF;
 }
 
-void org::apache::poi::ss::formula::FormulaParser::SkipWhite()
+void poi::ss::formula::FormulaParser::SkipWhite()
 {
     while (IsWhite(look)) {
         GetChar();
     }
 }
 
-void org::apache::poi::ss::formula::FormulaParser::Match(int32_t x)
+void poi::ss::formula::FormulaParser::Match(int32_t x)
 {
     if(look != x) {
         throw expected(npc(npc(npc((new ::java::lang::StringBuilder())->append(u"'"_j))->appendCodePoint(x))->append(u"'"_j))->toString());
@@ -291,7 +285,7 @@ void org::apache::poi::ss::formula::FormulaParser::Match(int32_t x)
     GetChar();
 }
 
-java::lang::String* org::apache::poi::ss::formula::FormulaParser::GetNum()
+java::lang::String* poi::ss::formula::FormulaParser::GetNum()
 {
     auto value = new ::java::lang::StringBuilder();
     while (IsDigit(this->look)) {
@@ -301,7 +295,7 @@ java::lang::String* org::apache::poi::ss::formula::FormulaParser::GetNum()
     return npc(value)->length() == 0 ? static_cast< ::java::lang::String* >(nullptr) : npc(value)->toString();
 }
 
-org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::FormulaParser::parseRangeExpression()
+poi::ss::formula::ParseNode* poi::ss::formula::FormulaParser::parseRangeExpression()
 {
     auto result = parseRangeable();
     auto hasRange = false;
@@ -311,11 +305,11 @@ org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::Formula
         auto nextPart = parseRangeable();
         checkValidRangeOperand(u"LHS"_j, pos, result);
         checkValidRangeOperand(u"RHS"_j, pos, nextPart);
-        auto children = (new ::org::apache::poi::ss::formula::ParseNodeArray({
+        auto children = (new ::poi::ss::formula::ParseNodeArray({
             result
             , nextPart
         }));
-        result = new ParseNode(static_cast< ::org::apache::poi::ss::formula::ptg::Ptg* >(::org::apache::poi::ss::formula::ptg::RangePtg::instance()), children);
+        result = new ParseNode(static_cast< ::poi::ss::formula::ptg::Ptg* >(::poi::ss::formula::ptg::RangePtg::instance()), children);
         hasRange = true;
     }
     if(hasRange) {
@@ -324,32 +318,32 @@ org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::Formula
     return result;
 }
 
-org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::FormulaParser::augmentWithMemPtg(ParseNode* root)
+poi::ss::formula::ParseNode* poi::ss::formula::FormulaParser::augmentWithMemPtg(ParseNode* root)
 {
     clinit();
-    ::org::apache::poi::ss::formula::ptg::Ptg* memPtg;
+    ::poi::ss::formula::ptg::Ptg* memPtg;
     if(needsMemFunc(root)) {
-        memPtg = new ::org::apache::poi::ss::formula::ptg::MemFuncPtg(npc(root)->getEncodedSize());
+        memPtg = new ::poi::ss::formula::ptg::MemFuncPtg(npc(root)->getEncodedSize());
     } else {
-        memPtg = new ::org::apache::poi::ss::formula::ptg::MemAreaPtg(npc(root)->getEncodedSize());
+        memPtg = new ::poi::ss::formula::ptg::MemAreaPtg(npc(root)->getEncodedSize());
     }
     return new ParseNode(memPtg, root);
 }
 
-bool org::apache::poi::ss::formula::FormulaParser::needsMemFunc(ParseNode* root)
+bool poi::ss::formula::FormulaParser::needsMemFunc(ParseNode* root)
 {
     clinit();
     auto token = npc(root)->getToken();
-    if(dynamic_cast< ::org::apache::poi::ss::formula::ptg::AbstractFunctionPtg* >(token) != nullptr) {
+    if(dynamic_cast< ::poi::ss::formula::ptg::AbstractFunctionPtg* >(token) != nullptr) {
         return true;
     }
     if(dynamic_cast< ExternSheetReferenceToken* >(token) != nullptr) {
         return true;
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::ptg::NamePtg* >(token) != nullptr || dynamic_cast< ::org::apache::poi::ss::formula::ptg::NameXPtg* >(token) != nullptr) {
+    if(dynamic_cast< ::poi::ss::formula::ptg::NamePtg* >(token) != nullptr || dynamic_cast< ::poi::ss::formula::ptg::NameXPtg* >(token) != nullptr) {
         return true;
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::ptg::OperationPtg* >(token) != nullptr || dynamic_cast< ::org::apache::poi::ss::formula::ptg::ParenthesisPtg* >(token) != nullptr) {
+    if(dynamic_cast< ::poi::ss::formula::ptg::OperationPtg* >(token) != nullptr || dynamic_cast< ::poi::ss::formula::ptg::ParenthesisPtg* >(token) != nullptr) {
         for(auto child : *npc(npc(root)->getChildren())) {
             if(needsMemFunc(child)) {
                 return true;
@@ -357,16 +351,16 @@ bool org::apache::poi::ss::formula::FormulaParser::needsMemFunc(ParseNode* root)
         }
         return false;
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::ptg::OperandPtg* >(token) != nullptr) {
+    if(dynamic_cast< ::poi::ss::formula::ptg::OperandPtg* >(token) != nullptr) {
         return false;
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::ptg::OperationPtg* >(token) != nullptr) {
+    if(dynamic_cast< ::poi::ss::formula::ptg::OperationPtg* >(token) != nullptr) {
         return true;
     }
     return false;
 }
 
-void org::apache::poi::ss::formula::FormulaParser::checkValidRangeOperand(::java::lang::String* sideName, int32_t currentParsePosition, ParseNode* pn)
+void poi::ss::formula::FormulaParser::checkValidRangeOperand(::java::lang::String* sideName, int32_t currentParsePosition, ParseNode* pn)
 {
     clinit();
     if(!isValidRangeOperand(pn)) {
@@ -377,34 +371,34 @@ void org::apache::poi::ss::formula::FormulaParser::checkValidRangeOperand(::java
     }
 }
 
-bool org::apache::poi::ss::formula::FormulaParser::isValidRangeOperand(ParseNode* a)
+bool poi::ss::formula::FormulaParser::isValidRangeOperand(ParseNode* a)
 {
     clinit();
     auto tkn = npc(a)->getToken();
-    if(dynamic_cast< ::org::apache::poi::ss::formula::ptg::OperandPtg* >(tkn) != nullptr) {
+    if(dynamic_cast< ::poi::ss::formula::ptg::OperandPtg* >(tkn) != nullptr) {
         return true;
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::ptg::AbstractFunctionPtg* >(tkn) != nullptr) {
-        auto afp = java_cast< ::org::apache::poi::ss::formula::ptg::AbstractFunctionPtg* >(tkn);
+    if(dynamic_cast< ::poi::ss::formula::ptg::AbstractFunctionPtg* >(tkn) != nullptr) {
+        auto afp = java_cast< ::poi::ss::formula::ptg::AbstractFunctionPtg* >(tkn);
         auto returnClass = npc(afp)->getDefaultOperandClass();
-        return ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_REF == returnClass;
+        return ::poi::ss::formula::ptg::Ptg::CLASS_REF == returnClass;
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::ptg::ValueOperatorPtg* >(tkn) != nullptr) {
+    if(dynamic_cast< ::poi::ss::formula::ptg::ValueOperatorPtg* >(tkn) != nullptr) {
         return false;
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::ptg::OperationPtg* >(tkn) != nullptr) {
+    if(dynamic_cast< ::poi::ss::formula::ptg::OperationPtg* >(tkn) != nullptr) {
         return true;
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::ptg::ParenthesisPtg* >(tkn) != nullptr) {
+    if(dynamic_cast< ::poi::ss::formula::ptg::ParenthesisPtg* >(tkn) != nullptr) {
         return isValidRangeOperand((*npc(a)->getChildren())[int32_t(0)]);
     }
-    if(tkn == static_cast< ::org::apache::poi::ss::formula::ptg::Ptg* >(::org::apache::poi::ss::formula::ptg::ErrPtg::REF_INVALID())) {
+    if(tkn == static_cast< ::poi::ss::formula::ptg::Ptg* >(::poi::ss::formula::ptg::ErrPtg::REF_INVALID())) {
         return true;
     }
     return false;
 }
 
-org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::FormulaParser::parseRangeable()
+poi::ss::formula::ParseNode* poi::ss::formula::FormulaParser::parseRangeable()
 {
     SkipWhite();
     auto savePointer = _pointer;
@@ -419,7 +413,7 @@ org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::Formula
     if(part1 == nullptr) {
         if(sheetIden != nullptr) {
             if(look == u'#') {
-                return new ParseNode(::org::apache::poi::ss::formula::ptg::ErrPtg::valueOf(parseErrorLiteral()));
+                return new ParseNode(::poi::ss::formula::ptg::ErrPtg::valueOf(parseErrorLiteral()));
             } else {
                 auto name = parseAsName();
                 if(npc(name)->length() == 0) {
@@ -510,44 +504,44 @@ org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::Formula
     return parseNonRange(savePointer);
 }
 
-java::lang::String*& org::apache::poi::ss::formula::FormulaParser::specHeaders()
+java::lang::String*& poi::ss::formula::FormulaParser::specHeaders()
 {
     clinit();
     return specHeaders_;
 }
-java::lang::String* org::apache::poi::ss::formula::FormulaParser::specHeaders_;
+java::lang::String* poi::ss::formula::FormulaParser::specHeaders_;
 
-java::lang::String*& org::apache::poi::ss::formula::FormulaParser::specAll()
+java::lang::String*& poi::ss::formula::FormulaParser::specAll()
 {
     clinit();
     return specAll_;
 }
-java::lang::String* org::apache::poi::ss::formula::FormulaParser::specAll_;
+java::lang::String* poi::ss::formula::FormulaParser::specAll_;
 
-java::lang::String*& org::apache::poi::ss::formula::FormulaParser::specData()
+java::lang::String*& poi::ss::formula::FormulaParser::specData()
 {
     clinit();
     return specData_;
 }
-java::lang::String* org::apache::poi::ss::formula::FormulaParser::specData_;
+java::lang::String* poi::ss::formula::FormulaParser::specData_;
 
-java::lang::String*& org::apache::poi::ss::formula::FormulaParser::specTotals()
+java::lang::String*& poi::ss::formula::FormulaParser::specTotals()
 {
     clinit();
     return specTotals_;
 }
-java::lang::String* org::apache::poi::ss::formula::FormulaParser::specTotals_;
+java::lang::String* poi::ss::formula::FormulaParser::specTotals_;
 
-java::lang::String*& org::apache::poi::ss::formula::FormulaParser::specThisRow()
+java::lang::String*& poi::ss::formula::FormulaParser::specThisRow()
 {
     clinit();
     return specThisRow_;
 }
-java::lang::String* org::apache::poi::ss::formula::FormulaParser::specThisRow_;
+java::lang::String* poi::ss::formula::FormulaParser::specThisRow_;
 
-org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::FormulaParser::parseStructuredReference(::java::lang::String* tableName)
+poi::ss::formula::ParseNode* poi::ss::formula::FormulaParser::parseStructuredReference(::java::lang::String* tableName)
 {
-    if(!(npc(_ssVersion)->equals(static_cast< ::java::lang::Object* >(::org::apache::poi::ss::SpreadsheetVersion::EXCEL2007)))) {
+    if(!(npc(_ssVersion)->equals(static_cast< ::java::lang::Object* >(::poi::ss::SpreadsheetVersion::EXCEL2007)))) {
         throw new FormulaParseException(u"Structured references work only on XSSF (Excel 2007+)!"_j);
     }
     auto tbl = npc(_book)->getTable(tableName);
@@ -656,11 +650,11 @@ org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::Formula
         Match(u']');
     }
     if(isTotalsSpec && npc(tbl)->getTotalsRowCount() == 0) {
-        return new ParseNode(::org::apache::poi::ss::formula::ptg::ErrPtg::REF_INVALID());
+        return new ParseNode(::poi::ss::formula::ptg::ErrPtg::REF_INVALID());
     }
     if((isThisRow || isThisRowSpec) && (_rowIndex < startRow || endRow < _rowIndex)) {
         if(_rowIndex >= 0) {
-            return new ParseNode(::org::apache::poi::ss::formula::ptg::ErrPtg::VALUE_INVALID());
+            return new ParseNode(::poi::ss::formula::ptg::ErrPtg::VALUE_INVALID());
         } else {
             throw new FormulaParseException(::java::lang::StringBuilder().append(u"Formula contained [#This Row] or [@] structured reference but this row < 0. "_j)->append(u"Row index must be specified for row-referencing structured references."_j)->toString());
         }
@@ -732,14 +726,14 @@ org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::Formula
         actualStartCol = startCol + idx;
         actualEndCol = actualStartCol;
     }
-    auto topLeft = new ::org::apache::poi::ss::util::CellReference(actualStartRow, actualStartCol);
-    auto bottomRight = new ::org::apache::poi::ss::util::CellReference(actualEndRow, actualEndCol);
+    auto topLeft = new ::poi::ss::util::CellReference(actualStartRow, actualStartCol);
+    auto bottomRight = new ::poi::ss::util::CellReference(actualEndRow, actualEndCol);
     auto sheetIden = new SheetIdentifier(nullptr, new NameIdentifier(sheetName, true));
-    auto ptg = npc(_book)->get3DReferencePtg(new ::org::apache::poi::ss::util::AreaReference(topLeft, bottomRight, _ssVersion), sheetIden);
+    auto ptg = npc(_book)->get3DReferencePtg(new ::poi::ss::util::AreaReference(topLeft, bottomRight, _ssVersion), sheetIden);
     return new ParseNode(ptg);
 }
 
-java::lang::String* org::apache::poi::ss::formula::FormulaParser::parseAsColumnQuantifier()
+java::lang::String* poi::ss::formula::FormulaParser::parseAsColumnQuantifier()
 {
     if(look != u'[') {
         return nullptr;
@@ -760,7 +754,7 @@ java::lang::String* org::apache::poi::ss::formula::FormulaParser::parseAsColumnQ
     return npc(name)->toString();
 }
 
-java::lang::String* org::apache::poi::ss::formula::FormulaParser::parseAsSpecialQuantifier()
+java::lang::String* poi::ss::formula::FormulaParser::parseAsSpecialQuantifier()
 {
     if(look != u'[') {
         return nullptr;
@@ -779,14 +773,14 @@ java::lang::String* org::apache::poi::ss::formula::FormulaParser::parseAsSpecial
     return name;
 }
 
-org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::FormulaParser::parseNonRange(int32_t savePointer)
+poi::ss::formula::ParseNode* poi::ss::formula::FormulaParser::parseNonRange(int32_t savePointer)
 {
     resetPointer(savePointer);
     if(::java::lang::Character::isDigit(look)) {
         return new ParseNode(parseNumber());
     }
     if(look == u'"') {
-        return new ParseNode(new ::org::apache::poi::ss::formula::ptg::StringPtg(parseStringLiteral()));
+        return new ParseNode(new ::poi::ss::formula::ptg::StringPtg(parseStringLiteral()));
     }
     auto name = parseAsName();
     if(look == u'(') {
@@ -796,7 +790,7 @@ org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::Formula
         return parseStructuredReference(name);
     }
     if(npc(name)->equalsIgnoreCase(u"TRUE"_j) || npc(name)->equalsIgnoreCase(u"FALSE"_j)) {
-        return new ParseNode(::org::apache::poi::ss::formula::ptg::BoolPtg::valueOf(npc(name)->equalsIgnoreCase(u"TRUE"_j)));
+        return new ParseNode(::poi::ss::formula::ptg::BoolPtg::valueOf(npc(name)->equalsIgnoreCase(u"TRUE"_j)));
     }
     if(_book == nullptr) {
         throw new ::java::lang::IllegalStateException(::java::lang::StringBuilder().append(u"Need book to evaluate name '"_j)->append(name)
@@ -814,7 +808,7 @@ org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::Formula
         ->append(u"' is not a range as expected."_j)->toString());
 }
 
-java::lang::String* org::apache::poi::ss::formula::FormulaParser::parseAsName()
+java::lang::String* poi::ss::formula::FormulaParser::parseAsName()
 {
     auto sb = new ::java::lang::StringBuilder();
     if(!::java::lang::Character::isLetter(look) && look != u'_' && look != u'\\') {
@@ -828,7 +822,7 @@ java::lang::String* org::apache::poi::ss::formula::FormulaParser::parseAsName()
     return npc(sb)->toString();
 }
 
-bool org::apache::poi::ss::formula::FormulaParser::isValidDefinedNameChar(int32_t ch)
+bool poi::ss::formula::FormulaParser::isValidDefinedNameChar(int32_t ch)
 {
     clinit();
     if(::java::lang::Character::isLetterOrDigit(ch)) {
@@ -848,20 +842,20 @@ bool org::apache::poi::ss::formula::FormulaParser::isValidDefinedNameChar(int32_
     return false;
 }
 
-org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::FormulaParser::createAreaRefParseNode(SheetIdentifier* sheetIden, FormulaParser_SimpleRangePart* part1, FormulaParser_SimpleRangePart* part2) /* throws(FormulaParseException) */
+poi::ss::formula::ParseNode* poi::ss::formula::FormulaParser::createAreaRefParseNode(SheetIdentifier* sheetIden, FormulaParser_SimpleRangePart* part1, FormulaParser_SimpleRangePart* part2) /* throws(FormulaParseException) */
 {
-    ::org::apache::poi::ss::formula::ptg::Ptg* ptg;
+    ::poi::ss::formula::ptg::Ptg* ptg;
     if(part2 == nullptr) {
         auto cr = npc(part1)->getCellReference();
         if(sheetIden == nullptr) {
-            ptg = new ::org::apache::poi::ss::formula::ptg::RefPtg(cr);
+            ptg = new ::poi::ss::formula::ptg::RefPtg(cr);
         } else {
             ptg = npc(_book)->get3DReferencePtg(cr, sheetIden);
         }
     } else {
         auto areaRef = createAreaRef(part1, part2);
         if(sheetIden == nullptr) {
-            ptg = new ::org::apache::poi::ss::formula::ptg::AreaPtg(areaRef);
+            ptg = new ::poi::ss::formula::ptg::AreaPtg(areaRef);
         } else {
             ptg = npc(_book)->get3DReferencePtg(areaRef, sheetIden);
         }
@@ -869,7 +863,7 @@ org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::Formula
     return new ParseNode(ptg);
 }
 
-org::apache::poi::ss::util::AreaReference* org::apache::poi::ss::formula::FormulaParser::createAreaRef(FormulaParser_SimpleRangePart* part1, FormulaParser_SimpleRangePart* part2)
+poi::ss::util::AreaReference* poi::ss::formula::FormulaParser::createAreaRef(FormulaParser_SimpleRangePart* part1, FormulaParser_SimpleRangePart* part2)
 {
     if(!npc(part1)->isCompatibleForArea(part2)) {
         throw new FormulaParseException(::java::lang::StringBuilder().append(u"has incompatible parts: '"_j)->append(npc(part1)->getRep())
@@ -878,22 +872,22 @@ org::apache::poi::ss::util::AreaReference* org::apache::poi::ss::formula::Formul
             ->append(u"'."_j)->toString());
     }
     if(npc(part1)->isRow()) {
-        return ::org::apache::poi::ss::util::AreaReference::getWholeRow(_ssVersion, npc(part1)->getRep(), npc(part2)->getRep());
+        return ::poi::ss::util::AreaReference::getWholeRow(_ssVersion, npc(part1)->getRep(), npc(part2)->getRep());
     }
     if(npc(part1)->isColumn()) {
-        return ::org::apache::poi::ss::util::AreaReference::getWholeColumn(_ssVersion, npc(part1)->getRep(), npc(part2)->getRep());
+        return ::poi::ss::util::AreaReference::getWholeColumn(_ssVersion, npc(part1)->getRep(), npc(part2)->getRep());
     }
-    return new ::org::apache::poi::ss::util::AreaReference(npc(part1)->getCellReference(), npc(part2)->getCellReference(), _ssVersion);
+    return new ::poi::ss::util::AreaReference(npc(part1)->getCellReference(), npc(part2)->getCellReference(), _ssVersion);
 }
 
-java::util::regex::Pattern*& org::apache::poi::ss::formula::FormulaParser::CELL_REF_PATTERN()
+java::util::regex::Pattern*& poi::ss::formula::FormulaParser::CELL_REF_PATTERN()
 {
     clinit();
     return CELL_REF_PATTERN_;
 }
-java::util::regex::Pattern* org::apache::poi::ss::formula::FormulaParser::CELL_REF_PATTERN_;
+java::util::regex::Pattern* poi::ss::formula::FormulaParser::CELL_REF_PATTERN_;
 
-org::apache::poi::ss::formula::FormulaParser_SimpleRangePart* org::apache::poi::ss::formula::FormulaParser::parseSimpleRangePart()
+poi::ss::formula::FormulaParser_SimpleRangePart* poi::ss::formula::FormulaParser::parseSimpleRangePart()
 {
     auto ptr = _pointer - int32_t(1);
     auto hasDigits = false;
@@ -922,7 +916,7 @@ org::apache::poi::ss::formula::FormulaParser_SimpleRangePart* org::apache::poi::
             return nullptr;
         }
     } else if(hasLetters) {
-        if(!::org::apache::poi::ss::util::CellReference::isColumnWithinRange(npc(rep)->replace(static_cast< ::java::lang::CharSequence* >(u"$"_j), static_cast< ::java::lang::CharSequence* >(u""_j)), _ssVersion)) {
+        if(!::poi::ss::util::CellReference::isColumnWithinRange(npc(rep)->replace(static_cast< ::java::lang::CharSequence* >(u"$"_j), static_cast< ::java::lang::CharSequence* >(u""_j)), _ssVersion)) {
             return nullptr;
         }
     } else if(hasDigits) {
@@ -942,7 +936,7 @@ org::apache::poi::ss::formula::FormulaParser_SimpleRangePart* org::apache::poi::
     return new FormulaParser_SimpleRangePart(rep, hasLetters, hasDigits);
 }
 
-java::lang::String* org::apache::poi::ss::formula::FormulaParser::getBookName()
+java::lang::String* poi::ss::formula::FormulaParser::getBookName()
 {
     auto sb = new ::java::lang::StringBuilder();
     GetChar();
@@ -954,7 +948,7 @@ java::lang::String* org::apache::poi::ss::formula::FormulaParser::getBookName()
     return npc(sb)->toString();
 }
 
-org::apache::poi::ss::formula::SheetIdentifier* org::apache::poi::ss::formula::FormulaParser::parseSheetName()
+poi::ss::formula::SheetIdentifier* poi::ss::formula::FormulaParser::parseSheetName()
 {
     ::java::lang::String* bookName;
     if(look == u'[') {
@@ -1012,7 +1006,7 @@ org::apache::poi::ss::formula::SheetIdentifier* org::apache::poi::ss::formula::F
     return nullptr;
 }
 
-org::apache::poi::ss::formula::SheetIdentifier* org::apache::poi::ss::formula::FormulaParser::parseSheetRange(::java::lang::String* bookname, NameIdentifier* sheet1Name)
+poi::ss::formula::SheetIdentifier* poi::ss::formula::FormulaParser::parseSheetRange(::java::lang::String* bookname, NameIdentifier* sheet1Name)
 {
     GetChar();
     auto sheet2 = parseSheetName();
@@ -1022,7 +1016,7 @@ org::apache::poi::ss::formula::SheetIdentifier* org::apache::poi::ss::formula::F
     return nullptr;
 }
 
-bool org::apache::poi::ss::formula::FormulaParser::isUnquotedSheetNameChar(int32_t ch)
+bool poi::ss::formula::FormulaParser::isUnquotedSheetNameChar(int32_t ch)
 {
     clinit();
     if(::java::lang::Character::isLetterOrDigit(ch)) {
@@ -1040,11 +1034,11 @@ bool org::apache::poi::ss::formula::FormulaParser::isUnquotedSheetNameChar(int32
     return false;
 }
 
-bool org::apache::poi::ss::formula::FormulaParser::isValidCellReference(::java::lang::String* str)
+bool poi::ss::formula::FormulaParser::isValidCellReference(::java::lang::String* str)
 {
-    auto result = ::org::apache::poi::ss::util::CellReference::classifyCellReference(str, _ssVersion) == ::org::apache::poi::ss::util::CellReference_NameType::CELL;
+    auto result = ::poi::ss::util::CellReference::classifyCellReference(str, _ssVersion) == ::poi::ss::util::CellReference_NameType::CELL;
     if(result) {
-        auto isFunc = ::org::apache::poi::ss::formula::function::FunctionMetadataRegistry::getFunctionByName(npc(str)->toUpperCase(::java::util::Locale::ROOT())) != nullptr;
+        auto isFunc = ::poi::ss::formula::function::FunctionMetadataRegistry::getFunctionByName(npc(str)->toUpperCase(::java::util::Locale::ROOT())) != nullptr;
         if(isFunc) {
             auto savePointer = _pointer;
             resetPointer(_pointer + npc(str)->length());
@@ -1056,10 +1050,10 @@ bool org::apache::poi::ss::formula::FormulaParser::isValidCellReference(::java::
     return result;
 }
 
-org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::FormulaParser::function(::java::lang::String* name)
+poi::ss::formula::ParseNode* poi::ss::formula::FormulaParser::function(::java::lang::String* name)
 {
-    ::org::apache::poi::ss::formula::ptg::Ptg* nameToken = nullptr;
-    if(!::org::apache::poi::ss::formula::ptg::AbstractFunctionPtg::isBuiltInFunctionName(name)) {
+    ::poi::ss::formula::ptg::Ptg* nameToken = nullptr;
+    if(!::poi::ss::formula::ptg::AbstractFunctionPtg::isBuiltInFunctionName(name)) {
         if(_book == nullptr) {
             throw new ::java::lang::IllegalStateException(::java::lang::StringBuilder().append(u"Need book to evaluate name '"_j)->append(name)
                 ->append(u"'"_j)->toString());
@@ -1074,23 +1068,23 @@ org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::Formula
         } else {
             nameToken = npc(_book)->getNameXPtg(name, nullptr);
             if(nameToken == nullptr) {
-                if(npc(log_)->check(::org::apache::poi::util::POILogger::WARN)) {
-                    npc(log_)->log(::org::apache::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"FormulaParser.function: Name '"_j)->append(name)
+                if(npc(log_)->check(::poi::util::POILogger::WARN)) {
+                    npc(log_)->log(::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"FormulaParser.function: Name '"_j)->append(name)
                         ->append(u"' is completely unknown in the current workbook."_j)->toString())}));
                 }
                 {
                     auto v = npc(_book)->getSpreadsheetVersion();
-                    if((v == ::org::apache::poi::ss::SpreadsheetVersion::EXCEL97)) {
+                    if((v == ::poi::ss::SpreadsheetVersion::EXCEL97)) {
                         addName(name);
                         hName = npc(_book)->getName(name, _sheetIndex);
                         nameToken = npc(hName)->createPtg();
                         goto end_switch0;;
                     }
-                    if((v == ::org::apache::poi::ss::SpreadsheetVersion::EXCEL2007)) {
-                        nameToken = new ::org::apache::poi::ss::formula::ptg::NameXPxg(name);
+                    if((v == ::poi::ss::SpreadsheetVersion::EXCEL2007)) {
+                        nameToken = new ::poi::ss::formula::ptg::NameXPxg(name);
                         goto end_switch0;;
                     }
-                    if((((v != ::org::apache::poi::ss::SpreadsheetVersion::EXCEL97) && (v != ::org::apache::poi::ss::SpreadsheetVersion::EXCEL2007)))) {
+                    if((((v != ::poi::ss::SpreadsheetVersion::EXCEL97) && (v != ::poi::ss::SpreadsheetVersion::EXCEL2007)))) {
                         throw new ::java::lang::IllegalStateException(::java::lang::StringBuilder().append(u"Unexpected spreadsheet version: "_j)->append(npc(npc(_book)->getSpreadsheetVersion())->name())->toString());
                     }
 end_switch0:;
@@ -1105,7 +1099,7 @@ end_switch0:;
     return getFunction(name, nameToken, args);
 }
 
-void org::apache::poi::ss::formula::FormulaParser::addName(::java::lang::String* functionName)
+void poi::ss::formula::FormulaParser::addName(::java::lang::String* functionName)
 {
     auto const name = npc(_book)->createName();
     npc(name)->setFunction(true);
@@ -1113,9 +1107,9 @@ void org::apache::poi::ss::formula::FormulaParser::addName(::java::lang::String*
     npc(name)->setSheetIndex(_sheetIndex);
 }
 
-org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::FormulaParser::getFunction(::java::lang::String* name, ::org::apache::poi::ss::formula::ptg::Ptg* namePtg, ParseNodeArray* args)
+poi::ss::formula::ParseNode* poi::ss::formula::FormulaParser::getFunction(::java::lang::String* name, ::poi::ss::formula::ptg::Ptg* namePtg, ParseNodeArray* args)
 {
-    auto fm = ::org::apache::poi::ss::formula::function::FunctionMetadataRegistry::getFunctionByName(npc(name)->toUpperCase(::java::util::Locale::ROOT()));
+    auto fm = ::poi::ss::formula::function::FunctionMetadataRegistry::getFunctionByName(npc(name)->toUpperCase(::java::util::Locale::ROOT()));
     auto numArgs = npc(args)->length;
     if(fm == nullptr) {
         if(namePtg == nullptr) {
@@ -1124,27 +1118,27 @@ org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::Formula
         auto allArgs = new ParseNodeArray(numArgs + int32_t(1));
         allArgs->set(int32_t(0), new ParseNode(namePtg));
         ::java::lang::System::arraycopy(args, 0, allArgs, 1, numArgs);
-        return new ParseNode(static_cast< ::org::apache::poi::ss::formula::ptg::Ptg* >(::org::apache::poi::ss::formula::ptg::FuncVarPtg::create(name, numArgs + int32_t(1))), allArgs);
+        return new ParseNode(static_cast< ::poi::ss::formula::ptg::Ptg* >(::poi::ss::formula::ptg::FuncVarPtg::create(name, numArgs + int32_t(1))), allArgs);
     }
     if(namePtg != nullptr) {
         throw new ::java::lang::IllegalStateException(u"NamePtg no applicable to internal functions"_j);
     }
     auto isVarArgs = !npc(fm)->hasFixedArgsLength();
     auto funcIx = npc(fm)->getIndex();
-    if(funcIx == ::org::apache::poi::ss::formula::function::FunctionMetadataRegistry::FUNCTION_INDEX_SUM && npc(args)->length == 1) {
-        return new ParseNode(static_cast< ::org::apache::poi::ss::formula::ptg::Ptg* >(::org::apache::poi::ss::formula::ptg::AttrPtg::getSumSingle()), args);
+    if(funcIx == ::poi::ss::formula::function::FunctionMetadataRegistry::FUNCTION_INDEX_SUM && npc(args)->length == 1) {
+        return new ParseNode(static_cast< ::poi::ss::formula::ptg::Ptg* >(::poi::ss::formula::ptg::AttrPtg::getSumSingle()), args);
     }
     validateNumArgs(npc(args)->length, fm);
-    ::org::apache::poi::ss::formula::ptg::AbstractFunctionPtg* retval;
+    ::poi::ss::formula::ptg::AbstractFunctionPtg* retval;
     if(isVarArgs) {
-        retval = ::org::apache::poi::ss::formula::ptg::FuncVarPtg::create(name, numArgs);
+        retval = ::poi::ss::formula::ptg::FuncVarPtg::create(name, numArgs);
     } else {
-        retval = ::org::apache::poi::ss::formula::ptg::FuncPtg::create(funcIx);
+        retval = ::poi::ss::formula::ptg::FuncPtg::create(funcIx);
     }
-    return new ParseNode(static_cast< ::org::apache::poi::ss::formula::ptg::Ptg* >(retval), args);
+    return new ParseNode(static_cast< ::poi::ss::formula::ptg::Ptg* >(retval), args);
 }
 
-void org::apache::poi::ss::formula::FormulaParser::validateNumArgs(int32_t numArgs, ::org::apache::poi::ss::formula::function::FunctionMetadata* fm)
+void poi::ss::formula::FormulaParser::validateNumArgs(int32_t numArgs, ::poi::ss::formula::function::FunctionMetadata* fm)
 {
     if(numArgs < npc(fm)->getMinParams()) {
         auto msg = ::java::lang::StringBuilder().append(u"Too few arguments to function '"_j)->append(npc(fm)->getName())
@@ -1184,13 +1178,13 @@ void org::apache::poi::ss::formula::FormulaParser::validateNumArgs(int32_t numAr
     }
 }
 
-bool org::apache::poi::ss::formula::FormulaParser::isArgumentDelimiter(int32_t ch)
+bool poi::ss::formula::FormulaParser::isArgumentDelimiter(int32_t ch)
 {
     clinit();
     return ch == u',' || ch == u')';
 }
 
-org::apache::poi::ss::formula::ParseNodeArray* org::apache::poi::ss::formula::FormulaParser::Arguments()
+poi::ss::formula::ParseNodeArray* poi::ss::formula::FormulaParser::Arguments()
 {
     ::java::util::List* temp = new ::java::util::ArrayList(int32_t(2));
     SkipWhite();
@@ -1202,7 +1196,7 @@ org::apache::poi::ss::formula::ParseNodeArray* org::apache::poi::ss::formula::Fo
         SkipWhite();
         if(isArgumentDelimiter(look)) {
             if(missedPrevArg) {
-                npc(temp)->add(static_cast< ::java::lang::Object* >(new ParseNode(::org::apache::poi::ss::formula::ptg::MissingArgPtg::instance())));
+                npc(temp)->add(static_cast< ::java::lang::Object* >(new ParseNode(::poi::ss::formula::ptg::MissingArgPtg::instance())));
             }
             if(look == u')') {
                 break;
@@ -1223,7 +1217,7 @@ org::apache::poi::ss::formula::ParseNodeArray* org::apache::poi::ss::formula::Fo
     return result;
 }
 
-org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::FormulaParser::powerFactor()
+poi::ss::formula::ParseNode* poi::ss::formula::FormulaParser::powerFactor()
 {
     auto result = percentFactor();
     while (true) {
@@ -1233,11 +1227,11 @@ org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::Formula
         }
         Match(u'^');
         auto other = percentFactor();
-        result = new ParseNode(::org::apache::poi::ss::formula::ptg::PowerPtg::instance(), result, other);
+        result = new ParseNode(::poi::ss::formula::ptg::PowerPtg::instance(), result, other);
     }
 }
 
-org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::FormulaParser::percentFactor()
+poi::ss::formula::ParseNode* poi::ss::formula::FormulaParser::percentFactor()
 {
     auto result = parseSimpleFactor();
     while (true) {
@@ -1246,11 +1240,11 @@ org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::Formula
             return result;
         }
         Match(u'%');
-        result = new ParseNode(static_cast< ::org::apache::poi::ss::formula::ptg::Ptg* >(::org::apache::poi::ss::formula::ptg::PercentPtg::instance()), result);
+        result = new ParseNode(static_cast< ::poi::ss::formula::ptg::Ptg* >(::poi::ss::formula::ptg::PercentPtg::instance()), result);
     }
 }
 
-org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::FormulaParser::parseSimpleFactor()
+poi::ss::formula::ParseNode* poi::ss::formula::FormulaParser::parseSimpleFactor()
 {
     SkipWhite();
     {
@@ -1258,7 +1252,7 @@ org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::Formula
         ParseNode* arrayNode;
         switch (look) {
         case u'#':
-            return new ParseNode(::org::apache::poi::ss::formula::ptg::ErrPtg::valueOf(parseErrorLiteral()));
+            return new ParseNode(::poi::ss::formula::ptg::ErrPtg::valueOf(parseErrorLiteral()));
         case u'-':
             Match(u'-');
             return parseUnary(false);
@@ -1269,9 +1263,9 @@ org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::Formula
             Match(u'(');
             inside = unionExpression();
             Match(u')');
-            return new ParseNode(static_cast< ::org::apache::poi::ss::formula::ptg::Ptg* >(::org::apache::poi::ss::formula::ptg::ParenthesisPtg::instance()), inside);
+            return new ParseNode(static_cast< ::poi::ss::formula::ptg::Ptg* >(::poi::ss::formula::ptg::ParenthesisPtg::instance()), inside);
         case u'"':
-            return new ParseNode(new ::org::apache::poi::ss::formula::ptg::StringPtg(parseStringLiteral()));
+            return new ParseNode(new ::poi::ss::formula::ptg::StringPtg(parseStringLiteral()));
         case u'{':
             Match(u'{');
             arrayNode = parseArray_();
@@ -1289,32 +1283,32 @@ org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::Formula
     throw expected(u"cell ref or constant literal"_j);
 }
 
-org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::FormulaParser::parseUnary(bool isPlus)
+poi::ss::formula::ParseNode* poi::ss::formula::FormulaParser::parseUnary(bool isPlus)
 {
     auto numberFollows = IsDigit(look) || look == u'.';
     auto factor = powerFactor();
     if(numberFollows) {
         auto token = npc(factor)->getToken();
-        if(dynamic_cast< ::org::apache::poi::ss::formula::ptg::NumberPtg* >(token) != nullptr) {
+        if(dynamic_cast< ::poi::ss::formula::ptg::NumberPtg* >(token) != nullptr) {
             if(isPlus) {
                 return factor;
             }
-            token = new ::org::apache::poi::ss::formula::ptg::NumberPtg(-npc((java_cast< ::org::apache::poi::ss::formula::ptg::NumberPtg* >(token)))->getValue());
+            token = new ::poi::ss::formula::ptg::NumberPtg(-npc((java_cast< ::poi::ss::formula::ptg::NumberPtg* >(token)))->getValue());
             return new ParseNode(token);
         }
-        if(dynamic_cast< ::org::apache::poi::ss::formula::ptg::IntPtg* >(token) != nullptr) {
+        if(dynamic_cast< ::poi::ss::formula::ptg::IntPtg* >(token) != nullptr) {
             if(isPlus) {
                 return factor;
             }
-            auto intVal = npc((java_cast< ::org::apache::poi::ss::formula::ptg::IntPtg* >(token)))->getValue();
-            token = new ::org::apache::poi::ss::formula::ptg::NumberPtg(static_cast< double >(-intVal));
+            auto intVal = npc((java_cast< ::poi::ss::formula::ptg::IntPtg* >(token)))->getValue();
+            token = new ::poi::ss::formula::ptg::NumberPtg(static_cast< double >(-intVal));
             return new ParseNode(token);
         }
     }
-    return new ParseNode(isPlus ? static_cast< ::org::apache::poi::ss::formula::ptg::Ptg* >(::org::apache::poi::ss::formula::ptg::UnaryPlusPtg::instance()) : static_cast< ::org::apache::poi::ss::formula::ptg::Ptg* >(::org::apache::poi::ss::formula::ptg::UnaryMinusPtg::instance()), factor);
+    return new ParseNode(isPlus ? static_cast< ::poi::ss::formula::ptg::Ptg* >(::poi::ss::formula::ptg::UnaryPlusPtg::instance()) : static_cast< ::poi::ss::formula::ptg::Ptg* >(::poi::ss::formula::ptg::UnaryMinusPtg::instance()), factor);
 }
 
-org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::FormulaParser::parseArray_()
+poi::ss::formula::ParseNode* poi::ss::formula::FormulaParser::parseArray_()
 {
     ::java::util::List* rowsData = new ::java::util::ArrayList();
     while (true) {
@@ -1333,10 +1327,10 @@ org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::Formula
     npc(rowsData)->toArray_(static_cast< ::java::lang::ObjectArray* >(values2d));
     auto nColumns = npc((*values2d)[int32_t(0)])->length;
     checkRowLengths(values2d, nColumns);
-    return new ParseNode(new ::org::apache::poi::ss::formula::ptg::ArrayPtg(values2d));
+    return new ParseNode(new ::poi::ss::formula::ptg::ArrayPtg(values2d));
 }
 
-void org::apache::poi::ss::formula::FormulaParser::checkRowLengths(::java::lang::ObjectArrayArray* values2d, int32_t nColumns)
+void poi::ss::formula::FormulaParser::checkRowLengths(::java::lang::ObjectArrayArray* values2d, int32_t nColumns)
 {
     for (auto i = int32_t(0); i < npc(values2d)->length; i++) {
         auto rowLen = npc((*values2d)[i])->length;
@@ -1350,7 +1344,7 @@ void org::apache::poi::ss::formula::FormulaParser::checkRowLengths(::java::lang:
     }
 }
 
-java::lang::ObjectArray* org::apache::poi::ss::formula::FormulaParser::parseArrayRow()
+java::lang::ObjectArray* poi::ss::formula::FormulaParser::parseArrayRow()
 {
     ::java::util::List* temp = new ::java::util::ArrayList();
     while (true) {
@@ -1374,14 +1368,14 @@ java::lang::ObjectArray* org::apache::poi::ss::formula::FormulaParser::parseArra
     return result;
 }
 
-java::lang::Object* org::apache::poi::ss::formula::FormulaParser::parseArrayItem()
+java::lang::Object* poi::ss::formula::FormulaParser::parseArrayItem()
 {
     SkipWhite();
     switch (look) {
     case u'"':
         return parseStringLiteral();
     case u'#':
-        return ::org::apache::poi::ss::formula::constant::ErrorConstant::valueOf(parseErrorLiteral());
+        return ::poi::ss::formula::constant::ErrorConstant::valueOf(parseErrorLiteral());
     case u'F':
     case u'f':
     case u'T':
@@ -1396,7 +1390,7 @@ java::lang::Object* org::apache::poi::ss::formula::FormulaParser::parseArrayItem
     return convertArrayNumber(parseNumber(), true);
 }
 
-java::lang::Boolean* org::apache::poi::ss::formula::FormulaParser::parseBooleanLiteral()
+java::lang::Boolean* poi::ss::formula::FormulaParser::parseBooleanLiteral()
 {
     auto iden = parseUnquotedIdentifier();
     if(npc(u"TRUE"_j)->equalsIgnoreCase(iden)) {
@@ -1408,14 +1402,14 @@ java::lang::Boolean* org::apache::poi::ss::formula::FormulaParser::parseBooleanL
     throw expected(u"'TRUE' or 'FALSE'"_j);
 }
 
-java::lang::Double* org::apache::poi::ss::formula::FormulaParser::convertArrayNumber(::org::apache::poi::ss::formula::ptg::Ptg* ptg, bool isPositive)
+java::lang::Double* poi::ss::formula::FormulaParser::convertArrayNumber(::poi::ss::formula::ptg::Ptg* ptg, bool isPositive)
 {
     clinit();
     double value;
-    if(dynamic_cast< ::org::apache::poi::ss::formula::ptg::IntPtg* >(ptg) != nullptr) {
-        value = npc((java_cast< ::org::apache::poi::ss::formula::ptg::IntPtg* >(ptg)))->getValue();
-    } else if(dynamic_cast< ::org::apache::poi::ss::formula::ptg::NumberPtg* >(ptg) != nullptr) {
-        value = npc((java_cast< ::org::apache::poi::ss::formula::ptg::NumberPtg* >(ptg)))->getValue();
+    if(dynamic_cast< ::poi::ss::formula::ptg::IntPtg* >(ptg) != nullptr) {
+        value = npc((java_cast< ::poi::ss::formula::ptg::IntPtg* >(ptg)))->getValue();
+    } else if(dynamic_cast< ::poi::ss::formula::ptg::NumberPtg* >(ptg) != nullptr) {
+        value = npc((java_cast< ::poi::ss::formula::ptg::NumberPtg* >(ptg)))->getValue();
     } else {
         throw new ::java::lang::RuntimeException(::java::lang::StringBuilder().append(u"Unexpected ptg ("_j)->append(npc(npc(ptg)->getClass())->getName())
             ->append(u")"_j)->toString());
@@ -1426,7 +1420,7 @@ java::lang::Double* org::apache::poi::ss::formula::FormulaParser::convertArrayNu
     return new ::java::lang::Double(value);
 }
 
-org::apache::poi::ss::formula::ptg::Ptg* org::apache::poi::ss::formula::FormulaParser::parseNumber()
+poi::ss::formula::ptg::Ptg* poi::ss::formula::FormulaParser::parseNumber()
 {
     ::java::lang::String* number2 = nullptr;
     ::java::lang::String* exponent = nullptr;
@@ -1456,7 +1450,7 @@ org::apache::poi::ss::formula::ptg::Ptg* org::apache::poi::ss::formula::FormulaP
     return getNumberPtgFromString(number1, number2, exponent);
 }
 
-int32_t org::apache::poi::ss::formula::FormulaParser::parseErrorLiteral()
+int32_t poi::ss::formula::FormulaParser::parseErrorLiteral()
 {
     Match(u'#');
     auto part1 = npc(parseUnquotedIdentifier())->toUpperCase(::java::util::Locale::ROOT());
@@ -1465,7 +1459,7 @@ int32_t org::apache::poi::ss::formula::FormulaParser::parseErrorLiteral()
     }
     switch (npc(part1)->charAt(int32_t(0))) {
     case u'V': {
-            auto fe = ::org::apache::poi::ss::usermodel::FormulaError::VALUE;
+            auto fe = ::poi::ss::usermodel::FormulaError::VALUE;
             if(npc(part1)->equals(static_cast< ::java::lang::Object* >(npc(fe)->name()))) {
                 Match(u'!');
                 return npc(fe)->getCode();
@@ -1473,7 +1467,7 @@ int32_t org::apache::poi::ss::formula::FormulaParser::parseErrorLiteral()
             throw expected(npc(fe)->getString());
         }
     case u'R': {
-            auto fe = ::org::apache::poi::ss::usermodel::FormulaError::REF;
+            auto fe = ::poi::ss::usermodel::FormulaError::REF;
             if(npc(part1)->equals(static_cast< ::java::lang::Object* >(npc(fe)->name()))) {
                 Match(u'!');
                 return npc(fe)->getCode();
@@ -1481,7 +1475,7 @@ int32_t org::apache::poi::ss::formula::FormulaParser::parseErrorLiteral()
             throw expected(npc(fe)->getString());
         }
     case u'D': {
-            auto fe = ::org::apache::poi::ss::usermodel::FormulaError::DIV0;
+            auto fe = ::poi::ss::usermodel::FormulaError::DIV0;
             if(npc(part1)->equals(static_cast< ::java::lang::Object* >(u"DIV"_j))) {
                 Match(u'/');
                 Match(u'0');
@@ -1491,22 +1485,22 @@ int32_t org::apache::poi::ss::formula::FormulaParser::parseErrorLiteral()
             throw expected(npc(fe)->getString());
         }
     case u'N': {
-            auto fe = ::org::apache::poi::ss::usermodel::FormulaError::NAME;
+            auto fe = ::poi::ss::usermodel::FormulaError::NAME;
             if(npc(part1)->equals(static_cast< ::java::lang::Object* >(npc(fe)->name()))) {
                 Match(u'?');
                 return npc(fe)->getCode();
             }
-            fe = ::org::apache::poi::ss::usermodel::FormulaError::NUM;
+            fe = ::poi::ss::usermodel::FormulaError::NUM;
             if(npc(part1)->equals(static_cast< ::java::lang::Object* >(npc(fe)->name()))) {
                 Match(u'!');
                 return npc(fe)->getCode();
             }
-            fe = ::org::apache::poi::ss::usermodel::FormulaError::NULL_;
+            fe = ::poi::ss::usermodel::FormulaError::NULL_;
             if(npc(part1)->equals(static_cast< ::java::lang::Object* >(npc(fe)->name()))) {
                 Match(u'!');
                 return npc(fe)->getCode();
             }
-            fe = ::org::apache::poi::ss::usermodel::FormulaError::NA;
+            fe = ::poi::ss::usermodel::FormulaError::NA;
             if(npc(part1)->equals(static_cast< ::java::lang::Object* >(u"N"_j))) {
                 Match(u'/');
                 if(look != u'A' && look != u'a') {
@@ -1522,7 +1516,7 @@ int32_t org::apache::poi::ss::formula::FormulaParser::parseErrorLiteral()
     throw expected(u"#VALUE!, #REF!, #DIV/0!, #NAME?, #NUM!, #NULL! or #N/A"_j);
 }
 
-java::lang::String* org::apache::poi::ss::formula::FormulaParser::parseUnquotedIdentifier()
+java::lang::String* poi::ss::formula::FormulaParser::parseUnquotedIdentifier()
 {
     if(look == u'\'') {
         throw expected(u"unquoted identifier"_j);
@@ -1538,7 +1532,7 @@ java::lang::String* org::apache::poi::ss::formula::FormulaParser::parseUnquotedI
     return npc(sb)->toString();
 }
 
-org::apache::poi::ss::formula::ptg::Ptg* org::apache::poi::ss::formula::FormulaParser::getNumberPtgFromString(::java::lang::String* number1, ::java::lang::String* number2, ::java::lang::String* exponent)
+poi::ss::formula::ptg::Ptg* poi::ss::formula::FormulaParser::getNumberPtgFromString(::java::lang::String* number1, ::java::lang::String* number2, ::java::lang::String* exponent)
 {
     clinit();
     auto number = new ::java::lang::StringBuilder();
@@ -1553,12 +1547,12 @@ org::apache::poi::ss::formula::ptg::Ptg* org::apache::poi::ss::formula::FormulaP
         try {
             intVal = ::java::lang::Integer::parseInt(numberStr);
         } catch (::java::lang::NumberFormatException* e) {
-            return new ::org::apache::poi::ss::formula::ptg::NumberPtg(numberStr);
+            return new ::poi::ss::formula::ptg::NumberPtg(numberStr);
         }
-        if(::org::apache::poi::ss::formula::ptg::IntPtg::isInRange(intVal)) {
-            return new ::org::apache::poi::ss::formula::ptg::IntPtg(intVal);
+        if(::poi::ss::formula::ptg::IntPtg::isInRange(intVal)) {
+            return new ::poi::ss::formula::ptg::IntPtg(intVal);
         }
-        return new ::org::apache::poi::ss::formula::ptg::NumberPtg(numberStr);
+        return new ::poi::ss::formula::ptg::NumberPtg(numberStr);
     }
     if(number1 != nullptr) {
         npc(number)->append(number1);
@@ -1569,10 +1563,10 @@ org::apache::poi::ss::formula::ptg::Ptg* org::apache::poi::ss::formula::FormulaP
         npc(number)->append(u'E');
         npc(number)->append(exponent);
     }
-    return new ::org::apache::poi::ss::formula::ptg::NumberPtg(npc(number)->toString());
+    return new ::poi::ss::formula::ptg::NumberPtg(npc(number)->toString());
 }
 
-java::lang::String* org::apache::poi::ss::formula::FormulaParser::parseStringLiteral()
+java::lang::String* poi::ss::formula::FormulaParser::parseStringLiteral()
 {
     Match(u'"');
     auto token = new ::java::lang::StringBuilder();
@@ -1589,20 +1583,20 @@ java::lang::String* org::apache::poi::ss::formula::FormulaParser::parseStringLit
     return npc(token)->toString();
 }
 
-org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::FormulaParser::Term()
+poi::ss::formula::ParseNode* poi::ss::formula::FormulaParser::Term()
 {
     auto result = powerFactor();
     while (true) {
         SkipWhite();
-        ::org::apache::poi::ss::formula::ptg::Ptg* operator_;
+        ::poi::ss::formula::ptg::Ptg* operator_;
         switch (look) {
         case u'*':
             Match(u'*');
-            operator_ = ::org::apache::poi::ss::formula::ptg::MultiplyPtg::instance();
+            operator_ = ::poi::ss::formula::ptg::MultiplyPtg::instance();
             break;
         case u'/':
             Match(u'/');
-            operator_ = ::org::apache::poi::ss::formula::ptg::DividePtg::instance();
+            operator_ = ::poi::ss::formula::ptg::DividePtg::instance();
             break;
         default:
             return result;
@@ -1613,7 +1607,7 @@ org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::Formula
     }
 }
 
-org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::FormulaParser::unionExpression()
+poi::ss::formula::ParseNode* poi::ss::formula::FormulaParser::unionExpression()
 {
     auto result = intersectionExpression();
     auto hasUnions = false;
@@ -1626,7 +1620,7 @@ org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::Formula
                 GetChar();
                 hasUnions = true;
                 other = intersectionExpression();
-                result = new ParseNode(::org::apache::poi::ss::formula::ptg::UnionPtg::instance(), result, other);
+                result = new ParseNode(::poi::ss::formula::ptg::UnionPtg::instance(), result, other);
                 continue;
             }
         }
@@ -1638,7 +1632,7 @@ org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::Formula
     }
 }
 
-org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::FormulaParser::intersectionExpression()
+poi::ss::formula::ParseNode* poi::ss::formula::FormulaParser::intersectionExpression()
 {
     auto result = comparisonExpression();
     auto hasIntersections = false;
@@ -1648,7 +1642,7 @@ org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::Formula
             auto savePointer = _pointer;
             try {
                 auto other = comparisonExpression();
-                result = new ParseNode(::org::apache::poi::ss::formula::ptg::IntersectionPtg::instance(), result, other);
+                result = new ParseNode(::poi::ss::formula::ptg::IntersectionPtg::instance(), result, other);
                 hasIntersections = true;
                 continue;
             } catch (FormulaParseException* e) {
@@ -1662,13 +1656,13 @@ org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::Formula
     }
 }
 
-org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::FormulaParser::comparisonExpression()
+poi::ss::formula::ParseNode* poi::ss::formula::FormulaParser::comparisonExpression()
 {
     auto result = concatExpression();
     while (true) {
         SkipWhite();
         {
-            ::org::apache::poi::ss::formula::ptg::Ptg* comparisonToken;
+            ::poi::ss::formula::ptg::Ptg* comparisonToken;
             ParseNode* other;
             switch (look) {
             case u'=':
@@ -1685,34 +1679,34 @@ org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::Formula
     }
 }
 
-org::apache::poi::ss::formula::ptg::Ptg* org::apache::poi::ss::formula::FormulaParser::getComparisonToken()
+poi::ss::formula::ptg::Ptg* poi::ss::formula::FormulaParser::getComparisonToken()
 {
     if(look == u'=') {
         Match(look);
-        return ::org::apache::poi::ss::formula::ptg::EqualPtg::instance();
+        return ::poi::ss::formula::ptg::EqualPtg::instance();
     }
     auto isGreater = look == u'>';
     Match(look);
     if(isGreater) {
         if(look == u'=') {
             Match(u'=');
-            return ::org::apache::poi::ss::formula::ptg::GreaterEqualPtg::instance();
+            return ::poi::ss::formula::ptg::GreaterEqualPtg::instance();
         }
-        return ::org::apache::poi::ss::formula::ptg::GreaterThanPtg::instance();
+        return ::poi::ss::formula::ptg::GreaterThanPtg::instance();
     }
     switch (look) {
     case u'=':
         Match(u'=');
-        return ::org::apache::poi::ss::formula::ptg::LessEqualPtg::instance();
+        return ::poi::ss::formula::ptg::LessEqualPtg::instance();
     case u'>':
         Match(u'>');
-        return ::org::apache::poi::ss::formula::ptg::NotEqualPtg::instance();
+        return ::poi::ss::formula::ptg::NotEqualPtg::instance();
     }
 
-    return ::org::apache::poi::ss::formula::ptg::LessThanPtg::instance();
+    return ::poi::ss::formula::ptg::LessThanPtg::instance();
 }
 
-org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::FormulaParser::concatExpression()
+poi::ss::formula::ParseNode* poi::ss::formula::FormulaParser::concatExpression()
 {
     auto result = additiveExpression();
     while (true) {
@@ -1722,25 +1716,25 @@ org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::Formula
         }
         Match(u'&');
         auto other = additiveExpression();
-        result = new ParseNode(::org::apache::poi::ss::formula::ptg::ConcatPtg::instance(), result, other);
+        result = new ParseNode(::poi::ss::formula::ptg::ConcatPtg::instance(), result, other);
     }
     return result;
 }
 
-org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::FormulaParser::additiveExpression()
+poi::ss::formula::ParseNode* poi::ss::formula::FormulaParser::additiveExpression()
 {
     auto result = Term();
     while (true) {
         SkipWhite();
-        ::org::apache::poi::ss::formula::ptg::Ptg* operator_;
+        ::poi::ss::formula::ptg::Ptg* operator_;
         switch (look) {
         case u'+':
             Match(u'+');
-            operator_ = ::org::apache::poi::ss::formula::ptg::AddPtg::instance();
+            operator_ = ::poi::ss::formula::ptg::AddPtg::instance();
             break;
         case u'-':
             Match(u'-');
-            operator_ = ::org::apache::poi::ss::formula::ptg::SubtractPtg::instance();
+            operator_ = ::poi::ss::formula::ptg::SubtractPtg::instance();
             break;
         default:
             return result;
@@ -1751,7 +1745,7 @@ org::apache::poi::ss::formula::ParseNode* org::apache::poi::ss::formula::Formula
     }
 }
 
-void org::apache::poi::ss::formula::FormulaParser::parse()
+void poi::ss::formula::FormulaParser::parse()
 {
     _pointer = 0;
     GetChar();
@@ -1765,7 +1759,7 @@ void org::apache::poi::ss::formula::FormulaParser::parse()
     }
 }
 
-org::apache::poi::ss::formula::ptg::PtgArray* org::apache::poi::ss::formula::FormulaParser::getRPNPtg(FormulaType* formulaType)
+poi::ss::formula::ptg::PtgArray* poi::ss::formula::FormulaParser::getRPNPtg(FormulaType* formulaType)
 {
     auto oct = new OperandClassTransformer(formulaType);
     npc(oct)->transformFormula(_rootNode);
@@ -1774,13 +1768,13 @@ org::apache::poi::ss::formula::ptg::PtgArray* org::apache::poi::ss::formula::For
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::FormulaParser::class_()
+java::lang::Class* poi::ss::formula::FormulaParser::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.FormulaParser", 39);
     return c;
 }
 
-void org::apache::poi::ss::formula::FormulaParser::clinit()
+void poi::ss::formula::FormulaParser::clinit()
 {
 struct string_init_ {
     string_init_() {
@@ -1799,7 +1793,7 @@ struct string_init_ {
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        log_ = ::org::apache::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(FormulaParser::class_()));
+        log_ = ::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(FormulaParser::class_()));
         CELL_REF_PATTERN_ = ::java::util::regex::Pattern::compile(u"(\\$?[A-Za-z]+)?(\\$?[0-9]+)?"_j);
     }
 };
@@ -1809,7 +1803,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::formula::FormulaParser::getClass0()
+java::lang::Class* poi::ss::formula::FormulaParser::getClass0()
 {
     return class_();
 }

@@ -8,29 +8,23 @@
 #include <java/lang/Object.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
-            {
-                namespace record
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::Record, RecordBaseArray > RecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::StandardRecord, RecordArray > StandardRecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::CRNRecord, StandardRecordArray > CRNRecordArray;
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
+typedef ::SubArray< ::poi::hssf::record::Record, RecordBaseArray > RecordArray;
+typedef ::SubArray< ::poi::hssf::record::StandardRecord, RecordArray > StandardRecordArray;
+typedef ::SubArray< ::poi::hssf::record::CRNRecord, StandardRecordArray > CRNRecordArray;
+        } // record
+    } // hssf
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::model::LinkTable_CRNBlock final
+class poi::hssf::model::LinkTable_CRNBlock final
     : public ::java::lang::Object
 {
 
@@ -38,13 +32,13 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    ::org::apache::poi::hssf::record::CRNCountRecord* _countRecord {  };
-    ::org::apache::poi::hssf::record::CRNRecordArray* _crns {  };
+    ::poi::hssf::record::CRNCountRecord* _countRecord {  };
+    ::poi::hssf::record::CRNRecordArray* _crns {  };
 protected:
     void ctor(RecordStream* rs);
 
 public:
-    ::org::apache::poi::hssf::record::CRNRecordArray* getCrns();
+    ::poi::hssf::record::CRNRecordArray* getCrns();
 
     // Generated
     LinkTable_CRNBlock(RecordStream* rs);

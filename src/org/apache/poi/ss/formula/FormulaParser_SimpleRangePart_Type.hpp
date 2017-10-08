@@ -23,26 +23,20 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
-            {
-                namespace formula
-                {
-typedef ::SubArray< ::org::apache::poi::ss::formula::FormulaParser_SimpleRangePart_Type, ::java::lang::EnumArray > FormulaParser_SimpleRangePart_TypeArray;
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::FormulaParser_SimpleRangePart_Type, ::java::lang::EnumArray > FormulaParser_SimpleRangePart_TypeArray;
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::FormulaParser_SimpleRangePart_Type final
+class poi::ss::formula::FormulaParser_SimpleRangePart_Type final
     : public ::java::lang::Enum
 {
 

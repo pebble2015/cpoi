@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::usermodel::ExcelNumberFormat
+class poi::ss::usermodel::ExcelNumberFormat
     : public virtual ::java::lang::Object
 {
 
@@ -23,7 +23,7 @@ private:
 
 public:
     static ExcelNumberFormat* from(CellStyle* style);
-    static ExcelNumberFormat* from(Cell* cell, ::org::apache::poi::ss::formula::ConditionalFormattingEvaluator* cfEvaluator);
+    static ExcelNumberFormat* from(Cell* cell, ::poi::ss::formula::ConditionalFormattingEvaluator* cfEvaluator);
 protected:
     void ctor(int32_t idx, ::java::lang::String* format);
 

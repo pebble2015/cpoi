@@ -13,7 +13,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::format::CellFormatPart
+class poi::ss::format::CellFormatPart
     : public virtual ::java::lang::Object
 {
 

@@ -74,25 +74,25 @@ namespace
 
     template<typename F> finally_<F> finally(F f) { return finally_<F>(f); }
 }
-org::apache::poi::util::DrawingDump::DrawingDump(const ::default_init_tag&)
+poi::util::DrawingDump::DrawingDump(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::util::DrawingDump::DrawingDump()
+poi::util::DrawingDump::DrawingDump()
     : DrawingDump(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::util::DrawingDump::main(::java::lang::StringArray* args) /* throws(IOException) */
+void poi::util::DrawingDump::main(::java::lang::StringArray* args) /* throws(IOException) */
 {
     clinit();
     auto osw = new ::java::io::OutputStreamWriter(static_cast< ::java::io::OutputStream* >(::java::lang::System::out()), ::java::nio::charset::Charset::defaultCharset());
     auto pw = new ::java::io::PrintWriter(static_cast< ::java::io::Writer* >(osw));
-    auto fs = new ::org::apache::poi::poifs::filesystem::NPOIFSFileSystem(new ::java::io::File((*args)[int32_t(0)]));
-    auto wb = new ::org::apache::poi::hssf::usermodel::HSSFWorkbook(fs);
+    auto fs = new ::poi::poifs::filesystem::NPOIFSFileSystem(new ::java::io::File((*args)[int32_t(0)]));
+    auto wb = new ::poi::hssf::usermodel::HSSFWorkbook(fs);
     {
         auto finally0 = finally([&] {
             npc(wb)->close();
@@ -103,13 +103,13 @@ void org::apache::poi::util::DrawingDump::main(::java::lang::StringArray* args) 
             npc(wb)->dumpDrawingGroupRecords(true);
             auto i = int32_t(1);
             for (auto _i = npc(wb)->iterator(); _i->hasNext(); ) {
-                ::org::apache::poi::ss::usermodel::Sheet* sheet = java_cast< ::org::apache::poi::ss::usermodel::Sheet* >(_i->next());
+                ::poi::ss::usermodel::Sheet* sheet = java_cast< ::poi::ss::usermodel::Sheet* >(_i->next());
                 {
                     npc(pw)->println(::java::lang::StringBuilder().append(u"Sheet "_j)->append(i)
                         ->append(u"("_j)
                         ->append(npc(sheet)->getSheetName())
                         ->append(u"):"_j)->toString());
-                    npc((java_cast< ::org::apache::poi::hssf::usermodel::HSSFSheet* >(sheet)))->dumpDrawingRecords(true, pw);
+                    npc((java_cast< ::poi::hssf::usermodel::HSSFSheet* >(sheet)))->dumpDrawingRecords(true, pw);
                 }
             }
         }
@@ -119,13 +119,13 @@ void org::apache::poi::util::DrawingDump::main(::java::lang::StringArray* args) 
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::util::DrawingDump::class_()
+java::lang::Class* poi::util::DrawingDump::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.util.DrawingDump", 31);
     return c;
 }
 
-java::lang::Class* org::apache::poi::util::DrawingDump::getClass0()
+java::lang::Class* poi::util::DrawingDump::getClass0()
 {
     return class_();
 }

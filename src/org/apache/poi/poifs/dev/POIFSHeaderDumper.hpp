@@ -27,7 +27,7 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::dev::POIFSHeaderDumper
+class poi::poifs::dev::POIFSHeaderDumper
     : public virtual ::java::lang::Object
 {
 
@@ -35,11 +35,11 @@ public:
     typedef ::java::lang::Object super;
     static void main(::java::lang::StringArray* args) /* throws(Exception) */;
     static void viewFile(::java::lang::String* filename) /* throws(Exception) */;
-    static void displayHeader(::org::apache::poi::poifs::storage::HeaderBlock* header_block) /* throws(Exception) */;
-    static void displayRawBlocksSummary(::org::apache::poi::poifs::storage::RawDataBlockList* data_blocks) /* throws(Exception) */;
-    static void displayBATReader(::java::lang::String* type, ::org::apache::poi::poifs::storage::BlockAllocationTableReader* batReader) /* throws(Exception) */;
-    static void displayPropertiesSummary(::org::apache::poi::poifs::property::PropertyTable* properties);
-    static void displayProperties(::org::apache::poi::poifs::property::DirectoryProperty* prop, ::java::lang::String* indent);
+    static void displayHeader(::poi::poifs::storage::HeaderBlock* header_block) /* throws(Exception) */;
+    static void displayRawBlocksSummary(::poi::poifs::storage::RawDataBlockList* data_blocks) /* throws(Exception) */;
+    static void displayBATReader(::java::lang::String* type, ::poi::poifs::storage::BlockAllocationTableReader* batReader) /* throws(Exception) */;
+    static void displayPropertiesSummary(::poi::poifs::property::PropertyTable* properties);
+    static void displayProperties(::poi::poifs::property::DirectoryProperty* prop, ::java::lang::String* indent);
 
     // Generated
     POIFSHeaderDumper();

@@ -24,58 +24,58 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::sl::image::ImageHeaderBitmap::ImageHeaderBitmap(const ::default_init_tag&)
+poi::sl::image::ImageHeaderBitmap::ImageHeaderBitmap(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::image::ImageHeaderBitmap::ImageHeaderBitmap(::int8_tArray* data, int32_t offset) 
+poi::sl::image::ImageHeaderBitmap::ImageHeaderBitmap(::int8_tArray* data, int32_t offset) 
     : ImageHeaderBitmap(*static_cast< ::default_init_tag* >(0))
 {
     ctor(data,offset);
 }
 
-org::apache::poi::util::POILogger*& org::apache::poi::sl::image::ImageHeaderBitmap::LOG()
+poi::util::POILogger*& poi::sl::image::ImageHeaderBitmap::LOG()
 {
     clinit();
     return LOG_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::sl::image::ImageHeaderBitmap::LOG_;
+poi::util::POILogger* poi::sl::image::ImageHeaderBitmap::LOG_;
 
-void org::apache::poi::sl::image::ImageHeaderBitmap::ctor(::int8_tArray* data, int32_t offset)
+void poi::sl::image::ImageHeaderBitmap::ctor(::int8_tArray* data, int32_t offset)
 {
     super::ctor();
     ::java::awt::image::BufferedImage* img = nullptr;
     try {
         img = ::javax::imageio::ImageIO::read(static_cast< ::java::io::InputStream* >(new ::java::io::ByteArrayInputStream(data, offset, npc(data)->length - offset)));
     } catch (::java::io::IOException* e) {
-        npc(LOG_)->log(::org::apache::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"Can't determine image dimensions"_j), static_cast< ::java::lang::Object* >(e)}));
+        npc(LOG_)->log(::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"Can't determine image dimensions"_j), static_cast< ::java::lang::Object* >(e)}));
     }
-    size = (img == nullptr) ? new ::java::awt::Dimension(int32_t(200), int32_t(200)) : new ::java::awt::Dimension(static_cast< int32_t >(::org::apache::poi::util::Units::pixelToPoints(npc(img)->getWidth())), static_cast< int32_t >(::org::apache::poi::util::Units::pixelToPoints(npc(img)->getHeight())));
+    size = (img == nullptr) ? new ::java::awt::Dimension(int32_t(200), int32_t(200)) : new ::java::awt::Dimension(static_cast< int32_t >(::poi::util::Units::pixelToPoints(npc(img)->getWidth())), static_cast< int32_t >(::poi::util::Units::pixelToPoints(npc(img)->getHeight())));
 }
 
-java::awt::Dimension* org::apache::poi::sl::image::ImageHeaderBitmap::getSize()
+java::awt::Dimension* poi::sl::image::ImageHeaderBitmap::getSize()
 {
     return size;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::image::ImageHeaderBitmap::class_()
+java::lang::Class* poi::sl::image::ImageHeaderBitmap::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.image.ImageHeaderBitmap", 41);
     return c;
 }
 
-void org::apache::poi::sl::image::ImageHeaderBitmap::clinit()
+void poi::sl::image::ImageHeaderBitmap::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        LOG_ = ::org::apache::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(ImageHeaderBitmap::class_()));
+        LOG_ = ::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(ImageHeaderBitmap::class_()));
     }
 };
 
@@ -84,7 +84,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::sl::image::ImageHeaderBitmap::getClass0()
+java::lang::Class* poi::sl::image::ImageHeaderBitmap::getClass0()
 {
     return class_();
 }

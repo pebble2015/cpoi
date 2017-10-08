@@ -28,23 +28,17 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace poifs
     {
-        namespace poi
+        namespace storage
         {
-            namespace poifs
-            {
-                namespace storage
-                {
-typedef ::SubArray< ::org::apache::poi::poifs::storage::ListManagedBlock, ::java::lang::ObjectArray > ListManagedBlockArray;
-typedef ::SubArray< ::org::apache::poi::poifs::storage::RawDataBlock, ::java::lang::ObjectArray, ListManagedBlockArray > RawDataBlockArray;
-                } // storage
-            } // poifs
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::poifs::storage::ListManagedBlock, ::java::lang::ObjectArray > ListManagedBlockArray;
+typedef ::SubArray< ::poi::poifs::storage::RawDataBlock, ::java::lang::ObjectArray, ListManagedBlockArray > RawDataBlockArray;
+        } // storage
+    } // poifs
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -62,40 +56,40 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::storage::BlockAllocationTableReader::BlockAllocationTableReader(const ::default_init_tag&)
+poi::poifs::storage::BlockAllocationTableReader::BlockAllocationTableReader(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::storage::BlockAllocationTableReader::BlockAllocationTableReader(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, int32_t block_count, ::int32_tArray* block_array, int32_t xbat_count, int32_t xbat_index, BlockList* raw_block_list)  /* throws(IOException) */
+poi::poifs::storage::BlockAllocationTableReader::BlockAllocationTableReader(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, int32_t block_count, ::int32_tArray* block_array, int32_t xbat_count, int32_t xbat_index, BlockList* raw_block_list)  /* throws(IOException) */
     : BlockAllocationTableReader(*static_cast< ::default_init_tag* >(0))
 {
     ctor(bigBlockSize,block_count,block_array,xbat_count,xbat_index,raw_block_list);
 }
 
-org::apache::poi::poifs::storage::BlockAllocationTableReader::BlockAllocationTableReader(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ListManagedBlockArray* blocks, BlockList* raw_block_list)  /* throws(IOException) */
+poi::poifs::storage::BlockAllocationTableReader::BlockAllocationTableReader(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ListManagedBlockArray* blocks, BlockList* raw_block_list)  /* throws(IOException) */
     : BlockAllocationTableReader(*static_cast< ::default_init_tag* >(0))
 {
     ctor(bigBlockSize,blocks,raw_block_list);
 }
 
-org::apache::poi::poifs::storage::BlockAllocationTableReader::BlockAllocationTableReader(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize) 
+poi::poifs::storage::BlockAllocationTableReader::BlockAllocationTableReader(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize) 
     : BlockAllocationTableReader(*static_cast< ::default_init_tag* >(0))
 {
     ctor(bigBlockSize);
 }
 
-org::apache::poi::util::POILogger*& org::apache::poi::poifs::storage::BlockAllocationTableReader::_logger()
+poi::util::POILogger*& poi::poifs::storage::BlockAllocationTableReader::_logger()
 {
     clinit();
     return _logger_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::poifs::storage::BlockAllocationTableReader::_logger_;
+poi::util::POILogger* poi::poifs::storage::BlockAllocationTableReader::_logger_;
 
-constexpr int32_t org::apache::poi::poifs::storage::BlockAllocationTableReader::MAX_BLOCK_COUNT;
+constexpr int32_t poi::poifs::storage::BlockAllocationTableReader::MAX_BLOCK_COUNT;
 
-void org::apache::poi::poifs::storage::BlockAllocationTableReader::ctor(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, int32_t block_count, ::int32_tArray* block_array, int32_t xbat_count, int32_t xbat_index, BlockList* raw_block_list) /* throws(IOException) */
+void poi::poifs::storage::BlockAllocationTableReader::ctor(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, int32_t block_count, ::int32_tArray* block_array, int32_t xbat_count, int32_t xbat_index, BlockList* raw_block_list) /* throws(IOException) */
 {
     ctor(bigBlockSize);
     sanityCheckBlockCount(block_count);
@@ -127,11 +121,11 @@ void org::apache::poi::poifs::storage::BlockAllocationTableReader::ctor(::org::a
             auto data = npc(npc(raw_block_list)->remove(chain_index))->getData();
             auto offset = int32_t(0);
             for (auto k = int32_t(0); k < limit; k++) {
-                blocks->set(block_index++, java_cast< RawDataBlock* >(npc(raw_block_list)->remove(::org::apache::poi::util::LittleEndian::getInt(data, offset))));
-                offset += ::org::apache::poi::util::LittleEndianConsts::INT_SIZE;
+                blocks->set(block_index++, java_cast< RawDataBlock* >(npc(raw_block_list)->remove(::poi::util::LittleEndian::getInt(data, offset))));
+                offset += ::poi::util::LittleEndianConsts::INT_SIZE;
             }
-            chain_index = ::org::apache::poi::util::LittleEndian::getInt(data, chain_index_offset);
-            if(chain_index == ::org::apache::poi::poifs::common::POIFSConstants::END_OF_CHAIN) {
+            chain_index = ::poi::util::LittleEndian::getInt(data, chain_index_offset);
+            if(chain_index == ::poi::poifs::common::POIFSConstants::END_OF_CHAIN) {
                 break;
             }
         }
@@ -142,20 +136,20 @@ void org::apache::poi::poifs::storage::BlockAllocationTableReader::ctor(::org::a
     setEntries(blocks, raw_block_list);
 }
 
-void org::apache::poi::poifs::storage::BlockAllocationTableReader::ctor(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ListManagedBlockArray* blocks, BlockList* raw_block_list) /* throws(IOException) */
+void poi::poifs::storage::BlockAllocationTableReader::ctor(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ListManagedBlockArray* blocks, BlockList* raw_block_list) /* throws(IOException) */
 {
     ctor(bigBlockSize);
     setEntries(blocks, raw_block_list);
 }
 
-void org::apache::poi::poifs::storage::BlockAllocationTableReader::ctor(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize)
+void poi::poifs::storage::BlockAllocationTableReader::ctor(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize)
 {
     super::ctor();
     this->bigBlockSize = bigBlockSize;
-    _entries = new ::org::apache::poi::util::IntList();
+    _entries = new ::poi::util::IntList();
 }
 
-void org::apache::poi::poifs::storage::BlockAllocationTableReader::sanityCheckBlockCount(int32_t block_count) /* throws(IOException) */
+void poi::poifs::storage::BlockAllocationTableReader::sanityCheckBlockCount(int32_t block_count) /* throws(IOException) */
 {
     clinit();
     if(block_count <= 0) {
@@ -170,13 +164,13 @@ void org::apache::poi::poifs::storage::BlockAllocationTableReader::sanityCheckBl
     }
 }
 
-org::apache::poi::poifs::storage::ListManagedBlockArray* org::apache::poi::poifs::storage::BlockAllocationTableReader::fetchBlocks(int32_t startBlock, int32_t headerPropertiesStartBlock, BlockList* blockList) /* throws(IOException) */
+poi::poifs::storage::ListManagedBlockArray* poi::poifs::storage::BlockAllocationTableReader::fetchBlocks(int32_t startBlock, int32_t headerPropertiesStartBlock, BlockList* blockList) /* throws(IOException) */
 {
     ::java::util::List* blocks = new ::java::util::ArrayList();
     auto currentBlock = startBlock;
     auto firstPass = true;
     ListManagedBlock* dataBlock = nullptr;
-    while (currentBlock != ::org::apache::poi::poifs::common::POIFSConstants::END_OF_CHAIN) {
+    while (currentBlock != ::poi::poifs::common::POIFSConstants::END_OF_CHAIN) {
         try {
             dataBlock = npc(blockList)->remove(currentBlock);
             npc(blocks)->add(static_cast< ::java::lang::Object* >(dataBlock));
@@ -184,11 +178,11 @@ org::apache::poi::poifs::storage::ListManagedBlockArray* org::apache::poi::poifs
             firstPass = false;
         } catch (::java::io::IOException* e) {
             if(currentBlock == headerPropertiesStartBlock) {
-                npc(_logger_)->log(::org::apache::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"Warning, header block comes after data blocks in POIFS block listing"_j)}));
-                currentBlock = ::org::apache::poi::poifs::common::POIFSConstants::END_OF_CHAIN;
+                npc(_logger_)->log(::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"Warning, header block comes after data blocks in POIFS block listing"_j)}));
+                currentBlock = ::poi::poifs::common::POIFSConstants::END_OF_CHAIN;
             } else if(currentBlock == 0 && firstPass) {
-                npc(_logger_)->log(::org::apache::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"Warning, incorrectly terminated empty data blocks in POIFS block listing (should end at -2, ended at 0)"_j)}));
-                currentBlock = ::org::apache::poi::poifs::common::POIFSConstants::END_OF_CHAIN;
+                npc(_logger_)->log(::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"Warning, incorrectly terminated empty data blocks in POIFS block listing (should end at -2, ended at 0)"_j)}));
+                currentBlock = ::poi::poifs::common::POIFSConstants::END_OF_CHAIN;
             } else {
                 throw e;
             }
@@ -197,7 +191,7 @@ org::apache::poi::poifs::storage::ListManagedBlockArray* org::apache::poi::poifs
     return java_cast< ListManagedBlockArray* >(npc(blocks)->toArray_(static_cast< ::java::lang::ObjectArray* >(new ListManagedBlockArray(npc(blocks)->size()))));
 }
 
-bool org::apache::poi::poifs::storage::BlockAllocationTableReader::isUsed(int32_t index)
+bool poi::poifs::storage::BlockAllocationTableReader::isUsed(int32_t index)
 {
     try {
         return npc(_entries)->get(index) != -int32_t(1);
@@ -206,7 +200,7 @@ bool org::apache::poi::poifs::storage::BlockAllocationTableReader::isUsed(int32_
     }
 }
 
-int32_t org::apache::poi::poifs::storage::BlockAllocationTableReader::getNextBlockIndex(int32_t index) /* throws(IOException) */
+int32_t poi::poifs::storage::BlockAllocationTableReader::getNextBlockIndex(int32_t index) /* throws(IOException) */
 {
     if(isUsed(index)) {
         return npc(_entries)->get(index);
@@ -215,46 +209,46 @@ int32_t org::apache::poi::poifs::storage::BlockAllocationTableReader::getNextBlo
         ->append(u" is unused"_j)->toString());
 }
 
-void org::apache::poi::poifs::storage::BlockAllocationTableReader::setEntries(ListManagedBlockArray* blocks, BlockList* raw_blocks) /* throws(IOException) */
+void poi::poifs::storage::BlockAllocationTableReader::setEntries(ListManagedBlockArray* blocks, BlockList* raw_blocks) /* throws(IOException) */
 {
     auto limit = npc(bigBlockSize)->getBATEntriesPerBlock();
     for (auto block_index = int32_t(0); block_index < npc(blocks)->length; block_index++) {
         auto data = npc((*blocks)[block_index])->getData();
         auto offset = int32_t(0);
         for (auto k = int32_t(0); k < limit; k++) {
-            auto entry = ::org::apache::poi::util::LittleEndian::getInt(data, offset);
-            if(entry == ::org::apache::poi::poifs::common::POIFSConstants::UNUSED_BLOCK) {
+            auto entry = ::poi::util::LittleEndian::getInt(data, offset);
+            if(entry == ::poi::poifs::common::POIFSConstants::UNUSED_BLOCK) {
                 npc(raw_blocks)->zap(npc(_entries)->size());
             }
             npc(_entries)->add(entry);
-            offset += ::org::apache::poi::util::LittleEndianConsts::INT_SIZE;
+            offset += ::poi::util::LittleEndianConsts::INT_SIZE;
         }
         blocks->set(block_index, nullptr);
     }
     npc(raw_blocks)->setBAT(this);
 }
 
-org::apache::poi::util::IntList* org::apache::poi::poifs::storage::BlockAllocationTableReader::getEntries()
+poi::util::IntList* poi::poifs::storage::BlockAllocationTableReader::getEntries()
 {
     return _entries;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::storage::BlockAllocationTableReader::class_()
+java::lang::Class* poi::poifs::storage::BlockAllocationTableReader::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.storage.BlockAllocationTableReader", 55);
     return c;
 }
 
-void org::apache::poi::poifs::storage::BlockAllocationTableReader::clinit()
+void poi::poifs::storage::BlockAllocationTableReader::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        _logger_ = ::org::apache::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(BlockAllocationTableReader::class_()));
+        _logger_ = ::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(BlockAllocationTableReader::class_()));
     }
 };
 
@@ -263,7 +257,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::poifs::storage::BlockAllocationTableReader::getClass0()
+java::lang::Class* poi::poifs::storage::BlockAllocationTableReader::getClass0()
 {
     return class_();
 }

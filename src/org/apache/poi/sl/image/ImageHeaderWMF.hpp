@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::image::ImageHeaderWMF
+class poi::sl::image::ImageHeaderWMF
     : public virtual ::java::lang::Object
 {
 
@@ -20,7 +20,7 @@ public:
     static constexpr int32_t APMHEADER_KEY { int32_t(-1698247209) };
 
 private:
-    static ::org::apache::poi::util::POILogger* LOG_;
+    static ::poi::util::POILogger* LOG_;
     int32_t handle {  };
     int32_t left {  }, top {  }, right {  }, bottom {  };
     int32_t inch {  };
@@ -49,6 +49,6 @@ public:
     static void clinit();
 
 private:
-    static ::org::apache::poi::util::POILogger*& LOG();
+    static ::poi::util::POILogger*& LOG();
     virtual ::java::lang::Class* getClass0();
 };

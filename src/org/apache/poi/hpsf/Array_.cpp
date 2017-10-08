@@ -14,19 +14,13 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hpsf
     {
-        namespace poi
-        {
-            namespace hpsf
-            {
-typedef ::SubArray< ::org::apache::poi::hpsf::TypedPropertyValue, ::java::lang::ObjectArray > TypedPropertyValueArray;
-            } // hpsf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hpsf::TypedPropertyValue, ::java::lang::ObjectArray > TypedPropertyValueArray;
+    } // hpsf
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -35,30 +29,30 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hpsf::Array_::Array_(const ::default_init_tag&)
+poi::hpsf::Array_::Array_(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hpsf::Array_::Array_() 
+poi::hpsf::Array_::Array_() 
     : Array_(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::hpsf::Array_::init()
+void poi::hpsf::Array_::init()
 {
     _header = new Array__ArrayHeader();
 }
 
-void org::apache::poi::hpsf::Array_::ctor()
+void poi::hpsf::Array_::ctor()
 {
     super::ctor();
     init();
 }
 
-void org::apache::poi::hpsf::Array_::read(::org::apache::poi::util::LittleEndianByteArrayInputStream* lei)
+void poi::hpsf::Array_::read(::poi::util::LittleEndianByteArrayInputStream* lei)
 {
     npc(_header)->read(lei);
     auto numberOfScalarsLong = npc(_header)->getNumberOfScalarValues();
@@ -80,20 +74,20 @@ void org::apache::poi::hpsf::Array_::read(::org::apache::poi::util::LittleEndian
     }
 }
 
-org::apache::poi::hpsf::TypedPropertyValueArray* org::apache::poi::hpsf::Array_::getValues()
+poi::hpsf::TypedPropertyValueArray* poi::hpsf::Array_::getValues()
 {
     return _values;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hpsf::Array_::class_()
+java::lang::Class* poi::hpsf::Array_::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hpsf.Array", 25);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hpsf::Array_::getClass0()
+java::lang::Class* poi::hpsf::Array_::getClass0()
 {
     return class_();
 }

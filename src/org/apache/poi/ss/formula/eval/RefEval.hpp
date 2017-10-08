@@ -7,9 +7,9 @@
 #include <org/apache/poi/ss/formula/eval/ValueEval.hpp>
 #include <org/apache/poi/ss/formula/SheetRange.hpp>
 
-struct org::apache::poi::ss::formula::eval::RefEval
+struct poi::ss::formula::eval::RefEval
     : public virtual ValueEval
-    , public virtual ::org::apache::poi::ss::formula::SheetRange
+    , public virtual ::poi::ss::formula::SheetRange
 {
     virtual ValueEval* getInnerValueEval(int32_t sheetIndex) = 0;
     virtual int32_t getColumn() = 0;

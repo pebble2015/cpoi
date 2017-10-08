@@ -14,32 +14,32 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::WriteProtectRecord::WriteProtectRecord(const ::default_init_tag&)
+poi::hssf::record::WriteProtectRecord::WriteProtectRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::WriteProtectRecord::WriteProtectRecord() 
+poi::hssf::record::WriteProtectRecord::WriteProtectRecord() 
     : WriteProtectRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::WriteProtectRecord::WriteProtectRecord(RecordInputStream* in) 
+poi::hssf::record::WriteProtectRecord::WriteProtectRecord(RecordInputStream* in) 
     : WriteProtectRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::WriteProtectRecord::sid;
+constexpr int16_t poi::hssf::record::WriteProtectRecord::sid;
 
-void org::apache::poi::hssf::record::WriteProtectRecord::ctor()
+void poi::hssf::record::WriteProtectRecord::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hssf::record::WriteProtectRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::WriteProtectRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     if(npc(in)->remaining() == 2) {
@@ -47,7 +47,7 @@ void org::apache::poi::hssf::record::WriteProtectRecord::ctor(RecordInputStream*
     }
 }
 
-java::lang::String* org::apache::poi::hssf::record::WriteProtectRecord::toString()
+java::lang::String* poi::hssf::record::WriteProtectRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[WRITEPROTECT]\n"_j);
@@ -55,39 +55,39 @@ java::lang::String* org::apache::poi::hssf::record::WriteProtectRecord::toString
     return npc(buffer)->toString();
 }
 
-void org::apache::poi::hssf::record::WriteProtectRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::WriteProtectRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
 }
 
-int32_t org::apache::poi::hssf::record::WriteProtectRecord::getDataSize()
+int32_t poi::hssf::record::WriteProtectRecord::getDataSize()
 {
     return 0;
 }
 
-int16_t org::apache::poi::hssf::record::WriteProtectRecord::getSid()
+int16_t poi::hssf::record::WriteProtectRecord::getSid()
 {
     return sid;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::WriteProtectRecord::class_()
+java::lang::Class* poi::hssf::record::WriteProtectRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.WriteProtectRecord", 45);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::WriteProtectRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::WriteProtectRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::WriteProtectRecord::serialize()
+int8_tArray* poi::hssf::record::WriteProtectRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::WriteProtectRecord::getClass0()
+java::lang::Class* poi::hssf::record::WriteProtectRecord::getClass0()
 {
     return class_();
 }

@@ -6,7 +6,7 @@
 #include <org/apache/poi/ss/usermodel/charts/fwd-POI.hpp>
 #include <org/apache/poi/ss/usermodel/charts/ManuallyPositionable.hpp>
 
-struct org::apache::poi::ss::usermodel::charts::ChartLegend
+struct poi::ss::usermodel::charts::ChartLegend
     : public virtual ManuallyPositionable
 {
     virtual LegendPosition* getPosition() = 0;

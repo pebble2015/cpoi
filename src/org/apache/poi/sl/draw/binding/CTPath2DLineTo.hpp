@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::binding::CTPath2DLineTo
+class poi::sl::draw::binding::CTPath2DLineTo
     : public virtual ::java::lang::Object
 {
 

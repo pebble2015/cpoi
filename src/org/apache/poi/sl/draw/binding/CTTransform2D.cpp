@@ -14,49 +14,49 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::sl::draw::binding::CTTransform2D::CTTransform2D(const ::default_init_tag&)
+poi::sl::draw::binding::CTTransform2D::CTTransform2D(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::draw::binding::CTTransform2D::CTTransform2D()
+poi::sl::draw::binding::CTTransform2D::CTTransform2D()
     : CTTransform2D(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::sl::draw::binding::CTPoint2D* org::apache::poi::sl::draw::binding::CTTransform2D::getOff()
+poi::sl::draw::binding::CTPoint2D* poi::sl::draw::binding::CTTransform2D::getOff()
 {
     return off;
 }
 
-void org::apache::poi::sl::draw::binding::CTTransform2D::setOff(CTPoint2D* value)
+void poi::sl::draw::binding::CTTransform2D::setOff(CTPoint2D* value)
 {
     this->off = value;
 }
 
-bool org::apache::poi::sl::draw::binding::CTTransform2D::isSetOff()
+bool poi::sl::draw::binding::CTTransform2D::isSetOff()
 {
     return (this->off != nullptr);
 }
 
-org::apache::poi::sl::draw::binding::CTPositiveSize2D* org::apache::poi::sl::draw::binding::CTTransform2D::getExt()
+poi::sl::draw::binding::CTPositiveSize2D* poi::sl::draw::binding::CTTransform2D::getExt()
 {
     return ext;
 }
 
-void org::apache::poi::sl::draw::binding::CTTransform2D::setExt(CTPositiveSize2D* value)
+void poi::sl::draw::binding::CTTransform2D::setExt(CTPositiveSize2D* value)
 {
     this->ext = value;
 }
 
-bool org::apache::poi::sl::draw::binding::CTTransform2D::isSetExt()
+bool poi::sl::draw::binding::CTTransform2D::isSetExt()
 {
     return (this->ext != nullptr);
 }
 
-int32_t org::apache::poi::sl::draw::binding::CTTransform2D::getRot()
+int32_t poi::sl::draw::binding::CTTransform2D::getRot()
 {
     if(rot == nullptr) {
         return 0;
@@ -65,22 +65,22 @@ int32_t org::apache::poi::sl::draw::binding::CTTransform2D::getRot()
     }
 }
 
-void org::apache::poi::sl::draw::binding::CTTransform2D::setRot(int32_t value)
+void poi::sl::draw::binding::CTTransform2D::setRot(int32_t value)
 {
     this->rot = ::java::lang::Integer::valueOf(value);
 }
 
-bool org::apache::poi::sl::draw::binding::CTTransform2D::isSetRot()
+bool poi::sl::draw::binding::CTTransform2D::isSetRot()
 {
     return (this->rot != nullptr);
 }
 
-void org::apache::poi::sl::draw::binding::CTTransform2D::unsetRot()
+void poi::sl::draw::binding::CTTransform2D::unsetRot()
 {
     this->rot = nullptr;
 }
 
-bool org::apache::poi::sl::draw::binding::CTTransform2D::isFlipH()
+bool poi::sl::draw::binding::CTTransform2D::isFlipH()
 {
     if(flipH == nullptr) {
         return false;
@@ -89,22 +89,22 @@ bool org::apache::poi::sl::draw::binding::CTTransform2D::isFlipH()
     }
 }
 
-void org::apache::poi::sl::draw::binding::CTTransform2D::setFlipH(bool value)
+void poi::sl::draw::binding::CTTransform2D::setFlipH(bool value)
 {
     this->flipH = ::java::lang::Boolean::valueOf(value);
 }
 
-bool org::apache::poi::sl::draw::binding::CTTransform2D::isSetFlipH()
+bool poi::sl::draw::binding::CTTransform2D::isSetFlipH()
 {
     return (this->flipH != nullptr);
 }
 
-void org::apache::poi::sl::draw::binding::CTTransform2D::unsetFlipH()
+void poi::sl::draw::binding::CTTransform2D::unsetFlipH()
 {
     this->flipH = nullptr;
 }
 
-bool org::apache::poi::sl::draw::binding::CTTransform2D::isFlipV()
+bool poi::sl::draw::binding::CTTransform2D::isFlipV()
 {
     if(flipV == nullptr) {
         return false;
@@ -113,30 +113,30 @@ bool org::apache::poi::sl::draw::binding::CTTransform2D::isFlipV()
     }
 }
 
-void org::apache::poi::sl::draw::binding::CTTransform2D::setFlipV(bool value)
+void poi::sl::draw::binding::CTTransform2D::setFlipV(bool value)
 {
     this->flipV = ::java::lang::Boolean::valueOf(value);
 }
 
-bool org::apache::poi::sl::draw::binding::CTTransform2D::isSetFlipV()
+bool poi::sl::draw::binding::CTTransform2D::isSetFlipV()
 {
     return (this->flipV != nullptr);
 }
 
-void org::apache::poi::sl::draw::binding::CTTransform2D::unsetFlipV()
+void poi::sl::draw::binding::CTTransform2D::unsetFlipV()
 {
     this->flipV = nullptr;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::draw::binding::CTTransform2D::class_()
+java::lang::Class* poi::sl::draw::binding::CTTransform2D::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.draw.binding.CTTransform2D", 44);
     return c;
 }
 
-java::lang::Class* org::apache::poi::sl::draw::binding::CTTransform2D::getClass0()
+java::lang::Class* poi::sl::draw::binding::CTTransform2D::getClass0()
 {
     return class_();
 }

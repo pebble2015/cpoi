@@ -11,27 +11,21 @@
 #include <java/lang/Object.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
-struct org::apache::poi::ss::formula::EvaluationWorkbook
+struct poi::ss::formula::EvaluationWorkbook
     : public virtual ::java::lang::Object
 {
     virtual ::java::lang::String* getSheetName(int32_t sheetIndex) = 0;
@@ -43,12 +37,12 @@ struct org::apache::poi::ss::formula::EvaluationWorkbook
     virtual int32_t convertFromExternSheetIndex(int32_t externSheetIndex) = 0;
     virtual EvaluationWorkbook_ExternalName* getExternalName(int32_t externSheetIndex, int32_t externNameIndex) = 0;
     virtual EvaluationWorkbook_ExternalName* getExternalName(::java::lang::String* nameName, ::java::lang::String* sheetName, int32_t externalWorkbookNumber) = 0;
-    virtual EvaluationName* getName(::org::apache::poi::ss::formula::ptg::NamePtg* namePtg) = 0;
+    virtual EvaluationName* getName(::poi::ss::formula::ptg::NamePtg* namePtg) = 0;
     virtual EvaluationName* getName(::java::lang::String* name, int32_t sheetIndex) = 0;
-    virtual ::java::lang::String* resolveNameXText(::org::apache::poi::ss::formula::ptg::NameXPtg* ptg) = 0;
-    virtual ::org::apache::poi::ss::formula::ptg::PtgArray* getFormulaTokens(EvaluationCell* cell) = 0;
-    virtual ::org::apache::poi::ss::formula::udf::UDFFinder* getUDFFinder() = 0;
-    virtual ::org::apache::poi::ss::SpreadsheetVersion* getSpreadsheetVersion() = 0;
+    virtual ::java::lang::String* resolveNameXText(::poi::ss::formula::ptg::NameXPtg* ptg) = 0;
+    virtual ::poi::ss::formula::ptg::PtgArray* getFormulaTokens(EvaluationCell* cell) = 0;
+    virtual ::poi::ss::formula::udf::UDFFinder* getUDFFinder() = 0;
+    virtual ::poi::ss::SpreadsheetVersion* getSpreadsheetVersion() = 0;
     virtual void clearAllCachedResultValues() = 0;
 
     // Generated

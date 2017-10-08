@@ -33,49 +33,49 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hpsf::SummaryInformation::SummaryInformation(const ::default_init_tag&)
+poi::hpsf::SummaryInformation::SummaryInformation(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hpsf::SummaryInformation::SummaryInformation() 
+poi::hpsf::SummaryInformation::SummaryInformation() 
     : SummaryInformation(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hpsf::SummaryInformation::SummaryInformation(PropertySet* ps)  /* throws(UnexpectedPropertySetTypeException) */
+poi::hpsf::SummaryInformation::SummaryInformation(PropertySet* ps)  /* throws(UnexpectedPropertySetTypeException) */
     : SummaryInformation(*static_cast< ::default_init_tag* >(0))
 {
     ctor(ps);
 }
 
-org::apache::poi::hpsf::SummaryInformation::SummaryInformation(::java::io::InputStream* stream)  /* throws(NoPropertySetStreamException, MarkUnsupportedException, IOException, UnsupportedEncodingException) */
+poi::hpsf::SummaryInformation::SummaryInformation(::java::io::InputStream* stream)  /* throws(NoPropertySetStreamException, MarkUnsupportedException, IOException, UnsupportedEncodingException) */
     : SummaryInformation(*static_cast< ::default_init_tag* >(0))
 {
     ctor(stream);
 }
 
-java::lang::String*& org::apache::poi::hpsf::SummaryInformation::DEFAULT_STREAM_NAME()
+java::lang::String*& poi::hpsf::SummaryInformation::DEFAULT_STREAM_NAME()
 {
     clinit();
     return DEFAULT_STREAM_NAME_;
 }
-java::lang::String* org::apache::poi::hpsf::SummaryInformation::DEFAULT_STREAM_NAME_;
+java::lang::String* poi::hpsf::SummaryInformation::DEFAULT_STREAM_NAME_;
 
-org::apache::poi::hpsf::wellknown::PropertyIDMap* org::apache::poi::hpsf::SummaryInformation::getPropertySetIDMap()
+poi::hpsf::wellknown::PropertyIDMap* poi::hpsf::SummaryInformation::getPropertySetIDMap()
 {
-    return ::org::apache::poi::hpsf::wellknown::PropertyIDMap::getSummaryInformationProperties();
+    return ::poi::hpsf::wellknown::PropertyIDMap::getSummaryInformationProperties();
 }
 
-void org::apache::poi::hpsf::SummaryInformation::ctor()
+void poi::hpsf::SummaryInformation::ctor()
 {
     super::ctor();
-    npc(getFirstSection())->setFormatID(::org::apache::poi::hpsf::wellknown::SectionIDMap::SUMMARY_INFORMATION_ID());
+    npc(getFirstSection())->setFormatID(::poi::hpsf::wellknown::SectionIDMap::SUMMARY_INFORMATION_ID());
 }
 
-void org::apache::poi::hpsf::SummaryInformation::ctor(PropertySet* ps) /* throws(UnexpectedPropertySetTypeException) */
+void poi::hpsf::SummaryInformation::ctor(PropertySet* ps) /* throws(UnexpectedPropertySetTypeException) */
 {
     super::ctor(ps);
     if(!isSummaryInformation()) {
@@ -83,248 +83,248 @@ void org::apache::poi::hpsf::SummaryInformation::ctor(PropertySet* ps) /* throws
     }
 }
 
-void org::apache::poi::hpsf::SummaryInformation::ctor(::java::io::InputStream* stream) /* throws(NoPropertySetStreamException, MarkUnsupportedException, IOException, UnsupportedEncodingException) */
+void poi::hpsf::SummaryInformation::ctor(::java::io::InputStream* stream) /* throws(NoPropertySetStreamException, MarkUnsupportedException, IOException, UnsupportedEncodingException) */
 {
     super::ctor(stream);
 }
 
-java::lang::String* org::apache::poi::hpsf::SummaryInformation::getTitle()
+java::lang::String* poi::hpsf::SummaryInformation::getTitle()
 {
-    return getPropertyStringValue(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_TITLE);
+    return getPropertyStringValue(::poi::hpsf::wellknown::PropertyIDMap::PID_TITLE);
 }
 
-void org::apache::poi::hpsf::SummaryInformation::setTitle(::java::lang::String* title)
+void poi::hpsf::SummaryInformation::setTitle(::java::lang::String* title)
 {
-    set1stProperty(static_cast< int64_t >(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_TITLE), title);
+    set1stProperty(static_cast< int64_t >(::poi::hpsf::wellknown::PropertyIDMap::PID_TITLE), title);
 }
 
-void org::apache::poi::hpsf::SummaryInformation::removeTitle()
+void poi::hpsf::SummaryInformation::removeTitle()
 {
-    remove1stProperty(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_TITLE);
+    remove1stProperty(::poi::hpsf::wellknown::PropertyIDMap::PID_TITLE);
 }
 
-java::lang::String* org::apache::poi::hpsf::SummaryInformation::getSubject()
+java::lang::String* poi::hpsf::SummaryInformation::getSubject()
 {
-    return getPropertyStringValue(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_SUBJECT);
+    return getPropertyStringValue(::poi::hpsf::wellknown::PropertyIDMap::PID_SUBJECT);
 }
 
-void org::apache::poi::hpsf::SummaryInformation::setSubject(::java::lang::String* subject)
+void poi::hpsf::SummaryInformation::setSubject(::java::lang::String* subject)
 {
-    set1stProperty(static_cast< int64_t >(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_SUBJECT), subject);
+    set1stProperty(static_cast< int64_t >(::poi::hpsf::wellknown::PropertyIDMap::PID_SUBJECT), subject);
 }
 
-void org::apache::poi::hpsf::SummaryInformation::removeSubject()
+void poi::hpsf::SummaryInformation::removeSubject()
 {
-    remove1stProperty(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_SUBJECT);
+    remove1stProperty(::poi::hpsf::wellknown::PropertyIDMap::PID_SUBJECT);
 }
 
-java::lang::String* org::apache::poi::hpsf::SummaryInformation::getAuthor()
+java::lang::String* poi::hpsf::SummaryInformation::getAuthor()
 {
-    return getPropertyStringValue(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_AUTHOR);
+    return getPropertyStringValue(::poi::hpsf::wellknown::PropertyIDMap::PID_AUTHOR);
 }
 
-void org::apache::poi::hpsf::SummaryInformation::setAuthor(::java::lang::String* author)
+void poi::hpsf::SummaryInformation::setAuthor(::java::lang::String* author)
 {
-    set1stProperty(static_cast< int64_t >(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_AUTHOR), author);
+    set1stProperty(static_cast< int64_t >(::poi::hpsf::wellknown::PropertyIDMap::PID_AUTHOR), author);
 }
 
-void org::apache::poi::hpsf::SummaryInformation::removeAuthor()
+void poi::hpsf::SummaryInformation::removeAuthor()
 {
-    remove1stProperty(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_AUTHOR);
+    remove1stProperty(::poi::hpsf::wellknown::PropertyIDMap::PID_AUTHOR);
 }
 
-java::lang::String* org::apache::poi::hpsf::SummaryInformation::getKeywords()
+java::lang::String* poi::hpsf::SummaryInformation::getKeywords()
 {
-    return getPropertyStringValue(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_KEYWORDS);
+    return getPropertyStringValue(::poi::hpsf::wellknown::PropertyIDMap::PID_KEYWORDS);
 }
 
-void org::apache::poi::hpsf::SummaryInformation::setKeywords(::java::lang::String* keywords)
+void poi::hpsf::SummaryInformation::setKeywords(::java::lang::String* keywords)
 {
-    set1stProperty(static_cast< int64_t >(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_KEYWORDS), keywords);
+    set1stProperty(static_cast< int64_t >(::poi::hpsf::wellknown::PropertyIDMap::PID_KEYWORDS), keywords);
 }
 
-void org::apache::poi::hpsf::SummaryInformation::removeKeywords()
+void poi::hpsf::SummaryInformation::removeKeywords()
 {
-    remove1stProperty(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_KEYWORDS);
+    remove1stProperty(::poi::hpsf::wellknown::PropertyIDMap::PID_KEYWORDS);
 }
 
-java::lang::String* org::apache::poi::hpsf::SummaryInformation::getComments()
+java::lang::String* poi::hpsf::SummaryInformation::getComments()
 {
-    return getPropertyStringValue(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_COMMENTS);
+    return getPropertyStringValue(::poi::hpsf::wellknown::PropertyIDMap::PID_COMMENTS);
 }
 
-void org::apache::poi::hpsf::SummaryInformation::setComments(::java::lang::String* comments)
+void poi::hpsf::SummaryInformation::setComments(::java::lang::String* comments)
 {
-    set1stProperty(static_cast< int64_t >(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_COMMENTS), comments);
+    set1stProperty(static_cast< int64_t >(::poi::hpsf::wellknown::PropertyIDMap::PID_COMMENTS), comments);
 }
 
-void org::apache::poi::hpsf::SummaryInformation::removeComments()
+void poi::hpsf::SummaryInformation::removeComments()
 {
-    remove1stProperty(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_COMMENTS);
+    remove1stProperty(::poi::hpsf::wellknown::PropertyIDMap::PID_COMMENTS);
 }
 
-java::lang::String* org::apache::poi::hpsf::SummaryInformation::getTemplate()
+java::lang::String* poi::hpsf::SummaryInformation::getTemplate()
 {
-    return getPropertyStringValue(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_TEMPLATE);
+    return getPropertyStringValue(::poi::hpsf::wellknown::PropertyIDMap::PID_TEMPLATE);
 }
 
-void org::apache::poi::hpsf::SummaryInformation::setTemplate(::java::lang::String* template_)
+void poi::hpsf::SummaryInformation::setTemplate(::java::lang::String* template_)
 {
-    set1stProperty(static_cast< int64_t >(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_TEMPLATE), template_);
+    set1stProperty(static_cast< int64_t >(::poi::hpsf::wellknown::PropertyIDMap::PID_TEMPLATE), template_);
 }
 
-void org::apache::poi::hpsf::SummaryInformation::removeTemplate()
+void poi::hpsf::SummaryInformation::removeTemplate()
 {
-    remove1stProperty(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_TEMPLATE);
+    remove1stProperty(::poi::hpsf::wellknown::PropertyIDMap::PID_TEMPLATE);
 }
 
-java::lang::String* org::apache::poi::hpsf::SummaryInformation::getLastAuthor()
+java::lang::String* poi::hpsf::SummaryInformation::getLastAuthor()
 {
-    return getPropertyStringValue(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_LASTAUTHOR);
+    return getPropertyStringValue(::poi::hpsf::wellknown::PropertyIDMap::PID_LASTAUTHOR);
 }
 
-void org::apache::poi::hpsf::SummaryInformation::setLastAuthor(::java::lang::String* lastAuthor)
+void poi::hpsf::SummaryInformation::setLastAuthor(::java::lang::String* lastAuthor)
 {
-    set1stProperty(static_cast< int64_t >(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_LASTAUTHOR), lastAuthor);
+    set1stProperty(static_cast< int64_t >(::poi::hpsf::wellknown::PropertyIDMap::PID_LASTAUTHOR), lastAuthor);
 }
 
-void org::apache::poi::hpsf::SummaryInformation::removeLastAuthor()
+void poi::hpsf::SummaryInformation::removeLastAuthor()
 {
-    remove1stProperty(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_LASTAUTHOR);
+    remove1stProperty(::poi::hpsf::wellknown::PropertyIDMap::PID_LASTAUTHOR);
 }
 
-java::lang::String* org::apache::poi::hpsf::SummaryInformation::getRevNumber()
+java::lang::String* poi::hpsf::SummaryInformation::getRevNumber()
 {
-    return getPropertyStringValue(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_REVNUMBER);
+    return getPropertyStringValue(::poi::hpsf::wellknown::PropertyIDMap::PID_REVNUMBER);
 }
 
-void org::apache::poi::hpsf::SummaryInformation::setRevNumber(::java::lang::String* revNumber)
+void poi::hpsf::SummaryInformation::setRevNumber(::java::lang::String* revNumber)
 {
-    set1stProperty(static_cast< int64_t >(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_REVNUMBER), revNumber);
+    set1stProperty(static_cast< int64_t >(::poi::hpsf::wellknown::PropertyIDMap::PID_REVNUMBER), revNumber);
 }
 
-void org::apache::poi::hpsf::SummaryInformation::removeRevNumber()
+void poi::hpsf::SummaryInformation::removeRevNumber()
 {
-    remove1stProperty(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_REVNUMBER);
+    remove1stProperty(::poi::hpsf::wellknown::PropertyIDMap::PID_REVNUMBER);
 }
 
-int64_t org::apache::poi::hpsf::SummaryInformation::getEditTime()
+int64_t poi::hpsf::SummaryInformation::getEditTime()
 {
-    auto const d = java_cast< ::java::util::Date* >(getProperty(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_EDITTIME));
+    auto const d = java_cast< ::java::util::Date* >(getProperty(::poi::hpsf::wellknown::PropertyIDMap::PID_EDITTIME));
     if(d == nullptr) {
         return 0;
     }
     return Filetime::dateToFileTime(d);
 }
 
-void org::apache::poi::hpsf::SummaryInformation::setEditTime(int64_t time)
+void poi::hpsf::SummaryInformation::setEditTime(int64_t time)
 {
     auto const d = Filetime::filetimeToDate(time);
-    npc(getFirstSection())->setProperty(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_EDITTIME, Variant::VT_FILETIME, d);
+    npc(getFirstSection())->setProperty(::poi::hpsf::wellknown::PropertyIDMap::PID_EDITTIME, Variant::VT_FILETIME, d);
 }
 
-void org::apache::poi::hpsf::SummaryInformation::removeEditTime()
+void poi::hpsf::SummaryInformation::removeEditTime()
 {
-    remove1stProperty(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_EDITTIME);
+    remove1stProperty(::poi::hpsf::wellknown::PropertyIDMap::PID_EDITTIME);
 }
 
-java::util::Date* org::apache::poi::hpsf::SummaryInformation::getLastPrinted()
+java::util::Date* poi::hpsf::SummaryInformation::getLastPrinted()
 {
-    return java_cast< ::java::util::Date* >(getProperty(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_LASTPRINTED));
+    return java_cast< ::java::util::Date* >(getProperty(::poi::hpsf::wellknown::PropertyIDMap::PID_LASTPRINTED));
 }
 
-void org::apache::poi::hpsf::SummaryInformation::setLastPrinted(::java::util::Date* lastPrinted)
+void poi::hpsf::SummaryInformation::setLastPrinted(::java::util::Date* lastPrinted)
 {
-    npc(getFirstSection())->setProperty(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_LASTPRINTED, Variant::VT_FILETIME, lastPrinted);
+    npc(getFirstSection())->setProperty(::poi::hpsf::wellknown::PropertyIDMap::PID_LASTPRINTED, Variant::VT_FILETIME, lastPrinted);
 }
 
-void org::apache::poi::hpsf::SummaryInformation::removeLastPrinted()
+void poi::hpsf::SummaryInformation::removeLastPrinted()
 {
-    remove1stProperty(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_LASTPRINTED);
+    remove1stProperty(::poi::hpsf::wellknown::PropertyIDMap::PID_LASTPRINTED);
 }
 
-java::util::Date* org::apache::poi::hpsf::SummaryInformation::getCreateDateTime()
+java::util::Date* poi::hpsf::SummaryInformation::getCreateDateTime()
 {
-    return java_cast< ::java::util::Date* >(getProperty(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_CREATE_DTM));
+    return java_cast< ::java::util::Date* >(getProperty(::poi::hpsf::wellknown::PropertyIDMap::PID_CREATE_DTM));
 }
 
-void org::apache::poi::hpsf::SummaryInformation::setCreateDateTime(::java::util::Date* createDateTime)
+void poi::hpsf::SummaryInformation::setCreateDateTime(::java::util::Date* createDateTime)
 {
-    npc(getFirstSection())->setProperty(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_CREATE_DTM, Variant::VT_FILETIME, createDateTime);
+    npc(getFirstSection())->setProperty(::poi::hpsf::wellknown::PropertyIDMap::PID_CREATE_DTM, Variant::VT_FILETIME, createDateTime);
 }
 
-void org::apache::poi::hpsf::SummaryInformation::removeCreateDateTime()
+void poi::hpsf::SummaryInformation::removeCreateDateTime()
 {
-    remove1stProperty(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_CREATE_DTM);
+    remove1stProperty(::poi::hpsf::wellknown::PropertyIDMap::PID_CREATE_DTM);
 }
 
-java::util::Date* org::apache::poi::hpsf::SummaryInformation::getLastSaveDateTime()
+java::util::Date* poi::hpsf::SummaryInformation::getLastSaveDateTime()
 {
-    return java_cast< ::java::util::Date* >(getProperty(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_LASTSAVE_DTM));
+    return java_cast< ::java::util::Date* >(getProperty(::poi::hpsf::wellknown::PropertyIDMap::PID_LASTSAVE_DTM));
 }
 
-void org::apache::poi::hpsf::SummaryInformation::setLastSaveDateTime(::java::util::Date* time)
+void poi::hpsf::SummaryInformation::setLastSaveDateTime(::java::util::Date* time)
 {
     auto const s = getFirstSection();
-    npc(s)->setProperty(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_LASTSAVE_DTM, Variant::VT_FILETIME, time);
+    npc(s)->setProperty(::poi::hpsf::wellknown::PropertyIDMap::PID_LASTSAVE_DTM, Variant::VT_FILETIME, time);
 }
 
-void org::apache::poi::hpsf::SummaryInformation::removeLastSaveDateTime()
+void poi::hpsf::SummaryInformation::removeLastSaveDateTime()
 {
-    remove1stProperty(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_LASTSAVE_DTM);
+    remove1stProperty(::poi::hpsf::wellknown::PropertyIDMap::PID_LASTSAVE_DTM);
 }
 
-int32_t org::apache::poi::hpsf::SummaryInformation::getPageCount()
+int32_t poi::hpsf::SummaryInformation::getPageCount()
 {
-    return getPropertyIntValue(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_PAGECOUNT);
+    return getPropertyIntValue(::poi::hpsf::wellknown::PropertyIDMap::PID_PAGECOUNT);
 }
 
-void org::apache::poi::hpsf::SummaryInformation::setPageCount(int32_t pageCount)
+void poi::hpsf::SummaryInformation::setPageCount(int32_t pageCount)
 {
-    set1stProperty(static_cast< int64_t >(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_PAGECOUNT), pageCount);
+    set1stProperty(static_cast< int64_t >(::poi::hpsf::wellknown::PropertyIDMap::PID_PAGECOUNT), pageCount);
 }
 
-void org::apache::poi::hpsf::SummaryInformation::removePageCount()
+void poi::hpsf::SummaryInformation::removePageCount()
 {
-    remove1stProperty(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_PAGECOUNT);
+    remove1stProperty(::poi::hpsf::wellknown::PropertyIDMap::PID_PAGECOUNT);
 }
 
-int32_t org::apache::poi::hpsf::SummaryInformation::getWordCount()
+int32_t poi::hpsf::SummaryInformation::getWordCount()
 {
-    return getPropertyIntValue(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_WORDCOUNT);
+    return getPropertyIntValue(::poi::hpsf::wellknown::PropertyIDMap::PID_WORDCOUNT);
 }
 
-void org::apache::poi::hpsf::SummaryInformation::setWordCount(int32_t wordCount)
+void poi::hpsf::SummaryInformation::setWordCount(int32_t wordCount)
 {
-    set1stProperty(static_cast< int64_t >(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_WORDCOUNT), wordCount);
+    set1stProperty(static_cast< int64_t >(::poi::hpsf::wellknown::PropertyIDMap::PID_WORDCOUNT), wordCount);
 }
 
-void org::apache::poi::hpsf::SummaryInformation::removeWordCount()
+void poi::hpsf::SummaryInformation::removeWordCount()
 {
-    remove1stProperty(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_WORDCOUNT);
+    remove1stProperty(::poi::hpsf::wellknown::PropertyIDMap::PID_WORDCOUNT);
 }
 
-int32_t org::apache::poi::hpsf::SummaryInformation::getCharCount()
+int32_t poi::hpsf::SummaryInformation::getCharCount()
 {
-    return getPropertyIntValue(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_CHARCOUNT);
+    return getPropertyIntValue(::poi::hpsf::wellknown::PropertyIDMap::PID_CHARCOUNT);
 }
 
-void org::apache::poi::hpsf::SummaryInformation::setCharCount(int32_t charCount)
+void poi::hpsf::SummaryInformation::setCharCount(int32_t charCount)
 {
-    set1stProperty(static_cast< int64_t >(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_CHARCOUNT), charCount);
+    set1stProperty(static_cast< int64_t >(::poi::hpsf::wellknown::PropertyIDMap::PID_CHARCOUNT), charCount);
 }
 
-void org::apache::poi::hpsf::SummaryInformation::removeCharCount()
+void poi::hpsf::SummaryInformation::removeCharCount()
 {
-    remove1stProperty(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_CHARCOUNT);
+    remove1stProperty(::poi::hpsf::wellknown::PropertyIDMap::PID_CHARCOUNT);
 }
 
-int8_tArray* org::apache::poi::hpsf::SummaryInformation::getThumbnail()
+int8_tArray* poi::hpsf::SummaryInformation::getThumbnail()
 {
-    return java_cast< ::int8_tArray* >(getProperty(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_THUMBNAIL));
+    return java_cast< ::int8_tArray* >(getProperty(::poi::hpsf::wellknown::PropertyIDMap::PID_THUMBNAIL));
 }
 
-org::apache::poi::hpsf::Thumbnail* org::apache::poi::hpsf::SummaryInformation::getThumbnailThumbnail()
+poi::hpsf::Thumbnail* poi::hpsf::SummaryInformation::getThumbnailThumbnail()
 {
     auto data = getThumbnail();
     if(data == nullptr)
@@ -333,55 +333,55 @@ org::apache::poi::hpsf::Thumbnail* org::apache::poi::hpsf::SummaryInformation::g
     return new Thumbnail(data);
 }
 
-void org::apache::poi::hpsf::SummaryInformation::setThumbnail(::int8_tArray* thumbnail)
+void poi::hpsf::SummaryInformation::setThumbnail(::int8_tArray* thumbnail)
 {
-    npc(getFirstSection())->setProperty(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_THUMBNAIL, Variant::VT_LPSTR, thumbnail);
+    npc(getFirstSection())->setProperty(::poi::hpsf::wellknown::PropertyIDMap::PID_THUMBNAIL, Variant::VT_LPSTR, thumbnail);
 }
 
-void org::apache::poi::hpsf::SummaryInformation::removeThumbnail()
+void poi::hpsf::SummaryInformation::removeThumbnail()
 {
-    remove1stProperty(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_THUMBNAIL);
+    remove1stProperty(::poi::hpsf::wellknown::PropertyIDMap::PID_THUMBNAIL);
 }
 
-java::lang::String* org::apache::poi::hpsf::SummaryInformation::getApplicationName()
+java::lang::String* poi::hpsf::SummaryInformation::getApplicationName()
 {
-    return getPropertyStringValue(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_APPNAME);
+    return getPropertyStringValue(::poi::hpsf::wellknown::PropertyIDMap::PID_APPNAME);
 }
 
-void org::apache::poi::hpsf::SummaryInformation::setApplicationName(::java::lang::String* applicationName)
+void poi::hpsf::SummaryInformation::setApplicationName(::java::lang::String* applicationName)
 {
-    set1stProperty(static_cast< int64_t >(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_APPNAME), applicationName);
+    set1stProperty(static_cast< int64_t >(::poi::hpsf::wellknown::PropertyIDMap::PID_APPNAME), applicationName);
 }
 
-void org::apache::poi::hpsf::SummaryInformation::removeApplicationName()
+void poi::hpsf::SummaryInformation::removeApplicationName()
 {
-    remove1stProperty(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_APPNAME);
+    remove1stProperty(::poi::hpsf::wellknown::PropertyIDMap::PID_APPNAME);
 }
 
-int32_t org::apache::poi::hpsf::SummaryInformation::getSecurity()
+int32_t poi::hpsf::SummaryInformation::getSecurity()
 {
-    return getPropertyIntValue(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_SECURITY);
+    return getPropertyIntValue(::poi::hpsf::wellknown::PropertyIDMap::PID_SECURITY);
 }
 
-void org::apache::poi::hpsf::SummaryInformation::setSecurity(int32_t security)
+void poi::hpsf::SummaryInformation::setSecurity(int32_t security)
 {
-    set1stProperty(static_cast< int64_t >(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_SECURITY), security);
+    set1stProperty(static_cast< int64_t >(::poi::hpsf::wellknown::PropertyIDMap::PID_SECURITY), security);
 }
 
-void org::apache::poi::hpsf::SummaryInformation::removeSecurity()
+void poi::hpsf::SummaryInformation::removeSecurity()
 {
-    remove1stProperty(::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_SECURITY);
+    remove1stProperty(::poi::hpsf::wellknown::PropertyIDMap::PID_SECURITY);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hpsf::SummaryInformation::class_()
+java::lang::Class* poi::hpsf::SummaryInformation::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hpsf.SummaryInformation", 38);
     return c;
 }
 
-void org::apache::poi::hpsf::SummaryInformation::clinit()
+void poi::hpsf::SummaryInformation::clinit()
 {
 struct string_init_ {
     string_init_() {
@@ -394,7 +394,7 @@ struct string_init_ {
     super::clinit();
 }
 
-java::lang::Class* org::apache::poi::hpsf::SummaryInformation::getClass0()
+java::lang::Class* poi::hpsf::SummaryInformation::getClass0()
 {
     return class_();
 }

@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::usermodel::ExtendedColor
+class poi::ss::usermodel::ExtendedColor
     : public virtual ::java::lang::Object
     , public virtual Color
 {

@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::cf::BorderFormatting final
+class poi::hssf::record::cf::BorderFormatting final
     : public virtual ::java::lang::Object
     , public ::java::lang::Cloneable
 {
@@ -35,22 +35,22 @@ public:
 
 private:
     int32_t field_13_border_styles1 {  };
-    static ::org::apache::poi::util::BitField* bordLeftLineStyle_;
-    static ::org::apache::poi::util::BitField* bordRightLineStyle_;
-    static ::org::apache::poi::util::BitField* bordTopLineStyle_;
-    static ::org::apache::poi::util::BitField* bordBottomLineStyle_;
-    static ::org::apache::poi::util::BitField* bordLeftLineColor_;
-    static ::org::apache::poi::util::BitField* bordRightLineColor_;
-    static ::org::apache::poi::util::BitField* bordTlBrLineOnOff_;
-    static ::org::apache::poi::util::BitField* bordBlTrtLineOnOff_;
+    static ::poi::util::BitField* bordLeftLineStyle_;
+    static ::poi::util::BitField* bordRightLineStyle_;
+    static ::poi::util::BitField* bordTopLineStyle_;
+    static ::poi::util::BitField* bordBottomLineStyle_;
+    static ::poi::util::BitField* bordLeftLineColor_;
+    static ::poi::util::BitField* bordRightLineColor_;
+    static ::poi::util::BitField* bordTlBrLineOnOff_;
+    static ::poi::util::BitField* bordBlTrtLineOnOff_;
     int32_t field_14_border_styles2 {  };
-    static ::org::apache::poi::util::BitField* bordTopLineColor_;
-    static ::org::apache::poi::util::BitField* bordBottomLineColor_;
-    static ::org::apache::poi::util::BitField* bordDiagLineColor_;
-    static ::org::apache::poi::util::BitField* bordDiagLineStyle_;
+    static ::poi::util::BitField* bordTopLineColor_;
+    static ::poi::util::BitField* bordBottomLineColor_;
+    static ::poi::util::BitField* bordDiagLineColor_;
+    static ::poi::util::BitField* bordDiagLineStyle_;
 protected:
     void ctor();
-    void ctor(::org::apache::poi::util::LittleEndianInput* in);
+    void ctor(::poi::util::LittleEndianInput* in);
 
 public:
     int32_t getDataLength();
@@ -81,11 +81,11 @@ public:
     ::java::lang::String* toString() override;
     BorderFormatting* clone() override;
     int32_t serialize(int32_t offset, ::int8_tArray* data);
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out);
+    void serialize(::poi::util::LittleEndianOutput* out);
 
     // Generated
     BorderFormatting();
-    BorderFormatting(::org::apache::poi::util::LittleEndianInput* in);
+    BorderFormatting(::poi::util::LittleEndianInput* in);
 protected:
     BorderFormatting(const ::default_init_tag&);
 
@@ -95,17 +95,17 @@ public:
     static void clinit();
 
 private:
-    static ::org::apache::poi::util::BitField*& bordLeftLineStyle();
-    static ::org::apache::poi::util::BitField*& bordRightLineStyle();
-    static ::org::apache::poi::util::BitField*& bordTopLineStyle();
-    static ::org::apache::poi::util::BitField*& bordBottomLineStyle();
-    static ::org::apache::poi::util::BitField*& bordLeftLineColor();
-    static ::org::apache::poi::util::BitField*& bordRightLineColor();
-    static ::org::apache::poi::util::BitField*& bordTlBrLineOnOff();
-    static ::org::apache::poi::util::BitField*& bordBlTrtLineOnOff();
-    static ::org::apache::poi::util::BitField*& bordTopLineColor();
-    static ::org::apache::poi::util::BitField*& bordBottomLineColor();
-    static ::org::apache::poi::util::BitField*& bordDiagLineColor();
-    static ::org::apache::poi::util::BitField*& bordDiagLineStyle();
+    static ::poi::util::BitField*& bordLeftLineStyle();
+    static ::poi::util::BitField*& bordRightLineStyle();
+    static ::poi::util::BitField*& bordTopLineStyle();
+    static ::poi::util::BitField*& bordBottomLineStyle();
+    static ::poi::util::BitField*& bordLeftLineColor();
+    static ::poi::util::BitField*& bordRightLineColor();
+    static ::poi::util::BitField*& bordTlBrLineOnOff();
+    static ::poi::util::BitField*& bordBlTrtLineOnOff();
+    static ::poi::util::BitField*& bordTopLineColor();
+    static ::poi::util::BitField*& bordBottomLineColor();
+    static ::poi::util::BitField*& bordDiagLineColor();
+    static ::poi::util::BitField*& bordDiagLineStyle();
     virtual ::java::lang::Class* getClass0();
 };

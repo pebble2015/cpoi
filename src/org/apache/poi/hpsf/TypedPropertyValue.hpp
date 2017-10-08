@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hpsf::TypedPropertyValue
+class poi::hpsf::TypedPropertyValue
     : public virtual ::java::lang::Object
 {
 
@@ -18,7 +18,7 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    static ::org::apache::poi::util::POILogger* LOG_;
+    static ::poi::util::POILogger* LOG_;
     int32_t _type {  };
     ::java::lang::Object* _value {  };
 protected:
@@ -26,9 +26,9 @@ protected:
 
 public: /* package */
     virtual ::java::lang::Object* getValue();
-    virtual void read(::org::apache::poi::util::LittleEndianByteArrayInputStream* lei);
-    virtual void readValue(::org::apache::poi::util::LittleEndianByteArrayInputStream* lei);
-    static void skipPadding(::org::apache::poi::util::LittleEndianByteArrayInputStream* lei);
+    virtual void read(::poi::util::LittleEndianByteArrayInputStream* lei);
+    virtual void readValue(::poi::util::LittleEndianByteArrayInputStream* lei);
+    static void skipPadding(::poi::util::LittleEndianByteArrayInputStream* lei);
 
     // Generated
     TypedPropertyValue(int32_t type, ::java::lang::Object* value);
@@ -41,6 +41,6 @@ public:
     static void clinit();
 
 private:
-    static ::org::apache::poi::util::POILogger*& LOG();
+    static ::poi::util::POILogger*& LOG();
     virtual ::java::lang::Class* getClass0();
 };

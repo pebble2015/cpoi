@@ -14,24 +14,24 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::sl::draw::DrawTextParagraph_XlinkAttribute::DrawTextParagraph_XlinkAttribute(const ::default_init_tag&)
+poi::sl::draw::DrawTextParagraph_XlinkAttribute::DrawTextParagraph_XlinkAttribute(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::draw::DrawTextParagraph_XlinkAttribute::DrawTextParagraph_XlinkAttribute(::java::lang::String* name) 
+poi::sl::draw::DrawTextParagraph_XlinkAttribute::DrawTextParagraph_XlinkAttribute(::java::lang::String* name) 
     : DrawTextParagraph_XlinkAttribute(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name);
 }
 
-void org::apache::poi::sl::draw::DrawTextParagraph_XlinkAttribute::ctor(::java::lang::String* name)
+void poi::sl::draw::DrawTextParagraph_XlinkAttribute::ctor(::java::lang::String* name)
 {
     super::ctor(name);
 }
 
-java::lang::Object* org::apache::poi::sl::draw::DrawTextParagraph_XlinkAttribute::readResolve() /* throws(InvalidObjectException) */
+java::lang::Object* poi::sl::draw::DrawTextParagraph_XlinkAttribute::readResolve() /* throws(InvalidObjectException) */
 {
     if(npc(npc(DrawTextParagraph::HYPERLINK_HREF())->getName())->equals(static_cast< ::java::lang::Object* >(getName()))) {
         return DrawTextParagraph::HYPERLINK_HREF();
@@ -44,13 +44,13 @@ java::lang::Object* org::apache::poi::sl::draw::DrawTextParagraph_XlinkAttribute
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::draw::DrawTextParagraph_XlinkAttribute::class_()
+java::lang::Class* poi::sl::draw::DrawTextParagraph_XlinkAttribute::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.draw.DrawTextParagraph.XlinkAttribute", 55);
     return c;
 }
 
-java::lang::Class* org::apache::poi::sl::draw::DrawTextParagraph_XlinkAttribute::getClass0()
+java::lang::Class* poi::sl::draw::DrawTextParagraph_XlinkAttribute::getClass0()
 {
     return class_();
 }

@@ -8,7 +8,7 @@
 #include <org/apache/poi/sl/usermodel/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::sl::usermodel::PictureData
+struct poi::sl::usermodel::PictureData
     : public virtual ::java::lang::Object
 {
     virtual ::java::lang::String* getContentType() = 0;

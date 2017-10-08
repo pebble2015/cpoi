@@ -26,30 +26,30 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::usermodel::HSSFEvaluationSheet::HSSFEvaluationSheet(const ::default_init_tag&)
+poi::hssf::usermodel::HSSFEvaluationSheet::HSSFEvaluationSheet(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::usermodel::HSSFEvaluationSheet::HSSFEvaluationSheet(HSSFSheet* hs) 
+poi::hssf::usermodel::HSSFEvaluationSheet::HSSFEvaluationSheet(HSSFSheet* hs) 
     : HSSFEvaluationSheet(*static_cast< ::default_init_tag* >(0))
 {
     ctor(hs);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFEvaluationSheet::ctor(HSSFSheet* hs)
+void poi::hssf::usermodel::HSSFEvaluationSheet::ctor(HSSFSheet* hs)
 {
     super::ctor();
     _hs = hs;
 }
 
-org::apache::poi::hssf::usermodel::HSSFSheet* org::apache::poi::hssf::usermodel::HSSFEvaluationSheet::getHSSFSheet()
+poi::hssf::usermodel::HSSFSheet* poi::hssf::usermodel::HSSFEvaluationSheet::getHSSFSheet()
 {
     return _hs;
 }
 
-org::apache::poi::ss::formula::EvaluationCell* org::apache::poi::hssf::usermodel::HSSFEvaluationSheet::getCell(int32_t rowIndex, int32_t columnIndex)
+poi::ss::formula::EvaluationCell* poi::hssf::usermodel::HSSFEvaluationSheet::getCell(int32_t rowIndex, int32_t columnIndex)
 {
     auto row = java_cast< HSSFRow* >(npc(_hs)->getRow(rowIndex));
     if(row == nullptr) {
@@ -62,19 +62,19 @@ org::apache::poi::ss::formula::EvaluationCell* org::apache::poi::hssf::usermodel
     return new HSSFEvaluationCell(cell, this);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFEvaluationSheet::clearAllCachedResultValues()
+void poi::hssf::usermodel::HSSFEvaluationSheet::clearAllCachedResultValues()
 {
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFEvaluationSheet::class_()
+java::lang::Class* poi::hssf::usermodel::HSSFEvaluationSheet::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.usermodel.HSSFEvaluationSheet", 49);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFEvaluationSheet::getClass0()
+java::lang::Class* poi::hssf::usermodel::HSSFEvaluationSheet::getClass0()
 {
     return class_();
 }

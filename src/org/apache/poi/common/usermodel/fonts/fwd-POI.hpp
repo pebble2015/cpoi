@@ -2,28 +2,22 @@
 #pragma once
 
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace common
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace common
+            namespace fonts
             {
-                namespace usermodel
-                {
-                    namespace fonts
-                    {
-                        class FontCharset;
-                        class FontFamily;
-                        class FontGroup;
-                        class FontGroup_FontGroupRange;
-                        class FontGroup_Range;
-                        struct FontInfo;
-                        class FontPitch;
-                    } // fonts
-                } // usermodel
-            } // common
-        } // poi
-    } // apache
-} // org
+                class FontCharset;
+                class FontFamily;
+                class FontGroup;
+                class FontGroup_FontGroupRange;
+                class FontGroup_Range;
+                struct FontInfo;
+                class FontPitch;
+            } // fonts
+        } // usermodel
+    } // common
+} // poi

@@ -9,26 +9,20 @@
 #include <java/lang/Object.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace util
         {
-            namespace ss
-            {
-                namespace util
-                {
-typedef ::SubArray< ::org::apache::poi::ss::util::MutableFPNumber_TenPower, ::java::lang::ObjectArray > MutableFPNumber_TenPowerArray;
-                } // util
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::util::MutableFPNumber_TenPower, ::java::lang::ObjectArray > MutableFPNumber_TenPowerArray;
+        } // util
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::util::MutableFPNumber_TenPower final
+class poi::ss::util::MutableFPNumber_TenPower final
     : public ::java::lang::Object
 {
 

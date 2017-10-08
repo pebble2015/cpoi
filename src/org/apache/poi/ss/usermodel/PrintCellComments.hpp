@@ -23,26 +23,20 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace ss
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::PrintCellComments, ::java::lang::EnumArray > PrintCellCommentsArray;
-                } // usermodel
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::usermodel::PrintCellComments, ::java::lang::EnumArray > PrintCellCommentsArray;
+        } // usermodel
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::usermodel::PrintCellComments final
+class poi::ss::usermodel::PrintCellComments final
     : public ::java::lang::Enum
 {
 

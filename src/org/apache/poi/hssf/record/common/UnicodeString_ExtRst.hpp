@@ -11,29 +11,23 @@
 #include <java/lang/Comparable.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
+            namespace common
             {
-                namespace record
-                {
-                    namespace common
-                    {
-typedef ::SubArray< ::org::apache::poi::hssf::record::common::UnicodeString_PhRun, ::java::lang::ObjectArray > UnicodeString_PhRunArray;
-                    } // common
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hssf::record::common::UnicodeString_PhRun, ::java::lang::ObjectArray > UnicodeString_PhRunArray;
+            } // common
+        } // record
+    } // hssf
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::common::UnicodeString_ExtRst
+class poi::hssf::record::common::UnicodeString_ExtRst
     : public virtual ::java::lang::Object
     , public virtual ::java::lang::Comparable
 {
@@ -52,11 +46,11 @@ private:
     void populateEmpty();
 protected:
     void ctor();
-    void ctor(::org::apache::poi::util::LittleEndianInput* in, int32_t expectedLength);
+    void ctor(::poi::util::LittleEndianInput* in, int32_t expectedLength);
 
 public: /* protected */
     virtual int32_t getDataSize();
-    virtual void serialize(::org::apache::poi::hssf::record::cont::ContinuableRecordOutput* out);
+    virtual void serialize(::poi::hssf::record::cont::ContinuableRecordOutput* out);
 
 public:
     bool equals(::java::lang::Object* obj) override;
@@ -77,7 +71,7 @@ public:
 
 public: /* protected */
     UnicodeString_ExtRst();
-    UnicodeString_ExtRst(::org::apache::poi::util::LittleEndianInput* in, int32_t expectedLength);
+    UnicodeString_ExtRst(::poi::util::LittleEndianInput* in, int32_t expectedLength);
 protected:
     UnicodeString_ExtRst(const ::default_init_tag&);
 

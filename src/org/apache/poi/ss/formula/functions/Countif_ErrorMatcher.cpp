@@ -24,52 +24,52 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::Countif_ErrorMatcher::Countif_ErrorMatcher(const ::default_init_tag&)
+poi::ss::formula::functions::Countif_ErrorMatcher::Countif_ErrorMatcher(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::Countif_ErrorMatcher::Countif_ErrorMatcher(int32_t errorCode, Countif_CmpOp* operator_) 
+poi::ss::formula::functions::Countif_ErrorMatcher::Countif_ErrorMatcher(int32_t errorCode, Countif_CmpOp* operator_) 
     : Countif_ErrorMatcher(*static_cast< ::default_init_tag* >(0))
 {
     ctor(errorCode,operator_);
 }
 
-void org::apache::poi::ss::formula::functions::Countif_ErrorMatcher::ctor(int32_t errorCode, Countif_CmpOp* operator_)
+void poi::ss::formula::functions::Countif_ErrorMatcher::ctor(int32_t errorCode, Countif_CmpOp* operator_)
 {
     super::ctor(operator_);
     _value = errorCode;
 }
 
-java::lang::String* org::apache::poi::ss::formula::functions::Countif_ErrorMatcher::getValueText()
+java::lang::String* poi::ss::formula::functions::Countif_ErrorMatcher::getValueText()
 {
-    return npc(::org::apache::poi::ss::usermodel::FormulaError::forInt(_value))->getString();
+    return npc(::poi::ss::usermodel::FormulaError::forInt(_value))->getString();
 }
 
-bool org::apache::poi::ss::formula::functions::Countif_ErrorMatcher::matches(::org::apache::poi::ss::formula::eval::ValueEval* x)
+bool poi::ss::formula::functions::Countif_ErrorMatcher::matches(::poi::ss::formula::eval::ValueEval* x)
 {
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::ErrorEval* >(x) != nullptr) {
-        auto testValue = npc((java_cast< ::org::apache::poi::ss::formula::eval::ErrorEval* >(x)))->getErrorCode();
+    if(dynamic_cast< ::poi::ss::formula::eval::ErrorEval* >(x) != nullptr) {
+        auto testValue = npc((java_cast< ::poi::ss::formula::eval::ErrorEval* >(x)))->getErrorCode();
         return evaluate(testValue - _value);
     }
     return false;
 }
 
-int32_t org::apache::poi::ss::formula::functions::Countif_ErrorMatcher::getValue()
+int32_t poi::ss::formula::functions::Countif_ErrorMatcher::getValue()
 {
     return _value;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Countif_ErrorMatcher::class_()
+java::lang::Class* poi::ss::formula::functions::Countif_ErrorMatcher::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.Countif.ErrorMatcher", 56);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Countif_ErrorMatcher::getClass0()
+java::lang::Class* poi::ss::formula::functions::Countif_ErrorMatcher::getClass0()
 {
     return class_();
 }

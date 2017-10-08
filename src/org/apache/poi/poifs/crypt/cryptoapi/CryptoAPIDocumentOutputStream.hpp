@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDocumentOutputStream
+class poi::poifs::crypt::cryptoapi::CryptoAPIDocumentOutputStream
     : public ::java::io::ByteArrayOutputStream
 {
 

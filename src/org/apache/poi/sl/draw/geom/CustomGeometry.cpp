@@ -36,33 +36,33 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::sl::draw::geom::CustomGeometry::CustomGeometry(const ::default_init_tag&)
+poi::sl::draw::geom::CustomGeometry::CustomGeometry(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::draw::geom::CustomGeometry::CustomGeometry(::org::apache::poi::sl::draw::binding::CTCustomGeometry2D* geom) 
+poi::sl::draw::geom::CustomGeometry::CustomGeometry(::poi::sl::draw::binding::CTCustomGeometry2D* geom) 
     : CustomGeometry(*static_cast< ::default_init_tag* >(0))
 {
     ctor(geom);
 }
 
-void org::apache::poi::sl::draw::geom::CustomGeometry::init()
+void poi::sl::draw::geom::CustomGeometry::init()
 {
     adjusts = new ::java::util::ArrayList();
     guides = new ::java::util::ArrayList();
     paths = new ::java::util::ArrayList();
 }
 
-void org::apache::poi::sl::draw::geom::CustomGeometry::ctor(::org::apache::poi::sl::draw::binding::CTCustomGeometry2D* geom)
+void poi::sl::draw::geom::CustomGeometry::ctor(::poi::sl::draw::binding::CTCustomGeometry2D* geom)
 {
     super::ctor();
     init();
     auto avLst = npc(geom)->getAvLst();
     if(avLst != nullptr) {
         for (auto _i = npc(npc(avLst)->getGd())->iterator(); _i->hasNext(); ) {
-            ::org::apache::poi::sl::draw::binding::CTGeomGuide* gd = java_cast< ::org::apache::poi::sl::draw::binding::CTGeomGuide* >(_i->next());
+            ::poi::sl::draw::binding::CTGeomGuide* gd = java_cast< ::poi::sl::draw::binding::CTGeomGuide* >(_i->next());
             {
                 npc(adjusts)->add(static_cast< ::java::lang::Object* >(new AdjustValue(gd)));
             }
@@ -71,7 +71,7 @@ void org::apache::poi::sl::draw::geom::CustomGeometry::ctor(::org::apache::poi::
     auto gdLst = npc(geom)->getGdLst();
     if(gdLst != nullptr) {
         for (auto _i = npc(npc(gdLst)->getGd())->iterator(); _i->hasNext(); ) {
-            ::org::apache::poi::sl::draw::binding::CTGeomGuide* gd = java_cast< ::org::apache::poi::sl::draw::binding::CTGeomGuide* >(_i->next());
+            ::poi::sl::draw::binding::CTGeomGuide* gd = java_cast< ::poi::sl::draw::binding::CTGeomGuide* >(_i->next());
             {
                 npc(guides)->add(static_cast< ::java::lang::Object* >(new Guide(gd)));
             }
@@ -80,7 +80,7 @@ void org::apache::poi::sl::draw::geom::CustomGeometry::ctor(::org::apache::poi::
     auto pathLst = npc(geom)->getPathLst();
     if(pathLst != nullptr) {
         for (auto _i = npc(npc(pathLst)->getPath())->iterator(); _i->hasNext(); ) {
-            ::org::apache::poi::sl::draw::binding::CTPath2D* spPath = java_cast< ::org::apache::poi::sl::draw::binding::CTPath2D* >(_i->next());
+            ::poi::sl::draw::binding::CTPath2D* spPath = java_cast< ::poi::sl::draw::binding::CTPath2D* >(_i->next());
             {
                 npc(paths)->add(static_cast< ::java::lang::Object* >(new Path(spPath)));
             }
@@ -97,25 +97,25 @@ void org::apache::poi::sl::draw::geom::CustomGeometry::ctor(::org::apache::poi::
     }
 }
 
-java::util::Iterator* org::apache::poi::sl::draw::geom::CustomGeometry::iterator()
+java::util::Iterator* poi::sl::draw::geom::CustomGeometry::iterator()
 {
     return npc(paths)->iterator();
 }
 
-org::apache::poi::sl::draw::geom::Path* org::apache::poi::sl::draw::geom::CustomGeometry::getTextBounds()
+poi::sl::draw::geom::Path* poi::sl::draw::geom::CustomGeometry::getTextBounds()
 {
     return textBounds;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::draw::geom::CustomGeometry::class_()
+java::lang::Class* poi::sl::draw::geom::CustomGeometry::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.draw.geom.CustomGeometry", 42);
     return c;
 }
 
-java::lang::Class* org::apache::poi::sl::draw::geom::CustomGeometry::getClass0()
+java::lang::Class* poi::sl::draw::geom::CustomGeometry::getClass0()
 {
     return class_();
 }

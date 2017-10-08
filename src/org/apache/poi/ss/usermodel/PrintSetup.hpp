@@ -6,7 +6,7 @@
 #include <org/apache/poi/ss/usermodel/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::usermodel::PrintSetup
+struct poi::ss::usermodel::PrintSetup
     : public virtual ::java::lang::Object
 {
     static constexpr int16_t PRINTER_DEFAULT_PAPERSIZE { int16_t(0) };

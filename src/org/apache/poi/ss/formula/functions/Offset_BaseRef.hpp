@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::Offset_BaseRef final
+class poi::ss::formula::functions::Offset_BaseRef final
     : public ::java::lang::Object
 {
 
@@ -21,22 +21,22 @@ private:
     int32_t _firstColumnIndex {  };
     int32_t _width {  };
     int32_t _height {  };
-    ::org::apache::poi::ss::formula::eval::RefEval* _refEval {  };
-    ::org::apache::poi::ss::formula::eval::AreaEval* _areaEval {  };
+    ::poi::ss::formula::eval::RefEval* _refEval {  };
+    ::poi::ss::formula::eval::AreaEval* _areaEval {  };
 protected:
-    void ctor(::org::apache::poi::ss::formula::eval::RefEval* re);
-    void ctor(::org::apache::poi::ss::formula::eval::AreaEval* ae);
+    void ctor(::poi::ss::formula::eval::RefEval* re);
+    void ctor(::poi::ss::formula::eval::AreaEval* ae);
 
 public:
     int32_t getWidth();
     int32_t getHeight();
     int32_t getFirstRowIndex();
     int32_t getFirstColumnIndex();
-    ::org::apache::poi::ss::formula::eval::AreaEval* offset(int32_t relFirstRowIx, int32_t relLastRowIx, int32_t relFirstColIx, int32_t relLastColIx);
+    ::poi::ss::formula::eval::AreaEval* offset(int32_t relFirstRowIx, int32_t relLastRowIx, int32_t relFirstColIx, int32_t relLastColIx);
 
     // Generated
-    Offset_BaseRef(::org::apache::poi::ss::formula::eval::RefEval* re);
-    Offset_BaseRef(::org::apache::poi::ss::formula::eval::AreaEval* ae);
+    Offset_BaseRef(::poi::ss::formula::eval::RefEval* re);
+    Offset_BaseRef(::poi::ss::formula::eval::AreaEval* ae);
 protected:
     Offset_BaseRef(const ::default_init_tag&);
 

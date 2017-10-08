@@ -24,25 +24,19 @@
 #include <org/apache/poi/ss/util/NumberComparer.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -60,19 +54,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::eval::RelationalOperationEval::RelationalOperationEval(const ::default_init_tag&)
+poi::ss::formula::eval::RelationalOperationEval::RelationalOperationEval(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::eval::RelationalOperationEval::RelationalOperationEval()
+poi::ss::formula::eval::RelationalOperationEval::RelationalOperationEval()
     : RelationalOperationEval(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::eval::RelationalOperationEval::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ValueEval* arg0, ValueEval* arg1)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::eval::RelationalOperationEval::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ValueEval* arg0, ValueEval* arg1)
 {
     ValueEval* vA;
     ValueEval* vB;
@@ -87,7 +81,7 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::e
     return BoolEval::valueOf(result);
 }
 
-int32_t org::apache::poi::ss::formula::eval::RelationalOperationEval::doCompare(ValueEval* va, ValueEval* vb)
+int32_t poi::ss::formula::eval::RelationalOperationEval::doCompare(ValueEval* va, ValueEval* vb)
 {
     clinit();
     if(va == static_cast< ValueEval* >(BlankEval::instance())) {
@@ -125,7 +119,7 @@ int32_t org::apache::poi::ss::formula::eval::RelationalOperationEval::doCompare(
         if(dynamic_cast< NumberEval* >(vb) != nullptr) {
             auto nA = java_cast< NumberEval* >(va);
             auto nB = java_cast< NumberEval* >(vb);
-            return ::org::apache::poi::ss::util::NumberComparer::compare(npc(nA)->getNumberValue(), npc(nB)->getNumberValue());
+            return ::poi::ss::util::NumberComparer::compare(npc(nA)->getNumberValue(), npc(nB)->getNumberValue());
         }
     }
     throw new ::java::lang::IllegalArgumentException(::java::lang::StringBuilder().append(u"Bad operand types ("_j)->append(npc(npc(va)->getClass())->getName())
@@ -134,7 +128,7 @@ int32_t org::apache::poi::ss::formula::eval::RelationalOperationEval::doCompare(
         ->append(u")"_j)->toString());
 }
 
-int32_t org::apache::poi::ss::formula::eval::RelationalOperationEval::compareBlank(ValueEval* v)
+int32_t poi::ss::formula::eval::RelationalOperationEval::compareBlank(ValueEval* v)
 {
     clinit();
     if(v == static_cast< ValueEval* >(BlankEval::instance())) {
@@ -146,7 +140,7 @@ int32_t org::apache::poi::ss::formula::eval::RelationalOperationEval::compareBla
     }
     if(dynamic_cast< NumberEval* >(v) != nullptr) {
         auto ne = java_cast< NumberEval* >(v);
-        return ::org::apache::poi::ss::util::NumberComparer::compare(0.0, npc(ne)->getNumberValue());
+        return ::poi::ss::util::NumberComparer::compare(0.0, npc(ne)->getNumberValue());
     }
     if(dynamic_cast< StringEval* >(v) != nullptr) {
         auto se = java_cast< StringEval* >(v);
@@ -156,57 +150,57 @@ int32_t org::apache::poi::ss::formula::eval::RelationalOperationEval::compareBla
         ->append(u")"_j)->toString());
 }
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::eval::RelationalOperationEval::EqualEval()
+poi::ss::formula::functions::Function*& poi::ss::formula::eval::RelationalOperationEval::EqualEval()
 {
     clinit();
     return EqualEval_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::eval::RelationalOperationEval::EqualEval_;
+poi::ss::formula::functions::Function* poi::ss::formula::eval::RelationalOperationEval::EqualEval_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::eval::RelationalOperationEval::GreaterEqualEval()
+poi::ss::formula::functions::Function*& poi::ss::formula::eval::RelationalOperationEval::GreaterEqualEval()
 {
     clinit();
     return GreaterEqualEval_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::eval::RelationalOperationEval::GreaterEqualEval_;
+poi::ss::formula::functions::Function* poi::ss::formula::eval::RelationalOperationEval::GreaterEqualEval_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::eval::RelationalOperationEval::GreaterThanEval()
+poi::ss::formula::functions::Function*& poi::ss::formula::eval::RelationalOperationEval::GreaterThanEval()
 {
     clinit();
     return GreaterThanEval_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::eval::RelationalOperationEval::GreaterThanEval_;
+poi::ss::formula::functions::Function* poi::ss::formula::eval::RelationalOperationEval::GreaterThanEval_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::eval::RelationalOperationEval::LessEqualEval()
+poi::ss::formula::functions::Function*& poi::ss::formula::eval::RelationalOperationEval::LessEqualEval()
 {
     clinit();
     return LessEqualEval_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::eval::RelationalOperationEval::LessEqualEval_;
+poi::ss::formula::functions::Function* poi::ss::formula::eval::RelationalOperationEval::LessEqualEval_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::eval::RelationalOperationEval::LessThanEval()
+poi::ss::formula::functions::Function*& poi::ss::formula::eval::RelationalOperationEval::LessThanEval()
 {
     clinit();
     return LessThanEval_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::eval::RelationalOperationEval::LessThanEval_;
+poi::ss::formula::functions::Function* poi::ss::formula::eval::RelationalOperationEval::LessThanEval_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::eval::RelationalOperationEval::NotEqualEval()
+poi::ss::formula::functions::Function*& poi::ss::formula::eval::RelationalOperationEval::NotEqualEval()
 {
     clinit();
     return NotEqualEval_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::eval::RelationalOperationEval::NotEqualEval_;
+poi::ss::formula::functions::Function* poi::ss::formula::eval::RelationalOperationEval::NotEqualEval_;
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::eval::RelationalOperationEval::class_()
+java::lang::Class* poi::ss::formula::eval::RelationalOperationEval::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.eval.RelationalOperationEval", 54);
     return c;
 }
 
-void org::apache::poi::ss::formula::eval::RelationalOperationEval::clinit()
+void poi::ss::formula::eval::RelationalOperationEval::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -227,12 +221,12 @@ struct clinit_ {
     }
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::eval::RelationalOperationEval::evaluate(ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::eval::RelationalOperationEval::evaluate(ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
 {
     return super::evaluate(args, srcRowIndex, srcColumnIndex);
 }
 
-java::lang::Class* org::apache::poi::ss::formula::eval::RelationalOperationEval::getClass0()
+java::lang::Class* poi::ss::formula::eval::RelationalOperationEval::getClass0()
 {
     return class_();
 }

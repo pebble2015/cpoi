@@ -27,23 +27,17 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace util
         {
-            namespace ss
-            {
-                namespace util
-                {
-typedef ::SubArray< ::org::apache::poi::ss::util::CellRangeAddressBase, ::java::lang::ObjectArray > CellRangeAddressBaseArray;
-typedef ::SubArray< ::org::apache::poi::ss::util::CellRangeAddress, CellRangeAddressBaseArray > CellRangeAddressArray;
-                } // util
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::util::CellRangeAddressBase, ::java::lang::ObjectArray > CellRangeAddressBaseArray;
+typedef ::SubArray< ::poi::ss::util::CellRangeAddress, CellRangeAddressBaseArray > CellRangeAddressArray;
+        } // util
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -61,81 +55,81 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::FeatRecord::FeatRecord(const ::default_init_tag&)
+poi::hssf::record::FeatRecord::FeatRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::FeatRecord::FeatRecord() 
+poi::hssf::record::FeatRecord::FeatRecord() 
     : FeatRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::FeatRecord::FeatRecord(RecordInputStream* in) 
+poi::hssf::record::FeatRecord::FeatRecord(RecordInputStream* in) 
     : FeatRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-org::apache::poi::util::POILogger*& org::apache::poi::hssf::record::FeatRecord::logger()
+poi::util::POILogger*& poi::hssf::record::FeatRecord::logger()
 {
     clinit();
     return logger_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::hssf::record::FeatRecord::logger_;
+poi::util::POILogger* poi::hssf::record::FeatRecord::logger_;
 
-constexpr int16_t org::apache::poi::hssf::record::FeatRecord::sid;
+constexpr int16_t poi::hssf::record::FeatRecord::sid;
 
-constexpr int16_t org::apache::poi::hssf::record::FeatRecord::v11_sid;
+constexpr int16_t poi::hssf::record::FeatRecord::v11_sid;
 
-constexpr int16_t org::apache::poi::hssf::record::FeatRecord::v12_sid;
+constexpr int16_t poi::hssf::record::FeatRecord::v12_sid;
 
-void org::apache::poi::hssf::record::FeatRecord::ctor()
+void poi::hssf::record::FeatRecord::ctor()
 {
     super::ctor();
-    futureHeader = new ::org::apache::poi::hssf::record::common::FtrHeader();
+    futureHeader = new ::poi::hssf::record::common::FtrHeader();
     npc(futureHeader)->setRecordType(sid);
 }
 
-int16_t org::apache::poi::hssf::record::FeatRecord::getSid()
+int16_t poi::hssf::record::FeatRecord::getSid()
 {
     return sid;
 }
 
-void org::apache::poi::hssf::record::FeatRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::FeatRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
-    futureHeader = new ::org::apache::poi::hssf::record::common::FtrHeader(in);
+    futureHeader = new ::poi::hssf::record::common::FtrHeader(in);
     isf_sharedFeatureType = npc(in)->readShort();
     reserved1 = npc(in)->readByte();
     reserved2 = npc(in)->readInt();
     auto cref = npc(in)->readUShort();
     cbFeatData = npc(in)->readInt();
     reserved3 = npc(in)->readShort();
-    cellRefs = new ::org::apache::poi::ss::util::CellRangeAddressArray(cref);
+    cellRefs = new ::poi::ss::util::CellRangeAddressArray(cref);
     for (auto i = int32_t(0); i < npc(cellRefs)->length; i++) {
-        cellRefs->set(i, new ::org::apache::poi::ss::util::CellRangeAddress(in));
+        cellRefs->set(i, new ::poi::ss::util::CellRangeAddress(in));
     }
     switch (isf_sharedFeatureType) {
     case FeatHdrRecord::SHAREDFEATURES_ISFPROTECTION:
-        sharedFeature = new ::org::apache::poi::hssf::record::common::FeatProtection(in);
+        sharedFeature = new ::poi::hssf::record::common::FeatProtection(in);
         break;
     case FeatHdrRecord::SHAREDFEATURES_ISFFEC2:
-        sharedFeature = new ::org::apache::poi::hssf::record::common::FeatFormulaErr2(in);
+        sharedFeature = new ::poi::hssf::record::common::FeatFormulaErr2(in);
         break;
     case FeatHdrRecord::SHAREDFEATURES_ISFFACTOID:
-        sharedFeature = new ::org::apache::poi::hssf::record::common::FeatSmartTag(in);
+        sharedFeature = new ::poi::hssf::record::common::FeatSmartTag(in);
         break;
     default:
-        npc(logger_)->log(::org::apache::poi::util::POILogger::ERROR, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Unknown Shared Feature "_j)->append(isf_sharedFeatureType)
+        npc(logger_)->log(::poi::util::POILogger::ERROR, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Unknown Shared Feature "_j)->append(isf_sharedFeatureType)
             ->append(u" found!"_j)->toString())}));
     }
 
 }
 
-java::lang::String* org::apache::poi::hssf::record::FeatRecord::toString()
+java::lang::String* poi::hssf::record::FeatRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[SHARED FEATURE]\n"_j);
@@ -143,7 +137,7 @@ java::lang::String* org::apache::poi::hssf::record::FeatRecord::toString()
     return npc(buffer)->toString();
 }
 
-void org::apache::poi::hssf::record::FeatRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::FeatRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(futureHeader)->serialize(out);
     npc(out)->writeShort(isf_sharedFeatureType);
@@ -158,51 +152,51 @@ void org::apache::poi::hssf::record::FeatRecord::serialize(::org::apache::poi::u
     npc(sharedFeature)->serialize(out);
 }
 
-int32_t org::apache::poi::hssf::record::FeatRecord::getDataSize()
+int32_t poi::hssf::record::FeatRecord::getDataSize()
 {
-    return int32_t(12) + int32_t(2) + int32_t(1)+ int32_t(4)+ int32_t(2)+ int32_t(4)+ int32_t(2)+ (npc(cellRefs)->length * ::org::apache::poi::ss::util::CellRangeAddress::ENCODED_SIZE)+ npc(sharedFeature)->getDataSize();
+    return int32_t(12) + int32_t(2) + int32_t(1)+ int32_t(4)+ int32_t(2)+ int32_t(4)+ int32_t(2)+ (npc(cellRefs)->length * ::poi::ss::util::CellRangeAddress::ENCODED_SIZE)+ npc(sharedFeature)->getDataSize();
 }
 
-int32_t org::apache::poi::hssf::record::FeatRecord::getIsf_sharedFeatureType()
+int32_t poi::hssf::record::FeatRecord::getIsf_sharedFeatureType()
 {
     return isf_sharedFeatureType;
 }
 
-int64_t org::apache::poi::hssf::record::FeatRecord::getCbFeatData()
+int64_t poi::hssf::record::FeatRecord::getCbFeatData()
 {
     return cbFeatData;
 }
 
-void org::apache::poi::hssf::record::FeatRecord::setCbFeatData(int64_t cbFeatData)
+void poi::hssf::record::FeatRecord::setCbFeatData(int64_t cbFeatData)
 {
     this->cbFeatData = cbFeatData;
 }
 
-org::apache::poi::ss::util::CellRangeAddressArray* org::apache::poi::hssf::record::FeatRecord::getCellRefs()
+poi::ss::util::CellRangeAddressArray* poi::hssf::record::FeatRecord::getCellRefs()
 {
     return cellRefs;
 }
 
-void org::apache::poi::hssf::record::FeatRecord::setCellRefs(::org::apache::poi::ss::util::CellRangeAddressArray* cellRefs)
+void poi::hssf::record::FeatRecord::setCellRefs(::poi::ss::util::CellRangeAddressArray* cellRefs)
 {
     this->cellRefs = cellRefs;
 }
 
-org::apache::poi::hssf::record::common::SharedFeature* org::apache::poi::hssf::record::FeatRecord::getSharedFeature()
+poi::hssf::record::common::SharedFeature* poi::hssf::record::FeatRecord::getSharedFeature()
 {
     return sharedFeature;
 }
 
-void org::apache::poi::hssf::record::FeatRecord::setSharedFeature(::org::apache::poi::hssf::record::common::SharedFeature* feature)
+void poi::hssf::record::FeatRecord::setSharedFeature(::poi::hssf::record::common::SharedFeature* feature)
 {
     this->sharedFeature = feature;
-    if(dynamic_cast< ::org::apache::poi::hssf::record::common::FeatProtection* >(feature) != nullptr) {
+    if(dynamic_cast< ::poi::hssf::record::common::FeatProtection* >(feature) != nullptr) {
         isf_sharedFeatureType = FeatHdrRecord::SHAREDFEATURES_ISFPROTECTION;
     }
-    if(dynamic_cast< ::org::apache::poi::hssf::record::common::FeatFormulaErr2* >(feature) != nullptr) {
+    if(dynamic_cast< ::poi::hssf::record::common::FeatFormulaErr2* >(feature) != nullptr) {
         isf_sharedFeatureType = FeatHdrRecord::SHAREDFEATURES_ISFFEC2;
     }
-    if(dynamic_cast< ::org::apache::poi::hssf::record::common::FeatSmartTag* >(feature) != nullptr) {
+    if(dynamic_cast< ::poi::hssf::record::common::FeatSmartTag* >(feature) != nullptr) {
         isf_sharedFeatureType = FeatHdrRecord::SHAREDFEATURES_ISFFACTOID;
     }
     if(isf_sharedFeatureType == FeatHdrRecord::SHAREDFEATURES_ISFFEC2) {
@@ -212,27 +206,27 @@ void org::apache::poi::hssf::record::FeatRecord::setSharedFeature(::org::apache:
     }
 }
 
-org::apache::poi::hssf::record::FeatRecord* org::apache::poi::hssf::record::FeatRecord::clone()
+poi::hssf::record::FeatRecord* poi::hssf::record::FeatRecord::clone()
 {
     return java_cast< FeatRecord* >(cloneViaReserialise());
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::FeatRecord::class_()
+java::lang::Class* poi::hssf::record::FeatRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.FeatRecord", 37);
     return c;
 }
 
-void org::apache::poi::hssf::record::FeatRecord::clinit()
+void poi::hssf::record::FeatRecord::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        logger_ = ::org::apache::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(FeatRecord::class_()));
+        logger_ = ::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(FeatRecord::class_()));
     }
 };
 
@@ -241,17 +235,17 @@ struct clinit_ {
     }
 }
 
-int32_t org::apache::poi::hssf::record::FeatRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::FeatRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::FeatRecord::serialize()
+int8_tArray* poi::hssf::record::FeatRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::FeatRecord::getClass0()
+java::lang::Class* poi::hssf::record::FeatRecord::getClass0()
 {
     return class_();
 }

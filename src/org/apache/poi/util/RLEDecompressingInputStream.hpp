@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::util::RLEDecompressingInputStream
+class poi::util::RLEDecompressingInputStream
     : public ::java::io::InputStream
 {
 

@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::eval::RefEvalBase
+class poi::ss::formula::eval::RefEvalBase
     : public virtual ::java::lang::Object
     , public virtual RefEval
 {
@@ -24,7 +24,7 @@ private:
     int32_t _rowIndex {  };
     int32_t _columnIndex {  };
 protected:
-    void ctor(::org::apache::poi::ss::formula::SheetRange* sheetRange, int32_t rowIndex, int32_t columnIndex);
+    void ctor(::poi::ss::formula::SheetRange* sheetRange, int32_t rowIndex, int32_t columnIndex);
     void ctor(int32_t firstSheetIndex, int32_t lastSheetIndex, int32_t rowIndex, int32_t columnIndex);
     void ctor(int32_t onlySheetIndex, int32_t rowIndex, int32_t columnIndex);
 
@@ -38,7 +38,7 @@ public:
     // Generated
 
 public: /* protected */
-    RefEvalBase(::org::apache::poi::ss::formula::SheetRange* sheetRange, int32_t rowIndex, int32_t columnIndex);
+    RefEvalBase(::poi::ss::formula::SheetRange* sheetRange, int32_t rowIndex, int32_t columnIndex);
     RefEvalBase(int32_t firstSheetIndex, int32_t lastSheetIndex, int32_t rowIndex, int32_t columnIndex);
     RefEvalBase(int32_t onlySheetIndex, int32_t rowIndex, int32_t columnIndex);
 protected:

@@ -25,27 +25,27 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::Countblank_1::Countblank_1()
+poi::ss::formula::functions::Countblank_1::Countblank_1()
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
     ctor();
 }
 
-bool org::apache::poi::ss::formula::functions::Countblank_1::matches(::org::apache::poi::ss::formula::eval::ValueEval* valueEval)
+bool poi::ss::formula::functions::Countblank_1::matches(::poi::ss::formula::eval::ValueEval* valueEval)
 {
-    return valueEval == static_cast< ::org::apache::poi::ss::formula::eval::ValueEval* >(::org::apache::poi::ss::formula::eval::BlankEval::instance()) || (dynamic_cast< ::org::apache::poi::ss::formula::eval::StringEval* >(valueEval) != nullptr && npc(u""_j)->equals(static_cast< ::java::lang::Object* >(npc((java_cast< ::org::apache::poi::ss::formula::eval::StringEval* >(valueEval)))->getStringValue())));
+    return valueEval == static_cast< ::poi::ss::formula::eval::ValueEval* >(::poi::ss::formula::eval::BlankEval::instance()) || (dynamic_cast< ::poi::ss::formula::eval::StringEval* >(valueEval) != nullptr && npc(u""_j)->equals(static_cast< ::java::lang::Object* >(npc((java_cast< ::poi::ss::formula::eval::StringEval* >(valueEval)))->getStringValue())));
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Countblank_1::class_()
+java::lang::Class* poi::ss::formula::functions::Countblank_1::class_()
 {
     static ::java::lang::Class* c = ::class_(u"", 0);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Countblank_1::getClass0()
+java::lang::Class* poi::ss::formula::functions::Countblank_1::getClass0()
 {
     return class_();
 }

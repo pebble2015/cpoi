@@ -15,22 +15,16 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
-            {
-                namespace record
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::record::MulRKRecord_RkRec, ::java::lang::ObjectArray > MulRKRecord_RkRecArray;
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hssf::record::MulRKRecord_RkRec, ::java::lang::ObjectArray > MulRKRecord_RkRecArray;
+        } // record
+    } // hssf
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -39,51 +33,51 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::MulRKRecord::MulRKRecord(const ::default_init_tag&)
+poi::hssf::record::MulRKRecord::MulRKRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::MulRKRecord::MulRKRecord(RecordInputStream* in) 
+poi::hssf::record::MulRKRecord::MulRKRecord(RecordInputStream* in) 
     : MulRKRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::MulRKRecord::sid;
+constexpr int16_t poi::hssf::record::MulRKRecord::sid;
 
-int32_t org::apache::poi::hssf::record::MulRKRecord::getRow()
+int32_t poi::hssf::record::MulRKRecord::getRow()
 {
     return field_1_row;
 }
 
-int16_t org::apache::poi::hssf::record::MulRKRecord::getFirstColumn()
+int16_t poi::hssf::record::MulRKRecord::getFirstColumn()
 {
     return field_2_first_col;
 }
 
-int16_t org::apache::poi::hssf::record::MulRKRecord::getLastColumn()
+int16_t poi::hssf::record::MulRKRecord::getLastColumn()
 {
     return field_4_last_col;
 }
 
-int32_t org::apache::poi::hssf::record::MulRKRecord::getNumColumns()
+int32_t poi::hssf::record::MulRKRecord::getNumColumns()
 {
     return field_4_last_col - field_2_first_col + int32_t(1);
 }
 
-int16_t org::apache::poi::hssf::record::MulRKRecord::getXFAt(int32_t coffset)
+int16_t poi::hssf::record::MulRKRecord::getXFAt(int32_t coffset)
 {
     return npc((*field_3_rks)[coffset])->xf;
 }
 
-double org::apache::poi::hssf::record::MulRKRecord::getRKNumberAt(int32_t coffset)
+double poi::hssf::record::MulRKRecord::getRKNumberAt(int32_t coffset)
 {
-    return ::org::apache::poi::hssf::util::RKUtil::decodeNumber(npc((*field_3_rks)[coffset])->rk);
+    return ::poi::hssf::util::RKUtil::decodeNumber(npc((*field_3_rks)[coffset])->rk);
 }
 
-void org::apache::poi::hssf::record::MulRKRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::MulRKRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     field_1_row = npc(in)->readUShort();
@@ -92,55 +86,55 @@ void org::apache::poi::hssf::record::MulRKRecord::ctor(RecordInputStream* in)
     field_4_last_col = npc(in)->readShort();
 }
 
-java::lang::String* org::apache::poi::hssf::record::MulRKRecord::toString()
+java::lang::String* poi::hssf::record::MulRKRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[MULRK]\n"_j);
-    npc(npc(npc(buffer)->append(u"	.row	 = "_j))->append(::org::apache::poi::util::HexDump::shortToHex(getRow())))->append(u"\n"_j);
-    npc(npc(npc(buffer)->append(u"	.firstcol= "_j))->append(::org::apache::poi::util::HexDump::shortToHex(getFirstColumn())))->append(u"\n"_j);
-    npc(npc(npc(buffer)->append(u"	.lastcol = "_j))->append(::org::apache::poi::util::HexDump::shortToHex(getLastColumn())))->append(u"\n"_j);
+    npc(npc(npc(buffer)->append(u"	.row	 = "_j))->append(::poi::util::HexDump::shortToHex(getRow())))->append(u"\n"_j);
+    npc(npc(npc(buffer)->append(u"	.firstcol= "_j))->append(::poi::util::HexDump::shortToHex(getFirstColumn())))->append(u"\n"_j);
+    npc(npc(npc(buffer)->append(u"	.lastcol = "_j))->append(::poi::util::HexDump::shortToHex(getLastColumn())))->append(u"\n"_j);
     for (auto k = int32_t(0); k < getNumColumns(); k++) {
-        npc(npc(npc(npc(npc(buffer)->append(u"	xf["_j))->append(k))->append(u"] = "_j))->append(::org::apache::poi::util::HexDump::shortToHex(getXFAt(k))))->append(u"\n"_j);
+        npc(npc(npc(npc(npc(buffer)->append(u"	xf["_j))->append(k))->append(u"] = "_j))->append(::poi::util::HexDump::shortToHex(getXFAt(k))))->append(u"\n"_j);
         npc(npc(npc(npc(npc(buffer)->append(u"	rk["_j))->append(k))->append(u"] = "_j))->append(getRKNumberAt(k)))->append(u"\n"_j);
     }
     npc(buffer)->append(u"[/MULRK]\n"_j);
     return npc(buffer)->toString();
 }
 
-int16_t org::apache::poi::hssf::record::MulRKRecord::getSid()
+int16_t poi::hssf::record::MulRKRecord::getSid()
 {
     return sid;
 }
 
-void org::apache::poi::hssf::record::MulRKRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::MulRKRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
-    throw new ::org::apache::poi::util::RecordFormatException(u"Sorry, you can't serialize MulRK in this release"_j);
+    throw new ::poi::util::RecordFormatException(u"Sorry, you can't serialize MulRK in this release"_j);
 }
 
-int32_t org::apache::poi::hssf::record::MulRKRecord::getDataSize()
+int32_t poi::hssf::record::MulRKRecord::getDataSize()
 {
-    throw new ::org::apache::poi::util::RecordFormatException(u"Sorry, you can't serialize MulRK in this release"_j);
+    throw new ::poi::util::RecordFormatException(u"Sorry, you can't serialize MulRK in this release"_j);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::MulRKRecord::class_()
+java::lang::Class* poi::hssf::record::MulRKRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.MulRKRecord", 38);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::MulRKRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::MulRKRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::MulRKRecord::serialize()
+int8_tArray* poi::hssf::record::MulRKRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::MulRKRecord::getClass0()
+java::lang::Class* poi::hssf::record::MulRKRecord::getClass0()
 {
     return class_();
 }

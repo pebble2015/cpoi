@@ -6,7 +6,7 @@
 #include <org/apache/poi/ss/usermodel/charts/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::usermodel::charts::ManualLayout
+struct poi::ss::usermodel::charts::ManualLayout
     : public virtual ::java::lang::Object
 {
     virtual void setTarget(LayoutTarget* target) = 0;

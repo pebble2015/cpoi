@@ -57,63 +57,63 @@ namespace
 
     template<typename F> finally_<F> finally(F f) { return finally_<F>(f); }
 }
-org::apache::poi::poifs::filesystem::POIFSFileSystem::POIFSFileSystem(const ::default_init_tag&)
+poi::poifs::filesystem::POIFSFileSystem::POIFSFileSystem(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::filesystem::POIFSFileSystem::POIFSFileSystem() 
+poi::poifs::filesystem::POIFSFileSystem::POIFSFileSystem() 
     : POIFSFileSystem(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::poifs::filesystem::POIFSFileSystem::POIFSFileSystem(::java::io::InputStream* stream)  /* throws(IOException) */
+poi::poifs::filesystem::POIFSFileSystem::POIFSFileSystem(::java::io::InputStream* stream)  /* throws(IOException) */
     : POIFSFileSystem(*static_cast< ::default_init_tag* >(0))
 {
     ctor(stream);
 }
 
-org::apache::poi::poifs::filesystem::POIFSFileSystem::POIFSFileSystem(::java::io::File* file, bool readOnly)  /* throws(IOException) */
+poi::poifs::filesystem::POIFSFileSystem::POIFSFileSystem(::java::io::File* file, bool readOnly)  /* throws(IOException) */
     : POIFSFileSystem(*static_cast< ::default_init_tag* >(0))
 {
     ctor(file,readOnly);
 }
 
-org::apache::poi::poifs::filesystem::POIFSFileSystem::POIFSFileSystem(::java::io::File* file)  /* throws(IOException) */
+poi::poifs::filesystem::POIFSFileSystem::POIFSFileSystem(::java::io::File* file)  /* throws(IOException) */
     : POIFSFileSystem(*static_cast< ::default_init_tag* >(0))
 {
     ctor(file);
 }
 
-java::io::InputStream* org::apache::poi::poifs::filesystem::POIFSFileSystem::createNonClosingInputStream(::java::io::InputStream* is)
+java::io::InputStream* poi::poifs::filesystem::POIFSFileSystem::createNonClosingInputStream(::java::io::InputStream* is)
 {
     clinit();
-    return new ::org::apache::poi::util::CloseIgnoringInputStream(is);
+    return new ::poi::util::CloseIgnoringInputStream(is);
 }
 
-void org::apache::poi::poifs::filesystem::POIFSFileSystem::ctor()
+void poi::poifs::filesystem::POIFSFileSystem::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::poifs::filesystem::POIFSFileSystem::ctor(::java::io::InputStream* stream) /* throws(IOException) */
+void poi::poifs::filesystem::POIFSFileSystem::ctor(::java::io::InputStream* stream) /* throws(IOException) */
 {
     super::ctor(stream);
 }
 
-void org::apache::poi::poifs::filesystem::POIFSFileSystem::ctor(::java::io::File* file, bool readOnly) /* throws(IOException) */
+void poi::poifs::filesystem::POIFSFileSystem::ctor(::java::io::File* file, bool readOnly) /* throws(IOException) */
 {
     super::ctor(file, readOnly);
 }
 
-void org::apache::poi::poifs::filesystem::POIFSFileSystem::ctor(::java::io::File* file) /* throws(IOException) */
+void poi::poifs::filesystem::POIFSFileSystem::ctor(::java::io::File* file) /* throws(IOException) */
 {
     super::ctor(file);
 }
 
-org::apache::poi::poifs::filesystem::POIFSFileSystem* org::apache::poi::poifs::filesystem::POIFSFileSystem::create(::java::io::File* file) /* throws(IOException) */
+poi::poifs::filesystem::POIFSFileSystem* poi::poifs::filesystem::POIFSFileSystem::create(::java::io::File* file) /* throws(IOException) */
 {
     clinit();
     auto tmp = new POIFSFileSystem();
@@ -138,7 +138,7 @@ org::apache::poi::poifs::filesystem::POIFSFileSystem* org::apache::poi::poifs::f
     return new POIFSFileSystem(file, false);
 }
 
-void org::apache::poi::poifs::filesystem::POIFSFileSystem::main(::java::lang::StringArray* args) /* throws(IOException) */
+void poi::poifs::filesystem::POIFSFileSystem::main(::java::lang::StringArray* args) /* throws(IOException) */
 {
     clinit();
     OPOIFSFileSystem::main(args);
@@ -146,33 +146,33 @@ void org::apache::poi::poifs::filesystem::POIFSFileSystem::main(::java::lang::St
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::filesystem::POIFSFileSystem::class_()
+java::lang::Class* poi::poifs::filesystem::POIFSFileSystem::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.filesystem.POIFSFileSystem", 47);
     return c;
 }
 
-java::lang::String* org::apache::poi::poifs::filesystem::POIFSFileSystem::getShortDescription()
+java::lang::String* poi::poifs::filesystem::POIFSFileSystem::getShortDescription()
 {
     return NPOIFSFileSystem::getShortDescription();
 }
 
-java::lang::ObjectArray* org::apache::poi::poifs::filesystem::POIFSFileSystem::getViewableArray_()
+java::lang::ObjectArray* poi::poifs::filesystem::POIFSFileSystem::getViewableArray_()
 {
     return NPOIFSFileSystem::getViewableArray_();
 }
 
-java::util::Iterator* org::apache::poi::poifs::filesystem::POIFSFileSystem::getViewableIterator()
+java::util::Iterator* poi::poifs::filesystem::POIFSFileSystem::getViewableIterator()
 {
     return java_cast< ::java::util::Iterator* >(NPOIFSFileSystem::getViewableIterator());
 }
 
-bool org::apache::poi::poifs::filesystem::POIFSFileSystem::preferArray_()
+bool poi::poifs::filesystem::POIFSFileSystem::preferArray_()
 {
     return NPOIFSFileSystem::preferArray_();
 }
 
-java::lang::Class* org::apache::poi::poifs::filesystem::POIFSFileSystem::getClass0()
+java::lang::Class* poi::poifs::filesystem::POIFSFileSystem::getClass0()
 {
     return class_();
 }

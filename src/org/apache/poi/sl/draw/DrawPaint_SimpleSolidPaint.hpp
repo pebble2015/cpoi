@@ -10,28 +10,28 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::DrawPaint_SimpleSolidPaint
+class poi::sl::draw::DrawPaint_SimpleSolidPaint
     : public virtual ::java::lang::Object
-    , public virtual ::org::apache::poi::sl::usermodel::PaintStyle_SolidPaint
+    , public virtual ::poi::sl::usermodel::PaintStyle_SolidPaint
 {
 
 public:
     typedef ::java::lang::Object super;
 
 private:
-    ::org::apache::poi::sl::usermodel::ColorStyle* solidColor {  };
+    ::poi::sl::usermodel::ColorStyle* solidColor {  };
 protected:
     void ctor(::java::awt::Color* color);
-    void ctor(::org::apache::poi::sl::usermodel::ColorStyle* color);
+    void ctor(::poi::sl::usermodel::ColorStyle* color);
 
 public:
-    ::org::apache::poi::sl::usermodel::ColorStyle* getSolidColor() override;
+    ::poi::sl::usermodel::ColorStyle* getSolidColor() override;
 
     // Generated
 
 public: /* package */
     DrawPaint_SimpleSolidPaint(::java::awt::Color* color);
-    DrawPaint_SimpleSolidPaint(::org::apache::poi::sl::usermodel::ColorStyle* color);
+    DrawPaint_SimpleSolidPaint(::poi::sl::usermodel::ColorStyle* color);
 protected:
     DrawPaint_SimpleSolidPaint(const ::default_init_tag&);
 

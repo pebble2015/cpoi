@@ -10,27 +10,21 @@
 #include <java/lang/Cloneable.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace util
         {
-            namespace ss
-            {
-                namespace util
-                {
-typedef ::SubArray< ::org::apache::poi::ss::util::CellRangeAddressBase, ::java::lang::ObjectArray > CellRangeAddressBaseArray;
-typedef ::SubArray< ::org::apache::poi::ss::util::CellRangeAddress, CellRangeAddressBaseArray > CellRangeAddressArray;
-                } // util
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::util::CellRangeAddressBase, ::java::lang::ObjectArray > CellRangeAddressBaseArray;
+typedef ::SubArray< ::poi::ss::util::CellRangeAddress, CellRangeAddressBaseArray > CellRangeAddressArray;
+        } // util
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::CFHeaderRecord final
+class poi::hssf::record::CFHeaderRecord final
     : public CFHeaderBase
     , public virtual ::java::lang::Cloneable
 {
@@ -40,7 +34,7 @@ public:
     static constexpr int16_t sid { int16_t(432) };
 protected:
     void ctor();
-    void ctor(::org::apache::poi::ss::util::CellRangeAddressArray* regions, int32_t nRules);
+    void ctor(::poi::ss::util::CellRangeAddressArray* regions, int32_t nRules);
     void ctor(RecordInputStream* in);
 
 public: /* protected */
@@ -52,7 +46,7 @@ public:
 
     // Generated
     CFHeaderRecord();
-    CFHeaderRecord(::org::apache::poi::ss::util::CellRangeAddressArray* regions, int32_t nRules);
+    CFHeaderRecord(::poi::ss::util::CellRangeAddressArray* regions, int32_t nRules);
     CFHeaderRecord(RecordInputStream* in);
 protected:
     CFHeaderRecord(const ::default_init_tag&);

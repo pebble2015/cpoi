@@ -32,19 +32,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::util::CellRangeAddressBase::CellRangeAddressBase(const ::default_init_tag&)
+poi::ss::util::CellRangeAddressBase::CellRangeAddressBase(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::util::CellRangeAddressBase::CellRangeAddressBase(int32_t firstRow, int32_t lastRow, int32_t firstCol, int32_t lastCol) 
+poi::ss::util::CellRangeAddressBase::CellRangeAddressBase(int32_t firstRow, int32_t lastRow, int32_t firstCol, int32_t lastCol) 
     : CellRangeAddressBase(*static_cast< ::default_init_tag* >(0))
 {
     ctor(firstRow,lastRow,firstCol,lastCol);
 }
 
-void org::apache::poi::ss::util::CellRangeAddressBase::ctor(int32_t firstRow, int32_t lastRow, int32_t firstCol, int32_t lastCol)
+void poi::ss::util::CellRangeAddressBase::ctor(int32_t firstRow, int32_t lastRow, int32_t firstCol, int32_t lastCol)
 {
     super::ctor();
     _firstRow = firstRow;
@@ -53,7 +53,7 @@ void org::apache::poi::ss::util::CellRangeAddressBase::ctor(int32_t firstRow, in
     _lastCol = lastCol;
 }
 
-void org::apache::poi::ss::util::CellRangeAddressBase::validate(::org::apache::poi::ss::SpreadsheetVersion* ssVersion)
+void poi::ss::util::CellRangeAddressBase::validate(::poi::ss::SpreadsheetVersion* ssVersion)
 {
     validateRow(_firstRow, ssVersion);
     validateRow(_lastRow, ssVersion);
@@ -61,7 +61,7 @@ void org::apache::poi::ss::util::CellRangeAddressBase::validate(::org::apache::p
     validateColumn(_lastCol, ssVersion);
 }
 
-void org::apache::poi::ss::util::CellRangeAddressBase::validateRow(int32_t row, ::org::apache::poi::ss::SpreadsheetVersion* ssVersion)
+void poi::ss::util::CellRangeAddressBase::validateRow(int32_t row, ::poi::ss::SpreadsheetVersion* ssVersion)
 {
     clinit();
     auto maxrow = npc(ssVersion)->getLastRowIndex();
@@ -73,7 +73,7 @@ void org::apache::poi::ss::util::CellRangeAddressBase::validateRow(int32_t row, 
 
 }
 
-void org::apache::poi::ss::util::CellRangeAddressBase::validateColumn(int32_t column, ::org::apache::poi::ss::SpreadsheetVersion* ssVersion)
+void poi::ss::util::CellRangeAddressBase::validateColumn(int32_t column, ::poi::ss::SpreadsheetVersion* ssVersion)
 {
     clinit();
     auto maxcol = npc(ssVersion)->getLastColumnIndex();
@@ -85,67 +85,67 @@ void org::apache::poi::ss::util::CellRangeAddressBase::validateColumn(int32_t co
 
 }
 
-bool org::apache::poi::ss::util::CellRangeAddressBase::isFullColumnRange()
+bool poi::ss::util::CellRangeAddressBase::isFullColumnRange()
 {
-    return (_firstRow == 0 && _lastRow == npc(::org::apache::poi::ss::SpreadsheetVersion::EXCEL97)->getLastRowIndex()) || (_firstRow == -int32_t(1) && _lastRow == -int32_t(1));
+    return (_firstRow == 0 && _lastRow == npc(::poi::ss::SpreadsheetVersion::EXCEL97)->getLastRowIndex()) || (_firstRow == -int32_t(1) && _lastRow == -int32_t(1));
 }
 
-bool org::apache::poi::ss::util::CellRangeAddressBase::isFullRowRange()
+bool poi::ss::util::CellRangeAddressBase::isFullRowRange()
 {
-    return (_firstCol == 0 && _lastCol == npc(::org::apache::poi::ss::SpreadsheetVersion::EXCEL97)->getLastColumnIndex()) || (_firstCol == -int32_t(1) && _lastCol == -int32_t(1));
+    return (_firstCol == 0 && _lastCol == npc(::poi::ss::SpreadsheetVersion::EXCEL97)->getLastColumnIndex()) || (_firstCol == -int32_t(1) && _lastCol == -int32_t(1));
 }
 
-int32_t org::apache::poi::ss::util::CellRangeAddressBase::getFirstColumn()
+int32_t poi::ss::util::CellRangeAddressBase::getFirstColumn()
 {
     return _firstCol;
 }
 
-int32_t org::apache::poi::ss::util::CellRangeAddressBase::getFirstRow()
+int32_t poi::ss::util::CellRangeAddressBase::getFirstRow()
 {
     return _firstRow;
 }
 
-int32_t org::apache::poi::ss::util::CellRangeAddressBase::getLastColumn()
+int32_t poi::ss::util::CellRangeAddressBase::getLastColumn()
 {
     return _lastCol;
 }
 
-int32_t org::apache::poi::ss::util::CellRangeAddressBase::getLastRow()
+int32_t poi::ss::util::CellRangeAddressBase::getLastRow()
 {
     return _lastRow;
 }
 
-bool org::apache::poi::ss::util::CellRangeAddressBase::isInRange(int32_t rowInd, int32_t colInd)
+bool poi::ss::util::CellRangeAddressBase::isInRange(int32_t rowInd, int32_t colInd)
 {
     return _firstRow <= rowInd && rowInd <= _lastRow && _firstCol <= colInd && colInd <= _lastCol;
 }
 
-bool org::apache::poi::ss::util::CellRangeAddressBase::isInRange(CellReference* ref)
+bool poi::ss::util::CellRangeAddressBase::isInRange(CellReference* ref)
 {
     return isInRange(npc(ref)->getRow(), npc(ref)->getCol());
 }
 
-bool org::apache::poi::ss::util::CellRangeAddressBase::isInRange(::org::apache::poi::ss::usermodel::Cell* cell)
+bool poi::ss::util::CellRangeAddressBase::isInRange(::poi::ss::usermodel::Cell* cell)
 {
     return isInRange(npc(cell)->getRowIndex(), npc(cell)->getColumnIndex());
 }
 
-bool org::apache::poi::ss::util::CellRangeAddressBase::containsRow(int32_t rowInd)
+bool poi::ss::util::CellRangeAddressBase::containsRow(int32_t rowInd)
 {
     return _firstRow <= rowInd && rowInd <= _lastRow;
 }
 
-bool org::apache::poi::ss::util::CellRangeAddressBase::containsColumn(int32_t colInd)
+bool poi::ss::util::CellRangeAddressBase::containsColumn(int32_t colInd)
 {
     return _firstCol <= colInd && colInd <= _lastCol;
 }
 
-bool org::apache::poi::ss::util::CellRangeAddressBase::intersects(CellRangeAddressBase* other)
+bool poi::ss::util::CellRangeAddressBase::intersects(CellRangeAddressBase* other)
 {
     return this->_firstRow <= npc(other)->_lastRow && this->_firstCol <= npc(other)->_lastCol && npc(other)->_firstRow <= this->_lastRow && npc(other)->_firstCol <= this->_lastCol;
 }
 
-java::util::Set* org::apache::poi::ss::util::CellRangeAddressBase::getPosition(int32_t rowInd, int32_t colInd)
+java::util::Set* poi::ss::util::CellRangeAddressBase::getPosition(int32_t rowInd, int32_t colInd)
 {
     ::java::util::Set* positions = ::java::util::EnumSet::noneOf(CellRangeAddressBase_CellPosition::class_());
     if(rowInd > getFirstRow() && rowInd < getLastRow() && colInd > getFirstColumn() && colInd < getLastColumn()) {
@@ -167,32 +167,32 @@ java::util::Set* org::apache::poi::ss::util::CellRangeAddressBase::getPosition(i
     return positions;
 }
 
-void org::apache::poi::ss::util::CellRangeAddressBase::setFirstColumn(int32_t firstCol)
+void poi::ss::util::CellRangeAddressBase::setFirstColumn(int32_t firstCol)
 {
     _firstCol = firstCol;
 }
 
-void org::apache::poi::ss::util::CellRangeAddressBase::setFirstRow(int32_t firstRow)
+void poi::ss::util::CellRangeAddressBase::setFirstRow(int32_t firstRow)
 {
     _firstRow = firstRow;
 }
 
-void org::apache::poi::ss::util::CellRangeAddressBase::setLastColumn(int32_t lastCol)
+void poi::ss::util::CellRangeAddressBase::setLastColumn(int32_t lastCol)
 {
     _lastCol = lastCol;
 }
 
-void org::apache::poi::ss::util::CellRangeAddressBase::setLastRow(int32_t lastRow)
+void poi::ss::util::CellRangeAddressBase::setLastRow(int32_t lastRow)
 {
     _lastRow = lastRow;
 }
 
-int32_t org::apache::poi::ss::util::CellRangeAddressBase::getNumberOfCells()
+int32_t poi::ss::util::CellRangeAddressBase::getNumberOfCells()
 {
     return (_lastRow - _firstRow + int32_t(1)) * (_lastCol - _firstCol + int32_t(1));
 }
 
-java::lang::String* org::apache::poi::ss::util::CellRangeAddressBase::toString()
+java::lang::String* poi::ss::util::CellRangeAddressBase::toString()
 {
     auto crA = new CellReference(_firstRow, _firstCol);
     auto crB = new CellReference(_lastRow, _lastCol);
@@ -203,27 +203,27 @@ java::lang::String* org::apache::poi::ss::util::CellRangeAddressBase::toString()
         ->append(u"]"_j)->toString();
 }
 
-int32_t org::apache::poi::ss::util::CellRangeAddressBase::getMinRow()
+int32_t poi::ss::util::CellRangeAddressBase::getMinRow()
 {
     return ::java::lang::Math::min(_firstRow, _lastRow);
 }
 
-int32_t org::apache::poi::ss::util::CellRangeAddressBase::getMaxRow()
+int32_t poi::ss::util::CellRangeAddressBase::getMaxRow()
 {
     return ::java::lang::Math::max(_firstRow, _lastRow);
 }
 
-int32_t org::apache::poi::ss::util::CellRangeAddressBase::getMinColumn()
+int32_t poi::ss::util::CellRangeAddressBase::getMinColumn()
 {
     return ::java::lang::Math::min(_firstCol, _lastCol);
 }
 
-int32_t org::apache::poi::ss::util::CellRangeAddressBase::getMaxColumn()
+int32_t poi::ss::util::CellRangeAddressBase::getMaxColumn()
 {
     return ::java::lang::Math::max(_firstCol, _lastCol);
 }
 
-bool org::apache::poi::ss::util::CellRangeAddressBase::equals(::java::lang::Object* other)
+bool poi::ss::util::CellRangeAddressBase::equals(::java::lang::Object* other)
 {
     if(dynamic_cast< CellRangeAddressBase* >(other) != nullptr) {
         auto o = java_cast< CellRangeAddressBase* >(other);
@@ -232,7 +232,7 @@ bool org::apache::poi::ss::util::CellRangeAddressBase::equals(::java::lang::Obje
     return false;
 }
 
-int32_t org::apache::poi::ss::util::CellRangeAddressBase::hashCode()
+int32_t poi::ss::util::CellRangeAddressBase::hashCode()
 {
     auto code = (getMinColumn() + (getMaxColumn() << int32_t(8)) + (getMinRow() << int32_t(16))+ (getMaxRow() << int32_t(24)));
     return code;
@@ -240,13 +240,13 @@ int32_t org::apache::poi::ss::util::CellRangeAddressBase::hashCode()
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::util::CellRangeAddressBase::class_()
+java::lang::Class* poi::ss::util::CellRangeAddressBase::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.util.CellRangeAddressBase", 43);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::util::CellRangeAddressBase::getClass0()
+java::lang::Class* poi::ss::util::CellRangeAddressBase::getClass0()
 {
     return class_();
 }

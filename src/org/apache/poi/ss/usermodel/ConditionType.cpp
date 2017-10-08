@@ -26,86 +26,86 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::usermodel::ConditionType::ConditionType(const ::default_init_tag&)
+poi::ss::usermodel::ConditionType::ConditionType(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::usermodel::ConditionType::ConditionType(int32_t id, ::java::lang::String* type) 
+poi::ss::usermodel::ConditionType::ConditionType(int32_t id, ::java::lang::String* type) 
     : ConditionType(*static_cast< ::default_init_tag* >(0))
 {
     ctor(id,type);
 }
 
-java::util::Map*& org::apache::poi::ss::usermodel::ConditionType::lookup()
+java::util::Map*& poi::ss::usermodel::ConditionType::lookup()
 {
     clinit();
     return lookup_;
 }
-java::util::Map* org::apache::poi::ss::usermodel::ConditionType::lookup_;
+java::util::Map* poi::ss::usermodel::ConditionType::lookup_;
 
-org::apache::poi::ss::usermodel::ConditionType*& org::apache::poi::ss::usermodel::ConditionType::CELL_VALUE_IS()
+poi::ss::usermodel::ConditionType*& poi::ss::usermodel::ConditionType::CELL_VALUE_IS()
 {
     clinit();
     return CELL_VALUE_IS_;
 }
-org::apache::poi::ss::usermodel::ConditionType* org::apache::poi::ss::usermodel::ConditionType::CELL_VALUE_IS_;
+poi::ss::usermodel::ConditionType* poi::ss::usermodel::ConditionType::CELL_VALUE_IS_;
 
-org::apache::poi::ss::usermodel::ConditionType*& org::apache::poi::ss::usermodel::ConditionType::FORMULA()
+poi::ss::usermodel::ConditionType*& poi::ss::usermodel::ConditionType::FORMULA()
 {
     clinit();
     return FORMULA_;
 }
-org::apache::poi::ss::usermodel::ConditionType* org::apache::poi::ss::usermodel::ConditionType::FORMULA_;
+poi::ss::usermodel::ConditionType* poi::ss::usermodel::ConditionType::FORMULA_;
 
-org::apache::poi::ss::usermodel::ConditionType*& org::apache::poi::ss::usermodel::ConditionType::COLOR_SCALE()
+poi::ss::usermodel::ConditionType*& poi::ss::usermodel::ConditionType::COLOR_SCALE()
 {
     clinit();
     return COLOR_SCALE_;
 }
-org::apache::poi::ss::usermodel::ConditionType* org::apache::poi::ss::usermodel::ConditionType::COLOR_SCALE_;
+poi::ss::usermodel::ConditionType* poi::ss::usermodel::ConditionType::COLOR_SCALE_;
 
-org::apache::poi::ss::usermodel::ConditionType*& org::apache::poi::ss::usermodel::ConditionType::DATA_BAR()
+poi::ss::usermodel::ConditionType*& poi::ss::usermodel::ConditionType::DATA_BAR()
 {
     clinit();
     return DATA_BAR_;
 }
-org::apache::poi::ss::usermodel::ConditionType* org::apache::poi::ss::usermodel::ConditionType::DATA_BAR_;
+poi::ss::usermodel::ConditionType* poi::ss::usermodel::ConditionType::DATA_BAR_;
 
-org::apache::poi::ss::usermodel::ConditionType*& org::apache::poi::ss::usermodel::ConditionType::FILTER()
+poi::ss::usermodel::ConditionType*& poi::ss::usermodel::ConditionType::FILTER()
 {
     clinit();
     return FILTER_;
 }
-org::apache::poi::ss::usermodel::ConditionType* org::apache::poi::ss::usermodel::ConditionType::FILTER_;
+poi::ss::usermodel::ConditionType* poi::ss::usermodel::ConditionType::FILTER_;
 
-org::apache::poi::ss::usermodel::ConditionType*& org::apache::poi::ss::usermodel::ConditionType::ICON_SET()
+poi::ss::usermodel::ConditionType*& poi::ss::usermodel::ConditionType::ICON_SET()
 {
     clinit();
     return ICON_SET_;
 }
-org::apache::poi::ss::usermodel::ConditionType* org::apache::poi::ss::usermodel::ConditionType::ICON_SET_;
+poi::ss::usermodel::ConditionType* poi::ss::usermodel::ConditionType::ICON_SET_;
 
-java::lang::String* org::apache::poi::ss::usermodel::ConditionType::toString()
+java::lang::String* poi::ss::usermodel::ConditionType::toString()
 {
     return ::java::lang::StringBuilder().append(id)->append(u" - "_j)
         ->append(type)->toString();
 }
 
-org::apache::poi::ss::usermodel::ConditionType* org::apache::poi::ss::usermodel::ConditionType::forId(int8_t id)
+poi::ss::usermodel::ConditionType* poi::ss::usermodel::ConditionType::forId(int8_t id)
 {
     clinit();
     return forId(static_cast< int32_t >(id));
 }
 
-org::apache::poi::ss::usermodel::ConditionType* org::apache::poi::ss::usermodel::ConditionType::forId(int32_t id)
+poi::ss::usermodel::ConditionType* poi::ss::usermodel::ConditionType::forId(int32_t id)
 {
     clinit();
     return java_cast< ConditionType* >(npc(lookup_)->get(::java::lang::Integer::valueOf(id)));
 }
 
-void org::apache::poi::ss::usermodel::ConditionType::ctor(int32_t id, ::java::lang::String* type)
+void poi::ss::usermodel::ConditionType::ctor(int32_t id, ::java::lang::String* type)
 {
     super::ctor();
     this->id = static_cast< int8_t >(id);
@@ -115,13 +115,13 @@ void org::apache::poi::ss::usermodel::ConditionType::ctor(int32_t id, ::java::la
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::usermodel::ConditionType::class_()
+java::lang::Class* poi::ss::usermodel::ConditionType::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.usermodel.ConditionType", 41);
     return c;
 }
 
-void org::apache::poi::ss::usermodel::ConditionType::clinit()
+void poi::ss::usermodel::ConditionType::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -143,7 +143,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::usermodel::ConditionType::getClass0()
+java::lang::Class* poi::ss::usermodel::ConditionType::getClass0()
 {
     return class_();
 }

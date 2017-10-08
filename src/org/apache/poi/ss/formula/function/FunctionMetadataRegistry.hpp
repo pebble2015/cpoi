@@ -9,29 +9,23 @@
 #include <java/lang/Object.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace function
             {
-                namespace formula
-                {
-                    namespace function
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::function::FunctionMetadata, ::java::lang::ObjectArray > FunctionMetadataArray;
-                    } // function
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::function::FunctionMetadata, ::java::lang::ObjectArray > FunctionMetadataArray;
+            } // function
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::function::FunctionMetadataRegistry final
+class poi::ss::formula::function::FunctionMetadataRegistry final
     : public ::java::lang::Object
 {
 

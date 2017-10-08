@@ -55,45 +55,45 @@ namespace
 
     template<typename F> finally_<F> finally(F f) { return finally_<F>(f); }
 }
-org::apache::poi::hssf::usermodel::StaticFontMetrics::StaticFontMetrics(const ::default_init_tag&)
+poi::hssf::usermodel::StaticFontMetrics::StaticFontMetrics(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::usermodel::StaticFontMetrics::StaticFontMetrics() 
+poi::hssf::usermodel::StaticFontMetrics::StaticFontMetrics() 
     : StaticFontMetrics(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::util::POILogger*& org::apache::poi::hssf::usermodel::StaticFontMetrics::LOGGER()
+poi::util::POILogger*& poi::hssf::usermodel::StaticFontMetrics::LOGGER()
 {
     clinit();
     return LOGGER_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::hssf::usermodel::StaticFontMetrics::LOGGER_;
+poi::util::POILogger* poi::hssf::usermodel::StaticFontMetrics::LOGGER_;
 
-java::util::Properties*& org::apache::poi::hssf::usermodel::StaticFontMetrics::fontMetricsProps()
+java::util::Properties*& poi::hssf::usermodel::StaticFontMetrics::fontMetricsProps()
 {
     clinit();
     return fontMetricsProps_;
 }
-java::util::Properties* org::apache::poi::hssf::usermodel::StaticFontMetrics::fontMetricsProps_;
+java::util::Properties* poi::hssf::usermodel::StaticFontMetrics::fontMetricsProps_;
 
-java::util::Map*& org::apache::poi::hssf::usermodel::StaticFontMetrics::fontDetailsMap()
+java::util::Map*& poi::hssf::usermodel::StaticFontMetrics::fontDetailsMap()
 {
     clinit();
     return fontDetailsMap_;
 }
-java::util::Map* org::apache::poi::hssf::usermodel::StaticFontMetrics::fontDetailsMap_;
+java::util::Map* poi::hssf::usermodel::StaticFontMetrics::fontDetailsMap_;
 
-void org::apache::poi::hssf::usermodel::StaticFontMetrics::ctor()
+void poi::hssf::usermodel::StaticFontMetrics::ctor()
 {
     super::ctor();
 }
 
-org::apache::poi::hssf::usermodel::FontDetails* org::apache::poi::hssf::usermodel::StaticFontMetrics::getFontDetails(::java::awt::Font* font)
+poi::hssf::usermodel::FontDetails* poi::hssf::usermodel::StaticFontMetrics::getFontDetails(::java::awt::Font* font)
 {
     clinit();
     if(fontMetricsProps_ == nullptr) {
@@ -128,7 +128,7 @@ org::apache::poi::hssf::usermodel::FontDetails* org::apache::poi::hssf::usermode
     return fontDetails;
 }
 
-java::util::Properties* org::apache::poi::hssf::usermodel::StaticFontMetrics::loadMetrics() /* throws(IOException) */
+java::util::Properties* poi::hssf::usermodel::StaticFontMetrics::loadMetrics() /* throws(IOException) */
 {
     clinit();
     ::java::io::File* propFile = nullptr;
@@ -137,12 +137,12 @@ java::util::Properties* org::apache::poi::hssf::usermodel::StaticFontMetrics::lo
         if(propFileName != nullptr) {
             propFile = new ::java::io::File(propFileName);
             if(!npc(propFile)->exists()) {
-                npc(LOGGER_)->log(::org::apache::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"font_metrics.properties not found at path "_j)->append(npc(propFile)->getAbsolutePath())->toString())}));
+                npc(LOGGER_)->log(::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"font_metrics.properties not found at path "_j)->append(npc(propFile)->getAbsolutePath())->toString())}));
                 propFile = nullptr;
             }
         }
     } catch (::java::lang::SecurityException* e) {
-        npc(LOGGER_)->log(::org::apache::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"Can't access font.metrics.filename system property"_j), static_cast< ::java::lang::Object* >(e)}));
+        npc(LOGGER_)->log(::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"Can't access font.metrics.filename system property"_j), static_cast< ::java::lang::Object* >(e)}));
     }
     ::java::io::InputStream* metricsIn = nullptr;
     {
@@ -171,20 +171,20 @@ java::util::Properties* org::apache::poi::hssf::usermodel::StaticFontMetrics::lo
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::usermodel::StaticFontMetrics::class_()
+java::lang::Class* poi::hssf::usermodel::StaticFontMetrics::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.usermodel.StaticFontMetrics", 47);
     return c;
 }
 
-void org::apache::poi::hssf::usermodel::StaticFontMetrics::clinit()
+void poi::hssf::usermodel::StaticFontMetrics::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        LOGGER_ = ::org::apache::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(StaticFontMetrics::class_()));
+        LOGGER_ = ::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(StaticFontMetrics::class_()));
         fontDetailsMap_ = new ::java::util::HashMap();
     }
 };
@@ -194,7 +194,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::hssf::usermodel::StaticFontMetrics::getClass0()
+java::lang::Class* poi::hssf::usermodel::StaticFontMetrics::getClass0()
 {
     return class_();
 }

@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::filesystem::DocumentDescriptor
+class poi::poifs::filesystem::DocumentDescriptor
     : public virtual ::java::lang::Object
 {
 

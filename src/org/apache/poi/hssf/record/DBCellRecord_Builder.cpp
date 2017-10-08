@@ -13,25 +13,25 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::DBCellRecord_Builder::DBCellRecord_Builder(const ::default_init_tag&)
+poi::hssf::record::DBCellRecord_Builder::DBCellRecord_Builder(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::DBCellRecord_Builder::DBCellRecord_Builder() 
+poi::hssf::record::DBCellRecord_Builder::DBCellRecord_Builder() 
     : DBCellRecord_Builder(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::hssf::record::DBCellRecord_Builder::ctor()
+void poi::hssf::record::DBCellRecord_Builder::ctor()
 {
     super::ctor();
     _cellOffsets = new ::int16_tArray(int32_t(4));
 }
 
-void org::apache::poi::hssf::record::DBCellRecord_Builder::addCellOffset(int32_t cellRefOffset)
+void poi::hssf::record::DBCellRecord_Builder::addCellOffset(int32_t cellRefOffset)
 {
     if(npc(_cellOffsets)->length <= _nCellOffsets) {
         auto temp = new ::int16_tArray(_nCellOffsets * int32_t(2));
@@ -42,7 +42,7 @@ void org::apache::poi::hssf::record::DBCellRecord_Builder::addCellOffset(int32_t
     _nCellOffsets++;
 }
 
-org::apache::poi::hssf::record::DBCellRecord* org::apache::poi::hssf::record::DBCellRecord_Builder::build(int32_t rowOffset)
+poi::hssf::record::DBCellRecord* poi::hssf::record::DBCellRecord_Builder::build(int32_t rowOffset)
 {
     auto cellOffsets = new ::int16_tArray(_nCellOffsets);
     ::java::lang::System::arraycopy(_cellOffsets, 0, cellOffsets, 0, _nCellOffsets);
@@ -51,13 +51,13 @@ org::apache::poi::hssf::record::DBCellRecord* org::apache::poi::hssf::record::DB
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::DBCellRecord_Builder::class_()
+java::lang::Class* poi::hssf::record::DBCellRecord_Builder::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.DBCellRecord.Builder", 47);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::record::DBCellRecord_Builder::getClass0()
+java::lang::Class* poi::hssf::record::DBCellRecord_Builder::getClass0()
 {
     return class_();
 }

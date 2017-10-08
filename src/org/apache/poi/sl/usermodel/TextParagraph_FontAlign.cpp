@@ -25,49 +25,43 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace sl
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace sl
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::sl::usermodel::TextParagraph_FontAlign, ::java::lang::EnumArray > TextParagraph_FontAlignArray;
-                } // usermodel
-            } // sl
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::sl::usermodel::TextParagraph_FontAlign, ::java::lang::EnumArray > TextParagraph_FontAlignArray;
+        } // usermodel
+    } // sl
+} // poi
 
-org::apache::poi::sl::usermodel::TextParagraph_FontAlign::TextParagraph_FontAlign(const ::default_init_tag&)
+poi::sl::usermodel::TextParagraph_FontAlign::TextParagraph_FontAlign(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::usermodel::TextParagraph_FontAlign::TextParagraph_FontAlign(::java::lang::String* name, int ordinal)
+poi::sl::usermodel::TextParagraph_FontAlign::TextParagraph_FontAlign(::java::lang::String* name, int ordinal)
     : TextParagraph_FontAlign(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal);
 }
 
-org::apache::poi::sl::usermodel::TextParagraph_FontAlign* org::apache::poi::sl::usermodel::TextParagraph_FontAlign::AUTO = new ::org::apache::poi::sl::usermodel::TextParagraph_FontAlign(u"AUTO"_j, 0);
-org::apache::poi::sl::usermodel::TextParagraph_FontAlign* org::apache::poi::sl::usermodel::TextParagraph_FontAlign::TOP = new ::org::apache::poi::sl::usermodel::TextParagraph_FontAlign(u"TOP"_j, 1);
-org::apache::poi::sl::usermodel::TextParagraph_FontAlign* org::apache::poi::sl::usermodel::TextParagraph_FontAlign::CENTER = new ::org::apache::poi::sl::usermodel::TextParagraph_FontAlign(u"CENTER"_j, 2);
-org::apache::poi::sl::usermodel::TextParagraph_FontAlign* org::apache::poi::sl::usermodel::TextParagraph_FontAlign::BASELINE = new ::org::apache::poi::sl::usermodel::TextParagraph_FontAlign(u"BASELINE"_j, 3);
-org::apache::poi::sl::usermodel::TextParagraph_FontAlign* org::apache::poi::sl::usermodel::TextParagraph_FontAlign::BOTTOM = new ::org::apache::poi::sl::usermodel::TextParagraph_FontAlign(u"BOTTOM"_j, 4);
+poi::sl::usermodel::TextParagraph_FontAlign* poi::sl::usermodel::TextParagraph_FontAlign::AUTO = new ::poi::sl::usermodel::TextParagraph_FontAlign(u"AUTO"_j, 0);
+poi::sl::usermodel::TextParagraph_FontAlign* poi::sl::usermodel::TextParagraph_FontAlign::TOP = new ::poi::sl::usermodel::TextParagraph_FontAlign(u"TOP"_j, 1);
+poi::sl::usermodel::TextParagraph_FontAlign* poi::sl::usermodel::TextParagraph_FontAlign::CENTER = new ::poi::sl::usermodel::TextParagraph_FontAlign(u"CENTER"_j, 2);
+poi::sl::usermodel::TextParagraph_FontAlign* poi::sl::usermodel::TextParagraph_FontAlign::BASELINE = new ::poi::sl::usermodel::TextParagraph_FontAlign(u"BASELINE"_j, 3);
+poi::sl::usermodel::TextParagraph_FontAlign* poi::sl::usermodel::TextParagraph_FontAlign::BOTTOM = new ::poi::sl::usermodel::TextParagraph_FontAlign(u"BOTTOM"_j, 4);
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::usermodel::TextParagraph_FontAlign::class_()
+java::lang::Class* poi::sl::usermodel::TextParagraph_FontAlign::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.usermodel.TextParagraph.FontAlign", 51);
     return c;
 }
 
-org::apache::poi::sl::usermodel::TextParagraph_FontAlign* org::apache::poi::sl::usermodel::TextParagraph_FontAlign::valueOf(::java::lang::String* a0)
+poi::sl::usermodel::TextParagraph_FontAlign* poi::sl::usermodel::TextParagraph_FontAlign::valueOf(::java::lang::String* a0)
 {
     if(AUTO->toString()->equals(a0))
         return AUTO;
@@ -82,9 +76,9 @@ org::apache::poi::sl::usermodel::TextParagraph_FontAlign* org::apache::poi::sl::
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::sl::usermodel::TextParagraph_FontAlignArray* org::apache::poi::sl::usermodel::TextParagraph_FontAlign::values()
+poi::sl::usermodel::TextParagraph_FontAlignArray* poi::sl::usermodel::TextParagraph_FontAlign::values()
 {
-    return new org::apache::poi::sl::usermodel::TextParagraph_FontAlignArray({
+    return new poi::sl::usermodel::TextParagraph_FontAlignArray({
         AUTO,
         BASELINE,
         BOTTOM,
@@ -93,7 +87,7 @@ org::apache::poi::sl::usermodel::TextParagraph_FontAlignArray* org::apache::poi:
     });
 }
 
-java::lang::Class* org::apache::poi::sl::usermodel::TextParagraph_FontAlign::getClass0()
+java::lang::Class* poi::sl::usermodel::TextParagraph_FontAlign::getClass0()
 {
     return class_();
 }

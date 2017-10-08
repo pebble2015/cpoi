@@ -26,35 +26,29 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::FormulaRenderer
+class poi::ss::formula::FormulaRenderer
     : public virtual ::java::lang::Object
 {
 
 public:
     typedef ::java::lang::Object super;
-    static ::java::lang::String* toFormulaString(FormulaRenderingWorkbook* book, ::org::apache::poi::ss::formula::ptg::PtgArray* ptgs);
+    static ::java::lang::String* toFormulaString(FormulaRenderingWorkbook* book, ::poi::ss::formula::ptg::PtgArray* ptgs);
 
 private:
     static ::java::lang::StringArray* getOperands(::java::util::Stack* stack, int32_t nOperands);

@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::ptg::OperandPtg
+class poi::ss::formula::ptg::OperandPtg
     : public Ptg
     , public virtual ::java::lang::Cloneable
 {

@@ -25,24 +25,24 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::eval::RefListEval::RefListEval(const ::default_init_tag&)
+poi::ss::formula::eval::RefListEval::RefListEval(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::eval::RefListEval::RefListEval(ValueEval* v1, ValueEval* v2) 
+poi::ss::formula::eval::RefListEval::RefListEval(ValueEval* v1, ValueEval* v2) 
     : RefListEval(*static_cast< ::default_init_tag* >(0))
 {
     ctor(v1,v2);
 }
 
-void org::apache::poi::ss::formula::eval::RefListEval::init()
+void poi::ss::formula::eval::RefListEval::init()
 {
     list = new ::java::util::ArrayList();
 }
 
-void org::apache::poi::ss::formula::eval::RefListEval::ctor(ValueEval* v1, ValueEval* v2)
+void poi::ss::formula::eval::RefListEval::ctor(ValueEval* v1, ValueEval* v2)
 {
     super::ctor();
     init();
@@ -50,7 +50,7 @@ void org::apache::poi::ss::formula::eval::RefListEval::ctor(ValueEval* v1, Value
     add(v2);
 }
 
-void org::apache::poi::ss::formula::eval::RefListEval::add(ValueEval* v)
+void poi::ss::formula::eval::RefListEval::add(ValueEval* v)
 {
     if(dynamic_cast< RefListEval* >(v) != nullptr) {
         npc(list)->addAll(static_cast< ::java::util::Collection* >(java_cast< ::java::util::List* >(npc((java_cast< RefListEval* >(v)))->list)));
@@ -59,20 +59,20 @@ void org::apache::poi::ss::formula::eval::RefListEval::add(ValueEval* v)
     }
 }
 
-java::util::List* org::apache::poi::ss::formula::eval::RefListEval::getList()
+java::util::List* poi::ss::formula::eval::RefListEval::getList()
 {
     return list;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::eval::RefListEval::class_()
+java::lang::Class* poi::ss::formula::eval::RefListEval::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.eval.RefListEval", 42);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::eval::RefListEval::getClass0()
+java::lang::Class* poi::ss::formula::eval::RefListEval::getClass0()
 {
     return class_();
 }

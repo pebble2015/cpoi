@@ -12,22 +12,22 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::chart::LegendRecord final
-    : public ::org::apache::poi::hssf::record::StandardRecord
+class poi::hssf::record::chart::LegendRecord final
+    : public ::poi::hssf::record::StandardRecord
     , public ::java::lang::Cloneable
 {
 
 public:
-    typedef ::org::apache::poi::hssf::record::StandardRecord super;
+    typedef ::poi::hssf::record::StandardRecord super;
     static constexpr int16_t sid { int16_t(4117) };
 
 private:
-    static ::org::apache::poi::util::BitField* autoPosition_;
-    static ::org::apache::poi::util::BitField* autoSeries_;
-    static ::org::apache::poi::util::BitField* autoXPositioning_;
-    static ::org::apache::poi::util::BitField* autoYPositioning_;
-    static ::org::apache::poi::util::BitField* vertical_;
-    static ::org::apache::poi::util::BitField* dataTable_;
+    static ::poi::util::BitField* autoPosition_;
+    static ::poi::util::BitField* autoSeries_;
+    static ::poi::util::BitField* autoXPositioning_;
+    static ::poi::util::BitField* autoYPositioning_;
+    static ::poi::util::BitField* vertical_;
+    static ::poi::util::BitField* dataTable_;
     int32_t field_1_xAxisUpperLeft {  };
     int32_t field_2_yAxisUpperLeft {  };
     int32_t field_3_xSize {  };
@@ -54,11 +54,11 @@ private:
     int16_t field_7_options {  };
 protected:
     void ctor();
-    void ctor(::org::apache::poi::hssf::record::RecordInputStream* in);
+    void ctor(::poi::hssf::record::RecordInputStream* in);
 
 public:
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;
@@ -95,7 +95,7 @@ public:
 
     // Generated
     LegendRecord();
-    LegendRecord(::org::apache::poi::hssf::record::RecordInputStream* in);
+    LegendRecord(::poi::hssf::record::RecordInputStream* in);
 protected:
     LegendRecord(const ::default_init_tag&);
 
@@ -107,11 +107,11 @@ public:
     ::int8_tArray* serialize();
 
 private:
-    static ::org::apache::poi::util::BitField*& autoPosition();
-    static ::org::apache::poi::util::BitField*& autoSeries();
-    static ::org::apache::poi::util::BitField*& autoXPositioning();
-    static ::org::apache::poi::util::BitField*& autoYPositioning();
-    static ::org::apache::poi::util::BitField*& vertical();
-    static ::org::apache::poi::util::BitField*& dataTable();
+    static ::poi::util::BitField*& autoPosition();
+    static ::poi::util::BitField*& autoSeries();
+    static ::poi::util::BitField*& autoXPositioning();
+    static ::poi::util::BitField*& autoYPositioning();
+    static ::poi::util::BitField*& vertical();
+    static ::poi::util::BitField*& dataTable();
     virtual ::java::lang::Class* getClass0();
 };

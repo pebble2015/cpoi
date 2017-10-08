@@ -33,25 +33,25 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::RecordFactory_ReflectionMethodRecordCreator::RecordFactory_ReflectionMethodRecordCreator(const ::default_init_tag&)
+poi::hssf::record::RecordFactory_ReflectionMethodRecordCreator::RecordFactory_ReflectionMethodRecordCreator(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::RecordFactory_ReflectionMethodRecordCreator::RecordFactory_ReflectionMethodRecordCreator(::java::lang::reflect::Method* m) 
+poi::hssf::record::RecordFactory_ReflectionMethodRecordCreator::RecordFactory_ReflectionMethodRecordCreator(::java::lang::reflect::Method* m) 
     : RecordFactory_ReflectionMethodRecordCreator(*static_cast< ::default_init_tag* >(0))
 {
     ctor(m);
 }
 
-void org::apache::poi::hssf::record::RecordFactory_ReflectionMethodRecordCreator::ctor(::java::lang::reflect::Method* m)
+void poi::hssf::record::RecordFactory_ReflectionMethodRecordCreator::ctor(::java::lang::reflect::Method* m)
 {
     super::ctor();
     _m = m;
 }
 
-org::apache::poi::hssf::record::Record* org::apache::poi::hssf::record::RecordFactory_ReflectionMethodRecordCreator::create(RecordInputStream* in)
+poi::hssf::record::Record* poi::hssf::record::RecordFactory_ReflectionMethodRecordCreator::create(RecordInputStream* in)
 {
     auto args = (new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(in)}));
     try {
@@ -61,24 +61,24 @@ org::apache::poi::hssf::record::Record* org::apache::poi::hssf::record::RecordFa
     } catch (::java::lang::IllegalAccessException* e) {
         throw new ::java::lang::RuntimeException(static_cast< ::java::lang::Throwable* >(e));
     } catch (::java::lang::reflect::InvocationTargetException* e) {
-        throw new ::org::apache::poi::util::RecordFormatException(u"Unable to construct record instance"_j, npc(e)->getTargetException());
+        throw new ::poi::util::RecordFormatException(u"Unable to construct record instance"_j, npc(e)->getTargetException());
     }
 }
 
-java::lang::Class* org::apache::poi::hssf::record::RecordFactory_ReflectionMethodRecordCreator::getRecordClass()
+java::lang::Class* poi::hssf::record::RecordFactory_ReflectionMethodRecordCreator::getRecordClass()
 {
     return java_cast< ::java::lang::Class* >(npc(_m)->getDeclaringClass());
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::RecordFactory_ReflectionMethodRecordCreator::class_()
+java::lang::Class* poi::hssf::record::RecordFactory_ReflectionMethodRecordCreator::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.RecordFactory.ReflectionMethodRecordCreator", 70);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::record::RecordFactory_ReflectionMethodRecordCreator::getClass0()
+java::lang::Class* poi::hssf::record::RecordFactory_ReflectionMethodRecordCreator::getClass0()
 {
     return class_();
 }

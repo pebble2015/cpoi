@@ -12,24 +12,18 @@
 #include <java/lang/Object.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hpsf
     {
-        namespace poi
-        {
-            namespace hpsf
-            {
-typedef ::SubArray< ::org::apache::poi::hpsf::ClassID, ::java::lang::ObjectArray > ClassIDArray;
-typedef ::SubArray< ::org::apache::poi::hpsf::Property, ::java::lang::ObjectArray > PropertyArray;
-            } // hpsf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hpsf::ClassID, ::java::lang::ObjectArray > ClassIDArray;
+typedef ::SubArray< ::poi::hpsf::Property, ::java::lang::ObjectArray > PropertyArray;
+    } // hpsf
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hpsf::PropertySet
+class poi::hpsf::PropertySet
     : public virtual ::java::lang::Object
 {
 
@@ -70,7 +64,7 @@ public:
     virtual ::java::util::List* getSections();
     virtual void addSection(Section* section);
     virtual void clearSections();
-    virtual ::org::apache::poi::hpsf::wellknown::PropertyIDMap* getPropertySetIDMap();
+    virtual ::poi::hpsf::wellknown::PropertyIDMap* getPropertySetIDMap();
     static bool isPropertySetStream(::java::io::InputStream* stream) /* throws(MarkUnsupportedException, IOException) */;
     static bool isPropertySetStream(::int8_tArray* src, int32_t offset, int32_t length);
 
@@ -79,7 +73,7 @@ private:
 
 public:
     virtual void write(::java::io::OutputStream* out) /* throws(WritingNotSupportedException, IOException) */;
-    virtual void write(::org::apache::poi::poifs::filesystem::DirectoryEntry* dir, ::java::lang::String* name) /* throws(WritingNotSupportedException, IOException) */;
+    virtual void write(::poi::poifs::filesystem::DirectoryEntry* dir, ::java::lang::String* name) /* throws(WritingNotSupportedException, IOException) */;
     virtual ::java::io::InputStream* toInputStream() /* throws(IOException, WritingNotSupportedException) */;
 
 public: /* protected */

@@ -7,7 +7,7 @@
 #include <org/apache/poi/ss/formula/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::formula::ExternSheetReferenceToken
+struct poi::ss::formula::ExternSheetReferenceToken
     : public virtual ::java::lang::Object
 {
     virtual int32_t getExternSheetIndex() = 0;

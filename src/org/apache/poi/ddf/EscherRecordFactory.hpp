@@ -6,7 +6,7 @@
 #include <org/apache/poi/ddf/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ddf::EscherRecordFactory
+struct poi::ddf::EscherRecordFactory
     : public virtual ::java::lang::Object
 {
     virtual EscherRecord* createRecord(::int8_tArray* data, int32_t offset) = 0;

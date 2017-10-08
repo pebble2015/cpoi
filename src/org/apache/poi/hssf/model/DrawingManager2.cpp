@@ -29,39 +29,39 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::model::DrawingManager2::DrawingManager2(const ::default_init_tag&)
+poi::hssf::model::DrawingManager2::DrawingManager2(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::model::DrawingManager2::DrawingManager2(::org::apache::poi::ddf::EscherDggRecord* dgg) 
+poi::hssf::model::DrawingManager2::DrawingManager2(::poi::ddf::EscherDggRecord* dgg) 
     : DrawingManager2(*static_cast< ::default_init_tag* >(0))
 {
     ctor(dgg);
 }
 
-void org::apache::poi::hssf::model::DrawingManager2::init()
+void poi::hssf::model::DrawingManager2::init()
 {
     drawingGroups = new ::java::util::ArrayList();
 }
 
-void org::apache::poi::hssf::model::DrawingManager2::ctor(::org::apache::poi::ddf::EscherDggRecord* dgg)
+void poi::hssf::model::DrawingManager2::ctor(::poi::ddf::EscherDggRecord* dgg)
 {
     super::ctor();
     init();
     this->dgg = dgg;
 }
 
-void org::apache::poi::hssf::model::DrawingManager2::clearDrawingGroups()
+void poi::hssf::model::DrawingManager2::clearDrawingGroups()
 {
     npc(drawingGroups)->clear();
 }
 
-org::apache::poi::ddf::EscherDgRecord* org::apache::poi::hssf::model::DrawingManager2::createDgRecord()
+poi::ddf::EscherDgRecord* poi::hssf::model::DrawingManager2::createDgRecord()
 {
-    auto dg = new ::org::apache::poi::ddf::EscherDgRecord();
-    npc(dg)->setRecordId(::org::apache::poi::ddf::EscherDgRecord::RECORD_ID);
+    auto dg = new ::poi::ddf::EscherDgRecord();
+    npc(dg)->setRecordId(::poi::ddf::EscherDgRecord::RECORD_ID);
     auto dgId = findNewDrawingGroupId();
     npc(dg)->setOptions(static_cast< int16_t >((dgId << int32_t(4))));
     npc(dg)->setNumShapes(0);
@@ -72,10 +72,10 @@ org::apache::poi::ddf::EscherDgRecord* org::apache::poi::hssf::model::DrawingMan
     return dg;
 }
 
-int32_t org::apache::poi::hssf::model::DrawingManager2::allocateShapeId(int16_t drawingGroupId)
+int32_t poi::hssf::model::DrawingManager2::allocateShapeId(int16_t drawingGroupId)
 {
     for (auto _i = npc(drawingGroups)->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::ddf::EscherDgRecord* dg = java_cast< ::org::apache::poi::ddf::EscherDgRecord* >(_i->next());
+        ::poi::ddf::EscherDgRecord* dg = java_cast< ::poi::ddf::EscherDgRecord* >(_i->next());
         {
             if(npc(dg)->getDrawingGroupId() == drawingGroupId) {
                 return allocateShapeId(dg);
@@ -86,40 +86,40 @@ int32_t org::apache::poi::hssf::model::DrawingManager2::allocateShapeId(int16_t 
         ->append(u" doesn't exist."_j)->toString());
 }
 
-int32_t org::apache::poi::hssf::model::DrawingManager2::allocateShapeId(int16_t drawingGroupId, ::org::apache::poi::ddf::EscherDgRecord* dg)
+int32_t poi::hssf::model::DrawingManager2::allocateShapeId(int16_t drawingGroupId, ::poi::ddf::EscherDgRecord* dg)
 {
     return allocateShapeId(dg);
 }
 
-int32_t org::apache::poi::hssf::model::DrawingManager2::allocateShapeId(::org::apache::poi::ddf::EscherDgRecord* dg)
+int32_t poi::hssf::model::DrawingManager2::allocateShapeId(::poi::ddf::EscherDgRecord* dg)
 {
     return npc(dgg)->allocateShapeId(dg, true);
 }
 
-int16_t org::apache::poi::hssf::model::DrawingManager2::findNewDrawingGroupId()
+int16_t poi::hssf::model::DrawingManager2::findNewDrawingGroupId()
 {
     return npc(dgg)->findNewDrawingGroupId();
 }
 
-org::apache::poi::ddf::EscherDggRecord* org::apache::poi::hssf::model::DrawingManager2::getDgg()
+poi::ddf::EscherDggRecord* poi::hssf::model::DrawingManager2::getDgg()
 {
     return dgg;
 }
 
-void org::apache::poi::hssf::model::DrawingManager2::incrementDrawingsSaved()
+void poi::hssf::model::DrawingManager2::incrementDrawingsSaved()
 {
     npc(dgg)->setDrawingsSaved(npc(dgg)->getDrawingsSaved() + int32_t(1));
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::model::DrawingManager2::class_()
+java::lang::Class* poi::hssf::model::DrawingManager2::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.model.DrawingManager2", 41);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::model::DrawingManager2::getClass0()
+java::lang::Class* poi::hssf::model::DrawingManager2::getClass0()
 {
     return class_();
 }

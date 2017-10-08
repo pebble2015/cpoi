@@ -48,178 +48,178 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hpsf::Variant::Variant(const ::default_init_tag&)
+poi::hpsf::Variant::Variant(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hpsf::Variant::Variant()
+poi::hpsf::Variant::Variant()
     : Variant(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_EMPTY;
+constexpr int32_t poi::hpsf::Variant::VT_EMPTY;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_NULL;
+constexpr int32_t poi::hpsf::Variant::VT_NULL;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_I2;
+constexpr int32_t poi::hpsf::Variant::VT_I2;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_I4;
+constexpr int32_t poi::hpsf::Variant::VT_I4;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_R4;
+constexpr int32_t poi::hpsf::Variant::VT_R4;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_R8;
+constexpr int32_t poi::hpsf::Variant::VT_R8;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_CY;
+constexpr int32_t poi::hpsf::Variant::VT_CY;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_DATE;
+constexpr int32_t poi::hpsf::Variant::VT_DATE;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_BSTR;
+constexpr int32_t poi::hpsf::Variant::VT_BSTR;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_DISPATCH;
+constexpr int32_t poi::hpsf::Variant::VT_DISPATCH;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_ERROR;
+constexpr int32_t poi::hpsf::Variant::VT_ERROR;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_BOOL;
+constexpr int32_t poi::hpsf::Variant::VT_BOOL;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_VARIANT;
+constexpr int32_t poi::hpsf::Variant::VT_VARIANT;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_UNKNOWN;
+constexpr int32_t poi::hpsf::Variant::VT_UNKNOWN;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_DECIMAL;
+constexpr int32_t poi::hpsf::Variant::VT_DECIMAL;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_I1;
+constexpr int32_t poi::hpsf::Variant::VT_I1;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_UI1;
+constexpr int32_t poi::hpsf::Variant::VT_UI1;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_UI2;
+constexpr int32_t poi::hpsf::Variant::VT_UI2;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_UI4;
+constexpr int32_t poi::hpsf::Variant::VT_UI4;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_I8;
+constexpr int32_t poi::hpsf::Variant::VT_I8;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_UI8;
+constexpr int32_t poi::hpsf::Variant::VT_UI8;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_INT;
+constexpr int32_t poi::hpsf::Variant::VT_INT;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_UINT;
+constexpr int32_t poi::hpsf::Variant::VT_UINT;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_VOID;
+constexpr int32_t poi::hpsf::Variant::VT_VOID;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_HRESULT;
+constexpr int32_t poi::hpsf::Variant::VT_HRESULT;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_PTR;
+constexpr int32_t poi::hpsf::Variant::VT_PTR;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_SAFEARRAY;
+constexpr int32_t poi::hpsf::Variant::VT_SAFEARRAY;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_CARRAY;
+constexpr int32_t poi::hpsf::Variant::VT_CARRAY;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_USERDEFINED;
+constexpr int32_t poi::hpsf::Variant::VT_USERDEFINED;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_LPSTR;
+constexpr int32_t poi::hpsf::Variant::VT_LPSTR;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_LPWSTR;
+constexpr int32_t poi::hpsf::Variant::VT_LPWSTR;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_FILETIME;
+constexpr int32_t poi::hpsf::Variant::VT_FILETIME;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_BLOB;
+constexpr int32_t poi::hpsf::Variant::VT_BLOB;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_STREAM;
+constexpr int32_t poi::hpsf::Variant::VT_STREAM;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_STORAGE;
+constexpr int32_t poi::hpsf::Variant::VT_STORAGE;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_STREAMED_OBJECT;
+constexpr int32_t poi::hpsf::Variant::VT_STREAMED_OBJECT;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_STORED_OBJECT;
+constexpr int32_t poi::hpsf::Variant::VT_STORED_OBJECT;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_BLOB_OBJECT;
+constexpr int32_t poi::hpsf::Variant::VT_BLOB_OBJECT;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_CF;
+constexpr int32_t poi::hpsf::Variant::VT_CF;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_CLSID;
+constexpr int32_t poi::hpsf::Variant::VT_CLSID;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_VERSIONED_STREAM;
+constexpr int32_t poi::hpsf::Variant::VT_VERSIONED_STREAM;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_VECTOR;
+constexpr int32_t poi::hpsf::Variant::VT_VECTOR;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_ARRAY;
+constexpr int32_t poi::hpsf::Variant::VT_ARRAY;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_BYREF;
+constexpr int32_t poi::hpsf::Variant::VT_BYREF;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_RESERVED;
+constexpr int32_t poi::hpsf::Variant::VT_RESERVED;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_ILLEGAL;
+constexpr int32_t poi::hpsf::Variant::VT_ILLEGAL;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_ILLEGALMASKED;
+constexpr int32_t poi::hpsf::Variant::VT_ILLEGALMASKED;
 
-constexpr int32_t org::apache::poi::hpsf::Variant::VT_TYPEMASK;
+constexpr int32_t poi::hpsf::Variant::VT_TYPEMASK;
 
-java::util::Map*& org::apache::poi::hpsf::Variant::numberToName()
+java::util::Map*& poi::hpsf::Variant::numberToName()
 {
     clinit();
     return numberToName_;
 }
-java::util::Map* org::apache::poi::hpsf::Variant::numberToName_;
+java::util::Map* poi::hpsf::Variant::numberToName_;
 
-java::util::Map*& org::apache::poi::hpsf::Variant::numberToLength()
+java::util::Map*& poi::hpsf::Variant::numberToLength()
 {
     clinit();
     return numberToLength_;
 }
-java::util::Map* org::apache::poi::hpsf::Variant::numberToLength_;
+java::util::Map* poi::hpsf::Variant::numberToLength_;
 
-java::lang::Integer*& org::apache::poi::hpsf::Variant::LENGTH_UNKNOWN()
+java::lang::Integer*& poi::hpsf::Variant::LENGTH_UNKNOWN()
 {
     clinit();
     return LENGTH_UNKNOWN_;
 }
-java::lang::Integer* org::apache::poi::hpsf::Variant::LENGTH_UNKNOWN_;
+java::lang::Integer* poi::hpsf::Variant::LENGTH_UNKNOWN_;
 
-java::lang::Integer*& org::apache::poi::hpsf::Variant::LENGTH_VARIABLE()
+java::lang::Integer*& poi::hpsf::Variant::LENGTH_VARIABLE()
 {
     clinit();
     return LENGTH_VARIABLE_;
 }
-java::lang::Integer* org::apache::poi::hpsf::Variant::LENGTH_VARIABLE_;
+java::lang::Integer* poi::hpsf::Variant::LENGTH_VARIABLE_;
 
-java::lang::Integer*& org::apache::poi::hpsf::Variant::LENGTH_0()
+java::lang::Integer*& poi::hpsf::Variant::LENGTH_0()
 {
     clinit();
     return LENGTH_0_;
 }
-java::lang::Integer* org::apache::poi::hpsf::Variant::LENGTH_0_;
+java::lang::Integer* poi::hpsf::Variant::LENGTH_0_;
 
-java::lang::Integer*& org::apache::poi::hpsf::Variant::LENGTH_2()
+java::lang::Integer*& poi::hpsf::Variant::LENGTH_2()
 {
     clinit();
     return LENGTH_2_;
 }
-java::lang::Integer* org::apache::poi::hpsf::Variant::LENGTH_2_;
+java::lang::Integer* poi::hpsf::Variant::LENGTH_2_;
 
-java::lang::Integer*& org::apache::poi::hpsf::Variant::LENGTH_4()
+java::lang::Integer*& poi::hpsf::Variant::LENGTH_4()
 {
     clinit();
     return LENGTH_4_;
 }
-java::lang::Integer* org::apache::poi::hpsf::Variant::LENGTH_4_;
+java::lang::Integer* poi::hpsf::Variant::LENGTH_4_;
 
-java::lang::Integer*& org::apache::poi::hpsf::Variant::LENGTH_8()
+java::lang::Integer*& poi::hpsf::Variant::LENGTH_8()
 {
     clinit();
     return LENGTH_8_;
 }
-java::lang::Integer* org::apache::poi::hpsf::Variant::LENGTH_8_;
+java::lang::Integer* poi::hpsf::Variant::LENGTH_8_;
 
-java::lang::ObjectArrayArray*& org::apache::poi::hpsf::Variant::NUMBER_TO_NAME_LIST()
+java::lang::ObjectArrayArray*& poi::hpsf::Variant::NUMBER_TO_NAME_LIST()
 {
     clinit();
     return NUMBER_TO_NAME_LIST_;
 }
-java::lang::ObjectArrayArray* org::apache::poi::hpsf::Variant::NUMBER_TO_NAME_LIST_;
+java::lang::ObjectArrayArray* poi::hpsf::Variant::NUMBER_TO_NAME_LIST_;
 
-java::lang::String* org::apache::poi::hpsf::Variant::getVariantName(int64_t variantType)
+java::lang::String* poi::hpsf::Variant::getVariantName(int64_t variantType)
 {
     clinit();
     auto vt = variantType;
@@ -238,7 +238,7 @@ java::lang::String* org::apache::poi::hpsf::Variant::getVariantName(int64_t vari
     return (name != nullptr && !npc(u""_j)->equals(static_cast< ::java::lang::Object* >(name))) ? name : u"unknown variant type"_j;
 }
 
-int32_t org::apache::poi::hpsf::Variant::getVariantLength(int64_t variantType)
+int32_t poi::hpsf::Variant::getVariantLength(int64_t variantType)
 {
     clinit();
     auto const length = java_cast< ::java::lang::Integer* >(npc(numberToLength_)->get(::java::lang::Long::valueOf(variantType)));
@@ -247,13 +247,13 @@ int32_t org::apache::poi::hpsf::Variant::getVariantLength(int64_t variantType)
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hpsf::Variant::class_()
+java::lang::Class* poi::hpsf::Variant::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hpsf.Variant", 27);
     return c;
 }
 
-void org::apache::poi::hpsf::Variant::clinit()
+void poi::hpsf::Variant::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -486,7 +486,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::hpsf::Variant::getClass0()
+java::lang::Class* poi::hpsf::Variant::getClass0()
 {
     return class_();
 }

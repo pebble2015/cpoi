@@ -9,7 +9,7 @@
 #include <org/apache/poi/ss/util/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::usermodel::Cell
+struct poi::ss::usermodel::Cell
     : public virtual ::java::lang::Object
 {
     static constexpr int32_t CELL_TYPE_NUMERIC { int32_t(0) };
@@ -46,14 +46,14 @@ struct org::apache::poi::ss::usermodel::Cell
     virtual void setCellStyle(CellStyle* style) = 0;
     virtual CellStyle* getCellStyle() = 0;
     virtual void setAsActiveCell() = 0;
-    virtual ::org::apache::poi::ss::util::CellAddress* getAddress() = 0;
+    virtual ::poi::ss::util::CellAddress* getAddress() = 0;
     virtual void setCellComment(Comment* comment) = 0;
     virtual Comment* getCellComment() = 0;
     virtual void removeCellComment() = 0;
     virtual Hyperlink* getHyperlink() = 0;
     virtual void setHyperlink(Hyperlink* link) = 0;
     virtual void removeHyperlink() = 0;
-    virtual ::org::apache::poi::ss::util::CellRangeAddress* getArrayFormulaRange() = 0;
+    virtual ::poi::ss::util::CellRangeAddress* getArrayFormulaRange() = 0;
     virtual bool isPartOfArrayFormulaGroup() = 0;
 
     // Generated

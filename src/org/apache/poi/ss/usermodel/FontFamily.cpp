@@ -26,22 +26,16 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace ss
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::FontFamily, ::java::lang::EnumArray > FontFamilyArray;
-                } // usermodel
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::usermodel::FontFamily, ::java::lang::EnumArray > FontFamilyArray;
+        } // usermodel
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -50,43 +44,43 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::usermodel::FontFamily::FontFamily(const ::default_init_tag&)
+poi::ss::usermodel::FontFamily::FontFamily(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::usermodel::FontFamily::FontFamily(::java::lang::String* name, int ordinal, int32_t value) 
+poi::ss::usermodel::FontFamily::FontFamily(::java::lang::String* name, int ordinal, int32_t value) 
     : FontFamily(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal, value);
 }
 
-org::apache::poi::ss::usermodel::FontFamily* org::apache::poi::ss::usermodel::FontFamily::NOT_APPLICABLE = new ::org::apache::poi::ss::usermodel::FontFamily(u"NOT_APPLICABLE"_j, 0, int32_t(0));
-org::apache::poi::ss::usermodel::FontFamily* org::apache::poi::ss::usermodel::FontFamily::ROMAN = new ::org::apache::poi::ss::usermodel::FontFamily(u"ROMAN"_j, 1, int32_t(1));
-org::apache::poi::ss::usermodel::FontFamily* org::apache::poi::ss::usermodel::FontFamily::SWISS = new ::org::apache::poi::ss::usermodel::FontFamily(u"SWISS"_j, 2, int32_t(2));
-org::apache::poi::ss::usermodel::FontFamily* org::apache::poi::ss::usermodel::FontFamily::MODERN = new ::org::apache::poi::ss::usermodel::FontFamily(u"MODERN"_j, 3, int32_t(3));
-org::apache::poi::ss::usermodel::FontFamily* org::apache::poi::ss::usermodel::FontFamily::SCRIPT = new ::org::apache::poi::ss::usermodel::FontFamily(u"SCRIPT"_j, 4, int32_t(4));
-org::apache::poi::ss::usermodel::FontFamily* org::apache::poi::ss::usermodel::FontFamily::DECORATIVE = new ::org::apache::poi::ss::usermodel::FontFamily(u"DECORATIVE"_j, 5, int32_t(5));
-void org::apache::poi::ss::usermodel::FontFamily::ctor(::java::lang::String* name, int ordinal, int32_t value)
+poi::ss::usermodel::FontFamily* poi::ss::usermodel::FontFamily::NOT_APPLICABLE = new ::poi::ss::usermodel::FontFamily(u"NOT_APPLICABLE"_j, 0, int32_t(0));
+poi::ss::usermodel::FontFamily* poi::ss::usermodel::FontFamily::ROMAN = new ::poi::ss::usermodel::FontFamily(u"ROMAN"_j, 1, int32_t(1));
+poi::ss::usermodel::FontFamily* poi::ss::usermodel::FontFamily::SWISS = new ::poi::ss::usermodel::FontFamily(u"SWISS"_j, 2, int32_t(2));
+poi::ss::usermodel::FontFamily* poi::ss::usermodel::FontFamily::MODERN = new ::poi::ss::usermodel::FontFamily(u"MODERN"_j, 3, int32_t(3));
+poi::ss::usermodel::FontFamily* poi::ss::usermodel::FontFamily::SCRIPT = new ::poi::ss::usermodel::FontFamily(u"SCRIPT"_j, 4, int32_t(4));
+poi::ss::usermodel::FontFamily* poi::ss::usermodel::FontFamily::DECORATIVE = new ::poi::ss::usermodel::FontFamily(u"DECORATIVE"_j, 5, int32_t(5));
+void poi::ss::usermodel::FontFamily::ctor(::java::lang::String* name, int ordinal, int32_t value)
 {
     super::ctor(name, ordinal);
     family = value;
 }
 
-int32_t org::apache::poi::ss::usermodel::FontFamily::getValue()
+int32_t poi::ss::usermodel::FontFamily::getValue()
 {
     return family;
 }
 
-org::apache::poi::ss::usermodel::FontFamilyArray*& org::apache::poi::ss::usermodel::FontFamily::_table()
+poi::ss::usermodel::FontFamilyArray*& poi::ss::usermodel::FontFamily::_table()
 {
     clinit();
     return _table_;
 }
-org::apache::poi::ss::usermodel::FontFamilyArray* org::apache::poi::ss::usermodel::FontFamily::_table_;
+poi::ss::usermodel::FontFamilyArray* poi::ss::usermodel::FontFamily::_table_;
 
-org::apache::poi::ss::usermodel::FontFamily* org::apache::poi::ss::usermodel::FontFamily::valueOf(int32_t family)
+poi::ss::usermodel::FontFamily* poi::ss::usermodel::FontFamily::valueOf(int32_t family)
 {
     clinit();
     return (*_table_)[family];
@@ -94,13 +88,13 @@ org::apache::poi::ss::usermodel::FontFamily* org::apache::poi::ss::usermodel::Fo
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::usermodel::FontFamily::class_()
+java::lang::Class* poi::ss::usermodel::FontFamily::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.usermodel.FontFamily", 38);
     return c;
 }
 
-void org::apache::poi::ss::usermodel::FontFamily::clinit()
+void poi::ss::usermodel::FontFamily::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -121,12 +115,12 @@ struct clinit_ {
     }
 }
 
-java::lang::Enum* org::apache::poi::ss::usermodel::FontFamily::valueOf(::java::lang::Class* enumType, ::java::lang::String* name)
+java::lang::Enum* poi::ss::usermodel::FontFamily::valueOf(::java::lang::Class* enumType, ::java::lang::String* name)
 {
     return super::valueOf(enumType, name);
 }
 
-org::apache::poi::ss::usermodel::FontFamily* org::apache::poi::ss::usermodel::FontFamily::valueOf(::java::lang::String* a0)
+poi::ss::usermodel::FontFamily* poi::ss::usermodel::FontFamily::valueOf(::java::lang::String* a0)
 {
     if(DECORATIVE->toString()->equals(a0))
         return DECORATIVE;
@@ -143,9 +137,9 @@ org::apache::poi::ss::usermodel::FontFamily* org::apache::poi::ss::usermodel::Fo
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::ss::usermodel::FontFamilyArray* org::apache::poi::ss::usermodel::FontFamily::values()
+poi::ss::usermodel::FontFamilyArray* poi::ss::usermodel::FontFamily::values()
 {
-    return new org::apache::poi::ss::usermodel::FontFamilyArray({
+    return new poi::ss::usermodel::FontFamilyArray({
         DECORATIVE,
         MODERN,
         NOT_APPLICABLE,
@@ -155,7 +149,7 @@ org::apache::poi::ss::usermodel::FontFamilyArray* org::apache::poi::ss::usermode
     });
 }
 
-java::lang::Class* org::apache::poi::ss::usermodel::FontFamily::getClass0()
+java::lang::Class* poi::ss::usermodel::FontFamily::getClass0()
 {
     return class_();
 }

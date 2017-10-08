@@ -32,32 +32,32 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::sl::draw::DrawTextFragment::DrawTextFragment(const ::default_init_tag&)
+poi::sl::draw::DrawTextFragment::DrawTextFragment(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::draw::DrawTextFragment::DrawTextFragment(::java::awt::font::TextLayout* layout, ::java::text::AttributedString* str) 
+poi::sl::draw::DrawTextFragment::DrawTextFragment(::java::awt::font::TextLayout* layout, ::java::text::AttributedString* str) 
     : DrawTextFragment(*static_cast< ::default_init_tag* >(0))
 {
     ctor(layout,str);
 }
 
-void org::apache::poi::sl::draw::DrawTextFragment::ctor(::java::awt::font::TextLayout* layout, ::java::text::AttributedString* str)
+void poi::sl::draw::DrawTextFragment::ctor(::java::awt::font::TextLayout* layout, ::java::text::AttributedString* str)
 {
     super::ctor();
     this->layout = layout;
     this->str = str;
 }
 
-void org::apache::poi::sl::draw::DrawTextFragment::setPosition(double x, double y)
+void poi::sl::draw::DrawTextFragment::setPosition(double x, double y)
 {
     this->x = x;
     this->y = y;
 }
 
-void org::apache::poi::sl::draw::DrawTextFragment::draw(::java::awt::Graphics2D* graphics)
+void poi::sl::draw::DrawTextFragment::draw(::java::awt::Graphics2D* graphics)
 {
     if(str == nullptr) {
         return;
@@ -71,31 +71,31 @@ void org::apache::poi::sl::draw::DrawTextFragment::draw(::java::awt::Graphics2D*
     }
 }
 
-void org::apache::poi::sl::draw::DrawTextFragment::applyTransform(::java::awt::Graphics2D* graphics)
+void poi::sl::draw::DrawTextFragment::applyTransform(::java::awt::Graphics2D* graphics)
 {
 }
 
-void org::apache::poi::sl::draw::DrawTextFragment::drawContent(::java::awt::Graphics2D* graphics)
+void poi::sl::draw::DrawTextFragment::drawContent(::java::awt::Graphics2D* graphics)
 {
 }
 
-java::awt::font::TextLayout* org::apache::poi::sl::draw::DrawTextFragment::getLayout()
+java::awt::font::TextLayout* poi::sl::draw::DrawTextFragment::getLayout()
 {
     return layout;
 }
 
-java::text::AttributedString* org::apache::poi::sl::draw::DrawTextFragment::getAttributedString()
+java::text::AttributedString* poi::sl::draw::DrawTextFragment::getAttributedString()
 {
     return str;
 }
 
-float org::apache::poi::sl::draw::DrawTextFragment::getHeight()
+float poi::sl::draw::DrawTextFragment::getHeight()
 {
     double h = npc(layout)->getAscent() + npc(layout)->getDescent() + getLeading();
     return static_cast< float >(h);
 }
 
-float org::apache::poi::sl::draw::DrawTextFragment::getLeading()
+float poi::sl::draw::DrawTextFragment::getLeading()
 {
     double l = npc(layout)->getLeading();
     if(l == 0) {
@@ -104,12 +104,12 @@ float org::apache::poi::sl::draw::DrawTextFragment::getLeading()
     return static_cast< float >(l);
 }
 
-float org::apache::poi::sl::draw::DrawTextFragment::getWidth()
+float poi::sl::draw::DrawTextFragment::getWidth()
 {
     return npc(layout)->getAdvance();
 }
 
-java::lang::String* org::apache::poi::sl::draw::DrawTextFragment::getString()
+java::lang::String* poi::sl::draw::DrawTextFragment::getString()
 {
     if(str == nullptr)
         return u""_j;
@@ -122,7 +122,7 @@ java::lang::String* org::apache::poi::sl::draw::DrawTextFragment::getString()
     return npc(buf)->toString();
 }
 
-java::lang::String* org::apache::poi::sl::draw::DrawTextFragment::toString()
+java::lang::String* poi::sl::draw::DrawTextFragment::toString()
 {
     return ::java::lang::StringBuilder().append(u"["_j)->append(npc(getClass())->getSimpleName())
         ->append(u"] "_j)
@@ -131,13 +131,13 @@ java::lang::String* org::apache::poi::sl::draw::DrawTextFragment::toString()
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::draw::DrawTextFragment::class_()
+java::lang::Class* poi::sl::draw::DrawTextFragment::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.draw.DrawTextFragment", 39);
     return c;
 }
 
-java::lang::Class* org::apache::poi::sl::draw::DrawTextFragment::getClass0()
+java::lang::Class* poi::sl::draw::DrawTextFragment::getClass0()
 {
     return class_();
 }

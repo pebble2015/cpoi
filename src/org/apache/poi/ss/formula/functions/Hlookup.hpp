@@ -10,29 +10,23 @@
 #include <org/apache/poi/ss/formula/functions/Var3or4ArgFunction.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::Hlookup final
+class poi::ss::formula::functions::Hlookup final
     : public Var3or4ArgFunction
 {
 
@@ -40,14 +34,14 @@ public:
     typedef Var3or4ArgFunction super;
 
 private:
-    static ::org::apache::poi::ss::formula::eval::ValueEval* DEFAULT_ARG3_;
+    static ::poi::ss::formula::eval::ValueEval* DEFAULT_ARG3_;
 
 public:
-    ::org::apache::poi::ss::formula::eval::ValueEval* evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* arg0, ::org::apache::poi::ss::formula::eval::ValueEval* arg1, ::org::apache::poi::ss::formula::eval::ValueEval* arg2) override;
-    ::org::apache::poi::ss::formula::eval::ValueEval* evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* arg0, ::org::apache::poi::ss::formula::eval::ValueEval* arg1, ::org::apache::poi::ss::formula::eval::ValueEval* arg2, ::org::apache::poi::ss::formula::eval::ValueEval* arg3) override;
+    ::poi::ss::formula::eval::ValueEval* evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::poi::ss::formula::eval::ValueEval* arg0, ::poi::ss::formula::eval::ValueEval* arg1, ::poi::ss::formula::eval::ValueEval* arg2) override;
+    ::poi::ss::formula::eval::ValueEval* evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::poi::ss::formula::eval::ValueEval* arg0, ::poi::ss::formula::eval::ValueEval* arg1, ::poi::ss::formula::eval::ValueEval* arg2, ::poi::ss::formula::eval::ValueEval* arg3) override;
 
 private:
-    LookupUtils_ValueVector* createResultColumnVector(::org::apache::poi::ss::formula::TwoDEval* tableArray_, int32_t rowIndex) /* throws(EvaluationException) */;
+    LookupUtils_ValueVector* createResultColumnVector(::poi::ss::formula::TwoDEval* tableArray_, int32_t rowIndex) /* throws(EvaluationException) */;
 
     // Generated
 
@@ -60,9 +54,9 @@ protected:
 public:
     static ::java::lang::Class *class_();
     static void clinit();
-    ::org::apache::poi::ss::formula::eval::ValueEval* evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex);
+    ::poi::ss::formula::eval::ValueEval* evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex);
 
 private:
-    static ::org::apache::poi::ss::formula::eval::ValueEval*& DEFAULT_ARG3();
+    static ::poi::ss::formula::eval::ValueEval*& DEFAULT_ARG3();
     virtual ::java::lang::Class* getClass0();
 };

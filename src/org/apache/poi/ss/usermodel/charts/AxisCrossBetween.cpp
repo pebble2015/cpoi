@@ -25,49 +25,43 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace ss
+            namespace charts
             {
-                namespace usermodel
-                {
-                    namespace charts
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::charts::AxisCrossBetween, ::java::lang::EnumArray > AxisCrossBetweenArray;
-                    } // charts
-                } // usermodel
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::usermodel::charts::AxisCrossBetween, ::java::lang::EnumArray > AxisCrossBetweenArray;
+            } // charts
+        } // usermodel
+    } // ss
+} // poi
 
-org::apache::poi::ss::usermodel::charts::AxisCrossBetween::AxisCrossBetween(const ::default_init_tag&)
+poi::ss::usermodel::charts::AxisCrossBetween::AxisCrossBetween(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::usermodel::charts::AxisCrossBetween::AxisCrossBetween(::java::lang::String* name, int ordinal)
+poi::ss::usermodel::charts::AxisCrossBetween::AxisCrossBetween(::java::lang::String* name, int ordinal)
     : AxisCrossBetween(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal);
 }
 
-org::apache::poi::ss::usermodel::charts::AxisCrossBetween* org::apache::poi::ss::usermodel::charts::AxisCrossBetween::BETWEEN = new ::org::apache::poi::ss::usermodel::charts::AxisCrossBetween(u"BETWEEN"_j, 0);
-org::apache::poi::ss::usermodel::charts::AxisCrossBetween* org::apache::poi::ss::usermodel::charts::AxisCrossBetween::MIDPOINT_CATEGORY = new ::org::apache::poi::ss::usermodel::charts::AxisCrossBetween(u"MIDPOINT_CATEGORY"_j, 1);
+poi::ss::usermodel::charts::AxisCrossBetween* poi::ss::usermodel::charts::AxisCrossBetween::BETWEEN = new ::poi::ss::usermodel::charts::AxisCrossBetween(u"BETWEEN"_j, 0);
+poi::ss::usermodel::charts::AxisCrossBetween* poi::ss::usermodel::charts::AxisCrossBetween::MIDPOINT_CATEGORY = new ::poi::ss::usermodel::charts::AxisCrossBetween(u"MIDPOINT_CATEGORY"_j, 1);
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::usermodel::charts::AxisCrossBetween::class_()
+java::lang::Class* poi::ss::usermodel::charts::AxisCrossBetween::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.usermodel.charts.AxisCrossBetween", 51);
     return c;
 }
 
-org::apache::poi::ss::usermodel::charts::AxisCrossBetween* org::apache::poi::ss::usermodel::charts::AxisCrossBetween::valueOf(::java::lang::String* a0)
+poi::ss::usermodel::charts::AxisCrossBetween* poi::ss::usermodel::charts::AxisCrossBetween::valueOf(::java::lang::String* a0)
 {
     if(BETWEEN->toString()->equals(a0))
         return BETWEEN;
@@ -76,15 +70,15 @@ org::apache::poi::ss::usermodel::charts::AxisCrossBetween* org::apache::poi::ss:
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::ss::usermodel::charts::AxisCrossBetweenArray* org::apache::poi::ss::usermodel::charts::AxisCrossBetween::values()
+poi::ss::usermodel::charts::AxisCrossBetweenArray* poi::ss::usermodel::charts::AxisCrossBetween::values()
 {
-    return new org::apache::poi::ss::usermodel::charts::AxisCrossBetweenArray({
+    return new poi::ss::usermodel::charts::AxisCrossBetweenArray({
         BETWEEN,
         MIDPOINT_CATEGORY,
     });
 }
 
-java::lang::Class* org::apache::poi::ss::usermodel::charts::AxisCrossBetween::getClass0()
+java::lang::Class* poi::ss::usermodel::charts::AxisCrossBetween::getClass0()
 {
     return class_();
 }

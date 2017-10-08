@@ -7,7 +7,7 @@
 #include <org/apache/poi/ss/usermodel/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::usermodel::Name
+struct poi::ss::usermodel::Name
     : public virtual ::java::lang::Object
 {
     virtual ::java::lang::String* getSheetName() = 0;

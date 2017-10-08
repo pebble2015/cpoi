@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::aggregates::RecordAggregate_SerializingRecordVisitor final
+class poi::hssf::record::aggregates::RecordAggregate_SerializingRecordVisitor final
     : public virtual ::java::lang::Object
     , public RecordAggregate_RecordVisitor
 {
@@ -27,7 +27,7 @@ protected:
 
 public:
     int32_t countBytesWritten();
-    void visitRecord(::org::apache::poi::hssf::record::Record* r) override;
+    void visitRecord(::poi::hssf::record::Record* r) override;
 
     // Generated
     RecordAggregate_SerializingRecordVisitor(::int8_tArray* data, int32_t startOffset);

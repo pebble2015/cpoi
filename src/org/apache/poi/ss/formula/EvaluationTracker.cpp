@@ -36,19 +36,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::EvaluationTracker::EvaluationTracker(const ::default_init_tag&)
+poi::ss::formula::EvaluationTracker::EvaluationTracker(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::EvaluationTracker::EvaluationTracker(EvaluationCache* cache) 
+poi::ss::formula::EvaluationTracker::EvaluationTracker(EvaluationCache* cache) 
     : EvaluationTracker(*static_cast< ::default_init_tag* >(0))
 {
     ctor(cache);
 }
 
-void org::apache::poi::ss::formula::EvaluationTracker::ctor(EvaluationCache* cache)
+void poi::ss::formula::EvaluationTracker::ctor(EvaluationCache* cache)
 {
     super::ctor();
     _cache = cache;
@@ -56,7 +56,7 @@ void org::apache::poi::ss::formula::EvaluationTracker::ctor(EvaluationCache* cac
     _currentlyEvaluatingCells = new ::java::util::HashSet();
 }
 
-bool org::apache::poi::ss::formula::EvaluationTracker::startEvaluate(FormulaCellCacheEntry* cce)
+bool poi::ss::formula::EvaluationTracker::startEvaluate(FormulaCellCacheEntry* cce)
 {
     if(cce == nullptr) {
         throw new ::java::lang::IllegalArgumentException(u"cellLoc must not be null"_j);
@@ -69,20 +69,20 @@ bool org::apache::poi::ss::formula::EvaluationTracker::startEvaluate(FormulaCell
     return true;
 }
 
-void org::apache::poi::ss::formula::EvaluationTracker::updateCacheResult(::org::apache::poi::ss::formula::eval::ValueEval* result)
+void poi::ss::formula::EvaluationTracker::updateCacheResult(::poi::ss::formula::eval::ValueEval* result)
 {
     auto nFrames = npc(_evaluationFrames)->size();
     if(nFrames < 1) {
         throw new ::java::lang::IllegalStateException(u"Call to endEvaluate without matching call to startEvaluate"_j);
     }
     auto frame = java_cast< CellEvaluationFrame* >(npc(_evaluationFrames)->get(nFrames - int32_t(1)));
-    if(result == static_cast< ::org::apache::poi::ss::formula::eval::ValueEval* >(::org::apache::poi::ss::formula::eval::ErrorEval::CIRCULAR_REF_ERROR()) && nFrames > 1) {
+    if(result == static_cast< ::poi::ss::formula::eval::ValueEval* >(::poi::ss::formula::eval::ErrorEval::CIRCULAR_REF_ERROR()) && nFrames > 1) {
         return;
     }
     npc(frame)->updateFormulaResult(result);
 }
 
-void org::apache::poi::ss::formula::EvaluationTracker::endEvaluate(CellCacheEntry* cce)
+void poi::ss::formula::EvaluationTracker::endEvaluate(CellCacheEntry* cce)
 {
     auto nFrames = npc(_evaluationFrames)->size();
     if(nFrames < 1) {
@@ -97,7 +97,7 @@ void org::apache::poi::ss::formula::EvaluationTracker::endEvaluate(CellCacheEntr
     npc(_currentlyEvaluatingCells)->remove(static_cast< ::java::lang::Object* >(cce));
 }
 
-void org::apache::poi::ss::formula::EvaluationTracker::acceptFormulaDependency(CellCacheEntry* cce)
+void poi::ss::formula::EvaluationTracker::acceptFormulaDependency(CellCacheEntry* cce)
 {
     auto prevFrameIndex = npc(_evaluationFrames)->size() - int32_t(1);
     if(prevFrameIndex < 0) {
@@ -107,13 +107,13 @@ void org::apache::poi::ss::formula::EvaluationTracker::acceptFormulaDependency(C
     }
 }
 
-void org::apache::poi::ss::formula::EvaluationTracker::acceptPlainValueDependency(int32_t bookIndex, int32_t sheetIndex, int32_t rowIndex, int32_t columnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* value)
+void poi::ss::formula::EvaluationTracker::acceptPlainValueDependency(int32_t bookIndex, int32_t sheetIndex, int32_t rowIndex, int32_t columnIndex, ::poi::ss::formula::eval::ValueEval* value)
 {
     auto prevFrameIndex = npc(_evaluationFrames)->size() - int32_t(1);
     if(prevFrameIndex < 0) {
     } else {
         auto consumingFrame = java_cast< CellEvaluationFrame* >(npc(_evaluationFrames)->get(prevFrameIndex));
-        if(value == static_cast< ::org::apache::poi::ss::formula::eval::ValueEval* >(::org::apache::poi::ss::formula::eval::BlankEval::instance())) {
+        if(value == static_cast< ::poi::ss::formula::eval::ValueEval* >(::poi::ss::formula::eval::BlankEval::instance())) {
             npc(consumingFrame)->addUsedBlankCell(bookIndex, sheetIndex, rowIndex, columnIndex);
         } else {
             auto cce = npc(_cache)->getPlainValueEntry(bookIndex, sheetIndex, rowIndex, columnIndex, value);
@@ -124,13 +124,13 @@ void org::apache::poi::ss::formula::EvaluationTracker::acceptPlainValueDependenc
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::EvaluationTracker::class_()
+java::lang::Class* poi::ss::formula::EvaluationTracker::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.EvaluationTracker", 43);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::EvaluationTracker::getClass0()
+java::lang::Class* poi::ss::formula::EvaluationTracker::getClass0()
 {
     return class_();
 }

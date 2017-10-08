@@ -10,12 +10,12 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::StringRecord final
-    : public ::org::apache::poi::hssf::record::cont::ContinuableRecord
+class poi::hssf::record::StringRecord final
+    : public ::poi::hssf::record::cont::ContinuableRecord
 {
 
 public:
-    typedef ::org::apache::poi::hssf::record::cont::ContinuableRecord super;
+    typedef ::poi::hssf::record::cont::ContinuableRecord super;
     static constexpr int16_t sid { int16_t(519) };
 
 private:
@@ -26,7 +26,7 @@ protected:
     void ctor(RecordInputStream* in);
 
 public: /* protected */
-    void serialize(::org::apache::poi::hssf::record::cont::ContinuableRecordOutput* out) override;
+    void serialize(::poi::hssf::record::cont::ContinuableRecordOutput* out) override;
 
 public:
     int16_t getSid() override;

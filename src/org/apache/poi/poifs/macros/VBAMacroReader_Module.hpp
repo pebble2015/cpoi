@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::macros::VBAMacroReader_Module
+class poi::poifs::macros::VBAMacroReader_Module
     : public virtual ::java::lang::Object
 {
 

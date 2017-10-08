@@ -22,19 +22,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::sl::draw::binding::CTGeomGuideList::CTGeomGuideList(const ::default_init_tag&)
+poi::sl::draw::binding::CTGeomGuideList::CTGeomGuideList(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::draw::binding::CTGeomGuideList::CTGeomGuideList()
+poi::sl::draw::binding::CTGeomGuideList::CTGeomGuideList()
     : CTGeomGuideList(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-java::util::List* org::apache::poi::sl::draw::binding::CTGeomGuideList::getGd()
+java::util::List* poi::sl::draw::binding::CTGeomGuideList::getGd()
 {
     if(gd == nullptr) {
         gd = new ::java::util::ArrayList();
@@ -42,25 +42,25 @@ java::util::List* org::apache::poi::sl::draw::binding::CTGeomGuideList::getGd()
     return java_cast< ::java::util::List* >(this->gd);
 }
 
-bool org::apache::poi::sl::draw::binding::CTGeomGuideList::isSetGd()
+bool poi::sl::draw::binding::CTGeomGuideList::isSetGd()
 {
     return ((java_cast< ::java::util::List* >(this->gd) != nullptr) && (!npc(java_cast< ::java::util::List* >(this->gd))->isEmpty()));
 }
 
-void org::apache::poi::sl::draw::binding::CTGeomGuideList::unsetGd()
+void poi::sl::draw::binding::CTGeomGuideList::unsetGd()
 {
     this->gd = nullptr;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::draw::binding::CTGeomGuideList::class_()
+java::lang::Class* poi::sl::draw::binding::CTGeomGuideList::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.draw.binding.CTGeomGuideList", 46);
     return c;
 }
 
-java::lang::Class* org::apache::poi::sl::draw::binding::CTGeomGuideList::getClass0()
+java::lang::Class* poi::sl::draw::binding::CTGeomGuideList::getClass0()
 {
     return class_();
 }

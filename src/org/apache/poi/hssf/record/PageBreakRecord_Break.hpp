@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::PageBreakRecord_Break final
+class poi::hssf::record::PageBreakRecord_Break final
     : public ::java::lang::Object
 {
 
@@ -24,7 +24,7 @@ protected:
     void ctor(RecordInputStream* in);
 
 public:
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out);
+    void serialize(::poi::util::LittleEndianOutput* out);
 
     // Generated
     PageBreakRecord_Break(int32_t main, int32_t subFrom, int32_t subTo);

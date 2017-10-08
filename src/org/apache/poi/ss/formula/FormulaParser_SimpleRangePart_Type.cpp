@@ -25,39 +25,33 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
-            {
-                namespace formula
-                {
-typedef ::SubArray< ::org::apache::poi::ss::formula::FormulaParser_SimpleRangePart_Type, ::java::lang::EnumArray > FormulaParser_SimpleRangePart_TypeArray;
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::FormulaParser_SimpleRangePart_Type, ::java::lang::EnumArray > FormulaParser_SimpleRangePart_TypeArray;
+        } // formula
+    } // ss
+} // poi
 
-org::apache::poi::ss::formula::FormulaParser_SimpleRangePart_Type::FormulaParser_SimpleRangePart_Type(const ::default_init_tag&)
+poi::ss::formula::FormulaParser_SimpleRangePart_Type::FormulaParser_SimpleRangePart_Type(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::FormulaParser_SimpleRangePart_Type::FormulaParser_SimpleRangePart_Type(::java::lang::String* name, int ordinal)
+poi::ss::formula::FormulaParser_SimpleRangePart_Type::FormulaParser_SimpleRangePart_Type(::java::lang::String* name, int ordinal)
     : FormulaParser_SimpleRangePart_Type(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal);
 }
 
-org::apache::poi::ss::formula::FormulaParser_SimpleRangePart_Type* org::apache::poi::ss::formula::FormulaParser_SimpleRangePart_Type::CELL = new ::org::apache::poi::ss::formula::FormulaParser_SimpleRangePart_Type(u"CELL"_j, 0);
-org::apache::poi::ss::formula::FormulaParser_SimpleRangePart_Type* org::apache::poi::ss::formula::FormulaParser_SimpleRangePart_Type::ROW = new ::org::apache::poi::ss::formula::FormulaParser_SimpleRangePart_Type(u"ROW"_j, 1);
-org::apache::poi::ss::formula::FormulaParser_SimpleRangePart_Type* org::apache::poi::ss::formula::FormulaParser_SimpleRangePart_Type::COLUMN = new ::org::apache::poi::ss::formula::FormulaParser_SimpleRangePart_Type(u"COLUMN"_j, 2);
-org::apache::poi::ss::formula::FormulaParser_SimpleRangePart_Type* org::apache::poi::ss::formula::FormulaParser_SimpleRangePart_Type::get(bool hasLetters, bool hasDigits)
+poi::ss::formula::FormulaParser_SimpleRangePart_Type* poi::ss::formula::FormulaParser_SimpleRangePart_Type::CELL = new ::poi::ss::formula::FormulaParser_SimpleRangePart_Type(u"CELL"_j, 0);
+poi::ss::formula::FormulaParser_SimpleRangePart_Type* poi::ss::formula::FormulaParser_SimpleRangePart_Type::ROW = new ::poi::ss::formula::FormulaParser_SimpleRangePart_Type(u"ROW"_j, 1);
+poi::ss::formula::FormulaParser_SimpleRangePart_Type* poi::ss::formula::FormulaParser_SimpleRangePart_Type::COLUMN = new ::poi::ss::formula::FormulaParser_SimpleRangePart_Type(u"COLUMN"_j, 2);
+poi::ss::formula::FormulaParser_SimpleRangePart_Type* poi::ss::formula::FormulaParser_SimpleRangePart_Type::get(bool hasLetters, bool hasDigits)
 {
     clinit();
     if(hasLetters) {
@@ -71,13 +65,13 @@ org::apache::poi::ss::formula::FormulaParser_SimpleRangePart_Type* org::apache::
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::FormulaParser_SimpleRangePart_Type::class_()
+java::lang::Class* poi::ss::formula::FormulaParser_SimpleRangePart_Type::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.FormulaParser.SimpleRangePart.Type", 60);
     return c;
 }
 
-org::apache::poi::ss::formula::FormulaParser_SimpleRangePart_Type* org::apache::poi::ss::formula::FormulaParser_SimpleRangePart_Type::valueOf(::java::lang::String* a0)
+poi::ss::formula::FormulaParser_SimpleRangePart_Type* poi::ss::formula::FormulaParser_SimpleRangePart_Type::valueOf(::java::lang::String* a0)
 {
     if(CELL->toString()->equals(a0))
         return CELL;
@@ -88,16 +82,16 @@ org::apache::poi::ss::formula::FormulaParser_SimpleRangePart_Type* org::apache::
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::ss::formula::FormulaParser_SimpleRangePart_TypeArray* org::apache::poi::ss::formula::FormulaParser_SimpleRangePart_Type::values()
+poi::ss::formula::FormulaParser_SimpleRangePart_TypeArray* poi::ss::formula::FormulaParser_SimpleRangePart_Type::values()
 {
-    return new org::apache::poi::ss::formula::FormulaParser_SimpleRangePart_TypeArray({
+    return new poi::ss::formula::FormulaParser_SimpleRangePart_TypeArray({
         CELL,
         COLUMN,
         ROW,
     });
 }
 
-java::lang::Class* org::apache::poi::ss::formula::FormulaParser_SimpleRangePart_Type::getClass0()
+java::lang::Class* poi::ss::formula::FormulaParser_SimpleRangePart_Type::getClass0()
 {
     return class_();
 }

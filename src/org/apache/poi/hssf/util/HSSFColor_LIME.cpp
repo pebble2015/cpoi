@@ -11,67 +11,67 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::util::HSSFColor_LIME::HSSFColor_LIME(const ::default_init_tag&)
+poi::hssf::util::HSSFColor_LIME::HSSFColor_LIME(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::util::HSSFColor_LIME::HSSFColor_LIME() 
+poi::hssf::util::HSSFColor_LIME::HSSFColor_LIME() 
     : HSSFColor_LIME(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::util::HSSFColor_HSSFColorPredefined*& org::apache::poi::hssf::util::HSSFColor_LIME::ref()
+poi::hssf::util::HSSFColor_HSSFColorPredefined*& poi::hssf::util::HSSFColor_LIME::ref()
 {
     clinit();
     return ref_;
 }
-org::apache::poi::hssf::util::HSSFColor_HSSFColorPredefined* org::apache::poi::hssf::util::HSSFColor_LIME::ref_;
+poi::hssf::util::HSSFColor_HSSFColorPredefined* poi::hssf::util::HSSFColor_LIME::ref_;
 
-int16_t& org::apache::poi::hssf::util::HSSFColor_LIME::index()
+int16_t& poi::hssf::util::HSSFColor_LIME::index()
 {
     clinit();
     return index_;
 }
-int16_t org::apache::poi::hssf::util::HSSFColor_LIME::index_;
+int16_t poi::hssf::util::HSSFColor_LIME::index_;
 
-int32_t& org::apache::poi::hssf::util::HSSFColor_LIME::index2()
+int32_t& poi::hssf::util::HSSFColor_LIME::index2()
 {
     clinit();
     return index2_;
 }
-int32_t org::apache::poi::hssf::util::HSSFColor_LIME::index2_;
+int32_t poi::hssf::util::HSSFColor_LIME::index2_;
 
-int16_tArray*& org::apache::poi::hssf::util::HSSFColor_LIME::triplet()
+int16_tArray*& poi::hssf::util::HSSFColor_LIME::triplet()
 {
     clinit();
     return triplet_;
 }
-int16_tArray* org::apache::poi::hssf::util::HSSFColor_LIME::triplet_;
+int16_tArray* poi::hssf::util::HSSFColor_LIME::triplet_;
 
-java::lang::String*& org::apache::poi::hssf::util::HSSFColor_LIME::hexString()
+java::lang::String*& poi::hssf::util::HSSFColor_LIME::hexString()
 {
     clinit();
     return hexString_;
 }
-java::lang::String* org::apache::poi::hssf::util::HSSFColor_LIME::hexString_;
+java::lang::String* poi::hssf::util::HSSFColor_LIME::hexString_;
 
-void org::apache::poi::hssf::util::HSSFColor_LIME::ctor()
+void poi::hssf::util::HSSFColor_LIME::ctor()
 {
     super::ctor(ref_);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::util::HSSFColor_LIME::class_()
+java::lang::Class* poi::hssf::util::HSSFColor_LIME::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.util.HSSFColor.LIME", 39);
     return c;
 }
 
-void org::apache::poi::hssf::util::HSSFColor_LIME::clinit()
+void poi::hssf::util::HSSFColor_LIME::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -91,7 +91,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::hssf::util::HSSFColor_LIME::getClass0()
+java::lang::Class* poi::hssf::util::HSSFColor_LIME::getClass0()
 {
     return class_();
 }

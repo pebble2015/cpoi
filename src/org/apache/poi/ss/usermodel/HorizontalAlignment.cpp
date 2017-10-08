@@ -27,22 +27,16 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace ss
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::HorizontalAlignment, ::java::lang::EnumArray > HorizontalAlignmentArray;
-                } // usermodel
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::usermodel::HorizontalAlignment, ::java::lang::EnumArray > HorizontalAlignmentArray;
+        } // usermodel
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -51,32 +45,32 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::usermodel::HorizontalAlignment::HorizontalAlignment(const ::default_init_tag&)
+poi::ss::usermodel::HorizontalAlignment::HorizontalAlignment(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::usermodel::HorizontalAlignment::HorizontalAlignment(::java::lang::String* name, int ordinal)
+poi::ss::usermodel::HorizontalAlignment::HorizontalAlignment(::java::lang::String* name, int ordinal)
     : HorizontalAlignment(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal);
 }
 
-org::apache::poi::ss::usermodel::HorizontalAlignment* org::apache::poi::ss::usermodel::HorizontalAlignment::GENERAL = new ::org::apache::poi::ss::usermodel::HorizontalAlignment(u"GENERAL"_j, 0);
-org::apache::poi::ss::usermodel::HorizontalAlignment* org::apache::poi::ss::usermodel::HorizontalAlignment::LEFT = new ::org::apache::poi::ss::usermodel::HorizontalAlignment(u"LEFT"_j, 1);
-org::apache::poi::ss::usermodel::HorizontalAlignment* org::apache::poi::ss::usermodel::HorizontalAlignment::CENTER = new ::org::apache::poi::ss::usermodel::HorizontalAlignment(u"CENTER"_j, 2);
-org::apache::poi::ss::usermodel::HorizontalAlignment* org::apache::poi::ss::usermodel::HorizontalAlignment::RIGHT = new ::org::apache::poi::ss::usermodel::HorizontalAlignment(u"RIGHT"_j, 3);
-org::apache::poi::ss::usermodel::HorizontalAlignment* org::apache::poi::ss::usermodel::HorizontalAlignment::FILL = new ::org::apache::poi::ss::usermodel::HorizontalAlignment(u"FILL"_j, 4);
-org::apache::poi::ss::usermodel::HorizontalAlignment* org::apache::poi::ss::usermodel::HorizontalAlignment::JUSTIFY = new ::org::apache::poi::ss::usermodel::HorizontalAlignment(u"JUSTIFY"_j, 5);
-org::apache::poi::ss::usermodel::HorizontalAlignment* org::apache::poi::ss::usermodel::HorizontalAlignment::CENTER_SELECTION = new ::org::apache::poi::ss::usermodel::HorizontalAlignment(u"CENTER_SELECTION"_j, 6);
-org::apache::poi::ss::usermodel::HorizontalAlignment* org::apache::poi::ss::usermodel::HorizontalAlignment::DISTRIBUTED = new ::org::apache::poi::ss::usermodel::HorizontalAlignment(u"DISTRIBUTED"_j, 7);
-int16_t org::apache::poi::ss::usermodel::HorizontalAlignment::getCode()
+poi::ss::usermodel::HorizontalAlignment* poi::ss::usermodel::HorizontalAlignment::GENERAL = new ::poi::ss::usermodel::HorizontalAlignment(u"GENERAL"_j, 0);
+poi::ss::usermodel::HorizontalAlignment* poi::ss::usermodel::HorizontalAlignment::LEFT = new ::poi::ss::usermodel::HorizontalAlignment(u"LEFT"_j, 1);
+poi::ss::usermodel::HorizontalAlignment* poi::ss::usermodel::HorizontalAlignment::CENTER = new ::poi::ss::usermodel::HorizontalAlignment(u"CENTER"_j, 2);
+poi::ss::usermodel::HorizontalAlignment* poi::ss::usermodel::HorizontalAlignment::RIGHT = new ::poi::ss::usermodel::HorizontalAlignment(u"RIGHT"_j, 3);
+poi::ss::usermodel::HorizontalAlignment* poi::ss::usermodel::HorizontalAlignment::FILL = new ::poi::ss::usermodel::HorizontalAlignment(u"FILL"_j, 4);
+poi::ss::usermodel::HorizontalAlignment* poi::ss::usermodel::HorizontalAlignment::JUSTIFY = new ::poi::ss::usermodel::HorizontalAlignment(u"JUSTIFY"_j, 5);
+poi::ss::usermodel::HorizontalAlignment* poi::ss::usermodel::HorizontalAlignment::CENTER_SELECTION = new ::poi::ss::usermodel::HorizontalAlignment(u"CENTER_SELECTION"_j, 6);
+poi::ss::usermodel::HorizontalAlignment* poi::ss::usermodel::HorizontalAlignment::DISTRIBUTED = new ::poi::ss::usermodel::HorizontalAlignment(u"DISTRIBUTED"_j, 7);
+int16_t poi::ss::usermodel::HorizontalAlignment::getCode()
 {
     return static_cast< int16_t >(ordinal());
 }
 
-org::apache::poi::ss::usermodel::HorizontalAlignment* org::apache::poi::ss::usermodel::HorizontalAlignment::forInt(int32_t code)
+poi::ss::usermodel::HorizontalAlignment* poi::ss::usermodel::HorizontalAlignment::forInt(int32_t code)
 {
     clinit();
     if(code < 0 || code >= npc(values())->length) {
@@ -87,13 +81,13 @@ org::apache::poi::ss::usermodel::HorizontalAlignment* org::apache::poi::ss::user
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::usermodel::HorizontalAlignment::class_()
+java::lang::Class* poi::ss::usermodel::HorizontalAlignment::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.usermodel.HorizontalAlignment", 47);
     return c;
 }
 
-org::apache::poi::ss::usermodel::HorizontalAlignment* org::apache::poi::ss::usermodel::HorizontalAlignment::valueOf(::java::lang::String* a0)
+poi::ss::usermodel::HorizontalAlignment* poi::ss::usermodel::HorizontalAlignment::valueOf(::java::lang::String* a0)
 {
     if(CENTER->toString()->equals(a0))
         return CENTER;
@@ -114,9 +108,9 @@ org::apache::poi::ss::usermodel::HorizontalAlignment* org::apache::poi::ss::user
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::ss::usermodel::HorizontalAlignmentArray* org::apache::poi::ss::usermodel::HorizontalAlignment::values()
+poi::ss::usermodel::HorizontalAlignmentArray* poi::ss::usermodel::HorizontalAlignment::values()
 {
-    return new org::apache::poi::ss::usermodel::HorizontalAlignmentArray({
+    return new poi::ss::usermodel::HorizontalAlignmentArray({
         CENTER,
         CENTER_SELECTION,
         DISTRIBUTED,
@@ -128,7 +122,7 @@ org::apache::poi::ss::usermodel::HorizontalAlignmentArray* org::apache::poi::ss:
     });
 }
 
-java::lang::Class* org::apache::poi::ss::usermodel::HorizontalAlignment::getClass0()
+java::lang::Class* poi::ss::usermodel::HorizontalAlignment::getClass0()
 {
     return class_();
 }

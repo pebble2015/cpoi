@@ -2,20 +2,14 @@
 #pragma once
 
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace common
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace common
-            {
-                namespace usermodel
-                {
-                    struct Hyperlink;
-                    class HyperlinkType;
-                } // usermodel
-            } // common
-        } // poi
-    } // apache
-} // org
+            struct Hyperlink;
+            class HyperlinkType;
+        } // usermodel
+    } // common
+} // poi

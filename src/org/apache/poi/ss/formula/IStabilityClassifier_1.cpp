@@ -3,7 +3,7 @@
 
 #include <org/apache/poi/ss/formula/IStabilityClassifier.hpp>
 
-org::apache::poi::ss::formula::IStabilityClassifier_1::IStabilityClassifier_1(IStabilityClassifier *IStabilityClassifier_this)
+poi::ss::formula::IStabilityClassifier_1::IStabilityClassifier_1(IStabilityClassifier *IStabilityClassifier_this)
     : super(*static_cast< ::default_init_tag* >(0))
     , IStabilityClassifier_this(IStabilityClassifier_this)
 {
@@ -11,20 +11,20 @@ org::apache::poi::ss::formula::IStabilityClassifier_1::IStabilityClassifier_1(IS
     ctor();
 }
 
-bool org::apache::poi::ss::formula::IStabilityClassifier_1::isCellFinal(int32_t sheetIndex, int32_t rowIndex, int32_t columnIndex)
+bool poi::ss::formula::IStabilityClassifier_1::isCellFinal(int32_t sheetIndex, int32_t rowIndex, int32_t columnIndex)
 {
     return true;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::IStabilityClassifier_1::class_()
+java::lang::Class* poi::ss::formula::IStabilityClassifier_1::class_()
 {
     static ::java::lang::Class* c = ::class_(u"", 0);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::IStabilityClassifier_1::getClass0()
+java::lang::Class* poi::ss::formula::IStabilityClassifier_1::getClass0()
 {
     return class_();
 }

@@ -12,7 +12,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFWorkbook_SheetIterator final
+class poi::hssf::usermodel::HSSFWorkbook_SheetIterator final
     : public virtual ::java::lang::Object
     , public ::java::util::Iterator
 {
@@ -22,13 +22,13 @@ public:
 
 private:
     ::java::util::Iterator* it {  };
-    ::org::apache::poi::ss::usermodel::Sheet* cursor {  };
+    ::poi::ss::usermodel::Sheet* cursor {  };
 protected:
     void ctor();
 
 public:
     bool hasNext() override;
-    ::org::apache::poi::ss::usermodel::Sheet* next() /* throws(NoSuchElementException) */ override;
+    ::poi::ss::usermodel::Sheet* next() /* throws(NoSuchElementException) */ override;
     void remove() /* throws(IllegalStateException) */ override;
 
     // Generated

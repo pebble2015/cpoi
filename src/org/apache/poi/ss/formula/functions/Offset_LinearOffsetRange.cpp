@@ -14,19 +14,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::Offset_LinearOffsetRange::Offset_LinearOffsetRange(const ::default_init_tag&)
+poi::ss::formula::functions::Offset_LinearOffsetRange::Offset_LinearOffsetRange(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::Offset_LinearOffsetRange::Offset_LinearOffsetRange(int32_t offset, int32_t length) 
+poi::ss::formula::functions::Offset_LinearOffsetRange::Offset_LinearOffsetRange(int32_t offset, int32_t length) 
     : Offset_LinearOffsetRange(*static_cast< ::default_init_tag* >(0))
 {
     ctor(offset,length);
 }
 
-void org::apache::poi::ss::formula::functions::Offset_LinearOffsetRange::ctor(int32_t offset, int32_t length)
+void poi::ss::formula::functions::Offset_LinearOffsetRange::ctor(int32_t offset, int32_t length)
 {
     super::ctor();
     if(length == 0) {
@@ -36,17 +36,17 @@ void org::apache::poi::ss::formula::functions::Offset_LinearOffsetRange::ctor(in
     _length = length;
 }
 
-int16_t org::apache::poi::ss::formula::functions::Offset_LinearOffsetRange::getFirstIndex()
+int16_t poi::ss::formula::functions::Offset_LinearOffsetRange::getFirstIndex()
 {
     return static_cast< int16_t >(_offset);
 }
 
-int16_t org::apache::poi::ss::formula::functions::Offset_LinearOffsetRange::getLastIndex()
+int16_t poi::ss::formula::functions::Offset_LinearOffsetRange::getLastIndex()
 {
     return static_cast< int16_t >((_offset + _length - int32_t(1)));
 }
 
-org::apache::poi::ss::formula::functions::Offset_LinearOffsetRange* org::apache::poi::ss::formula::functions::Offset_LinearOffsetRange::normaliseAndTranslate(int32_t translationAmount)
+poi::ss::formula::functions::Offset_LinearOffsetRange* poi::ss::formula::functions::Offset_LinearOffsetRange::normaliseAndTranslate(int32_t translationAmount)
 {
     if(_length > 0) {
         if(translationAmount == 0) {
@@ -57,7 +57,7 @@ org::apache::poi::ss::formula::functions::Offset_LinearOffsetRange* org::apache:
     return new Offset_LinearOffsetRange(translationAmount + _offset + _length+ int32_t(1), -_length);
 }
 
-bool org::apache::poi::ss::formula::functions::Offset_LinearOffsetRange::isOutOfBounds(int32_t lowValidIx, int32_t highValidIx)
+bool poi::ss::formula::functions::Offset_LinearOffsetRange::isOutOfBounds(int32_t lowValidIx, int32_t highValidIx)
 {
     if(_offset < lowValidIx) {
         return true;
@@ -68,7 +68,7 @@ bool org::apache::poi::ss::formula::functions::Offset_LinearOffsetRange::isOutOf
     return false;
 }
 
-java::lang::String* org::apache::poi::ss::formula::functions::Offset_LinearOffsetRange::toString()
+java::lang::String* poi::ss::formula::functions::Offset_LinearOffsetRange::toString()
 {
     auto sb = new ::java::lang::StringBuffer(int32_t(64));
     npc(npc(sb)->append(npc(getClass())->getName()))->append(u" ["_j);
@@ -79,13 +79,13 @@ java::lang::String* org::apache::poi::ss::formula::functions::Offset_LinearOffse
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Offset_LinearOffsetRange::class_()
+java::lang::Class* poi::ss::formula::functions::Offset_LinearOffsetRange::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.Offset.LinearOffsetRange", 60);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Offset_LinearOffsetRange::getClass0()
+java::lang::Class* poi::ss::formula::functions::Offset_LinearOffsetRange::getClass0()
 {
     return class_();
 }

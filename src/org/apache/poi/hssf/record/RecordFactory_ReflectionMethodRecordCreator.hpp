@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::RecordFactory_ReflectionMethodRecordCreator final
+class poi::hssf::record::RecordFactory_ReflectionMethodRecordCreator final
     : public virtual ::java::lang::Object
     , public RecordFactory_I_RecordCreator
 {

@@ -33,30 +33,24 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace ss
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::Cell, ::java::lang::ObjectArray > CellArray;
-                } // usermodel
-            } // ss
+typedef ::SubArray< ::poi::ss::usermodel::Cell, ::java::lang::ObjectArray > CellArray;
+        } // usermodel
+    } // ss
 
-            namespace hssf
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::usermodel::HSSFCell, ::java::lang::ObjectArray, ::org::apache::poi::ss::usermodel::CellArray > HSSFCellArray;
-                } // usermodel
-            } // hssf
-        } // poi
-    } // apache
-} // org
+    namespace hssf
+    {
+        namespace usermodel
+        {
+typedef ::SubArray< ::poi::hssf::usermodel::HSSFCell, ::java::lang::ObjectArray, ::poi::ss::usermodel::CellArray > HSSFCellArray;
+        } // usermodel
+    } // hssf
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -74,37 +68,37 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::usermodel::HSSFRow::HSSFRow(const ::default_init_tag&)
+poi::hssf::usermodel::HSSFRow::HSSFRow(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::usermodel::HSSFRow::HSSFRow(HSSFWorkbook* book, HSSFSheet* sheet, int32_t rowNum) 
+poi::hssf::usermodel::HSSFRow::HSSFRow(HSSFWorkbook* book, HSSFSheet* sheet, int32_t rowNum) 
     : HSSFRow(*static_cast< ::default_init_tag* >(0))
 {
     ctor(book,sheet,rowNum);
 }
 
-org::apache::poi::hssf::usermodel::HSSFRow::HSSFRow(HSSFWorkbook* book, HSSFSheet* sheet, ::org::apache::poi::hssf::record::RowRecord* record) 
+poi::hssf::usermodel::HSSFRow::HSSFRow(HSSFWorkbook* book, HSSFSheet* sheet, ::poi::hssf::record::RowRecord* record) 
     : HSSFRow(*static_cast< ::default_init_tag* >(0))
 {
     ctor(book,sheet,record);
 }
 
-int32_t& org::apache::poi::hssf::usermodel::HSSFRow::INITIAL_CAPACITY()
+int32_t& poi::hssf::usermodel::HSSFRow::INITIAL_CAPACITY()
 {
     clinit();
     return INITIAL_CAPACITY_;
 }
-int32_t org::apache::poi::hssf::usermodel::HSSFRow::INITIAL_CAPACITY_;
+int32_t poi::hssf::usermodel::HSSFRow::INITIAL_CAPACITY_;
 
-void org::apache::poi::hssf::usermodel::HSSFRow::ctor(HSSFWorkbook* book, HSSFSheet* sheet, int32_t rowNum)
+void poi::hssf::usermodel::HSSFRow::ctor(HSSFWorkbook* book, HSSFSheet* sheet, int32_t rowNum)
 {
-    ctor(book, sheet, new ::org::apache::poi::hssf::record::RowRecord(rowNum));
+    ctor(book, sheet, new ::poi::hssf::record::RowRecord(rowNum));
 }
 
-void org::apache::poi::hssf::usermodel::HSSFRow::ctor(HSSFWorkbook* book, HSSFSheet* sheet, ::org::apache::poi::hssf::record::RowRecord* record)
+void poi::hssf::usermodel::HSSFRow::ctor(HSSFWorkbook* book, HSSFSheet* sheet, ::poi::hssf::record::RowRecord* record)
 {
     super::ctor();
     this->book = book;
@@ -115,17 +109,17 @@ void org::apache::poi::hssf::usermodel::HSSFRow::ctor(HSSFWorkbook* book, HSSFSh
     npc(record)->setEmpty();
 }
 
-org::apache::poi::ss::usermodel::Cell* org::apache::poi::hssf::usermodel::HSSFRow::createCell(int32_t column)
+poi::ss::usermodel::Cell* poi::hssf::usermodel::HSSFRow::createCell(int32_t column)
 {
-    return java_cast< HSSFCell* >(this->createCell(column, ::org::apache::poi::ss::usermodel::CellType::BLANK));
+    return java_cast< HSSFCell* >(this->createCell(column, ::poi::ss::usermodel::CellType::BLANK));
 }
 
-org::apache::poi::ss::usermodel::Cell* org::apache::poi::hssf::usermodel::HSSFRow::createCell(int32_t columnIndex, int32_t type)
+poi::ss::usermodel::Cell* poi::hssf::usermodel::HSSFRow::createCell(int32_t columnIndex, int32_t type)
 {
-    return java_cast< HSSFCell* >(createCell(columnIndex, ::org::apache::poi::ss::usermodel::CellType::forInt(type)));
+    return java_cast< HSSFCell* >(createCell(columnIndex, ::poi::ss::usermodel::CellType::forInt(type)));
 }
 
-org::apache::poi::ss::usermodel::Cell* org::apache::poi::hssf::usermodel::HSSFRow::createCell(int32_t columnIndex, ::org::apache::poi::ss::usermodel::CellType* type)
+poi::ss::usermodel::Cell* poi::hssf::usermodel::HSSFRow::createCell(int32_t columnIndex, ::poi::ss::usermodel::CellType* type)
 {
     auto shortCellNum = static_cast< int16_t >(columnIndex);
     if(columnIndex > 32767) {
@@ -137,7 +131,7 @@ org::apache::poi::ss::usermodel::Cell* org::apache::poi::hssf::usermodel::HSSFRo
     return cell;
 }
 
-void org::apache::poi::hssf::usermodel::HSSFRow::removeCell(::org::apache::poi::ss::usermodel::Cell* cell)
+void poi::hssf::usermodel::HSSFRow::removeCell(::poi::ss::usermodel::Cell* cell)
 {
     if(cell == nullptr) {
         throw new ::java::lang::IllegalArgumentException(u"cell must not be null"_j);
@@ -145,7 +139,7 @@ void org::apache::poi::hssf::usermodel::HSSFRow::removeCell(::org::apache::poi::
     removeCell(java_cast< HSSFCell* >(cell), true);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFRow::removeCell(HSSFCell* cell, bool alsoRemoveRecords)
+void poi::hssf::usermodel::HSSFRow::removeCell(HSSFCell* cell, bool alsoRemoveRecords)
 {
     auto column = npc(cell)->getColumnIndex();
     if(column < 0) {
@@ -170,7 +164,7 @@ void org::apache::poi::hssf::usermodel::HSSFRow::removeCell(HSSFCell* cell, bool
     }
 }
 
-void org::apache::poi::hssf::usermodel::HSSFRow::removeAllCells()
+void poi::hssf::usermodel::HSSFRow::removeAllCells()
 {
     for(auto cell : *npc(cells)) {
         if(cell != nullptr) {
@@ -180,7 +174,7 @@ void org::apache::poi::hssf::usermodel::HSSFRow::removeAllCells()
     cells = new HSSFCellArray(INITIAL_CAPACITY_);
 }
 
-org::apache::poi::hssf::usermodel::HSSFCell* org::apache::poi::hssf::usermodel::HSSFRow::createCellFromRecord(::org::apache::poi::hssf::record::CellValueRecordInterface* cell)
+poi::hssf::usermodel::HSSFCell* poi::hssf::usermodel::HSSFRow::createCellFromRecord(::poi::hssf::record::CellValueRecordInterface* cell)
 {
     auto hcell = new HSSFCell(book, sheet, cell);
     addCell(hcell);
@@ -198,9 +192,9 @@ org::apache::poi::hssf::usermodel::HSSFCell* org::apache::poi::hssf::usermodel::
     return hcell;
 }
 
-void org::apache::poi::hssf::usermodel::HSSFRow::setRowNum(int32_t rowIndex)
+void poi::hssf::usermodel::HSSFRow::setRowNum(int32_t rowIndex)
 {
-    auto maxrow = npc(::org::apache::poi::ss::SpreadsheetVersion::EXCEL97)->getLastRowIndex();
+    auto maxrow = npc(::poi::ss::SpreadsheetVersion::EXCEL97)->getLastRowIndex();
     if((rowIndex < 0) || (rowIndex > maxrow)) {
         throw new ::java::lang::IllegalArgumentException(::java::lang::StringBuilder().append(u"Invalid row number ("_j)->append(rowIndex)
             ->append(u") outside allowable range (0.."_j)
@@ -213,22 +207,22 @@ void org::apache::poi::hssf::usermodel::HSSFRow::setRowNum(int32_t rowIndex)
     }
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFRow::getRowNum()
+int32_t poi::hssf::usermodel::HSSFRow::getRowNum()
 {
     return rowNum;
 }
 
-org::apache::poi::ss::usermodel::Sheet* org::apache::poi::hssf::usermodel::HSSFRow::getSheet()
+poi::ss::usermodel::Sheet* poi::hssf::usermodel::HSSFRow::getSheet()
 {
     return sheet;
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFRow::getOutlineLevel()
+int32_t poi::hssf::usermodel::HSSFRow::getOutlineLevel()
 {
     return npc(row)->getOutlineLevel();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFRow::moveCell(HSSFCell* cell, int16_t newColumn)
+void poi::hssf::usermodel::HSSFRow::moveCell(HSSFCell* cell, int16_t newColumn)
 {
     if(npc(cells)->length > newColumn && (*cells)[newColumn] != nullptr) {
         throw new ::java::lang::IllegalArgumentException(::java::lang::StringBuilder().append(u"Asked to move cell to column "_j)->append(newColumn)
@@ -242,7 +236,7 @@ void org::apache::poi::hssf::usermodel::HSSFRow::moveCell(HSSFCell* cell, int16_
     addCell(cell);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFRow::addCell(HSSFCell* cell)
+void poi::hssf::usermodel::HSSFRow::addCell(HSSFCell* cell)
 {
     auto column = npc(cell)->getColumnIndex();
     if(column >= npc(cells)->length) {
@@ -263,7 +257,7 @@ void org::apache::poi::hssf::usermodel::HSSFRow::addCell(HSSFCell* cell)
     }
 }
 
-org::apache::poi::hssf::usermodel::HSSFCell* org::apache::poi::hssf::usermodel::HSSFRow::retrieveCell(int32_t cellIndex)
+poi::hssf::usermodel::HSSFCell* poi::hssf::usermodel::HSSFRow::retrieveCell(int32_t cellIndex)
 {
     if(cellIndex < 0 || cellIndex >= npc(cells)->length) {
         return nullptr;
@@ -271,29 +265,29 @@ org::apache::poi::hssf::usermodel::HSSFCell* org::apache::poi::hssf::usermodel::
     return (*cells)[cellIndex];
 }
 
-org::apache::poi::ss::usermodel::Cell* org::apache::poi::hssf::usermodel::HSSFRow::getCell(int32_t cellnum)
+poi::ss::usermodel::Cell* poi::hssf::usermodel::HSSFRow::getCell(int32_t cellnum)
 {
     return java_cast< HSSFCell* >(getCell(cellnum, npc(book)->getMissingCellPolicy()));
 }
 
-org::apache::poi::ss::usermodel::Cell* org::apache::poi::hssf::usermodel::HSSFRow::getCell(int32_t cellnum, ::org::apache::poi::ss::usermodel::Row_MissingCellPolicy* policy)
+poi::ss::usermodel::Cell* poi::hssf::usermodel::HSSFRow::getCell(int32_t cellnum, ::poi::ss::usermodel::Row_MissingCellPolicy* policy)
 {
     auto cell = retrieveCell(cellnum);
     {
         bool isBlank;
         {
             auto v = policy;
-            if((v == ::org::apache::poi::ss::usermodel::Row_MissingCellPolicy::RETURN_NULL_AND_BLANK)) {
+            if((v == ::poi::ss::usermodel::Row_MissingCellPolicy::RETURN_NULL_AND_BLANK)) {
                 return cell;
             }
-            if((v == ::org::apache::poi::ss::usermodel::Row_MissingCellPolicy::RETURN_BLANK_AS_NULL)) {
-                auto isBlank = (cell != nullptr && npc(cell)->getCellTypeEnum() == ::org::apache::poi::ss::usermodel::CellType::BLANK);
+            if((v == ::poi::ss::usermodel::Row_MissingCellPolicy::RETURN_BLANK_AS_NULL)) {
+                auto isBlank = (cell != nullptr && npc(cell)->getCellTypeEnum() == ::poi::ss::usermodel::CellType::BLANK);
                 return (isBlank) ? static_cast< HSSFCell* >(nullptr) : cell;
             }
-            if((v == ::org::apache::poi::ss::usermodel::Row_MissingCellPolicy::CREATE_NULL_AS_BLANK)) {
-                return (cell == nullptr) ? java_cast< HSSFCell* >(createCell(cellnum, ::org::apache::poi::ss::usermodel::CellType::BLANK)) : cell;
+            if((v == ::poi::ss::usermodel::Row_MissingCellPolicy::CREATE_NULL_AS_BLANK)) {
+                return (cell == nullptr) ? java_cast< HSSFCell* >(createCell(cellnum, ::poi::ss::usermodel::CellType::BLANK)) : cell;
             }
-            if((((v != ::org::apache::poi::ss::usermodel::Row_MissingCellPolicy::RETURN_NULL_AND_BLANK) && (v != ::org::apache::poi::ss::usermodel::Row_MissingCellPolicy::RETURN_BLANK_AS_NULL) && (v != ::org::apache::poi::ss::usermodel::Row_MissingCellPolicy::CREATE_NULL_AS_BLANK)))) {
+            if((((v != ::poi::ss::usermodel::Row_MissingCellPolicy::RETURN_NULL_AND_BLANK) && (v != ::poi::ss::usermodel::Row_MissingCellPolicy::RETURN_BLANK_AS_NULL) && (v != ::poi::ss::usermodel::Row_MissingCellPolicy::CREATE_NULL_AS_BLANK)))) {
                 throw new ::java::lang::IllegalArgumentException(::java::lang::StringBuilder().append(u"Illegal policy "_j)->append(static_cast< ::java::lang::Object* >(policy))->toString());
             }
 end_switch0:;
@@ -302,7 +296,7 @@ end_switch0:;
 
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFRow::getFirstCellNum()
+int16_t poi::hssf::usermodel::HSSFRow::getFirstCellNum()
 {
     if(npc(row)->isEmpty()) {
         return -int32_t(1);
@@ -310,7 +304,7 @@ int16_t org::apache::poi::hssf::usermodel::HSSFRow::getFirstCellNum()
     return static_cast< int16_t >(npc(row)->getFirstCol());
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFRow::getLastCellNum()
+int16_t poi::hssf::usermodel::HSSFRow::getLastCellNum()
 {
     if(npc(row)->isEmpty()) {
         return -int32_t(1);
@@ -318,7 +312,7 @@ int16_t org::apache::poi::hssf::usermodel::HSSFRow::getLastCellNum()
     return static_cast< int16_t >(npc(row)->getLastCol());
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFRow::getPhysicalNumberOfCells()
+int32_t poi::hssf::usermodel::HSSFRow::getPhysicalNumberOfCells()
 {
     auto count = int32_t(0);
     for(auto cell : *npc(cells)) {
@@ -329,7 +323,7 @@ int32_t org::apache::poi::hssf::usermodel::HSSFRow::getPhysicalNumberOfCells()
     return count;
 }
 
-void org::apache::poi::hssf::usermodel::HSSFRow::setHeight(int16_t height)
+void poi::hssf::usermodel::HSSFRow::setHeight(int16_t height)
 {
     if(height == -int32_t(1)) {
         npc(row)->setHeight(static_cast< int16_t >((int32_t(255) | int32_t(32768))));
@@ -340,17 +334,17 @@ void org::apache::poi::hssf::usermodel::HSSFRow::setHeight(int16_t height)
     }
 }
 
-void org::apache::poi::hssf::usermodel::HSSFRow::setZeroHeight(bool zHeight)
+void poi::hssf::usermodel::HSSFRow::setZeroHeight(bool zHeight)
 {
     npc(row)->setZeroHeight(zHeight);
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFRow::getZeroHeight()
+bool poi::hssf::usermodel::HSSFRow::getZeroHeight()
 {
     return npc(row)->getZeroHeight();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFRow::setHeightInPoints(float height)
+void poi::hssf::usermodel::HSSFRow::setHeightInPoints(float height)
 {
     if(height == -int32_t(1)) {
         npc(row)->setHeight(static_cast< int16_t >((int32_t(255) | int32_t(32768))));
@@ -361,7 +355,7 @@ void org::apache::poi::hssf::usermodel::HSSFRow::setHeightInPoints(float height)
     }
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFRow::getHeight()
+int16_t poi::hssf::usermodel::HSSFRow::getHeight()
 {
     auto height = npc(row)->getHeight();
     if((height & int32_t(32768)) != 0)
@@ -371,17 +365,17 @@ int16_t org::apache::poi::hssf::usermodel::HSSFRow::getHeight()
     return height;
 }
 
-float org::apache::poi::hssf::usermodel::HSSFRow::getHeightInPoints()
+float poi::hssf::usermodel::HSSFRow::getHeightInPoints()
 {
     return (static_cast< float >(getHeight()) / int32_t(20));
 }
 
-org::apache::poi::hssf::record::RowRecord* org::apache::poi::hssf::usermodel::HSSFRow::getRowRecord()
+poi::hssf::record::RowRecord* poi::hssf::usermodel::HSSFRow::getRowRecord()
 {
     return row;
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFRow::calculateNewLastCellPlusOne(int32_t lastcell)
+int32_t poi::hssf::usermodel::HSSFRow::calculateNewLastCellPlusOne(int32_t lastcell)
 {
     auto cellIx = lastcell - int32_t(1);
     auto r = retrieveCell(cellIx);
@@ -394,7 +388,7 @@ int32_t org::apache::poi::hssf::usermodel::HSSFRow::calculateNewLastCellPlusOne(
     return cellIx + int32_t(1);
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFRow::calculateNewFirstCell(int32_t firstcell)
+int32_t poi::hssf::usermodel::HSSFRow::calculateNewFirstCell(int32_t firstcell)
 {
     auto cellIx = firstcell + int32_t(1);
     auto r = retrieveCell(cellIx);
@@ -407,12 +401,12 @@ int32_t org::apache::poi::hssf::usermodel::HSSFRow::calculateNewFirstCell(int32_
     return cellIx;
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFRow::isFormatted()
+bool poi::hssf::usermodel::HSSFRow::isFormatted()
 {
     return npc(row)->getFormatted();
 }
 
-org::apache::poi::hssf::usermodel::HSSFCellStyle* org::apache::poi::hssf::usermodel::HSSFRow::getRowStyle()
+poi::hssf::usermodel::HSSFCellStyle* poi::hssf::usermodel::HSSFRow::getRowStyle()
 {
     if(!isFormatted()) {
         return nullptr;
@@ -422,28 +416,28 @@ org::apache::poi::hssf::usermodel::HSSFCellStyle* org::apache::poi::hssf::usermo
     return new HSSFCellStyle(styleIndex, xf, book);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFRow::setRowStyle(HSSFCellStyle* style)
+void poi::hssf::usermodel::HSSFRow::setRowStyle(HSSFCellStyle* style)
 {
     npc(row)->setFormatted(true);
     npc(row)->setXFIndex(npc(style)->getIndex());
 }
 
-void org::apache::poi::hssf::usermodel::HSSFRow::setRowStyle(::org::apache::poi::ss::usermodel::CellStyle* style)
+void poi::hssf::usermodel::HSSFRow::setRowStyle(::poi::ss::usermodel::CellStyle* style)
 {
     setRowStyle(java_cast< HSSFCellStyle* >(style));
 }
 
-java::util::Iterator* org::apache::poi::hssf::usermodel::HSSFRow::cellIterator()
+java::util::Iterator* poi::hssf::usermodel::HSSFRow::cellIterator()
 {
     return new HSSFRow_CellIterator(this);
 }
 
-java::util::Iterator* org::apache::poi::hssf::usermodel::HSSFRow::iterator()
+java::util::Iterator* poi::hssf::usermodel::HSSFRow::iterator()
 {
     return cellIterator();
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFRow::compareTo(HSSFRow* other)
+int32_t poi::hssf::usermodel::HSSFRow::compareTo(HSSFRow* other)
 {
     if(java_cast< HSSFSheet* >(this->getSheet()) != java_cast< HSSFSheet* >(npc(other)->getSheet())) {
         throw new ::java::lang::IllegalArgumentException(u"The compared rows must belong to the same sheet"_j);
@@ -453,12 +447,12 @@ int32_t org::apache::poi::hssf::usermodel::HSSFRow::compareTo(HSSFRow* other)
     return npc(thisRow)->compareTo(otherRow);
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFRow::compareTo(::java::lang::Object* o)
+int32_t poi::hssf::usermodel::HSSFRow::compareTo(::java::lang::Object* o)
 { 
     return compareTo(dynamic_cast< HSSFRow* >(o));
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFRow::equals(::java::lang::Object* obj)
+bool poi::hssf::usermodel::HSSFRow::equals(::java::lang::Object* obj)
 {
     if(!(dynamic_cast< HSSFRow* >(obj) != nullptr)) {
         return false;
@@ -467,27 +461,27 @@ bool org::apache::poi::hssf::usermodel::HSSFRow::equals(::java::lang::Object* ob
     return (this->getRowNum() == npc(other)->getRowNum()) && (java_cast< HSSFSheet* >(this->getSheet()) == java_cast< HSSFSheet* >(npc(other)->getSheet()));
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFRow::hashCode()
+int32_t poi::hssf::usermodel::HSSFRow::hashCode()
 {
     return npc(row)->hashCode();
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFRow::class_()
+java::lang::Class* poi::hssf::usermodel::HSSFRow::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.usermodel.HSSFRow", 37);
     return c;
 }
 
-void org::apache::poi::hssf::usermodel::HSSFRow::clinit()
+void poi::hssf::usermodel::HSSFRow::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        INITIAL_CAPACITY_ = ::org::apache::poi::util::Configurator::getIntValue(u"HSSFRow.ColInitialCapacity"_j, 5);
+        INITIAL_CAPACITY_ = ::poi::util::Configurator::getIntValue(u"HSSFRow.ColInitialCapacity"_j, 5);
     }
 };
 
@@ -496,7 +490,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFRow::getClass0()
+java::lang::Class* poi::hssf::usermodel::HSSFRow::getClass0()
 {
     return class_();
 }

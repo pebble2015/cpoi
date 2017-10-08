@@ -9,20 +9,20 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::DrawSlide
+class poi::sl::draw::DrawSlide
     : public DrawSheet
 {
 
 public:
     typedef DrawSheet super;
 protected:
-    void ctor(::org::apache::poi::sl::usermodel::Slide* slide);
+    void ctor(::poi::sl::usermodel::Slide* slide);
 
 public:
     void draw(::java::awt::Graphics2D* graphics) override;
 
     // Generated
-    DrawSlide(::org::apache::poi::sl::usermodel::Slide* slide);
+    DrawSlide(::poi::sl::usermodel::Slide* slide);
 protected:
     DrawSlide(const ::default_init_tag&);
 

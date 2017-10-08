@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::util::Units
+class poi::util::Units
     : public virtual ::java::lang::Object
 {
 

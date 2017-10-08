@@ -11,14 +11,14 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::DrawTextParagraph_getParagraphShape_1
+class poi::sl::draw::DrawTextParagraph_getParagraphShape_1
     : public virtual ::java::lang::Object
-    , public virtual ::org::apache::poi::sl::usermodel::PlaceableShape
+    , public virtual ::poi::sl::usermodel::PlaceableShape
 {
 
 public:
     typedef ::java::lang::Object super;
-    ::org::apache::poi::sl::usermodel::ShapeContainer* getParent() override;
+    ::poi::sl::usermodel::ShapeContainer* getParent() override;
     ::java::awt::geom::Rectangle2D* getAnchor() override;
     void setAnchor(::java::awt::geom::Rectangle2D* anchor) override;
     double getRotation() override;
@@ -27,7 +27,7 @@ public:
     void setFlipVertical(bool flip) override;
     bool getFlipHorizontal() override;
     bool getFlipVertical() override;
-    ::org::apache::poi::sl::usermodel::Sheet* getSheet() override;
+    ::poi::sl::usermodel::Sheet* getSheet() override;
 
     // Generated
     DrawTextParagraph_getParagraphShape_1(DrawTextParagraph *DrawTextParagraph_this);

@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::ptg::ControlPtg
+class poi::ss::formula::ptg::ControlPtg
     : public Ptg
 {
 

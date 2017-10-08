@@ -13,37 +13,37 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::chart::BeginRecord::BeginRecord(const ::default_init_tag&)
+poi::hssf::record::chart::BeginRecord::BeginRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::chart::BeginRecord::BeginRecord() 
+poi::hssf::record::chart::BeginRecord::BeginRecord() 
     : BeginRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::chart::BeginRecord::BeginRecord(::org::apache::poi::hssf::record::RecordInputStream* in) 
+poi::hssf::record::chart::BeginRecord::BeginRecord(::poi::hssf::record::RecordInputStream* in) 
     : BeginRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::chart::BeginRecord::sid;
+constexpr int16_t poi::hssf::record::chart::BeginRecord::sid;
 
-void org::apache::poi::hssf::record::chart::BeginRecord::ctor()
+void poi::hssf::record::chart::BeginRecord::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hssf::record::chart::BeginRecord::ctor(::org::apache::poi::hssf::record::RecordInputStream* in)
+void poi::hssf::record::chart::BeginRecord::ctor(::poi::hssf::record::RecordInputStream* in)
 {
     super::ctor();
 }
 
-java::lang::String* org::apache::poi::hssf::record::chart::BeginRecord::toString()
+java::lang::String* poi::hssf::record::chart::BeginRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[BEGIN]\n"_j);
@@ -51,21 +51,21 @@ java::lang::String* org::apache::poi::hssf::record::chart::BeginRecord::toString
     return npc(buffer)->toString();
 }
 
-void org::apache::poi::hssf::record::chart::BeginRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::chart::BeginRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
 }
 
-int32_t org::apache::poi::hssf::record::chart::BeginRecord::getDataSize()
+int32_t poi::hssf::record::chart::BeginRecord::getDataSize()
 {
     return 0;
 }
 
-int16_t org::apache::poi::hssf::record::chart::BeginRecord::getSid()
+int16_t poi::hssf::record::chart::BeginRecord::getSid()
 {
     return sid;
 }
 
-org::apache::poi::hssf::record::chart::BeginRecord* org::apache::poi::hssf::record::chart::BeginRecord::clone()
+poi::hssf::record::chart::BeginRecord* poi::hssf::record::chart::BeginRecord::clone()
 {
     auto br = new BeginRecord();
     return br;
@@ -73,23 +73,23 @@ org::apache::poi::hssf::record::chart::BeginRecord* org::apache::poi::hssf::reco
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::chart::BeginRecord::class_()
+java::lang::Class* poi::hssf::record::chart::BeginRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.chart.BeginRecord", 44);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::chart::BeginRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::chart::BeginRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::chart::BeginRecord::serialize()
+int8_tArray* poi::hssf::record::chart::BeginRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::chart::BeginRecord::getClass0()
+java::lang::Class* poi::hssf::record::chart::BeginRecord::getClass0()
 {
     return class_();
 }

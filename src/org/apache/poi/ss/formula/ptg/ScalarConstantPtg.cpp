@@ -14,29 +14,29 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::ptg::ScalarConstantPtg::ScalarConstantPtg(const ::default_init_tag&)
+poi::ss::formula::ptg::ScalarConstantPtg::ScalarConstantPtg(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::ptg::ScalarConstantPtg::ScalarConstantPtg()
+poi::ss::formula::ptg::ScalarConstantPtg::ScalarConstantPtg()
     : ScalarConstantPtg(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-bool org::apache::poi::ss::formula::ptg::ScalarConstantPtg::isBaseToken()
+bool poi::ss::formula::ptg::ScalarConstantPtg::isBaseToken()
 {
     return true;
 }
 
-int8_t org::apache::poi::ss::formula::ptg::ScalarConstantPtg::getDefaultOperandClass()
+int8_t poi::ss::formula::ptg::ScalarConstantPtg::getDefaultOperandClass()
 {
     return Ptg::CLASS_VALUE;
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::ScalarConstantPtg::toString()
+java::lang::String* poi::ss::formula::ptg::ScalarConstantPtg::toString()
 {
     auto sb = new ::java::lang::StringBuffer(int32_t(64));
     npc(npc(sb)->append(npc(getClass())->getName()))->append(u" ["_j);
@@ -47,13 +47,13 @@ java::lang::String* org::apache::poi::ss::formula::ptg::ScalarConstantPtg::toStr
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::ScalarConstantPtg::class_()
+java::lang::Class* poi::ss::formula::ptg::ScalarConstantPtg::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.ptg.ScalarConstantPtg", 47);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::ScalarConstantPtg::getClass0()
+java::lang::Class* poi::ss::formula::ptg::ScalarConstantPtg::getClass0()
 {
     return class_();
 }

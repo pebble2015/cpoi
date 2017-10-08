@@ -16,64 +16,64 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::FormulaParser_SimpleRangePart::FormulaParser_SimpleRangePart(const ::default_init_tag&)
+poi::ss::formula::FormulaParser_SimpleRangePart::FormulaParser_SimpleRangePart(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::FormulaParser_SimpleRangePart::FormulaParser_SimpleRangePart(::java::lang::String* rep, bool hasLetters, bool hasNumbers) 
+poi::ss::formula::FormulaParser_SimpleRangePart::FormulaParser_SimpleRangePart(::java::lang::String* rep, bool hasLetters, bool hasNumbers) 
     : FormulaParser_SimpleRangePart(*static_cast< ::default_init_tag* >(0))
 {
     ctor(rep,hasLetters,hasNumbers);
 }
 
-void org::apache::poi::ss::formula::FormulaParser_SimpleRangePart::ctor(::java::lang::String* rep, bool hasLetters, bool hasNumbers)
+void poi::ss::formula::FormulaParser_SimpleRangePart::ctor(::java::lang::String* rep, bool hasLetters, bool hasNumbers)
 {
     super::ctor();
     _rep = rep;
     _type = FormulaParser_SimpleRangePart_Type::get(hasLetters, hasNumbers);
 }
 
-bool org::apache::poi::ss::formula::FormulaParser_SimpleRangePart::isCell()
+bool poi::ss::formula::FormulaParser_SimpleRangePart::isCell()
 {
     return _type == FormulaParser_SimpleRangePart_Type::CELL;
 }
 
-bool org::apache::poi::ss::formula::FormulaParser_SimpleRangePart::isRowOrColumn()
+bool poi::ss::formula::FormulaParser_SimpleRangePart::isRowOrColumn()
 {
     return _type != FormulaParser_SimpleRangePart_Type::CELL;
 }
 
-org::apache::poi::ss::util::CellReference* org::apache::poi::ss::formula::FormulaParser_SimpleRangePart::getCellReference()
+poi::ss::util::CellReference* poi::ss::formula::FormulaParser_SimpleRangePart::getCellReference()
 {
     if(_type != FormulaParser_SimpleRangePart_Type::CELL) {
         throw new ::java::lang::IllegalStateException(u"Not applicable to this type"_j);
     }
-    return new ::org::apache::poi::ss::util::CellReference(_rep);
+    return new ::poi::ss::util::CellReference(_rep);
 }
 
-bool org::apache::poi::ss::formula::FormulaParser_SimpleRangePart::isColumn()
+bool poi::ss::formula::FormulaParser_SimpleRangePart::isColumn()
 {
     return _type == FormulaParser_SimpleRangePart_Type::COLUMN;
 }
 
-bool org::apache::poi::ss::formula::FormulaParser_SimpleRangePart::isRow()
+bool poi::ss::formula::FormulaParser_SimpleRangePart::isRow()
 {
     return _type == FormulaParser_SimpleRangePart_Type::ROW;
 }
 
-java::lang::String* org::apache::poi::ss::formula::FormulaParser_SimpleRangePart::getRep()
+java::lang::String* poi::ss::formula::FormulaParser_SimpleRangePart::getRep()
 {
     return _rep;
 }
 
-bool org::apache::poi::ss::formula::FormulaParser_SimpleRangePart::isCompatibleForArea(FormulaParser_SimpleRangePart* part2)
+bool poi::ss::formula::FormulaParser_SimpleRangePart::isCompatibleForArea(FormulaParser_SimpleRangePart* part2)
 {
     return _type == npc(part2)->_type;
 }
 
-java::lang::String* org::apache::poi::ss::formula::FormulaParser_SimpleRangePart::toString()
+java::lang::String* poi::ss::formula::FormulaParser_SimpleRangePart::toString()
 {
     return ::java::lang::StringBuilder().append(npc(getClass())->getName())->append(u" ["_j)
         ->append(_rep)
@@ -82,13 +82,13 @@ java::lang::String* org::apache::poi::ss::formula::FormulaParser_SimpleRangePart
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::FormulaParser_SimpleRangePart::class_()
+java::lang::Class* poi::ss::formula::FormulaParser_SimpleRangePart::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.FormulaParser.SimpleRangePart", 55);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::FormulaParser_SimpleRangePart::getClass0()
+java::lang::Class* poi::ss::formula::FormulaParser_SimpleRangePart::getClass0()
 {
     return class_();
 }

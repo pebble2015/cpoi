@@ -25,7 +25,7 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
 
 struct default_init_tag;
 
-class org::apache::poi::dev::RecordGenerator
+class poi::dev::RecordGenerator
     : public virtual ::java::lang::Object
 {
 

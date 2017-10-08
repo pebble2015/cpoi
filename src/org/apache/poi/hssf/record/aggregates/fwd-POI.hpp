@@ -2,44 +2,38 @@
 #pragma once
 
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
+            namespace aggregates
             {
-                namespace record
-                {
-                    namespace aggregates
-                    {
-                        class CFRecordsAggregate;
-                        class ChartSubstreamRecordAggregate;
-                        class ColumnInfoRecordsAggregate;
-                        class ColumnInfoRecordsAggregate_CIRComparator;
-                        class ConditionalFormattingTable;
-                        class CustomViewSettingsRecordAggregate;
-                        class DataValidityTable;
-                        class FormulaRecordAggregate;
-                        class MergedCellsTable;
-                        class PageSettingsBlock;
-                        class PageSettingsBlock_PLSAggregate;
-                        class PageSettingsBlock_positionRecords_1;
-                        class RecordAggregate;
-                        class RecordAggregate_PositionTrackingVisitor;
-                        class RecordAggregate_RecordSizingVisitor;
-                        struct RecordAggregate_RecordVisitor;
-                        class RecordAggregate_SerializingRecordVisitor;
-                        class RowRecordsAggregate;
-                        class SharedValueManager;
-                        class SharedValueManager_SharedFormulaGroup;
-                        class ValueRecordsAggregate;
-                        class ValueRecordsAggregate_ValueIterator;
-                        class WorksheetProtectionBlock;
-                    } // aggregates
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+                class CFRecordsAggregate;
+                class ChartSubstreamRecordAggregate;
+                class ColumnInfoRecordsAggregate;
+                class ColumnInfoRecordsAggregate_CIRComparator;
+                class ConditionalFormattingTable;
+                class CustomViewSettingsRecordAggregate;
+                class DataValidityTable;
+                class FormulaRecordAggregate;
+                class MergedCellsTable;
+                class PageSettingsBlock;
+                class PageSettingsBlock_PLSAggregate;
+                class PageSettingsBlock_positionRecords_1;
+                class RecordAggregate;
+                class RecordAggregate_PositionTrackingVisitor;
+                class RecordAggregate_RecordSizingVisitor;
+                struct RecordAggregate_RecordVisitor;
+                class RecordAggregate_SerializingRecordVisitor;
+                class RowRecordsAggregate;
+                class SharedValueManager;
+                class SharedValueManager_SharedFormulaGroup;
+                class ValueRecordsAggregate;
+                class ValueRecordsAggregate_ValueIterator;
+                class WorksheetProtectionBlock;
+            } // aggregates
+        } // record
+    } // hssf
+} // poi

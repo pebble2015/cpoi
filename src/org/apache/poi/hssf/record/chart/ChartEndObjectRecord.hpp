@@ -11,12 +11,12 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::chart::ChartEndObjectRecord final
-    : public ::org::apache::poi::hssf::record::StandardRecord
+class poi::hssf::record::chart::ChartEndObjectRecord final
+    : public ::poi::hssf::record::StandardRecord
 {
 
 public:
-    typedef ::org::apache::poi::hssf::record::StandardRecord super;
+    typedef ::poi::hssf::record::StandardRecord super;
     static constexpr int16_t sid { int16_t(2133) };
 
 private:
@@ -25,18 +25,18 @@ private:
     int16_t iObjectKind {  };
     ::int8_tArray* reserved {  };
 protected:
-    void ctor(::org::apache::poi::hssf::record::RecordInputStream* in);
+    void ctor(::poi::hssf::record::RecordInputStream* in);
 
 public: /* protected */
     int32_t getDataSize() override;
 
 public:
     int16_t getSid() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
     ::java::lang::String* toString() override;
 
     // Generated
-    ChartEndObjectRecord(::org::apache::poi::hssf::record::RecordInputStream* in);
+    ChartEndObjectRecord(::poi::hssf::record::RecordInputStream* in);
 protected:
     ChartEndObjectRecord(const ::default_init_tag&);
 

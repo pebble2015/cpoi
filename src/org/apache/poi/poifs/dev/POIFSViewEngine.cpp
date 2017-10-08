@@ -33,26 +33,26 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::dev::POIFSViewEngine::POIFSViewEngine(const ::default_init_tag&)
+poi::poifs::dev::POIFSViewEngine::POIFSViewEngine(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::dev::POIFSViewEngine::POIFSViewEngine()
+poi::poifs::dev::POIFSViewEngine::POIFSViewEngine()
     : POIFSViewEngine(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-java::lang::String*& org::apache::poi::poifs::dev::POIFSViewEngine::_EOL()
+java::lang::String*& poi::poifs::dev::POIFSViewEngine::_EOL()
 {
     clinit();
     return _EOL_;
 }
-java::lang::String* org::apache::poi::poifs::dev::POIFSViewEngine::_EOL_;
+java::lang::String* poi::poifs::dev::POIFSViewEngine::_EOL_;
 
-java::util::List* org::apache::poi::poifs::dev::POIFSViewEngine::inspectViewable(::java::lang::Object* viewable, bool drilldown, int32_t indentLevel, ::java::lang::String* indentString)
+java::util::List* poi::poifs::dev::POIFSViewEngine::inspectViewable(::java::lang::Object* viewable, bool drilldown, int32_t indentLevel, ::java::lang::String* indentString)
 {
     clinit();
     ::java::util::List* objects = new ::java::util::ArrayList();
@@ -78,7 +78,7 @@ java::util::List* org::apache::poi::poifs::dev::POIFSViewEngine::inspectViewable
     return objects;
 }
 
-java::lang::String* org::apache::poi::poifs::dev::POIFSViewEngine::indent(int32_t indentLevel, ::java::lang::String* indentString, ::java::lang::String* data)
+java::lang::String* poi::poifs::dev::POIFSViewEngine::indent(int32_t indentLevel, ::java::lang::String* indentString, ::java::lang::String* data)
 {
     clinit();
     auto finalBuffer = new ::java::lang::StringBuffer();
@@ -101,13 +101,13 @@ java::lang::String* org::apache::poi::poifs::dev::POIFSViewEngine::indent(int32_
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::dev::POIFSViewEngine::class_()
+java::lang::Class* poi::poifs::dev::POIFSViewEngine::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.dev.POIFSViewEngine", 40);
     return c;
 }
 
-void org::apache::poi::poifs::dev::POIFSViewEngine::clinit()
+void poi::poifs::dev::POIFSViewEngine::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -123,7 +123,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::poifs::dev::POIFSViewEngine::getClass0()
+java::lang::Class* poi::poifs::dev::POIFSViewEngine::getClass0()
 {
     return class_();
 }

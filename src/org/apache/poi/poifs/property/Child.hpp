@@ -5,7 +5,7 @@
 #include <org/apache/poi/poifs/property/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::poifs::property::Child
+struct poi::poifs::property::Child
     : public virtual ::java::lang::Object
 {
     virtual Child* getNextChild() = 0;

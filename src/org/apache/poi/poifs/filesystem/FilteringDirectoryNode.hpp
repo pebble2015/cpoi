@@ -13,7 +13,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::filesystem::FilteringDirectoryNode
+class poi::poifs::filesystem::FilteringDirectoryNode
     : public virtual ::java::lang::Object
     , public virtual DirectoryEntry
 {
@@ -44,8 +44,8 @@ private:
     Entry* wrapEntry(Entry* entry);
 
 public:
-    ::org::apache::poi::hpsf::ClassID* getStorageClsid() override;
-    void setStorageClsid(::org::apache::poi::hpsf::ClassID* clsidStorage) override;
+    ::poi::hpsf::ClassID* getStorageClsid() override;
+    void setStorageClsid(::poi::hpsf::ClassID* clsidStorage) override;
     bool delete_() override;
     bool renameTo(::java::lang::String* newName) override;
     ::java::lang::String* getName() override;

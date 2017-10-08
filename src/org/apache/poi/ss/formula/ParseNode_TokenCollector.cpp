@@ -12,25 +12,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -39,26 +33,26 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::ParseNode_TokenCollector::ParseNode_TokenCollector(const ::default_init_tag&)
+poi::ss::formula::ParseNode_TokenCollector::ParseNode_TokenCollector(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::ParseNode_TokenCollector::ParseNode_TokenCollector(int32_t tokenCount) 
+poi::ss::formula::ParseNode_TokenCollector::ParseNode_TokenCollector(int32_t tokenCount) 
     : ParseNode_TokenCollector(*static_cast< ::default_init_tag* >(0))
 {
     ctor(tokenCount);
 }
 
-void org::apache::poi::ss::formula::ParseNode_TokenCollector::ctor(int32_t tokenCount)
+void poi::ss::formula::ParseNode_TokenCollector::ctor(int32_t tokenCount)
 {
     super::ctor();
-    _ptgs = new ::org::apache::poi::ss::formula::ptg::PtgArray(tokenCount);
+    _ptgs = new ::poi::ss::formula::ptg::PtgArray(tokenCount);
     _offset = 0;
 }
 
-int32_t org::apache::poi::ss::formula::ParseNode_TokenCollector::sumTokenSizes(int32_t fromIx, int32_t toIx)
+int32_t poi::ss::formula::ParseNode_TokenCollector::sumTokenSizes(int32_t fromIx, int32_t toIx)
 {
     auto result = int32_t(0);
     for (auto i = fromIx; i < toIx; i++) {
@@ -67,12 +61,12 @@ int32_t org::apache::poi::ss::formula::ParseNode_TokenCollector::sumTokenSizes(i
     return result;
 }
 
-int32_t org::apache::poi::ss::formula::ParseNode_TokenCollector::createPlaceholder()
+int32_t poi::ss::formula::ParseNode_TokenCollector::createPlaceholder()
 {
     return _offset++;
 }
 
-void org::apache::poi::ss::formula::ParseNode_TokenCollector::add(::org::apache::poi::ss::formula::ptg::Ptg* token)
+void poi::ss::formula::ParseNode_TokenCollector::add(::poi::ss::formula::ptg::Ptg* token)
 {
     if(token == nullptr) {
         throw new ::java::lang::IllegalArgumentException(u"token must not be null"_j);
@@ -81,7 +75,7 @@ void org::apache::poi::ss::formula::ParseNode_TokenCollector::add(::org::apache:
     _offset++;
 }
 
-void org::apache::poi::ss::formula::ParseNode_TokenCollector::setPlaceholder(int32_t index, ::org::apache::poi::ss::formula::ptg::Ptg* token)
+void poi::ss::formula::ParseNode_TokenCollector::setPlaceholder(int32_t index, ::poi::ss::formula::ptg::Ptg* token)
 {
     if((*_ptgs)[index] != nullptr) {
         throw new ::java::lang::IllegalStateException(::java::lang::StringBuilder().append(u"Invalid placeholder index ("_j)->append(index)
@@ -90,20 +84,20 @@ void org::apache::poi::ss::formula::ParseNode_TokenCollector::setPlaceholder(int
     _ptgs->set(index, token);
 }
 
-org::apache::poi::ss::formula::ptg::PtgArray* org::apache::poi::ss::formula::ParseNode_TokenCollector::getResult()
+poi::ss::formula::ptg::PtgArray* poi::ss::formula::ParseNode_TokenCollector::getResult()
 {
     return _ptgs;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::ParseNode_TokenCollector::class_()
+java::lang::Class* poi::ss::formula::ParseNode_TokenCollector::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.ParseNode.TokenCollector", 50);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::ParseNode_TokenCollector::getClass0()
+java::lang::Class* poi::ss::formula::ParseNode_TokenCollector::getClass0()
 {
     return class_();
 }

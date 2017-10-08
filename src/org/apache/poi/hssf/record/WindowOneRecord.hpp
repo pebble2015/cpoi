@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::WindowOneRecord final
+class poi::hssf::record::WindowOneRecord final
     : public StandardRecord
 {
 
@@ -24,12 +24,12 @@ private:
     int16_t field_3_width {  };
     int16_t field_4_height {  };
     int16_t field_5_options {  };
-    static ::org::apache::poi::util::BitField* hidden_;
-    static ::org::apache::poi::util::BitField* iconic_;
-    static ::org::apache::poi::util::BitField* reserved_;
-    static ::org::apache::poi::util::BitField* hscroll_;
-    static ::org::apache::poi::util::BitField* vscroll_;
-    static ::org::apache::poi::util::BitField* tabs_;
+    static ::poi::util::BitField* hidden_;
+    static ::poi::util::BitField* iconic_;
+    static ::poi::util::BitField* reserved_;
+    static ::poi::util::BitField* hscroll_;
+    static ::poi::util::BitField* vscroll_;
+    static ::poi::util::BitField* tabs_;
     int32_t field_6_active_sheet {  };
     int32_t field_7_first_visible_tab {  };
     int16_t field_8_num_selected_tabs {  };
@@ -68,7 +68,7 @@ public:
     int16_t getNumSelectedTabs();
     int16_t getTabWidthRatio();
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;
@@ -90,11 +90,11 @@ public:
     ::int8_tArray* serialize();
 
 private:
-    static ::org::apache::poi::util::BitField*& hidden();
-    static ::org::apache::poi::util::BitField*& iconic();
-    static ::org::apache::poi::util::BitField*& reserved();
-    static ::org::apache::poi::util::BitField*& hscroll();
-    static ::org::apache::poi::util::BitField*& vscroll();
-    static ::org::apache::poi::util::BitField*& tabs();
+    static ::poi::util::BitField*& hidden();
+    static ::poi::util::BitField*& iconic();
+    static ::poi::util::BitField*& reserved();
+    static ::poi::util::BitField*& hscroll();
+    static ::poi::util::BitField*& vscroll();
+    static ::poi::util::BitField*& tabs();
     virtual ::java::lang::Class* getClass0();
 };

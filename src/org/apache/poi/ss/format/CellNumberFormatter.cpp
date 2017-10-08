@@ -95,25 +95,25 @@ namespace
 
     template<typename F> finally_<F> finally(F f) { return finally_<F>(f); }
 }
-org::apache::poi::ss::format::CellNumberFormatter::CellNumberFormatter(const ::default_init_tag&)
+poi::ss::format::CellNumberFormatter::CellNumberFormatter(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::format::CellNumberFormatter::CellNumberFormatter(::java::lang::String* format) 
+poi::ss::format::CellNumberFormatter::CellNumberFormatter(::java::lang::String* format) 
     : CellNumberFormatter(*static_cast< ::default_init_tag* >(0))
 {
     ctor(format);
 }
 
-org::apache::poi::ss::format::CellNumberFormatter::CellNumberFormatter(::java::util::Locale* locale, ::java::lang::String* format) 
+poi::ss::format::CellNumberFormatter::CellNumberFormatter(::java::util::Locale* locale, ::java::lang::String* format) 
     : CellNumberFormatter(*static_cast< ::default_init_tag* >(0))
 {
     ctor(locale,format);
 }
 
-void org::apache::poi::ss::format::CellNumberFormatter::init()
+void poi::ss::format::CellNumberFormatter::init()
 {
     specials = new ::java::util::ArrayList();
     integerSpecials = new ::java::util::ArrayList();
@@ -125,19 +125,19 @@ void org::apache::poi::ss::format::CellNumberFormatter::init()
     SIMPLE_NUMBER = new CellNumberFormatter_GeneralNumberFormatter(locale);
 }
 
-org::apache::poi::util::POILogger*& org::apache::poi::ss::format::CellNumberFormatter::LOG()
+poi::util::POILogger*& poi::ss::format::CellNumberFormatter::LOG()
 {
     clinit();
     return LOG_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::ss::format::CellNumberFormatter::LOG_;
+poi::util::POILogger* poi::ss::format::CellNumberFormatter::LOG_;
 
-void org::apache::poi::ss::format::CellNumberFormatter::ctor(::java::lang::String* format)
+void poi::ss::format::CellNumberFormatter::ctor(::java::lang::String* format)
 {
-    ctor(::org::apache::poi::util::LocaleUtil::getUserLocale(), format);
+    ctor(::poi::util::LocaleUtil::getUserLocale(), format);
 }
 
-void org::apache::poi::ss::format::CellNumberFormatter::ctor(::java::util::Locale* locale, ::java::lang::String* format)
+void poi::ss::format::CellNumberFormatter::ctor(::java::util::Locale* locale, ::java::lang::String* format)
 {
     super::ctor(locale, format);
     init();
@@ -265,12 +265,12 @@ void org::apache::poi::ss::format::CellNumberFormatter::ctor(::java::util::Local
     desc = npc(descBuf)->toString();
 }
 
-java::text::DecimalFormatSymbols* org::apache::poi::ss::format::CellNumberFormatter::getDecimalFormatSymbols()
+java::text::DecimalFormatSymbols* poi::ss::format::CellNumberFormatter::getDecimalFormatSymbols()
 {
     return ::java::text::DecimalFormatSymbols::getInstance(locale);
 }
 
-void org::apache::poi::ss::format::CellNumberFormatter::placeZeros(::java::lang::StringBuffer* sb, ::java::util::List* specials)
+void poi::ss::format::CellNumberFormatter::placeZeros(::java::lang::StringBuffer* sb, ::java::util::List* specials)
 {
     clinit();
     for (auto _i = npc(specials)->iterator(); _i->hasNext(); ) {
@@ -283,38 +283,38 @@ void org::apache::poi::ss::format::CellNumberFormatter::placeZeros(::java::lang:
     }
 }
 
-org::apache::poi::ss::format::CellNumberStringMod* org::apache::poi::ss::format::CellNumberFormatter::insertMod(CellNumberFormatter_Special* special, ::java::lang::CharSequence* toAdd, int32_t where)
+poi::ss::format::CellNumberStringMod* poi::ss::format::CellNumberFormatter::insertMod(CellNumberFormatter_Special* special, ::java::lang::CharSequence* toAdd, int32_t where)
 {
     clinit();
     return new CellNumberStringMod(special, toAdd, where);
 }
 
-org::apache::poi::ss::format::CellNumberStringMod* org::apache::poi::ss::format::CellNumberFormatter::deleteMod(CellNumberFormatter_Special* start, bool startInclusive, CellNumberFormatter_Special* end, bool endInclusive)
+poi::ss::format::CellNumberStringMod* poi::ss::format::CellNumberFormatter::deleteMod(CellNumberFormatter_Special* start, bool startInclusive, CellNumberFormatter_Special* end, bool endInclusive)
 {
     clinit();
     return new CellNumberStringMod(start, startInclusive, end, endInclusive);
 }
 
-org::apache::poi::ss::format::CellNumberStringMod* org::apache::poi::ss::format::CellNumberFormatter::replaceMod(CellNumberFormatter_Special* start, bool startInclusive, CellNumberFormatter_Special* end, bool endInclusive, char16_t withChar)
+poi::ss::format::CellNumberStringMod* poi::ss::format::CellNumberFormatter::replaceMod(CellNumberFormatter_Special* start, bool startInclusive, CellNumberFormatter_Special* end, bool endInclusive, char16_t withChar)
 {
     clinit();
     return new CellNumberStringMod(start, startInclusive, end, endInclusive, withChar);
 }
 
-java::lang::String* org::apache::poi::ss::format::CellNumberFormatter::singleNumberFormat(::java::util::List* numSpecials)
+java::lang::String* poi::ss::format::CellNumberFormatter::singleNumberFormat(::java::util::List* numSpecials)
 {
     clinit();
     return ::java::lang::StringBuilder().append(u"%0"_j)->append(npc(numSpecials)->size())
         ->append(u"d"_j)->toString();
 }
 
-int32_t org::apache::poi::ss::format::CellNumberFormatter::maxValue(::java::util::List* s)
+int32_t poi::ss::format::CellNumberFormatter::maxValue(::java::util::List* s)
 {
     clinit();
     return static_cast< int32_t >(::java::lang::Math::round(::java::lang::Math::pow(10, npc(s)->size()) - int32_t(1)));
 }
 
-java::util::List* org::apache::poi::ss::format::CellNumberFormatter::specialsFor(int32_t pos, int32_t takeFirst)
+java::util::List* poi::ss::format::CellNumberFormatter::specialsFor(int32_t pos, int32_t takeFirst)
 {
     if(pos >= npc(specials)->size()) {
         return ::java::util::Collections::emptyList();
@@ -333,18 +333,18 @@ java::util::List* org::apache::poi::ss::format::CellNumberFormatter::specialsFor
     return npc(specials)->subList(pos, end + int32_t(1));
 }
 
-java::util::List* org::apache::poi::ss::format::CellNumberFormatter::specialsFor(int32_t pos)
+java::util::List* poi::ss::format::CellNumberFormatter::specialsFor(int32_t pos)
 {
     return specialsFor(pos, 0);
 }
 
-bool org::apache::poi::ss::format::CellNumberFormatter::isDigitFmt(CellNumberFormatter_Special* s)
+bool poi::ss::format::CellNumberFormatter::isDigitFmt(CellNumberFormatter_Special* s)
 {
     clinit();
     return npc(s)->ch == u'0' || npc(s)->ch == u'?' || npc(s)->ch == u'#';
 }
 
-int32_t org::apache::poi::ss::format::CellNumberFormatter::calculateIntegerPartWidth()
+int32_t poi::ss::format::CellNumberFormatter::calculateIntegerPartWidth()
 {
     auto digitCount = int32_t(0);
     for (auto _i = npc(specials)->iterator(); _i->hasNext(); ) {
@@ -360,7 +360,7 @@ int32_t org::apache::poi::ss::format::CellNumberFormatter::calculateIntegerPartW
     return digitCount;
 }
 
-int32_t org::apache::poi::ss::format::CellNumberFormatter::interpretPrecision(CellNumberFormatter_Special* decimalPoint, ::java::util::List* specials)
+int32_t poi::ss::format::CellNumberFormatter::interpretPrecision(CellNumberFormatter_Special* decimalPoint, ::java::util::List* specials)
 {
     clinit();
     auto idx = npc(specials)->indexOf(decimalPoint);
@@ -378,7 +378,7 @@ int32_t org::apache::poi::ss::format::CellNumberFormatter::interpretPrecision(Ce
     return precision;
 }
 
-bool org::apache::poi::ss::format::CellNumberFormatter::interpretIntegerCommas(::java::lang::StringBuffer* sb, ::java::util::List* specials, CellNumberFormatter_Special* decimalPoint, int32_t integerEnd, int32_t fractionalEnd, ::doubleArray* scale)
+bool poi::ss::format::CellNumberFormatter::interpretIntegerCommas(::java::lang::StringBuffer* sb, ::java::util::List* specials, CellNumberFormatter_Special* decimalPoint, int32_t integerEnd, int32_t fractionalEnd, ::doubleArray* scale)
 {
     clinit();
     auto it = npc(specials)->listIterator(integerEnd);
@@ -421,17 +421,17 @@ bool org::apache::poi::ss::format::CellNumberFormatter::interpretIntegerCommas(:
     return integerCommas;
 }
 
-int32_t org::apache::poi::ss::format::CellNumberFormatter::integerEnd()
+int32_t poi::ss::format::CellNumberFormatter::integerEnd()
 {
     return (afterInteger == nullptr) ? npc(specials)->size() : npc(specials)->indexOf(afterInteger);
 }
 
-int32_t org::apache::poi::ss::format::CellNumberFormatter::fractionalEnd()
+int32_t poi::ss::format::CellNumberFormatter::fractionalEnd()
 {
     return (afterFractional == nullptr) ? npc(specials)->size() : npc(specials)->indexOf(afterFractional);
 }
 
-void org::apache::poi::ss::format::CellNumberFormatter::formatValue(::java::lang::StringBuffer* toAppendTo, ::java::lang::Object* valueObject)
+void poi::ss::format::CellNumberFormatter::formatValue(::java::lang::StringBuffer* toAppendTo, ::java::lang::Object* valueObject)
 {
     auto value = npc((java_cast< ::java::lang::Number* >(valueObject)))->doubleValue();
     value *= scale;
@@ -549,7 +549,7 @@ void org::apache::poi::ss::format::CellNumberFormatter::formatValue(::java::lang
     npc(toAppendTo)->append(output);
 }
 
-void org::apache::poi::ss::format::CellNumberFormatter::writeScientific(double value, ::java::lang::StringBuffer* output, ::java::util::Set* mods)
+void poi::ss::format::CellNumberFormatter::writeScientific(double value, ::java::lang::StringBuffer* output, ::java::util::Set* mods)
 {
     auto result = new ::java::lang::StringBuffer();
     auto fractionPos = new ::java::text::FieldPosition(::java::text::DecimalFormat::FRACTION_FIELD);
@@ -575,7 +575,7 @@ void org::apache::poi::ss::format::CellNumberFormatter::writeScientific(double v
     writeInteger(exponentNum, output, exponentDigitSpecials, mods, false);
 }
 
-void org::apache::poi::ss::format::CellNumberFormatter::writeFraction(double value, ::java::lang::StringBuffer* result, double fractional, ::java::lang::StringBuffer* output, ::java::util::Set* mods)
+void poi::ss::format::CellNumberFormatter::writeFraction(double value, ::java::lang::StringBuffer* result, double fractional, ::java::lang::StringBuffer* output, ::java::util::Set* mods)
 {
     if(!improperFraction) {
         if(fractional == 0 && !hasChar(u'0', new ::java::util::ListArray({static_cast< ::java::util::List* >(numeratorSpecials)}))) {
@@ -621,11 +621,11 @@ void org::apache::poi::ss::format::CellNumberFormatter::writeFraction(double val
         writeSingleInteger(numeratorFmt, n, output, numeratorSpecials, mods);
         writeSingleInteger(denominatorFmt, d, output, denominatorSpecials, mods);
     } catch (::java::lang::RuntimeException* ignored) {
-        npc(LOG_)->log(::org::apache::poi::util::POILogger::ERROR, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"error while fraction evaluation"_j), static_cast< ::java::lang::Object* >(ignored)}));
+        npc(LOG_)->log(::poi::util::POILogger::ERROR, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"error while fraction evaluation"_j), static_cast< ::java::lang::Object* >(ignored)}));
     }
 }
 
-java::lang::String* org::apache::poi::ss::format::CellNumberFormatter::localiseFormat(::java::lang::String* format)
+java::lang::String* poi::ss::format::CellNumberFormatter::localiseFormat(::java::lang::String* format)
 {
     auto dfs = getDecimalFormatSymbols();
     if(npc(format)->contains(u","_j) && npc(dfs)->getGroupingSeparator() != u',') {
@@ -641,13 +641,13 @@ java::lang::String* org::apache::poi::ss::format::CellNumberFormatter::localiseF
     return format;
 }
 
-java::lang::String* org::apache::poi::ss::format::CellNumberFormatter::replaceLast(::java::lang::String* text, ::java::lang::String* regex, ::java::lang::String* replacement)
+java::lang::String* poi::ss::format::CellNumberFormatter::replaceLast(::java::lang::String* text, ::java::lang::String* regex, ::java::lang::String* replacement)
 {
     clinit();
     return npc(text)->replaceFirst(::java::lang::StringBuilder().append(u"(?s)(.*)"_j)->append(regex)->toString(), ::java::lang::StringBuilder().append(u"$1"_j)->append(replacement)->toString());
 }
 
-bool org::apache::poi::ss::format::CellNumberFormatter::hasChar(char16_t ch, ::java::util::ListArray*/*...*/ numSpecials)
+bool poi::ss::format::CellNumberFormatter::hasChar(char16_t ch, ::java::util::ListArray*/*...*/ numSpecials)
 {
     clinit();
     for(auto specials : *npc(numSpecials)) {
@@ -663,7 +663,7 @@ bool org::apache::poi::ss::format::CellNumberFormatter::hasChar(char16_t ch, ::j
     return false;
 }
 
-void org::apache::poi::ss::format::CellNumberFormatter::writeSingleInteger(::java::lang::String* fmt, int32_t num, ::java::lang::StringBuffer* output, ::java::util::List* numSpecials, ::java::util::Set* mods)
+void poi::ss::format::CellNumberFormatter::writeSingleInteger(::java::lang::String* fmt, int32_t num, ::java::lang::StringBuffer* output, ::java::util::List* numSpecials, ::java::util::Set* mods)
 {
     auto sb = new ::java::lang::StringBuffer();
     auto formatter = new ::java::util::Formatter(static_cast< ::java::lang::Appendable* >(sb), locale);
@@ -679,7 +679,7 @@ void org::apache::poi::ss::format::CellNumberFormatter::writeSingleInteger(::jav
     writeInteger(sb, output, numSpecials, mods, false);
 }
 
-void org::apache::poi::ss::format::CellNumberFormatter::writeInteger(::java::lang::StringBuffer* result, ::java::lang::StringBuffer* output, ::java::util::List* numSpecials, ::java::util::Set* mods, bool showGroupingSeparator)
+void poi::ss::format::CellNumberFormatter::writeInteger(::java::lang::StringBuffer* result, ::java::lang::StringBuffer* output, ::java::util::List* numSpecials, ::java::util::Set* mods, bool showGroupingSeparator)
 {
     auto dfs = getDecimalFormatSymbols();
     auto decimalSeparator = ::java::lang::Character::toString(npc(dfs)->getDecimalSeparator());
@@ -742,7 +742,7 @@ void org::apache::poi::ss::format::CellNumberFormatter::writeInteger(::java::lan
     }
 }
 
-void org::apache::poi::ss::format::CellNumberFormatter::writeFractional(::java::lang::StringBuffer* result, ::java::lang::StringBuffer* output)
+void poi::ss::format::CellNumberFormatter::writeFractional(::java::lang::StringBuffer* result, ::java::lang::StringBuffer* output)
 {
     int32_t digit;
     int32_t strip;
@@ -772,12 +772,12 @@ void org::apache::poi::ss::format::CellNumberFormatter::writeFractional(::java::
     }
 }
 
-void org::apache::poi::ss::format::CellNumberFormatter::simpleValue(::java::lang::StringBuffer* toAppendTo, ::java::lang::Object* value)
+void poi::ss::format::CellNumberFormatter::simpleValue(::java::lang::StringBuffer* toAppendTo, ::java::lang::Object* value)
 {
     npc(SIMPLE_NUMBER)->formatValue(toAppendTo, value);
 }
 
-org::apache::poi::ss::format::CellNumberFormatter_Special* org::apache::poi::ss::format::CellNumberFormatter::lastSpecial(::java::util::List* s)
+poi::ss::format::CellNumberFormatter_Special* poi::ss::format::CellNumberFormatter::lastSpecial(::java::util::List* s)
 {
     clinit();
     return java_cast< CellNumberFormatter_Special* >(npc(s)->get(npc(s)->size() - int32_t(1)));
@@ -785,20 +785,20 @@ org::apache::poi::ss::format::CellNumberFormatter_Special* org::apache::poi::ss:
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::format::CellNumberFormatter::class_()
+java::lang::Class* poi::ss::format::CellNumberFormatter::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.format.CellNumberFormatter", 44);
     return c;
 }
 
-void org::apache::poi::ss::format::CellNumberFormatter::clinit()
+void poi::ss::format::CellNumberFormatter::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        LOG_ = ::org::apache::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(CellNumberFormatter::class_()));
+        LOG_ = ::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(CellNumberFormatter::class_()));
     }
 };
 
@@ -807,7 +807,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::format::CellNumberFormatter::getClass0()
+java::lang::Class* poi::ss::format::CellNumberFormatter::getClass0()
 {
     return class_();
 }

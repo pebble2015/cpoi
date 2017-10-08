@@ -16,33 +16,33 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::InterfaceEndRecord::InterfaceEndRecord(const ::default_init_tag&)
+poi::hssf::record::InterfaceEndRecord::InterfaceEndRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::InterfaceEndRecord::InterfaceEndRecord() 
+poi::hssf::record::InterfaceEndRecord::InterfaceEndRecord() 
     : InterfaceEndRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-constexpr int16_t org::apache::poi::hssf::record::InterfaceEndRecord::sid;
+constexpr int16_t poi::hssf::record::InterfaceEndRecord::sid;
 
-org::apache::poi::hssf::record::InterfaceEndRecord*& org::apache::poi::hssf::record::InterfaceEndRecord::instance()
+poi::hssf::record::InterfaceEndRecord*& poi::hssf::record::InterfaceEndRecord::instance()
 {
     clinit();
     return instance_;
 }
-org::apache::poi::hssf::record::InterfaceEndRecord* org::apache::poi::hssf::record::InterfaceEndRecord::instance_;
+poi::hssf::record::InterfaceEndRecord* poi::hssf::record::InterfaceEndRecord::instance_;
 
-void org::apache::poi::hssf::record::InterfaceEndRecord::ctor()
+void poi::hssf::record::InterfaceEndRecord::ctor()
 {
     super::ctor();
 }
 
-org::apache::poi::hssf::record::Record* org::apache::poi::hssf::record::InterfaceEndRecord::create(RecordInputStream* in)
+poi::hssf::record::Record* poi::hssf::record::InterfaceEndRecord::create(RecordInputStream* in)
 {
     clinit();
     switch (npc(in)->remaining()) {
@@ -52,37 +52,37 @@ org::apache::poi::hssf::record::Record* org::apache::poi::hssf::record::Interfac
         return new InterfaceHdrRecord(in);
     }
 
-    throw new ::org::apache::poi::util::RecordFormatException(::java::lang::StringBuilder().append(u"Invalid record data size: "_j)->append(npc(in)->remaining())->toString());
+    throw new ::poi::util::RecordFormatException(::java::lang::StringBuilder().append(u"Invalid record data size: "_j)->append(npc(in)->remaining())->toString());
 }
 
-java::lang::String* org::apache::poi::hssf::record::InterfaceEndRecord::toString()
+java::lang::String* poi::hssf::record::InterfaceEndRecord::toString()
 {
     return u"[INTERFACEEND/]\n"_j;
 }
 
-void org::apache::poi::hssf::record::InterfaceEndRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::InterfaceEndRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
 }
 
-int32_t org::apache::poi::hssf::record::InterfaceEndRecord::getDataSize()
+int32_t poi::hssf::record::InterfaceEndRecord::getDataSize()
 {
     return 0;
 }
 
-int16_t org::apache::poi::hssf::record::InterfaceEndRecord::getSid()
+int16_t poi::hssf::record::InterfaceEndRecord::getSid()
 {
     return sid;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::InterfaceEndRecord::class_()
+java::lang::Class* poi::hssf::record::InterfaceEndRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.InterfaceEndRecord", 45);
     return c;
 }
 
-void org::apache::poi::hssf::record::InterfaceEndRecord::clinit()
+void poi::hssf::record::InterfaceEndRecord::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -98,17 +98,17 @@ struct clinit_ {
     }
 }
 
-int32_t org::apache::poi::hssf::record::InterfaceEndRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::InterfaceEndRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::InterfaceEndRecord::serialize()
+int8_tArray* poi::hssf::record::InterfaceEndRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::InterfaceEndRecord::getClass0()
+java::lang::Class* poi::hssf::record::InterfaceEndRecord::getClass0()
 {
     return class_();
 }

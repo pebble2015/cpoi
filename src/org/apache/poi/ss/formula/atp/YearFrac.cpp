@@ -21,25 +21,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -57,31 +51,31 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::atp::YearFrac::YearFrac(const ::default_init_tag&)
+poi::ss::formula::atp::YearFrac::YearFrac(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::atp::YearFrac::YearFrac() 
+poi::ss::formula::atp::YearFrac::YearFrac() 
     : YearFrac(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::functions::FreeRefFunction*& org::apache::poi::ss::formula::atp::YearFrac::instance()
+poi::ss::formula::functions::FreeRefFunction*& poi::ss::formula::atp::YearFrac::instance()
 {
     clinit();
     return instance_;
 }
-org::apache::poi::ss::formula::functions::FreeRefFunction* org::apache::poi::ss::formula::atp::YearFrac::instance_;
+poi::ss::formula::functions::FreeRefFunction* poi::ss::formula::atp::YearFrac::instance_;
 
-void org::apache::poi::ss::formula::atp::YearFrac::ctor()
+void poi::ss::formula::atp::YearFrac::ctor()
 {
     super::ctor();
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::atp::YearFrac::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, ::org::apache::poi::ss::formula::OperationEvaluationContext* ec)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::atp::YearFrac::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, ::poi::ss::formula::OperationEvaluationContext* ec)
 {
     auto srcCellRow = npc(ec)->getRowIndex();
     auto srcCellCol = npc(ec)->getColumnIndex();
@@ -94,50 +88,50 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::a
         case int32_t(2):
             break;
         default:
-            return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+            return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
         }
 
         auto startDateVal = evaluateDateArg((*args)[int32_t(0)], srcCellRow, srcCellCol);
         auto endDateVal = evaluateDateArg((*args)[int32_t(1)], srcCellRow, srcCellCol);
         result = YearFracCalculator::calculate(startDateVal, endDateVal, basis);
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
         return npc(e)->getErrorEval();
     }
-    return new ::org::apache::poi::ss::formula::eval::NumberEval(result);
+    return new ::poi::ss::formula::eval::NumberEval(result);
 }
 
-double org::apache::poi::ss::formula::atp::YearFrac::evaluateDateArg(::org::apache::poi::ss::formula::eval::ValueEval* arg, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */
+double poi::ss::formula::atp::YearFrac::evaluateDateArg(::poi::ss::formula::eval::ValueEval* arg, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */
 {
     clinit();
-    auto ve = ::org::apache::poi::ss::formula::eval::OperandResolver::getSingleValue(arg, srcCellRow, static_cast< int16_t >(srcCellCol));
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::StringEval* >(ve) != nullptr) {
-        auto strVal = npc((java_cast< ::org::apache::poi::ss::formula::eval::StringEval* >(ve)))->getStringValue();
-        auto dVal = ::org::apache::poi::ss::formula::eval::OperandResolver::parseDouble(strVal);
+    auto ve = ::poi::ss::formula::eval::OperandResolver::getSingleValue(arg, srcCellRow, static_cast< int16_t >(srcCellCol));
+    if(dynamic_cast< ::poi::ss::formula::eval::StringEval* >(ve) != nullptr) {
+        auto strVal = npc((java_cast< ::poi::ss::formula::eval::StringEval* >(ve)))->getStringValue();
+        auto dVal = ::poi::ss::formula::eval::OperandResolver::parseDouble(strVal);
         if(dVal != nullptr) {
             return npc(dVal)->doubleValue();
         }
         auto date = DateParser::parseDate(strVal);
-        return ::org::apache::poi::ss::usermodel::DateUtil::getExcelDate(date, false);
+        return ::poi::ss::usermodel::DateUtil::getExcelDate(date, false);
     }
-    return ::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToDouble(ve);
+    return ::poi::ss::formula::eval::OperandResolver::coerceValueToDouble(ve);
 }
 
-int32_t org::apache::poi::ss::formula::atp::YearFrac::evaluateIntArg(::org::apache::poi::ss::formula::eval::ValueEval* arg, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */
+int32_t poi::ss::formula::atp::YearFrac::evaluateIntArg(::poi::ss::formula::eval::ValueEval* arg, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */
 {
     clinit();
-    auto ve = ::org::apache::poi::ss::formula::eval::OperandResolver::getSingleValue(arg, srcCellRow, static_cast< int16_t >(srcCellCol));
-    return ::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToInt(ve);
+    auto ve = ::poi::ss::formula::eval::OperandResolver::getSingleValue(arg, srcCellRow, static_cast< int16_t >(srcCellCol));
+    return ::poi::ss::formula::eval::OperandResolver::coerceValueToInt(ve);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::atp::YearFrac::class_()
+java::lang::Class* poi::ss::formula::atp::YearFrac::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.atp.YearFrac", 38);
     return c;
 }
 
-void org::apache::poi::ss::formula::atp::YearFrac::clinit()
+void poi::ss::formula::atp::YearFrac::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -153,7 +147,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::formula::atp::YearFrac::getClass0()
+java::lang::Class* poi::ss::formula::atp::YearFrac::getClass0()
 {
     return class_();
 }

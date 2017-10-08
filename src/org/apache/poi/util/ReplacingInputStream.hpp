@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::util::ReplacingInputStream
+class poi::util::ReplacingInputStream
     : public ::java::io::FilterInputStream
 {
 

@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::storage::SmallDocumentBlockList
+class poi::poifs::storage::SmallDocumentBlockList
     : public BlockListImpl
 {
 

@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ddf::EscherDggRecord_FileIdCluster
+class poi::ddf::EscherDggRecord_FileIdCluster
     : public virtual ::java::lang::Object
 {
 

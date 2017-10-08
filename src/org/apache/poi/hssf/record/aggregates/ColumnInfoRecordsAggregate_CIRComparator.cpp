@@ -11,41 +11,41 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate_CIRComparator::ColumnInfoRecordsAggregate_CIRComparator(const ::default_init_tag&)
+poi::hssf::record::aggregates::ColumnInfoRecordsAggregate_CIRComparator::ColumnInfoRecordsAggregate_CIRComparator(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate_CIRComparator::ColumnInfoRecordsAggregate_CIRComparator() 
+poi::hssf::record::aggregates::ColumnInfoRecordsAggregate_CIRComparator::ColumnInfoRecordsAggregate_CIRComparator() 
     : ColumnInfoRecordsAggregate_CIRComparator(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-java::util::Comparator*& org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate_CIRComparator::instance()
+java::util::Comparator*& poi::hssf::record::aggregates::ColumnInfoRecordsAggregate_CIRComparator::instance()
 {
     clinit();
     return instance_;
 }
-java::util::Comparator* org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate_CIRComparator::instance_;
+java::util::Comparator* poi::hssf::record::aggregates::ColumnInfoRecordsAggregate_CIRComparator::instance_;
 
-void org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate_CIRComparator::ctor()
+void poi::hssf::record::aggregates::ColumnInfoRecordsAggregate_CIRComparator::ctor()
 {
     super::ctor();
 }
 
-int32_t org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate_CIRComparator::compare(::org::apache::poi::hssf::record::ColumnInfoRecord* a, ::org::apache::poi::hssf::record::ColumnInfoRecord* b)
+int32_t poi::hssf::record::aggregates::ColumnInfoRecordsAggregate_CIRComparator::compare(::poi::hssf::record::ColumnInfoRecord* a, ::poi::hssf::record::ColumnInfoRecord* b)
 {
     return compareColInfos(a, b);
 }
 
-int32_t org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate_CIRComparator::compare(::java::lang::Object* o1, ::java::lang::Object* o2)
+int32_t poi::hssf::record::aggregates::ColumnInfoRecordsAggregate_CIRComparator::compare(::java::lang::Object* o1, ::java::lang::Object* o2)
 { 
-    return compare(dynamic_cast< ::org::apache::poi::hssf::record::ColumnInfoRecord* >(o1), dynamic_cast< ::org::apache::poi::hssf::record::ColumnInfoRecord* >(o2));
+    return compare(dynamic_cast< ::poi::hssf::record::ColumnInfoRecord* >(o1), dynamic_cast< ::poi::hssf::record::ColumnInfoRecord* >(o2));
 }
 
-int32_t org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate_CIRComparator::compareColInfos(::org::apache::poi::hssf::record::ColumnInfoRecord* a, ::org::apache::poi::hssf::record::ColumnInfoRecord* b)
+int32_t poi::hssf::record::aggregates::ColumnInfoRecordsAggregate_CIRComparator::compareColInfos(::poi::hssf::record::ColumnInfoRecord* a, ::poi::hssf::record::ColumnInfoRecord* b)
 {
     clinit();
     return npc(a)->getFirstColumn() - npc(b)->getFirstColumn();
@@ -53,13 +53,13 @@ int32_t org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate_C
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate_CIRComparator::class_()
+java::lang::Class* poi::hssf::record::aggregates::ColumnInfoRecordsAggregate_CIRComparator::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.aggregates.ColumnInfoRecordsAggregate.CIRComparator", 78);
     return c;
 }
 
-void org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate_CIRComparator::clinit()
+void poi::hssf::record::aggregates::ColumnInfoRecordsAggregate_CIRComparator::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -75,12 +75,12 @@ struct clinit_ {
     }
 }
 
-bool org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate_CIRComparator::equals(::java::lang::Object* obj)
+bool poi::hssf::record::aggregates::ColumnInfoRecordsAggregate_CIRComparator::equals(::java::lang::Object* obj)
 {
     return Object::equals(obj);
 }
 
-java::lang::Class* org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate_CIRComparator::getClass0()
+java::lang::Class* poi::hssf::record::aggregates::ColumnInfoRecordsAggregate_CIRComparator::getClass0()
 {
     return class_();
 }

@@ -38,19 +38,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::extractor::ExcelExtractor_CommandArgs::ExcelExtractor_CommandArgs(const ::default_init_tag&)
+poi::hssf::extractor::ExcelExtractor_CommandArgs::ExcelExtractor_CommandArgs(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::extractor::ExcelExtractor_CommandArgs::ExcelExtractor_CommandArgs(::java::lang::StringArray* args)  /* throws(CommandParseException) */
+poi::hssf::extractor::ExcelExtractor_CommandArgs::ExcelExtractor_CommandArgs(::java::lang::StringArray* args)  /* throws(CommandParseException) */
     : ExcelExtractor_CommandArgs(*static_cast< ::default_init_tag* >(0))
 {
     ctor(args);
 }
 
-void org::apache::poi::hssf::extractor::ExcelExtractor_CommandArgs::ctor(::java::lang::StringArray* args) /* throws(CommandParseException) */
+void poi::hssf::extractor::ExcelExtractor_CommandArgs::ctor(::java::lang::StringArray* args) /* throws(CommandParseException) */
 {
     super::ctor();
     auto nArgs = npc(args)->length;
@@ -118,7 +118,7 @@ void org::apache::poi::hssf::extractor::ExcelExtractor_CommandArgs::ctor(::java:
     _headersFooters = headersFooters;
 }
 
-bool org::apache::poi::hssf::extractor::ExcelExtractor_CommandArgs::parseBoolArg(::java::lang::StringArray* args, int32_t i) /* throws(CommandParseException) */
+bool poi::hssf::extractor::ExcelExtractor_CommandArgs::parseBoolArg(::java::lang::StringArray* args, int32_t i) /* throws(CommandParseException) */
 {
     clinit();
     if(i >= npc(args)->length) {
@@ -138,50 +138,50 @@ bool org::apache::poi::hssf::extractor::ExcelExtractor_CommandArgs::parseBoolArg
         ->append(u"'. Expected 'Y' or 'N'"_j)->toString());
 }
 
-bool org::apache::poi::hssf::extractor::ExcelExtractor_CommandArgs::isRequestHelp()
+bool poi::hssf::extractor::ExcelExtractor_CommandArgs::isRequestHelp()
 {
     return _requestHelp;
 }
 
-java::io::File* org::apache::poi::hssf::extractor::ExcelExtractor_CommandArgs::getInputFile()
+java::io::File* poi::hssf::extractor::ExcelExtractor_CommandArgs::getInputFile()
 {
     return _inputFile;
 }
 
-bool org::apache::poi::hssf::extractor::ExcelExtractor_CommandArgs::shouldShowSheetNames()
+bool poi::hssf::extractor::ExcelExtractor_CommandArgs::shouldShowSheetNames()
 {
     return _showSheetNames;
 }
 
-bool org::apache::poi::hssf::extractor::ExcelExtractor_CommandArgs::shouldEvaluateFormulas()
+bool poi::hssf::extractor::ExcelExtractor_CommandArgs::shouldEvaluateFormulas()
 {
     return _evaluateFormulas;
 }
 
-bool org::apache::poi::hssf::extractor::ExcelExtractor_CommandArgs::shouldShowCellComments()
+bool poi::hssf::extractor::ExcelExtractor_CommandArgs::shouldShowCellComments()
 {
     return _showCellComments;
 }
 
-bool org::apache::poi::hssf::extractor::ExcelExtractor_CommandArgs::shouldShowBlankCells()
+bool poi::hssf::extractor::ExcelExtractor_CommandArgs::shouldShowBlankCells()
 {
     return _showBlankCells;
 }
 
-bool org::apache::poi::hssf::extractor::ExcelExtractor_CommandArgs::shouldIncludeHeadersFooters()
+bool poi::hssf::extractor::ExcelExtractor_CommandArgs::shouldIncludeHeadersFooters()
 {
     return _headersFooters;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::extractor::ExcelExtractor_CommandArgs::class_()
+java::lang::Class* poi::hssf::extractor::ExcelExtractor_CommandArgs::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.extractor.ExcelExtractor.CommandArgs", 56);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::extractor::ExcelExtractor_CommandArgs::getClass0()
+java::lang::Class* poi::hssf::extractor::ExcelExtractor_CommandArgs::getClass0()
 {
     return class_();
 }

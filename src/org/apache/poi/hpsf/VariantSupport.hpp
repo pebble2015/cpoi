@@ -12,7 +12,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hpsf::VariantSupport
+class poi::hpsf::VariantSupport
     : public Variant
 {
 
@@ -21,7 +21,7 @@ public:
 
 private:
     static ::int32_tArray* SUPPORTED_TYPES_;
-    static ::org::apache::poi::util::POILogger* logger_;
+    static ::poi::util::POILogger* logger_;
     static bool logUnsupportedTypes_;
     static ::java::util::List* unsupportedMessage_;
     static ::int8_tArray* paddingBytes_;
@@ -36,7 +36,7 @@ public: /* protected */
 public:
     virtual bool isSupportedType(int32_t variantType);
     static ::java::lang::Object* read(::int8_tArray* src, int32_t offset, int32_t length, int64_t type, int32_t codepage) /* throws(ReadingNotSupportedException, UnsupportedEncodingException) */;
-    static ::java::lang::Object* read(::org::apache::poi::util::LittleEndianByteArrayInputStream* lei, int32_t length, int64_t type, int32_t codepage) /* throws(ReadingNotSupportedException, UnsupportedEncodingException) */;
+    static ::java::lang::Object* read(::poi::util::LittleEndianByteArrayInputStream* lei, int32_t length, int64_t type, int32_t codepage) /* throws(ReadingNotSupportedException, UnsupportedEncodingException) */;
     static ::java::lang::String* codepageToEncoding(int32_t codepage) /* throws(UnsupportedEncodingException) */;
     static int32_t write(::java::io::OutputStream* out, int64_t type, ::java::lang::Object* value, int32_t codepage) /* throws(IOException, WritingNotSupportedException) */;
 
@@ -52,7 +52,7 @@ public:
     static ::int32_tArray*& SUPPORTED_TYPES();
 
 private:
-    static ::org::apache::poi::util::POILogger*& logger();
+    static ::poi::util::POILogger*& logger();
     static bool& logUnsupportedTypes();
     static ::java::util::List*& unsupportedMessage();
     static ::int8_tArray*& paddingBytes();

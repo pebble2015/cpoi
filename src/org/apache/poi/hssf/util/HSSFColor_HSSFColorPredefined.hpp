@@ -23,26 +23,20 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace util
         {
-            namespace hssf
-            {
-                namespace util
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::util::HSSFColor_HSSFColorPredefined, ::java::lang::EnumArray > HSSFColor_HSSFColorPredefinedArray;
-                } // util
-            } // hssf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hssf::util::HSSFColor_HSSFColorPredefined, ::java::lang::EnumArray > HSSFColor_HSSFColorPredefinedArray;
+        } // util
+    } // hssf
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::util::HSSFColor_HSSFColorPredefined final
+class poi::hssf::util::HSSFColor_HSSFColorPredefined final
     : public ::java::lang::Enum
 {
 

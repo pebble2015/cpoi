@@ -40,45 +40,45 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::eval::OperandResolver::OperandResolver(const ::default_init_tag&)
+poi::ss::formula::eval::OperandResolver::OperandResolver(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::eval::OperandResolver::OperandResolver() 
+poi::ss::formula::eval::OperandResolver::OperandResolver() 
     : OperandResolver(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-java::lang::String*& org::apache::poi::ss::formula::eval::OperandResolver::Digits()
+java::lang::String*& poi::ss::formula::eval::OperandResolver::Digits()
 {
     clinit();
     return Digits_;
 }
-java::lang::String* org::apache::poi::ss::formula::eval::OperandResolver::Digits_;
+java::lang::String* poi::ss::formula::eval::OperandResolver::Digits_;
 
-java::lang::String*& org::apache::poi::ss::formula::eval::OperandResolver::Exp()
+java::lang::String*& poi::ss::formula::eval::OperandResolver::Exp()
 {
     clinit();
     return Exp_;
 }
-java::lang::String* org::apache::poi::ss::formula::eval::OperandResolver::Exp_;
+java::lang::String* poi::ss::formula::eval::OperandResolver::Exp_;
 
-java::lang::String*& org::apache::poi::ss::formula::eval::OperandResolver::fpRegex()
+java::lang::String*& poi::ss::formula::eval::OperandResolver::fpRegex()
 {
     clinit();
     return fpRegex_;
 }
-java::lang::String* org::apache::poi::ss::formula::eval::OperandResolver::fpRegex_;
+java::lang::String* poi::ss::formula::eval::OperandResolver::fpRegex_;
 
-void org::apache::poi::ss::formula::eval::OperandResolver::ctor()
+void poi::ss::formula::eval::OperandResolver::ctor()
 {
     super::ctor();
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::eval::OperandResolver::getSingleValue(ValueEval* arg, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */
+poi::ss::formula::eval::ValueEval* poi::ss::formula::eval::OperandResolver::getSingleValue(ValueEval* arg, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */
 {
     clinit();
     ValueEval* result;
@@ -95,7 +95,7 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::e
     return result;
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::eval::OperandResolver::chooseSingleElementFromArea(AreaEval* ae, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */
+poi::ss::formula::eval::ValueEval* poi::ss::formula::eval::OperandResolver::chooseSingleElementFromArea(AreaEval* ae, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */
 {
     clinit();
     auto result = chooseSingleElementFromAreaInternal(ae, srcCellRow, srcCellCol);
@@ -105,7 +105,7 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::e
     return result;
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::eval::OperandResolver::chooseSingleElementFromAreaInternal(AreaEval* ae, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */
+poi::ss::formula::eval::ValueEval* poi::ss::formula::eval::OperandResolver::chooseSingleElementFromAreaInternal(AreaEval* ae, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */
 {
     clinit();
     if(npc(ae)->isColumn()) {
@@ -129,13 +129,13 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::e
     return npc(ae)->getAbsoluteValue(npc(ae)->getFirstRow(), srcCellCol);
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::eval::OperandResolver::chooseSingleElementFromRef(RefEval* ref)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::eval::OperandResolver::chooseSingleElementFromRef(RefEval* ref)
 {
     clinit();
     return npc(ref)->getInnerValueEval(npc(ref)->getFirstSheetIndex());
 }
 
-int32_t org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToInt(ValueEval* ev) /* throws(EvaluationException) */
+int32_t poi::ss::formula::eval::OperandResolver::coerceValueToInt(ValueEval* ev) /* throws(EvaluationException) */
 {
     clinit();
     if(ev == static_cast< ValueEval* >(BlankEval::instance())) {
@@ -145,7 +145,7 @@ int32_t org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToInt(V
     return static_cast< int32_t >(::java::lang::Math::floor(d));
 }
 
-double org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToDouble(ValueEval* ev) /* throws(EvaluationException) */
+double poi::ss::formula::eval::OperandResolver::coerceValueToDouble(ValueEval* ev) /* throws(EvaluationException) */
 {
     clinit();
     if(ev == static_cast< ValueEval* >(BlankEval::instance())) {
@@ -165,7 +165,7 @@ double org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToDouble
         ->append(u")"_j)->toString());
 }
 
-java::lang::Double* org::apache::poi::ss::formula::eval::OperandResolver::parseDouble(::java::lang::String* pText)
+java::lang::Double* poi::ss::formula::eval::OperandResolver::parseDouble(::java::lang::String* pText)
 {
     clinit();
     if(::java::util::regex::Pattern::matches(fpRegex_, pText))
@@ -179,7 +179,7 @@ java::lang::Double* org::apache::poi::ss::formula::eval::OperandResolver::parseD
     }
 }
 
-java::lang::String* org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToString(ValueEval* ve)
+java::lang::String* poi::ss::formula::eval::OperandResolver::coerceValueToString(ValueEval* ve)
 {
     clinit();
     if(dynamic_cast< StringValueEval* >(ve) != nullptr) {
@@ -193,7 +193,7 @@ java::lang::String* org::apache::poi::ss::formula::eval::OperandResolver::coerce
         ->append(u")"_j)->toString());
 }
 
-java::lang::Boolean* org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToBoolean(ValueEval* ve, bool stringsAreBlanks) /* throws(EvaluationException) */
+java::lang::Boolean* poi::ss::formula::eval::OperandResolver::coerceValueToBoolean(ValueEval* ve, bool stringsAreBlanks) /* throws(EvaluationException) */
 {
     clinit();
     if(ve == nullptr || ve == static_cast< ValueEval* >(BlankEval::instance())) {
@@ -235,13 +235,13 @@ java::lang::Boolean* org::apache::poi::ss::formula::eval::OperandResolver::coerc
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::eval::OperandResolver::class_()
+java::lang::Class* poi::ss::formula::eval::OperandResolver::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.eval.OperandResolver", 46);
     return c;
 }
 
-void org::apache::poi::ss::formula::eval::OperandResolver::clinit()
+void poi::ss::formula::eval::OperandResolver::clinit()
 {
 struct string_init_ {
     string_init_() {
@@ -268,7 +268,7 @@ struct string_init_ {
     super::clinit();
 }
 
-java::lang::Class* org::apache::poi::ss::formula::eval::OperandResolver::getClass0()
+java::lang::Class* poi::ss::formula::eval::OperandResolver::getClass0()
 {
     return class_();
 }

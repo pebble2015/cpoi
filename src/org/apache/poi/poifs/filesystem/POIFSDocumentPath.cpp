@@ -52,43 +52,43 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::filesystem::POIFSDocumentPath::POIFSDocumentPath(const ::default_init_tag&)
+poi::poifs::filesystem::POIFSDocumentPath::POIFSDocumentPath(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::filesystem::POIFSDocumentPath::POIFSDocumentPath(::java::lang::StringArray* components)  /* throws(IllegalArgumentException) */
+poi::poifs::filesystem::POIFSDocumentPath::POIFSDocumentPath(::java::lang::StringArray* components)  /* throws(IllegalArgumentException) */
     : POIFSDocumentPath(*static_cast< ::default_init_tag* >(0))
 {
     ctor(components);
 }
 
-org::apache::poi::poifs::filesystem::POIFSDocumentPath::POIFSDocumentPath() 
+poi::poifs::filesystem::POIFSDocumentPath::POIFSDocumentPath() 
     : POIFSDocumentPath(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::poifs::filesystem::POIFSDocumentPath::POIFSDocumentPath(POIFSDocumentPath* path, ::java::lang::StringArray* components)  /* throws(IllegalArgumentException) */
+poi::poifs::filesystem::POIFSDocumentPath::POIFSDocumentPath(POIFSDocumentPath* path, ::java::lang::StringArray* components)  /* throws(IllegalArgumentException) */
     : POIFSDocumentPath(*static_cast< ::default_init_tag* >(0))
 {
     ctor(path,components);
 }
 
-void org::apache::poi::poifs::filesystem::POIFSDocumentPath::init()
+void poi::poifs::filesystem::POIFSDocumentPath::init()
 {
     hashcode = int32_t(0);
 }
 
-org::apache::poi::util::POILogger*& org::apache::poi::poifs::filesystem::POIFSDocumentPath::log()
+poi::util::POILogger*& poi::poifs::filesystem::POIFSDocumentPath::log()
 {
     clinit();
     return log_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::poifs::filesystem::POIFSDocumentPath::log_;
+poi::util::POILogger* poi::poifs::filesystem::POIFSDocumentPath::log_;
 
-void org::apache::poi::poifs::filesystem::POIFSDocumentPath::ctor(::java::lang::StringArray* components) /* throws(IllegalArgumentException) */
+void poi::poifs::filesystem::POIFSDocumentPath::ctor(::java::lang::StringArray* components) /* throws(IllegalArgumentException) */
 {
     super::ctor();
     init();
@@ -105,14 +105,14 @@ void org::apache::poi::poifs::filesystem::POIFSDocumentPath::ctor(::java::lang::
     }
 }
 
-void org::apache::poi::poifs::filesystem::POIFSDocumentPath::ctor()
+void poi::poifs::filesystem::POIFSDocumentPath::ctor()
 {
     super::ctor();
     init();
     this->components = new ::java::lang::StringArray(int32_t(0));
 }
 
-void org::apache::poi::poifs::filesystem::POIFSDocumentPath::ctor(POIFSDocumentPath* path, ::java::lang::StringArray* components) /* throws(IllegalArgumentException) */
+void poi::poifs::filesystem::POIFSDocumentPath::ctor(POIFSDocumentPath* path, ::java::lang::StringArray* components) /* throws(IllegalArgumentException) */
 {
     super::ctor();
     init();
@@ -130,7 +130,7 @@ void org::apache::poi::poifs::filesystem::POIFSDocumentPath::ctor(POIFSDocumentP
                 throw new ::java::lang::IllegalArgumentException(u"components cannot contain null"_j);
             }
             if(npc((*components)[j])->length() == 0) {
-                npc(log_)->log(::org::apache::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Directory under "_j)->append(static_cast< ::java::lang::Object* >(path))
+                npc(log_)->log(::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Directory under "_j)->append(static_cast< ::java::lang::Object* >(path))
                     ->append(u" has an empty name, "_j)
                     ->append(u"not all OLE2 readers will handle this file correctly!"_j)->toString())}));
             }
@@ -139,7 +139,7 @@ void org::apache::poi::poifs::filesystem::POIFSDocumentPath::ctor(POIFSDocumentP
     }
 }
 
-bool org::apache::poi::poifs::filesystem::POIFSDocumentPath::equals(::java::lang::Object* o)
+bool poi::poifs::filesystem::POIFSDocumentPath::equals(::java::lang::Object* o)
 {
     auto rval = false;
     if((o != nullptr) && (static_cast< ::java::lang::Object* >(npc(o)->getClass()) == static_cast< ::java::lang::Object* >(this->getClass()))) {
@@ -161,7 +161,7 @@ bool org::apache::poi::poifs::filesystem::POIFSDocumentPath::equals(::java::lang
     return rval;
 }
 
-int32_t org::apache::poi::poifs::filesystem::POIFSDocumentPath::hashCode()
+int32_t poi::poifs::filesystem::POIFSDocumentPath::hashCode()
 {
     if(hashcode == 0) {
         hashcode = computeHashCode();
@@ -169,7 +169,7 @@ int32_t org::apache::poi::poifs::filesystem::POIFSDocumentPath::hashCode()
     return hashcode;
 }
 
-int32_t org::apache::poi::poifs::filesystem::POIFSDocumentPath::computeHashCode()
+int32_t poi::poifs::filesystem::POIFSDocumentPath::computeHashCode()
 {
     auto code = int32_t(0);
     for (auto j = int32_t(0); j < npc(components)->length; j++) {
@@ -178,17 +178,17 @@ int32_t org::apache::poi::poifs::filesystem::POIFSDocumentPath::computeHashCode(
     return code;
 }
 
-int32_t org::apache::poi::poifs::filesystem::POIFSDocumentPath::length()
+int32_t poi::poifs::filesystem::POIFSDocumentPath::length()
 {
     return npc(components)->length;
 }
 
-java::lang::String* org::apache::poi::poifs::filesystem::POIFSDocumentPath::getComponent(int32_t n) /* throws(ArrayIndexOutOfBoundsException) */
+java::lang::String* poi::poifs::filesystem::POIFSDocumentPath::getComponent(int32_t n) /* throws(ArrayIndexOutOfBoundsException) */
 {
     return (*components)[n];
 }
 
-org::apache::poi::poifs::filesystem::POIFSDocumentPath* org::apache::poi::poifs::filesystem::POIFSDocumentPath::getParent()
+poi::poifs::filesystem::POIFSDocumentPath* poi::poifs::filesystem::POIFSDocumentPath::getParent()
 {
     auto const length = npc(components)->length - int32_t(1);
     if(length < 0) {
@@ -200,7 +200,7 @@ org::apache::poi::poifs::filesystem::POIFSDocumentPath* org::apache::poi::poifs:
     return parent;
 }
 
-java::lang::String* org::apache::poi::poifs::filesystem::POIFSDocumentPath::getName()
+java::lang::String* poi::poifs::filesystem::POIFSDocumentPath::getName()
 {
     if(npc(components)->length == 0) {
         return u""_j;
@@ -208,7 +208,7 @@ java::lang::String* org::apache::poi::poifs::filesystem::POIFSDocumentPath::getN
     return (*components)[npc(components)->length - int32_t(1)];
 }
 
-java::lang::String* org::apache::poi::poifs::filesystem::POIFSDocumentPath::toString()
+java::lang::String* poi::poifs::filesystem::POIFSDocumentPath::toString()
 {
     auto const b = new ::java::lang::StringBuffer();
     auto const l = length();
@@ -224,20 +224,20 @@ java::lang::String* org::apache::poi::poifs::filesystem::POIFSDocumentPath::toSt
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::filesystem::POIFSDocumentPath::class_()
+java::lang::Class* poi::poifs::filesystem::POIFSDocumentPath::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.filesystem.POIFSDocumentPath", 49);
     return c;
 }
 
-void org::apache::poi::poifs::filesystem::POIFSDocumentPath::clinit()
+void poi::poifs::filesystem::POIFSDocumentPath::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        log_ = ::org::apache::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(POIFSDocumentPath::class_()));
+        log_ = ::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(POIFSDocumentPath::class_()));
     }
 };
 
@@ -246,7 +246,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::poifs::filesystem::POIFSDocumentPath::getClass0()
+java::lang::Class* poi::poifs::filesystem::POIFSDocumentPath::getClass0()
 {
     return class_();
 }

@@ -2,25 +2,19 @@
 #pragma once
 
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace util
         {
-            namespace ss
+            namespace cellwalk
             {
-                namespace util
-                {
-                    namespace cellwalk
-                    {
-                        struct CellHandler;
-                        class CellWalk;
-                        struct CellWalkContext;
-                        class CellWalk_SimpleCellWalkContext;
-                    } // cellwalk
-                } // util
-            } // ss
-        } // poi
-    } // apache
-} // org
+                struct CellHandler;
+                class CellWalk;
+                struct CellWalkContext;
+                class CellWalk_SimpleCellWalkContext;
+            } // cellwalk
+        } // util
+    } // ss
+} // poi

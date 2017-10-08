@@ -7,7 +7,7 @@
 #include <org/apache/poi/ss/usermodel/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::usermodel::CellStyle
+struct poi::ss::usermodel::CellStyle
     : public virtual ::java::lang::Object
 {
     virtual int16_t getIndex() = 0;

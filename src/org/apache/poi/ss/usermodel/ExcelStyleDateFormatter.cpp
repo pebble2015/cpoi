@@ -32,104 +32,104 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::usermodel::ExcelStyleDateFormatter::ExcelStyleDateFormatter(const ::default_init_tag&)
+poi::ss::usermodel::ExcelStyleDateFormatter::ExcelStyleDateFormatter(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::usermodel::ExcelStyleDateFormatter::ExcelStyleDateFormatter(::java::lang::String* pattern) 
+poi::ss::usermodel::ExcelStyleDateFormatter::ExcelStyleDateFormatter(::java::lang::String* pattern) 
     : ExcelStyleDateFormatter(*static_cast< ::default_init_tag* >(0))
 {
     ctor(pattern);
 }
 
-org::apache::poi::ss::usermodel::ExcelStyleDateFormatter::ExcelStyleDateFormatter(::java::lang::String* pattern, ::java::text::DateFormatSymbols* formatSymbols) 
+poi::ss::usermodel::ExcelStyleDateFormatter::ExcelStyleDateFormatter(::java::lang::String* pattern, ::java::text::DateFormatSymbols* formatSymbols) 
     : ExcelStyleDateFormatter(*static_cast< ::default_init_tag* >(0))
 {
     ctor(pattern,formatSymbols);
 }
 
-org::apache::poi::ss::usermodel::ExcelStyleDateFormatter::ExcelStyleDateFormatter(::java::lang::String* pattern, ::java::util::Locale* locale) 
+poi::ss::usermodel::ExcelStyleDateFormatter::ExcelStyleDateFormatter(::java::lang::String* pattern, ::java::util::Locale* locale) 
     : ExcelStyleDateFormatter(*static_cast< ::default_init_tag* >(0))
 {
     ctor(pattern,locale);
 }
 
-void org::apache::poi::ss::usermodel::ExcelStyleDateFormatter::init()
+void poi::ss::usermodel::ExcelStyleDateFormatter::init()
 {
     {
-        setTimeZone(::org::apache::poi::util::LocaleUtil::getUserTimeZone());
+        setTimeZone(::poi::util::LocaleUtil::getUserTimeZone());
     }
 }
 
-constexpr char16_t org::apache::poi::ss::usermodel::ExcelStyleDateFormatter::MMMMM_START_SYMBOL;
+constexpr char16_t poi::ss::usermodel::ExcelStyleDateFormatter::MMMMM_START_SYMBOL;
 
-constexpr char16_t org::apache::poi::ss::usermodel::ExcelStyleDateFormatter::MMMMM_TRUNCATE_SYMBOL;
+constexpr char16_t poi::ss::usermodel::ExcelStyleDateFormatter::MMMMM_TRUNCATE_SYMBOL;
 
-constexpr char16_t org::apache::poi::ss::usermodel::ExcelStyleDateFormatter::H_BRACKET_SYMBOL;
+constexpr char16_t poi::ss::usermodel::ExcelStyleDateFormatter::H_BRACKET_SYMBOL;
 
-constexpr char16_t org::apache::poi::ss::usermodel::ExcelStyleDateFormatter::HH_BRACKET_SYMBOL;
+constexpr char16_t poi::ss::usermodel::ExcelStyleDateFormatter::HH_BRACKET_SYMBOL;
 
-constexpr char16_t org::apache::poi::ss::usermodel::ExcelStyleDateFormatter::M_BRACKET_SYMBOL;
+constexpr char16_t poi::ss::usermodel::ExcelStyleDateFormatter::M_BRACKET_SYMBOL;
 
-constexpr char16_t org::apache::poi::ss::usermodel::ExcelStyleDateFormatter::MM_BRACKET_SYMBOL;
+constexpr char16_t poi::ss::usermodel::ExcelStyleDateFormatter::MM_BRACKET_SYMBOL;
 
-constexpr char16_t org::apache::poi::ss::usermodel::ExcelStyleDateFormatter::S_BRACKET_SYMBOL;
+constexpr char16_t poi::ss::usermodel::ExcelStyleDateFormatter::S_BRACKET_SYMBOL;
 
-constexpr char16_t org::apache::poi::ss::usermodel::ExcelStyleDateFormatter::SS_BRACKET_SYMBOL;
+constexpr char16_t poi::ss::usermodel::ExcelStyleDateFormatter::SS_BRACKET_SYMBOL;
 
-constexpr char16_t org::apache::poi::ss::usermodel::ExcelStyleDateFormatter::L_BRACKET_SYMBOL;
+constexpr char16_t poi::ss::usermodel::ExcelStyleDateFormatter::L_BRACKET_SYMBOL;
 
-constexpr char16_t org::apache::poi::ss::usermodel::ExcelStyleDateFormatter::LL_BRACKET_SYMBOL;
+constexpr char16_t poi::ss::usermodel::ExcelStyleDateFormatter::LL_BRACKET_SYMBOL;
 
-java::text::DecimalFormat*& org::apache::poi::ss::usermodel::ExcelStyleDateFormatter::format1digit()
+java::text::DecimalFormat*& poi::ss::usermodel::ExcelStyleDateFormatter::format1digit()
 {
     clinit();
     return format1digit_;
 }
-java::text::DecimalFormat* org::apache::poi::ss::usermodel::ExcelStyleDateFormatter::format1digit_;
+java::text::DecimalFormat* poi::ss::usermodel::ExcelStyleDateFormatter::format1digit_;
 
-java::text::DecimalFormat*& org::apache::poi::ss::usermodel::ExcelStyleDateFormatter::format2digits()
+java::text::DecimalFormat*& poi::ss::usermodel::ExcelStyleDateFormatter::format2digits()
 {
     clinit();
     return format2digits_;
 }
-java::text::DecimalFormat* org::apache::poi::ss::usermodel::ExcelStyleDateFormatter::format2digits_;
+java::text::DecimalFormat* poi::ss::usermodel::ExcelStyleDateFormatter::format2digits_;
 
-java::text::DecimalFormat*& org::apache::poi::ss::usermodel::ExcelStyleDateFormatter::format3digit()
+java::text::DecimalFormat*& poi::ss::usermodel::ExcelStyleDateFormatter::format3digit()
 {
     clinit();
     return format3digit_;
 }
-java::text::DecimalFormat* org::apache::poi::ss::usermodel::ExcelStyleDateFormatter::format3digit_;
+java::text::DecimalFormat* poi::ss::usermodel::ExcelStyleDateFormatter::format3digit_;
 
-java::text::DecimalFormat*& org::apache::poi::ss::usermodel::ExcelStyleDateFormatter::format4digits()
+java::text::DecimalFormat*& poi::ss::usermodel::ExcelStyleDateFormatter::format4digits()
 {
     clinit();
     return format4digits_;
 }
-java::text::DecimalFormat* org::apache::poi::ss::usermodel::ExcelStyleDateFormatter::format4digits_;
+java::text::DecimalFormat* poi::ss::usermodel::ExcelStyleDateFormatter::format4digits_;
 
-void org::apache::poi::ss::usermodel::ExcelStyleDateFormatter::ctor(::java::lang::String* pattern)
+void poi::ss::usermodel::ExcelStyleDateFormatter::ctor(::java::lang::String* pattern)
 {
-    super::ctor(processFormatPattern(pattern), ::org::apache::poi::util::LocaleUtil::getUserLocale());
+    super::ctor(processFormatPattern(pattern), ::poi::util::LocaleUtil::getUserLocale());
     init();
 }
 
-void org::apache::poi::ss::usermodel::ExcelStyleDateFormatter::ctor(::java::lang::String* pattern, ::java::text::DateFormatSymbols* formatSymbols)
+void poi::ss::usermodel::ExcelStyleDateFormatter::ctor(::java::lang::String* pattern, ::java::text::DateFormatSymbols* formatSymbols)
 {
     super::ctor(processFormatPattern(pattern), formatSymbols);
     init();
 }
 
-void org::apache::poi::ss::usermodel::ExcelStyleDateFormatter::ctor(::java::lang::String* pattern, ::java::util::Locale* locale)
+void poi::ss::usermodel::ExcelStyleDateFormatter::ctor(::java::lang::String* pattern, ::java::util::Locale* locale)
 {
     super::ctor(processFormatPattern(pattern), locale);
     init();
 }
 
-java::lang::String* org::apache::poi::ss::usermodel::ExcelStyleDateFormatter::processFormatPattern(::java::lang::String* f)
+java::lang::String* poi::ss::usermodel::ExcelStyleDateFormatter::processFormatPattern(::java::lang::String* f)
 {
     clinit();
     auto t = npc(f)->replaceAll(u"MMMMM"_j, ::java::lang::StringBuilder().append(MMMMM_START_SYMBOL)->append(u"MMM"_j)
@@ -146,12 +146,12 @@ java::lang::String* org::apache::poi::ss::usermodel::ExcelStyleDateFormatter::pr
     return t;
 }
 
-void org::apache::poi::ss::usermodel::ExcelStyleDateFormatter::setDateToBeFormatted(double date)
+void poi::ss::usermodel::ExcelStyleDateFormatter::setDateToBeFormatted(double date)
 {
     this->dateToBeFormatted = date;
 }
 
-java::lang::StringBuffer* org::apache::poi::ss::usermodel::ExcelStyleDateFormatter::format(::java::util::Date* date, ::java::lang::StringBuffer* paramStringBuffer, ::java::text::FieldPosition* paramFieldPosition)
+java::lang::StringBuffer* poi::ss::usermodel::ExcelStyleDateFormatter::format(::java::util::Date* date, ::java::lang::StringBuffer* paramStringBuffer, ::java::text::FieldPosition* paramFieldPosition)
 {
     auto s = npc(super::format(date, paramStringBuffer, paramFieldPosition))->toString();
     if(npc(s)->indexOf(static_cast< int32_t >(MMMMM_START_SYMBOL)) != -int32_t(1)) {
@@ -182,7 +182,7 @@ java::lang::StringBuffer* org::apache::poi::ss::usermodel::ExcelStyleDateFormatt
     return new ::java::lang::StringBuffer(s);
 }
 
-bool org::apache::poi::ss::usermodel::ExcelStyleDateFormatter::equals(::java::lang::Object* o)
+bool poi::ss::usermodel::ExcelStyleDateFormatter::equals(::java::lang::Object* o)
 {
     if(!(dynamic_cast< ExcelStyleDateFormatter* >(o) != nullptr)) {
         return false;
@@ -191,20 +191,20 @@ bool org::apache::poi::ss::usermodel::ExcelStyleDateFormatter::equals(::java::la
     return dateToBeFormatted == npc(other)->dateToBeFormatted;
 }
 
-int32_t org::apache::poi::ss::usermodel::ExcelStyleDateFormatter::hashCode()
+int32_t poi::ss::usermodel::ExcelStyleDateFormatter::hashCode()
 {
     return (new ::java::lang::Double(dateToBeFormatted))->hashCode();
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::usermodel::ExcelStyleDateFormatter::class_()
+java::lang::Class* poi::ss::usermodel::ExcelStyleDateFormatter::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.usermodel.ExcelStyleDateFormatter", 51);
     return c;
 }
 
-void org::apache::poi::ss::usermodel::ExcelStyleDateFormatter::clinit()
+void poi::ss::usermodel::ExcelStyleDateFormatter::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -230,22 +230,22 @@ struct clinit_ {
     }
 }
 
-java::lang::String* org::apache::poi::ss::usermodel::ExcelStyleDateFormatter::format(::java::util::Date* date)
+java::lang::String* poi::ss::usermodel::ExcelStyleDateFormatter::format(::java::util::Date* date)
 {
     return super::format(date);
 }
 
-java::lang::StringBuffer* org::apache::poi::ss::usermodel::ExcelStyleDateFormatter::format(::java::lang::Object* obj, ::java::lang::StringBuffer* toAppendTo, ::java::text::FieldPosition* fieldPosition)
+java::lang::StringBuffer* poi::ss::usermodel::ExcelStyleDateFormatter::format(::java::lang::Object* obj, ::java::lang::StringBuffer* toAppendTo, ::java::text::FieldPosition* fieldPosition)
 {
     return super::format(obj, toAppendTo, fieldPosition);
 }
 
-java::lang::String* org::apache::poi::ss::usermodel::ExcelStyleDateFormatter::format(::java::lang::Object* obj)
+java::lang::String* poi::ss::usermodel::ExcelStyleDateFormatter::format(::java::lang::Object* obj)
 {
     return super::format(obj);
 }
 
-java::lang::Class* org::apache::poi::ss::usermodel::ExcelStyleDateFormatter::getClass0()
+java::lang::Class* poi::ss::usermodel::ExcelStyleDateFormatter::getClass0()
 {
     return class_();
 }

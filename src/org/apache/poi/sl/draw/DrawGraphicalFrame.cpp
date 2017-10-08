@@ -25,42 +25,42 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::sl::draw::DrawGraphicalFrame::DrawGraphicalFrame(const ::default_init_tag&)
+poi::sl::draw::DrawGraphicalFrame::DrawGraphicalFrame(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::draw::DrawGraphicalFrame::DrawGraphicalFrame(::org::apache::poi::sl::usermodel::GraphicalFrame* shape) 
+poi::sl::draw::DrawGraphicalFrame::DrawGraphicalFrame(::poi::sl::usermodel::GraphicalFrame* shape) 
     : DrawGraphicalFrame(*static_cast< ::default_init_tag* >(0))
 {
     ctor(shape);
 }
 
-void org::apache::poi::sl::draw::DrawGraphicalFrame::ctor(::org::apache::poi::sl::usermodel::GraphicalFrame* shape)
+void poi::sl::draw::DrawGraphicalFrame::ctor(::poi::sl::usermodel::GraphicalFrame* shape)
 {
     super::ctor(shape);
 }
 
-void org::apache::poi::sl::draw::DrawGraphicalFrame::draw(::java::awt::Graphics2D* context)
+void poi::sl::draw::DrawGraphicalFrame::draw(::java::awt::Graphics2D* context)
 {
-    auto ps = npc((java_cast< ::org::apache::poi::sl::usermodel::GraphicalFrame* >(getShape())))->getFallbackPicture();
+    auto ps = npc((java_cast< ::poi::sl::usermodel::GraphicalFrame* >(getShape())))->getFallbackPicture();
     if(ps == nullptr) {
         return;
     }
-    auto dps = npc(DrawFactory::getInstance(context))->getDrawable(static_cast< ::org::apache::poi::sl::usermodel::PictureShape* >(ps));
+    auto dps = npc(DrawFactory::getInstance(context))->getDrawable(static_cast< ::poi::sl::usermodel::PictureShape* >(ps));
     npc(dps)->draw(context);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::draw::DrawGraphicalFrame::class_()
+java::lang::Class* poi::sl::draw::DrawGraphicalFrame::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.draw.DrawGraphicalFrame", 41);
     return c;
 }
 
-java::lang::Class* org::apache::poi::sl::draw::DrawGraphicalFrame::getClass0()
+java::lang::Class* poi::sl::draw::DrawGraphicalFrame::getClass0()
 {
     return class_();
 }

@@ -24,26 +24,20 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
-            {
-                namespace formula
-                {
-typedef ::SubArray< ::org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum, ::java::lang::EnumArray > DataValidationEvaluator_ValidationEnumArray;
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::DataValidationEvaluator_ValidationEnum, ::java::lang::EnumArray > DataValidationEvaluator_ValidationEnumArray;
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum
+class poi::ss::formula::DataValidationEvaluator_ValidationEnum
     : public ::java::lang::Enum
 {
 
@@ -61,17 +55,17 @@ public: /* package */
     static DataValidationEvaluator_ValidationEnum *FORMULA;
 
 public:
-    virtual bool isValidValue(::org::apache::poi::ss::usermodel::Cell* cell, DataValidationEvaluator_DataValidationContext* context);
+    virtual bool isValidValue(::poi::ss::usermodel::Cell* cell, DataValidationEvaluator_DataValidationContext* context);
 
 public: /* protected */
-    virtual bool isValidNumericCell(::org::apache::poi::ss::usermodel::Cell* cell, DataValidationEvaluator_DataValidationContext* context);
+    virtual bool isValidNumericCell(::poi::ss::usermodel::Cell* cell, DataValidationEvaluator_DataValidationContext* context);
     virtual bool isValidNumericValue(::java::lang::Double* value, DataValidationEvaluator_DataValidationContext* context);
 
 private:
     ::java::lang::Double* evalOrConstant(::java::lang::String* formula, DataValidationEvaluator_DataValidationContext* context) /* throws(NumberFormatException) */;
 
 public:
-    static bool isValid(::org::apache::poi::ss::usermodel::Cell* cell, DataValidationEvaluator_DataValidationContext* context);
+    static bool isValid(::poi::ss::usermodel::Cell* cell, DataValidationEvaluator_DataValidationContext* context);
 
     // Generated
     DataValidationEvaluator_ValidationEnum(::java::lang::String* name, int ordinal);

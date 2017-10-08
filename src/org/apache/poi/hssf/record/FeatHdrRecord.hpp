@@ -12,7 +12,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::FeatHdrRecord final
+class poi::hssf::record::FeatHdrRecord final
     : public StandardRecord
     , public ::java::lang::Cloneable
 {
@@ -26,7 +26,7 @@ public:
     static constexpr int16_t sid { int16_t(2151) };
 
 private:
-    ::org::apache::poi::hssf::record::common::FtrHeader* futureHeader {  };
+    ::poi::hssf::record::common::FtrHeader* futureHeader {  };
     int32_t isf_sharedFeatureType {  };
     int8_t reserved {  };
     int64_t cbHdrData {  };
@@ -41,7 +41,7 @@ protected:
 
 public:
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;

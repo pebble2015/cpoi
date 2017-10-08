@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFRow_CellIterator
+class poi::hssf::usermodel::HSSFRow_CellIterator
     : public virtual ::java::lang::Object
     , public virtual ::java::util::Iterator
 {
@@ -27,7 +27,7 @@ protected:
 
 public:
     bool hasNext() override;
-    ::org::apache::poi::ss::usermodel::Cell* next() override;
+    ::poi::ss::usermodel::Cell* next() override;
     void remove() override;
 
 private:

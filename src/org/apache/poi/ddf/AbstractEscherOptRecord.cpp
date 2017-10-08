@@ -54,35 +54,35 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ddf::AbstractEscherOptRecord::AbstractEscherOptRecord(const ::default_init_tag&)
+poi::ddf::AbstractEscherOptRecord::AbstractEscherOptRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ddf::AbstractEscherOptRecord::AbstractEscherOptRecord()
+poi::ddf::AbstractEscherOptRecord::AbstractEscherOptRecord()
     : AbstractEscherOptRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::ddf::AbstractEscherOptRecord::ctor()
+void poi::ddf::AbstractEscherOptRecord::ctor()
 {
     super::ctor();
     init();
 }
 
-void org::apache::poi::ddf::AbstractEscherOptRecord::init()
+void poi::ddf::AbstractEscherOptRecord::init()
 {
     properties = new ::java::util::ArrayList();
 }
 
-void org::apache::poi::ddf::AbstractEscherOptRecord::addEscherProperty(EscherProperty* prop)
+void poi::ddf::AbstractEscherOptRecord::addEscherProperty(EscherProperty* prop)
 {
     npc(properties)->add(static_cast< ::java::lang::Object* >(prop));
 }
 
-int32_t org::apache::poi::ddf::AbstractEscherOptRecord::fillFields(::int8_tArray* data, int32_t offset, EscherRecordFactory* recordFactory)
+int32_t poi::ddf::AbstractEscherOptRecord::fillFields(::int8_tArray* data, int32_t offset, EscherRecordFactory* recordFactory)
 {
     auto bytesRemaining = readHeader(data, offset);
     auto propertiesCount = readInstance(data, offset);
@@ -92,17 +92,17 @@ int32_t org::apache::poi::ddf::AbstractEscherOptRecord::fillFields(::int8_tArray
     return bytesRemaining + int32_t(8);
 }
 
-java::util::List* org::apache::poi::ddf::AbstractEscherOptRecord::getEscherProperties()
+java::util::List* poi::ddf::AbstractEscherOptRecord::getEscherProperties()
 {
     return properties;
 }
 
-org::apache::poi::ddf::EscherProperty* org::apache::poi::ddf::AbstractEscherOptRecord::getEscherProperty(int32_t index)
+poi::ddf::EscherProperty* poi::ddf::AbstractEscherOptRecord::getEscherProperty(int32_t index)
 {
     return java_cast< EscherProperty* >(npc(properties)->get(index));
 }
 
-int32_t org::apache::poi::ddf::AbstractEscherOptRecord::getPropertiesSize()
+int32_t poi::ddf::AbstractEscherOptRecord::getPropertiesSize()
 {
     auto totalSize = int32_t(0);
     for (auto _i = npc(properties)->iterator(); _i->hasNext(); ) {
@@ -114,12 +114,12 @@ int32_t org::apache::poi::ddf::AbstractEscherOptRecord::getPropertiesSize()
     return totalSize;
 }
 
-int32_t org::apache::poi::ddf::AbstractEscherOptRecord::getRecordSize()
+int32_t poi::ddf::AbstractEscherOptRecord::getRecordSize()
 {
     return int32_t(8) + getPropertiesSize();
 }
 
-/* <T extends EscherProperty> */org::apache::poi::ddf::EscherProperty* org::apache::poi::ddf::AbstractEscherOptRecord::lookup(int32_t propId)
+/* <T extends EscherProperty> */poi::ddf::EscherProperty* poi::ddf::AbstractEscherOptRecord::lookup(int32_t propId)
 {
     for (auto _i = npc(properties)->iterator(); _i->hasNext(); ) {
         EscherProperty* prop = java_cast< EscherProperty* >(_i->next());
@@ -133,12 +133,12 @@ int32_t org::apache::poi::ddf::AbstractEscherOptRecord::getRecordSize()
     return nullptr;
 }
 
-int32_t org::apache::poi::ddf::AbstractEscherOptRecord::serialize(int32_t offset, ::int8_tArray* data, EscherSerializationListener* listener)
+int32_t poi::ddf::AbstractEscherOptRecord::serialize(int32_t offset, ::int8_tArray* data, EscherSerializationListener* listener)
 {
     npc(listener)->beforeRecordSerialize(offset, getRecordId(), this);
-    ::org::apache::poi::util::LittleEndian::putShort(data, offset, getOptions());
-    ::org::apache::poi::util::LittleEndian::putShort(data, offset + int32_t(2), getRecordId());
-    ::org::apache::poi::util::LittleEndian::putInt(data, offset + int32_t(4), getPropertiesSize());
+    ::poi::util::LittleEndian::putShort(data, offset, getOptions());
+    ::poi::util::LittleEndian::putShort(data, offset + int32_t(2), getRecordId());
+    ::poi::util::LittleEndian::putInt(data, offset + int32_t(4), getPropertiesSize());
     auto pos = offset + int32_t(8);
     for (auto _i = npc(properties)->iterator(); _i->hasNext(); ) {
         EscherProperty* property = java_cast< EscherProperty* >(_i->next());
@@ -156,12 +156,12 @@ int32_t org::apache::poi::ddf::AbstractEscherOptRecord::serialize(int32_t offset
     return pos - offset;
 }
 
-void org::apache::poi::ddf::AbstractEscherOptRecord::sortProperties()
+void poi::ddf::AbstractEscherOptRecord::sortProperties()
 {
     ::java::util::Collections::sort(properties, new AbstractEscherOptRecord_sortProperties_1(this));
 }
 
-void org::apache::poi::ddf::AbstractEscherOptRecord::setEscherProperty(EscherProperty* value)
+void poi::ddf::AbstractEscherOptRecord::setEscherProperty(EscherProperty* value)
 {
     for (auto *iterator = npc(properties)->iterator(); npc(iterator)->hasNext(); ) {
         auto prop = java_cast< EscherProperty* >(npc(iterator)->next());
@@ -173,7 +173,7 @@ void org::apache::poi::ddf::AbstractEscherOptRecord::setEscherProperty(EscherPro
     sortProperties();
 }
 
-void org::apache::poi::ddf::AbstractEscherOptRecord::removeEscherProperty(int32_t num)
+void poi::ddf::AbstractEscherOptRecord::removeEscherProperty(int32_t num)
 {
     for (auto *iterator = npc(getEscherProperties())->iterator(); npc(iterator)->hasNext(); ) {
         auto prop = java_cast< EscherProperty* >(npc(iterator)->next());
@@ -183,7 +183,7 @@ void org::apache::poi::ddf::AbstractEscherOptRecord::removeEscherProperty(int32_
     }
 }
 
-java::lang::ObjectArrayArray* org::apache::poi::ddf::AbstractEscherOptRecord::getAttributeMap()
+java::lang::ObjectArrayArray* poi::ddf::AbstractEscherOptRecord::getAttributeMap()
 {
     ::java::util::List* attrList = new ::java::util::ArrayList(npc(properties)->size() * int32_t(2) + int32_t(2));
     npc(attrList)->add(static_cast< ::java::lang::Object* >(u"properties"_j));
@@ -210,28 +210,28 @@ java::lang::ObjectArrayArray* org::apache::poi::ddf::AbstractEscherOptRecord::ge
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ddf::AbstractEscherOptRecord::class_()
+java::lang::Class* poi::ddf::AbstractEscherOptRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ddf.AbstractEscherOptRecord", 42);
     return c;
 }
 
-int32_t org::apache::poi::ddf::AbstractEscherOptRecord::fillFields(::int8_tArray* data, EscherRecordFactory* f)
+int32_t poi::ddf::AbstractEscherOptRecord::fillFields(::int8_tArray* data, EscherRecordFactory* f)
 {
     return super::fillFields(data, f);
 }
 
-int8_tArray* org::apache::poi::ddf::AbstractEscherOptRecord::serialize()
+int8_tArray* poi::ddf::AbstractEscherOptRecord::serialize()
 {
     return super::serialize();
 }
 
-int32_t org::apache::poi::ddf::AbstractEscherOptRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::ddf::AbstractEscherOptRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-java::lang::Class* org::apache::poi::ddf::AbstractEscherOptRecord::getClass0()
+java::lang::Class* poi::ddf::AbstractEscherOptRecord::getClass0()
 {
     return class_();
 }

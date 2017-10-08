@@ -28,144 +28,144 @@ static T java_cast(U* u)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::AggregateFunction::AggregateFunction(const ::default_init_tag&)
+poi::ss::formula::functions::AggregateFunction::AggregateFunction(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::AggregateFunction::AggregateFunction() 
+poi::ss::formula::functions::AggregateFunction::AggregateFunction() 
     : AggregateFunction(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::ss::formula::functions::AggregateFunction::ctor()
+void poi::ss::formula::functions::AggregateFunction::ctor()
 {
     super::ctor(false, false);
 }
 
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::AggregateFunction::subtotalInstance(Function* func)
+poi::ss::formula::functions::Function* poi::ss::formula::functions::AggregateFunction::subtotalInstance(Function* func)
 {
     clinit();
     auto const arg = java_cast< AggregateFunction* >(func);
     return new AggregateFunction_subtotalInstance_13(arg);
 }
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::AggregateFunction::AVEDEV()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::AggregateFunction::AVEDEV()
 {
     clinit();
     return AVEDEV_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::AggregateFunction::AVEDEV_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::AggregateFunction::AVEDEV_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::AggregateFunction::AVERAGE()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::AggregateFunction::AVERAGE()
 {
     clinit();
     return AVERAGE_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::AggregateFunction::AVERAGE_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::AggregateFunction::AVERAGE_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::AggregateFunction::DEVSQ()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::AggregateFunction::DEVSQ()
 {
     clinit();
     return DEVSQ_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::AggregateFunction::DEVSQ_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::AggregateFunction::DEVSQ_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::AggregateFunction::LARGE()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::AggregateFunction::LARGE()
 {
     clinit();
     return LARGE_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::AggregateFunction::LARGE_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::AggregateFunction::LARGE_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::AggregateFunction::MAX()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::AggregateFunction::MAX()
 {
     clinit();
     return MAX_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::AggregateFunction::MAX_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::AggregateFunction::MAX_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::AggregateFunction::MEDIAN()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::AggregateFunction::MEDIAN()
 {
     clinit();
     return MEDIAN_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::AggregateFunction::MEDIAN_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::AggregateFunction::MEDIAN_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::AggregateFunction::MIN()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::AggregateFunction::MIN()
 {
     clinit();
     return MIN_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::AggregateFunction::MIN_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::AggregateFunction::MIN_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::AggregateFunction::PERCENTILE()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::AggregateFunction::PERCENTILE()
 {
     clinit();
     return PERCENTILE_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::AggregateFunction::PERCENTILE_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::AggregateFunction::PERCENTILE_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::AggregateFunction::PRODUCT()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::AggregateFunction::PRODUCT()
 {
     clinit();
     return PRODUCT_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::AggregateFunction::PRODUCT_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::AggregateFunction::PRODUCT_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::AggregateFunction::SMALL()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::AggregateFunction::SMALL()
 {
     clinit();
     return SMALL_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::AggregateFunction::SMALL_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::AggregateFunction::SMALL_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::AggregateFunction::STDEV()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::AggregateFunction::STDEV()
 {
     clinit();
     return STDEV_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::AggregateFunction::STDEV_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::AggregateFunction::STDEV_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::AggregateFunction::SUM()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::AggregateFunction::SUM()
 {
     clinit();
     return SUM_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::AggregateFunction::SUM_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::AggregateFunction::SUM_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::AggregateFunction::SUMSQ()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::AggregateFunction::SUMSQ()
 {
     clinit();
     return SUMSQ_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::AggregateFunction::SUMSQ_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::AggregateFunction::SUMSQ_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::AggregateFunction::VAR()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::AggregateFunction::VAR()
 {
     clinit();
     return VAR_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::AggregateFunction::VAR_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::AggregateFunction::VAR_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::AggregateFunction::VARP()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::AggregateFunction::VARP()
 {
     clinit();
     return VARP_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::AggregateFunction::VARP_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::AggregateFunction::VARP_;
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::AggregateFunction::class_()
+java::lang::Class* poi::ss::formula::functions::AggregateFunction::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.AggregateFunction", 53);
     return c;
 }
 
-void org::apache::poi::ss::formula::functions::AggregateFunction::clinit()
+void poi::ss::formula::functions::AggregateFunction::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -195,7 +195,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::AggregateFunction::getClass0()
+java::lang::Class* poi::ss::formula::functions::AggregateFunction::getClass0()
 {
     return class_();
 }

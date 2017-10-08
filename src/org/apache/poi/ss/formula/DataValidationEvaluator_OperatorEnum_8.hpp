@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum_8 final
+class poi::ss::formula::DataValidationEvaluator_OperatorEnum_8 final
     : public DataValidationEvaluator_OperatorEnum
 {
 

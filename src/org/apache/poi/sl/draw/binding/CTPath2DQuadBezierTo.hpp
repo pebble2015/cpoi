@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::binding::CTPath2DQuadBezierTo
+class poi::sl::draw::binding::CTPath2DQuadBezierTo
     : public virtual ::java::lang::Object
 {
 

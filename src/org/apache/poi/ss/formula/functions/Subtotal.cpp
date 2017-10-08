@@ -26,25 +26,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -62,19 +56,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::Subtotal::Subtotal(const ::default_init_tag&)
+poi::ss::formula::functions::Subtotal::Subtotal(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::Subtotal::Subtotal()
+poi::ss::formula::functions::Subtotal::Subtotal()
     : Subtotal(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::Subtotal::findFunction(int32_t functionCode) /* throws(EvaluationException) */
+poi::ss::formula::functions::Function* poi::ss::formula::functions::Subtotal::findFunction(int32_t functionCode) /* throws(EvaluationException) */
 {
     clinit();
     switch (functionCode) {
@@ -93,58 +87,58 @@ org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formul
     case int32_t(7):
         return AggregateFunction::subtotalInstance(AggregateFunction::STDEV());
     case int32_t(8):
-        throw new ::org::apache::poi::ss::formula::eval::NotImplementedFunctionException(u"STDEVP"_j);
+        throw new ::poi::ss::formula::eval::NotImplementedFunctionException(u"STDEVP"_j);
     case int32_t(9):
         return AggregateFunction::subtotalInstance(AggregateFunction::SUM());
     case int32_t(10):
-        throw new ::org::apache::poi::ss::formula::eval::NotImplementedFunctionException(u"VAR"_j);
+        throw new ::poi::ss::formula::eval::NotImplementedFunctionException(u"VAR"_j);
     case int32_t(11):
-        throw new ::org::apache::poi::ss::formula::eval::NotImplementedFunctionException(u"VARP"_j);
+        throw new ::poi::ss::formula::eval::NotImplementedFunctionException(u"VARP"_j);
     }
 
     if(functionCode > 100 && functionCode < 112) {
-        throw new ::org::apache::poi::ss::formula::eval::NotImplementedException(u"SUBTOTAL - with 'exclude hidden values' option"_j);
+        throw new ::poi::ss::formula::eval::NotImplementedException(u"SUBTOTAL - with 'exclude hidden values' option"_j);
     }
-    throw ::org::apache::poi::ss::formula::eval::EvaluationException::invalidValue();
+    throw ::poi::ss::formula::eval::EvaluationException::invalidValue();
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Subtotal::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Subtotal::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
 {
     auto nInnerArgs = npc(args)->length - int32_t(1);
     if(nInnerArgs < 1) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
     Function* innerFunc;
     try {
-        auto ve = ::org::apache::poi::ss::formula::eval::OperandResolver::getSingleValue((*args)[int32_t(0)], srcRowIndex, srcColumnIndex);
-        auto functionCode = ::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToInt(ve);
+        auto ve = ::poi::ss::formula::eval::OperandResolver::getSingleValue((*args)[int32_t(0)], srcRowIndex, srcColumnIndex);
+        auto functionCode = ::poi::ss::formula::eval::OperandResolver::coerceValueToInt(ve);
         innerFunc = findFunction(functionCode);
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
         return npc(e)->getErrorEval();
     }
     ::java::util::List* const list = new ::java::util::ArrayList(static_cast< ::java::util::Collection* >(npc(::java::util::Arrays::asList(args))->subList(1, npc(args)->length)));
     auto it = npc(list)->iterator();
     while (npc(it)->hasNext()) {
-        auto eval = java_cast< ::org::apache::poi::ss::formula::eval::ValueEval* >(npc(it)->next());
-        if(dynamic_cast< ::org::apache::poi::ss::formula::LazyRefEval* >(eval) != nullptr) {
-            auto lazyRefEval = java_cast< ::org::apache::poi::ss::formula::LazyRefEval* >(eval);
+        auto eval = java_cast< ::poi::ss::formula::eval::ValueEval* >(npc(it)->next());
+        if(dynamic_cast< ::poi::ss::formula::LazyRefEval* >(eval) != nullptr) {
+            auto lazyRefEval = java_cast< ::poi::ss::formula::LazyRefEval* >(eval);
             if(npc(lazyRefEval)->isSubTotal()) {
                 npc(it)->remove();
             }
         }
     }
-    return npc(innerFunc)->evaluate(java_cast< ::org::apache::poi::ss::formula::eval::ValueEvalArray* >(npc(list)->toArray_(static_cast< ::java::lang::ObjectArray* >(new ::org::apache::poi::ss::formula::eval::ValueEvalArray(npc(list)->size())))), srcRowIndex, srcColumnIndex);
+    return npc(innerFunc)->evaluate(java_cast< ::poi::ss::formula::eval::ValueEvalArray* >(npc(list)->toArray_(static_cast< ::java::lang::ObjectArray* >(new ::poi::ss::formula::eval::ValueEvalArray(npc(list)->size())))), srcRowIndex, srcColumnIndex);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Subtotal::class_()
+java::lang::Class* poi::ss::formula::functions::Subtotal::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.Subtotal", 44);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Subtotal::getClass0()
+java::lang::Class* poi::ss::formula::functions::Subtotal::getClass0()
 {
     return class_();
 }

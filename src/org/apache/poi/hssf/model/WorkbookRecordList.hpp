@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::model::WorkbookRecordList final
+class poi::hssf::model::WorkbookRecordList final
     : public ::java::lang::Object
 {
 
@@ -34,8 +34,8 @@ private:
 public:
     void setRecords(::java::util::List* records);
     int32_t size();
-    ::org::apache::poi::hssf::record::Record* get(int32_t i);
-    void add(int32_t pos, ::org::apache::poi::hssf::record::Record* r);
+    ::poi::hssf::record::Record* get(int32_t i);
+    void add(int32_t pos, ::poi::hssf::record::Record* r);
     ::java::util::List* getRecords();
     void remove(::java::lang::Object* record);
     void remove(int32_t pos);

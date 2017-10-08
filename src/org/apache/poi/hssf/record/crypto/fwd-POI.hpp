@@ -2,23 +2,17 @@
 #pragma once
 
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
+            namespace crypto
             {
-                namespace record
-                {
-                    namespace crypto
-                    {
-                        class Biff8DecryptingStream;
-                        class Biff8EncryptionKey;
-                    } // crypto
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+                class Biff8DecryptingStream;
+                class Biff8EncryptionKey;
+            } // crypto
+        } // record
+    } // hssf
+} // poi

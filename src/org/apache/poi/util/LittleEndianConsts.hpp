@@ -6,7 +6,7 @@
 #include <org/apache/poi/util/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::util::LittleEndianConsts
+struct poi::util::LittleEndianConsts
     : public virtual ::java::lang::Object
 {
     static constexpr int32_t BYTE_SIZE { int32_t(1) };

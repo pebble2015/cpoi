@@ -57,19 +57,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::dev::POIFSLister::POIFSLister(const ::default_init_tag&)
+poi::poifs::dev::POIFSLister::POIFSLister(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::dev::POIFSLister::POIFSLister()
+poi::poifs::dev::POIFSLister::POIFSLister()
     : POIFSLister(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::poifs::dev::POIFSLister::main(::java::lang::StringArray* args) /* throws(IOException) */
+void poi::poifs::dev::POIFSLister::main(::java::lang::StringArray* args) /* throws(IOException) */
 {
     clinit();
     if(npc(args)->length == 0) {
@@ -93,23 +93,23 @@ void org::apache::poi::poifs::dev::POIFSLister::main(::java::lang::StringArray* 
     }
 }
 
-void org::apache::poi::poifs::dev::POIFSLister::viewFile(::java::lang::String* filename, bool withSizes) /* throws(IOException) */
+void poi::poifs::dev::POIFSLister::viewFile(::java::lang::String* filename, bool withSizes) /* throws(IOException) */
 {
     clinit();
-    auto fs = new ::org::apache::poi::poifs::filesystem::NPOIFSFileSystem(new ::java::io::File(filename));
+    auto fs = new ::poi::poifs::filesystem::NPOIFSFileSystem(new ::java::io::File(filename));
     displayDirectory(npc(fs)->getRoot(), u""_j, withSizes);
     npc(fs)->close();
 }
 
-void org::apache::poi::poifs::dev::POIFSLister::viewFileOld(::java::lang::String* filename, bool withSizes) /* throws(IOException) */
+void poi::poifs::dev::POIFSLister::viewFileOld(::java::lang::String* filename, bool withSizes) /* throws(IOException) */
 {
     clinit();
-    auto fs = new ::org::apache::poi::poifs::filesystem::POIFSFileSystem(static_cast< ::java::io::InputStream* >(new ::java::io::FileInputStream(filename)));
+    auto fs = new ::poi::poifs::filesystem::POIFSFileSystem(static_cast< ::java::io::InputStream* >(new ::java::io::FileInputStream(filename)));
     displayDirectory(npc(fs)->getRoot(), u""_j, withSizes);
     npc(fs)->close();
 }
 
-void org::apache::poi::poifs::dev::POIFSLister::displayDirectory(::org::apache::poi::poifs::filesystem::DirectoryNode* dir, ::java::lang::String* indent, bool withSizes)
+void poi::poifs::dev::POIFSLister::displayDirectory(::poi::poifs::filesystem::DirectoryNode* dir, ::java::lang::String* indent, bool withSizes)
 {
     clinit();
     npc(::java::lang::System::out())->println(::java::lang::StringBuilder().append(indent)->append(npc(dir)->getName())
@@ -118,11 +118,11 @@ void org::apache::poi::poifs::dev::POIFSLister::displayDirectory(::org::apache::
     auto hadChildren = false;
     for (auto *it = npc(dir)->getEntries(); npc(it)->hasNext(); ) {
         hadChildren = true;
-        auto entry = java_cast< ::org::apache::poi::poifs::filesystem::Entry* >(npc(it)->next());
-        if(dynamic_cast< ::org::apache::poi::poifs::filesystem::DirectoryNode* >(entry) != nullptr) {
-            displayDirectory(java_cast< ::org::apache::poi::poifs::filesystem::DirectoryNode* >(entry), newIndent, withSizes);
+        auto entry = java_cast< ::poi::poifs::filesystem::Entry* >(npc(it)->next());
+        if(dynamic_cast< ::poi::poifs::filesystem::DirectoryNode* >(entry) != nullptr) {
+            displayDirectory(java_cast< ::poi::poifs::filesystem::DirectoryNode* >(entry), newIndent, withSizes);
         } else {
-            auto doc = java_cast< ::org::apache::poi::poifs::filesystem::DocumentNode* >(entry);
+            auto doc = java_cast< ::poi::poifs::filesystem::DocumentNode* >(entry);
             auto name = npc(doc)->getName();
             auto size = u""_j;
             if(npc(name)->charAt(int32_t(0)) < 10) {
@@ -150,13 +150,13 @@ void org::apache::poi::poifs::dev::POIFSLister::displayDirectory(::org::apache::
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::dev::POIFSLister::class_()
+java::lang::Class* poi::poifs::dev::POIFSLister::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.dev.POIFSLister", 36);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::dev::POIFSLister::getClass0()
+java::lang::Class* poi::poifs::dev::POIFSLister::getClass0()
 {
     return class_();
 }

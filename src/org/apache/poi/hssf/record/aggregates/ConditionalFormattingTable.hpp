@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::aggregates::ConditionalFormattingTable final
+class poi::hssf::record::aggregates::ConditionalFormattingTable final
     : public RecordAggregate
 {
 
@@ -22,7 +22,7 @@ private:
     ::java::util::List* _cfHeaders {  };
 protected:
     void ctor();
-    void ctor(::org::apache::poi::hssf::model::RecordStream* rs);
+    void ctor(::poi::hssf::model::RecordStream* rs);
 
 public:
     void visitContainedRecords(RecordAggregate_RecordVisitor* rv) override;
@@ -35,11 +35,11 @@ private:
     void checkIndex(int32_t index);
 
 public:
-    void updateFormulasAfterCellShift(::org::apache::poi::ss::formula::FormulaShifter* shifter, int32_t externSheetIndex);
+    void updateFormulasAfterCellShift(::poi::ss::formula::FormulaShifter* shifter, int32_t externSheetIndex);
 
     // Generated
     ConditionalFormattingTable();
-    ConditionalFormattingTable(::org::apache::poi::hssf::model::RecordStream* rs);
+    ConditionalFormattingTable(::poi::hssf::model::RecordStream* rs);
 protected:
     ConditionalFormattingTable(const ::default_init_tag&);
 

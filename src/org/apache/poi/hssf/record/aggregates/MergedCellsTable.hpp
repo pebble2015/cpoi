@@ -20,29 +20,23 @@ typedef ::SubArray< ::java::lang::Cloneable, ObjectArray > CloneableArray;
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
-            {
-                namespace record
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::Record, RecordBaseArray > RecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::StandardRecord, RecordArray > StandardRecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::MergeCellsRecord, StandardRecordArray, ::java::lang::CloneableArray > MergeCellsRecordArray;
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
+typedef ::SubArray< ::poi::hssf::record::Record, RecordBaseArray > RecordArray;
+typedef ::SubArray< ::poi::hssf::record::StandardRecord, RecordArray > StandardRecordArray;
+typedef ::SubArray< ::poi::hssf::record::MergeCellsRecord, StandardRecordArray, ::java::lang::CloneableArray > MergeCellsRecordArray;
+        } // record
+    } // hssf
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::aggregates::MergedCellsTable final
+class poi::hssf::record::aggregates::MergedCellsTable final
     : public RecordAggregate
 {
 
@@ -56,16 +50,16 @@ protected:
     void ctor();
 
 public:
-    void read(::org::apache::poi::hssf::model::RecordStream* rs);
+    void read(::poi::hssf::model::RecordStream* rs);
     int32_t getRecordSize() override;
     void visitContainedRecords(RecordAggregate_RecordVisitor* rv) override;
-    void addRecords(::org::apache::poi::hssf::record::MergeCellsRecordArray* mcrs);
+    void addRecords(::poi::hssf::record::MergeCellsRecordArray* mcrs);
 
 private:
-    void addMergeCellsRecord(::org::apache::poi::hssf::record::MergeCellsRecord* mcr);
+    void addMergeCellsRecord(::poi::hssf::record::MergeCellsRecord* mcr);
 
 public:
-    ::org::apache::poi::ss::util::CellRangeAddress* get(int32_t index);
+    ::poi::ss::util::CellRangeAddress* get(int32_t index);
     void remove(int32_t index);
 
 private:

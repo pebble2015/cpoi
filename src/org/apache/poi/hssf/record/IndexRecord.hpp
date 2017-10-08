@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::IndexRecord final
+class poi::hssf::record::IndexRecord final
     : public StandardRecord
     , public ::java::lang::Cloneable
 {
@@ -24,7 +24,7 @@ private:
     int32_t field_2_first_row {  };
     int32_t field_3_last_row_add1 {  };
     int32_t field_4_zero {  };
-    ::org::apache::poi::util::IntList* field_5_dbcells {  };
+    ::poi::util::IntList* field_5_dbcells {  };
 protected:
     void ctor();
     void ctor(RecordInputStream* in);
@@ -39,7 +39,7 @@ public:
     int32_t getNumDbcells();
     int32_t getDbcellAt(int32_t cellnum);
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;

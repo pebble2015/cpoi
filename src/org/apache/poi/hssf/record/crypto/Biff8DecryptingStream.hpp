@@ -12,10 +12,10 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::crypto::Biff8DecryptingStream final
+class poi::hssf::record::crypto::Biff8DecryptingStream final
     : public virtual ::java::lang::Object
-    , public ::org::apache::poi::hssf::record::BiffHeaderInput
-    , public ::org::apache::poi::util::LittleEndianInput
+    , public ::poi::hssf::record::BiffHeaderInput
+    , public ::poi::util::LittleEndianInput
 {
 
 public:
@@ -23,12 +23,12 @@ public:
     static constexpr int32_t RC4_REKEYING_INTERVAL { int32_t(1024) };
 
 private:
-    ::org::apache::poi::poifs::crypt::EncryptionInfo* info {  };
-    ::org::apache::poi::poifs::crypt::ChunkedCipherInputStream* ccis {  };
+    ::poi::poifs::crypt::EncryptionInfo* info {  };
+    ::poi::poifs::crypt::ChunkedCipherInputStream* ccis {  };
     ::int8_tArray* buffer {  };
     bool shouldSkipEncryptionOnCurrentRecord {  };
 protected:
-    void ctor(::java::io::InputStream* in, int32_t initialOffset, ::org::apache::poi::poifs::crypt::EncryptionInfo* info) /* throws(RecordFormatException) */;
+    void ctor(::java::io::InputStream* in, int32_t initialOffset, ::poi::poifs::crypt::EncryptionInfo* info) /* throws(RecordFormatException) */;
 
 public:
     int32_t available() override;
@@ -48,7 +48,7 @@ public:
     void readPlain(::int8_tArray* b, int32_t off, int32_t len) override;
 
     // Generated
-    Biff8DecryptingStream(::java::io::InputStream* in, int32_t initialOffset, ::org::apache::poi::poifs::crypt::EncryptionInfo* info);
+    Biff8DecryptingStream(::java::io::InputStream* in, int32_t initialOffset, ::poi::poifs::crypt::EncryptionInfo* info);
 protected:
     Biff8DecryptingStream(const ::default_init_tag&);
 

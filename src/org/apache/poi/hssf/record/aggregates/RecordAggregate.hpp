@@ -8,12 +8,12 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::aggregates::RecordAggregate
-    : public ::org::apache::poi::hssf::record::RecordBase
+class poi::hssf::record::aggregates::RecordAggregate
+    : public ::poi::hssf::record::RecordBase
 {
 
 public:
-    typedef ::org::apache::poi::hssf::record::RecordBase super;
+    typedef ::poi::hssf::record::RecordBase super;
     virtual void visitContainedRecords(RecordAggregate_RecordVisitor* rv) = 0;
     int32_t serialize(int32_t offset, ::int8_tArray* data) override;
     int32_t getRecordSize() override;

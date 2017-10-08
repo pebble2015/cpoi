@@ -25,31 +25,31 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::FormulaUsedBlankCellSet::FormulaUsedBlankCellSet(const ::default_init_tag&)
+poi::ss::formula::FormulaUsedBlankCellSet::FormulaUsedBlankCellSet(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::FormulaUsedBlankCellSet::FormulaUsedBlankCellSet() 
+poi::ss::formula::FormulaUsedBlankCellSet::FormulaUsedBlankCellSet() 
     : FormulaUsedBlankCellSet(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::ss::formula::FormulaUsedBlankCellSet::ctor()
+void poi::ss::formula::FormulaUsedBlankCellSet::ctor()
 {
     super::ctor();
     _sheetGroupsByBookSheet = new ::java::util::HashMap();
 }
 
-void org::apache::poi::ss::formula::FormulaUsedBlankCellSet::addCell(int32_t bookIndex, int32_t sheetIndex, int32_t rowIndex, int32_t columnIndex)
+void poi::ss::formula::FormulaUsedBlankCellSet::addCell(int32_t bookIndex, int32_t sheetIndex, int32_t rowIndex, int32_t columnIndex)
 {
     auto sbcg = getSheetGroup(bookIndex, sheetIndex);
     npc(sbcg)->addCell(rowIndex, columnIndex);
 }
 
-org::apache::poi::ss::formula::FormulaUsedBlankCellSet_BlankCellSheetGroup* org::apache::poi::ss::formula::FormulaUsedBlankCellSet::getSheetGroup(int32_t bookIndex, int32_t sheetIndex)
+poi::ss::formula::FormulaUsedBlankCellSet_BlankCellSheetGroup* poi::ss::formula::FormulaUsedBlankCellSet::getSheetGroup(int32_t bookIndex, int32_t sheetIndex)
 {
     auto key = new FormulaUsedBlankCellSet_BookSheetKey(bookIndex, sheetIndex);
     auto result = java_cast< FormulaUsedBlankCellSet_BlankCellSheetGroup* >(npc(_sheetGroupsByBookSheet)->get(key));
@@ -60,7 +60,7 @@ org::apache::poi::ss::formula::FormulaUsedBlankCellSet_BlankCellSheetGroup* org:
     return result;
 }
 
-bool org::apache::poi::ss::formula::FormulaUsedBlankCellSet::containsCell(FormulaUsedBlankCellSet_BookSheetKey* key, int32_t rowIndex, int32_t columnIndex)
+bool poi::ss::formula::FormulaUsedBlankCellSet::containsCell(FormulaUsedBlankCellSet_BookSheetKey* key, int32_t rowIndex, int32_t columnIndex)
 {
     auto bcsg = java_cast< FormulaUsedBlankCellSet_BlankCellSheetGroup* >(npc(_sheetGroupsByBookSheet)->get(key));
     if(bcsg == nullptr) {
@@ -69,20 +69,20 @@ bool org::apache::poi::ss::formula::FormulaUsedBlankCellSet::containsCell(Formul
     return npc(bcsg)->containsCell(rowIndex, columnIndex);
 }
 
-bool org::apache::poi::ss::formula::FormulaUsedBlankCellSet::isEmpty()
+bool poi::ss::formula::FormulaUsedBlankCellSet::isEmpty()
 {
     return npc(_sheetGroupsByBookSheet)->isEmpty();
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::FormulaUsedBlankCellSet::class_()
+java::lang::Class* poi::ss::formula::FormulaUsedBlankCellSet::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.FormulaUsedBlankCellSet", 49);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::FormulaUsedBlankCellSet::getClass0()
+java::lang::Class* poi::ss::formula::FormulaUsedBlankCellSet::getClass0()
 {
     return class_();
 }

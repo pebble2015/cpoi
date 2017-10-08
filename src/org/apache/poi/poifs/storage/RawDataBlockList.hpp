@@ -9,19 +9,19 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::storage::RawDataBlockList
+class poi::poifs::storage::RawDataBlockList
     : public BlockListImpl
 {
 
 public:
     typedef BlockListImpl super;
 protected:
-    void ctor(::java::io::InputStream* stream, ::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize) /* throws(IOException) */;
+    void ctor(::java::io::InputStream* stream, ::poi::poifs::common::POIFSBigBlockSize* bigBlockSize) /* throws(IOException) */;
 
     // Generated
 
 public:
-    RawDataBlockList(::java::io::InputStream* stream, ::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize);
+    RawDataBlockList(::java::io::InputStream* stream, ::poi::poifs::common::POIFSBigBlockSize* bigBlockSize);
 protected:
     RawDataBlockList(const ::default_init_tag&);
 

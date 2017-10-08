@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::nio::DataSource
+class poi::poifs::nio::DataSource
     : public virtual ::java::lang::Object
 {
 

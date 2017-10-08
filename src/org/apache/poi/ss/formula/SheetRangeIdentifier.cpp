@@ -13,35 +13,35 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::SheetRangeIdentifier::SheetRangeIdentifier(const ::default_init_tag&)
+poi::ss::formula::SheetRangeIdentifier::SheetRangeIdentifier(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::SheetRangeIdentifier::SheetRangeIdentifier(::java::lang::String* bookName, NameIdentifier* firstSheetIdentifier, NameIdentifier* lastSheetIdentifier) 
+poi::ss::formula::SheetRangeIdentifier::SheetRangeIdentifier(::java::lang::String* bookName, NameIdentifier* firstSheetIdentifier, NameIdentifier* lastSheetIdentifier) 
     : SheetRangeIdentifier(*static_cast< ::default_init_tag* >(0))
 {
     ctor(bookName,firstSheetIdentifier,lastSheetIdentifier);
 }
 
-void org::apache::poi::ss::formula::SheetRangeIdentifier::ctor(::java::lang::String* bookName, NameIdentifier* firstSheetIdentifier, NameIdentifier* lastSheetIdentifier)
+void poi::ss::formula::SheetRangeIdentifier::ctor(::java::lang::String* bookName, NameIdentifier* firstSheetIdentifier, NameIdentifier* lastSheetIdentifier)
 {
     super::ctor(bookName, firstSheetIdentifier);
     _lastSheetIdentifier = lastSheetIdentifier;
 }
 
-org::apache::poi::ss::formula::NameIdentifier* org::apache::poi::ss::formula::SheetRangeIdentifier::getFirstSheetIdentifier()
+poi::ss::formula::NameIdentifier* poi::ss::formula::SheetRangeIdentifier::getFirstSheetIdentifier()
 {
     return super::getSheetIdentifier();
 }
 
-org::apache::poi::ss::formula::NameIdentifier* org::apache::poi::ss::formula::SheetRangeIdentifier::getLastSheetIdentifier()
+poi::ss::formula::NameIdentifier* poi::ss::formula::SheetRangeIdentifier::getLastSheetIdentifier()
 {
     return _lastSheetIdentifier;
 }
 
-void org::apache::poi::ss::formula::SheetRangeIdentifier::asFormulaString(::java::lang::StringBuffer* sb)
+void poi::ss::formula::SheetRangeIdentifier::asFormulaString(::java::lang::StringBuffer* sb)
 {
     super::asFormulaString(sb);
     npc(sb)->append(u':');
@@ -54,18 +54,18 @@ void org::apache::poi::ss::formula::SheetRangeIdentifier::asFormulaString(::java
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::SheetRangeIdentifier::class_()
+java::lang::Class* poi::ss::formula::SheetRangeIdentifier::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.SheetRangeIdentifier", 46);
     return c;
 }
 
-java::lang::String* org::apache::poi::ss::formula::SheetRangeIdentifier::asFormulaString()
+java::lang::String* poi::ss::formula::SheetRangeIdentifier::asFormulaString()
 {
     return super::asFormulaString();
 }
 
-java::lang::Class* org::apache::poi::ss::formula::SheetRangeIdentifier::getClass0()
+java::lang::Class* poi::ss::formula::SheetRangeIdentifier::getClass0()
 {
     return class_();
 }

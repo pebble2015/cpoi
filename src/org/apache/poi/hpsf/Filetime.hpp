@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hpsf::Filetime
+class poi::hpsf::Filetime
     : public virtual ::java::lang::Object
 {
 
@@ -31,7 +31,7 @@ protected:
     void ctor(::java::util::Date* date);
 
 public: /* package */
-    virtual void read(::org::apache::poi::util::LittleEndianByteArrayInputStream* lei);
+    virtual void read(::poi::util::LittleEndianByteArrayInputStream* lei);
     virtual int64_t getHigh();
     virtual int64_t getLow();
     virtual ::int8_tArray* toByteArray_();

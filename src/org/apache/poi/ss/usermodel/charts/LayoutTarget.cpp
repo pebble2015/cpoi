@@ -25,49 +25,43 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace ss
+            namespace charts
             {
-                namespace usermodel
-                {
-                    namespace charts
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::charts::LayoutTarget, ::java::lang::EnumArray > LayoutTargetArray;
-                    } // charts
-                } // usermodel
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::usermodel::charts::LayoutTarget, ::java::lang::EnumArray > LayoutTargetArray;
+            } // charts
+        } // usermodel
+    } // ss
+} // poi
 
-org::apache::poi::ss::usermodel::charts::LayoutTarget::LayoutTarget(const ::default_init_tag&)
+poi::ss::usermodel::charts::LayoutTarget::LayoutTarget(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::usermodel::charts::LayoutTarget::LayoutTarget(::java::lang::String* name, int ordinal)
+poi::ss::usermodel::charts::LayoutTarget::LayoutTarget(::java::lang::String* name, int ordinal)
     : LayoutTarget(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal);
 }
 
-org::apache::poi::ss::usermodel::charts::LayoutTarget* org::apache::poi::ss::usermodel::charts::LayoutTarget::INNER = new ::org::apache::poi::ss::usermodel::charts::LayoutTarget(u"INNER"_j, 0);
-org::apache::poi::ss::usermodel::charts::LayoutTarget* org::apache::poi::ss::usermodel::charts::LayoutTarget::OUTER = new ::org::apache::poi::ss::usermodel::charts::LayoutTarget(u"OUTER"_j, 1);
+poi::ss::usermodel::charts::LayoutTarget* poi::ss::usermodel::charts::LayoutTarget::INNER = new ::poi::ss::usermodel::charts::LayoutTarget(u"INNER"_j, 0);
+poi::ss::usermodel::charts::LayoutTarget* poi::ss::usermodel::charts::LayoutTarget::OUTER = new ::poi::ss::usermodel::charts::LayoutTarget(u"OUTER"_j, 1);
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::usermodel::charts::LayoutTarget::class_()
+java::lang::Class* poi::ss::usermodel::charts::LayoutTarget::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.usermodel.charts.LayoutTarget", 47);
     return c;
 }
 
-org::apache::poi::ss::usermodel::charts::LayoutTarget* org::apache::poi::ss::usermodel::charts::LayoutTarget::valueOf(::java::lang::String* a0)
+poi::ss::usermodel::charts::LayoutTarget* poi::ss::usermodel::charts::LayoutTarget::valueOf(::java::lang::String* a0)
 {
     if(INNER->toString()->equals(a0))
         return INNER;
@@ -76,15 +70,15 @@ org::apache::poi::ss::usermodel::charts::LayoutTarget* org::apache::poi::ss::use
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::ss::usermodel::charts::LayoutTargetArray* org::apache::poi::ss::usermodel::charts::LayoutTarget::values()
+poi::ss::usermodel::charts::LayoutTargetArray* poi::ss::usermodel::charts::LayoutTarget::values()
 {
-    return new org::apache::poi::ss::usermodel::charts::LayoutTargetArray({
+    return new poi::ss::usermodel::charts::LayoutTargetArray({
         INNER,
         OUTER,
     });
 }
 
-java::lang::Class* org::apache::poi::ss::usermodel::charts::LayoutTarget::getClass0()
+java::lang::Class* poi::ss::usermodel::charts::LayoutTarget::getClass0()
 {
     return class_();
 }

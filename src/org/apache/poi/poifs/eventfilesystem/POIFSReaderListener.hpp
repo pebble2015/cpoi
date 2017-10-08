@@ -5,7 +5,7 @@
 #include <org/apache/poi/poifs/eventfilesystem/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::poifs::eventfilesystem::POIFSReaderListener
+struct poi::poifs::eventfilesystem::POIFSReaderListener
     : public virtual ::java::lang::Object
 {
     virtual void processPOIFSReaderEvent(POIFSReaderEvent* event) = 0;

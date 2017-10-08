@@ -29,7 +29,7 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::extractor::OldExcelExtractor
+class poi::hssf::extractor::OldExcelExtractor
     : public virtual ::java::lang::Object
     , public virtual ::java::io::Closeable
 {
@@ -39,20 +39,20 @@ public:
 
 private:
     static constexpr int32_t FILE_PASS_RECORD_SID { int32_t(47) };
-    ::org::apache::poi::hssf::record::RecordInputStream* ris {  };
+    ::poi::hssf::record::RecordInputStream* ris {  };
     ::java::io::Closeable* toClose {  };
     int32_t biffVersion {  };
     int32_t fileType {  };
 protected:
     void ctor(::java::io::InputStream* input) /* throws(IOException) */;
     void ctor(::java::io::File* f) /* throws(IOException) */;
-    void ctor(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs) /* throws(IOException) */;
-    void ctor(::org::apache::poi::poifs::filesystem::DirectoryNode* directory) /* throws(IOException) */;
+    void ctor(::poi::poifs::filesystem::NPOIFSFileSystem* fs) /* throws(IOException) */;
+    void ctor(::poi::poifs::filesystem::DirectoryNode* directory) /* throws(IOException) */;
 
 private:
     void open(::java::io::InputStream* biffStream) /* throws(IOException) */;
-    void open(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs) /* throws(IOException) */;
-    void open(::org::apache::poi::poifs::filesystem::DirectoryNode* directory) /* throws(IOException) */;
+    void open(::poi::poifs::filesystem::NPOIFSFileSystem* fs) /* throws(IOException) */;
+    void open(::poi::poifs::filesystem::DirectoryNode* directory) /* throws(IOException) */;
 
 public:
     static void main(::java::lang::StringArray* args) /* throws(IOException) */;
@@ -74,8 +74,8 @@ public: /* protected */
 public:
     OldExcelExtractor(::java::io::InputStream* input);
     OldExcelExtractor(::java::io::File* f);
-    OldExcelExtractor(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs);
-    OldExcelExtractor(::org::apache::poi::poifs::filesystem::DirectoryNode* directory);
+    OldExcelExtractor(::poi::poifs::filesystem::NPOIFSFileSystem* fs);
+    OldExcelExtractor(::poi::poifs::filesystem::DirectoryNode* directory);
 protected:
     OldExcelExtractor(const ::default_init_tag&);
 

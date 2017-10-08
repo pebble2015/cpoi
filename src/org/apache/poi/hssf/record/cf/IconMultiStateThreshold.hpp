@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::cf::IconMultiStateThreshold final
+class poi::hssf::record::cf::IconMultiStateThreshold final
     : public Threshold
     , public ::java::lang::Cloneable
 {
@@ -24,18 +24,18 @@ private:
     int8_t equals_ {  };
 protected:
     void ctor();
-    void ctor(::org::apache::poi::util::LittleEndianInput* in);
+    void ctor(::poi::util::LittleEndianInput* in);
 
 public:
     int8_t getEquals();
     void setEquals(int8_t equals);
     int32_t getDataLength() override;
     IconMultiStateThreshold* clone() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
     // Generated
     IconMultiStateThreshold();
-    IconMultiStateThreshold(::org::apache::poi::util::LittleEndianInput* in);
+    IconMultiStateThreshold(::poi::util::LittleEndianInput* in);
 protected:
     IconMultiStateThreshold(const ::default_init_tag&);
 

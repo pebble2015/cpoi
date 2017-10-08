@@ -26,7 +26,7 @@ typedef ::SubArray< ::java::lang::ObjectArray, CloneableArray, ::java::io::Seria
 
 struct default_init_tag;
 
-class org::apache::poi::hpsf::Variant
+class poi::hpsf::Variant
     : public virtual ::java::lang::Object
 {
 

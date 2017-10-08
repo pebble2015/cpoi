@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::filesystem::EntryUtils
+class poi::poifs::filesystem::EntryUtils
     : public virtual ::java::lang::Object
 {
 

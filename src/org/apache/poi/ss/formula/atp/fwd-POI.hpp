@@ -2,35 +2,29 @@
 #pragma once
 
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace atp
             {
-                namespace formula
-                {
-                    namespace atp
-                    {
-                        class AnalysisToolPak;
-                        class AnalysisToolPak_NotImplemented;
-                        class ArgumentsEvaluator;
-                        class DateParser;
-                        class IfError;
-                        class MRound;
-                        class NetworkdaysFunction;
-                        class ParityFunction;
-                        class RandBetween;
-                        class WorkdayCalculator;
-                        class WorkdayFunction;
-                        class YearFrac;
-                        class YearFracCalculator;
-                        class YearFracCalculator_SimpleDate;
-                    } // atp
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+                class AnalysisToolPak;
+                class AnalysisToolPak_NotImplemented;
+                class ArgumentsEvaluator;
+                class DateParser;
+                class IfError;
+                class MRound;
+                class NetworkdaysFunction;
+                class ParityFunction;
+                class RandBetween;
+                class WorkdayCalculator;
+                class WorkdayFunction;
+                class YearFrac;
+                class YearFracCalculator;
+                class YearFracCalculator_SimpleDate;
+            } // atp
+        } // formula
+    } // ss
+} // poi

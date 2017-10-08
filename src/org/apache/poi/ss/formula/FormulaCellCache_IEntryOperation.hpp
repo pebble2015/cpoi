@@ -5,7 +5,7 @@
 #include <org/apache/poi/ss/formula/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::formula::FormulaCellCache_IEntryOperation
+struct poi::ss::formula::FormulaCellCache_IEntryOperation
     : public virtual ::java::lang::Object
 {
     virtual void processEntry(FormulaCellCacheEntry* entry) = 0;

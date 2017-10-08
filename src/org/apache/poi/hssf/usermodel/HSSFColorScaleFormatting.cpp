@@ -28,64 +28,58 @@ typedef ::SubArray< ::java::lang::Cloneable, ObjectArray > CloneableArray;
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
+            namespace cf
             {
-                namespace record
-                {
-                    namespace cf
-                    {
-typedef ::SubArray< ::org::apache::poi::hssf::record::cf::Threshold, ::java::lang::ObjectArray > ThresholdArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::cf::ColorGradientThreshold, ThresholdArray, ::java::lang::CloneableArray > ColorGradientThresholdArray;
-                    } // cf
+typedef ::SubArray< ::poi::hssf::record::cf::Threshold, ::java::lang::ObjectArray > ThresholdArray;
+typedef ::SubArray< ::poi::hssf::record::cf::ColorGradientThreshold, ThresholdArray, ::java::lang::CloneableArray > ColorGradientThresholdArray;
+            } // cf
 
-                    namespace common
-                    {
-typedef ::SubArray< ::org::apache::poi::hssf::record::common::ExtendedColor, ::java::lang::ObjectArray, ::java::lang::CloneableArray > ExtendedColorArray;
-                    } // common
-                } // record
-            } // hssf
-
-            namespace ss
+            namespace common
             {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::ConditionalFormattingThreshold, ::java::lang::ObjectArray > ConditionalFormattingThresholdArray;
-                } // usermodel
-            } // ss
+typedef ::SubArray< ::poi::hssf::record::common::ExtendedColor, ::java::lang::ObjectArray, ::java::lang::CloneableArray > ExtendedColorArray;
+            } // common
+        } // record
+    } // hssf
 
-            namespace hssf
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::usermodel::HSSFConditionalFormattingThreshold, ::java::lang::ObjectArray, ::org::apache::poi::ss::usermodel::ConditionalFormattingThresholdArray > HSSFConditionalFormattingThresholdArray;
-                } // usermodel
-            } // hssf
+    namespace ss
+    {
+        namespace usermodel
+        {
+typedef ::SubArray< ::poi::ss::usermodel::ConditionalFormattingThreshold, ::java::lang::ObjectArray > ConditionalFormattingThresholdArray;
+        } // usermodel
+    } // ss
 
-            namespace ss
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::Color, ::java::lang::ObjectArray > ColorArray;
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::ExtendedColor, ::java::lang::ObjectArray, ColorArray > ExtendedColorArray;
-                } // usermodel
-            } // ss
+    namespace hssf
+    {
+        namespace usermodel
+        {
+typedef ::SubArray< ::poi::hssf::usermodel::HSSFConditionalFormattingThreshold, ::java::lang::ObjectArray, ::poi::ss::usermodel::ConditionalFormattingThresholdArray > HSSFConditionalFormattingThresholdArray;
+        } // usermodel
+    } // hssf
 
-            namespace hssf
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::usermodel::HSSFExtendedColor, ::org::apache::poi::ss::usermodel::ExtendedColorArray > HSSFExtendedColorArray;
-                } // usermodel
-            } // hssf
-        } // poi
-    } // apache
-} // org
+    namespace ss
+    {
+        namespace usermodel
+        {
+typedef ::SubArray< ::poi::ss::usermodel::Color, ::java::lang::ObjectArray > ColorArray;
+typedef ::SubArray< ::poi::ss::usermodel::ExtendedColor, ::java::lang::ObjectArray, ColorArray > ExtendedColorArray;
+        } // usermodel
+    } // ss
+
+    namespace hssf
+    {
+        namespace usermodel
+        {
+typedef ::SubArray< ::poi::hssf::usermodel::HSSFExtendedColor, ::poi::ss::usermodel::ExtendedColorArray > HSSFExtendedColorArray;
+        } // usermodel
+    } // hssf
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -103,19 +97,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::usermodel::HSSFColorScaleFormatting::HSSFColorScaleFormatting(const ::default_init_tag&)
+poi::hssf::usermodel::HSSFColorScaleFormatting::HSSFColorScaleFormatting(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::usermodel::HSSFColorScaleFormatting::HSSFColorScaleFormatting(::org::apache::poi::hssf::record::CFRule12Record* cfRule12Record, HSSFSheet* sheet) 
+poi::hssf::usermodel::HSSFColorScaleFormatting::HSSFColorScaleFormatting(::poi::hssf::record::CFRule12Record* cfRule12Record, HSSFSheet* sheet) 
     : HSSFColorScaleFormatting(*static_cast< ::default_init_tag* >(0))
 {
     ctor(cfRule12Record,sheet);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFColorScaleFormatting::ctor(::org::apache::poi::hssf::record::CFRule12Record* cfRule12Record, HSSFSheet* sheet)
+void poi::hssf::usermodel::HSSFColorScaleFormatting::ctor(::poi::hssf::record::CFRule12Record* cfRule12Record, HSSFSheet* sheet)
 {
     super::ctor();
     this->sheet = sheet;
@@ -123,17 +117,17 @@ void org::apache::poi::hssf::usermodel::HSSFColorScaleFormatting::ctor(::org::ap
     this->colorFormatting = npc(this->cfRule12Record)->getColorGradientFormatting();
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFColorScaleFormatting::getNumControlPoints()
+int32_t poi::hssf::usermodel::HSSFColorScaleFormatting::getNumControlPoints()
 {
     return npc(colorFormatting)->getNumControlPoints();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFColorScaleFormatting::setNumControlPoints(int32_t num)
+void poi::hssf::usermodel::HSSFColorScaleFormatting::setNumControlPoints(int32_t num)
 {
     npc(colorFormatting)->setNumControlPoints(num);
 }
 
-org::apache::poi::hssf::usermodel::HSSFExtendedColorArray* org::apache::poi::hssf::usermodel::HSSFColorScaleFormatting::getColors()
+poi::hssf::usermodel::HSSFExtendedColorArray* poi::hssf::usermodel::HSSFColorScaleFormatting::getColors()
 {
     auto colors = npc(colorFormatting)->getColors();
     auto hcolors = new HSSFExtendedColorArray(npc(colors)->length);
@@ -143,18 +137,18 @@ org::apache::poi::hssf::usermodel::HSSFExtendedColorArray* org::apache::poi::hss
     return hcolors;
 }
 
-void org::apache::poi::hssf::usermodel::HSSFColorScaleFormatting::setColors(::org::apache::poi::ss::usermodel::ColorArray* colors)
+void poi::hssf::usermodel::HSSFColorScaleFormatting::setColors(::poi::ss::usermodel::ColorArray* colors)
 {
-    auto cr = new ::org::apache::poi::hssf::record::common::ExtendedColorArray(npc(colors)->length);
+    auto cr = new ::poi::hssf::record::common::ExtendedColorArray(npc(colors)->length);
     for (auto i = int32_t(0); i < npc(colors)->length; i++) {
         cr->set(i, npc((java_cast< HSSFExtendedColor* >((*colors)[i])))->getExtendedColor());
     }
     npc(colorFormatting)->setColors(cr);
 }
 
-org::apache::poi::hssf::usermodel::HSSFConditionalFormattingThresholdArray* org::apache::poi::hssf::usermodel::HSSFColorScaleFormatting::getThresholds()
+poi::hssf::usermodel::HSSFConditionalFormattingThresholdArray* poi::hssf::usermodel::HSSFColorScaleFormatting::getThresholds()
 {
-    ::org::apache::poi::hssf::record::cf::ThresholdArray* t = npc(colorFormatting)->getThresholds();
+    ::poi::hssf::record::cf::ThresholdArray* t = npc(colorFormatting)->getThresholds();
     auto ht = new HSSFConditionalFormattingThresholdArray(npc(t)->length);
     for (auto i = int32_t(0); i < npc(t)->length; i++) {
         ht->set(i, new HSSFConditionalFormattingThreshold((*t)[i], sheet));
@@ -162,30 +156,30 @@ org::apache::poi::hssf::usermodel::HSSFConditionalFormattingThresholdArray* org:
     return ht;
 }
 
-void org::apache::poi::hssf::usermodel::HSSFColorScaleFormatting::setThresholds(::org::apache::poi::ss::usermodel::ConditionalFormattingThresholdArray* thresholds)
+void poi::hssf::usermodel::HSSFColorScaleFormatting::setThresholds(::poi::ss::usermodel::ConditionalFormattingThresholdArray* thresholds)
 {
-    auto t = new ::org::apache::poi::hssf::record::cf::ColorGradientThresholdArray(npc(thresholds)->length);
+    auto t = new ::poi::hssf::record::cf::ColorGradientThresholdArray(npc(thresholds)->length);
     for (auto i = int32_t(0); i < npc(t)->length; i++) {
         auto hssfT = java_cast< HSSFConditionalFormattingThreshold* >((*thresholds)[i]);
-        t->set(i, java_cast< ::org::apache::poi::hssf::record::cf::ColorGradientThreshold* >(npc(hssfT)->getThreshold()));
+        t->set(i, java_cast< ::poi::hssf::record::cf::ColorGradientThreshold* >(npc(hssfT)->getThreshold()));
     }
     npc(colorFormatting)->setThresholds(t);
 }
 
-org::apache::poi::hssf::usermodel::HSSFConditionalFormattingThreshold* org::apache::poi::hssf::usermodel::HSSFColorScaleFormatting::createThreshold()
+poi::hssf::usermodel::HSSFConditionalFormattingThreshold* poi::hssf::usermodel::HSSFColorScaleFormatting::createThreshold()
 {
-    return new HSSFConditionalFormattingThreshold(new ::org::apache::poi::hssf::record::cf::ColorGradientThreshold(), sheet);
+    return new HSSFConditionalFormattingThreshold(new ::poi::hssf::record::cf::ColorGradientThreshold(), sheet);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFColorScaleFormatting::class_()
+java::lang::Class* poi::hssf::usermodel::HSSFColorScaleFormatting::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.usermodel.HSSFColorScaleFormatting", 54);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFColorScaleFormatting::getClass0()
+java::lang::Class* poi::hssf::usermodel::HSSFColorScaleFormatting::getClass0()
 {
     return class_();
 }

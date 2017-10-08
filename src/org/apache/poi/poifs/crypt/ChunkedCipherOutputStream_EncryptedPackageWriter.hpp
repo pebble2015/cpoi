@@ -9,14 +9,14 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::crypt::ChunkedCipherOutputStream_EncryptedPackageWriter
+class poi::poifs::crypt::ChunkedCipherOutputStream_EncryptedPackageWriter
     : public virtual ::java::lang::Object
-    , public virtual ::org::apache::poi::poifs::filesystem::POIFSWriterListener
+    , public virtual ::poi::poifs::filesystem::POIFSWriterListener
 {
 
 public:
     typedef ::java::lang::Object super;
-    void processPOIFSWriterEvent(::org::apache::poi::poifs::filesystem::POIFSWriterEvent* event) override;
+    void processPOIFSWriterEvent(::poi::poifs::filesystem::POIFSWriterEvent* event) override;
 
     // Generated
     ChunkedCipherOutputStream_EncryptedPackageWriter(ChunkedCipherOutputStream *ChunkedCipherOutputStream_this);

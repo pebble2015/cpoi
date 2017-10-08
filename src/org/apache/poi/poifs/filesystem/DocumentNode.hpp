@@ -13,10 +13,10 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::filesystem::DocumentNode
+class poi::poifs::filesystem::DocumentNode
     : public EntryNode
     , public virtual DocumentEntry
-    , public virtual ::org::apache::poi::poifs::dev::POIFSViewable
+    , public virtual ::poi::poifs::dev::POIFSViewable
 {
 
 public:
@@ -25,7 +25,7 @@ public:
 private:
     OPOIFSDocument* _document {  };
 protected:
-    void ctor(::org::apache::poi::poifs::property::DocumentProperty* property, DirectoryNode* parent);
+    void ctor(::poi::poifs::property::DocumentProperty* property, DirectoryNode* parent);
 
 public: /* package */
     virtual OPOIFSDocument* getDocument();
@@ -46,7 +46,7 @@ public:
     // Generated
 
 public: /* package */
-    DocumentNode(::org::apache::poi::poifs::property::DocumentProperty* property, DirectoryNode* parent);
+    DocumentNode(::poi::poifs::property::DocumentProperty* property, DirectoryNode* parent);
 protected:
     DocumentNode(const ::default_init_tag&);
 

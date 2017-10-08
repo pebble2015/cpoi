@@ -27,7 +27,7 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::dev::POIFSLister
+class poi::poifs::dev::POIFSLister
     : public virtual ::java::lang::Object
 {
 
@@ -36,7 +36,7 @@ public:
     static void main(::java::lang::StringArray* args) /* throws(IOException) */;
     static void viewFile(::java::lang::String* filename, bool withSizes) /* throws(IOException) */;
     static void viewFileOld(::java::lang::String* filename, bool withSizes) /* throws(IOException) */;
-    static void displayDirectory(::org::apache::poi::poifs::filesystem::DirectoryNode* dir, ::java::lang::String* indent, bool withSizes);
+    static void displayDirectory(::poi::poifs::filesystem::DirectoryNode* dir, ::java::lang::String* indent, bool withSizes);
 
     // Generated
     POIFSLister();

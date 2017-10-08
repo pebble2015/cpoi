@@ -27,24 +27,24 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::format::CellNumberFormatter_GeneralNumberFormatter::CellNumberFormatter_GeneralNumberFormatter(const ::default_init_tag&)
+poi::ss::format::CellNumberFormatter_GeneralNumberFormatter::CellNumberFormatter_GeneralNumberFormatter(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::format::CellNumberFormatter_GeneralNumberFormatter::CellNumberFormatter_GeneralNumberFormatter(::java::util::Locale* locale) 
+poi::ss::format::CellNumberFormatter_GeneralNumberFormatter::CellNumberFormatter_GeneralNumberFormatter(::java::util::Locale* locale) 
     : CellNumberFormatter_GeneralNumberFormatter(*static_cast< ::default_init_tag* >(0))
 {
     ctor(locale);
 }
 
-void org::apache::poi::ss::format::CellNumberFormatter_GeneralNumberFormatter::ctor(::java::util::Locale* locale)
+void poi::ss::format::CellNumberFormatter_GeneralNumberFormatter::ctor(::java::util::Locale* locale)
 {
     super::ctor(locale, u"General"_j);
 }
 
-void org::apache::poi::ss::format::CellNumberFormatter_GeneralNumberFormatter::formatValue(::java::lang::StringBuffer* toAppendTo, ::java::lang::Object* value)
+void poi::ss::format::CellNumberFormatter_GeneralNumberFormatter::formatValue(::java::lang::StringBuffer* toAppendTo, ::java::lang::Object* value)
 {
     if(value == nullptr) {
         return;
@@ -59,20 +59,20 @@ void org::apache::poi::ss::format::CellNumberFormatter_GeneralNumberFormatter::f
     npc(cf)->formatValue(toAppendTo, value);
 }
 
-void org::apache::poi::ss::format::CellNumberFormatter_GeneralNumberFormatter::simpleValue(::java::lang::StringBuffer* toAppendTo, ::java::lang::Object* value)
+void poi::ss::format::CellNumberFormatter_GeneralNumberFormatter::simpleValue(::java::lang::StringBuffer* toAppendTo, ::java::lang::Object* value)
 {
     formatValue(toAppendTo, value);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::format::CellNumberFormatter_GeneralNumberFormatter::class_()
+java::lang::Class* poi::ss::format::CellNumberFormatter_GeneralNumberFormatter::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.format.CellNumberFormatter.GeneralNumberFormatter", 67);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::format::CellNumberFormatter_GeneralNumberFormatter::getClass0()
+java::lang::Class* poi::ss::format::CellNumberFormatter_GeneralNumberFormatter::getClass0()
 {
     return class_();
 }

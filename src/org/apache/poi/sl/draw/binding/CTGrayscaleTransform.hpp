@@ -7,7 +7,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::binding::CTGrayscaleTransform
+class poi::sl::draw::binding::CTGrayscaleTransform
     : public virtual ::java::lang::Object
 {
 

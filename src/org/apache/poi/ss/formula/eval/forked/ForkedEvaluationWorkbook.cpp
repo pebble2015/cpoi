@@ -44,25 +44,19 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -80,38 +74,38 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::ForkedEvaluationWorkbook(const ::default_init_tag&)
+poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::ForkedEvaluationWorkbook(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::ForkedEvaluationWorkbook(::org::apache::poi::ss::formula::EvaluationWorkbook* master) 
+poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::ForkedEvaluationWorkbook(::poi::ss::formula::EvaluationWorkbook* master) 
     : ForkedEvaluationWorkbook(*static_cast< ::default_init_tag* >(0))
 {
     ctor(master);
 }
 
-void org::apache::poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::ctor(::org::apache::poi::ss::formula::EvaluationWorkbook* master)
+void poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::ctor(::poi::ss::formula::EvaluationWorkbook* master)
 {
     super::ctor();
     _masterBook = master;
     _sharedSheetsByName = new ::java::util::HashMap();
 }
 
-org::apache::poi::ss::formula::eval::forked::ForkedEvaluationCell* org::apache::poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::getOrCreateUpdatableCell(::java::lang::String* sheetName, int32_t rowIndex, int32_t columnIndex)
+poi::ss::formula::eval::forked::ForkedEvaluationCell* poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::getOrCreateUpdatableCell(::java::lang::String* sheetName, int32_t rowIndex, int32_t columnIndex)
 {
     auto sheet = getSharedSheet(sheetName);
     return npc(sheet)->getOrCreateUpdatableCell(rowIndex, columnIndex);
 }
 
-org::apache::poi::ss::formula::EvaluationCell* org::apache::poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::getEvaluationCell(::java::lang::String* sheetName, int32_t rowIndex, int32_t columnIndex)
+poi::ss::formula::EvaluationCell* poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::getEvaluationCell(::java::lang::String* sheetName, int32_t rowIndex, int32_t columnIndex)
 {
     auto sheet = getSharedSheet(sheetName);
     return npc(sheet)->getCell(rowIndex, columnIndex);
 }
 
-org::apache::poi::ss::formula::eval::forked::ForkedEvaluationSheet* org::apache::poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::getSharedSheet(::java::lang::String* sheetName)
+poi::ss::formula::eval::forked::ForkedEvaluationSheet* poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::getSharedSheet(::java::lang::String* sheetName)
 {
     auto result = java_cast< ForkedEvaluationSheet* >(npc(_sharedSheetsByName)->get(sheetName));
     if(result == nullptr) {
@@ -121,7 +115,7 @@ org::apache::poi::ss::formula::eval::forked::ForkedEvaluationSheet* org::apache:
     return result;
 }
 
-void org::apache::poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::copyUpdatedCells(::org::apache::poi::ss::usermodel::Workbook* workbook)
+void poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::copyUpdatedCells(::poi::ss::usermodel::Workbook* workbook)
 {
     auto sheetNames = new ::java::lang::StringArray(npc(_sharedSheetsByName)->size());
     npc(npc(_sharedSheetsByName)->keySet())->toArray_(static_cast< ::java::lang::ObjectArray* >(sheetNames));
@@ -131,22 +125,22 @@ void org::apache::poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::copy
     }
 }
 
-int32_t org::apache::poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::convertFromExternSheetIndex(int32_t externSheetIndex)
+int32_t poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::convertFromExternSheetIndex(int32_t externSheetIndex)
 {
     return npc(_masterBook)->convertFromExternSheetIndex(externSheetIndex);
 }
 
-org::apache::poi::ss::formula::EvaluationWorkbook_ExternalSheet* org::apache::poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::getExternalSheet(int32_t externSheetIndex)
+poi::ss::formula::EvaluationWorkbook_ExternalSheet* poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::getExternalSheet(int32_t externSheetIndex)
 {
     return npc(_masterBook)->getExternalSheet(externSheetIndex);
 }
 
-org::apache::poi::ss::formula::EvaluationWorkbook_ExternalSheet* org::apache::poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::getExternalSheet(::java::lang::String* firstSheetName, ::java::lang::String* lastSheetName, int32_t externalWorkbookNumber)
+poi::ss::formula::EvaluationWorkbook_ExternalSheet* poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::getExternalSheet(::java::lang::String* firstSheetName, ::java::lang::String* lastSheetName, int32_t externalWorkbookNumber)
 {
     return npc(_masterBook)->getExternalSheet(firstSheetName, lastSheetName, externalWorkbookNumber);
 }
 
-org::apache::poi::ss::formula::ptg::PtgArray* org::apache::poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::getFormulaTokens(::org::apache::poi::ss::formula::EvaluationCell* cell)
+poi::ss::formula::ptg::PtgArray* poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::getFormulaTokens(::poi::ss::formula::EvaluationCell* cell)
 {
     if(dynamic_cast< ForkedEvaluationCell* >(cell) != nullptr) {
         throw new ::java::lang::RuntimeException(u"Updated formulas not supported yet"_j);
@@ -154,32 +148,32 @@ org::apache::poi::ss::formula::ptg::PtgArray* org::apache::poi::ss::formula::eva
     return npc(_masterBook)->getFormulaTokens(cell);
 }
 
-org::apache::poi::ss::formula::EvaluationName* org::apache::poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::getName(::org::apache::poi::ss::formula::ptg::NamePtg* namePtg)
+poi::ss::formula::EvaluationName* poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::getName(::poi::ss::formula::ptg::NamePtg* namePtg)
 {
     return npc(_masterBook)->getName(namePtg);
 }
 
-org::apache::poi::ss::formula::EvaluationName* org::apache::poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::getName(::java::lang::String* name, int32_t sheetIndex)
+poi::ss::formula::EvaluationName* poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::getName(::java::lang::String* name, int32_t sheetIndex)
 {
     return npc(_masterBook)->getName(name, sheetIndex);
 }
 
-org::apache::poi::ss::formula::EvaluationSheet* org::apache::poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::getSheet(int32_t sheetIndex)
+poi::ss::formula::EvaluationSheet* poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::getSheet(int32_t sheetIndex)
 {
     return getSharedSheet(getSheetName(sheetIndex));
 }
 
-org::apache::poi::ss::formula::EvaluationWorkbook_ExternalName* org::apache::poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::getExternalName(int32_t externSheetIndex, int32_t externNameIndex)
+poi::ss::formula::EvaluationWorkbook_ExternalName* poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::getExternalName(int32_t externSheetIndex, int32_t externNameIndex)
 {
     return npc(_masterBook)->getExternalName(externSheetIndex, externNameIndex);
 }
 
-org::apache::poi::ss::formula::EvaluationWorkbook_ExternalName* org::apache::poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::getExternalName(::java::lang::String* nameName, ::java::lang::String* sheetName, int32_t externalWorkbookNumber)
+poi::ss::formula::EvaluationWorkbook_ExternalName* poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::getExternalName(::java::lang::String* nameName, ::java::lang::String* sheetName, int32_t externalWorkbookNumber)
 {
     return npc(_masterBook)->getExternalName(nameName, sheetName, externalWorkbookNumber);
 }
 
-int32_t org::apache::poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::getSheetIndex(::org::apache::poi::ss::formula::EvaluationSheet* sheet)
+int32_t poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::getSheetIndex(::poi::ss::formula::EvaluationSheet* sheet)
 {
     if(dynamic_cast< ForkedEvaluationSheet* >(sheet) != nullptr) {
         auto mes = java_cast< ForkedEvaluationSheet* >(sheet);
@@ -188,45 +182,45 @@ int32_t org::apache::poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::g
     return npc(_masterBook)->getSheetIndex(sheet);
 }
 
-int32_t org::apache::poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::getSheetIndex(::java::lang::String* sheetName)
+int32_t poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::getSheetIndex(::java::lang::String* sheetName)
 {
     return npc(_masterBook)->getSheetIndex(sheetName);
 }
 
-java::lang::String* org::apache::poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::getSheetName(int32_t sheetIndex)
+java::lang::String* poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::getSheetName(int32_t sheetIndex)
 {
     return npc(_masterBook)->getSheetName(sheetIndex);
 }
 
-java::lang::String* org::apache::poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::resolveNameXText(::org::apache::poi::ss::formula::ptg::NameXPtg* ptg)
+java::lang::String* poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::resolveNameXText(::poi::ss::formula::ptg::NameXPtg* ptg)
 {
     return npc(_masterBook)->resolveNameXText(ptg);
 }
 
-org::apache::poi::ss::formula::udf::UDFFinder* org::apache::poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::getUDFFinder()
+poi::ss::formula::udf::UDFFinder* poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::getUDFFinder()
 {
     return npc(_masterBook)->getUDFFinder();
 }
 
-org::apache::poi::ss::SpreadsheetVersion* org::apache::poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::getSpreadsheetVersion()
+poi::ss::SpreadsheetVersion* poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::getSpreadsheetVersion()
 {
     return npc(_masterBook)->getSpreadsheetVersion();
 }
 
-void org::apache::poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::clearAllCachedResultValues()
+void poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::clearAllCachedResultValues()
 {
     npc(_masterBook)->clearAllCachedResultValues();
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::class_()
+java::lang::Class* poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.eval.forked.ForkedEvaluationWorkbook", 62);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::getClass0()
+java::lang::Class* poi::ss::formula::eval::forked::ForkedEvaluationWorkbook::getClass0()
 {
     return class_();
 }

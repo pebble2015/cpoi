@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::format::CellNumberFormatter_GeneralNumberFormatter
+class poi::ss::format::CellNumberFormatter_GeneralNumberFormatter
     : public CellFormatter
 {
 

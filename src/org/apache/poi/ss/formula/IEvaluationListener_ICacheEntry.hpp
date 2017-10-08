@@ -6,10 +6,10 @@
 #include <org/apache/poi/ss/formula/eval/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::formula::IEvaluationListener_ICacheEntry
+struct poi::ss::formula::IEvaluationListener_ICacheEntry
     : public virtual ::java::lang::Object
 {
-    virtual ::org::apache::poi::ss::formula::eval::ValueEval* getValue() = 0;
+    virtual ::poi::ss::formula::eval::ValueEval* getValue() = 0;
 
     // Generated
     static ::java::lang::Class *class_();

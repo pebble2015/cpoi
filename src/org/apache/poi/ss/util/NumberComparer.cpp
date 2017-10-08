@@ -20,19 +20,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::util::NumberComparer::NumberComparer(const ::default_init_tag&)
+poi::ss::util::NumberComparer::NumberComparer(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::util::NumberComparer::NumberComparer()
+poi::ss::util::NumberComparer::NumberComparer()
     : NumberComparer(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-int32_t org::apache::poi::ss::util::NumberComparer::compare(double a, double b)
+int32_t poi::ss::util::NumberComparer::compare(double a, double b)
 {
     clinit();
     auto rawBitsA = ::java::lang::Double::doubleToLongBits(a);
@@ -82,14 +82,14 @@ int32_t org::apache::poi::ss::util::NumberComparer::compare(double a, double b)
     return cmp;
 }
 
-int32_t org::apache::poi::ss::util::NumberComparer::compareSubnormalNumbers(int64_t fracA, int64_t fracB, bool isNegative)
+int32_t poi::ss::util::NumberComparer::compareSubnormalNumbers(int64_t fracA, int64_t fracB, bool isNegative)
 {
     clinit();
     auto cmp = fracA > fracB ? +int32_t(1) : fracA < fracB ? -int32_t(1) : int32_t(0);
     return isNegative ? -cmp : cmp;
 }
 
-int32_t org::apache::poi::ss::util::NumberComparer::compareAcrossSubnormalThreshold(int64_t normalRawBitsA, int64_t subnormalRawBitsB, bool isNegative)
+int32_t poi::ss::util::NumberComparer::compareAcrossSubnormalThreshold(int64_t normalRawBitsA, int64_t subnormalRawBitsB, bool isNegative)
 {
     clinit();
     auto fracB = subnormalRawBitsB & IEEEDouble::FRAC_MASK;
@@ -106,7 +106,7 @@ int32_t org::apache::poi::ss::util::NumberComparer::compareAcrossSubnormalThresh
     return isNegative ? -int32_t(1) : +int32_t(1);
 }
 
-java::lang::String* org::apache::poi::ss::util::NumberComparer::toHex(double a)
+java::lang::String* poi::ss::util::NumberComparer::toHex(double a)
 {
     clinit();
     return ::java::lang::StringBuilder().append(u"0x"_j)->append(npc(::java::lang::Long::toHexString(::java::lang::Double::doubleToLongBits(a)))->toUpperCase(::java::util::Locale::ROOT()))->toString();
@@ -114,13 +114,13 @@ java::lang::String* org::apache::poi::ss::util::NumberComparer::toHex(double a)
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::util::NumberComparer::class_()
+java::lang::Class* poi::ss::util::NumberComparer::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.util.NumberComparer", 37);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::util::NumberComparer::getClass0()
+java::lang::Class* poi::ss::util::NumberComparer::getClass0()
 {
     return class_();
 }

@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::util::HSSFColor_BROWN
+class poi::hssf::util::HSSFColor_BROWN
     : public HSSFColor_HSSFColorRef
 {
 

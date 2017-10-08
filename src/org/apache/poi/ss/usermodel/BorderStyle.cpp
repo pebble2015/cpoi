@@ -26,22 +26,16 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace ss
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::BorderStyle, ::java::lang::EnumArray > BorderStyleArray;
-                } // usermodel
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::usermodel::BorderStyle, ::java::lang::EnumArray > BorderStyleArray;
+        } // usermodel
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -50,51 +44,51 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::usermodel::BorderStyle::BorderStyle(const ::default_init_tag&)
+poi::ss::usermodel::BorderStyle::BorderStyle(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::usermodel::BorderStyle::BorderStyle(::java::lang::String* name, int ordinal, int32_t code) 
+poi::ss::usermodel::BorderStyle::BorderStyle(::java::lang::String* name, int ordinal, int32_t code) 
     : BorderStyle(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal, code);
 }
 
-org::apache::poi::ss::usermodel::BorderStyle* org::apache::poi::ss::usermodel::BorderStyle::NONE = new ::org::apache::poi::ss::usermodel::BorderStyle(u"NONE"_j, 0, int32_t(0));
-org::apache::poi::ss::usermodel::BorderStyle* org::apache::poi::ss::usermodel::BorderStyle::THIN = new ::org::apache::poi::ss::usermodel::BorderStyle(u"THIN"_j, 1, int32_t(1));
-org::apache::poi::ss::usermodel::BorderStyle* org::apache::poi::ss::usermodel::BorderStyle::MEDIUM = new ::org::apache::poi::ss::usermodel::BorderStyle(u"MEDIUM"_j, 2, int32_t(2));
-org::apache::poi::ss::usermodel::BorderStyle* org::apache::poi::ss::usermodel::BorderStyle::DASHED = new ::org::apache::poi::ss::usermodel::BorderStyle(u"DASHED"_j, 3, int32_t(3));
-org::apache::poi::ss::usermodel::BorderStyle* org::apache::poi::ss::usermodel::BorderStyle::DOTTED = new ::org::apache::poi::ss::usermodel::BorderStyle(u"DOTTED"_j, 4, int32_t(4));
-org::apache::poi::ss::usermodel::BorderStyle* org::apache::poi::ss::usermodel::BorderStyle::THICK = new ::org::apache::poi::ss::usermodel::BorderStyle(u"THICK"_j, 5, int32_t(5));
-org::apache::poi::ss::usermodel::BorderStyle* org::apache::poi::ss::usermodel::BorderStyle::DOUBLE = new ::org::apache::poi::ss::usermodel::BorderStyle(u"DOUBLE"_j, 6, int32_t(6));
-org::apache::poi::ss::usermodel::BorderStyle* org::apache::poi::ss::usermodel::BorderStyle::HAIR = new ::org::apache::poi::ss::usermodel::BorderStyle(u"HAIR"_j, 7, int32_t(7));
-org::apache::poi::ss::usermodel::BorderStyle* org::apache::poi::ss::usermodel::BorderStyle::MEDIUM_DASHED = new ::org::apache::poi::ss::usermodel::BorderStyle(u"MEDIUM_DASHED"_j, 8, int32_t(8));
-org::apache::poi::ss::usermodel::BorderStyle* org::apache::poi::ss::usermodel::BorderStyle::DASH_DOT = new ::org::apache::poi::ss::usermodel::BorderStyle(u"DASH_DOT"_j, 9, int32_t(9));
-org::apache::poi::ss::usermodel::BorderStyle* org::apache::poi::ss::usermodel::BorderStyle::MEDIUM_DASH_DOT = new ::org::apache::poi::ss::usermodel::BorderStyle(u"MEDIUM_DASH_DOT"_j, 10, int32_t(10));
-org::apache::poi::ss::usermodel::BorderStyle* org::apache::poi::ss::usermodel::BorderStyle::DASH_DOT_DOT = new ::org::apache::poi::ss::usermodel::BorderStyle(u"DASH_DOT_DOT"_j, 11, int32_t(11));
-org::apache::poi::ss::usermodel::BorderStyle* org::apache::poi::ss::usermodel::BorderStyle::MEDIUM_DASH_DOT_DOT = new ::org::apache::poi::ss::usermodel::BorderStyle(u"MEDIUM_DASH_DOT_DOT"_j, 12, int32_t(12));
-org::apache::poi::ss::usermodel::BorderStyle* org::apache::poi::ss::usermodel::BorderStyle::SLANTED_DASH_DOT = new ::org::apache::poi::ss::usermodel::BorderStyle(u"SLANTED_DASH_DOT"_j, 13, int32_t(13));
-void org::apache::poi::ss::usermodel::BorderStyle::ctor(::java::lang::String* name, int ordinal, int32_t code)
+poi::ss::usermodel::BorderStyle* poi::ss::usermodel::BorderStyle::NONE = new ::poi::ss::usermodel::BorderStyle(u"NONE"_j, 0, int32_t(0));
+poi::ss::usermodel::BorderStyle* poi::ss::usermodel::BorderStyle::THIN = new ::poi::ss::usermodel::BorderStyle(u"THIN"_j, 1, int32_t(1));
+poi::ss::usermodel::BorderStyle* poi::ss::usermodel::BorderStyle::MEDIUM = new ::poi::ss::usermodel::BorderStyle(u"MEDIUM"_j, 2, int32_t(2));
+poi::ss::usermodel::BorderStyle* poi::ss::usermodel::BorderStyle::DASHED = new ::poi::ss::usermodel::BorderStyle(u"DASHED"_j, 3, int32_t(3));
+poi::ss::usermodel::BorderStyle* poi::ss::usermodel::BorderStyle::DOTTED = new ::poi::ss::usermodel::BorderStyle(u"DOTTED"_j, 4, int32_t(4));
+poi::ss::usermodel::BorderStyle* poi::ss::usermodel::BorderStyle::THICK = new ::poi::ss::usermodel::BorderStyle(u"THICK"_j, 5, int32_t(5));
+poi::ss::usermodel::BorderStyle* poi::ss::usermodel::BorderStyle::DOUBLE = new ::poi::ss::usermodel::BorderStyle(u"DOUBLE"_j, 6, int32_t(6));
+poi::ss::usermodel::BorderStyle* poi::ss::usermodel::BorderStyle::HAIR = new ::poi::ss::usermodel::BorderStyle(u"HAIR"_j, 7, int32_t(7));
+poi::ss::usermodel::BorderStyle* poi::ss::usermodel::BorderStyle::MEDIUM_DASHED = new ::poi::ss::usermodel::BorderStyle(u"MEDIUM_DASHED"_j, 8, int32_t(8));
+poi::ss::usermodel::BorderStyle* poi::ss::usermodel::BorderStyle::DASH_DOT = new ::poi::ss::usermodel::BorderStyle(u"DASH_DOT"_j, 9, int32_t(9));
+poi::ss::usermodel::BorderStyle* poi::ss::usermodel::BorderStyle::MEDIUM_DASH_DOT = new ::poi::ss::usermodel::BorderStyle(u"MEDIUM_DASH_DOT"_j, 10, int32_t(10));
+poi::ss::usermodel::BorderStyle* poi::ss::usermodel::BorderStyle::DASH_DOT_DOT = new ::poi::ss::usermodel::BorderStyle(u"DASH_DOT_DOT"_j, 11, int32_t(11));
+poi::ss::usermodel::BorderStyle* poi::ss::usermodel::BorderStyle::MEDIUM_DASH_DOT_DOT = new ::poi::ss::usermodel::BorderStyle(u"MEDIUM_DASH_DOT_DOT"_j, 12, int32_t(12));
+poi::ss::usermodel::BorderStyle* poi::ss::usermodel::BorderStyle::SLANTED_DASH_DOT = new ::poi::ss::usermodel::BorderStyle(u"SLANTED_DASH_DOT"_j, 13, int32_t(13));
+void poi::ss::usermodel::BorderStyle::ctor(::java::lang::String* name, int ordinal, int32_t code)
 {
     super::ctor(name, ordinal);
     this->code = static_cast< int16_t >(code);
 }
 
-int16_t org::apache::poi::ss::usermodel::BorderStyle::getCode()
+int16_t poi::ss::usermodel::BorderStyle::getCode()
 {
     return code;
 }
 
-org::apache::poi::ss::usermodel::BorderStyleArray*& org::apache::poi::ss::usermodel::BorderStyle::_table()
+poi::ss::usermodel::BorderStyleArray*& poi::ss::usermodel::BorderStyle::_table()
 {
     clinit();
     return _table_;
 }
-org::apache::poi::ss::usermodel::BorderStyleArray* org::apache::poi::ss::usermodel::BorderStyle::_table_;
+poi::ss::usermodel::BorderStyleArray* poi::ss::usermodel::BorderStyle::_table_;
 
-org::apache::poi::ss::usermodel::BorderStyle* org::apache::poi::ss::usermodel::BorderStyle::valueOf(int16_t code)
+poi::ss::usermodel::BorderStyle* poi::ss::usermodel::BorderStyle::valueOf(int16_t code)
 {
     clinit();
     return (*_table_)[code];
@@ -102,13 +96,13 @@ org::apache::poi::ss::usermodel::BorderStyle* org::apache::poi::ss::usermodel::B
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::usermodel::BorderStyle::class_()
+java::lang::Class* poi::ss::usermodel::BorderStyle::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.usermodel.BorderStyle", 39);
     return c;
 }
 
-void org::apache::poi::ss::usermodel::BorderStyle::clinit()
+void poi::ss::usermodel::BorderStyle::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -129,12 +123,12 @@ struct clinit_ {
     }
 }
 
-java::lang::Enum* org::apache::poi::ss::usermodel::BorderStyle::valueOf(::java::lang::Class* enumType, ::java::lang::String* name)
+java::lang::Enum* poi::ss::usermodel::BorderStyle::valueOf(::java::lang::Class* enumType, ::java::lang::String* name)
 {
     return super::valueOf(enumType, name);
 }
 
-org::apache::poi::ss::usermodel::BorderStyle* org::apache::poi::ss::usermodel::BorderStyle::valueOf(::java::lang::String* a0)
+poi::ss::usermodel::BorderStyle* poi::ss::usermodel::BorderStyle::valueOf(::java::lang::String* a0)
 {
     if(DASHED->toString()->equals(a0))
         return DASHED;
@@ -167,9 +161,9 @@ org::apache::poi::ss::usermodel::BorderStyle* org::apache::poi::ss::usermodel::B
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::ss::usermodel::BorderStyleArray* org::apache::poi::ss::usermodel::BorderStyle::values()
+poi::ss::usermodel::BorderStyleArray* poi::ss::usermodel::BorderStyle::values()
 {
-    return new org::apache::poi::ss::usermodel::BorderStyleArray({
+    return new poi::ss::usermodel::BorderStyleArray({
         DASHED,
         DASH_DOT,
         DASH_DOT_DOT,
@@ -187,7 +181,7 @@ org::apache::poi::ss::usermodel::BorderStyleArray* org::apache::poi::ss::usermod
     });
 }
 
-java::lang::Class* org::apache::poi::ss::usermodel::BorderStyle::getClass0()
+java::lang::Class* poi::ss::usermodel::BorderStyle::getClass0()
 {
     return class_();
 }

@@ -12,7 +12,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::usermodel::ExcelGeneralNumberFormat
+class poi::ss::usermodel::ExcelGeneralNumberFormat
     : public ::java::text::Format
 {
 

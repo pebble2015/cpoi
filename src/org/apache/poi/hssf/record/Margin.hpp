@@ -6,7 +6,7 @@
 #include <org/apache/poi/hssf/record/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::hssf::record::Margin
+struct poi::hssf::record::Margin
     : public virtual ::java::lang::Object
 {
     virtual double getMargin() = 0;

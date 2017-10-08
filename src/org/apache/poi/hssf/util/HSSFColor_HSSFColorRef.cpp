@@ -12,32 +12,32 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::util::HSSFColor_HSSFColorRef::HSSFColor_HSSFColorRef(const ::default_init_tag&)
+poi::hssf::util::HSSFColor_HSSFColorRef::HSSFColor_HSSFColorRef(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::util::HSSFColor_HSSFColorRef::HSSFColor_HSSFColorRef(HSSFColor_HSSFColorPredefined* colorEnum) 
+poi::hssf::util::HSSFColor_HSSFColorRef::HSSFColor_HSSFColorRef(HSSFColor_HSSFColorPredefined* colorEnum) 
     : HSSFColor_HSSFColorRef(*static_cast< ::default_init_tag* >(0))
 {
     ctor(colorEnum);
 }
 
-void org::apache::poi::hssf::util::HSSFColor_HSSFColorRef::ctor(HSSFColor_HSSFColorPredefined* colorEnum)
+void poi::hssf::util::HSSFColor_HSSFColorRef::ctor(HSSFColor_HSSFColorPredefined* colorEnum)
 {
     super::ctor(npc(colorEnum)->getIndex(), npc(colorEnum)->getIndex2(), npc(npc(colorEnum)->color)->color);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::util::HSSFColor_HSSFColorRef::class_()
+java::lang::Class* poi::hssf::util::HSSFColor_HSSFColorRef::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.util.HSSFColor.HSSFColorRef", 47);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::util::HSSFColor_HSSFColorRef::getClass0()
+java::lang::Class* poi::hssf::util::HSSFColor_HSSFColorRef::getClass0()
 {
     return class_();
 }

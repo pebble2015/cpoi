@@ -11,16 +11,16 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::chart::ChartFormatRecord final
-    : public ::org::apache::poi::hssf::record::StandardRecord
+class poi::hssf::record::chart::ChartFormatRecord final
+    : public ::poi::hssf::record::StandardRecord
 {
 
 public:
-    typedef ::org::apache::poi::hssf::record::StandardRecord super;
+    typedef ::poi::hssf::record::StandardRecord super;
     static constexpr int16_t sid { int16_t(4116) };
 
 private:
-    static ::org::apache::poi::util::BitField* varyDisplayPattern_;
+    static ::poi::util::BitField* varyDisplayPattern_;
     int32_t field1_x_position {  };
     int32_t field2_y_position {  };
     int32_t field3_width {  };
@@ -29,11 +29,11 @@ private:
     int32_t field6_unknown {  };
 protected:
     void ctor();
-    void ctor(::org::apache::poi::hssf::record::RecordInputStream* in);
+    void ctor(::poi::hssf::record::RecordInputStream* in);
 
 public:
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;
@@ -53,7 +53,7 @@ public:
 
     // Generated
     ChartFormatRecord();
-    ChartFormatRecord(::org::apache::poi::hssf::record::RecordInputStream* in);
+    ChartFormatRecord(::poi::hssf::record::RecordInputStream* in);
 protected:
     ChartFormatRecord(const ::default_init_tag&);
 
@@ -65,6 +65,6 @@ public:
     ::int8_tArray* serialize();
 
 private:
-    static ::org::apache::poi::util::BitField*& varyDisplayPattern();
+    static ::poi::util::BitField*& varyDisplayPattern();
     virtual ::java::lang::Class* getClass0();
 };

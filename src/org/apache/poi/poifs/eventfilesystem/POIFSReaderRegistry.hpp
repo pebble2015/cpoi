@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::eventfilesystem::POIFSReaderRegistry
+class poi::poifs::eventfilesystem::POIFSReaderRegistry
     : public virtual ::java::lang::Object
 {
 
@@ -25,13 +25,13 @@ protected:
     void ctor();
 
 public: /* package */
-    virtual void registerListener(POIFSReaderListener* listener, ::org::apache::poi::poifs::filesystem::POIFSDocumentPath* path, ::java::lang::String* documentName);
+    virtual void registerListener(POIFSReaderListener* listener, ::poi::poifs::filesystem::POIFSDocumentPath* path, ::java::lang::String* documentName);
     virtual void registerListener(POIFSReaderListener* listener);
-    virtual ::java::util::Iterator* getListeners(::org::apache::poi::poifs::filesystem::POIFSDocumentPath* path, ::java::lang::String* name);
+    virtual ::java::util::Iterator* getListeners(::poi::poifs::filesystem::POIFSDocumentPath* path, ::java::lang::String* name);
 
 private:
     void removeSelectiveListener(POIFSReaderListener* listener);
-    void dropDocument(POIFSReaderListener* listener, ::org::apache::poi::poifs::filesystem::DocumentDescriptor* descriptor);
+    void dropDocument(POIFSReaderListener* listener, ::poi::poifs::filesystem::DocumentDescriptor* descriptor);
 
     // Generated
 

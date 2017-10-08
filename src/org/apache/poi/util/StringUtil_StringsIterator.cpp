@@ -34,25 +34,25 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::util::StringUtil_StringsIterator::StringUtil_StringsIterator(const ::default_init_tag&)
+poi::util::StringUtil_StringsIterator::StringUtil_StringsIterator(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::util::StringUtil_StringsIterator::StringUtil_StringsIterator(::java::lang::StringArray* strings) 
+poi::util::StringUtil_StringsIterator::StringUtil_StringsIterator(::java::lang::StringArray* strings) 
     : StringUtil_StringsIterator(*static_cast< ::default_init_tag* >(0))
 {
     ctor(strings);
 }
 
-void org::apache::poi::util::StringUtil_StringsIterator::init()
+void poi::util::StringUtil_StringsIterator::init()
 {
     strings = (new ::java::lang::StringArray({}));
     position = int32_t(0);
 }
 
-void org::apache::poi::util::StringUtil_StringsIterator::ctor(::java::lang::StringArray* strings)
+void poi::util::StringUtil_StringsIterator::ctor(::java::lang::StringArray* strings)
 {
     super::ctor();
     init();
@@ -61,12 +61,12 @@ void org::apache::poi::util::StringUtil_StringsIterator::ctor(::java::lang::Stri
     }
 }
 
-bool org::apache::poi::util::StringUtil_StringsIterator::hasNext()
+bool poi::util::StringUtil_StringsIterator::hasNext()
 {
     return position < npc(strings)->length;
 }
 
-java::lang::String* org::apache::poi::util::StringUtil_StringsIterator::next()
+java::lang::String* poi::util::StringUtil_StringsIterator::next()
 {
     auto ourPos = position++;
     if(ourPos >= npc(strings)->length) {
@@ -75,19 +75,19 @@ java::lang::String* org::apache::poi::util::StringUtil_StringsIterator::next()
     return (*strings)[ourPos];
 }
 
-void org::apache::poi::util::StringUtil_StringsIterator::remove()
+void poi::util::StringUtil_StringsIterator::remove()
 {
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::util::StringUtil_StringsIterator::class_()
+java::lang::Class* poi::util::StringUtil_StringsIterator::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.util.StringUtil.StringsIterator", 46);
     return c;
 }
 
-java::lang::Class* org::apache::poi::util::StringUtil_StringsIterator::getClass0()
+java::lang::Class* poi::util::StringUtil_StringsIterator::getClass0()
 {
     return class_();
 }

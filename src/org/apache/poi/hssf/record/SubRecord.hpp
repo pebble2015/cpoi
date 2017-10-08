@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::SubRecord
+class poi::hssf::record::SubRecord
     : public virtual ::java::lang::Object
 {
 
@@ -19,14 +19,14 @@ protected:
     void ctor();
 
 public:
-    static SubRecord* createSubRecord(::org::apache::poi::util::LittleEndianInput* in, int32_t cmoOt);
+    static SubRecord* createSubRecord(::poi::util::LittleEndianInput* in, int32_t cmoOt);
 
 public: /* protected */
     virtual int32_t getDataSize() = 0;
 
 public:
     virtual ::int8_tArray* serialize();
-    virtual void serialize(::org::apache::poi::util::LittleEndianOutput* out) = 0;
+    virtual void serialize(::poi::util::LittleEndianOutput* out) = 0;
     SubRecord* clone() = 0;
     virtual bool isTerminating();
 

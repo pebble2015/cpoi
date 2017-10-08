@@ -16,36 +16,36 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::ptg::NameXPxg::NameXPxg(const ::default_init_tag&)
+poi::ss::formula::ptg::NameXPxg::NameXPxg(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::ptg::NameXPxg::NameXPxg(int32_t externalWorkbookNumber, ::java::lang::String* sheetName, ::java::lang::String* nameName) 
+poi::ss::formula::ptg::NameXPxg::NameXPxg(int32_t externalWorkbookNumber, ::java::lang::String* sheetName, ::java::lang::String* nameName) 
     : NameXPxg(*static_cast< ::default_init_tag* >(0))
 {
     ctor(externalWorkbookNumber,sheetName,nameName);
 }
 
-org::apache::poi::ss::formula::ptg::NameXPxg::NameXPxg(::java::lang::String* sheetName, ::java::lang::String* nameName) 
+poi::ss::formula::ptg::NameXPxg::NameXPxg(::java::lang::String* sheetName, ::java::lang::String* nameName) 
     : NameXPxg(*static_cast< ::default_init_tag* >(0))
 {
     ctor(sheetName,nameName);
 }
 
-org::apache::poi::ss::formula::ptg::NameXPxg::NameXPxg(::java::lang::String* nameName) 
+poi::ss::formula::ptg::NameXPxg::NameXPxg(::java::lang::String* nameName) 
     : NameXPxg(*static_cast< ::default_init_tag* >(0))
 {
     ctor(nameName);
 }
 
-void org::apache::poi::ss::formula::ptg::NameXPxg::init()
+void poi::ss::formula::ptg::NameXPxg::init()
 {
     externalWorkbookNumber = -int32_t(1);
 }
 
-void org::apache::poi::ss::formula::ptg::NameXPxg::ctor(int32_t externalWorkbookNumber, ::java::lang::String* sheetName, ::java::lang::String* nameName)
+void poi::ss::formula::ptg::NameXPxg::ctor(int32_t externalWorkbookNumber, ::java::lang::String* sheetName, ::java::lang::String* nameName)
 {
     super::ctor();
     init();
@@ -54,17 +54,17 @@ void org::apache::poi::ss::formula::ptg::NameXPxg::ctor(int32_t externalWorkbook
     this->nameName = nameName;
 }
 
-void org::apache::poi::ss::formula::ptg::NameXPxg::ctor(::java::lang::String* sheetName, ::java::lang::String* nameName)
+void poi::ss::formula::ptg::NameXPxg::ctor(::java::lang::String* sheetName, ::java::lang::String* nameName)
 {
     ctor(-int32_t(1), sheetName, nameName);
 }
 
-void org::apache::poi::ss::formula::ptg::NameXPxg::ctor(::java::lang::String* nameName)
+void poi::ss::formula::ptg::NameXPxg::ctor(::java::lang::String* nameName)
 {
     ctor(-int32_t(1), nullptr, nameName);
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::NameXPxg::toString()
+java::lang::String* poi::ss::formula::ptg::NameXPxg::toString()
 {
     auto sb = new ::java::lang::StringBuffer();
     npc(sb)->append(npc(getClass())->getName());
@@ -82,27 +82,27 @@ java::lang::String* org::apache::poi::ss::formula::ptg::NameXPxg::toString()
     return npc(sb)->toString();
 }
 
-int32_t org::apache::poi::ss::formula::ptg::NameXPxg::getExternalWorkbookNumber()
+int32_t poi::ss::formula::ptg::NameXPxg::getExternalWorkbookNumber()
 {
     return externalWorkbookNumber;
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::NameXPxg::getSheetName()
+java::lang::String* poi::ss::formula::ptg::NameXPxg::getSheetName()
 {
     return sheetName;
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::NameXPxg::getNameName()
+java::lang::String* poi::ss::formula::ptg::NameXPxg::getNameName()
 {
     return nameName;
 }
 
-void org::apache::poi::ss::formula::ptg::NameXPxg::setSheetName(::java::lang::String* sheetName)
+void poi::ss::formula::ptg::NameXPxg::setSheetName(::java::lang::String* sheetName)
 {
     this->sheetName = sheetName;
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::NameXPxg::toFormulaString()
+java::lang::String* poi::ss::formula::ptg::NameXPxg::toFormulaString()
 {
     auto sb = new ::java::lang::StringBuffer();
     auto needsExclamation = false;
@@ -113,7 +113,7 @@ java::lang::String* org::apache::poi::ss::formula::ptg::NameXPxg::toFormulaStrin
         needsExclamation = true;
     }
     if(sheetName != nullptr) {
-        ::org::apache::poi::ss::formula::SheetNameFormatter::appendFormat(sb, sheetName);
+        ::poi::ss::formula::SheetNameFormatter::appendFormat(sb, sheetName);
         needsExclamation = true;
     }
     if(needsExclamation) {
@@ -123,30 +123,30 @@ java::lang::String* org::apache::poi::ss::formula::ptg::NameXPxg::toFormulaStrin
     return npc(sb)->toString();
 }
 
-int8_t org::apache::poi::ss::formula::ptg::NameXPxg::getDefaultOperandClass()
+int8_t poi::ss::formula::ptg::NameXPxg::getDefaultOperandClass()
 {
     return Ptg::CLASS_VALUE;
 }
 
-int32_t org::apache::poi::ss::formula::ptg::NameXPxg::getSize()
+int32_t poi::ss::formula::ptg::NameXPxg::getSize()
 {
     return 1;
 }
 
-void org::apache::poi::ss::formula::ptg::NameXPxg::write(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::ss::formula::ptg::NameXPxg::write(::poi::util::LittleEndianOutput* out)
 {
     throw new ::java::lang::IllegalStateException(u"XSSF-only Ptg, should not be serialised"_j);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::NameXPxg::class_()
+java::lang::Class* poi::ss::formula::ptg::NameXPxg::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.ptg.NameXPxg", 38);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::NameXPxg::getClass0()
+java::lang::Class* poi::ss::formula::ptg::NameXPxg::getClass0()
 {
     return class_();
 }

@@ -24,24 +24,18 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
-            {
-                namespace formula
-                {
-typedef ::SubArray< ::org::apache::poi::ss::formula::IEvaluationListener_ICacheEntry, ::java::lang::ObjectArray > IEvaluationListener_ICacheEntryArray;
-typedef ::SubArray< ::org::apache::poi::ss::formula::CellCacheEntry, ::java::lang::ObjectArray, IEvaluationListener_ICacheEntryArray > CellCacheEntryArray;
-typedef ::SubArray< ::org::apache::poi::ss::formula::FormulaCellCacheEntry, CellCacheEntryArray > FormulaCellCacheEntryArray;
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::IEvaluationListener_ICacheEntry, ::java::lang::ObjectArray > IEvaluationListener_ICacheEntryArray;
+typedef ::SubArray< ::poi::ss::formula::CellCacheEntry, ::java::lang::ObjectArray, IEvaluationListener_ICacheEntryArray > CellCacheEntryArray;
+typedef ::SubArray< ::poi::ss::formula::FormulaCellCacheEntry, CellCacheEntryArray > FormulaCellCacheEntryArray;
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -59,37 +53,37 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::CellCacheEntry::CellCacheEntry(const ::default_init_tag&)
+poi::ss::formula::CellCacheEntry::CellCacheEntry(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::CellCacheEntry::CellCacheEntry() 
+poi::ss::formula::CellCacheEntry::CellCacheEntry() 
     : CellCacheEntry(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::CellCacheEntryArray*& org::apache::poi::ss::formula::CellCacheEntry::EMPTY_ARRAY()
+poi::ss::formula::CellCacheEntryArray*& poi::ss::formula::CellCacheEntry::EMPTY_ARRAY()
 {
     clinit();
     return EMPTY_ARRAY_;
 }
-org::apache::poi::ss::formula::CellCacheEntryArray* org::apache::poi::ss::formula::CellCacheEntry::EMPTY_ARRAY_;
+poi::ss::formula::CellCacheEntryArray* poi::ss::formula::CellCacheEntry::EMPTY_ARRAY_;
 
-void org::apache::poi::ss::formula::CellCacheEntry::ctor()
+void poi::ss::formula::CellCacheEntry::ctor()
 {
     super::ctor();
     _consumingCells = new FormulaCellCacheEntrySet();
 }
 
-void org::apache::poi::ss::formula::CellCacheEntry::clearValue()
+void poi::ss::formula::CellCacheEntry::clearValue()
 {
     _value = nullptr;
 }
 
-bool org::apache::poi::ss::formula::CellCacheEntry::updateValue(::org::apache::poi::ss::formula::eval::ValueEval* value)
+bool poi::ss::formula::CellCacheEntry::updateValue(::poi::ss::formula::eval::ValueEval* value)
 {
     if(value == nullptr) {
         throw new ::java::lang::IllegalArgumentException(u"Did not expect to update to null"_j);
@@ -99,12 +93,12 @@ bool org::apache::poi::ss::formula::CellCacheEntry::updateValue(::org::apache::p
     return result;
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::CellCacheEntry::getValue()
+poi::ss::formula::eval::ValueEval* poi::ss::formula::CellCacheEntry::getValue()
 {
     return _value;
 }
 
-bool org::apache::poi::ss::formula::CellCacheEntry::areValuesEqual(::org::apache::poi::ss::formula::eval::ValueEval* a, ::org::apache::poi::ss::formula::eval::ValueEval* b)
+bool poi::ss::formula::CellCacheEntry::areValuesEqual(::poi::ss::formula::eval::ValueEval* a, ::poi::ss::formula::eval::ValueEval* b)
 {
     clinit();
     if(a == nullptr) {
@@ -114,43 +108,43 @@ bool org::apache::poi::ss::formula::CellCacheEntry::areValuesEqual(::org::apache
     if(static_cast< ::java::lang::Object* >(cls) != static_cast< ::java::lang::Object* >(npc(b)->getClass())) {
         return false;
     }
-    if(a == static_cast< ::org::apache::poi::ss::formula::eval::ValueEval* >(::org::apache::poi::ss::formula::eval::BlankEval::instance())) {
+    if(a == static_cast< ::poi::ss::formula::eval::ValueEval* >(::poi::ss::formula::eval::BlankEval::instance())) {
         return b == a;
     }
-    if(static_cast< ::java::lang::Object* >(cls) == static_cast< ::java::lang::Object* >(::org::apache::poi::ss::formula::eval::NumberEval::class_())) {
-        return npc((java_cast< ::org::apache::poi::ss::formula::eval::NumberEval* >(a)))->getNumberValue() == npc((java_cast< ::org::apache::poi::ss::formula::eval::NumberEval* >(b)))->getNumberValue();
+    if(static_cast< ::java::lang::Object* >(cls) == static_cast< ::java::lang::Object* >(::poi::ss::formula::eval::NumberEval::class_())) {
+        return npc((java_cast< ::poi::ss::formula::eval::NumberEval* >(a)))->getNumberValue() == npc((java_cast< ::poi::ss::formula::eval::NumberEval* >(b)))->getNumberValue();
     }
-    if(static_cast< ::java::lang::Object* >(cls) == static_cast< ::java::lang::Object* >(::org::apache::poi::ss::formula::eval::StringEval::class_())) {
-        return npc(npc((java_cast< ::org::apache::poi::ss::formula::eval::StringEval* >(a)))->getStringValue())->equals(static_cast< ::java::lang::Object* >(npc((java_cast< ::org::apache::poi::ss::formula::eval::StringEval* >(b)))->getStringValue()));
+    if(static_cast< ::java::lang::Object* >(cls) == static_cast< ::java::lang::Object* >(::poi::ss::formula::eval::StringEval::class_())) {
+        return npc(npc((java_cast< ::poi::ss::formula::eval::StringEval* >(a)))->getStringValue())->equals(static_cast< ::java::lang::Object* >(npc((java_cast< ::poi::ss::formula::eval::StringEval* >(b)))->getStringValue()));
     }
-    if(static_cast< ::java::lang::Object* >(cls) == static_cast< ::java::lang::Object* >(::org::apache::poi::ss::formula::eval::BoolEval::class_())) {
-        return npc((java_cast< ::org::apache::poi::ss::formula::eval::BoolEval* >(a)))->getBooleanValue() == npc((java_cast< ::org::apache::poi::ss::formula::eval::BoolEval* >(b)))->getBooleanValue();
+    if(static_cast< ::java::lang::Object* >(cls) == static_cast< ::java::lang::Object* >(::poi::ss::formula::eval::BoolEval::class_())) {
+        return npc((java_cast< ::poi::ss::formula::eval::BoolEval* >(a)))->getBooleanValue() == npc((java_cast< ::poi::ss::formula::eval::BoolEval* >(b)))->getBooleanValue();
     }
-    if(static_cast< ::java::lang::Object* >(cls) == static_cast< ::java::lang::Object* >(::org::apache::poi::ss::formula::eval::ErrorEval::class_())) {
-        return npc((java_cast< ::org::apache::poi::ss::formula::eval::ErrorEval* >(a)))->getErrorCode() == npc((java_cast< ::org::apache::poi::ss::formula::eval::ErrorEval* >(b)))->getErrorCode();
+    if(static_cast< ::java::lang::Object* >(cls) == static_cast< ::java::lang::Object* >(::poi::ss::formula::eval::ErrorEval::class_())) {
+        return npc((java_cast< ::poi::ss::formula::eval::ErrorEval* >(a)))->getErrorCode() == npc((java_cast< ::poi::ss::formula::eval::ErrorEval* >(b)))->getErrorCode();
     }
     throw new ::java::lang::IllegalStateException(::java::lang::StringBuilder().append(u"Unexpected value class ("_j)->append(npc(cls)->getName())
         ->append(u")"_j)->toString());
 }
 
-void org::apache::poi::ss::formula::CellCacheEntry::addConsumingCell(FormulaCellCacheEntry* cellLoc)
+void poi::ss::formula::CellCacheEntry::addConsumingCell(FormulaCellCacheEntry* cellLoc)
 {
     npc(_consumingCells)->add(cellLoc);
 }
 
-org::apache::poi::ss::formula::FormulaCellCacheEntryArray* org::apache::poi::ss::formula::CellCacheEntry::getConsumingCells()
+poi::ss::formula::FormulaCellCacheEntryArray* poi::ss::formula::CellCacheEntry::getConsumingCells()
 {
     return npc(_consumingCells)->toArray_();
 }
 
-void org::apache::poi::ss::formula::CellCacheEntry::clearConsumingCell(FormulaCellCacheEntry* cce)
+void poi::ss::formula::CellCacheEntry::clearConsumingCell(FormulaCellCacheEntry* cce)
 {
     if(!npc(_consumingCells)->remove(cce)) {
         throw new ::java::lang::IllegalStateException(u"Specified formula cell is not consumed by this cell"_j);
     }
 }
 
-void org::apache::poi::ss::formula::CellCacheEntry::recurseClearCachedFormulaResults(IEvaluationListener* listener)
+void poi::ss::formula::CellCacheEntry::recurseClearCachedFormulaResults(IEvaluationListener* listener)
 {
     if(listener == nullptr) {
         recurseClearCachedFormulaResults();
@@ -160,7 +154,7 @@ void org::apache::poi::ss::formula::CellCacheEntry::recurseClearCachedFormulaRes
     }
 }
 
-void org::apache::poi::ss::formula::CellCacheEntry::recurseClearCachedFormulaResults()
+void poi::ss::formula::CellCacheEntry::recurseClearCachedFormulaResults()
 {
     auto formulaCells = getConsumingCells();
     for (auto i = int32_t(0); i < npc(formulaCells)->length; i++) {
@@ -170,7 +164,7 @@ void org::apache::poi::ss::formula::CellCacheEntry::recurseClearCachedFormulaRes
     }
 }
 
-void org::apache::poi::ss::formula::CellCacheEntry::recurseClearCachedFormulaResults(IEvaluationListener* listener, int32_t depth)
+void poi::ss::formula::CellCacheEntry::recurseClearCachedFormulaResults(IEvaluationListener* listener, int32_t depth)
 {
     auto formulaCells = getConsumingCells();
     npc(listener)->sortDependentCachedValues(formulaCells);
@@ -184,20 +178,20 @@ void org::apache::poi::ss::formula::CellCacheEntry::recurseClearCachedFormulaRes
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::CellCacheEntry::class_()
+java::lang::Class* poi::ss::formula::CellCacheEntry::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.CellCacheEntry", 40);
     return c;
 }
 
-void org::apache::poi::ss::formula::CellCacheEntry::clinit()
+void poi::ss::formula::CellCacheEntry::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        EMPTY_ARRAY_ = (new ::org::apache::poi::ss::formula::CellCacheEntryArray({}));
+        EMPTY_ARRAY_ = (new ::poi::ss::formula::CellCacheEntryArray({}));
     }
 };
 
@@ -206,7 +200,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::formula::CellCacheEntry::getClass0()
+java::lang::Class* poi::ss::formula::CellCacheEntry::getClass0()
 {
     return class_();
 }

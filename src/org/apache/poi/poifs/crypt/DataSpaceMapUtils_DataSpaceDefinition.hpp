@@ -27,9 +27,9 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::crypt::DataSpaceMapUtils_DataSpaceDefinition
+class poi::poifs::crypt::DataSpaceMapUtils_DataSpaceDefinition
     : public virtual ::java::lang::Object
-    , public virtual ::org::apache::poi::poifs::crypt::standard::EncryptionRecord
+    , public virtual ::poi::poifs::crypt::standard::EncryptionRecord
 {
 
 public:
@@ -39,14 +39,14 @@ public: /* package */
     ::java::lang::StringArray* transformer {  };
 protected:
     void ctor(::java::lang::StringArray* transformer);
-    void ctor(::org::apache::poi::util::LittleEndianInput* is);
+    void ctor(::poi::util::LittleEndianInput* is);
 
 public:
-    void write(::org::apache::poi::util::LittleEndianByteArrayOutputStream* bos) override;
+    void write(::poi::util::LittleEndianByteArrayOutputStream* bos) override;
 
     // Generated
     DataSpaceMapUtils_DataSpaceDefinition(::java::lang::StringArray* transformer);
-    DataSpaceMapUtils_DataSpaceDefinition(::org::apache::poi::util::LittleEndianInput* is);
+    DataSpaceMapUtils_DataSpaceDefinition(::poi::util::LittleEndianInput* is);
 protected:
     DataSpaceMapUtils_DataSpaceDefinition(const ::default_init_tag&);
 

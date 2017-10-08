@@ -26,22 +26,16 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace ss
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::PrintCellComments, ::java::lang::EnumArray > PrintCellCommentsArray;
-                } // usermodel
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::usermodel::PrintCellComments, ::java::lang::EnumArray > PrintCellCommentsArray;
+        } // usermodel
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -50,40 +44,40 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::usermodel::PrintCellComments::PrintCellComments(const ::default_init_tag&)
+poi::ss::usermodel::PrintCellComments::PrintCellComments(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::usermodel::PrintCellComments::PrintCellComments(::java::lang::String* name, int ordinal, int32_t comments) 
+poi::ss::usermodel::PrintCellComments::PrintCellComments(::java::lang::String* name, int ordinal, int32_t comments) 
     : PrintCellComments(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal, comments);
 }
 
-org::apache::poi::ss::usermodel::PrintCellComments* org::apache::poi::ss::usermodel::PrintCellComments::NONE = new ::org::apache::poi::ss::usermodel::PrintCellComments(u"NONE"_j, 0, int32_t(1));
-org::apache::poi::ss::usermodel::PrintCellComments* org::apache::poi::ss::usermodel::PrintCellComments::AS_DISPLAYED = new ::org::apache::poi::ss::usermodel::PrintCellComments(u"AS_DISPLAYED"_j, 1, int32_t(2));
-org::apache::poi::ss::usermodel::PrintCellComments* org::apache::poi::ss::usermodel::PrintCellComments::AT_END = new ::org::apache::poi::ss::usermodel::PrintCellComments(u"AT_END"_j, 2, int32_t(3));
-void org::apache::poi::ss::usermodel::PrintCellComments::ctor(::java::lang::String* name, int ordinal, int32_t comments)
+poi::ss::usermodel::PrintCellComments* poi::ss::usermodel::PrintCellComments::NONE = new ::poi::ss::usermodel::PrintCellComments(u"NONE"_j, 0, int32_t(1));
+poi::ss::usermodel::PrintCellComments* poi::ss::usermodel::PrintCellComments::AS_DISPLAYED = new ::poi::ss::usermodel::PrintCellComments(u"AS_DISPLAYED"_j, 1, int32_t(2));
+poi::ss::usermodel::PrintCellComments* poi::ss::usermodel::PrintCellComments::AT_END = new ::poi::ss::usermodel::PrintCellComments(u"AT_END"_j, 2, int32_t(3));
+void poi::ss::usermodel::PrintCellComments::ctor(::java::lang::String* name, int ordinal, int32_t comments)
 {
     super::ctor(name, ordinal);
     this->comments = comments;
 }
 
-int32_t org::apache::poi::ss::usermodel::PrintCellComments::getValue()
+int32_t poi::ss::usermodel::PrintCellComments::getValue()
 {
     return comments;
 }
 
-org::apache::poi::ss::usermodel::PrintCellCommentsArray*& org::apache::poi::ss::usermodel::PrintCellComments::_table()
+poi::ss::usermodel::PrintCellCommentsArray*& poi::ss::usermodel::PrintCellComments::_table()
 {
     clinit();
     return _table_;
 }
-org::apache::poi::ss::usermodel::PrintCellCommentsArray* org::apache::poi::ss::usermodel::PrintCellComments::_table_;
+poi::ss::usermodel::PrintCellCommentsArray* poi::ss::usermodel::PrintCellComments::_table_;
 
-org::apache::poi::ss::usermodel::PrintCellComments* org::apache::poi::ss::usermodel::PrintCellComments::valueOf(int32_t value)
+poi::ss::usermodel::PrintCellComments* poi::ss::usermodel::PrintCellComments::valueOf(int32_t value)
 {
     clinit();
     return (*_table_)[value];
@@ -91,13 +85,13 @@ org::apache::poi::ss::usermodel::PrintCellComments* org::apache::poi::ss::usermo
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::usermodel::PrintCellComments::class_()
+java::lang::Class* poi::ss::usermodel::PrintCellComments::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.usermodel.PrintCellComments", 45);
     return c;
 }
 
-void org::apache::poi::ss::usermodel::PrintCellComments::clinit()
+void poi::ss::usermodel::PrintCellComments::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -118,12 +112,12 @@ struct clinit_ {
     }
 }
 
-java::lang::Enum* org::apache::poi::ss::usermodel::PrintCellComments::valueOf(::java::lang::Class* enumType, ::java::lang::String* name)
+java::lang::Enum* poi::ss::usermodel::PrintCellComments::valueOf(::java::lang::Class* enumType, ::java::lang::String* name)
 {
     return super::valueOf(enumType, name);
 }
 
-org::apache::poi::ss::usermodel::PrintCellComments* org::apache::poi::ss::usermodel::PrintCellComments::valueOf(::java::lang::String* a0)
+poi::ss::usermodel::PrintCellComments* poi::ss::usermodel::PrintCellComments::valueOf(::java::lang::String* a0)
 {
     if(AS_DISPLAYED->toString()->equals(a0))
         return AS_DISPLAYED;
@@ -134,16 +128,16 @@ org::apache::poi::ss::usermodel::PrintCellComments* org::apache::poi::ss::usermo
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::ss::usermodel::PrintCellCommentsArray* org::apache::poi::ss::usermodel::PrintCellComments::values()
+poi::ss::usermodel::PrintCellCommentsArray* poi::ss::usermodel::PrintCellComments::values()
 {
-    return new org::apache::poi::ss::usermodel::PrintCellCommentsArray({
+    return new poi::ss::usermodel::PrintCellCommentsArray({
         AS_DISPLAYED,
         AT_END,
         NONE,
     });
 }
 
-java::lang::Class* org::apache::poi::ss::usermodel::PrintCellComments::getClass0()
+java::lang::Class* poi::ss::usermodel::PrintCellComments::getClass0()
 {
     return class_();
 }

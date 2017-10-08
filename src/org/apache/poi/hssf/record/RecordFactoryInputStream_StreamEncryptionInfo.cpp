@@ -38,19 +38,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::RecordFactoryInputStream_StreamEncryptionInfo::RecordFactoryInputStream_StreamEncryptionInfo(const ::default_init_tag&)
+poi::hssf::record::RecordFactoryInputStream_StreamEncryptionInfo::RecordFactoryInputStream_StreamEncryptionInfo(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::RecordFactoryInputStream_StreamEncryptionInfo::RecordFactoryInputStream_StreamEncryptionInfo(RecordInputStream* rs, ::java::util::List* outputRecs) 
+poi::hssf::record::RecordFactoryInputStream_StreamEncryptionInfo::RecordFactoryInputStream_StreamEncryptionInfo(RecordInputStream* rs, ::java::util::List* outputRecs) 
     : RecordFactoryInputStream_StreamEncryptionInfo(*static_cast< ::default_init_tag* >(0))
 {
     ctor(rs,outputRecs);
 }
 
-void org::apache::poi::hssf::record::RecordFactoryInputStream_StreamEncryptionInfo::ctor(RecordInputStream* rs, ::java::util::List* outputRecs)
+void poi::hssf::record::RecordFactoryInputStream_StreamEncryptionInfo::ctor(RecordInputStream* rs, ::java::util::List* outputRecs)
 {
     super::ctor();
     Record* rec;
@@ -87,48 +87,48 @@ void org::apache::poi::hssf::record::RecordFactoryInputStream_StreamEncryptionIn
     _lastRecord = rec;
 }
 
-org::apache::poi::hssf::record::RecordInputStream* org::apache::poi::hssf::record::RecordFactoryInputStream_StreamEncryptionInfo::createDecryptingStream(::java::io::InputStream* original)
+poi::hssf::record::RecordInputStream* poi::hssf::record::RecordFactoryInputStream_StreamEncryptionInfo::createDecryptingStream(::java::io::InputStream* original)
 {
     auto fpr = _filePassRec;
-    auto userPassword = ::org::apache::poi::hssf::record::crypto::Biff8EncryptionKey::getCurrentUserPassword();
+    auto userPassword = ::poi::hssf::record::crypto::Biff8EncryptionKey::getCurrentUserPassword();
     if(userPassword == nullptr) {
-        userPassword = ::org::apache::poi::poifs::crypt::Decryptor::DEFAULT_PASSWORD();
+        userPassword = ::poi::poifs::crypt::Decryptor::DEFAULT_PASSWORD();
     }
     auto info = npc(fpr)->getEncryptionInfo();
     try {
         if(!npc(npc(info)->getDecryptor())->verifyPassword(userPassword)) {
-            throw new ::org::apache::poi::EncryptedDocumentException(::java::lang::StringBuilder().append((npc(::org::apache::poi::poifs::crypt::Decryptor::DEFAULT_PASSWORD())->equals(static_cast< ::java::lang::Object* >(userPassword)) ? u"Default"_j : u"Supplied"_j))->append(u" password is invalid for salt/verifier/verifierHash"_j)->toString());
+            throw new ::poi::EncryptedDocumentException(::java::lang::StringBuilder().append((npc(::poi::poifs::crypt::Decryptor::DEFAULT_PASSWORD())->equals(static_cast< ::java::lang::Object* >(userPassword)) ? u"Default"_j : u"Supplied"_j))->append(u" password is invalid for salt/verifier/verifierHash"_j)->toString());
         }
     } catch (::java::security::GeneralSecurityException* e) {
-        throw new ::org::apache::poi::EncryptedDocumentException(static_cast< ::java::lang::Throwable* >(e));
+        throw new ::poi::EncryptedDocumentException(static_cast< ::java::lang::Throwable* >(e));
     }
     return new RecordInputStream(original, info, _initialRecordsSize);
 }
 
-bool org::apache::poi::hssf::record::RecordFactoryInputStream_StreamEncryptionInfo::hasEncryption()
+bool poi::hssf::record::RecordFactoryInputStream_StreamEncryptionInfo::hasEncryption()
 {
     return _filePassRec != nullptr;
 }
 
-org::apache::poi::hssf::record::Record* org::apache::poi::hssf::record::RecordFactoryInputStream_StreamEncryptionInfo::getLastRecord()
+poi::hssf::record::Record* poi::hssf::record::RecordFactoryInputStream_StreamEncryptionInfo::getLastRecord()
 {
     return _lastRecord;
 }
 
-bool org::apache::poi::hssf::record::RecordFactoryInputStream_StreamEncryptionInfo::hasBOFRecord()
+bool poi::hssf::record::RecordFactoryInputStream_StreamEncryptionInfo::hasBOFRecord()
 {
     return _hasBOFRecord;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::RecordFactoryInputStream_StreamEncryptionInfo::class_()
+java::lang::Class* poi::hssf::record::RecordFactoryInputStream_StreamEncryptionInfo::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.RecordFactoryInputStream.StreamEncryptionInfo", 72);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::record::RecordFactoryInputStream_StreamEncryptionInfo::getClass0()
+java::lang::Class* poi::hssf::record::RecordFactoryInputStream_StreamEncryptionInfo::getClass0()
 {
     return class_();
 }

@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::MulBlankRecord final
+class poi::hssf::record::MulBlankRecord final
     : public StandardRecord
 {
 
@@ -41,7 +41,7 @@ private:
 public:
     ::java::lang::String* toString() override;
     int16_t getSid() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;

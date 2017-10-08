@@ -12,7 +12,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::geom::Path
+class poi::sl::draw::geom::Path
     : public virtual ::java::lang::Object
 {
 
@@ -23,27 +23,27 @@ private:
     ::java::util::List* commands {  };
 
 public: /* package */
-    ::org::apache::poi::sl::usermodel::PaintStyle_PaintModifier* _fill {  };
+    ::poi::sl::usermodel::PaintStyle_PaintModifier* _fill {  };
     bool _stroke {  };
     int64_t _w {  }, _h {  };
 protected:
     void ctor();
     void ctor(bool fill, bool stroke);
-    void ctor(::org::apache::poi::sl::draw::binding::CTPath2D* spPath);
+    void ctor(::poi::sl::draw::binding::CTPath2D* spPath);
 
 public:
     virtual void addCommand(PathCommand* cmd);
     virtual ::java::awt::geom::Path2D_Double* getPath(Context* ctx);
     virtual bool isStroked();
     virtual bool isFilled();
-    virtual ::org::apache::poi::sl::usermodel::PaintStyle_PaintModifier* getFill();
+    virtual ::poi::sl::usermodel::PaintStyle_PaintModifier* getFill();
     virtual int64_t getW();
     virtual int64_t getH();
 
     // Generated
     Path();
     Path(bool fill, bool stroke);
-    Path(::org::apache::poi::sl::draw::binding::CTPath2D* spPath);
+    Path(::poi::sl::draw::binding::CTPath2D* spPath);
 protected:
     Path(const ::default_init_tag&);
 

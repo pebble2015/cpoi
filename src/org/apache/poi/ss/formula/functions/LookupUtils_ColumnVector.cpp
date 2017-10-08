@@ -16,19 +16,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::LookupUtils_ColumnVector::LookupUtils_ColumnVector(const ::default_init_tag&)
+poi::ss::formula::functions::LookupUtils_ColumnVector::LookupUtils_ColumnVector(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::LookupUtils_ColumnVector::LookupUtils_ColumnVector(::org::apache::poi::ss::formula::TwoDEval* tableArray_, int32_t columnIndex) 
+poi::ss::formula::functions::LookupUtils_ColumnVector::LookupUtils_ColumnVector(::poi::ss::formula::TwoDEval* tableArray_, int32_t columnIndex) 
     : LookupUtils_ColumnVector(*static_cast< ::default_init_tag* >(0))
 {
     ctor(tableArray_,columnIndex);
 }
 
-void org::apache::poi::ss::formula::functions::LookupUtils_ColumnVector::ctor(::org::apache::poi::ss::formula::TwoDEval* tableArray_, int32_t columnIndex)
+void poi::ss::formula::functions::LookupUtils_ColumnVector::ctor(::poi::ss::formula::TwoDEval* tableArray_, int32_t columnIndex)
 {
     super::ctor();
     _columnIndex = columnIndex;
@@ -43,7 +43,7 @@ void org::apache::poi::ss::formula::functions::LookupUtils_ColumnVector::ctor(::
     _size = npc(_tableArray_)->getHeight();
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::LookupUtils_ColumnVector::getItem(int32_t index)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::LookupUtils_ColumnVector::getItem(int32_t index)
 {
     if(index > _size) {
         throw new ::java::lang::ArrayIndexOutOfBoundsException(::java::lang::StringBuilder().append(u"Specified index ("_j)->append(index)
@@ -54,20 +54,20 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::f
     return npc(_tableArray_)->getValue(index, _columnIndex);
 }
 
-int32_t org::apache::poi::ss::formula::functions::LookupUtils_ColumnVector::getSize()
+int32_t poi::ss::formula::functions::LookupUtils_ColumnVector::getSize()
 {
     return _size;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::LookupUtils_ColumnVector::class_()
+java::lang::Class* poi::ss::formula::functions::LookupUtils_ColumnVector::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.LookupUtils.ColumnVector", 60);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::LookupUtils_ColumnVector::getClass0()
+java::lang::Class* poi::ss::formula::functions::LookupUtils_ColumnVector::getClass0()
 {
     return class_();
 }

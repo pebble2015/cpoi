@@ -16,48 +16,48 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::EndSubRecord::EndSubRecord(const ::default_init_tag&)
+poi::hssf::record::EndSubRecord::EndSubRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::EndSubRecord::EndSubRecord() 
+poi::hssf::record::EndSubRecord::EndSubRecord() 
     : EndSubRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::EndSubRecord::EndSubRecord(::org::apache::poi::util::LittleEndianInput* in, int32_t size) 
+poi::hssf::record::EndSubRecord::EndSubRecord(::poi::util::LittleEndianInput* in, int32_t size) 
     : EndSubRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in,size);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::EndSubRecord::sid;
+constexpr int16_t poi::hssf::record::EndSubRecord::sid;
 
-constexpr int32_t org::apache::poi::hssf::record::EndSubRecord::ENCODED_SIZE;
+constexpr int32_t poi::hssf::record::EndSubRecord::ENCODED_SIZE;
 
-void org::apache::poi::hssf::record::EndSubRecord::ctor()
+void poi::hssf::record::EndSubRecord::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hssf::record::EndSubRecord::ctor(::org::apache::poi::util::LittleEndianInput* in, int32_t size)
+void poi::hssf::record::EndSubRecord::ctor(::poi::util::LittleEndianInput* in, int32_t size)
 {
     super::ctor();
     if((size & int32_t(255)) != ENCODED_SIZE) {
-        throw new ::org::apache::poi::util::RecordFormatException(::java::lang::StringBuilder().append(u"Unexpected size ("_j)->append(size)
+        throw new ::poi::util::RecordFormatException(::java::lang::StringBuilder().append(u"Unexpected size ("_j)->append(size)
             ->append(u")"_j)->toString());
     }
 }
 
-bool org::apache::poi::hssf::record::EndSubRecord::isTerminating()
+bool poi::hssf::record::EndSubRecord::isTerminating()
 {
     return true;
 }
 
-java::lang::String* org::apache::poi::hssf::record::EndSubRecord::toString()
+java::lang::String* poi::hssf::record::EndSubRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[ftEnd]\n"_j);
@@ -65,23 +65,23 @@ java::lang::String* org::apache::poi::hssf::record::EndSubRecord::toString()
     return npc(buffer)->toString();
 }
 
-void org::apache::poi::hssf::record::EndSubRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::EndSubRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(sid);
     npc(out)->writeShort(ENCODED_SIZE);
 }
 
-int32_t org::apache::poi::hssf::record::EndSubRecord::getDataSize()
+int32_t poi::hssf::record::EndSubRecord::getDataSize()
 {
     return ENCODED_SIZE;
 }
 
-int16_t org::apache::poi::hssf::record::EndSubRecord::getSid()
+int16_t poi::hssf::record::EndSubRecord::getSid()
 {
     return sid;
 }
 
-org::apache::poi::hssf::record::EndSubRecord* org::apache::poi::hssf::record::EndSubRecord::clone()
+poi::hssf::record::EndSubRecord* poi::hssf::record::EndSubRecord::clone()
 {
     auto rec = new EndSubRecord();
     return rec;
@@ -89,18 +89,18 @@ org::apache::poi::hssf::record::EndSubRecord* org::apache::poi::hssf::record::En
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::EndSubRecord::class_()
+java::lang::Class* poi::hssf::record::EndSubRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.EndSubRecord", 39);
     return c;
 }
 
-int8_tArray* org::apache::poi::hssf::record::EndSubRecord::serialize()
+int8_tArray* poi::hssf::record::EndSubRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::EndSubRecord::getClass0()
+java::lang::Class* poi::hssf::record::EndSubRecord::getClass0()
 {
     return class_();
 }

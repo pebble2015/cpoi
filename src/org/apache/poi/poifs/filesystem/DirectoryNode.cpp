@@ -67,41 +67,41 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::filesystem::DirectoryNode::DirectoryNode(const ::default_init_tag&)
+poi::poifs::filesystem::DirectoryNode::DirectoryNode(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::filesystem::DirectoryNode::DirectoryNode(::org::apache::poi::poifs::property::DirectoryProperty* property, OPOIFSFileSystem* filesystem, DirectoryNode* parent) 
+poi::poifs::filesystem::DirectoryNode::DirectoryNode(::poi::poifs::property::DirectoryProperty* property, OPOIFSFileSystem* filesystem, DirectoryNode* parent) 
     : DirectoryNode(*static_cast< ::default_init_tag* >(0))
 {
     ctor(property,filesystem,parent);
 }
 
-org::apache::poi::poifs::filesystem::DirectoryNode::DirectoryNode(::org::apache::poi::poifs::property::DirectoryProperty* property, NPOIFSFileSystem* nfilesystem, DirectoryNode* parent) 
+poi::poifs::filesystem::DirectoryNode::DirectoryNode(::poi::poifs::property::DirectoryProperty* property, NPOIFSFileSystem* nfilesystem, DirectoryNode* parent) 
     : DirectoryNode(*static_cast< ::default_init_tag* >(0))
 {
     ctor(property,nfilesystem,parent);
 }
 
-org::apache::poi::poifs::filesystem::DirectoryNode::DirectoryNode(::org::apache::poi::poifs::property::DirectoryProperty* property, DirectoryNode* parent, OPOIFSFileSystem* ofilesystem, NPOIFSFileSystem* nfilesystem) 
+poi::poifs::filesystem::DirectoryNode::DirectoryNode(::poi::poifs::property::DirectoryProperty* property, DirectoryNode* parent, OPOIFSFileSystem* ofilesystem, NPOIFSFileSystem* nfilesystem) 
     : DirectoryNode(*static_cast< ::default_init_tag* >(0))
 {
     ctor(property,parent,ofilesystem,nfilesystem);
 }
 
-void org::apache::poi::poifs::filesystem::DirectoryNode::ctor(::org::apache::poi::poifs::property::DirectoryProperty* property, OPOIFSFileSystem* filesystem, DirectoryNode* parent)
+void poi::poifs::filesystem::DirectoryNode::ctor(::poi::poifs::property::DirectoryProperty* property, OPOIFSFileSystem* filesystem, DirectoryNode* parent)
 {
     ctor(property, parent, filesystem, static_cast< NPOIFSFileSystem* >(nullptr));
 }
 
-void org::apache::poi::poifs::filesystem::DirectoryNode::ctor(::org::apache::poi::poifs::property::DirectoryProperty* property, NPOIFSFileSystem* nfilesystem, DirectoryNode* parent)
+void poi::poifs::filesystem::DirectoryNode::ctor(::poi::poifs::property::DirectoryProperty* property, NPOIFSFileSystem* nfilesystem, DirectoryNode* parent)
 {
     ctor(property, parent, static_cast< OPOIFSFileSystem* >(nullptr), nfilesystem);
 }
 
-void org::apache::poi::poifs::filesystem::DirectoryNode::ctor(::org::apache::poi::poifs::property::DirectoryProperty* property, DirectoryNode* parent, OPOIFSFileSystem* ofilesystem, NPOIFSFileSystem* nfilesystem)
+void poi::poifs::filesystem::DirectoryNode::ctor(::poi::poifs::property::DirectoryProperty* property, DirectoryNode* parent, OPOIFSFileSystem* ofilesystem, NPOIFSFileSystem* nfilesystem)
 {
     super::ctor(property, parent);
     this->_ofilesystem = ofilesystem;
@@ -115,49 +115,49 @@ void org::apache::poi::poifs::filesystem::DirectoryNode::ctor(::org::apache::poi
     _entries = new ::java::util::ArrayList();
     auto iter = npc(property)->getChildren();
     while (npc(iter)->hasNext()) {
-        auto child = java_cast< ::org::apache::poi::poifs::property::Property* >(npc(iter)->next());
+        auto child = java_cast< ::poi::poifs::property::Property* >(npc(iter)->next());
         Entry* childNode = nullptr;
         if(npc(child)->isDirectory()) {
-            auto childDir = java_cast< ::org::apache::poi::poifs::property::DirectoryProperty* >(child);
+            auto childDir = java_cast< ::poi::poifs::property::DirectoryProperty* >(child);
             if(_ofilesystem != nullptr) {
                 childNode = new DirectoryNode(childDir, _ofilesystem, this);
             } else {
                 childNode = new DirectoryNode(childDir, _nfilesystem, this);
             }
         } else {
-            childNode = new DocumentNode(java_cast< ::org::apache::poi::poifs::property::DocumentProperty* >(child), this);
+            childNode = new DocumentNode(java_cast< ::poi::poifs::property::DocumentProperty* >(child), this);
         }
         npc(_entries)->add(static_cast< ::java::lang::Object* >(childNode));
         npc(_byname)->put(npc(childNode)->getName(), childNode);
     }
 }
 
-org::apache::poi::poifs::filesystem::POIFSDocumentPath* org::apache::poi::poifs::filesystem::DirectoryNode::getPath()
+poi::poifs::filesystem::POIFSDocumentPath* poi::poifs::filesystem::DirectoryNode::getPath()
 {
     return _path;
 }
 
-org::apache::poi::poifs::filesystem::NPOIFSFileSystem* org::apache::poi::poifs::filesystem::DirectoryNode::getFileSystem()
+poi::poifs::filesystem::NPOIFSFileSystem* poi::poifs::filesystem::DirectoryNode::getFileSystem()
 {
     return _nfilesystem;
 }
 
-org::apache::poi::poifs::filesystem::OPOIFSFileSystem* org::apache::poi::poifs::filesystem::DirectoryNode::getOFileSystem()
+poi::poifs::filesystem::OPOIFSFileSystem* poi::poifs::filesystem::DirectoryNode::getOFileSystem()
 {
     return _ofilesystem;
 }
 
-org::apache::poi::poifs::filesystem::NPOIFSFileSystem* org::apache::poi::poifs::filesystem::DirectoryNode::getNFileSystem()
+poi::poifs::filesystem::NPOIFSFileSystem* poi::poifs::filesystem::DirectoryNode::getNFileSystem()
 {
     return _nfilesystem;
 }
 
-org::apache::poi::poifs::filesystem::DocumentInputStream* org::apache::poi::poifs::filesystem::DirectoryNode::createDocumentInputStream(::java::lang::String* documentName) /* throws(IOException) */
+poi::poifs::filesystem::DocumentInputStream* poi::poifs::filesystem::DirectoryNode::createDocumentInputStream(::java::lang::String* documentName) /* throws(IOException) */
 {
     return createDocumentInputStream(getEntry(documentName));
 }
 
-org::apache::poi::poifs::filesystem::DocumentInputStream* org::apache::poi::poifs::filesystem::DirectoryNode::createDocumentInputStream(Entry* document) /* throws(IOException) */
+poi::poifs::filesystem::DocumentInputStream* poi::poifs::filesystem::DirectoryNode::createDocumentInputStream(Entry* document) /* throws(IOException) */
 {
     if(!npc(document)->isDocumentEntry()) {
         throw new ::java::io::IOException(::java::lang::StringBuilder().append(u"Entry '"_j)->append(npc(document)->getName())
@@ -167,34 +167,34 @@ org::apache::poi::poifs::filesystem::DocumentInputStream* org::apache::poi::poif
     return new DocumentInputStream(entry);
 }
 
-org::apache::poi::poifs::filesystem::DocumentEntry* org::apache::poi::poifs::filesystem::DirectoryNode::createDocument(OPOIFSDocument* document) /* throws(IOException) */
+poi::poifs::filesystem::DocumentEntry* poi::poifs::filesystem::DirectoryNode::createDocument(OPOIFSDocument* document) /* throws(IOException) */
 {
     auto property = npc(document)->getDocumentProperty();
     auto rval = new DocumentNode(property, this);
-    npc((java_cast< ::org::apache::poi::poifs::property::DirectoryProperty* >(getProperty())))->addChild(static_cast< ::org::apache::poi::poifs::property::Property* >(property));
+    npc((java_cast< ::poi::poifs::property::DirectoryProperty* >(getProperty())))->addChild(static_cast< ::poi::poifs::property::Property* >(property));
     npc(_ofilesystem)->addDocument(document);
     npc(_entries)->add(static_cast< ::java::lang::Object* >(rval));
     npc(_byname)->put(npc(property)->getName(), rval);
     return rval;
 }
 
-org::apache::poi::poifs::filesystem::DocumentEntry* org::apache::poi::poifs::filesystem::DirectoryNode::createDocument(NPOIFSDocument* document) /* throws(IOException) */
+poi::poifs::filesystem::DocumentEntry* poi::poifs::filesystem::DirectoryNode::createDocument(NPOIFSDocument* document) /* throws(IOException) */
 {
     auto property = npc(document)->getDocumentProperty();
     auto rval = new DocumentNode(property, this);
-    npc((java_cast< ::org::apache::poi::poifs::property::DirectoryProperty* >(getProperty())))->addChild(static_cast< ::org::apache::poi::poifs::property::Property* >(property));
+    npc((java_cast< ::poi::poifs::property::DirectoryProperty* >(getProperty())))->addChild(static_cast< ::poi::poifs::property::Property* >(property));
     npc(_nfilesystem)->addDocument(document);
     npc(_entries)->add(static_cast< ::java::lang::Object* >(rval));
     npc(_byname)->put(npc(property)->getName(), rval);
     return rval;
 }
 
-bool org::apache::poi::poifs::filesystem::DirectoryNode::changeName(::java::lang::String* oldName, ::java::lang::String* newName)
+bool poi::poifs::filesystem::DirectoryNode::changeName(::java::lang::String* oldName, ::java::lang::String* newName)
 {
     auto rval = false;
     auto child = java_cast< EntryNode* >(java_cast< Entry* >(npc(_byname)->get(oldName)));
     if(child != nullptr) {
-        rval = npc((java_cast< ::org::apache::poi::poifs::property::DirectoryProperty* >(getProperty())))->changeName(npc(child)->getProperty(), newName);
+        rval = npc((java_cast< ::poi::poifs::property::DirectoryProperty* >(getProperty())))->changeName(npc(child)->getProperty(), newName);
         if(rval) {
             npc(_byname)->remove(oldName);
             npc(_byname)->put(npc(npc(child)->getProperty())->getName(), child);
@@ -203,9 +203,9 @@ bool org::apache::poi::poifs::filesystem::DirectoryNode::changeName(::java::lang
     return rval;
 }
 
-bool org::apache::poi::poifs::filesystem::DirectoryNode::deleteEntry(EntryNode* entry)
+bool poi::poifs::filesystem::DirectoryNode::deleteEntry(EntryNode* entry)
 {
-    auto rval = npc((java_cast< ::org::apache::poi::poifs::property::DirectoryProperty* >(getProperty())))->deleteChild(npc(entry)->getProperty());
+    auto rval = npc((java_cast< ::poi::poifs::property::DirectoryProperty* >(getProperty())))->deleteChild(npc(entry)->getProperty());
     if(rval) {
         npc(_entries)->remove(static_cast< ::java::lang::Object* >(entry));
         npc(_byname)->remove(npc(entry)->getName());
@@ -221,32 +221,32 @@ bool org::apache::poi::poifs::filesystem::DirectoryNode::deleteEntry(EntryNode* 
     return rval;
 }
 
-java::util::Iterator* org::apache::poi::poifs::filesystem::DirectoryNode::getEntries()
+java::util::Iterator* poi::poifs::filesystem::DirectoryNode::getEntries()
 {
     return npc(_entries)->iterator();
 }
 
-java::util::Set* org::apache::poi::poifs::filesystem::DirectoryNode::getEntryNames()
+java::util::Set* poi::poifs::filesystem::DirectoryNode::getEntryNames()
 {
     return npc(_byname)->keySet();
 }
 
-bool org::apache::poi::poifs::filesystem::DirectoryNode::isEmpty()
+bool poi::poifs::filesystem::DirectoryNode::isEmpty()
 {
     return npc(_entries)->isEmpty();
 }
 
-int32_t org::apache::poi::poifs::filesystem::DirectoryNode::getEntryCount()
+int32_t poi::poifs::filesystem::DirectoryNode::getEntryCount()
 {
     return npc(_entries)->size();
 }
 
-bool org::apache::poi::poifs::filesystem::DirectoryNode::hasEntry(::java::lang::String* name)
+bool poi::poifs::filesystem::DirectoryNode::hasEntry(::java::lang::String* name)
 {
     return name != nullptr && npc(_byname)->containsKey(name);
 }
 
-org::apache::poi::poifs::filesystem::Entry* org::apache::poi::poifs::filesystem::DirectoryNode::getEntry(::java::lang::String* name) /* throws(FileNotFoundException) */
+poi::poifs::filesystem::Entry* poi::poifs::filesystem::DirectoryNode::getEntry(::java::lang::String* name) /* throws(FileNotFoundException) */
 {
     Entry* rval = nullptr;
     if(name != nullptr) {
@@ -260,7 +260,7 @@ org::apache::poi::poifs::filesystem::Entry* org::apache::poi::poifs::filesystem:
     return rval;
 }
 
-org::apache::poi::poifs::filesystem::DocumentEntry* org::apache::poi::poifs::filesystem::DirectoryNode::createDocument(::java::lang::String* name, ::java::io::InputStream* stream) /* throws(IOException) */
+poi::poifs::filesystem::DocumentEntry* poi::poifs::filesystem::DirectoryNode::createDocument(::java::lang::String* name, ::java::io::InputStream* stream) /* throws(IOException) */
 {
     if(_nfilesystem != nullptr) {
         return createDocument(new NPOIFSDocument(name, _nfilesystem, stream));
@@ -269,7 +269,7 @@ org::apache::poi::poifs::filesystem::DocumentEntry* org::apache::poi::poifs::fil
     }
 }
 
-org::apache::poi::poifs::filesystem::DocumentEntry* org::apache::poi::poifs::filesystem::DirectoryNode::createDocument(::java::lang::String* name, int32_t size, POIFSWriterListener* writer) /* throws(IOException) */
+poi::poifs::filesystem::DocumentEntry* poi::poifs::filesystem::DirectoryNode::createDocument(::java::lang::String* name, int32_t size, POIFSWriterListener* writer) /* throws(IOException) */
 {
     if(_nfilesystem != nullptr) {
         return createDocument(new NPOIFSDocument(name, size, _nfilesystem, writer));
@@ -278,10 +278,10 @@ org::apache::poi::poifs::filesystem::DocumentEntry* org::apache::poi::poifs::fil
     }
 }
 
-org::apache::poi::poifs::filesystem::DirectoryEntry* org::apache::poi::poifs::filesystem::DirectoryNode::createDirectory(::java::lang::String* name) /* throws(IOException) */
+poi::poifs::filesystem::DirectoryEntry* poi::poifs::filesystem::DirectoryNode::createDirectory(::java::lang::String* name) /* throws(IOException) */
 {
     DirectoryNode* rval;
-    auto property = new ::org::apache::poi::poifs::property::DirectoryProperty(name);
+    auto property = new ::poi::poifs::property::DirectoryProperty(name);
     if(_ofilesystem != nullptr) {
         rval = new DirectoryNode(property, _ofilesystem, this);
         npc(_ofilesystem)->addDirectory(property);
@@ -289,13 +289,13 @@ org::apache::poi::poifs::filesystem::DirectoryEntry* org::apache::poi::poifs::fi
         rval = new DirectoryNode(property, _nfilesystem, this);
         npc(_nfilesystem)->addDirectory(property);
     }
-    npc((java_cast< ::org::apache::poi::poifs::property::DirectoryProperty* >(getProperty())))->addChild(static_cast< ::org::apache::poi::poifs::property::Property* >(property));
+    npc((java_cast< ::poi::poifs::property::DirectoryProperty* >(getProperty())))->addChild(static_cast< ::poi::poifs::property::Property* >(property));
     npc(_entries)->add(static_cast< ::java::lang::Object* >(rval));
     npc(_byname)->put(name, rval);
     return rval;
 }
 
-org::apache::poi::poifs::filesystem::DocumentEntry* org::apache::poi::poifs::filesystem::DirectoryNode::createOrUpdateDocument(::java::lang::String* name, ::java::io::InputStream* stream) /* throws(IOException) */
+poi::poifs::filesystem::DocumentEntry* poi::poifs::filesystem::DirectoryNode::createOrUpdateDocument(::java::lang::String* name, ::java::io::InputStream* stream) /* throws(IOException) */
 {
     if(!hasEntry(name)) {
         return createDocument(name, stream);
@@ -312,32 +312,32 @@ org::apache::poi::poifs::filesystem::DocumentEntry* org::apache::poi::poifs::fil
     }
 }
 
-org::apache::poi::hpsf::ClassID* org::apache::poi::poifs::filesystem::DirectoryNode::getStorageClsid()
+poi::hpsf::ClassID* poi::poifs::filesystem::DirectoryNode::getStorageClsid()
 {
     return npc(getProperty())->getStorageClsid();
 }
 
-void org::apache::poi::poifs::filesystem::DirectoryNode::setStorageClsid(::org::apache::poi::hpsf::ClassID* clsidStorage)
+void poi::poifs::filesystem::DirectoryNode::setStorageClsid(::poi::hpsf::ClassID* clsidStorage)
 {
     npc(getProperty())->setStorageClsid(clsidStorage);
 }
 
-bool org::apache::poi::poifs::filesystem::DirectoryNode::isDirectoryEntry()
+bool poi::poifs::filesystem::DirectoryNode::isDirectoryEntry()
 {
     return true;
 }
 
-bool org::apache::poi::poifs::filesystem::DirectoryNode::isDeleteOK()
+bool poi::poifs::filesystem::DirectoryNode::isDeleteOK()
 {
     return isEmpty();
 }
 
-java::lang::ObjectArray* org::apache::poi::poifs::filesystem::DirectoryNode::getViewableArray_()
+java::lang::ObjectArray* poi::poifs::filesystem::DirectoryNode::getViewableArray_()
 {
     return new ::java::lang::ObjectArray(int32_t(0));
 }
 
-java::util::Iterator* org::apache::poi::poifs::filesystem::DirectoryNode::getViewableIterator()
+java::util::Iterator* poi::poifs::filesystem::DirectoryNode::getViewableIterator()
 {
     ::java::util::List* components = new ::java::util::ArrayList();
     npc(components)->add(static_cast< ::java::lang::Object* >(getProperty()));
@@ -348,55 +348,55 @@ java::util::Iterator* org::apache::poi::poifs::filesystem::DirectoryNode::getVie
     return npc(components)->iterator();
 }
 
-bool org::apache::poi::poifs::filesystem::DirectoryNode::preferArray_()
+bool poi::poifs::filesystem::DirectoryNode::preferArray_()
 {
     return false;
 }
 
-java::lang::String* org::apache::poi::poifs::filesystem::DirectoryNode::getShortDescription()
+java::lang::String* poi::poifs::filesystem::DirectoryNode::getShortDescription()
 {
     return getName();
 }
 
-java::util::Iterator* org::apache::poi::poifs::filesystem::DirectoryNode::iterator()
+java::util::Iterator* poi::poifs::filesystem::DirectoryNode::iterator()
 {
     return getEntries();
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::filesystem::DirectoryNode::class_()
+java::lang::Class* poi::poifs::filesystem::DirectoryNode::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.filesystem.DirectoryNode", 45);
     return c;
 }
 
-bool org::apache::poi::poifs::filesystem::DirectoryNode::delete_()
+bool poi::poifs::filesystem::DirectoryNode::delete_()
 {
     return EntryNode::delete_();
 }
 
-java::lang::String* org::apache::poi::poifs::filesystem::DirectoryNode::getName()
+java::lang::String* poi::poifs::filesystem::DirectoryNode::getName()
 {
     return EntryNode::getName();
 }
 
-org::apache::poi::poifs::filesystem::DirectoryEntry* org::apache::poi::poifs::filesystem::DirectoryNode::getParent()
+poi::poifs::filesystem::DirectoryEntry* poi::poifs::filesystem::DirectoryNode::getParent()
 {
     return EntryNode::getParent();
 }
 
-bool org::apache::poi::poifs::filesystem::DirectoryNode::isDocumentEntry()
+bool poi::poifs::filesystem::DirectoryNode::isDocumentEntry()
 {
     return EntryNode::isDocumentEntry();
 }
 
-bool org::apache::poi::poifs::filesystem::DirectoryNode::renameTo(::java::lang::String* newName)
+bool poi::poifs::filesystem::DirectoryNode::renameTo(::java::lang::String* newName)
 {
     return EntryNode::renameTo(newName);
 }
 
-java::lang::Class* org::apache::poi::poifs::filesystem::DirectoryNode::getClass0()
+java::lang::Class* poi::poifs::filesystem::DirectoryNode::getClass0()
 {
     return class_();
 }

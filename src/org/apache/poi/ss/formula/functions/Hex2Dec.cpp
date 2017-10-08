@@ -17,25 +17,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -53,62 +47,62 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::Hex2Dec::Hex2Dec(const ::default_init_tag&)
+poi::ss::formula::functions::Hex2Dec::Hex2Dec(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::Hex2Dec::Hex2Dec()
+poi::ss::formula::functions::Hex2Dec::Hex2Dec()
     : Hex2Dec(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::functions::FreeRefFunction*& org::apache::poi::ss::formula::functions::Hex2Dec::instance()
+poi::ss::formula::functions::FreeRefFunction*& poi::ss::formula::functions::Hex2Dec::instance()
 {
     clinit();
     return instance_;
 }
-org::apache::poi::ss::formula::functions::FreeRefFunction* org::apache::poi::ss::formula::functions::Hex2Dec::instance_;
+poi::ss::formula::functions::FreeRefFunction* poi::ss::formula::functions::Hex2Dec::instance_;
 
-constexpr int32_t org::apache::poi::ss::formula::functions::Hex2Dec::HEXADECIMAL_BASE;
+constexpr int32_t poi::ss::formula::functions::Hex2Dec::HEXADECIMAL_BASE;
 
-constexpr int32_t org::apache::poi::ss::formula::functions::Hex2Dec::MAX_NUMBER_OF_PLACES;
+constexpr int32_t poi::ss::formula::functions::Hex2Dec::MAX_NUMBER_OF_PLACES;
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Hex2Dec::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* numberVE)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Hex2Dec::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::poi::ss::formula::eval::ValueEval* numberVE)
 {
     ::java::lang::String* hex;
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::RefEval* >(numberVE) != nullptr) {
-        auto re = java_cast< ::org::apache::poi::ss::formula::eval::RefEval* >(numberVE);
-        hex = ::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToString(npc(re)->getInnerValueEval(npc(re)->getFirstSheetIndex()));
+    if(dynamic_cast< ::poi::ss::formula::eval::RefEval* >(numberVE) != nullptr) {
+        auto re = java_cast< ::poi::ss::formula::eval::RefEval* >(numberVE);
+        hex = ::poi::ss::formula::eval::OperandResolver::coerceValueToString(npc(re)->getInnerValueEval(npc(re)->getFirstSheetIndex()));
     } else {
-        hex = ::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToString(numberVE);
+        hex = ::poi::ss::formula::eval::OperandResolver::coerceValueToString(numberVE);
     }
     try {
-        return new ::org::apache::poi::ss::formula::eval::NumberEval(BaseNumberUtils::convertToDecimal(hex, HEXADECIMAL_BASE, MAX_NUMBER_OF_PLACES));
+        return new ::poi::ss::formula::eval::NumberEval(BaseNumberUtils::convertToDecimal(hex, HEXADECIMAL_BASE, MAX_NUMBER_OF_PLACES));
     } catch (::java::lang::IllegalArgumentException* e) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::NUM_ERROR();
+        return ::poi::ss::formula::eval::ErrorEval::NUM_ERROR();
     }
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Hex2Dec::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, ::org::apache::poi::ss::formula::OperationEvaluationContext* ec)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Hex2Dec::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, ::poi::ss::formula::OperationEvaluationContext* ec)
 {
     if(npc(args)->length != 1) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
     return evaluate(npc(ec)->getRowIndex(), npc(ec)->getColumnIndex(), (*args)[int32_t(0)]);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Hex2Dec::class_()
+java::lang::Class* poi::ss::formula::functions::Hex2Dec::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.Hex2Dec", 43);
     return c;
 }
 
-void org::apache::poi::ss::formula::functions::Hex2Dec::clinit()
+void poi::ss::formula::functions::Hex2Dec::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -124,12 +118,12 @@ struct clinit_ {
     }
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Hex2Dec::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Hex2Dec::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
 {
     return super::evaluate(args, srcRowIndex, srcColumnIndex);
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Hex2Dec::getClass0()
+java::lang::Class* poi::ss::formula::functions::Hex2Dec::getClass0()
 {
     return class_();
 }

@@ -8,7 +8,7 @@
 #include <org/apache/poi/sl/usermodel/fwd-POI.hpp>
 #include <org/apache/poi/sl/usermodel/PaintStyle.hpp>
 
-struct org::apache::poi::sl::usermodel::PaintStyle_TexturePaint
+struct poi::sl::usermodel::PaintStyle_TexturePaint
     : public virtual PaintStyle
 {
     virtual ::java::io::InputStream* getImageData() = 0;

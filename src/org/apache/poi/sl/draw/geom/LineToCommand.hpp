@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::geom::LineToCommand
+class poi::sl::draw::geom::LineToCommand
     : public virtual ::java::lang::Object
     , public virtual PathCommand
 {
@@ -23,7 +23,7 @@ private:
     ::java::lang::String* arg1 {  };
     ::java::lang::String* arg2 {  };
 protected:
-    void ctor(::org::apache::poi::sl::draw::binding::CTAdjPoint2D* pt);
+    void ctor(::poi::sl::draw::binding::CTAdjPoint2D* pt);
     void ctor(::java::lang::String* s1, ::java::lang::String* s2);
 
 public:
@@ -32,7 +32,7 @@ public:
     // Generated
 
 public: /* package */
-    LineToCommand(::org::apache::poi::sl::draw::binding::CTAdjPoint2D* pt);
+    LineToCommand(::poi::sl::draw::binding::CTAdjPoint2D* pt);
     LineToCommand(::java::lang::String* s1, ::java::lang::String* s2);
 protected:
     LineToCommand(const ::default_init_tag&);

@@ -10,29 +10,23 @@
 #include <org/apache/poi/ss/formula/functions/Function.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::NotImplementedFunction final
+class poi::ss::formula::functions::NotImplementedFunction final
     : public virtual ::java::lang::Object
     , public Function
 {
@@ -47,7 +41,7 @@ protected:
     void ctor(::java::lang::String* name);
 
 public:
-    ::org::apache::poi::ss::formula::eval::ValueEval* evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* operands, int32_t srcRow, int32_t srcCol) override;
+    ::poi::ss::formula::eval::ValueEval* evaluate(::poi::ss::formula::eval::ValueEvalArray* operands, int32_t srcRow, int32_t srcCol) override;
     ::java::lang::String* getFunctionName();
 
     // Generated

@@ -5,7 +5,7 @@
 #include <org/apache/poi/sl/usermodel/fwd-POI.hpp>
 #include <org/apache/poi/sl/usermodel/TextShape.hpp>
 
-struct org::apache::poi::sl::usermodel::AutoShape
+struct poi::sl::usermodel::AutoShape
     : public virtual TextShape
 {
 

@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::PageBreakRecord
+class poi::hssf::record::PageBreakRecord
     : public StandardRecord
 {
 
@@ -33,7 +33,7 @@ public: /* protected */
     int32_t getDataSize() override;
 
 public:
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
     virtual int32_t getNumBreaks();
     ::java::util::Iterator* getBreaksIterator();
     ::java::lang::String* toString() override;

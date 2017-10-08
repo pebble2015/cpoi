@@ -18,33 +18,33 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hpsf::VariantBool::VariantBool(const ::default_init_tag&)
+poi::hpsf::VariantBool::VariantBool(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hpsf::VariantBool::VariantBool() 
+poi::hpsf::VariantBool::VariantBool() 
     : VariantBool(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::util::POILogger*& org::apache::poi::hpsf::VariantBool::LOG()
+poi::util::POILogger*& poi::hpsf::VariantBool::LOG()
 {
     clinit();
     return LOG_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::hpsf::VariantBool::LOG_;
+poi::util::POILogger* poi::hpsf::VariantBool::LOG_;
 
-constexpr int32_t org::apache::poi::hpsf::VariantBool::SIZE;
+constexpr int32_t poi::hpsf::VariantBool::SIZE;
 
-void org::apache::poi::hpsf::VariantBool::ctor()
+void poi::hpsf::VariantBool::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hpsf::VariantBool::read(::org::apache::poi::util::LittleEndianByteArrayInputStream* lei)
+void poi::hpsf::VariantBool::read(::poi::util::LittleEndianByteArrayInputStream* lei)
 {
     auto value = npc(lei)->readShort();
     switch (value) {
@@ -55,7 +55,7 @@ void org::apache::poi::hpsf::VariantBool::read(::org::apache::poi::util::LittleE
         _value = true;
         break;
     default:
-        npc(LOG_)->log(::org::apache::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"VARIANT_BOOL value '"_j)->append(value)
+        npc(LOG_)->log(::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"VARIANT_BOOL value '"_j)->append(value)
             ->append(u"' is incorrect"_j)->toString())}));
         _value = true;
         break;
@@ -63,32 +63,32 @@ void org::apache::poi::hpsf::VariantBool::read(::org::apache::poi::util::LittleE
 
 }
 
-bool org::apache::poi::hpsf::VariantBool::getValue()
+bool poi::hpsf::VariantBool::getValue()
 {
     return _value;
 }
 
-void org::apache::poi::hpsf::VariantBool::setValue(bool value)
+void poi::hpsf::VariantBool::setValue(bool value)
 {
     this->_value = value;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hpsf::VariantBool::class_()
+java::lang::Class* poi::hpsf::VariantBool::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hpsf.VariantBool", 31);
     return c;
 }
 
-void org::apache::poi::hpsf::VariantBool::clinit()
+void poi::hpsf::VariantBool::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        LOG_ = ::org::apache::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(VariantBool::class_()));
+        LOG_ = ::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(VariantBool::class_()));
     }
 };
 
@@ -97,7 +97,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::hpsf::VariantBool::getClass0()
+java::lang::Class* poi::hpsf::VariantBool::getClass0()
 {
     return class_();
 }

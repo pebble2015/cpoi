@@ -48,26 +48,20 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace poifs
     {
-        namespace poi
+        namespace crypt
         {
-            namespace poifs
+            namespace standard
             {
-                namespace crypt
-                {
-                    namespace standard
-                    {
-typedef ::SubArray< ::org::apache::poi::poifs::crypt::standard::EncryptionRecord, ::java::lang::ObjectArray > EncryptionRecordArray;
-                    } // standard
-typedef ::SubArray< ::org::apache::poi::poifs::crypt::DataSpaceMapUtils_DataSpaceMapEntry, ::java::lang::ObjectArray, ::org::apache::poi::poifs::crypt::standard::EncryptionRecordArray > DataSpaceMapUtils_DataSpaceMapEntryArray;
-                } // crypt
-            } // poifs
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::poifs::crypt::standard::EncryptionRecord, ::java::lang::ObjectArray > EncryptionRecordArray;
+            } // standard
+typedef ::SubArray< ::poi::poifs::crypt::DataSpaceMapUtils_DataSpaceMapEntry, ::java::lang::ObjectArray, ::poi::poifs::crypt::standard::EncryptionRecordArray > DataSpaceMapUtils_DataSpaceMapEntryArray;
+        } // crypt
+    } // poifs
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -85,19 +79,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::crypt::DataSpaceMapUtils::DataSpaceMapUtils(const ::default_init_tag&)
+poi::poifs::crypt::DataSpaceMapUtils::DataSpaceMapUtils(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::crypt::DataSpaceMapUtils::DataSpaceMapUtils()
+poi::poifs::crypt::DataSpaceMapUtils::DataSpaceMapUtils()
     : DataSpaceMapUtils(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::poifs::crypt::DataSpaceMapUtils::addDefaultDataSpace(::org::apache::poi::poifs::filesystem::DirectoryEntry* dir) /* throws(IOException) */
+void poi::poifs::crypt::DataSpaceMapUtils::addDefaultDataSpace(::poi::poifs::filesystem::DirectoryEntry* dir) /* throws(IOException) */
 {
     clinit();
     auto dsme = new DataSpaceMapUtils_DataSpaceMapEntry(new ::int32_tArray({int32_t(0)}), new ::java::lang::StringArray({Decryptor::DEFAULT_POIFS_ENTRY()}), u"StrongEncryptionDataSpace"_j);
@@ -112,15 +106,15 @@ void org::apache::poi::poifs::crypt::DataSpaceMapUtils::addDefaultDataSpace(::or
     createEncryptionEntry(dir, u"\u0006DataSpaces/Version"_j, dsvi);
 }
 
-org::apache::poi::poifs::filesystem::DocumentEntry* org::apache::poi::poifs::crypt::DataSpaceMapUtils::createEncryptionEntry(::org::apache::poi::poifs::filesystem::DirectoryEntry* dir, ::java::lang::String* path, ::org::apache::poi::poifs::crypt::standard::EncryptionRecord* out) /* throws(IOException) */
+poi::poifs::filesystem::DocumentEntry* poi::poifs::crypt::DataSpaceMapUtils::createEncryptionEntry(::poi::poifs::filesystem::DirectoryEntry* dir, ::java::lang::String* path, ::poi::poifs::crypt::standard::EncryptionRecord* out) /* throws(IOException) */
 {
     clinit();
     auto parts = npc(path)->split(u"/"_j);
     for (auto i = int32_t(0); i < npc(parts)->length - int32_t(1); i++) {
-        dir = npc(dir)->hasEntry((*parts)[i]) ? java_cast< ::org::apache::poi::poifs::filesystem::DirectoryEntry* >(npc(dir)->getEntry((*parts)[i])) : npc(dir)->createDirectory((*parts)[i]);
+        dir = npc(dir)->hasEntry((*parts)[i]) ? java_cast< ::poi::poifs::filesystem::DirectoryEntry* >(npc(dir)->getEntry((*parts)[i])) : npc(dir)->createDirectory((*parts)[i]);
     }
     auto const buf = new ::int8_tArray(int32_t(5000));
-    auto bos = new ::org::apache::poi::util::LittleEndianByteArrayOutputStream(buf, int32_t(0));
+    auto bos = new ::poi::util::LittleEndianByteArrayOutputStream(buf, int32_t(0));
     npc(out)->write(bos);
     auto fileName = (*parts)[npc(parts)->length - int32_t(1)];
     if(npc(dir)->hasEntry(fileName)) {
@@ -129,24 +123,24 @@ org::apache::poi::poifs::filesystem::DocumentEntry* org::apache::poi::poifs::cry
     return npc(dir)->createDocument(fileName, npc(bos)->getWriteIndex(), new DataSpaceMapUtils_createEncryptionEntry_1(buf));
 }
 
-java::lang::String* org::apache::poi::poifs::crypt::DataSpaceMapUtils::readUnicodeLPP4(::org::apache::poi::util::LittleEndianInput* is)
+java::lang::String* poi::poifs::crypt::DataSpaceMapUtils::readUnicodeLPP4(::poi::util::LittleEndianInput* is)
 {
     clinit();
     auto length = npc(is)->readInt();
     if(length % int32_t(2) != 0) {
-        throw new ::org::apache::poi::EncryptedDocumentException(::java::lang::StringBuilder().append(u"UNICODE-LP-P4 structure is a multiple of 4 bytes. "_j)->append(u"If Padding is present, it MUST be exactly 2 bytes long"_j)->toString());
+        throw new ::poi::EncryptedDocumentException(::java::lang::StringBuilder().append(u"UNICODE-LP-P4 structure is a multiple of 4 bytes. "_j)->append(u"If Padding is present, it MUST be exactly 2 bytes long"_j)->toString());
     }
-    auto result = ::org::apache::poi::util::StringUtil::readUnicodeLE(is, length / int32_t(2));
+    auto result = ::poi::util::StringUtil::readUnicodeLE(is, length / int32_t(2));
     if(length % int32_t(4) == 2) {
         npc(is)->readShort();
     }
     return result;
 }
 
-void org::apache::poi::poifs::crypt::DataSpaceMapUtils::writeUnicodeLPP4(::org::apache::poi::util::LittleEndianOutput* os, ::java::lang::String* string)
+void poi::poifs::crypt::DataSpaceMapUtils::writeUnicodeLPP4(::poi::util::LittleEndianOutput* os, ::java::lang::String* string)
 {
     clinit();
-    auto buf = ::org::apache::poi::util::StringUtil::getToUnicodeLE(string);
+    auto buf = ::poi::util::StringUtil::getToUnicodeLE(string);
     npc(os)->writeInt(npc(buf)->length);
     npc(os)->write(buf);
     if(npc(buf)->length % int32_t(4) == 2) {
@@ -154,7 +148,7 @@ void org::apache::poi::poifs::crypt::DataSpaceMapUtils::writeUnicodeLPP4(::org::
     }
 }
 
-java::lang::String* org::apache::poi::poifs::crypt::DataSpaceMapUtils::readUtf8LPP4(::org::apache::poi::util::LittleEndianInput* is)
+java::lang::String* poi::poifs::crypt::DataSpaceMapUtils::readUtf8LPP4(::poi::util::LittleEndianInput* is)
 {
     clinit();
     auto length = npc(is)->readInt();
@@ -173,7 +167,7 @@ java::lang::String* org::apache::poi::poifs::crypt::DataSpaceMapUtils::readUtf8L
     return new ::java::lang::String(data, int32_t(0), npc(data)->length, ::java::nio::charset::Charset::forName(u"UTF-8"_j));
 }
 
-void org::apache::poi::poifs::crypt::DataSpaceMapUtils::writeUtf8LPP4(::org::apache::poi::util::LittleEndianOutput* os, ::java::lang::String* str)
+void poi::poifs::crypt::DataSpaceMapUtils::writeUtf8LPP4(::poi::util::LittleEndianOutput* os, ::java::lang::String* str)
 {
     clinit();
     if(str == nullptr || npc(u""_j)->equals(static_cast< ::java::lang::Object* >(str))) {
@@ -194,13 +188,13 @@ void org::apache::poi::poifs::crypt::DataSpaceMapUtils::writeUtf8LPP4(::org::apa
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::crypt::DataSpaceMapUtils::class_()
+java::lang::Class* poi::poifs::crypt::DataSpaceMapUtils::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.crypt.DataSpaceMapUtils", 44);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::crypt::DataSpaceMapUtils::getClass0()
+java::lang::Class* poi::poifs::crypt::DataSpaceMapUtils::getClass0()
 {
     return class_();
 }

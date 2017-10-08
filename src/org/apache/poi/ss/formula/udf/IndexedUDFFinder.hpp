@@ -10,29 +10,23 @@
 #include <org/apache/poi/ss/formula/udf/AggregatingUDFFinder.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace udf
             {
-                namespace formula
-                {
-                    namespace udf
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::udf::UDFFinder, ::java::lang::ObjectArray > UDFFinderArray;
-                    } // udf
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::udf::UDFFinder, ::java::lang::ObjectArray > UDFFinderArray;
+            } // udf
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::udf::IndexedUDFFinder
+class poi::ss::formula::udf::IndexedUDFFinder
     : public AggregatingUDFFinder
 {
 
@@ -45,7 +39,7 @@ protected:
     void ctor(UDFFinderArray*/*...*/ usedToolPacks);
 
 public:
-    ::org::apache::poi::ss::formula::functions::FreeRefFunction* findFunction(::java::lang::String* name) override;
+    ::poi::ss::formula::functions::FreeRefFunction* findFunction(::java::lang::String* name) override;
     virtual ::java::lang::String* getFunctionName(int32_t idx);
     virtual int32_t getFunctionIndex(::java::lang::String* name);
 

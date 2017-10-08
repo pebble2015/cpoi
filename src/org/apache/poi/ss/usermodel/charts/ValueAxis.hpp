@@ -5,7 +5,7 @@
 #include <org/apache/poi/ss/usermodel/charts/fwd-POI.hpp>
 #include <org/apache/poi/ss/usermodel/charts/ChartAxis.hpp>
 
-struct org::apache::poi::ss::usermodel::charts::ValueAxis
+struct poi::ss::usermodel::charts::ValueAxis
     : public virtual ChartAxis
 {
     virtual AxisCrossBetween* getCrossBetween() = 0;

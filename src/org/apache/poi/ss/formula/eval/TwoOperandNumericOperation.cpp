@@ -15,25 +15,19 @@
 #include <org/apache/poi/ss/formula/eval/ValueEval.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -42,25 +36,25 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::eval::TwoOperandNumericOperation::TwoOperandNumericOperation(const ::default_init_tag&)
+poi::ss::formula::eval::TwoOperandNumericOperation::TwoOperandNumericOperation(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::eval::TwoOperandNumericOperation::TwoOperandNumericOperation()
+poi::ss::formula::eval::TwoOperandNumericOperation::TwoOperandNumericOperation()
     : TwoOperandNumericOperation(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-double org::apache::poi::ss::formula::eval::TwoOperandNumericOperation::singleOperandEvaluate(ValueEval* arg, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */
+double poi::ss::formula::eval::TwoOperandNumericOperation::singleOperandEvaluate(ValueEval* arg, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */
 {
     auto ve = OperandResolver::getSingleValue(arg, srcCellRow, srcCellCol);
     return OperandResolver::coerceValueToDouble(ve);
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::eval::TwoOperandNumericOperation::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ValueEval* arg0, ValueEval* arg1)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::eval::TwoOperandNumericOperation::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ValueEval* arg0, ValueEval* arg1)
 {
     double result;
     try {
@@ -81,50 +75,50 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::e
     return new NumberEval(result);
 }
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::eval::TwoOperandNumericOperation::AddEval()
+poi::ss::formula::functions::Function*& poi::ss::formula::eval::TwoOperandNumericOperation::AddEval()
 {
     clinit();
     return AddEval_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::eval::TwoOperandNumericOperation::AddEval_;
+poi::ss::formula::functions::Function* poi::ss::formula::eval::TwoOperandNumericOperation::AddEval_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::eval::TwoOperandNumericOperation::DivideEval()
+poi::ss::formula::functions::Function*& poi::ss::formula::eval::TwoOperandNumericOperation::DivideEval()
 {
     clinit();
     return DivideEval_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::eval::TwoOperandNumericOperation::DivideEval_;
+poi::ss::formula::functions::Function* poi::ss::formula::eval::TwoOperandNumericOperation::DivideEval_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::eval::TwoOperandNumericOperation::MultiplyEval()
+poi::ss::formula::functions::Function*& poi::ss::formula::eval::TwoOperandNumericOperation::MultiplyEval()
 {
     clinit();
     return MultiplyEval_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::eval::TwoOperandNumericOperation::MultiplyEval_;
+poi::ss::formula::functions::Function* poi::ss::formula::eval::TwoOperandNumericOperation::MultiplyEval_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::eval::TwoOperandNumericOperation::PowerEval()
+poi::ss::formula::functions::Function*& poi::ss::formula::eval::TwoOperandNumericOperation::PowerEval()
 {
     clinit();
     return PowerEval_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::eval::TwoOperandNumericOperation::PowerEval_;
+poi::ss::formula::functions::Function* poi::ss::formula::eval::TwoOperandNumericOperation::PowerEval_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::eval::TwoOperandNumericOperation::SubtractEval()
+poi::ss::formula::functions::Function*& poi::ss::formula::eval::TwoOperandNumericOperation::SubtractEval()
 {
     clinit();
     return SubtractEval_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::eval::TwoOperandNumericOperation::SubtractEval_;
+poi::ss::formula::functions::Function* poi::ss::formula::eval::TwoOperandNumericOperation::SubtractEval_;
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::eval::TwoOperandNumericOperation::class_()
+java::lang::Class* poi::ss::formula::eval::TwoOperandNumericOperation::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.eval.TwoOperandNumericOperation", 57);
     return c;
 }
 
-void org::apache::poi::ss::formula::eval::TwoOperandNumericOperation::clinit()
+void poi::ss::formula::eval::TwoOperandNumericOperation::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -144,12 +138,12 @@ struct clinit_ {
     }
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::eval::TwoOperandNumericOperation::evaluate(ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::eval::TwoOperandNumericOperation::evaluate(ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
 {
     return super::evaluate(args, srcRowIndex, srcColumnIndex);
 }
 
-java::lang::Class* org::apache::poi::ss::formula::eval::TwoOperandNumericOperation::getClass0()
+java::lang::Class* poi::ss::formula::eval::TwoOperandNumericOperation::getClass0()
 {
     return class_();
 }

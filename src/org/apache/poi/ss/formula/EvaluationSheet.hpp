@@ -6,7 +6,7 @@
 #include <org/apache/poi/ss/formula/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::formula::EvaluationSheet
+struct poi::ss::formula::EvaluationSheet
     : public virtual ::java::lang::Object
 {
     virtual EvaluationCell* getCell(int32_t rowIndex, int32_t columnIndex) = 0;

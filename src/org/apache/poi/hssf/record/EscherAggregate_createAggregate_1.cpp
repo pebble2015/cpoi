@@ -15,7 +15,7 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::EscherAggregate_createAggregate_1::EscherAggregate_createAggregate_1(::java::util::List* shapeRecords)
+poi::hssf::record::EscherAggregate_createAggregate_1::EscherAggregate_createAggregate_1(::java::util::List* shapeRecords)
     : super(*static_cast< ::default_init_tag* >(0))
     , shapeRecords(shapeRecords)
 {
@@ -23,10 +23,10 @@ org::apache::poi::hssf::record::EscherAggregate_createAggregate_1::EscherAggrega
     ctor();
 }
 
-org::apache::poi::ddf::EscherRecord* org::apache::poi::hssf::record::EscherAggregate_createAggregate_1::createRecord(::int8_tArray* data, int32_t offset)
+poi::ddf::EscherRecord* poi::hssf::record::EscherAggregate_createAggregate_1::createRecord(::int8_tArray* data, int32_t offset)
 {
     auto r = super::createRecord(data, offset);
-    if(npc(r)->getRecordId() == ::org::apache::poi::ddf::EscherClientDataRecord::RECORD_ID || npc(r)->getRecordId() == ::org::apache::poi::ddf::EscherTextboxRecord::RECORD_ID) {
+    if(npc(r)->getRecordId() == ::poi::ddf::EscherClientDataRecord::RECORD_ID || npc(r)->getRecordId() == ::poi::ddf::EscherTextboxRecord::RECORD_ID) {
         npc(shapeRecords)->add(static_cast< ::java::lang::Object* >(r));
     }
     return r;
@@ -34,13 +34,13 @@ org::apache::poi::ddf::EscherRecord* org::apache::poi::hssf::record::EscherAggre
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::EscherAggregate_createAggregate_1::class_()
+java::lang::Class* poi::hssf::record::EscherAggregate_createAggregate_1::class_()
 {
     static ::java::lang::Class* c = ::class_(u"", 0);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::record::EscherAggregate_createAggregate_1::getClass0()
+java::lang::Class* poi::hssf::record::EscherAggregate_createAggregate_1::getClass0()
 {
     return class_();
 }

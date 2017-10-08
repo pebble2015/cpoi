@@ -94,61 +94,61 @@ namespace
 
     template<typename F> finally_<F> finally(F f) { return finally_<F>(f); }
 }
-org::apache::poi::hssf::extractor::OldExcelExtractor::OldExcelExtractor(const ::default_init_tag&)
+poi::hssf::extractor::OldExcelExtractor::OldExcelExtractor(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::extractor::OldExcelExtractor::OldExcelExtractor(::java::io::InputStream* input)  /* throws(IOException) */
+poi::hssf::extractor::OldExcelExtractor::OldExcelExtractor(::java::io::InputStream* input)  /* throws(IOException) */
     : OldExcelExtractor(*static_cast< ::default_init_tag* >(0))
 {
     ctor(input);
 }
 
-org::apache::poi::hssf::extractor::OldExcelExtractor::OldExcelExtractor(::java::io::File* f)  /* throws(IOException) */
+poi::hssf::extractor::OldExcelExtractor::OldExcelExtractor(::java::io::File* f)  /* throws(IOException) */
     : OldExcelExtractor(*static_cast< ::default_init_tag* >(0))
 {
     ctor(f);
 }
 
-org::apache::poi::hssf::extractor::OldExcelExtractor::OldExcelExtractor(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs)  /* throws(IOException) */
+poi::hssf::extractor::OldExcelExtractor::OldExcelExtractor(::poi::poifs::filesystem::NPOIFSFileSystem* fs)  /* throws(IOException) */
     : OldExcelExtractor(*static_cast< ::default_init_tag* >(0))
 {
     ctor(fs);
 }
 
-org::apache::poi::hssf::extractor::OldExcelExtractor::OldExcelExtractor(::org::apache::poi::poifs::filesystem::DirectoryNode* directory)  /* throws(IOException) */
+poi::hssf::extractor::OldExcelExtractor::OldExcelExtractor(::poi::poifs::filesystem::DirectoryNode* directory)  /* throws(IOException) */
     : OldExcelExtractor(*static_cast< ::default_init_tag* >(0))
 {
     ctor(directory);
 }
 
-constexpr int32_t org::apache::poi::hssf::extractor::OldExcelExtractor::FILE_PASS_RECORD_SID;
+constexpr int32_t poi::hssf::extractor::OldExcelExtractor::FILE_PASS_RECORD_SID;
 
-void org::apache::poi::hssf::extractor::OldExcelExtractor::ctor(::java::io::InputStream* input) /* throws(IOException) */
+void poi::hssf::extractor::OldExcelExtractor::ctor(::java::io::InputStream* input) /* throws(IOException) */
 {
     super::ctor();
     open(input);
 }
 
-void org::apache::poi::hssf::extractor::OldExcelExtractor::ctor(::java::io::File* f) /* throws(IOException) */
+void poi::hssf::extractor::OldExcelExtractor::ctor(::java::io::File* f) /* throws(IOException) */
 {
     super::ctor();
-    ::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* poifs = nullptr;
+    ::poi::poifs::filesystem::NPOIFSFileSystem* poifs = nullptr;
     {
         auto finally0 = finally([&] {
             if(toClose == nullptr) {
-                ::org::apache::poi::util::IOUtils::closeQuietly(poifs);
+                ::poi::util::IOUtils::closeQuietly(poifs);
             }
         });
         try {
-            poifs = new ::org::apache::poi::poifs::filesystem::NPOIFSFileSystem(f);
+            poifs = new ::poi::poifs::filesystem::NPOIFSFileSystem(f);
             open(poifs);
             toClose = poifs;
             return;
-        } catch (::org::apache::poi::hssf::OldExcelFormatException* e) {
-        } catch (::org::apache::poi::poifs::filesystem::NotOLE2FileException* e) {
+        } catch (::poi::hssf::OldExcelFormatException* e) {
+        } catch (::poi::poifs::filesystem::NotOLE2FileException* e) {
         } catch (::java::io::IOException* e) {
             throw e;
         } catch (::java::lang::RuntimeException* e) {
@@ -167,23 +167,23 @@ void org::apache::poi::hssf::extractor::OldExcelExtractor::ctor(::java::io::File
     }
 }
 
-void org::apache::poi::hssf::extractor::OldExcelExtractor::ctor(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs) /* throws(IOException) */
+void poi::hssf::extractor::OldExcelExtractor::ctor(::poi::poifs::filesystem::NPOIFSFileSystem* fs) /* throws(IOException) */
 {
     super::ctor();
     open(fs);
 }
 
-void org::apache::poi::hssf::extractor::OldExcelExtractor::ctor(::org::apache::poi::poifs::filesystem::DirectoryNode* directory) /* throws(IOException) */
+void poi::hssf::extractor::OldExcelExtractor::ctor(::poi::poifs::filesystem::DirectoryNode* directory) /* throws(IOException) */
 {
     super::ctor();
     open(directory);
 }
 
-void org::apache::poi::hssf::extractor::OldExcelExtractor::open(::java::io::InputStream* biffStream) /* throws(IOException) */
+void poi::hssf::extractor::OldExcelExtractor::open(::java::io::InputStream* biffStream) /* throws(IOException) */
 {
     auto bis = (dynamic_cast< ::java::io::BufferedInputStream* >(biffStream) != nullptr) ? java_cast< ::java::io::BufferedInputStream* >(biffStream) : new ::java::io::BufferedInputStream(biffStream, int32_t(8));
-    if(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem::hasPOIFSHeader(static_cast< ::java::io::InputStream* >(bis))) {
-        auto poifs = new ::org::apache::poi::poifs::filesystem::NPOIFSFileSystem(static_cast< ::java::io::InputStream* >(bis));
+    if(::poi::poifs::filesystem::NPOIFSFileSystem::hasPOIFSHeader(static_cast< ::java::io::InputStream* >(bis))) {
+        auto poifs = new ::poi::poifs::filesystem::NPOIFSFileSystem(static_cast< ::java::io::InputStream* >(bis));
         {
             auto finally1 = finally([&] {
                 npc(poifs)->close();
@@ -194,33 +194,33 @@ void org::apache::poi::hssf::extractor::OldExcelExtractor::open(::java::io::Inpu
         }
 
     } else {
-        ris = new ::org::apache::poi::hssf::record::RecordInputStream(bis);
+        ris = new ::poi::hssf::record::RecordInputStream(bis);
         toClose = bis;
         prepare();
     }
 }
 
-void org::apache::poi::hssf::extractor::OldExcelExtractor::open(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs) /* throws(IOException) */
+void poi::hssf::extractor::OldExcelExtractor::open(::poi::poifs::filesystem::NPOIFSFileSystem* fs) /* throws(IOException) */
 {
     open(npc(fs)->getRoot());
 }
 
-void org::apache::poi::hssf::extractor::OldExcelExtractor::open(::org::apache::poi::poifs::filesystem::DirectoryNode* directory) /* throws(IOException) */
+void poi::hssf::extractor::OldExcelExtractor::open(::poi::poifs::filesystem::DirectoryNode* directory) /* throws(IOException) */
 {
-    ::org::apache::poi::poifs::filesystem::DocumentNode* book;
+    ::poi::poifs::filesystem::DocumentNode* book;
     try {
-        book = java_cast< ::org::apache::poi::poifs::filesystem::DocumentNode* >(npc(directory)->getEntry(::org::apache::poi::hssf::model::InternalWorkbook::OLD_WORKBOOK_DIR_ENTRY_NAME()));
+        book = java_cast< ::poi::poifs::filesystem::DocumentNode* >(npc(directory)->getEntry(::poi::hssf::model::InternalWorkbook::OLD_WORKBOOK_DIR_ENTRY_NAME()));
     } catch (::java::io::FileNotFoundException* e) {
-        book = java_cast< ::org::apache::poi::poifs::filesystem::DocumentNode* >(npc(directory)->getEntry((*::org::apache::poi::hssf::model::InternalWorkbook::WORKBOOK_DIR_ENTRY_NAMES())[int32_t(0)]));
+        book = java_cast< ::poi::poifs::filesystem::DocumentNode* >(npc(directory)->getEntry((*::poi::hssf::model::InternalWorkbook::WORKBOOK_DIR_ENTRY_NAMES())[int32_t(0)]));
     }
     if(book == nullptr) {
         throw new ::java::io::IOException(u"No Excel 5/95 Book stream found"_j);
     }
-    ris = new ::org::apache::poi::hssf::record::RecordInputStream(npc(directory)->createDocumentInputStream(static_cast< ::org::apache::poi::poifs::filesystem::Entry* >(book)));
+    ris = new ::poi::hssf::record::RecordInputStream(npc(directory)->createDocumentInputStream(static_cast< ::poi::poifs::filesystem::Entry* >(book)));
     prepare();
 }
 
-void org::apache::poi::hssf::extractor::OldExcelExtractor::main(::java::lang::StringArray* args) /* throws(IOException) */
+void poi::hssf::extractor::OldExcelExtractor::main(::java::lang::StringArray* args) /* throws(IOException) */
 {
     clinit();
     if(npc(args)->length < 1) {
@@ -233,7 +233,7 @@ void org::apache::poi::hssf::extractor::OldExcelExtractor::main(::java::lang::St
     npc(extractor)->close();
 }
 
-void org::apache::poi::hssf::extractor::OldExcelExtractor::prepare()
+void poi::hssf::extractor::OldExcelExtractor::prepare()
 {
     if(!npc(ris)->hasNextRecord()) {
         throw new ::java::lang::IllegalArgumentException(u"File contains no records!"_j);
@@ -241,98 +241,98 @@ void org::apache::poi::hssf::extractor::OldExcelExtractor::prepare()
     npc(ris)->nextRecord();
     int32_t bofSid = npc(ris)->getSid();
     switch (bofSid) {
-    case ::org::apache::poi::hssf::record::BOFRecord::biff2_sid:
+    case ::poi::hssf::record::BOFRecord::biff2_sid:
         biffVersion = 2;
         break;
-    case ::org::apache::poi::hssf::record::BOFRecord::biff3_sid:
+    case ::poi::hssf::record::BOFRecord::biff3_sid:
         biffVersion = 3;
         break;
-    case ::org::apache::poi::hssf::record::BOFRecord::biff4_sid:
+    case ::poi::hssf::record::BOFRecord::biff4_sid:
         biffVersion = 4;
         break;
-    case ::org::apache::poi::hssf::record::BOFRecord::biff5_sid:
+    case ::poi::hssf::record::BOFRecord::biff5_sid:
         biffVersion = 5;
         break;
     default:
         throw new ::java::lang::IllegalArgumentException(::java::lang::StringBuilder().append(u"File does not begin with a BOF, found sid of "_j)->append(bofSid)->toString());
     }
 
-    auto bof = new ::org::apache::poi::hssf::record::BOFRecord(ris);
+    auto bof = new ::poi::hssf::record::BOFRecord(ris);
     fileType = npc(bof)->getType();
 }
 
-int32_t org::apache::poi::hssf::extractor::OldExcelExtractor::getBiffVersion()
+int32_t poi::hssf::extractor::OldExcelExtractor::getBiffVersion()
 {
     return biffVersion;
 }
 
-int32_t org::apache::poi::hssf::extractor::OldExcelExtractor::getFileType()
+int32_t poi::hssf::extractor::OldExcelExtractor::getFileType()
 {
     return fileType;
 }
 
-java::lang::String* org::apache::poi::hssf::extractor::OldExcelExtractor::getText()
+java::lang::String* poi::hssf::extractor::OldExcelExtractor::getText()
 {
     auto text = new ::java::lang::StringBuffer();
-    ::org::apache::poi::hssf::record::CodepageRecord* codepage = nullptr;
+    ::poi::hssf::record::CodepageRecord* codepage = nullptr;
     while (npc(ris)->hasNextRecord()) {
         auto sid = npc(ris)->getNextSid();
         npc(ris)->nextRecord();
         {
-            ::org::apache::poi::hssf::record::OldSheetRecord* shr;
-            ::org::apache::poi::hssf::record::OldLabelRecord* lr;
-            ::org::apache::poi::hssf::record::OldStringRecord* sr;
-            ::org::apache::poi::hssf::record::NumberRecord* nr;
-            ::org::apache::poi::hssf::record::RKRecord* rr;
+            ::poi::hssf::record::OldSheetRecord* shr;
+            ::poi::hssf::record::OldLabelRecord* lr;
+            ::poi::hssf::record::OldStringRecord* sr;
+            ::poi::hssf::record::NumberRecord* nr;
+            ::poi::hssf::record::RKRecord* rr;
             switch (sid) {
             case FILE_PASS_RECORD_SID:
-                throw new ::org::apache::poi::EncryptedDocumentException(u"Encryption not supported for Old Excel files"_j);
-            case ::org::apache::poi::hssf::record::OldSheetRecord::sid:
-                shr = new ::org::apache::poi::hssf::record::OldSheetRecord(ris);
+                throw new ::poi::EncryptedDocumentException(u"Encryption not supported for Old Excel files"_j);
+            case ::poi::hssf::record::OldSheetRecord::sid:
+                shr = new ::poi::hssf::record::OldSheetRecord(ris);
                 npc(shr)->setCodePage(codepage);
                 npc(text)->append(u"Sheet: "_j);
                 npc(text)->append(npc(shr)->getSheetname());
                 npc(text)->append(u'\u000a');
                 break;
-            case ::org::apache::poi::hssf::record::OldLabelRecord::biff2_sid:
-            case ::org::apache::poi::hssf::record::OldLabelRecord::biff345_sid:
-                lr = new ::org::apache::poi::hssf::record::OldLabelRecord(ris);
+            case ::poi::hssf::record::OldLabelRecord::biff2_sid:
+            case ::poi::hssf::record::OldLabelRecord::biff345_sid:
+                lr = new ::poi::hssf::record::OldLabelRecord(ris);
                 npc(lr)->setCodePage(codepage);
                 npc(text)->append(npc(lr)->getValue());
                 npc(text)->append(u'\u000a');
                 break;
-            case ::org::apache::poi::hssf::record::OldStringRecord::biff2_sid:
-            case ::org::apache::poi::hssf::record::OldStringRecord::biff345_sid:
-                sr = new ::org::apache::poi::hssf::record::OldStringRecord(ris);
+            case ::poi::hssf::record::OldStringRecord::biff2_sid:
+            case ::poi::hssf::record::OldStringRecord::biff345_sid:
+                sr = new ::poi::hssf::record::OldStringRecord(ris);
                 npc(sr)->setCodePage(codepage);
                 npc(text)->append(npc(sr)->getString());
                 npc(text)->append(u'\u000a');
                 break;
-            case ::org::apache::poi::hssf::record::NumberRecord::sid:
-                nr = new ::org::apache::poi::hssf::record::NumberRecord(ris);
+            case ::poi::hssf::record::NumberRecord::sid:
+                nr = new ::poi::hssf::record::NumberRecord(ris);
                 handleNumericCell(text, npc(nr)->getValue());
                 break;
-            case ::org::apache::poi::hssf::record::OldFormulaRecord::biff2_sid:
-            case ::org::apache::poi::hssf::record::OldFormulaRecord::biff3_sid:
-            case ::org::apache::poi::hssf::record::OldFormulaRecord::biff4_sid:
+            case ::poi::hssf::record::OldFormulaRecord::biff2_sid:
+            case ::poi::hssf::record::OldFormulaRecord::biff3_sid:
+            case ::poi::hssf::record::OldFormulaRecord::biff4_sid:
                 if(biffVersion == 5) {
-                    auto fr = new ::org::apache::poi::hssf::record::FormulaRecord(ris);
-                    if(npc(fr)->getCachedResultType() == npc(::org::apache::poi::ss::usermodel::CellType::NUMERIC)->getCode()) {
+                    auto fr = new ::poi::hssf::record::FormulaRecord(ris);
+                    if(npc(fr)->getCachedResultType() == npc(::poi::ss::usermodel::CellType::NUMERIC)->getCode()) {
                         handleNumericCell(text, npc(fr)->getValue());
                     }
                 } else {
-                    auto fr = new ::org::apache::poi::hssf::record::OldFormulaRecord(ris);
-                    if(npc(fr)->getCachedResultType() == npc(::org::apache::poi::ss::usermodel::CellType::NUMERIC)->getCode()) {
+                    auto fr = new ::poi::hssf::record::OldFormulaRecord(ris);
+                    if(npc(fr)->getCachedResultType() == npc(::poi::ss::usermodel::CellType::NUMERIC)->getCode()) {
                         handleNumericCell(text, npc(fr)->getValue());
                     }
                 }
                 break;
-            case ::org::apache::poi::hssf::record::RKRecord::sid:
-                rr = new ::org::apache::poi::hssf::record::RKRecord(ris);
+            case ::poi::hssf::record::RKRecord::sid:
+                rr = new ::poi::hssf::record::RKRecord(ris);
                 handleNumericCell(text, npc(rr)->getRKNumber());
                 break;
-            case ::org::apache::poi::hssf::record::CodepageRecord::sid:
-                codepage = new ::org::apache::poi::hssf::record::CodepageRecord(ris);
+            case ::poi::hssf::record::CodepageRecord::sid:
+                codepage = new ::poi::hssf::record::CodepageRecord(ris);
                 break;
             default:
                 npc(ris)->readFully(new ::int8_tArray(npc(ris)->remaining()));
@@ -345,15 +345,15 @@ java::lang::String* org::apache::poi::hssf::extractor::OldExcelExtractor::getTex
     return npc(text)->toString();
 }
 
-void org::apache::poi::hssf::extractor::OldExcelExtractor::close()
+void poi::hssf::extractor::OldExcelExtractor::close()
 {
     if(toClose != nullptr) {
-        ::org::apache::poi::util::IOUtils::closeQuietly(toClose);
+        ::poi::util::IOUtils::closeQuietly(toClose);
         toClose = nullptr;
     }
 }
 
-void org::apache::poi::hssf::extractor::OldExcelExtractor::handleNumericCell(::java::lang::StringBuffer* text, double value)
+void poi::hssf::extractor::OldExcelExtractor::handleNumericCell(::java::lang::StringBuffer* text, double value)
 {
     npc(text)->append(value);
     npc(text)->append(u'\u000a');
@@ -361,13 +361,13 @@ void org::apache::poi::hssf::extractor::OldExcelExtractor::handleNumericCell(::j
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::extractor::OldExcelExtractor::class_()
+java::lang::Class* poi::hssf::extractor::OldExcelExtractor::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.extractor.OldExcelExtractor", 47);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::extractor::OldExcelExtractor::getClass0()
+java::lang::Class* poi::hssf::extractor::OldExcelExtractor::getClass0()
 {
     return class_();
 }

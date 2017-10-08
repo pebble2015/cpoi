@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::format::SimpleFraction
+class poi::ss::format::SimpleFraction
     : public virtual ::java::lang::Object
 {
 

@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::format::CellDateFormatter_DatePartHandler
+class poi::ss::format::CellDateFormatter_DatePartHandler
     : public virtual ::java::lang::Object
     , public virtual CellFormatPart_PartHandler
 {

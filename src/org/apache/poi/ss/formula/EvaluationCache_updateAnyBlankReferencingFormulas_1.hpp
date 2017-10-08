@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::EvaluationCache_updateAnyBlankReferencingFormulas_1
+class poi::ss::formula::EvaluationCache_updateAnyBlankReferencingFormulas_1
     : public virtual ::java::lang::Object
     , public virtual FormulaCellCache_IEntryOperation
 {

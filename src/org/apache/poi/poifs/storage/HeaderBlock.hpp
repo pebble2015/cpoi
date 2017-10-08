@@ -12,7 +12,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::storage::HeaderBlock final
+class poi::poifs::storage::HeaderBlock final
     : public virtual ::java::lang::Object
     , public HeaderBlockConstants
 {
@@ -22,7 +22,7 @@ public:
 
 private:
     static constexpr int8_t _default_value { int8_t(-1) };
-    ::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize {  };
+    ::poi::poifs::common::POIFSBigBlockSize* bigBlockSize {  };
     int32_t _bat_count {  };
     int32_t _property_start {  };
     int32_t _sbat_start {  };
@@ -34,7 +34,7 @@ protected:
     void ctor(::java::io::InputStream* stream) /* throws(IOException) */;
     void ctor(::java::nio::ByteBuffer* buffer) /* throws(IOException) */;
     void ctor(::int8_tArray* data) /* throws(IOException) */;
-    void ctor(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize);
+    void ctor(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize);
 
 private:
     static ::int8_tArray* readFirst512(::java::io::InputStream* stream) /* throws(IOException) */;
@@ -55,7 +55,7 @@ public:
     void setXBATCount(int32_t count);
     int32_t getXBATIndex();
     void setXBATStart(int32_t startBlock);
-    ::org::apache::poi::poifs::common::POIFSBigBlockSize* getBigBlockSize();
+    ::poi::poifs::common::POIFSBigBlockSize* getBigBlockSize();
 
 public: /* package */
     void writeData(::java::io::OutputStream* stream) /* throws(IOException) */;
@@ -70,7 +70,7 @@ private:
     HeaderBlock(::int8_tArray* data);
 
 public:
-    HeaderBlock(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize);
+    HeaderBlock(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize);
 protected:
     HeaderBlock(const ::default_init_tag&);
 

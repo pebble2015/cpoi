@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ddf::EscherRGBProperty
+class poi::ddf::EscherRGBProperty
     : public EscherSimpleProperty
 {
 

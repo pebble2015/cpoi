@@ -7,7 +7,7 @@
 #include <org/apache/poi/ss/usermodel/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::usermodel::Shape
+struct poi::ss::usermodel::Shape
     : public virtual ::java::lang::Object
 {
     virtual ::java::lang::String* getShapeName() = 0;

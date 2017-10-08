@@ -18,111 +18,111 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::WindowProtectRecord::WindowProtectRecord(const ::default_init_tag&)
+poi::hssf::record::WindowProtectRecord::WindowProtectRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::WindowProtectRecord::WindowProtectRecord(int32_t options) 
+poi::hssf::record::WindowProtectRecord::WindowProtectRecord(int32_t options) 
     : WindowProtectRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(options);
 }
 
-org::apache::poi::hssf::record::WindowProtectRecord::WindowProtectRecord(RecordInputStream* in) 
+poi::hssf::record::WindowProtectRecord::WindowProtectRecord(RecordInputStream* in) 
     : WindowProtectRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-org::apache::poi::hssf::record::WindowProtectRecord::WindowProtectRecord(bool protect) 
+poi::hssf::record::WindowProtectRecord::WindowProtectRecord(bool protect) 
     : WindowProtectRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(protect);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::WindowProtectRecord::sid;
+constexpr int16_t poi::hssf::record::WindowProtectRecord::sid;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::WindowProtectRecord::settingsProtectedFlag()
+poi::util::BitField*& poi::hssf::record::WindowProtectRecord::settingsProtectedFlag()
 {
     clinit();
     return settingsProtectedFlag_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::WindowProtectRecord::settingsProtectedFlag_;
+poi::util::BitField* poi::hssf::record::WindowProtectRecord::settingsProtectedFlag_;
 
-void org::apache::poi::hssf::record::WindowProtectRecord::ctor(int32_t options)
+void poi::hssf::record::WindowProtectRecord::ctor(int32_t options)
 {
     super::ctor();
     _options = options;
 }
 
-void org::apache::poi::hssf::record::WindowProtectRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::WindowProtectRecord::ctor(RecordInputStream* in)
 {
     ctor(npc(in)->readUShort());
 }
 
-void org::apache::poi::hssf::record::WindowProtectRecord::ctor(bool protect)
+void poi::hssf::record::WindowProtectRecord::ctor(bool protect)
 {
     ctor(int32_t(0));
     setProtect(protect);
 }
 
-void org::apache::poi::hssf::record::WindowProtectRecord::setProtect(bool protect)
+void poi::hssf::record::WindowProtectRecord::setProtect(bool protect)
 {
     _options = npc(settingsProtectedFlag_)->setBoolean(_options, protect);
 }
 
-bool org::apache::poi::hssf::record::WindowProtectRecord::getProtect()
+bool poi::hssf::record::WindowProtectRecord::getProtect()
 {
     return npc(settingsProtectedFlag_)->isSet(_options);
 }
 
-java::lang::String* org::apache::poi::hssf::record::WindowProtectRecord::toString()
+java::lang::String* poi::hssf::record::WindowProtectRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[WINDOWPROTECT]\n"_j);
-    npc(npc(npc(buffer)->append(u"    .options = "_j))->append(::org::apache::poi::util::HexDump::shortToHex(_options)))->append(u"\n"_j);
+    npc(npc(npc(buffer)->append(u"    .options = "_j))->append(::poi::util::HexDump::shortToHex(_options)))->append(u"\n"_j);
     npc(buffer)->append(u"[/WINDOWPROTECT]\n"_j);
     return npc(buffer)->toString();
 }
 
-void org::apache::poi::hssf::record::WindowProtectRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::WindowProtectRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(_options);
 }
 
-int32_t org::apache::poi::hssf::record::WindowProtectRecord::getDataSize()
+int32_t poi::hssf::record::WindowProtectRecord::getDataSize()
 {
     return 2;
 }
 
-int16_t org::apache::poi::hssf::record::WindowProtectRecord::getSid()
+int16_t poi::hssf::record::WindowProtectRecord::getSid()
 {
     return sid;
 }
 
-java::lang::Object* org::apache::poi::hssf::record::WindowProtectRecord::clone()
+java::lang::Object* poi::hssf::record::WindowProtectRecord::clone()
 {
     return new WindowProtectRecord(_options);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::WindowProtectRecord::class_()
+java::lang::Class* poi::hssf::record::WindowProtectRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.WindowProtectRecord", 46);
     return c;
 }
 
-void org::apache::poi::hssf::record::WindowProtectRecord::clinit()
+void poi::hssf::record::WindowProtectRecord::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        settingsProtectedFlag_ = ::org::apache::poi::util::BitFieldFactory::getInstance(1);
+        settingsProtectedFlag_ = ::poi::util::BitFieldFactory::getInstance(1);
     }
 };
 
@@ -131,17 +131,17 @@ struct clinit_ {
     }
 }
 
-int32_t org::apache::poi::hssf::record::WindowProtectRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::WindowProtectRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::WindowProtectRecord::serialize()
+int8_tArray* poi::hssf::record::WindowProtectRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::WindowProtectRecord::getClass0()
+java::lang::Class* poi::hssf::record::WindowProtectRecord::getClass0()
 {
     return class_();
 }

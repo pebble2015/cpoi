@@ -10,18 +10,18 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::cont::ContinuableRecordInput
+class poi::hssf::record::cont::ContinuableRecordInput
     : public virtual ::java::lang::Object
-    , public virtual ::org::apache::poi::util::LittleEndianInput
+    , public virtual ::poi::util::LittleEndianInput
 {
 
 public:
     typedef ::java::lang::Object super;
 
 private:
-    ::org::apache::poi::hssf::record::RecordInputStream* _in {  };
+    ::poi::hssf::record::RecordInputStream* _in {  };
 protected:
-    void ctor(::org::apache::poi::hssf::record::RecordInputStream* in);
+    void ctor(::poi::hssf::record::RecordInputStream* in);
 
 public:
     int32_t available() override;
@@ -37,7 +37,7 @@ public:
     void readPlain(::int8_tArray* buf, int32_t off, int32_t len) override;
 
     // Generated
-    ContinuableRecordInput(::org::apache::poi::hssf::record::RecordInputStream* in);
+    ContinuableRecordInput(::poi::hssf::record::RecordInputStream* in);
 protected:
     ContinuableRecordInput(const ::default_init_tag&);
 

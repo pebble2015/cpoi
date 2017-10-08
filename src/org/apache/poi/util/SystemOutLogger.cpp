@@ -42,29 +42,29 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::util::SystemOutLogger::SystemOutLogger(const ::default_init_tag&)
+poi::util::SystemOutLogger::SystemOutLogger(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::util::SystemOutLogger::SystemOutLogger()
+poi::util::SystemOutLogger::SystemOutLogger()
     : SystemOutLogger(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::util::SystemOutLogger::initialize(::java::lang::String* cat)
+void poi::util::SystemOutLogger::initialize(::java::lang::String* cat)
 {
     this->_cat = cat;
 }
 
-void org::apache::poi::util::SystemOutLogger::_log(int32_t level, ::java::lang::Object* obj1)
+void poi::util::SystemOutLogger::_log(int32_t level, ::java::lang::Object* obj1)
 {
     _log(level, obj1, static_cast< ::java::lang::Throwable* >(nullptr));
 }
 
-void org::apache::poi::util::SystemOutLogger::_log(int32_t level, ::java::lang::Object* obj1, ::java::lang::Throwable* exception)
+void poi::util::SystemOutLogger::_log(int32_t level, ::java::lang::Object* obj1, ::java::lang::Throwable* exception)
 {
     if(check(level)) {
         npc(::java::lang::System::out())->println(::java::lang::StringBuilder().append(u"["_j)->append(_cat)
@@ -78,7 +78,7 @@ void org::apache::poi::util::SystemOutLogger::_log(int32_t level, ::java::lang::
     }
 }
 
-bool org::apache::poi::util::SystemOutLogger::check(int32_t level)
+bool poi::util::SystemOutLogger::check(int32_t level)
 {
     int32_t currentLevel;
     try {
@@ -91,13 +91,13 @@ bool org::apache::poi::util::SystemOutLogger::check(int32_t level)
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::util::SystemOutLogger::class_()
+java::lang::Class* poi::util::SystemOutLogger::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.util.SystemOutLogger", 35);
     return c;
 }
 
-java::lang::Class* org::apache::poi::util::SystemOutLogger::getClass0()
+java::lang::Class* poi::util::SystemOutLogger::getClass0()
 {
     return class_();
 }

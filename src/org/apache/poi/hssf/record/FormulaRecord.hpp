@@ -12,29 +12,23 @@
 #include <java/lang/Cloneable.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::FormulaRecord final
+class poi::hssf::record::FormulaRecord final
     : public CellRecord
     , public ::java::lang::Cloneable
 {
@@ -45,13 +39,13 @@ public:
 
 private:
     static int32_t FIXED_SIZE_;
-    static ::org::apache::poi::util::BitField* alwaysCalc_;
-    static ::org::apache::poi::util::BitField* calcOnLoad_;
-    static ::org::apache::poi::util::BitField* sharedFormula_;
+    static ::poi::util::BitField* alwaysCalc_;
+    static ::poi::util::BitField* calcOnLoad_;
+    static ::poi::util::BitField* sharedFormula_;
     double field_4_value {  };
     int16_t field_5_options {  };
     int32_t field_6_zero {  };
-    ::org::apache::poi::ss::formula::Formula* field_8_parsed_expr {  };
+    ::poi::ss::formula::Formula* field_8_parsed_expr {  };
     FormulaRecord_SpecialCachedValue* specialCachedValue {  };
 protected:
     void ctor();
@@ -76,14 +70,14 @@ public:
     void setAlwaysCalc(bool flag);
     bool isCalcOnLoad();
     void setCalcOnLoad(bool flag);
-    ::org::apache::poi::ss::formula::ptg::PtgArray* getParsedExpression();
-    ::org::apache::poi::ss::formula::Formula* getFormula();
-    void setParsedExpression(::org::apache::poi::ss::formula::ptg::PtgArray* ptgs);
+    ::poi::ss::formula::ptg::PtgArray* getParsedExpression();
+    ::poi::ss::formula::Formula* getFormula();
+    void setParsedExpression(::poi::ss::formula::ptg::PtgArray* ptgs);
     int16_t getSid() override;
 
 public: /* protected */
     int32_t getValueDataSize() override;
-    void serializeValue(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serializeValue(::poi::util::LittleEndianOutput* out) override;
     ::java::lang::String* getRecordName() override;
     void appendValueText(::java::lang::StringBuilder* sb) override;
 
@@ -103,9 +97,9 @@ public:
 
 private:
     static int32_t& FIXED_SIZE();
-    static ::org::apache::poi::util::BitField*& alwaysCalc();
-    static ::org::apache::poi::util::BitField*& calcOnLoad();
-    static ::org::apache::poi::util::BitField*& sharedFormula();
+    static ::poi::util::BitField*& alwaysCalc();
+    static ::poi::util::BitField*& calcOnLoad();
+    static ::poi::util::BitField*& sharedFormula();
     virtual ::java::lang::Class* getClass0();
     friend class FormulaRecord_SpecialCachedValue;
 };

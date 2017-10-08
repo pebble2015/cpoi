@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::storage::DataInputBlock final
+class poi::poifs::storage::DataInputBlock final
     : public ::java::lang::Object
 {
 

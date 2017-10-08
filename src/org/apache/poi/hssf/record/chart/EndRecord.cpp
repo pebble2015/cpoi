@@ -13,37 +13,37 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::chart::EndRecord::EndRecord(const ::default_init_tag&)
+poi::hssf::record::chart::EndRecord::EndRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::chart::EndRecord::EndRecord() 
+poi::hssf::record::chart::EndRecord::EndRecord() 
     : EndRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::chart::EndRecord::EndRecord(::org::apache::poi::hssf::record::RecordInputStream* in) 
+poi::hssf::record::chart::EndRecord::EndRecord(::poi::hssf::record::RecordInputStream* in) 
     : EndRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::chart::EndRecord::sid;
+constexpr int16_t poi::hssf::record::chart::EndRecord::sid;
 
-void org::apache::poi::hssf::record::chart::EndRecord::ctor()
+void poi::hssf::record::chart::EndRecord::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hssf::record::chart::EndRecord::ctor(::org::apache::poi::hssf::record::RecordInputStream* in)
+void poi::hssf::record::chart::EndRecord::ctor(::poi::hssf::record::RecordInputStream* in)
 {
     super::ctor();
 }
 
-java::lang::String* org::apache::poi::hssf::record::chart::EndRecord::toString()
+java::lang::String* poi::hssf::record::chart::EndRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[END]\n"_j);
@@ -51,21 +51,21 @@ java::lang::String* org::apache::poi::hssf::record::chart::EndRecord::toString()
     return npc(buffer)->toString();
 }
 
-void org::apache::poi::hssf::record::chart::EndRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::chart::EndRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
 }
 
-int32_t org::apache::poi::hssf::record::chart::EndRecord::getDataSize()
+int32_t poi::hssf::record::chart::EndRecord::getDataSize()
 {
     return 0;
 }
 
-int16_t org::apache::poi::hssf::record::chart::EndRecord::getSid()
+int16_t poi::hssf::record::chart::EndRecord::getSid()
 {
     return sid;
 }
 
-org::apache::poi::hssf::record::chart::EndRecord* org::apache::poi::hssf::record::chart::EndRecord::clone()
+poi::hssf::record::chart::EndRecord* poi::hssf::record::chart::EndRecord::clone()
 {
     auto er = new EndRecord();
     return er;
@@ -73,23 +73,23 @@ org::apache::poi::hssf::record::chart::EndRecord* org::apache::poi::hssf::record
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::chart::EndRecord::class_()
+java::lang::Class* poi::hssf::record::chart::EndRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.chart.EndRecord", 42);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::chart::EndRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::chart::EndRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::chart::EndRecord::serialize()
+int8_tArray* poi::hssf::record::chart::EndRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::chart::EndRecord::getClass0()
+java::lang::Class* poi::hssf::record::chart::EndRecord::getClass0()
 {
     return class_();
 }

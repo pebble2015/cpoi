@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::filesystem::BlockStore_ChainLoopDetector
+class poi::poifs::filesystem::BlockStore_ChainLoopDetector
     : public virtual ::java::lang::Object
 {
 

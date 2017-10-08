@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::UnsupportedFileFormatException
+class poi::UnsupportedFileFormatException
     : public ::java::lang::IllegalArgumentException
 {
 

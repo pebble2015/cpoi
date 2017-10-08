@@ -5,7 +5,7 @@
 #include <org/apache/poi/sl/usermodel/fwd-POI.hpp>
 #include <org/apache/poi/sl/usermodel/Sheet.hpp>
 
-struct org::apache::poi::sl::usermodel::MasterSheet
+struct poi::sl::usermodel::MasterSheet
     : public virtual Sheet
 {
 

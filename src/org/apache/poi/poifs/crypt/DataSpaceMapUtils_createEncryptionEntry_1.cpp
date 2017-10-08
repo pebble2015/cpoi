@@ -15,7 +15,7 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::crypt::DataSpaceMapUtils_createEncryptionEntry_1::DataSpaceMapUtils_createEncryptionEntry_1(::int8_tArray* buf)
+poi::poifs::crypt::DataSpaceMapUtils_createEncryptionEntry_1::DataSpaceMapUtils_createEncryptionEntry_1(::int8_tArray* buf)
     : super(*static_cast< ::default_init_tag* >(0))
     , buf(buf)
 {
@@ -23,24 +23,24 @@ org::apache::poi::poifs::crypt::DataSpaceMapUtils_createEncryptionEntry_1::DataS
     ctor();
 }
 
-void org::apache::poi::poifs::crypt::DataSpaceMapUtils_createEncryptionEntry_1::processPOIFSWriterEvent(::org::apache::poi::poifs::filesystem::POIFSWriterEvent* event)
+void poi::poifs::crypt::DataSpaceMapUtils_createEncryptionEntry_1::processPOIFSWriterEvent(::poi::poifs::filesystem::POIFSWriterEvent* event)
 {
     try {
         npc(npc(event)->getStream())->write(buf, int32_t(0), npc(event)->getLimit());
     } catch (::java::io::IOException* e) {
-        throw new ::org::apache::poi::EncryptedDocumentException(static_cast< ::java::lang::Throwable* >(e));
+        throw new ::poi::EncryptedDocumentException(static_cast< ::java::lang::Throwable* >(e));
     }
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::crypt::DataSpaceMapUtils_createEncryptionEntry_1::class_()
+java::lang::Class* poi::poifs::crypt::DataSpaceMapUtils_createEncryptionEntry_1::class_()
 {
     static ::java::lang::Class* c = ::class_(u"", 0);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::crypt::DataSpaceMapUtils_createEncryptionEntry_1::getClass0()
+java::lang::Class* poi::poifs::crypt::DataSpaceMapUtils_createEncryptionEntry_1::getClass0()
 {
     return class_();
 }

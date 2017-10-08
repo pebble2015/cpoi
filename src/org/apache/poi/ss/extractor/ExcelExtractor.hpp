@@ -7,7 +7,7 @@
 #include <org/apache/poi/ss/extractor/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::extractor::ExcelExtractor
+struct poi::ss::extractor::ExcelExtractor
     : public virtual ::java::lang::Object
 {
     virtual void setIncludeSheetNames(bool includeSheetNames) = 0;

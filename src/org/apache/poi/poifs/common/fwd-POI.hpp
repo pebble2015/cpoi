@@ -2,20 +2,14 @@
 #pragma once
 
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace poifs
     {
-        namespace poi
+        namespace common
         {
-            namespace poifs
-            {
-                namespace common
-                {
-                    class POIFSBigBlockSize;
-                    struct POIFSConstants;
-                } // common
-            } // poifs
-        } // poi
-    } // apache
-} // org
+            class POIFSBigBlockSize;
+            struct POIFSConstants;
+        } // common
+    } // poifs
+} // poi

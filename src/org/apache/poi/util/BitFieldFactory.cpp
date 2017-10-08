@@ -25,26 +25,26 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::util::BitFieldFactory::BitFieldFactory(const ::default_init_tag&)
+poi::util::BitFieldFactory::BitFieldFactory(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::util::BitFieldFactory::BitFieldFactory()
+poi::util::BitFieldFactory::BitFieldFactory()
     : BitFieldFactory(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-java::util::Map*& org::apache::poi::util::BitFieldFactory::instances()
+java::util::Map*& poi::util::BitFieldFactory::instances()
 {
     clinit();
     return instances_;
 }
-java::util::Map* org::apache::poi::util::BitFieldFactory::instances_;
+java::util::Map* poi::util::BitFieldFactory::instances_;
 
-org::apache::poi::util::BitField* org::apache::poi::util::BitFieldFactory::getInstance(int32_t mask)
+poi::util::BitField* poi::util::BitFieldFactory::getInstance(int32_t mask)
 {
     clinit();
     auto f = java_cast< BitField* >(npc(instances_)->get(::java::lang::Integer::valueOf(mask)));
@@ -57,13 +57,13 @@ org::apache::poi::util::BitField* org::apache::poi::util::BitFieldFactory::getIn
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::util::BitFieldFactory::class_()
+java::lang::Class* poi::util::BitFieldFactory::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.util.BitFieldFactory", 35);
     return c;
 }
 
-void org::apache::poi::util::BitFieldFactory::clinit()
+void poi::util::BitFieldFactory::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -79,7 +79,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::util::BitFieldFactory::getClass0()
+java::lang::Class* poi::util::BitFieldFactory::getClass0()
 {
     return class_();
 }

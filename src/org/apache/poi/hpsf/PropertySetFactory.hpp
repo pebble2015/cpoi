@@ -10,13 +10,13 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hpsf::PropertySetFactory
+class poi::hpsf::PropertySetFactory
     : public virtual ::java::lang::Object
 {
 
 public:
     typedef ::java::lang::Object super;
-    static PropertySet* create(::org::apache::poi::poifs::filesystem::DirectoryEntry* dir, ::java::lang::String* name) /* throws(FileNotFoundException, NoPropertySetStreamException, IOException, UnsupportedEncodingException) */;
+    static PropertySet* create(::poi::poifs::filesystem::DirectoryEntry* dir, ::java::lang::String* name) /* throws(FileNotFoundException, NoPropertySetStreamException, IOException, UnsupportedEncodingException) */;
     static PropertySet* create(::java::io::InputStream* stream) /* throws(NoPropertySetStreamException, MarkUnsupportedException, UnsupportedEncodingException, IOException) */;
     static SummaryInformation* newSummaryInformation();
     static DocumentSummaryInformation* newDocumentSummaryInformation();

@@ -30,26 +30,26 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::extractor::ExcelExtractor
-    : public ::org::apache::poi::POIOLE2TextExtractor
-    , public virtual ::org::apache::poi::ss::extractor::ExcelExtractor
+class poi::hssf::extractor::ExcelExtractor
+    : public ::poi::POIOLE2TextExtractor
+    , public virtual ::poi::ss::extractor::ExcelExtractor
 {
 
 public:
-    typedef ::org::apache::poi::POIOLE2TextExtractor super;
+    typedef ::poi::POIOLE2TextExtractor super;
 
 private:
-    ::org::apache::poi::hssf::usermodel::HSSFWorkbook* _wb {  };
-    ::org::apache::poi::hssf::usermodel::HSSFDataFormatter* _formatter {  };
+    ::poi::hssf::usermodel::HSSFWorkbook* _wb {  };
+    ::poi::hssf::usermodel::HSSFDataFormatter* _formatter {  };
     bool _includeSheetNames {  };
     bool _shouldEvaluateFormulas {  };
     bool _includeCellComments {  };
     bool _includeBlankCells {  };
     bool _includeHeadersFooters {  };
 protected:
-    void ctor(::org::apache::poi::hssf::usermodel::HSSFWorkbook* wb);
-    void ctor(::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs) /* throws(IOException) */;
-    void ctor(::org::apache::poi::poifs::filesystem::DirectoryNode* dir) /* throws(IOException) */;
+    void ctor(::poi::hssf::usermodel::HSSFWorkbook* wb);
+    void ctor(::poi::poifs::filesystem::POIFSFileSystem* fs) /* throws(IOException) */;
+    void ctor(::poi::poifs::filesystem::DirectoryNode* dir) /* throws(IOException) */;
 
 private:
     static void printUsageMessage(::java::io::PrintStream* ps);
@@ -62,12 +62,12 @@ public:
     virtual void setIncludeBlankCells(bool includeBlankCells);
     void setIncludeHeadersFooters(bool includeHeadersFooters) override;
     ::java::lang::String* getText() override;
-    static ::java::lang::String* _extractHeaderFooter(::org::apache::poi::ss::usermodel::HeaderFooter* hf);
+    static ::java::lang::String* _extractHeaderFooter(::poi::ss::usermodel::HeaderFooter* hf);
 
     // Generated
-    ExcelExtractor(::org::apache::poi::hssf::usermodel::HSSFWorkbook* wb);
-    ExcelExtractor(::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs);
-    ExcelExtractor(::org::apache::poi::poifs::filesystem::DirectoryNode* dir);
+    ExcelExtractor(::poi::hssf::usermodel::HSSFWorkbook* wb);
+    ExcelExtractor(::poi::poifs::filesystem::POIFSFileSystem* fs);
+    ExcelExtractor(::poi::poifs::filesystem::DirectoryNode* dir);
 protected:
     ExcelExtractor(const ::default_init_tag&);
 

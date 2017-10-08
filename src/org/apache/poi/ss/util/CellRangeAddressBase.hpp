@@ -12,7 +12,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::util::CellRangeAddressBase
+class poi::ss::util::CellRangeAddressBase
     : public virtual ::java::lang::Object
 {
 
@@ -28,11 +28,11 @@ protected:
     void ctor(int32_t firstRow, int32_t lastRow, int32_t firstCol, int32_t lastCol);
 
 public:
-    virtual void validate(::org::apache::poi::ss::SpreadsheetVersion* ssVersion);
+    virtual void validate(::poi::ss::SpreadsheetVersion* ssVersion);
 
 private:
-    static void validateRow(int32_t row, ::org::apache::poi::ss::SpreadsheetVersion* ssVersion);
-    static void validateColumn(int32_t column, ::org::apache::poi::ss::SpreadsheetVersion* ssVersion);
+    static void validateRow(int32_t row, ::poi::ss::SpreadsheetVersion* ssVersion);
+    static void validateColumn(int32_t column, ::poi::ss::SpreadsheetVersion* ssVersion);
 
 public:
     bool isFullColumnRange();
@@ -43,7 +43,7 @@ public:
     int32_t getLastRow();
     virtual bool isInRange(int32_t rowInd, int32_t colInd);
     virtual bool isInRange(CellReference* ref);
-    virtual bool isInRange(::org::apache::poi::ss::usermodel::Cell* cell);
+    virtual bool isInRange(::poi::ss::usermodel::Cell* cell);
     virtual bool containsRow(int32_t rowInd);
     virtual bool containsColumn(int32_t colInd);
     virtual bool intersects(CellRangeAddressBase* other);

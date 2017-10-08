@@ -15,70 +15,64 @@
 #include <org/apache/poi/ss/formula/EvaluationWorkbook.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::eval::forked::ForkedEvaluationWorkbook final
+class poi::ss::formula::eval::forked::ForkedEvaluationWorkbook final
     : public virtual ::java::lang::Object
-    , public ::org::apache::poi::ss::formula::EvaluationWorkbook
+    , public ::poi::ss::formula::EvaluationWorkbook
 {
 
 public:
     typedef ::java::lang::Object super;
 
 private:
-    ::org::apache::poi::ss::formula::EvaluationWorkbook* _masterBook {  };
+    ::poi::ss::formula::EvaluationWorkbook* _masterBook {  };
     ::java::util::Map* _sharedSheetsByName {  };
 protected:
-    void ctor(::org::apache::poi::ss::formula::EvaluationWorkbook* master);
+    void ctor(::poi::ss::formula::EvaluationWorkbook* master);
 
 public:
     ForkedEvaluationCell* getOrCreateUpdatableCell(::java::lang::String* sheetName, int32_t rowIndex, int32_t columnIndex);
-    ::org::apache::poi::ss::formula::EvaluationCell* getEvaluationCell(::java::lang::String* sheetName, int32_t rowIndex, int32_t columnIndex);
+    ::poi::ss::formula::EvaluationCell* getEvaluationCell(::java::lang::String* sheetName, int32_t rowIndex, int32_t columnIndex);
 
 private:
     ForkedEvaluationSheet* getSharedSheet(::java::lang::String* sheetName);
 
 public:
-    void copyUpdatedCells(::org::apache::poi::ss::usermodel::Workbook* workbook);
+    void copyUpdatedCells(::poi::ss::usermodel::Workbook* workbook);
     int32_t convertFromExternSheetIndex(int32_t externSheetIndex) override;
-    ::org::apache::poi::ss::formula::EvaluationWorkbook_ExternalSheet* getExternalSheet(int32_t externSheetIndex) override;
-    ::org::apache::poi::ss::formula::EvaluationWorkbook_ExternalSheet* getExternalSheet(::java::lang::String* firstSheetName, ::java::lang::String* lastSheetName, int32_t externalWorkbookNumber) override;
-    ::org::apache::poi::ss::formula::ptg::PtgArray* getFormulaTokens(::org::apache::poi::ss::formula::EvaluationCell* cell) override;
-    ::org::apache::poi::ss::formula::EvaluationName* getName(::org::apache::poi::ss::formula::ptg::NamePtg* namePtg) override;
-    ::org::apache::poi::ss::formula::EvaluationName* getName(::java::lang::String* name, int32_t sheetIndex) override;
-    ::org::apache::poi::ss::formula::EvaluationSheet* getSheet(int32_t sheetIndex) override;
-    ::org::apache::poi::ss::formula::EvaluationWorkbook_ExternalName* getExternalName(int32_t externSheetIndex, int32_t externNameIndex) override;
-    ::org::apache::poi::ss::formula::EvaluationWorkbook_ExternalName* getExternalName(::java::lang::String* nameName, ::java::lang::String* sheetName, int32_t externalWorkbookNumber) override;
-    int32_t getSheetIndex(::org::apache::poi::ss::formula::EvaluationSheet* sheet) override;
+    ::poi::ss::formula::EvaluationWorkbook_ExternalSheet* getExternalSheet(int32_t externSheetIndex) override;
+    ::poi::ss::formula::EvaluationWorkbook_ExternalSheet* getExternalSheet(::java::lang::String* firstSheetName, ::java::lang::String* lastSheetName, int32_t externalWorkbookNumber) override;
+    ::poi::ss::formula::ptg::PtgArray* getFormulaTokens(::poi::ss::formula::EvaluationCell* cell) override;
+    ::poi::ss::formula::EvaluationName* getName(::poi::ss::formula::ptg::NamePtg* namePtg) override;
+    ::poi::ss::formula::EvaluationName* getName(::java::lang::String* name, int32_t sheetIndex) override;
+    ::poi::ss::formula::EvaluationSheet* getSheet(int32_t sheetIndex) override;
+    ::poi::ss::formula::EvaluationWorkbook_ExternalName* getExternalName(int32_t externSheetIndex, int32_t externNameIndex) override;
+    ::poi::ss::formula::EvaluationWorkbook_ExternalName* getExternalName(::java::lang::String* nameName, ::java::lang::String* sheetName, int32_t externalWorkbookNumber) override;
+    int32_t getSheetIndex(::poi::ss::formula::EvaluationSheet* sheet) override;
     int32_t getSheetIndex(::java::lang::String* sheetName) override;
     ::java::lang::String* getSheetName(int32_t sheetIndex) override;
-    ::java::lang::String* resolveNameXText(::org::apache::poi::ss::formula::ptg::NameXPtg* ptg) override;
-    ::org::apache::poi::ss::formula::udf::UDFFinder* getUDFFinder() override;
-    ::org::apache::poi::ss::SpreadsheetVersion* getSpreadsheetVersion() override;
+    ::java::lang::String* resolveNameXText(::poi::ss::formula::ptg::NameXPtg* ptg) override;
+    ::poi::ss::formula::udf::UDFFinder* getUDFFinder() override;
+    ::poi::ss::SpreadsheetVersion* getSpreadsheetVersion() override;
     void clearAllCachedResultValues() override;
 
     // Generated
-    ForkedEvaluationWorkbook(::org::apache::poi::ss::formula::EvaluationWorkbook* master);
+    ForkedEvaluationWorkbook(::poi::ss::formula::EvaluationWorkbook* master);
 protected:
     ForkedEvaluationWorkbook(const ::default_init_tag&);
 

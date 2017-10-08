@@ -40,30 +40,30 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::sl::draw::PathGradientPaint::PathGradientPaint(const ::default_init_tag&)
+poi::sl::draw::PathGradientPaint::PathGradientPaint(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::draw::PathGradientPaint::PathGradientPaint(::java::awt::ColorArray* colors, ::floatArray* fractions) 
+poi::sl::draw::PathGradientPaint::PathGradientPaint(::java::awt::ColorArray* colors, ::floatArray* fractions) 
     : PathGradientPaint(*static_cast< ::default_init_tag* >(0))
 {
     ctor(colors,fractions);
 }
 
-org::apache::poi::sl::draw::PathGradientPaint::PathGradientPaint(::java::awt::ColorArray* colors, ::floatArray* fractions, int32_t capStyle, int32_t joinStyle) 
+poi::sl::draw::PathGradientPaint::PathGradientPaint(::java::awt::ColorArray* colors, ::floatArray* fractions, int32_t capStyle, int32_t joinStyle) 
     : PathGradientPaint(*static_cast< ::default_init_tag* >(0))
 {
     ctor(colors,fractions,capStyle,joinStyle);
 }
 
-void org::apache::poi::sl::draw::PathGradientPaint::ctor(::java::awt::ColorArray* colors, ::floatArray* fractions)
+void poi::sl::draw::PathGradientPaint::ctor(::java::awt::ColorArray* colors, ::floatArray* fractions)
 {
     ctor(colors, fractions, ::java::awt::BasicStroke::CAP_ROUND, ::java::awt::BasicStroke::JOIN_ROUND);
 }
 
-void org::apache::poi::sl::draw::PathGradientPaint::ctor(::java::awt::ColorArray* colors, ::floatArray* fractions, int32_t capStyle, int32_t joinStyle)
+void poi::sl::draw::PathGradientPaint::ctor(::java::awt::ColorArray* colors, ::floatArray* fractions, int32_t capStyle, int32_t joinStyle)
 {
     super::ctor();
     this->colors = npc(colors)->clone();
@@ -79,25 +79,25 @@ void org::apache::poi::sl::draw::PathGradientPaint::ctor(::java::awt::ColorArray
     this->transparency = opaque ? OPAQUE : TRANSLUCENT;
 }
 
-java::awt::PaintContext* org::apache::poi::sl::draw::PathGradientPaint::createContext(::java::awt::image::ColorModel* cm, ::java::awt::Rectangle* deviceBounds, ::java::awt::geom::Rectangle2D* userBounds, ::java::awt::geom::AffineTransform* transform, ::java::awt::RenderingHints* hints)
+java::awt::PaintContext* poi::sl::draw::PathGradientPaint::createContext(::java::awt::image::ColorModel* cm, ::java::awt::Rectangle* deviceBounds, ::java::awt::geom::Rectangle2D* userBounds, ::java::awt::geom::AffineTransform* transform, ::java::awt::RenderingHints* hints)
 {
     return new PathGradientPaint_PathGradientContext(this, cm, deviceBounds, userBounds, transform, hints);
 }
 
-int32_t org::apache::poi::sl::draw::PathGradientPaint::getTransparency()
+int32_t poi::sl::draw::PathGradientPaint::getTransparency()
 {
     return transparency;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::draw::PathGradientPaint::class_()
+java::lang::Class* poi::sl::draw::PathGradientPaint::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.draw.PathGradientPaint", 40);
     return c;
 }
 
-java::lang::Class* org::apache::poi::sl::draw::PathGradientPaint::getClass0()
+java::lang::Class* poi::sl::draw::PathGradientPaint::getClass0()
 {
     return class_();
 }

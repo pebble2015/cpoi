@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::OldLabelRecord final
+class poi::hssf::record::OldLabelRecord final
     : public OldCellRecord
 {
 
@@ -18,7 +18,7 @@ public:
     typedef OldCellRecord super;
 
 private:
-    static ::org::apache::poi::util::POILogger* logger_;
+    static ::poi::util::POILogger* logger_;
 
 public:
     static constexpr int16_t biff2_sid { int16_t(4) };
@@ -55,6 +55,6 @@ public:
     static void clinit();
 
 private:
-    static ::org::apache::poi::util::POILogger*& logger();
+    static ::poi::util::POILogger*& logger();
     virtual ::java::lang::Class* getClass0();
 };

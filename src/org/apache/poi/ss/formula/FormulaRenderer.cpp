@@ -41,25 +41,19 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -77,19 +71,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::FormulaRenderer::FormulaRenderer(const ::default_init_tag&)
+poi::ss::formula::FormulaRenderer::FormulaRenderer(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::FormulaRenderer::FormulaRenderer()
+poi::ss::formula::FormulaRenderer::FormulaRenderer()
     : FormulaRenderer(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-java::lang::String* org::apache::poi::ss::formula::FormulaRenderer::toFormulaString(FormulaRenderingWorkbook* book, ::org::apache::poi::ss::formula::ptg::PtgArray* ptgs)
+java::lang::String* poi::ss::formula::FormulaRenderer::toFormulaString(FormulaRenderingWorkbook* book, ::poi::ss::formula::ptg::PtgArray* ptgs)
 {
     clinit();
     if(ptgs == nullptr || npc(ptgs)->length == 0) {
@@ -97,17 +91,17 @@ java::lang::String* org::apache::poi::ss::formula::FormulaRenderer::toFormulaStr
     }
     auto stack = new ::java::util::Stack();
     for(auto ptg : *npc(ptgs)) {
-        if(dynamic_cast< ::org::apache::poi::ss::formula::ptg::MemAreaPtg* >(ptg) != nullptr || dynamic_cast< ::org::apache::poi::ss::formula::ptg::MemFuncPtg* >(ptg) != nullptr || dynamic_cast< ::org::apache::poi::ss::formula::ptg::MemErrPtg* >(ptg) != nullptr) {
+        if(dynamic_cast< ::poi::ss::formula::ptg::MemAreaPtg* >(ptg) != nullptr || dynamic_cast< ::poi::ss::formula::ptg::MemFuncPtg* >(ptg) != nullptr || dynamic_cast< ::poi::ss::formula::ptg::MemErrPtg* >(ptg) != nullptr) {
             continue;
         }
-        if(dynamic_cast< ::org::apache::poi::ss::formula::ptg::ParenthesisPtg* >(ptg) != nullptr) {
+        if(dynamic_cast< ::poi::ss::formula::ptg::ParenthesisPtg* >(ptg) != nullptr) {
             auto contents = java_cast< ::java::lang::String* >(npc(stack)->pop());
             npc(stack)->push(::java::lang::StringBuilder().append(u"("_j)->append(contents)
                 ->append(u")"_j)->toString());
             continue;
         }
-        if(dynamic_cast< ::org::apache::poi::ss::formula::ptg::AttrPtg* >(ptg) != nullptr) {
-            auto attrPtg = (java_cast< ::org::apache::poi::ss::formula::ptg::AttrPtg* >(ptg));
+        if(dynamic_cast< ::poi::ss::formula::ptg::AttrPtg* >(ptg) != nullptr) {
+            auto attrPtg = (java_cast< ::poi::ss::formula::ptg::AttrPtg* >(ptg));
             if(npc(attrPtg)->isOptimizedIf() || npc(attrPtg)->isOptimizedChoose() || npc(attrPtg)->isSkip()) {
                 continue;
             }
@@ -129,11 +123,11 @@ java::lang::String* org::apache::poi::ss::formula::FormulaRenderer::toFormulaStr
             npc(stack)->push(npc(optg)->toFormulaString(book));
             continue;
         }
-        if(!(dynamic_cast< ::org::apache::poi::ss::formula::ptg::OperationPtg* >(ptg) != nullptr)) {
+        if(!(dynamic_cast< ::poi::ss::formula::ptg::OperationPtg* >(ptg) != nullptr)) {
             npc(stack)->push(npc(ptg)->toFormulaString());
             continue;
         }
-        auto o = java_cast< ::org::apache::poi::ss::formula::ptg::OperationPtg* >(ptg);
+        auto o = java_cast< ::poi::ss::formula::ptg::OperationPtg* >(ptg);
         auto operands = getOperands(stack, npc(o)->getNumberOfOperands());
         npc(stack)->push(npc(o)->toFormulaString(operands));
     }
@@ -147,7 +141,7 @@ java::lang::String* org::apache::poi::ss::formula::FormulaRenderer::toFormulaStr
     return result;
 }
 
-java::lang::StringArray* org::apache::poi::ss::formula::FormulaRenderer::getOperands(::java::util::Stack* stack, int32_t nOperands)
+java::lang::StringArray* poi::ss::formula::FormulaRenderer::getOperands(::java::util::Stack* stack, int32_t nOperands)
 {
     clinit();
     auto operands = new ::java::lang::StringArray(nOperands);
@@ -166,13 +160,13 @@ java::lang::StringArray* org::apache::poi::ss::formula::FormulaRenderer::getOper
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::FormulaRenderer::class_()
+java::lang::Class* poi::ss::formula::FormulaRenderer::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.FormulaRenderer", 41);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::FormulaRenderer::getClass0()
+java::lang::Class* poi::ss::formula::FormulaRenderer::getClass0()
 {
     return class_();
 }

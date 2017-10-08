@@ -27,19 +27,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::LookupUtils_StringLookupComparer::LookupUtils_StringLookupComparer(const ::default_init_tag&)
+poi::ss::formula::functions::LookupUtils_StringLookupComparer::LookupUtils_StringLookupComparer(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::LookupUtils_StringLookupComparer::LookupUtils_StringLookupComparer(::org::apache::poi::ss::formula::eval::StringEval* se, bool matchExact, bool isMatchFunction) 
+poi::ss::formula::functions::LookupUtils_StringLookupComparer::LookupUtils_StringLookupComparer(::poi::ss::formula::eval::StringEval* se, bool matchExact, bool isMatchFunction) 
     : LookupUtils_StringLookupComparer(*static_cast< ::default_init_tag* >(0))
 {
     ctor(se,matchExact,isMatchFunction);
 }
 
-void org::apache::poi::ss::formula::functions::LookupUtils_StringLookupComparer::ctor(::org::apache::poi::ss::formula::eval::StringEval* se, bool matchExact, bool isMatchFunction)
+void poi::ss::formula::functions::LookupUtils_StringLookupComparer::ctor(::poi::ss::formula::eval::StringEval* se, bool matchExact, bool isMatchFunction)
 {
     super::ctor(se);
     _value = npc(se)->getStringValue();
@@ -48,9 +48,9 @@ void org::apache::poi::ss::formula::functions::LookupUtils_StringLookupComparer:
     _isMatchFunction = isMatchFunction;
 }
 
-org::apache::poi::ss::formula::functions::LookupUtils_CompareResult* org::apache::poi::ss::formula::functions::LookupUtils_StringLookupComparer::compareSameType(::org::apache::poi::ss::formula::eval::ValueEval* other)
+poi::ss::formula::functions::LookupUtils_CompareResult* poi::ss::formula::functions::LookupUtils_StringLookupComparer::compareSameType(::poi::ss::formula::eval::ValueEval* other)
 {
-    auto se = java_cast< ::org::apache::poi::ss::formula::eval::StringEval* >(other);
+    auto se = java_cast< ::poi::ss::formula::eval::StringEval* >(other);
     auto stringValue = npc(se)->getStringValue();
     if(_wildCardPattern != nullptr) {
         auto matcher = npc(_wildCardPattern)->matcher(stringValue);
@@ -62,20 +62,20 @@ org::apache::poi::ss::formula::functions::LookupUtils_CompareResult* org::apache
     return LookupUtils_CompareResult::valueOf(npc(_value)->compareToIgnoreCase(stringValue));
 }
 
-java::lang::String* org::apache::poi::ss::formula::functions::LookupUtils_StringLookupComparer::getValueAsString()
+java::lang::String* poi::ss::formula::functions::LookupUtils_StringLookupComparer::getValueAsString()
 {
     return _value;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::LookupUtils_StringLookupComparer::class_()
+java::lang::Class* poi::ss::formula::functions::LookupUtils_StringLookupComparer::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.LookupUtils.StringLookupComparer", 68);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::LookupUtils_StringLookupComparer::getClass0()
+java::lang::Class* poi::ss::formula::functions::LookupUtils_StringLookupComparer::getClass0()
 {
     return class_();
 }

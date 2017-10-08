@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::LookupUtils_CompareResult final
+class poi::ss::formula::functions::LookupUtils_CompareResult final
     : public ::java::lang::Object
 {
 

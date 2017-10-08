@@ -12,24 +12,24 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::chart::AxisOptionsRecord final
-    : public ::org::apache::poi::hssf::record::StandardRecord
+class poi::hssf::record::chart::AxisOptionsRecord final
+    : public ::poi::hssf::record::StandardRecord
     , public ::java::lang::Cloneable
 {
 
 public:
-    typedef ::org::apache::poi::hssf::record::StandardRecord super;
+    typedef ::poi::hssf::record::StandardRecord super;
     static constexpr int16_t sid { int16_t(4194) };
 
 private:
-    static ::org::apache::poi::util::BitField* defaultMinimum_;
-    static ::org::apache::poi::util::BitField* defaultMaximum_;
-    static ::org::apache::poi::util::BitField* defaultMajor_;
-    static ::org::apache::poi::util::BitField* defaultMinorUnit_;
-    static ::org::apache::poi::util::BitField* isDate_;
-    static ::org::apache::poi::util::BitField* defaultBase_;
-    static ::org::apache::poi::util::BitField* defaultCross_;
-    static ::org::apache::poi::util::BitField* defaultDateSettings_;
+    static ::poi::util::BitField* defaultMinimum_;
+    static ::poi::util::BitField* defaultMaximum_;
+    static ::poi::util::BitField* defaultMajor_;
+    static ::poi::util::BitField* defaultMinorUnit_;
+    static ::poi::util::BitField* isDate_;
+    static ::poi::util::BitField* defaultBase_;
+    static ::poi::util::BitField* defaultCross_;
+    static ::poi::util::BitField* defaultDateSettings_;
     int16_t field_1_minimumCategory {  };
     int16_t field_2_maximumCategory {  };
     int16_t field_3_majorUnitValue {  };
@@ -41,11 +41,11 @@ private:
     int16_t field_9_options {  };
 protected:
     void ctor();
-    void ctor(::org::apache::poi::hssf::record::RecordInputStream* in);
+    void ctor(::poi::hssf::record::RecordInputStream* in);
 
 public:
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;
@@ -90,7 +90,7 @@ public:
 
     // Generated
     AxisOptionsRecord();
-    AxisOptionsRecord(::org::apache::poi::hssf::record::RecordInputStream* in);
+    AxisOptionsRecord(::poi::hssf::record::RecordInputStream* in);
 protected:
     AxisOptionsRecord(const ::default_init_tag&);
 
@@ -102,13 +102,13 @@ public:
     ::int8_tArray* serialize();
 
 private:
-    static ::org::apache::poi::util::BitField*& defaultMinimum();
-    static ::org::apache::poi::util::BitField*& defaultMaximum();
-    static ::org::apache::poi::util::BitField*& defaultMajor();
-    static ::org::apache::poi::util::BitField*& defaultMinorUnit();
-    static ::org::apache::poi::util::BitField*& isDate();
-    static ::org::apache::poi::util::BitField*& defaultBase();
-    static ::org::apache::poi::util::BitField*& defaultCross();
-    static ::org::apache::poi::util::BitField*& defaultDateSettings();
+    static ::poi::util::BitField*& defaultMinimum();
+    static ::poi::util::BitField*& defaultMaximum();
+    static ::poi::util::BitField*& defaultMajor();
+    static ::poi::util::BitField*& defaultMinorUnit();
+    static ::poi::util::BitField*& isDate();
+    static ::poi::util::BitField*& defaultBase();
+    static ::poi::util::BitField*& defaultCross();
+    static ::poi::util::BitField*& defaultDateSettings();
     virtual ::java::lang::Class* getClass0();
 };

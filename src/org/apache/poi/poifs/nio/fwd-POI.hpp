@@ -2,22 +2,16 @@
 #pragma once
 
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace poifs
     {
-        namespace poi
+        namespace nio
         {
-            namespace poifs
-            {
-                namespace nio
-                {
-                    class ByteArrayBackedDataSource;
-                    class DataSource;
-                    class FileBackedDataSource;
-                    class FileBackedDataSource_unmap_1;
-                } // nio
-            } // poifs
-        } // poi
-    } // apache
-} // org
+            class ByteArrayBackedDataSource;
+            class DataSource;
+            class FileBackedDataSource;
+            class FileBackedDataSource_unmap_1;
+        } // nio
+    } // poifs
+} // poi

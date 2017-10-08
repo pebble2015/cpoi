@@ -12,24 +12,24 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::chart::FontIndexRecord final
-    : public ::org::apache::poi::hssf::record::StandardRecord
+class poi::hssf::record::chart::FontIndexRecord final
+    : public ::poi::hssf::record::StandardRecord
     , public ::java::lang::Cloneable
 {
 
 public:
-    typedef ::org::apache::poi::hssf::record::StandardRecord super;
+    typedef ::poi::hssf::record::StandardRecord super;
     static constexpr int16_t sid { int16_t(4134) };
 
 private:
     int16_t field_1_fontIndex {  };
 protected:
     void ctor();
-    void ctor(::org::apache::poi::hssf::record::RecordInputStream* in);
+    void ctor(::poi::hssf::record::RecordInputStream* in);
 
 public:
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;
@@ -42,7 +42,7 @@ public:
 
     // Generated
     FontIndexRecord();
-    FontIndexRecord(::org::apache::poi::hssf::record::RecordInputStream* in);
+    FontIndexRecord(::poi::hssf::record::RecordInputStream* in);
 protected:
     FontIndexRecord(const ::default_init_tag&);
 

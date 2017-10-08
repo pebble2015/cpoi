@@ -13,7 +13,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::AbstractEscherHolderRecord
+class poi::hssf::record::AbstractEscherHolderRecord
     : public Record
     , public virtual ::java::lang::Cloneable
 {
@@ -24,7 +24,7 @@ public:
 private:
     static bool DESERIALISE_;
     ::java::util::List* escherRecords {  };
-    ::org::apache::poi::hssf::util::LazilyConcatenatedByteArray_* rawDataContainer {  };
+    ::poi::hssf::util::LazilyConcatenatedByteArray_* rawDataContainer {  };
 protected:
     void ctor();
     void ctor(RecordInputStream* in);
@@ -46,18 +46,18 @@ public:
     int32_t getRecordSize() override;
     int16_t getSid() = 0;
     AbstractEscherHolderRecord* clone() override;
-    virtual void addEscherRecord(int32_t index, ::org::apache::poi::ddf::EscherRecord* element);
-    virtual bool addEscherRecord(::org::apache::poi::ddf::EscherRecord* element);
+    virtual void addEscherRecord(int32_t index, ::poi::ddf::EscherRecord* element);
+    virtual bool addEscherRecord(::poi::ddf::EscherRecord* element);
     virtual ::java::util::List* getEscherRecords();
     virtual void clearEscherRecords();
-    virtual ::org::apache::poi::ddf::EscherContainerRecord* getEscherContainer();
-    virtual ::org::apache::poi::ddf::EscherRecord* findFirstWithId(int16_t id);
+    virtual ::poi::ddf::EscherContainerRecord* getEscherContainer();
+    virtual ::poi::ddf::EscherRecord* findFirstWithId(int16_t id);
 
 private:
-    ::org::apache::poi::ddf::EscherRecord* findFirstWithId(int16_t id, ::java::util::List* records);
+    ::poi::ddf::EscherRecord* findFirstWithId(int16_t id, ::java::util::List* records);
 
 public:
-    virtual ::org::apache::poi::ddf::EscherRecord* getEscherRecord(int32_t index);
+    virtual ::poi::ddf::EscherRecord* getEscherRecord(int32_t index);
     virtual void join(AbstractEscherHolderRecord* record);
     virtual void processContinueRecord(::int8_tArray* record);
     virtual ::int8_tArray* getRawData();

@@ -25,61 +25,55 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace ss
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::PaperSize, ::java::lang::EnumArray > PaperSizeArray;
-                } // usermodel
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::usermodel::PaperSize, ::java::lang::EnumArray > PaperSizeArray;
+        } // usermodel
+    } // ss
+} // poi
 
-org::apache::poi::ss::usermodel::PaperSize::PaperSize(const ::default_init_tag&)
+poi::ss::usermodel::PaperSize::PaperSize(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::usermodel::PaperSize::PaperSize(::java::lang::String* name, int ordinal)
+poi::ss::usermodel::PaperSize::PaperSize(::java::lang::String* name, int ordinal)
     : PaperSize(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal);
 }
 
-org::apache::poi::ss::usermodel::PaperSize* org::apache::poi::ss::usermodel::PaperSize::LETTER_PAPER = new ::org::apache::poi::ss::usermodel::PaperSize(u"LETTER_PAPER"_j, 0);
-org::apache::poi::ss::usermodel::PaperSize* org::apache::poi::ss::usermodel::PaperSize::LETTER_SMALL_PAPER = new ::org::apache::poi::ss::usermodel::PaperSize(u"LETTER_SMALL_PAPER"_j, 1);
-org::apache::poi::ss::usermodel::PaperSize* org::apache::poi::ss::usermodel::PaperSize::TABLOID_PAPER = new ::org::apache::poi::ss::usermodel::PaperSize(u"TABLOID_PAPER"_j, 2);
-org::apache::poi::ss::usermodel::PaperSize* org::apache::poi::ss::usermodel::PaperSize::LEDGER_PAPER = new ::org::apache::poi::ss::usermodel::PaperSize(u"LEDGER_PAPER"_j, 3);
-org::apache::poi::ss::usermodel::PaperSize* org::apache::poi::ss::usermodel::PaperSize::LEGAL_PAPER = new ::org::apache::poi::ss::usermodel::PaperSize(u"LEGAL_PAPER"_j, 4);
-org::apache::poi::ss::usermodel::PaperSize* org::apache::poi::ss::usermodel::PaperSize::STATEMENT_PAPER = new ::org::apache::poi::ss::usermodel::PaperSize(u"STATEMENT_PAPER"_j, 5);
-org::apache::poi::ss::usermodel::PaperSize* org::apache::poi::ss::usermodel::PaperSize::EXECUTIVE_PAPER = new ::org::apache::poi::ss::usermodel::PaperSize(u"EXECUTIVE_PAPER"_j, 6);
-org::apache::poi::ss::usermodel::PaperSize* org::apache::poi::ss::usermodel::PaperSize::A3_PAPER = new ::org::apache::poi::ss::usermodel::PaperSize(u"A3_PAPER"_j, 7);
-org::apache::poi::ss::usermodel::PaperSize* org::apache::poi::ss::usermodel::PaperSize::A4_PAPER = new ::org::apache::poi::ss::usermodel::PaperSize(u"A4_PAPER"_j, 8);
-org::apache::poi::ss::usermodel::PaperSize* org::apache::poi::ss::usermodel::PaperSize::A4_SMALL_PAPER = new ::org::apache::poi::ss::usermodel::PaperSize(u"A4_SMALL_PAPER"_j, 9);
-org::apache::poi::ss::usermodel::PaperSize* org::apache::poi::ss::usermodel::PaperSize::A5_PAPER = new ::org::apache::poi::ss::usermodel::PaperSize(u"A5_PAPER"_j, 10);
-org::apache::poi::ss::usermodel::PaperSize* org::apache::poi::ss::usermodel::PaperSize::B4_PAPER = new ::org::apache::poi::ss::usermodel::PaperSize(u"B4_PAPER"_j, 11);
-org::apache::poi::ss::usermodel::PaperSize* org::apache::poi::ss::usermodel::PaperSize::B5_PAPER = new ::org::apache::poi::ss::usermodel::PaperSize(u"B5_PAPER"_j, 12);
-org::apache::poi::ss::usermodel::PaperSize* org::apache::poi::ss::usermodel::PaperSize::FOLIO_PAPER = new ::org::apache::poi::ss::usermodel::PaperSize(u"FOLIO_PAPER"_j, 13);
-org::apache::poi::ss::usermodel::PaperSize* org::apache::poi::ss::usermodel::PaperSize::QUARTO_PAPER = new ::org::apache::poi::ss::usermodel::PaperSize(u"QUARTO_PAPER"_j, 14);
-org::apache::poi::ss::usermodel::PaperSize* org::apache::poi::ss::usermodel::PaperSize::STANDARD_PAPER_10_14 = new ::org::apache::poi::ss::usermodel::PaperSize(u"STANDARD_PAPER_10_14"_j, 15);
-org::apache::poi::ss::usermodel::PaperSize* org::apache::poi::ss::usermodel::PaperSize::STANDARD_PAPER_11_17 = new ::org::apache::poi::ss::usermodel::PaperSize(u"STANDARD_PAPER_11_17"_j, 16);
+poi::ss::usermodel::PaperSize* poi::ss::usermodel::PaperSize::LETTER_PAPER = new ::poi::ss::usermodel::PaperSize(u"LETTER_PAPER"_j, 0);
+poi::ss::usermodel::PaperSize* poi::ss::usermodel::PaperSize::LETTER_SMALL_PAPER = new ::poi::ss::usermodel::PaperSize(u"LETTER_SMALL_PAPER"_j, 1);
+poi::ss::usermodel::PaperSize* poi::ss::usermodel::PaperSize::TABLOID_PAPER = new ::poi::ss::usermodel::PaperSize(u"TABLOID_PAPER"_j, 2);
+poi::ss::usermodel::PaperSize* poi::ss::usermodel::PaperSize::LEDGER_PAPER = new ::poi::ss::usermodel::PaperSize(u"LEDGER_PAPER"_j, 3);
+poi::ss::usermodel::PaperSize* poi::ss::usermodel::PaperSize::LEGAL_PAPER = new ::poi::ss::usermodel::PaperSize(u"LEGAL_PAPER"_j, 4);
+poi::ss::usermodel::PaperSize* poi::ss::usermodel::PaperSize::STATEMENT_PAPER = new ::poi::ss::usermodel::PaperSize(u"STATEMENT_PAPER"_j, 5);
+poi::ss::usermodel::PaperSize* poi::ss::usermodel::PaperSize::EXECUTIVE_PAPER = new ::poi::ss::usermodel::PaperSize(u"EXECUTIVE_PAPER"_j, 6);
+poi::ss::usermodel::PaperSize* poi::ss::usermodel::PaperSize::A3_PAPER = new ::poi::ss::usermodel::PaperSize(u"A3_PAPER"_j, 7);
+poi::ss::usermodel::PaperSize* poi::ss::usermodel::PaperSize::A4_PAPER = new ::poi::ss::usermodel::PaperSize(u"A4_PAPER"_j, 8);
+poi::ss::usermodel::PaperSize* poi::ss::usermodel::PaperSize::A4_SMALL_PAPER = new ::poi::ss::usermodel::PaperSize(u"A4_SMALL_PAPER"_j, 9);
+poi::ss::usermodel::PaperSize* poi::ss::usermodel::PaperSize::A5_PAPER = new ::poi::ss::usermodel::PaperSize(u"A5_PAPER"_j, 10);
+poi::ss::usermodel::PaperSize* poi::ss::usermodel::PaperSize::B4_PAPER = new ::poi::ss::usermodel::PaperSize(u"B4_PAPER"_j, 11);
+poi::ss::usermodel::PaperSize* poi::ss::usermodel::PaperSize::B5_PAPER = new ::poi::ss::usermodel::PaperSize(u"B5_PAPER"_j, 12);
+poi::ss::usermodel::PaperSize* poi::ss::usermodel::PaperSize::FOLIO_PAPER = new ::poi::ss::usermodel::PaperSize(u"FOLIO_PAPER"_j, 13);
+poi::ss::usermodel::PaperSize* poi::ss::usermodel::PaperSize::QUARTO_PAPER = new ::poi::ss::usermodel::PaperSize(u"QUARTO_PAPER"_j, 14);
+poi::ss::usermodel::PaperSize* poi::ss::usermodel::PaperSize::STANDARD_PAPER_10_14 = new ::poi::ss::usermodel::PaperSize(u"STANDARD_PAPER_10_14"_j, 15);
+poi::ss::usermodel::PaperSize* poi::ss::usermodel::PaperSize::STANDARD_PAPER_11_17 = new ::poi::ss::usermodel::PaperSize(u"STANDARD_PAPER_11_17"_j, 16);
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::usermodel::PaperSize::class_()
+java::lang::Class* poi::ss::usermodel::PaperSize::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.usermodel.PaperSize", 37);
     return c;
 }
 
-org::apache::poi::ss::usermodel::PaperSize* org::apache::poi::ss::usermodel::PaperSize::valueOf(::java::lang::String* a0)
+poi::ss::usermodel::PaperSize* poi::ss::usermodel::PaperSize::valueOf(::java::lang::String* a0)
 {
     if(A3_PAPER->toString()->equals(a0))
         return A3_PAPER;
@@ -118,9 +112,9 @@ org::apache::poi::ss::usermodel::PaperSize* org::apache::poi::ss::usermodel::Pap
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::ss::usermodel::PaperSizeArray* org::apache::poi::ss::usermodel::PaperSize::values()
+poi::ss::usermodel::PaperSizeArray* poi::ss::usermodel::PaperSize::values()
 {
-    return new org::apache::poi::ss::usermodel::PaperSizeArray({
+    return new poi::ss::usermodel::PaperSizeArray({
         A3_PAPER,
         A4_PAPER,
         A4_SMALL_PAPER,
@@ -141,7 +135,7 @@ org::apache::poi::ss::usermodel::PaperSizeArray* org::apache::poi::ss::usermodel
     });
 }
 
-java::lang::Class* org::apache::poi::ss::usermodel::PaperSize::getClass0()
+java::lang::Class* poi::ss::usermodel::PaperSize::getClass0()
 {
     return class_();
 }

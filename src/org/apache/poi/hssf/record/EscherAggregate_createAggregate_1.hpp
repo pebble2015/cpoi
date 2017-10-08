@@ -10,13 +10,13 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::EscherAggregate_createAggregate_1
-    : public ::org::apache::poi::ddf::DefaultEscherRecordFactory
+class poi::hssf::record::EscherAggregate_createAggregate_1
+    : public ::poi::ddf::DefaultEscherRecordFactory
 {
 
 public:
-    typedef ::org::apache::poi::ddf::DefaultEscherRecordFactory super;
-    ::org::apache::poi::ddf::EscherRecord* createRecord(::int8_tArray* data, int32_t offset) override;
+    typedef ::poi::ddf::DefaultEscherRecordFactory super;
+    ::poi::ddf::EscherRecord* createRecord(::int8_tArray* data, int32_t offset) override;
 
     // Generated
     EscherAggregate_createAggregate_1(::java::util::List* shapeRecords);

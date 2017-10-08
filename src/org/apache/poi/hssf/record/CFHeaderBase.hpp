@@ -11,27 +11,21 @@
 #include <java/lang/Cloneable.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace util
         {
-            namespace ss
-            {
-                namespace util
-                {
-typedef ::SubArray< ::org::apache::poi::ss::util::CellRangeAddressBase, ::java::lang::ObjectArray > CellRangeAddressBaseArray;
-typedef ::SubArray< ::org::apache::poi::ss::util::CellRangeAddress, CellRangeAddressBaseArray > CellRangeAddressArray;
-                } // util
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::util::CellRangeAddressBase, ::java::lang::ObjectArray > CellRangeAddressBaseArray;
+typedef ::SubArray< ::poi::ss::util::CellRangeAddress, CellRangeAddressBaseArray > CellRangeAddressArray;
+        } // util
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::CFHeaderBase
+class poi::hssf::record::CFHeaderBase
     : public StandardRecord
     , public virtual ::java::lang::Cloneable
 {
@@ -42,11 +36,11 @@ public:
 private:
     int32_t field_1_numcf {  };
     int32_t field_2_need_recalculation_and_id {  };
-    ::org::apache::poi::ss::util::CellRangeAddress* field_3_enclosing_cell_range {  };
-    ::org::apache::poi::ss::util::CellRangeAddressList* field_4_cell_ranges {  };
+    ::poi::ss::util::CellRangeAddress* field_3_enclosing_cell_range {  };
+    ::poi::ss::util::CellRangeAddressList* field_4_cell_ranges {  };
 protected:
     void ctor();
-    void ctor(::org::apache::poi::ss::util::CellRangeAddressArray* regions, int32_t nRules);
+    void ctor(::poi::ss::util::CellRangeAddressArray* regions, int32_t nRules);
 
 public: /* protected */
     virtual void createEmpty();
@@ -59,10 +53,10 @@ public:
     virtual void setNeedRecalculation(bool b);
     virtual int32_t getID();
     virtual void setID(int32_t id);
-    virtual ::org::apache::poi::ss::util::CellRangeAddress* getEnclosingCellRange();
-    virtual void setEnclosingCellRange(::org::apache::poi::ss::util::CellRangeAddress* cr);
-    virtual void setCellRanges(::org::apache::poi::ss::util::CellRangeAddressArray* cellRanges);
-    virtual ::org::apache::poi::ss::util::CellRangeAddressArray* getCellRanges();
+    virtual ::poi::ss::util::CellRangeAddress* getEnclosingCellRange();
+    virtual void setEnclosingCellRange(::poi::ss::util::CellRangeAddress* cr);
+    virtual void setCellRanges(::poi::ss::util::CellRangeAddressArray* cellRanges);
+    virtual ::poi::ss::util::CellRangeAddressArray* getCellRanges();
 
 public: /* protected */
     virtual ::java::lang::String* getRecordName() = 0;
@@ -74,7 +68,7 @@ public: /* protected */
     int32_t getDataSize() override;
 
 public:
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     virtual void copyTo(CFHeaderBase* result);
@@ -86,7 +80,7 @@ public:
 
 public: /* protected */
     CFHeaderBase();
-    CFHeaderBase(::org::apache::poi::ss::util::CellRangeAddressArray* regions, int32_t nRules);
+    CFHeaderBase(::poi::ss::util::CellRangeAddressArray* regions, int32_t nRules);
 protected:
     CFHeaderBase(const ::default_init_tag&);
 

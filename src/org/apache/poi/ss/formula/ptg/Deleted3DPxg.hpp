@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::ptg::Deleted3DPxg final
+class poi::ss::formula::ptg::Deleted3DPxg final
     : public OperandPtg
     , public Pxg
 {
@@ -34,7 +34,7 @@ public:
     ::java::lang::String* toFormulaString() override;
     int8_t getDefaultOperandClass() override;
     int32_t getSize() override;
-    void write(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void write(::poi::util::LittleEndianOutput* out) override;
 
     // Generated
     Deleted3DPxg(int32_t externalWorkbookNumber, ::java::lang::String* sheetName);

@@ -12,7 +12,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::eval::ErrorEval final
+class poi::ss::formula::eval::ErrorEval final
     : public virtual ::java::lang::Object
     , public ValueEval
 {
@@ -37,9 +37,9 @@ public:
     static ::java::lang::String* getText(int32_t errorCode);
 
 private:
-    ::org::apache::poi::ss::usermodel::FormulaError* _error {  };
+    ::poi::ss::usermodel::FormulaError* _error {  };
 protected:
-    void ctor(::org::apache::poi::ss::usermodel::FormulaError* error);
+    void ctor(::poi::ss::usermodel::FormulaError* error);
 
 public:
     int32_t getErrorCode();
@@ -49,7 +49,7 @@ public:
     // Generated
 
 private:
-    ErrorEval(::org::apache::poi::ss::usermodel::FormulaError* error);
+    ErrorEval(::poi::ss::usermodel::FormulaError* error);
 protected:
     ErrorEval(const ::default_init_tag&);
 

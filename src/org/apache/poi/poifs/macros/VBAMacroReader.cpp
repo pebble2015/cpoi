@@ -69,87 +69,87 @@ namespace
 
     template<typename F> finally_<F> finally(F f) { return finally_<F>(f); }
 }
-org::apache::poi::poifs::macros::VBAMacroReader::VBAMacroReader(const ::default_init_tag&)
+poi::poifs::macros::VBAMacroReader::VBAMacroReader(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::macros::VBAMacroReader::VBAMacroReader(::java::io::InputStream* rstream)  /* throws(IOException) */
+poi::poifs::macros::VBAMacroReader::VBAMacroReader(::java::io::InputStream* rstream)  /* throws(IOException) */
     : VBAMacroReader(*static_cast< ::default_init_tag* >(0))
 {
     ctor(rstream);
 }
 
-org::apache::poi::poifs::macros::VBAMacroReader::VBAMacroReader(::java::io::File* file)  /* throws(IOException) */
+poi::poifs::macros::VBAMacroReader::VBAMacroReader(::java::io::File* file)  /* throws(IOException) */
     : VBAMacroReader(*static_cast< ::default_init_tag* >(0))
 {
     ctor(file);
 }
 
-org::apache::poi::poifs::macros::VBAMacroReader::VBAMacroReader(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs) 
+poi::poifs::macros::VBAMacroReader::VBAMacroReader(::poi::poifs::filesystem::NPOIFSFileSystem* fs) 
     : VBAMacroReader(*static_cast< ::default_init_tag* >(0))
 {
     ctor(fs);
 }
 
-java::lang::String*& org::apache::poi::poifs::macros::VBAMacroReader::VBA_PROJECT_OOXML()
+java::lang::String*& poi::poifs::macros::VBAMacroReader::VBA_PROJECT_OOXML()
 {
     clinit();
     return VBA_PROJECT_OOXML_;
 }
-java::lang::String* org::apache::poi::poifs::macros::VBAMacroReader::VBA_PROJECT_OOXML_;
+java::lang::String* poi::poifs::macros::VBAMacroReader::VBA_PROJECT_OOXML_;
 
-java::lang::String*& org::apache::poi::poifs::macros::VBAMacroReader::VBA_PROJECT_POIFS()
+java::lang::String*& poi::poifs::macros::VBAMacroReader::VBA_PROJECT_POIFS()
 {
     clinit();
     return VBA_PROJECT_POIFS_;
 }
-java::lang::String* org::apache::poi::poifs::macros::VBAMacroReader::VBA_PROJECT_POIFS_;
+java::lang::String* poi::poifs::macros::VBAMacroReader::VBA_PROJECT_POIFS_;
 
-java::nio::charset::Charset*& org::apache::poi::poifs::macros::VBAMacroReader::UTF_16LE()
+java::nio::charset::Charset*& poi::poifs::macros::VBAMacroReader::UTF_16LE()
 {
     clinit();
     return UTF_16LE_;
 }
-java::nio::charset::Charset* org::apache::poi::poifs::macros::VBAMacroReader::UTF_16LE_;
+java::nio::charset::Charset* poi::poifs::macros::VBAMacroReader::UTF_16LE_;
 
-void org::apache::poi::poifs::macros::VBAMacroReader::ctor(::java::io::InputStream* rstream) /* throws(IOException) */
+void poi::poifs::macros::VBAMacroReader::ctor(::java::io::InputStream* rstream) /* throws(IOException) */
 {
     super::ctor();
-    auto is = ::org::apache::poi::poifs::filesystem::FileMagic::prepareToCheckMagic(rstream);
-    auto fm = ::org::apache::poi::poifs::filesystem::FileMagic::valueOf(is);
-    if(fm == ::org::apache::poi::poifs::filesystem::FileMagic::OLE2) {
-        fs = new ::org::apache::poi::poifs::filesystem::NPOIFSFileSystem(is);
+    auto is = ::poi::poifs::filesystem::FileMagic::prepareToCheckMagic(rstream);
+    auto fm = ::poi::poifs::filesystem::FileMagic::valueOf(is);
+    if(fm == ::poi::poifs::filesystem::FileMagic::OLE2) {
+        fs = new ::poi::poifs::filesystem::NPOIFSFileSystem(is);
     } else {
         openOOXML(is);
     }
 }
 
-void org::apache::poi::poifs::macros::VBAMacroReader::ctor(::java::io::File* file) /* throws(IOException) */
+void poi::poifs::macros::VBAMacroReader::ctor(::java::io::File* file) /* throws(IOException) */
 {
     super::ctor();
     try {
-        this->fs = new ::org::apache::poi::poifs::filesystem::NPOIFSFileSystem(file);
-    } catch (::org::apache::poi::poifs::filesystem::OfficeXmlFileException* e) {
+        this->fs = new ::poi::poifs::filesystem::NPOIFSFileSystem(file);
+    } catch (::poi::poifs::filesystem::OfficeXmlFileException* e) {
         openOOXML(new ::java::io::FileInputStream(file));
     }
 }
 
-void org::apache::poi::poifs::macros::VBAMacroReader::ctor(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs)
+void poi::poifs::macros::VBAMacroReader::ctor(::poi::poifs::filesystem::NPOIFSFileSystem* fs)
 {
     super::ctor();
     this->fs = fs;
 }
 
-void org::apache::poi::poifs::macros::VBAMacroReader::openOOXML(::java::io::InputStream* zipFile) /* throws(IOException) */
+void poi::poifs::macros::VBAMacroReader::openOOXML(::java::io::InputStream* zipFile) /* throws(IOException) */
 {
     auto zis = new ::java::util::zip::ZipInputStream(zipFile);
     ::java::util::zip::ZipEntry* zipEntry;
     while ((zipEntry = npc(zis)->getNextEntry()) != nullptr) {
-        if(::org::apache::poi::util::StringUtil::endsWithIgnoreCase(npc(zipEntry)->getName(), VBA_PROJECT_OOXML_)) {
+        if(::poi::util::StringUtil::endsWithIgnoreCase(npc(zipEntry)->getName(), VBA_PROJECT_OOXML_)) {
             try {
-                this->fs = new ::org::apache::poi::poifs::filesystem::NPOIFSFileSystem(static_cast< ::java::io::InputStream* >(zis));
+                this->fs = new ::poi::poifs::filesystem::NPOIFSFileSystem(static_cast< ::java::io::InputStream* >(zis));
                 return;
             } catch (::java::io::IOException* e) {
                 npc(zis)->close();
@@ -161,13 +161,13 @@ void org::apache::poi::poifs::macros::VBAMacroReader::openOOXML(::java::io::Inpu
     throw new ::java::lang::IllegalArgumentException(u"No VBA project found"_j);
 }
 
-void org::apache::poi::poifs::macros::VBAMacroReader::close() /* throws(IOException) */
+void poi::poifs::macros::VBAMacroReader::close() /* throws(IOException) */
 {
     npc(fs)->close();
     fs = nullptr;
 }
 
-java::util::Map* org::apache::poi::poifs::macros::VBAMacroReader::readMacros() /* throws(IOException) */
+java::util::Map* poi::poifs::macros::VBAMacroReader::readMacros() /* throws(IOException) */
 {
     auto const modules = new VBAMacroReader_ModuleMap();
     findMacros(npc(fs)->getRoot(), modules);
@@ -184,23 +184,23 @@ java::util::Map* org::apache::poi::poifs::macros::VBAMacroReader::readMacros() /
     return moduleSources;
 }
 
-void org::apache::poi::poifs::macros::VBAMacroReader::findMacros(::org::apache::poi::poifs::filesystem::DirectoryNode* dir, VBAMacroReader_ModuleMap* modules) /* throws(IOException) */
+void poi::poifs::macros::VBAMacroReader::findMacros(::poi::poifs::filesystem::DirectoryNode* dir, VBAMacroReader_ModuleMap* modules) /* throws(IOException) */
 {
     if(npc(VBA_PROJECT_POIFS_)->equalsIgnoreCase(npc(dir)->getName())) {
         readMacros(dir, modules);
     } else {
         for (auto _i = npc(dir)->iterator(); _i->hasNext(); ) {
-            ::org::apache::poi::poifs::filesystem::Entry* child = java_cast< ::org::apache::poi::poifs::filesystem::Entry* >(_i->next());
+            ::poi::poifs::filesystem::Entry* child = java_cast< ::poi::poifs::filesystem::Entry* >(_i->next());
             {
-                if(dynamic_cast< ::org::apache::poi::poifs::filesystem::DirectoryNode* >(child) != nullptr) {
-                    findMacros(java_cast< ::org::apache::poi::poifs::filesystem::DirectoryNode* >(child), modules);
+                if(dynamic_cast< ::poi::poifs::filesystem::DirectoryNode* >(child) != nullptr) {
+                    findMacros(java_cast< ::poi::poifs::filesystem::DirectoryNode* >(child), modules);
                 }
             }
         }
     }
 }
 
-java::lang::String* org::apache::poi::poifs::macros::VBAMacroReader::readString(::java::io::InputStream* stream, int32_t length, ::java::nio::charset::Charset* charset) /* throws(IOException) */
+java::lang::String* poi::poifs::macros::VBAMacroReader::readString(::java::io::InputStream* stream, int32_t length, ::java::nio::charset::Charset* charset) /* throws(IOException) */
 {
     clinit();
     auto buffer = new ::int8_tArray(length);
@@ -208,7 +208,7 @@ java::lang::String* org::apache::poi::poifs::macros::VBAMacroReader::readString(
     return new ::java::lang::String(buffer, int32_t(0), count, charset);
 }
 
-void org::apache::poi::poifs::macros::VBAMacroReader::readModule(::org::apache::poi::util::RLEDecompressingInputStream* in, ::java::lang::String* streamName, VBAMacroReader_ModuleMap* modules) /* throws(IOException) */
+void poi::poifs::macros::VBAMacroReader::readModule(::poi::util::RLEDecompressingInputStream* in, ::java::lang::String* streamName, VBAMacroReader_ModuleMap* modules) /* throws(IOException) */
 {
     clinit();
     auto moduleOffset = npc(in)->readInt();
@@ -218,13 +218,13 @@ void org::apache::poi::poifs::macros::VBAMacroReader::readModule(::org::apache::
         npc(module)->offset = ::java::lang::Integer::valueOf(moduleOffset);
         npc(modules)->put(static_cast< ::java::lang::Object* >(streamName), static_cast< ::java::lang::Object* >(module));
     } else {
-        ::java::io::InputStream* stream = new ::org::apache::poi::util::RLEDecompressingInputStream(new ::java::io::ByteArrayInputStream(npc(module)->buf, moduleOffset, npc(npc(module)->buf)->length - moduleOffset));
+        ::java::io::InputStream* stream = new ::poi::util::RLEDecompressingInputStream(new ::java::io::ByteArrayInputStream(npc(module)->buf, moduleOffset, npc(npc(module)->buf)->length - moduleOffset));
         npc(module)->read(stream);
         npc(stream)->close();
     }
 }
 
-void org::apache::poi::poifs::macros::VBAMacroReader::readModule(::org::apache::poi::poifs::filesystem::DocumentInputStream* dis, ::java::lang::String* name, VBAMacroReader_ModuleMap* modules) /* throws(IOException) */
+void poi::poifs::macros::VBAMacroReader::readModule(::poi::poifs::filesystem::DocumentInputStream* dis, ::java::lang::String* name, VBAMacroReader_ModuleMap* modules) /* throws(IOException) */
 {
     clinit();
     auto module = java_cast< VBAMacroReader_Module* >(npc(modules)->get(static_cast< ::java::lang::Object* >(name)));
@@ -244,13 +244,13 @@ void org::apache::poi::poifs::macros::VBAMacroReader::readModule(::org::apache::
                 ->append(skippedBytes)
                 ->append(u" bytes"_j)->toString());
         }
-        ::java::io::InputStream* stream = new ::org::apache::poi::util::RLEDecompressingInputStream(dis);
+        ::java::io::InputStream* stream = new ::poi::util::RLEDecompressingInputStream(dis);
         npc(module)->read(stream);
         npc(stream)->close();
     }
 }
 
-void org::apache::poi::poifs::macros::VBAMacroReader::trySkip(::java::io::InputStream* in, int64_t n) /* throws(IOException) */
+void poi::poifs::macros::VBAMacroReader::trySkip(::java::io::InputStream* in, int64_t n) /* throws(IOException) */
 {
     clinit();
     auto skippedBytes = npc(in)->skip(n);
@@ -269,52 +269,52 @@ void org::apache::poi::poifs::macros::VBAMacroReader::trySkip(::java::io::InputS
     }
 }
 
-constexpr int32_t org::apache::poi::poifs::macros::VBAMacroReader::EOF_;
+constexpr int32_t poi::poifs::macros::VBAMacroReader::EOF_;
 
-constexpr int32_t org::apache::poi::poifs::macros::VBAMacroReader::VERSION_INDEPENDENT_TERMINATOR;
+constexpr int32_t poi::poifs::macros::VBAMacroReader::VERSION_INDEPENDENT_TERMINATOR;
 
-constexpr int32_t org::apache::poi::poifs::macros::VBAMacroReader::VERSION_DEPENDENT_TERMINATOR;
+constexpr int32_t poi::poifs::macros::VBAMacroReader::VERSION_DEPENDENT_TERMINATOR;
 
-constexpr int32_t org::apache::poi::poifs::macros::VBAMacroReader::PROJECTVERSION;
+constexpr int32_t poi::poifs::macros::VBAMacroReader::PROJECTVERSION;
 
-constexpr int32_t org::apache::poi::poifs::macros::VBAMacroReader::PROJECTCODEPAGE;
+constexpr int32_t poi::poifs::macros::VBAMacroReader::PROJECTCODEPAGE;
 
-constexpr int32_t org::apache::poi::poifs::macros::VBAMacroReader::STREAMNAME;
+constexpr int32_t poi::poifs::macros::VBAMacroReader::STREAMNAME;
 
-constexpr int32_t org::apache::poi::poifs::macros::VBAMacroReader::MODULEOFFSET;
+constexpr int32_t poi::poifs::macros::VBAMacroReader::MODULEOFFSET;
 
-constexpr int32_t org::apache::poi::poifs::macros::VBAMacroReader::MODULETYPE_PROCEDURAL;
+constexpr int32_t poi::poifs::macros::VBAMacroReader::MODULETYPE_PROCEDURAL;
 
-constexpr int32_t org::apache::poi::poifs::macros::VBAMacroReader::MODULETYPE_DOCUMENT_CLASS_OR_DESIGNER;
+constexpr int32_t poi::poifs::macros::VBAMacroReader::MODULETYPE_DOCUMENT_CLASS_OR_DESIGNER;
 
-constexpr int32_t org::apache::poi::poifs::macros::VBAMacroReader::PROJECTLCID;
+constexpr int32_t poi::poifs::macros::VBAMacroReader::PROJECTLCID;
 
-constexpr int32_t org::apache::poi::poifs::macros::VBAMacroReader::MODULE_NAME;
+constexpr int32_t poi::poifs::macros::VBAMacroReader::MODULE_NAME;
 
-constexpr int32_t org::apache::poi::poifs::macros::VBAMacroReader::MODULE_NAME_UNICODE;
+constexpr int32_t poi::poifs::macros::VBAMacroReader::MODULE_NAME_UNICODE;
 
-constexpr int32_t org::apache::poi::poifs::macros::VBAMacroReader::MODULE_DOC_STRING;
+constexpr int32_t poi::poifs::macros::VBAMacroReader::MODULE_DOC_STRING;
 
-constexpr int32_t org::apache::poi::poifs::macros::VBAMacroReader::STREAMNAME_RESERVED;
+constexpr int32_t poi::poifs::macros::VBAMacroReader::STREAMNAME_RESERVED;
 
-void org::apache::poi::poifs::macros::VBAMacroReader::readMacros(::org::apache::poi::poifs::filesystem::DirectoryNode* macroDir, VBAMacroReader_ModuleMap* modules) /* throws(IOException) */
+void poi::poifs::macros::VBAMacroReader::readMacros(::poi::poifs::filesystem::DirectoryNode* macroDir, VBAMacroReader_ModuleMap* modules) /* throws(IOException) */
 {
     for (auto _i = npc(macroDir)->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::poifs::filesystem::Entry* entry = java_cast< ::org::apache::poi::poifs::filesystem::Entry* >(_i->next());
+        ::poi::poifs::filesystem::Entry* entry = java_cast< ::poi::poifs::filesystem::Entry* >(_i->next());
         {
-            if(!(dynamic_cast< ::org::apache::poi::poifs::filesystem::DocumentNode* >(entry) != nullptr)) {
+            if(!(dynamic_cast< ::poi::poifs::filesystem::DocumentNode* >(entry) != nullptr)) {
                 continue;
             }
             auto name = npc(entry)->getName();
-            auto document = java_cast< ::org::apache::poi::poifs::filesystem::DocumentNode* >(entry);
-            auto dis = new ::org::apache::poi::poifs::filesystem::DocumentInputStream(static_cast< ::org::apache::poi::poifs::filesystem::DocumentEntry* >(document));
+            auto document = java_cast< ::poi::poifs::filesystem::DocumentNode* >(entry);
+            auto dis = new ::poi::poifs::filesystem::DocumentInputStream(static_cast< ::poi::poifs::filesystem::DocumentEntry* >(document));
             {
                 auto finally0 = finally([&] {
                     npc(dis)->close();
                 });
                 {
                     if(npc(u"dir"_j)->equalsIgnoreCase(name)) {
-                        auto in = new ::org::apache::poi::util::RLEDecompressingInputStream(dis);
+                        auto in = new ::poi::util::RLEDecompressingInputStream(dis);
                         ::java::lang::String* streamName = nullptr;
                         auto recordId = int32_t(0);
                         {
@@ -338,7 +338,7 @@ void org::apache::poi::poifs::macros::VBAMacroReader::readMacros(::org::apache::
                                             break;
                                         case PROJECTCODEPAGE:
                                             codepage = npc(in)->readShort();
-                                            npc(modules)->charset = ::java::nio::charset::Charset::forName(::org::apache::poi::util::CodePageUtil::codepageToEncoding(codepage, true));
+                                            npc(modules)->charset = ::java::nio::charset::Charset::forName(::poi::util::CodePageUtil::codepageToEncoding(codepage, true));
                                             break;
                                         case STREAMNAME:
                                             streamName = readString(in, recordLength, npc(modules)->charset);
@@ -362,11 +362,11 @@ void org::apache::poi::poifs::macros::VBAMacroReader::readMacros(::org::apache::
                             } catch (::java::io::IOException* e) {
                                 throw new ::java::io::IOException(::java::lang::StringBuilder().append(u"Error occurred while reading macros at section id "_j)->append(recordId)
                                     ->append(u" ("_j)
-                                    ->append(::org::apache::poi::util::HexDump::shortToHex(recordId))
+                                    ->append(::poi::util::HexDump::shortToHex(recordId))
                                     ->append(u")"_j)->toString(), e);
                             }
                         }
-                    } else if(!::org::apache::poi::util::StringUtil::startsWithIgnoreCase(name, u"__SRP"_j) && !::org::apache::poi::util::StringUtil::startsWithIgnoreCase(name, u"_VBA_PROJECT"_j)) {
+                    } else if(!::poi::util::StringUtil::startsWithIgnoreCase(name, u"__SRP"_j) && !::poi::util::StringUtil::startsWithIgnoreCase(name, u"_VBA_PROJECT"_j)) {
                         readModule(dis, name, modules);
                     }
                 }
@@ -376,22 +376,22 @@ void org::apache::poi::poifs::macros::VBAMacroReader::readMacros(::org::apache::
     }
 }
 
-java::lang::String* org::apache::poi::poifs::macros::VBAMacroReader::readUnicodeString(::org::apache::poi::util::RLEDecompressingInputStream* in, int32_t unicodeNameRecordLength) /* throws(IOException) */
+java::lang::String* poi::poifs::macros::VBAMacroReader::readUnicodeString(::poi::util::RLEDecompressingInputStream* in, int32_t unicodeNameRecordLength) /* throws(IOException) */
 {
     auto buffer = new ::int8_tArray(unicodeNameRecordLength);
-    ::org::apache::poi::util::IOUtils::readFully(static_cast< ::java::io::InputStream* >(in), buffer);
+    ::poi::util::IOUtils::readFully(static_cast< ::java::io::InputStream* >(in), buffer);
     return new ::java::lang::String(buffer, UTF_16LE_);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::macros::VBAMacroReader::class_()
+java::lang::Class* poi::poifs::macros::VBAMacroReader::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.macros.VBAMacroReader", 42);
     return c;
 }
 
-void org::apache::poi::poifs::macros::VBAMacroReader::clinit()
+void poi::poifs::macros::VBAMacroReader::clinit()
 {
 struct string_init_ {
     string_init_() {
@@ -416,7 +416,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::poifs::macros::VBAMacroReader::getClass0()
+java::lang::Class* poi::poifs::macros::VBAMacroReader::getClass0()
 {
     return class_();
 }

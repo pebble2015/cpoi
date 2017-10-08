@@ -11,29 +11,23 @@
 #include <java/lang/Cloneable.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
+            namespace cf
             {
-                namespace record
-                {
-                    namespace cf
-                    {
-typedef ::SubArray< ::org::apache::poi::hssf::record::cf::Threshold, ::java::lang::ObjectArray > ThresholdArray;
-                    } // cf
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hssf::record::cf::Threshold, ::java::lang::ObjectArray > ThresholdArray;
+            } // cf
+        } // record
+    } // hssf
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::cf::IconMultiStateFormatting final
+class poi::hssf::record::cf::IconMultiStateFormatting final
     : public virtual ::java::lang::Object
     , public ::java::lang::Cloneable
 {
@@ -42,19 +36,19 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    static ::org::apache::poi::util::POILogger* log_;
-    ::org::apache::poi::ss::usermodel::IconMultiStateFormatting_IconSet* iconSet {  };
+    static ::poi::util::POILogger* log_;
+    ::poi::ss::usermodel::IconMultiStateFormatting_IconSet* iconSet {  };
     int8_t options {  };
     ThresholdArray* thresholds {  };
-    static ::org::apache::poi::util::BitField* iconOnly_;
-    static ::org::apache::poi::util::BitField* reversed_;
+    static ::poi::util::BitField* iconOnly_;
+    static ::poi::util::BitField* reversed_;
 protected:
     void ctor();
-    void ctor(::org::apache::poi::util::LittleEndianInput* in);
+    void ctor(::poi::util::LittleEndianInput* in);
 
 public:
-    ::org::apache::poi::ss::usermodel::IconMultiStateFormatting_IconSet* getIconSet();
-    void setIconSet(::org::apache::poi::ss::usermodel::IconMultiStateFormatting_IconSet* set);
+    ::poi::ss::usermodel::IconMultiStateFormatting_IconSet* getIconSet();
+    void setIconSet(::poi::ss::usermodel::IconMultiStateFormatting_IconSet* set);
     ThresholdArray* getThresholds();
     void setThresholds(ThresholdArray* thresholds);
     bool isIconOnly();
@@ -63,18 +57,18 @@ public:
     void setReversed(bool rev);
 
 private:
-    bool getOptionFlag(::org::apache::poi::util::BitField* field);
-    void setOptionFlag(bool option, ::org::apache::poi::util::BitField* field);
+    bool getOptionFlag(::poi::util::BitField* field);
+    void setOptionFlag(bool option, ::poi::util::BitField* field);
 
 public:
     ::java::lang::String* toString() override;
     ::java::lang::Object* clone() override;
     int32_t getDataLength();
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out);
+    void serialize(::poi::util::LittleEndianOutput* out);
 
     // Generated
     IconMultiStateFormatting();
-    IconMultiStateFormatting(::org::apache::poi::util::LittleEndianInput* in);
+    IconMultiStateFormatting(::poi::util::LittleEndianInput* in);
 protected:
     IconMultiStateFormatting(const ::default_init_tag&);
 
@@ -84,8 +78,8 @@ public:
     static void clinit();
 
 private:
-    static ::org::apache::poi::util::POILogger*& log();
-    static ::org::apache::poi::util::BitField*& iconOnly();
-    static ::org::apache::poi::util::BitField*& reversed();
+    static ::poi::util::POILogger*& log();
+    static ::poi::util::BitField*& iconOnly();
+    static ::poi::util::BitField*& reversed();
     virtual ::java::lang::Class* getClass0();
 };

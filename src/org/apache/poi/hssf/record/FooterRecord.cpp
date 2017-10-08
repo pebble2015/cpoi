@@ -12,37 +12,37 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::FooterRecord::FooterRecord(const ::default_init_tag&)
+poi::hssf::record::FooterRecord::FooterRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::FooterRecord::FooterRecord(::java::lang::String* text) 
+poi::hssf::record::FooterRecord::FooterRecord(::java::lang::String* text) 
     : FooterRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(text);
 }
 
-org::apache::poi::hssf::record::FooterRecord::FooterRecord(RecordInputStream* in) 
+poi::hssf::record::FooterRecord::FooterRecord(RecordInputStream* in) 
     : FooterRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::FooterRecord::sid;
+constexpr int16_t poi::hssf::record::FooterRecord::sid;
 
-void org::apache::poi::hssf::record::FooterRecord::ctor(::java::lang::String* text)
+void poi::hssf::record::FooterRecord::ctor(::java::lang::String* text)
 {
     super::ctor(text);
 }
 
-void org::apache::poi::hssf::record::FooterRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::FooterRecord::ctor(RecordInputStream* in)
 {
     super::ctor(in);
 }
 
-java::lang::String* org::apache::poi::hssf::record::FooterRecord::toString()
+java::lang::String* poi::hssf::record::FooterRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[FOOTER]\n"_j);
@@ -51,25 +51,25 @@ java::lang::String* org::apache::poi::hssf::record::FooterRecord::toString()
     return npc(buffer)->toString();
 }
 
-int16_t org::apache::poi::hssf::record::FooterRecord::getSid()
+int16_t poi::hssf::record::FooterRecord::getSid()
 {
     return sid;
 }
 
-org::apache::poi::hssf::record::FooterRecord* org::apache::poi::hssf::record::FooterRecord::clone()
+poi::hssf::record::FooterRecord* poi::hssf::record::FooterRecord::clone()
 {
     return new FooterRecord(getText());
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::FooterRecord::class_()
+java::lang::Class* poi::hssf::record::FooterRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.FooterRecord", 39);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::record::FooterRecord::getClass0()
+java::lang::Class* poi::hssf::record::FooterRecord::getClass0()
 {
     return class_();
 }

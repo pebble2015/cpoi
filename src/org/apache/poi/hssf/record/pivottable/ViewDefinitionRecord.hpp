@@ -11,12 +11,12 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::pivottable::ViewDefinitionRecord final
-    : public ::org::apache::poi::hssf::record::StandardRecord
+class poi::hssf::record::pivottable::ViewDefinitionRecord final
+    : public ::poi::hssf::record::StandardRecord
 {
 
 public:
-    typedef ::org::apache::poi::hssf::record::StandardRecord super;
+    typedef ::poi::hssf::record::StandardRecord super;
     static constexpr int16_t sid { int16_t(176) };
 
 private:
@@ -43,10 +43,10 @@ private:
     ::java::lang::String* dataField {  };
     ::java::lang::String* name {  };
 protected:
-    void ctor(::org::apache::poi::hssf::record::RecordInputStream* in);
+    void ctor(::poi::hssf::record::RecordInputStream* in);
 
 public: /* protected */
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
     int32_t getDataSize() override;
 
 public:
@@ -54,7 +54,7 @@ public:
     ::java::lang::String* toString() override;
 
     // Generated
-    ViewDefinitionRecord(::org::apache::poi::hssf::record::RecordInputStream* in);
+    ViewDefinitionRecord(::poi::hssf::record::RecordInputStream* in);
 protected:
     ViewDefinitionRecord(const ::default_init_tag&);
 

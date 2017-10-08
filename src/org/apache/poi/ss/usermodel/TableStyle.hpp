@@ -7,7 +7,7 @@
 #include <org/apache/poi/ss/usermodel/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::usermodel::TableStyle
+struct poi::ss::usermodel::TableStyle
     : public virtual ::java::lang::Object
 {
     virtual ::java::lang::String* getName() = 0;

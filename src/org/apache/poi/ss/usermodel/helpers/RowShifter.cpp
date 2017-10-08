@@ -30,25 +30,25 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::usermodel::helpers::RowShifter::RowShifter(const ::default_init_tag&)
+poi::ss::usermodel::helpers::RowShifter::RowShifter(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::usermodel::helpers::RowShifter::RowShifter(::org::apache::poi::ss::usermodel::Sheet* sh) 
+poi::ss::usermodel::helpers::RowShifter::RowShifter(::poi::ss::usermodel::Sheet* sh) 
     : RowShifter(*static_cast< ::default_init_tag* >(0))
 {
     ctor(sh);
 }
 
-void org::apache::poi::ss::usermodel::helpers::RowShifter::ctor(::org::apache::poi::ss::usermodel::Sheet* sh)
+void poi::ss::usermodel::helpers::RowShifter::ctor(::poi::ss::usermodel::Sheet* sh)
 {
     super::ctor();
     sheet = sh;
 }
 
-java::util::List* org::apache::poi::ss::usermodel::helpers::RowShifter::shiftMergedRegions(int32_t startRow, int32_t endRow, int32_t n)
+java::util::List* poi::ss::usermodel::helpers::RowShifter::shiftMergedRegions(int32_t startRow, int32_t endRow, int32_t n)
 {
     ::java::util::List* shiftedRegions = new ::java::util::ArrayList();
     ::java::util::Set* removedIndices = new ::java::util::HashSet();
@@ -75,7 +75,7 @@ java::util::List* org::apache::poi::ss::usermodel::helpers::RowShifter::shiftMer
         npc(sheet)->removeMergedRegions(removedIndices);
     }
     for (auto _i = npc(shiftedRegions)->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::ss::util::CellRangeAddress* region = java_cast< ::org::apache::poi::ss::util::CellRangeAddress* >(_i->next());
+        ::poi::ss::util::CellRangeAddress* region = java_cast< ::poi::ss::util::CellRangeAddress* >(_i->next());
         {
             npc(sheet)->addMergedRegion(region);
         }
@@ -83,27 +83,27 @@ java::util::List* org::apache::poi::ss::usermodel::helpers::RowShifter::shiftMer
     return shiftedRegions;
 }
 
-bool org::apache::poi::ss::usermodel::helpers::RowShifter::removalNeeded(::org::apache::poi::ss::util::CellRangeAddress* merged, int32_t startRow, int32_t endRow, int32_t n)
+bool poi::ss::usermodel::helpers::RowShifter::removalNeeded(::poi::ss::util::CellRangeAddress* merged, int32_t startRow, int32_t endRow, int32_t n)
 {
     auto const movedRows = endRow - startRow + int32_t(1);
-    ::org::apache::poi::ss::util::CellRangeAddress* overwrite;
+    ::poi::ss::util::CellRangeAddress* overwrite;
     if(n > 0) {
-        overwrite = new ::org::apache::poi::ss::util::CellRangeAddress(::java::lang::Math::max(endRow + int32_t(1), endRow + n - movedRows), endRow + n, int32_t(0), int32_t(0));
+        overwrite = new ::poi::ss::util::CellRangeAddress(::java::lang::Math::max(endRow + int32_t(1), endRow + n - movedRows), endRow + n, int32_t(0), int32_t(0));
     } else {
-        overwrite = new ::org::apache::poi::ss::util::CellRangeAddress(startRow + n, ::java::lang::Math::min(startRow - int32_t(1), startRow + n + movedRows), int32_t(0), int32_t(0));
+        overwrite = new ::poi::ss::util::CellRangeAddress(startRow + n, ::java::lang::Math::min(startRow - int32_t(1), startRow + n + movedRows), int32_t(0), int32_t(0));
     }
     return npc(merged)->intersects(overwrite);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::usermodel::helpers::RowShifter::class_()
+java::lang::Class* poi::ss::usermodel::helpers::RowShifter::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.usermodel.helpers.RowShifter", 46);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::usermodel::helpers::RowShifter::getClass0()
+java::lang::Class* poi::ss::usermodel::helpers::RowShifter::getClass0()
 {
     return class_();
 }

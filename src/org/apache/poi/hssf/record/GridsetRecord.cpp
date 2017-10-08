@@ -15,38 +15,38 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::GridsetRecord::GridsetRecord(const ::default_init_tag&)
+poi::hssf::record::GridsetRecord::GridsetRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::GridsetRecord::GridsetRecord() 
+poi::hssf::record::GridsetRecord::GridsetRecord() 
     : GridsetRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::GridsetRecord::GridsetRecord(RecordInputStream* in) 
+poi::hssf::record::GridsetRecord::GridsetRecord(RecordInputStream* in) 
     : GridsetRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::GridsetRecord::sid;
+constexpr int16_t poi::hssf::record::GridsetRecord::sid;
 
-void org::apache::poi::hssf::record::GridsetRecord::ctor()
+void poi::hssf::record::GridsetRecord::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hssf::record::GridsetRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::GridsetRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     field_1_gridset_flag = npc(in)->readShort();
 }
 
-void org::apache::poi::hssf::record::GridsetRecord::setGridset(bool gridset)
+void poi::hssf::record::GridsetRecord::setGridset(bool gridset)
 {
     if(gridset == true) {
         field_1_gridset_flag = 1;
@@ -55,12 +55,12 @@ void org::apache::poi::hssf::record::GridsetRecord::setGridset(bool gridset)
     }
 }
 
-bool org::apache::poi::hssf::record::GridsetRecord::getGridset()
+bool poi::hssf::record::GridsetRecord::getGridset()
 {
     return (field_1_gridset_flag == 1);
 }
 
-java::lang::String* org::apache::poi::hssf::record::GridsetRecord::toString()
+java::lang::String* poi::hssf::record::GridsetRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[GRIDSET]\n"_j);
@@ -69,22 +69,22 @@ java::lang::String* org::apache::poi::hssf::record::GridsetRecord::toString()
     return npc(buffer)->toString();
 }
 
-void org::apache::poi::hssf::record::GridsetRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::GridsetRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(field_1_gridset_flag);
 }
 
-int32_t org::apache::poi::hssf::record::GridsetRecord::getDataSize()
+int32_t poi::hssf::record::GridsetRecord::getDataSize()
 {
     return 2;
 }
 
-int16_t org::apache::poi::hssf::record::GridsetRecord::getSid()
+int16_t poi::hssf::record::GridsetRecord::getSid()
 {
     return sid;
 }
 
-org::apache::poi::hssf::record::GridsetRecord* org::apache::poi::hssf::record::GridsetRecord::clone()
+poi::hssf::record::GridsetRecord* poi::hssf::record::GridsetRecord::clone()
 {
     auto rec = new GridsetRecord();
     npc(rec)->field_1_gridset_flag = field_1_gridset_flag;
@@ -93,23 +93,23 @@ org::apache::poi::hssf::record::GridsetRecord* org::apache::poi::hssf::record::G
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::GridsetRecord::class_()
+java::lang::Class* poi::hssf::record::GridsetRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.GridsetRecord", 40);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::GridsetRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::GridsetRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::GridsetRecord::serialize()
+int8_tArray* poi::hssf::record::GridsetRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::GridsetRecord::getClass0()
+java::lang::Class* poi::hssf::record::GridsetRecord::getClass0()
 {
     return class_();
 }

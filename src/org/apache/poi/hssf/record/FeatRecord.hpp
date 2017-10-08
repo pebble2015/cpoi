@@ -12,27 +12,21 @@
 #include <java/lang/Cloneable.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace util
         {
-            namespace ss
-            {
-                namespace util
-                {
-typedef ::SubArray< ::org::apache::poi::ss::util::CellRangeAddressBase, ::java::lang::ObjectArray > CellRangeAddressBaseArray;
-typedef ::SubArray< ::org::apache::poi::ss::util::CellRangeAddress, CellRangeAddressBaseArray > CellRangeAddressArray;
-                } // util
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::util::CellRangeAddressBase, ::java::lang::ObjectArray > CellRangeAddressBaseArray;
+typedef ::SubArray< ::poi::ss::util::CellRangeAddress, CellRangeAddressBaseArray > CellRangeAddressArray;
+        } // util
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::FeatRecord final
+class poi::hssf::record::FeatRecord final
     : public StandardRecord
     , public ::java::lang::Cloneable
 {
@@ -41,7 +35,7 @@ public:
     typedef StandardRecord super;
 
 private:
-    static ::org::apache::poi::util::POILogger* logger_;
+    static ::poi::util::POILogger* logger_;
 
 public:
     static constexpr int16_t sid { int16_t(2152) };
@@ -49,14 +43,14 @@ public:
     static constexpr int16_t v12_sid { int16_t(2168) };
 
 private:
-    ::org::apache::poi::hssf::record::common::FtrHeader* futureHeader {  };
+    ::poi::hssf::record::common::FtrHeader* futureHeader {  };
     int32_t isf_sharedFeatureType {  };
     int8_t reserved1 {  };
     int64_t reserved2 {  };
     int64_t cbFeatData {  };
     int32_t reserved3 {  };
-    ::org::apache::poi::ss::util::CellRangeAddressArray* cellRefs {  };
-    ::org::apache::poi::hssf::record::common::SharedFeature* sharedFeature {  };
+    ::poi::ss::util::CellRangeAddressArray* cellRefs {  };
+    ::poi::hssf::record::common::SharedFeature* sharedFeature {  };
 protected:
     void ctor();
 
@@ -67,7 +61,7 @@ protected:
 
 public:
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;
@@ -76,10 +70,10 @@ public:
     int32_t getIsf_sharedFeatureType();
     int64_t getCbFeatData();
     void setCbFeatData(int64_t cbFeatData);
-    ::org::apache::poi::ss::util::CellRangeAddressArray* getCellRefs();
-    void setCellRefs(::org::apache::poi::ss::util::CellRangeAddressArray* cellRefs);
-    ::org::apache::poi::hssf::record::common::SharedFeature* getSharedFeature();
-    void setSharedFeature(::org::apache::poi::hssf::record::common::SharedFeature* feature);
+    ::poi::ss::util::CellRangeAddressArray* getCellRefs();
+    void setCellRefs(::poi::ss::util::CellRangeAddressArray* cellRefs);
+    ::poi::hssf::record::common::SharedFeature* getSharedFeature();
+    void setSharedFeature(::poi::hssf::record::common::SharedFeature* feature);
     FeatRecord* clone() override;
 
     // Generated
@@ -96,6 +90,6 @@ public:
     ::int8_tArray* serialize();
 
 private:
-    static ::org::apache::poi::util::POILogger*& logger();
+    static ::poi::util::POILogger*& logger();
     virtual ::java::lang::Class* getClass0();
 };

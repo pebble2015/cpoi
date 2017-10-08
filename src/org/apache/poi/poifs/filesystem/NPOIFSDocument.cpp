@@ -68,47 +68,47 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::filesystem::NPOIFSDocument::NPOIFSDocument(const ::default_init_tag&)
+poi::poifs::filesystem::NPOIFSDocument::NPOIFSDocument(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::filesystem::NPOIFSDocument::NPOIFSDocument(DocumentNode* document)  /* throws(IOException) */
+poi::poifs::filesystem::NPOIFSDocument::NPOIFSDocument(DocumentNode* document)  /* throws(IOException) */
     : NPOIFSDocument(*static_cast< ::default_init_tag* >(0))
 {
     ctor(document);
 }
 
-org::apache::poi::poifs::filesystem::NPOIFSDocument::NPOIFSDocument(::org::apache::poi::poifs::property::DocumentProperty* property, NPOIFSFileSystem* filesystem)  /* throws(IOException) */
+poi::poifs::filesystem::NPOIFSDocument::NPOIFSDocument(::poi::poifs::property::DocumentProperty* property, NPOIFSFileSystem* filesystem)  /* throws(IOException) */
     : NPOIFSDocument(*static_cast< ::default_init_tag* >(0))
 {
     ctor(property,filesystem);
 }
 
-org::apache::poi::poifs::filesystem::NPOIFSDocument::NPOIFSDocument(::java::lang::String* name, NPOIFSFileSystem* filesystem, ::java::io::InputStream* stream)  /* throws(IOException) */
+poi::poifs::filesystem::NPOIFSDocument::NPOIFSDocument(::java::lang::String* name, NPOIFSFileSystem* filesystem, ::java::io::InputStream* stream)  /* throws(IOException) */
     : NPOIFSDocument(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name,filesystem,stream);
 }
 
-org::apache::poi::poifs::filesystem::NPOIFSDocument::NPOIFSDocument(::java::lang::String* name, int32_t size, NPOIFSFileSystem* filesystem, POIFSWriterListener* writer)  /* throws(IOException) */
+poi::poifs::filesystem::NPOIFSDocument::NPOIFSDocument(::java::lang::String* name, int32_t size, NPOIFSFileSystem* filesystem, POIFSWriterListener* writer)  /* throws(IOException) */
     : NPOIFSDocument(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name,size,filesystem,writer);
 }
 
-void org::apache::poi::poifs::filesystem::NPOIFSDocument::ctor(DocumentNode* document) /* throws(IOException) */
+void poi::poifs::filesystem::NPOIFSDocument::ctor(DocumentNode* document) /* throws(IOException) */
 {
-    ctor(java_cast< ::org::apache::poi::poifs::property::DocumentProperty* >(npc(document)->getProperty()), npc((java_cast< DirectoryNode* >(npc(document)->getParent())))->getNFileSystem());
+    ctor(java_cast< ::poi::poifs::property::DocumentProperty* >(npc(document)->getProperty()), npc((java_cast< DirectoryNode* >(npc(document)->getParent())))->getNFileSystem());
 }
 
-void org::apache::poi::poifs::filesystem::NPOIFSDocument::ctor(::org::apache::poi::poifs::property::DocumentProperty* property, NPOIFSFileSystem* filesystem) /* throws(IOException) */
+void poi::poifs::filesystem::NPOIFSDocument::ctor(::poi::poifs::property::DocumentProperty* property, NPOIFSFileSystem* filesystem) /* throws(IOException) */
 {
     super::ctor();
     this->_property = property;
     this->_filesystem = filesystem;
-    if(npc(property)->getSize() < ::org::apache::poi::poifs::common::POIFSConstants::BIG_BLOCK_MINIMUM_DOCUMENT_SIZE) {
+    if(npc(property)->getSize() < ::poi::poifs::common::POIFSConstants::BIG_BLOCK_MINIMUM_DOCUMENT_SIZE) {
         _stream = new NPOIFSStream(npc(_filesystem)->getMiniStore(), npc(property)->getStartBlock());
         _block_size = npc(npc(_filesystem)->getMiniStore())->getBlockStoreBlockSize();
     } else {
@@ -117,20 +117,20 @@ void org::apache::poi::poifs::filesystem::NPOIFSDocument::ctor(::org::apache::po
     }
 }
 
-void org::apache::poi::poifs::filesystem::NPOIFSDocument::ctor(::java::lang::String* name, NPOIFSFileSystem* filesystem, ::java::io::InputStream* stream) /* throws(IOException) */
+void poi::poifs::filesystem::NPOIFSDocument::ctor(::java::lang::String* name, NPOIFSFileSystem* filesystem, ::java::io::InputStream* stream) /* throws(IOException) */
 {
     super::ctor();
     this->_filesystem = filesystem;
     auto length = store(stream);
-    this->_property = new ::org::apache::poi::poifs::property::DocumentProperty(name, length);
+    this->_property = new ::poi::poifs::property::DocumentProperty(name, length);
     npc(_property)->setStartBlock(npc(_stream)->getStartBlock());
 }
 
-void org::apache::poi::poifs::filesystem::NPOIFSDocument::ctor(::java::lang::String* name, int32_t size, NPOIFSFileSystem* filesystem, POIFSWriterListener* writer) /* throws(IOException) */
+void poi::poifs::filesystem::NPOIFSDocument::ctor(::java::lang::String* name, int32_t size, NPOIFSFileSystem* filesystem, POIFSWriterListener* writer) /* throws(IOException) */
 {
     super::ctor();
     this->_filesystem = filesystem;
-    if(size < ::org::apache::poi::poifs::common::POIFSConstants::BIG_BLOCK_MINIMUM_DOCUMENT_SIZE) {
+    if(size < ::poi::poifs::common::POIFSConstants::BIG_BLOCK_MINIMUM_DOCUMENT_SIZE) {
         _stream = new NPOIFSStream(npc(filesystem)->getMiniStore());
         _block_size = npc(npc(_filesystem)->getMiniStore())->getBlockStoreBlockSize();
     } else {
@@ -144,13 +144,13 @@ void org::apache::poi::poifs::filesystem::NPOIFSDocument::ctor(::java::lang::Str
     auto event = new POIFSWriterEvent(os, path, docName, size);
     npc(writer)->processPOIFSWriterEvent(event);
     npc(innerOs)->close();
-    this->_property = new ::org::apache::poi::poifs::property::DocumentProperty(name, size);
+    this->_property = new ::poi::poifs::property::DocumentProperty(name, size);
     npc(_property)->setStartBlock(npc(_stream)->getStartBlock());
 }
 
-int32_t org::apache::poi::poifs::filesystem::NPOIFSDocument::store(::java::io::InputStream* stream) /* throws(IOException) */
+int32_t poi::poifs::filesystem::NPOIFSDocument::store(::java::io::InputStream* stream) /* throws(IOException) */
 {
-    auto const bigBlockSize = ::org::apache::poi::poifs::common::POIFSConstants::BIG_BLOCK_MINIMUM_DOCUMENT_SIZE;
+    auto const bigBlockSize = ::poi::poifs::common::POIFSConstants::BIG_BLOCK_MINIMUM_DOCUMENT_SIZE;
     auto bis = new ::java::io::BufferedInputStream(stream, bigBlockSize + int32_t(1));
     npc(bis)->mark(bigBlockSize);
     if(npc(bis)->skip(static_cast< int64_t >(bigBlockSize)) < bigBlockSize) {
@@ -178,23 +178,23 @@ int32_t org::apache::poi::poifs::filesystem::NPOIFSDocument::store(::java::io::I
     return length;
 }
 
-void org::apache::poi::poifs::filesystem::NPOIFSDocument::free() /* throws(IOException) */
+void poi::poifs::filesystem::NPOIFSDocument::free() /* throws(IOException) */
 {
     npc(_stream)->free();
-    npc(_property)->setStartBlock(::org::apache::poi::poifs::common::POIFSConstants::END_OF_CHAIN);
+    npc(_property)->setStartBlock(::poi::poifs::common::POIFSConstants::END_OF_CHAIN);
 }
 
-org::apache::poi::poifs::filesystem::NPOIFSFileSystem* org::apache::poi::poifs::filesystem::NPOIFSDocument::getFileSystem()
+poi::poifs::filesystem::NPOIFSFileSystem* poi::poifs::filesystem::NPOIFSDocument::getFileSystem()
 {
     return _filesystem;
 }
 
-int32_t org::apache::poi::poifs::filesystem::NPOIFSDocument::getDocumentBlockSize()
+int32_t poi::poifs::filesystem::NPOIFSDocument::getDocumentBlockSize()
 {
     return _block_size;
 }
 
-java::util::Iterator* org::apache::poi::poifs::filesystem::NPOIFSDocument::getBlockIterator()
+java::util::Iterator* poi::poifs::filesystem::NPOIFSDocument::getBlockIterator()
 {
     if(getSize() > 0) {
         return npc(_stream)->getBlockIterator();
@@ -204,12 +204,12 @@ java::util::Iterator* org::apache::poi::poifs::filesystem::NPOIFSDocument::getBl
     }
 }
 
-int32_t org::apache::poi::poifs::filesystem::NPOIFSDocument::getSize()
+int32_t poi::poifs::filesystem::NPOIFSDocument::getSize()
 {
     return npc(_property)->getSize();
 }
 
-void org::apache::poi::poifs::filesystem::NPOIFSDocument::replaceContents(::java::io::InputStream* stream) /* throws(IOException) */
+void poi::poifs::filesystem::NPOIFSDocument::replaceContents(::java::io::InputStream* stream) /* throws(IOException) */
 {
     free();
     auto size = store(stream);
@@ -217,12 +217,12 @@ void org::apache::poi::poifs::filesystem::NPOIFSDocument::replaceContents(::java
     npc(_property)->updateSize(size);
 }
 
-org::apache::poi::poifs::property::DocumentProperty* org::apache::poi::poifs::filesystem::NPOIFSDocument::getDocumentProperty()
+poi::poifs::property::DocumentProperty* poi::poifs::filesystem::NPOIFSDocument::getDocumentProperty()
 {
     return _property;
 }
 
-java::lang::ObjectArray* org::apache::poi::poifs::filesystem::NPOIFSDocument::getViewableArray_()
+java::lang::ObjectArray* poi::poifs::filesystem::NPOIFSDocument::getViewableArray_()
 {
     auto result = u"<NO DATA>"_j;
     if(getSize() > 0) {
@@ -236,22 +236,22 @@ java::lang::ObjectArray* org::apache::poi::poifs::filesystem::NPOIFSDocument::ge
                 offset += length;
             }
         }
-        result = ::org::apache::poi::util::HexDump::dump(data, 0, 0);
+        result = ::poi::util::HexDump::dump(data, 0, 0);
     }
     return new ::java::lang::StringArray({result});
 }
 
-java::util::Iterator* org::apache::poi::poifs::filesystem::NPOIFSDocument::getViewableIterator()
+java::util::Iterator* poi::poifs::filesystem::NPOIFSDocument::getViewableIterator()
 {
     return npc(::java::util::Collections::emptyList())->iterator();
 }
 
-bool org::apache::poi::poifs::filesystem::NPOIFSDocument::preferArray_()
+bool poi::poifs::filesystem::NPOIFSDocument::preferArray_()
 {
     return true;
 }
 
-java::lang::String* org::apache::poi::poifs::filesystem::NPOIFSDocument::getShortDescription()
+java::lang::String* poi::poifs::filesystem::NPOIFSDocument::getShortDescription()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(npc(npc(buffer)->append(u"Document: \""_j))->append(npc(_property)->getName()))->append(u"\""_j);
@@ -261,13 +261,13 @@ java::lang::String* org::apache::poi::poifs::filesystem::NPOIFSDocument::getShor
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::filesystem::NPOIFSDocument::class_()
+java::lang::Class* poi::poifs::filesystem::NPOIFSDocument::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.filesystem.NPOIFSDocument", 46);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::filesystem::NPOIFSDocument::getClass0()
+java::lang::Class* poi::poifs::filesystem::NPOIFSDocument::getClass0()
 {
     return class_();
 }

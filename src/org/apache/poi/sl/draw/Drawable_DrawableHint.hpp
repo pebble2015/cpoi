@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::Drawable_DrawableHint
+class poi::sl::draw::Drawable_DrawableHint
     : public ::java::awt::RenderingHints_Key
 {
 

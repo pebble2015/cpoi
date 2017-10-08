@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::common::POIFSBigBlockSize final
+class poi::poifs::common::POIFSBigBlockSize final
     : public ::java::lang::Object
 {
 

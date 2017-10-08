@@ -10,32 +10,26 @@
 #include <org/apache/poi/poifs/crypt/standard/EncryptionRecord.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace poifs
     {
-        namespace poi
+        namespace crypt
         {
-            namespace poifs
+            namespace standard
             {
-                namespace crypt
-                {
-                    namespace standard
-                    {
-typedef ::SubArray< ::org::apache::poi::poifs::crypt::standard::EncryptionRecord, ::java::lang::ObjectArray > EncryptionRecordArray;
-                    } // standard
-typedef ::SubArray< ::org::apache::poi::poifs::crypt::DataSpaceMapUtils_DataSpaceMapEntry, ::java::lang::ObjectArray, ::org::apache::poi::poifs::crypt::standard::EncryptionRecordArray > DataSpaceMapUtils_DataSpaceMapEntryArray;
-                } // crypt
-            } // poifs
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::poifs::crypt::standard::EncryptionRecord, ::java::lang::ObjectArray > EncryptionRecordArray;
+            } // standard
+typedef ::SubArray< ::poi::poifs::crypt::DataSpaceMapUtils_DataSpaceMapEntry, ::java::lang::ObjectArray, ::poi::poifs::crypt::standard::EncryptionRecordArray > DataSpaceMapUtils_DataSpaceMapEntryArray;
+        } // crypt
+    } // poifs
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::crypt::DataSpaceMapUtils_DataSpaceMap
+class poi::poifs::crypt::DataSpaceMapUtils_DataSpaceMap
     : public virtual ::java::lang::Object
-    , public virtual ::org::apache::poi::poifs::crypt::standard::EncryptionRecord
+    , public virtual ::poi::poifs::crypt::standard::EncryptionRecord
 {
 
 public:
@@ -45,14 +39,14 @@ public: /* package */
     DataSpaceMapUtils_DataSpaceMapEntryArray* entries {  };
 protected:
     void ctor(DataSpaceMapUtils_DataSpaceMapEntryArray* entries);
-    void ctor(::org::apache::poi::util::LittleEndianInput* is);
+    void ctor(::poi::util::LittleEndianInput* is);
 
 public:
-    void write(::org::apache::poi::util::LittleEndianByteArrayOutputStream* os) override;
+    void write(::poi::util::LittleEndianByteArrayOutputStream* os) override;
 
     // Generated
     DataSpaceMapUtils_DataSpaceMap(DataSpaceMapUtils_DataSpaceMapEntryArray* entries);
-    DataSpaceMapUtils_DataSpaceMap(::org::apache::poi::util::LittleEndianInput* is);
+    DataSpaceMapUtils_DataSpaceMap(::poi::util::LittleEndianInput* is);
 protected:
     DataSpaceMapUtils_DataSpaceMap(const ::default_init_tag&);
 

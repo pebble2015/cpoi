@@ -20,25 +20,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
-            {
-                namespace record
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::Record, RecordBaseArray > RecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::StandardRecord, RecordArray > StandardRecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::ExternSheetRecord, StandardRecordArray > ExternSheetRecordArray;
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
+typedef ::SubArray< ::poi::hssf::record::Record, RecordBaseArray > RecordArray;
+typedef ::SubArray< ::poi::hssf::record::StandardRecord, RecordArray > StandardRecordArray;
+typedef ::SubArray< ::poi::hssf::record::ExternSheetRecord, StandardRecordArray > ExternSheetRecordArray;
+        } // record
+    } // hssf
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -56,33 +50,33 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::ExternSheetRecord::ExternSheetRecord(const ::default_init_tag&)
+poi::hssf::record::ExternSheetRecord::ExternSheetRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::ExternSheetRecord::ExternSheetRecord() 
+poi::hssf::record::ExternSheetRecord::ExternSheetRecord() 
     : ExternSheetRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::ExternSheetRecord::ExternSheetRecord(RecordInputStream* in) 
+poi::hssf::record::ExternSheetRecord::ExternSheetRecord(RecordInputStream* in) 
     : ExternSheetRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::ExternSheetRecord::sid;
+constexpr int16_t poi::hssf::record::ExternSheetRecord::sid;
 
-void org::apache::poi::hssf::record::ExternSheetRecord::ctor()
+void poi::hssf::record::ExternSheetRecord::ctor()
 {
     super::ctor();
     _list = new ::java::util::ArrayList();
 }
 
-void org::apache::poi::hssf::record::ExternSheetRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::ExternSheetRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     _list = new ::java::util::ArrayList();
@@ -93,22 +87,22 @@ void org::apache::poi::hssf::record::ExternSheetRecord::ctor(RecordInputStream* 
     }
 }
 
-int32_t org::apache::poi::hssf::record::ExternSheetRecord::getNumOfRefs()
+int32_t poi::hssf::record::ExternSheetRecord::getNumOfRefs()
 {
     return npc(_list)->size();
 }
 
-void org::apache::poi::hssf::record::ExternSheetRecord::addREFRecord(ExternSheetRecord_RefSubRecord* rec)
+void poi::hssf::record::ExternSheetRecord::addREFRecord(ExternSheetRecord_RefSubRecord* rec)
 {
     npc(_list)->add(static_cast< ::java::lang::Object* >(rec));
 }
 
-int32_t org::apache::poi::hssf::record::ExternSheetRecord::getNumOfREFRecords()
+int32_t poi::hssf::record::ExternSheetRecord::getNumOfREFRecords()
 {
     return npc(_list)->size();
 }
 
-java::lang::String* org::apache::poi::hssf::record::ExternSheetRecord::toString()
+java::lang::String* poi::hssf::record::ExternSheetRecord::toString()
 {
     auto sb = new ::java::lang::StringBuffer();
     auto nItems = npc(_list)->size();
@@ -123,12 +117,12 @@ java::lang::String* org::apache::poi::hssf::record::ExternSheetRecord::toString(
     return npc(sb)->toString();
 }
 
-int32_t org::apache::poi::hssf::record::ExternSheetRecord::getDataSize()
+int32_t poi::hssf::record::ExternSheetRecord::getDataSize()
 {
     return int32_t(2) + npc(_list)->size() * ExternSheetRecord_RefSubRecord::ENCODED_SIZE;
 }
 
-void org::apache::poi::hssf::record::ExternSheetRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::ExternSheetRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     auto nItems = npc(_list)->size();
     npc(out)->writeShort(nItems);
@@ -137,12 +131,12 @@ void org::apache::poi::hssf::record::ExternSheetRecord::serialize(::org::apache:
     }
 }
 
-org::apache::poi::hssf::record::ExternSheetRecord_RefSubRecord* org::apache::poi::hssf::record::ExternSheetRecord::getRef(int32_t i)
+poi::hssf::record::ExternSheetRecord_RefSubRecord* poi::hssf::record::ExternSheetRecord::getRef(int32_t i)
 {
     return java_cast< ExternSheetRecord_RefSubRecord* >(npc(_list)->get(i));
 }
 
-void org::apache::poi::hssf::record::ExternSheetRecord::removeSheet(int32_t sheetIdx)
+void poi::hssf::record::ExternSheetRecord::removeSheet(int32_t sheetIdx)
 {
     auto nItems = npc(_list)->size();
     for (auto i = int32_t(0); i < nItems; i++) {
@@ -155,18 +149,18 @@ void org::apache::poi::hssf::record::ExternSheetRecord::removeSheet(int32_t shee
     }
 }
 
-int16_t org::apache::poi::hssf::record::ExternSheetRecord::getSid()
+int16_t poi::hssf::record::ExternSheetRecord::getSid()
 {
     return sid;
 }
 
-int32_t org::apache::poi::hssf::record::ExternSheetRecord::getExtbookIndexFromRefIndex(int32_t refIndex)
+int32_t poi::hssf::record::ExternSheetRecord::getExtbookIndexFromRefIndex(int32_t refIndex)
 {
     auto refRec = getRef(refIndex);
     return npc(refRec)->getExtBookIndex();
 }
 
-int32_t org::apache::poi::hssf::record::ExternSheetRecord::findRefIndexFromExtBookIndex(int32_t extBookIndex)
+int32_t poi::hssf::record::ExternSheetRecord::findRefIndexFromExtBookIndex(int32_t extBookIndex)
 {
     auto nItems = npc(_list)->size();
     for (auto i = int32_t(0); i < nItems; i++) {
@@ -177,23 +171,23 @@ int32_t org::apache::poi::hssf::record::ExternSheetRecord::findRefIndexFromExtBo
     return -int32_t(1);
 }
 
-int32_t org::apache::poi::hssf::record::ExternSheetRecord::getFirstSheetIndexFromRefIndex(int32_t extRefIndex)
+int32_t poi::hssf::record::ExternSheetRecord::getFirstSheetIndexFromRefIndex(int32_t extRefIndex)
 {
     return npc(getRef(extRefIndex))->getFirstSheetIndex();
 }
 
-int32_t org::apache::poi::hssf::record::ExternSheetRecord::getLastSheetIndexFromRefIndex(int32_t extRefIndex)
+int32_t poi::hssf::record::ExternSheetRecord::getLastSheetIndexFromRefIndex(int32_t extRefIndex)
 {
     return npc(getRef(extRefIndex))->getLastSheetIndex();
 }
 
-int32_t org::apache::poi::hssf::record::ExternSheetRecord::addRef(int32_t extBookIndex, int32_t firstSheetIndex, int32_t lastSheetIndex)
+int32_t poi::hssf::record::ExternSheetRecord::addRef(int32_t extBookIndex, int32_t firstSheetIndex, int32_t lastSheetIndex)
 {
     npc(_list)->add(static_cast< ::java::lang::Object* >(new ExternSheetRecord_RefSubRecord(extBookIndex, firstSheetIndex, lastSheetIndex)));
     return npc(_list)->size() - int32_t(1);
 }
 
-int32_t org::apache::poi::hssf::record::ExternSheetRecord::getRefIxForSheet(int32_t externalBookIndex, int32_t firstSheetIndex, int32_t lastSheetIndex)
+int32_t poi::hssf::record::ExternSheetRecord::getRefIxForSheet(int32_t externalBookIndex, int32_t firstSheetIndex, int32_t lastSheetIndex)
 {
     auto nItems = npc(_list)->size();
     for (auto i = int32_t(0); i < nItems; i++) {
@@ -208,7 +202,7 @@ int32_t org::apache::poi::hssf::record::ExternSheetRecord::getRefIxForSheet(int3
     return -int32_t(1);
 }
 
-org::apache::poi::hssf::record::ExternSheetRecord* org::apache::poi::hssf::record::ExternSheetRecord::combine(ExternSheetRecordArray* esrs)
+poi::hssf::record::ExternSheetRecord* poi::hssf::record::ExternSheetRecord::combine(ExternSheetRecordArray* esrs)
 {
     clinit();
     auto result = new ExternSheetRecord();
@@ -223,23 +217,23 @@ org::apache::poi::hssf::record::ExternSheetRecord* org::apache::poi::hssf::recor
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::ExternSheetRecord::class_()
+java::lang::Class* poi::hssf::record::ExternSheetRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.ExternSheetRecord", 44);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::ExternSheetRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::ExternSheetRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::ExternSheetRecord::serialize()
+int8_tArray* poi::hssf::record::ExternSheetRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::ExternSheetRecord::getClass0()
+java::lang::Class* poi::hssf::record::ExternSheetRecord::getClass0()
 {
     return class_();
 }

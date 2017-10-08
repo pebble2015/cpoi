@@ -24,42 +24,42 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::HorizontalPageBreakRecord::HorizontalPageBreakRecord(const ::default_init_tag&)
+poi::hssf::record::HorizontalPageBreakRecord::HorizontalPageBreakRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::HorizontalPageBreakRecord::HorizontalPageBreakRecord() 
+poi::hssf::record::HorizontalPageBreakRecord::HorizontalPageBreakRecord() 
     : HorizontalPageBreakRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::HorizontalPageBreakRecord::HorizontalPageBreakRecord(RecordInputStream* in) 
+poi::hssf::record::HorizontalPageBreakRecord::HorizontalPageBreakRecord(RecordInputStream* in) 
     : HorizontalPageBreakRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::HorizontalPageBreakRecord::sid;
+constexpr int16_t poi::hssf::record::HorizontalPageBreakRecord::sid;
 
-void org::apache::poi::hssf::record::HorizontalPageBreakRecord::ctor()
+void poi::hssf::record::HorizontalPageBreakRecord::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hssf::record::HorizontalPageBreakRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::HorizontalPageBreakRecord::ctor(RecordInputStream* in)
 {
     super::ctor(in);
 }
 
-int16_t org::apache::poi::hssf::record::HorizontalPageBreakRecord::getSid()
+int16_t poi::hssf::record::HorizontalPageBreakRecord::getSid()
 {
     return sid;
 }
 
-org::apache::poi::hssf::record::PageBreakRecord* org::apache::poi::hssf::record::HorizontalPageBreakRecord::clone()
+poi::hssf::record::PageBreakRecord* poi::hssf::record::HorizontalPageBreakRecord::clone()
 {
     PageBreakRecord* result = new HorizontalPageBreakRecord();
     auto iterator = getBreaksIterator();
@@ -72,13 +72,13 @@ org::apache::poi::hssf::record::PageBreakRecord* org::apache::poi::hssf::record:
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::HorizontalPageBreakRecord::class_()
+java::lang::Class* poi::hssf::record::HorizontalPageBreakRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.HorizontalPageBreakRecord", 52);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::record::HorizontalPageBreakRecord::getClass0()
+java::lang::Class* poi::hssf::record::HorizontalPageBreakRecord::getClass0()
 {
     return class_();
 }

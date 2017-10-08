@@ -19,36 +19,36 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::chart::SeriesTextRecord::SeriesTextRecord(const ::default_init_tag&)
+poi::hssf::record::chart::SeriesTextRecord::SeriesTextRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::chart::SeriesTextRecord::SeriesTextRecord() 
+poi::hssf::record::chart::SeriesTextRecord::SeriesTextRecord() 
     : SeriesTextRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::chart::SeriesTextRecord::SeriesTextRecord(::org::apache::poi::hssf::record::RecordInputStream* in) 
+poi::hssf::record::chart::SeriesTextRecord::SeriesTextRecord(::poi::hssf::record::RecordInputStream* in) 
     : SeriesTextRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::chart::SeriesTextRecord::sid;
+constexpr int16_t poi::hssf::record::chart::SeriesTextRecord::sid;
 
-constexpr int32_t org::apache::poi::hssf::record::chart::SeriesTextRecord::MAX_LEN;
+constexpr int32_t poi::hssf::record::chart::SeriesTextRecord::MAX_LEN;
 
-void org::apache::poi::hssf::record::chart::SeriesTextRecord::ctor()
+void poi::hssf::record::chart::SeriesTextRecord::ctor()
 {
     super::ctor();
     field_4_text = u""_j;
     is16bit = false;
 }
 
-void org::apache::poi::hssf::record::chart::SeriesTextRecord::ctor(::org::apache::poi::hssf::record::RecordInputStream* in)
+void poi::hssf::record::chart::SeriesTextRecord::ctor(::poi::hssf::record::RecordInputStream* in)
 {
     super::ctor();
     field_1_id = npc(in)->readUShort();
@@ -61,11 +61,11 @@ void org::apache::poi::hssf::record::chart::SeriesTextRecord::ctor(::org::apache
     }
 }
 
-java::lang::String* org::apache::poi::hssf::record::chart::SeriesTextRecord::toString()
+java::lang::String* poi::hssf::record::chart::SeriesTextRecord::toString()
 {
     auto sb = new ::java::lang::StringBuffer();
     npc(sb)->append(u"[SERIESTEXT]\n"_j);
-    npc(npc(npc(sb)->append(u"  .id     ="_j))->append(::org::apache::poi::util::HexDump::shortToHex(getId())))->append(u'\u000a');
+    npc(npc(npc(sb)->append(u"  .id     ="_j))->append(::poi::util::HexDump::shortToHex(getId())))->append(u'\u000a');
     npc(npc(npc(sb)->append(u"  .textLen="_j))->append(npc(field_4_text)->length()))->append(u'\u000a');
     npc(npc(npc(sb)->append(u"  .is16bit="_j))->append(is16bit))->append(u'\u000a');
     npc(npc(npc(npc(npc(sb)->append(u"  .text   ="_j))->append(u" ("_j))->append(getText()))->append(u" )"_j))->append(u'\u000a');
@@ -73,30 +73,30 @@ java::lang::String* org::apache::poi::hssf::record::chart::SeriesTextRecord::toS
     return npc(sb)->toString();
 }
 
-void org::apache::poi::hssf::record::chart::SeriesTextRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::chart::SeriesTextRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(field_1_id);
     npc(out)->writeByte(npc(field_4_text)->length());
     if(is16bit) {
         npc(out)->writeByte(1);
-        ::org::apache::poi::util::StringUtil::putUnicodeLE(field_4_text, out);
+        ::poi::util::StringUtil::putUnicodeLE(field_4_text, out);
     } else {
         npc(out)->writeByte(0);
-        ::org::apache::poi::util::StringUtil::putCompressedUnicode(field_4_text, out);
+        ::poi::util::StringUtil::putCompressedUnicode(field_4_text, out);
     }
 }
 
-int32_t org::apache::poi::hssf::record::chart::SeriesTextRecord::getDataSize()
+int32_t poi::hssf::record::chart::SeriesTextRecord::getDataSize()
 {
     return int32_t(2) + int32_t(1) + int32_t(1)+ npc(field_4_text)->length() * (is16bit ? int32_t(2) : int32_t(1));
 }
 
-int16_t org::apache::poi::hssf::record::chart::SeriesTextRecord::getSid()
+int16_t poi::hssf::record::chart::SeriesTextRecord::getSid()
 {
     return sid;
 }
 
-java::lang::Object* org::apache::poi::hssf::record::chart::SeriesTextRecord::clone()
+java::lang::Object* poi::hssf::record::chart::SeriesTextRecord::clone()
 {
     auto rec = new SeriesTextRecord();
     npc(rec)->field_1_id = field_1_id;
@@ -105,22 +105,22 @@ java::lang::Object* org::apache::poi::hssf::record::chart::SeriesTextRecord::clo
     return rec;
 }
 
-int32_t org::apache::poi::hssf::record::chart::SeriesTextRecord::getId()
+int32_t poi::hssf::record::chart::SeriesTextRecord::getId()
 {
     return field_1_id;
 }
 
-void org::apache::poi::hssf::record::chart::SeriesTextRecord::setId(int32_t id)
+void poi::hssf::record::chart::SeriesTextRecord::setId(int32_t id)
 {
     field_1_id = id;
 }
 
-java::lang::String* org::apache::poi::hssf::record::chart::SeriesTextRecord::getText()
+java::lang::String* poi::hssf::record::chart::SeriesTextRecord::getText()
 {
     return field_4_text;
 }
 
-void org::apache::poi::hssf::record::chart::SeriesTextRecord::setText(::java::lang::String* text)
+void poi::hssf::record::chart::SeriesTextRecord::setText(::java::lang::String* text)
 {
     if(npc(text)->length() > MAX_LEN) {
         throw new ::java::lang::IllegalArgumentException(::java::lang::StringBuilder().append(u"Text is too long ("_j)->append(npc(text)->length())
@@ -129,28 +129,28 @@ void org::apache::poi::hssf::record::chart::SeriesTextRecord::setText(::java::la
             ->append(u")"_j)->toString());
     }
     field_4_text = text;
-    is16bit = ::org::apache::poi::util::StringUtil::hasMultibyte(text);
+    is16bit = ::poi::util::StringUtil::hasMultibyte(text);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::chart::SeriesTextRecord::class_()
+java::lang::Class* poi::hssf::record::chart::SeriesTextRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.chart.SeriesTextRecord", 49);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::chart::SeriesTextRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::chart::SeriesTextRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::chart::SeriesTextRecord::serialize()
+int8_tArray* poi::hssf::record::chart::SeriesTextRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::chart::SeriesTextRecord::getClass0()
+java::lang::Class* poi::hssf::record::chart::SeriesTextRecord::getClass0()
 {
     return class_();
 }

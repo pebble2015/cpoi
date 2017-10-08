@@ -8,9 +8,9 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFAutoFilter final
+class poi::hssf::usermodel::HSSFAutoFilter final
     : public virtual ::java::lang::Object
-    , public ::org::apache::poi::ss::usermodel::AutoFilter
+    , public ::poi::ss::usermodel::AutoFilter
 {
 
 public:

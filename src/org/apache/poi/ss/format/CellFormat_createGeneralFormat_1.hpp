@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::format::CellFormat_createGeneralFormat_1
+class poi::ss::format::CellFormat_createGeneralFormat_1
     : public CellFormat
 {
 
@@ -26,9 +26,9 @@ private:
 
 public:
     static ::java::lang::Class *class_();
-    virtual CellFormatResult* apply(::org::apache::poi::ss::usermodel::Cell* c);
+    virtual CellFormatResult* apply(::poi::ss::usermodel::Cell* c);
     virtual CellFormatResult* apply(::javax::swing::JLabel* label, ::java::lang::Object* value);
-    virtual CellFormatResult* apply(::javax::swing::JLabel* label, ::org::apache::poi::ss::usermodel::Cell* c);
+    virtual CellFormatResult* apply(::javax::swing::JLabel* label, ::poi::ss::usermodel::Cell* c);
     ::java::util::Locale* locale;
 
 private:

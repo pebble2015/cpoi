@@ -2,40 +2,34 @@
 #pragma once
 
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace sl
     {
-        namespace poi
+        namespace draw
         {
-            namespace sl
+            namespace geom
             {
-                namespace draw
-                {
-                    namespace geom
-                    {
-                        class AdjustValue;
-                        class ArcToCommand;
-                        class BuiltInGuide;
-                        class ClosePathCommand;
-                        class Context;
-                        class CurveToCommand;
-                        class CustomGeometry;
-                        struct Formula;
-                        class Guide;
-                        class Guide_Op;
-                        struct IAdjustableShape;
-                        class LineToCommand;
-                        class MoveToCommand;
-                        class Outline;
-                        class Path;
-                        struct PathCommand;
-                        class PresetGeometries;
-                        class PresetGeometries_init_1;
-                        class QuadToCommand;
-                    } // geom
-                } // draw
-            } // sl
-        } // poi
-    } // apache
-} // org
+                class AdjustValue;
+                class ArcToCommand;
+                class BuiltInGuide;
+                class ClosePathCommand;
+                class Context;
+                class CurveToCommand;
+                class CustomGeometry;
+                struct Formula;
+                class Guide;
+                class Guide_Op;
+                struct IAdjustableShape;
+                class LineToCommand;
+                class MoveToCommand;
+                class Outline;
+                class Path;
+                struct PathCommand;
+                class PresetGeometries;
+                class PresetGeometries_init_1;
+                class QuadToCommand;
+            } // geom
+        } // draw
+    } // sl
+} // poi

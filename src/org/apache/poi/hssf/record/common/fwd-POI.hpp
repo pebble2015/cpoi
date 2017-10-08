@@ -2,32 +2,26 @@
 #pragma once
 
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
+            namespace common
             {
-                namespace record
-                {
-                    namespace common
-                    {
-                        class ExtendedColor;
-                        class FeatFormulaErr2;
-                        class FeatProtection;
-                        class FeatSmartTag;
-                        class FtrHeader;
-                        struct FutureRecord;
-                        struct SharedFeature;
-                        class UnicodeString;
-                        class UnicodeString_ExtRst;
-                        class UnicodeString_FormatRun;
-                        class UnicodeString_PhRun;
-                    } // common
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+                class ExtendedColor;
+                class FeatFormulaErr2;
+                class FeatProtection;
+                class FeatSmartTag;
+                class FtrHeader;
+                struct FutureRecord;
+                struct SharedFeature;
+                class UnicodeString;
+                class UnicodeString_ExtRst;
+                class UnicodeString_FormatRun;
+                class UnicodeString_PhRun;
+            } // common
+        } // record
+    } // hssf
+} // poi

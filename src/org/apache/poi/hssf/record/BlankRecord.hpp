@@ -12,7 +12,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::BlankRecord final
+class poi::hssf::record::BlankRecord final
     : public StandardRecord
     , public CellValueRecordInterface
     , public ::java::lang::Cloneable
@@ -39,7 +39,7 @@ public:
     void setColumn(int16_t col) override;
     int16_t getSid() override;
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;

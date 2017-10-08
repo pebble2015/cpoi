@@ -22,19 +22,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::sl::draw::binding::CTPath2DCubicBezierTo::CTPath2DCubicBezierTo(const ::default_init_tag&)
+poi::sl::draw::binding::CTPath2DCubicBezierTo::CTPath2DCubicBezierTo(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::draw::binding::CTPath2DCubicBezierTo::CTPath2DCubicBezierTo()
+poi::sl::draw::binding::CTPath2DCubicBezierTo::CTPath2DCubicBezierTo()
     : CTPath2DCubicBezierTo(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-java::util::List* org::apache::poi::sl::draw::binding::CTPath2DCubicBezierTo::getPt()
+java::util::List* poi::sl::draw::binding::CTPath2DCubicBezierTo::getPt()
 {
     if(pt == nullptr) {
         pt = new ::java::util::ArrayList();
@@ -42,25 +42,25 @@ java::util::List* org::apache::poi::sl::draw::binding::CTPath2DCubicBezierTo::ge
     return java_cast< ::java::util::List* >(this->pt);
 }
 
-bool org::apache::poi::sl::draw::binding::CTPath2DCubicBezierTo::isSetPt()
+bool poi::sl::draw::binding::CTPath2DCubicBezierTo::isSetPt()
 {
     return ((java_cast< ::java::util::List* >(this->pt) != nullptr) && (!npc(java_cast< ::java::util::List* >(this->pt))->isEmpty()));
 }
 
-void org::apache::poi::sl::draw::binding::CTPath2DCubicBezierTo::unsetPt()
+void poi::sl::draw::binding::CTPath2DCubicBezierTo::unsetPt()
 {
     this->pt = nullptr;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::draw::binding::CTPath2DCubicBezierTo::class_()
+java::lang::Class* poi::sl::draw::binding::CTPath2DCubicBezierTo::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.draw.binding.CTPath2DCubicBezierTo", 52);
     return c;
 }
 
-java::lang::Class* org::apache::poi::sl::draw::binding::CTPath2DCubicBezierTo::getClass0()
+java::lang::Class* poi::sl::draw::binding::CTPath2DCubicBezierTo::getClass0()
 {
     return class_();
 }

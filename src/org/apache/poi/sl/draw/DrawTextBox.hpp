@@ -8,19 +8,19 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::DrawTextBox
+class poi::sl::draw::DrawTextBox
     : public DrawAutoShape
 {
 
 public:
     typedef DrawAutoShape super;
 protected:
-    void ctor(::org::apache::poi::sl::usermodel::TextBox* shape);
+    void ctor(::poi::sl::usermodel::TextBox* shape);
 
     // Generated
 
 public:
-    DrawTextBox(::org::apache::poi::sl::usermodel::TextBox* shape);
+    DrawTextBox(::poi::sl::usermodel::TextBox* shape);
 protected:
     DrawTextBox(const ::default_init_tag&);
 

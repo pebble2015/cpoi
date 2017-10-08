@@ -9,42 +9,36 @@
 #include <org/apache/poi/ss/formula/functions/Var2or3ArgFunction.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::Rank
+class poi::ss::formula::functions::Rank
     : public Var2or3ArgFunction
 {
 
 public:
     typedef Var2or3ArgFunction super;
-    ::org::apache::poi::ss::formula::eval::ValueEval* evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* arg0, ::org::apache::poi::ss::formula::eval::ValueEval* arg1) override;
-    ::org::apache::poi::ss::formula::eval::ValueEval* evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* arg0, ::org::apache::poi::ss::formula::eval::ValueEval* arg1, ::org::apache::poi::ss::formula::eval::ValueEval* arg2) override;
+    ::poi::ss::formula::eval::ValueEval* evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::poi::ss::formula::eval::ValueEval* arg0, ::poi::ss::formula::eval::ValueEval* arg1) override;
+    ::poi::ss::formula::eval::ValueEval* evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::poi::ss::formula::eval::ValueEval* arg0, ::poi::ss::formula::eval::ValueEval* arg1, ::poi::ss::formula::eval::ValueEval* arg2) override;
 
 private:
-    static ::org::apache::poi::ss::formula::eval::ValueEval* eval(double arg0, ::org::apache::poi::ss::formula::eval::AreaEval* aeRange, bool descending_order);
-    static ::org::apache::poi::ss::formula::eval::ValueEval* eval(double arg0, ::org::apache::poi::ss::formula::eval::RefListEval* aeRange, bool descending_order);
-    static ::java::lang::Double* getValue(::org::apache::poi::ss::formula::eval::AreaEval* aeRange, int32_t relRowIndex, int32_t relColIndex);
-    static ::org::apache::poi::ss::formula::eval::AreaEval* convertRangeArg(::org::apache::poi::ss::formula::eval::ValueEval* eval) /* throws(EvaluationException) */;
+    static ::poi::ss::formula::eval::ValueEval* eval(double arg0, ::poi::ss::formula::eval::AreaEval* aeRange, bool descending_order);
+    static ::poi::ss::formula::eval::ValueEval* eval(double arg0, ::poi::ss::formula::eval::RefListEval* aeRange, bool descending_order);
+    static ::java::lang::Double* getValue(::poi::ss::formula::eval::AreaEval* aeRange, int32_t relRowIndex, int32_t relColIndex);
+    static ::poi::ss::formula::eval::AreaEval* convertRangeArg(::poi::ss::formula::eval::ValueEval* eval) /* throws(EvaluationException) */;
 
     // Generated
 
@@ -56,7 +50,7 @@ protected:
 
 public:
     static ::java::lang::Class *class_();
-    ::org::apache::poi::ss::formula::eval::ValueEval* evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex);
+    ::poi::ss::formula::eval::ValueEval* evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex);
 
 private:
     virtual ::java::lang::Class* getClass0();

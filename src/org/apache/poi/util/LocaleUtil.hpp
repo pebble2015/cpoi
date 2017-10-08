@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::util::LocaleUtil final
+class poi::util::LocaleUtil final
     : public ::java::lang::Object
 {
 

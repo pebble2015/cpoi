@@ -8,7 +8,7 @@
 #include <org/apache/poi/util/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::util::FixedField
+struct poi::util::FixedField
     : public virtual ::java::lang::Object
 {
     virtual void readFromBytes(::int8_tArray* data) /* throws(ArrayIndexOutOfBoundsException) */ = 0;

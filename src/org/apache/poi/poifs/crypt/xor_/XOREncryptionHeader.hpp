@@ -10,19 +10,19 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::crypt::xor_::XOREncryptionHeader
-    : public ::org::apache::poi::poifs::crypt::EncryptionHeader
-    , public virtual ::org::apache::poi::poifs::crypt::standard::EncryptionRecord
+class poi::poifs::crypt::xor_::XOREncryptionHeader
+    : public ::poi::poifs::crypt::EncryptionHeader
+    , public virtual ::poi::poifs::crypt::standard::EncryptionRecord
     , public virtual ::java::lang::Cloneable
 {
 
 public:
-    typedef ::org::apache::poi::poifs::crypt::EncryptionHeader super;
+    typedef ::poi::poifs::crypt::EncryptionHeader super;
 protected:
     void ctor();
 
 public:
-    void write(::org::apache::poi::util::LittleEndianByteArrayOutputStream* leos) override;
+    void write(::poi::util::LittleEndianByteArrayOutputStream* leos) override;
     XOREncryptionHeader* clone() /* throws(CloneNotSupportedException) */ override;
 
     // Generated

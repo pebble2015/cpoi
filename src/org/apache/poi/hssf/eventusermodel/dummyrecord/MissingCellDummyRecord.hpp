@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::eventusermodel::dummyrecord::MissingCellDummyRecord final
+class poi::hssf::eventusermodel::dummyrecord::MissingCellDummyRecord final
     : public DummyRecordBase
 {
 

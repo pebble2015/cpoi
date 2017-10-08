@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::usermodel::DateUtil_FormatException final
+class poi::ss::usermodel::DateUtil_FormatException final
     : public ::java::lang::Exception
 {
 

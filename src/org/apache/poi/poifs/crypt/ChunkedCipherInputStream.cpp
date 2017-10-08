@@ -24,35 +24,35 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::crypt::ChunkedCipherInputStream::ChunkedCipherInputStream(const ::default_init_tag&)
+poi::poifs::crypt::ChunkedCipherInputStream::ChunkedCipherInputStream(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::crypt::ChunkedCipherInputStream::ChunkedCipherInputStream(::java::io::InputStream* stream, int64_t size, int32_t chunkSize)  /* throws(GeneralSecurityException) */
+poi::poifs::crypt::ChunkedCipherInputStream::ChunkedCipherInputStream(::java::io::InputStream* stream, int64_t size, int32_t chunkSize)  /* throws(GeneralSecurityException) */
     : ChunkedCipherInputStream(*static_cast< ::default_init_tag* >(0))
 {
     ctor(stream,size,chunkSize);
 }
 
-org::apache::poi::poifs::crypt::ChunkedCipherInputStream::ChunkedCipherInputStream(::java::io::InputStream* stream, int64_t size, int32_t chunkSize, int32_t initialPos)  /* throws(GeneralSecurityException) */
+poi::poifs::crypt::ChunkedCipherInputStream::ChunkedCipherInputStream(::java::io::InputStream* stream, int64_t size, int32_t chunkSize, int32_t initialPos)  /* throws(GeneralSecurityException) */
     : ChunkedCipherInputStream(*static_cast< ::default_init_tag* >(0))
 {
     ctor(stream,size,chunkSize,initialPos);
 }
 
-void org::apache::poi::poifs::crypt::ChunkedCipherInputStream::init()
+void poi::poifs::crypt::ChunkedCipherInputStream::init()
 {
     chunkIsValid = false;
 }
 
-void org::apache::poi::poifs::crypt::ChunkedCipherInputStream::ctor(::java::io::InputStream* stream, int64_t size, int32_t chunkSize) /* throws(GeneralSecurityException) */
+void poi::poifs::crypt::ChunkedCipherInputStream::ctor(::java::io::InputStream* stream, int64_t size, int32_t chunkSize) /* throws(GeneralSecurityException) */
 {
     ctor(stream, size, chunkSize, int32_t(0));
 }
 
-void org::apache::poi::poifs::crypt::ChunkedCipherInputStream::ctor(::java::io::InputStream* stream, int64_t size, int32_t chunkSize, int32_t initialPos) /* throws(GeneralSecurityException) */
+void poi::poifs::crypt::ChunkedCipherInputStream::ctor(::java::io::InputStream* stream, int64_t size, int32_t chunkSize, int32_t initialPos) /* throws(GeneralSecurityException) */
 {
     super::ctor(stream);
     init();
@@ -67,7 +67,7 @@ void org::apache::poi::poifs::crypt::ChunkedCipherInputStream::ctor(::java::io::
     this->cipher = initCipherForBlock(nullptr, lastIndex);
 }
 
-javax::crypto::Cipher* org::apache::poi::poifs::crypt::ChunkedCipherInputStream::initCipherForBlock(int32_t block) /* throws(IOException, GeneralSecurityException) */
+javax::crypto::Cipher* poi::poifs::crypt::ChunkedCipherInputStream::initCipherForBlock(int32_t block) /* throws(IOException, GeneralSecurityException) */
 {
     if(chunkSize != -int32_t(1)) {
         throw new ::java::security::GeneralSecurityException(u"the cipher block can only be set for streaming encryption, e.g. CryptoAPI..."_j);
@@ -76,18 +76,18 @@ javax::crypto::Cipher* org::apache::poi::poifs::crypt::ChunkedCipherInputStream:
     return initCipherForBlock(cipher, block);
 }
 
-int32_t org::apache::poi::poifs::crypt::ChunkedCipherInputStream::read() /* throws(IOException) */
+int32_t poi::poifs::crypt::ChunkedCipherInputStream::read() /* throws(IOException) */
 {
     auto b = (new ::int8_tArray({static_cast< int8_t >(int32_t(0))}));
     return (read(b) == 1) ? static_cast< int8_t >(-int32_t(1)) : (*b)[int32_t(0)];
 }
 
-int32_t org::apache::poi::poifs::crypt::ChunkedCipherInputStream::read(::int8_tArray* b, int32_t off, int32_t len) /* throws(IOException) */
+int32_t poi::poifs::crypt::ChunkedCipherInputStream::read(::int8_tArray* b, int32_t off, int32_t len) /* throws(IOException) */
 {
     return read(b, off, len, false);
 }
 
-int32_t org::apache::poi::poifs::crypt::ChunkedCipherInputStream::read(::int8_tArray* b, int32_t off, int32_t len, bool readPlain) /* throws(IOException) */
+int32_t poi::poifs::crypt::ChunkedCipherInputStream::read(::int8_tArray* b, int32_t off, int32_t len, bool readPlain) /* throws(IOException) */
 {
     auto total = int32_t(0);
     if(available() <= 0) {
@@ -100,7 +100,7 @@ int32_t org::apache::poi::poifs::crypt::ChunkedCipherInputStream::read(::int8_tA
                 nextChunk();
                 chunkIsValid = true;
             } catch (::java::security::GeneralSecurityException* e) {
-                throw new ::org::apache::poi::EncryptedDocumentException(npc(e)->getMessage(), e);
+                throw new ::poi::EncryptedDocumentException(npc(e)->getMessage(), e);
             }
         }
         auto count = static_cast< int32_t >((npc(chunk)->length - (pos & chunkMask)));
@@ -121,7 +121,7 @@ int32_t org::apache::poi::poifs::crypt::ChunkedCipherInputStream::read(::int8_tA
     return total;
 }
 
-int64_t org::apache::poi::poifs::crypt::ChunkedCipherInputStream::skip(int64_t n) /* throws(IOException) */
+int64_t poi::poifs::crypt::ChunkedCipherInputStream::skip(int64_t n) /* throws(IOException) */
 {
     auto start = pos;
     auto skip = ::java::lang::Math::min(static_cast< int64_t >(remainingBytes()), n);
@@ -132,37 +132,37 @@ int64_t org::apache::poi::poifs::crypt::ChunkedCipherInputStream::skip(int64_t n
     return skip;
 }
 
-int32_t org::apache::poi::poifs::crypt::ChunkedCipherInputStream::available()
+int32_t poi::poifs::crypt::ChunkedCipherInputStream::available()
 {
     return remainingBytes();
 }
 
-int32_t org::apache::poi::poifs::crypt::ChunkedCipherInputStream::remainingBytes()
+int32_t poi::poifs::crypt::ChunkedCipherInputStream::remainingBytes()
 {
     return static_cast< int32_t >((size - pos));
 }
 
-bool org::apache::poi::poifs::crypt::ChunkedCipherInputStream::markSupported()
+bool poi::poifs::crypt::ChunkedCipherInputStream::markSupported()
 {
     return false;
 }
 
-void org::apache::poi::poifs::crypt::ChunkedCipherInputStream::mark(int32_t readlimit)
+void poi::poifs::crypt::ChunkedCipherInputStream::mark(int32_t readlimit)
 {
     throw new ::java::lang::UnsupportedOperationException();
 }
 
-void org::apache::poi::poifs::crypt::ChunkedCipherInputStream::reset() /* throws(IOException) */
+void poi::poifs::crypt::ChunkedCipherInputStream::reset() /* throws(IOException) */
 {
     throw new ::java::lang::UnsupportedOperationException();
 }
 
-int32_t org::apache::poi::poifs::crypt::ChunkedCipherInputStream::getChunkMask()
+int32_t poi::poifs::crypt::ChunkedCipherInputStream::getChunkMask()
 {
     return npc(chunk)->length - int32_t(1);
 }
 
-void org::apache::poi::poifs::crypt::ChunkedCipherInputStream::nextChunk() /* throws(GeneralSecurityException, IOException) */
+void poi::poifs::crypt::ChunkedCipherInputStream::nextChunk() /* throws(GeneralSecurityException, IOException) */
 {
     if(chunkSize != -int32_t(1)) {
         auto index = static_cast< int32_t >((pos >> chunkBits));
@@ -188,7 +188,7 @@ void org::apache::poi::poifs::crypt::ChunkedCipherInputStream::nextChunk() /* th
     invokeCipher(totalBytes, totalBytes == chunkSize);
 }
 
-int32_t org::apache::poi::poifs::crypt::ChunkedCipherInputStream::invokeCipher(int32_t totalBytes, bool doFinal) /* throws(GeneralSecurityException) */
+int32_t poi::poifs::crypt::ChunkedCipherInputStream::invokeCipher(int32_t totalBytes, bool doFinal) /* throws(GeneralSecurityException) */
 {
     if(doFinal) {
         return npc(cipher)->doFinal(chunk, 0, totalBytes, chunk);
@@ -197,7 +197,7 @@ int32_t org::apache::poi::poifs::crypt::ChunkedCipherInputStream::invokeCipher(i
     }
 }
 
-void org::apache::poi::poifs::crypt::ChunkedCipherInputStream::readPlain(::int8_tArray* b, int32_t off, int32_t len)
+void poi::poifs::crypt::ChunkedCipherInputStream::readPlain(::int8_tArray* b, int32_t off, int32_t len)
 {
     if(len <= 0) {
         return;
@@ -216,39 +216,39 @@ void org::apache::poi::poifs::crypt::ChunkedCipherInputStream::readPlain(::int8_
     }
 }
 
-void org::apache::poi::poifs::crypt::ChunkedCipherInputStream::setNextRecordSize(int32_t recordSize)
+void poi::poifs::crypt::ChunkedCipherInputStream::setNextRecordSize(int32_t recordSize)
 {
 }
 
-int8_tArray* org::apache::poi::poifs::crypt::ChunkedCipherInputStream::getChunk()
+int8_tArray* poi::poifs::crypt::ChunkedCipherInputStream::getChunk()
 {
     return chunk;
 }
 
-int8_tArray* org::apache::poi::poifs::crypt::ChunkedCipherInputStream::getPlain()
+int8_tArray* poi::poifs::crypt::ChunkedCipherInputStream::getPlain()
 {
     return plain;
 }
 
-int64_t org::apache::poi::poifs::crypt::ChunkedCipherInputStream::getPos()
+int64_t poi::poifs::crypt::ChunkedCipherInputStream::getPos()
 {
     return pos;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::crypt::ChunkedCipherInputStream::class_()
+java::lang::Class* poi::poifs::crypt::ChunkedCipherInputStream::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.crypt.ChunkedCipherInputStream", 51);
     return c;
 }
 
-int32_t org::apache::poi::poifs::crypt::ChunkedCipherInputStream::read(::int8_tArray* b)
+int32_t poi::poifs::crypt::ChunkedCipherInputStream::read(::int8_tArray* b)
 {
     return super::read(b);
 }
 
-java::lang::Class* org::apache::poi::poifs::crypt::ChunkedCipherInputStream::getClass0()
+java::lang::Class* poi::poifs::crypt::ChunkedCipherInputStream::getClass0()
 {
     return class_();
 }

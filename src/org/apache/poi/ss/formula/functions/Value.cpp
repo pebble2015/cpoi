@@ -16,25 +16,19 @@
 #include <org/apache/poi/ss/formula/eval/ValueEval.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -43,44 +37,44 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::Value::Value(const ::default_init_tag&)
+poi::ss::formula::functions::Value::Value(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::Value::Value()
+poi::ss::formula::functions::Value::Value()
     : Value(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-constexpr int32_t org::apache::poi::ss::formula::functions::Value::MIN_DISTANCE_BETWEEN_THOUSANDS_SEPARATOR;
+constexpr int32_t poi::ss::formula::functions::Value::MIN_DISTANCE_BETWEEN_THOUSANDS_SEPARATOR;
 
-java::lang::Double*& org::apache::poi::ss::formula::functions::Value::ZERO()
+java::lang::Double*& poi::ss::formula::functions::Value::ZERO()
 {
     clinit();
     return ZERO_;
 }
-java::lang::Double* org::apache::poi::ss::formula::functions::Value::ZERO_;
+java::lang::Double* poi::ss::formula::functions::Value::ZERO_;
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Value::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* arg0)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Value::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::poi::ss::formula::eval::ValueEval* arg0)
 {
-    ::org::apache::poi::ss::formula::eval::ValueEval* veText;
+    ::poi::ss::formula::eval::ValueEval* veText;
     try {
-        veText = ::org::apache::poi::ss::formula::eval::OperandResolver::getSingleValue(arg0, srcRowIndex, srcColumnIndex);
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+        veText = ::poi::ss::formula::eval::OperandResolver::getSingleValue(arg0, srcRowIndex, srcColumnIndex);
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
         return npc(e)->getErrorEval();
     }
-    auto strText = ::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToString(veText);
+    auto strText = ::poi::ss::formula::eval::OperandResolver::coerceValueToString(veText);
     auto result = convertTextToNumber(strText);
     if(result == nullptr) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
-    return new ::org::apache::poi::ss::formula::eval::NumberEval(npc(result)->doubleValue());
+    return new ::poi::ss::formula::eval::NumberEval(npc(result)->doubleValue());
 }
 
-java::lang::Double* org::apache::poi::ss::formula::functions::Value::convertTextToNumber(::java::lang::String* strText)
+java::lang::Double* poi::ss::formula::functions::Value::convertTextToNumber(::java::lang::String* strText)
 {
     clinit();
     auto foundCurrency = false;
@@ -203,13 +197,13 @@ java::lang::Double* org::apache::poi::ss::formula::functions::Value::convertText
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Value::class_()
+java::lang::Class* poi::ss::formula::functions::Value::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.Value", 41);
     return c;
 }
 
-void org::apache::poi::ss::formula::functions::Value::clinit()
+void poi::ss::formula::functions::Value::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -225,12 +219,12 @@ struct clinit_ {
     }
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Value::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Value::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
 {
     return super::evaluate(args, srcRowIndex, srcColumnIndex);
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Value::getClass0()
+java::lang::Class* poi::ss::formula::functions::Value::getClass0()
 {
     return class_();
 }

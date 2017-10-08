@@ -29,7 +29,7 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::eventfilesystem::POIFSReader
+class poi::poifs::eventfilesystem::POIFSReader
     : public virtual ::java::lang::Object
 {
 
@@ -47,12 +47,12 @@ public:
     virtual void read(::java::io::InputStream* stream) /* throws(IOException) */;
     virtual void registerListener(POIFSReaderListener* listener);
     virtual void registerListener(POIFSReaderListener* listener, ::java::lang::String* name);
-    virtual void registerListener(POIFSReaderListener* listener, ::org::apache::poi::poifs::filesystem::POIFSDocumentPath* path, ::java::lang::String* name);
+    virtual void registerListener(POIFSReaderListener* listener, ::poi::poifs::filesystem::POIFSDocumentPath* path, ::java::lang::String* name);
     virtual void setNotifyEmptyDirectories(bool notifyEmptyDirectories);
     static void main(::java::lang::StringArray* args) /* throws(IOException) */;
 
 private:
-    void processProperties(::org::apache::poi::poifs::storage::BlockList* small_blocks, ::org::apache::poi::poifs::storage::BlockList* big_blocks, ::java::util::Iterator* properties, ::org::apache::poi::poifs::filesystem::POIFSDocumentPath* path) /* throws(IOException) */;
+    void processProperties(::poi::poifs::storage::BlockList* small_blocks, ::poi::poifs::storage::BlockList* big_blocks, ::java::util::Iterator* properties, ::poi::poifs::filesystem::POIFSDocumentPath* path) /* throws(IOException) */;
 
     // Generated
 

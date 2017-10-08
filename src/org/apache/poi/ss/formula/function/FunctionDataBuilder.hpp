@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::function::FunctionDataBuilder final
+class poi::ss::formula::function::FunctionDataBuilder final
     : public ::java::lang::Object
 {
 

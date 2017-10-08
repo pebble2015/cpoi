@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::CommonObjectDataSubRecord final
+class poi::hssf::record::CommonObjectDataSubRecord final
     : public SubRecord
     , public ::java::lang::Cloneable
 {
@@ -21,10 +21,10 @@ public:
     static constexpr int16_t sid { int16_t(21) };
 
 private:
-    static ::org::apache::poi::util::BitField* locked_;
-    static ::org::apache::poi::util::BitField* printable_;
-    static ::org::apache::poi::util::BitField* autofill_;
-    static ::org::apache::poi::util::BitField* autoline_;
+    static ::poi::util::BitField* locked_;
+    static ::poi::util::BitField* printable_;
+    static ::poi::util::BitField* autofill_;
+    static ::poi::util::BitField* autoline_;
 
 public:
     static constexpr int16_t OBJECT_TYPE_GROUP { int16_t(0) };
@@ -68,11 +68,11 @@ private:
     int32_t field_6_reserved3 {  };
 protected:
     void ctor();
-    void ctor(::org::apache::poi::util::LittleEndianInput* in, int32_t size);
+    void ctor(::poi::util::LittleEndianInput* in, int32_t size);
 
 public:
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;
@@ -103,7 +103,7 @@ public:
 
     // Generated
     CommonObjectDataSubRecord();
-    CommonObjectDataSubRecord(::org::apache::poi::util::LittleEndianInput* in, int32_t size);
+    CommonObjectDataSubRecord(::poi::util::LittleEndianInput* in, int32_t size);
 protected:
     CommonObjectDataSubRecord(const ::default_init_tag&);
 
@@ -114,9 +114,9 @@ public:
     virtual ::int8_tArray* serialize();
 
 private:
-    static ::org::apache::poi::util::BitField*& locked();
-    static ::org::apache::poi::util::BitField*& printable();
-    static ::org::apache::poi::util::BitField*& autofill();
-    static ::org::apache::poi::util::BitField*& autoline();
+    static ::poi::util::BitField*& locked();
+    static ::poi::util::BitField*& printable();
+    static ::poi::util::BitField*& autofill();
+    static ::poi::util::BitField*& autoline();
     virtual ::java::lang::Class* getClass0();
 };

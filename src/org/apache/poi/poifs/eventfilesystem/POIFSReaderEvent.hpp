@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::eventfilesystem::POIFSReaderEvent
+class poi::poifs::eventfilesystem::POIFSReaderEvent
     : public virtual ::java::lang::Object
 {
 
@@ -17,21 +17,21 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    ::org::apache::poi::poifs::filesystem::DocumentInputStream* stream {  };
-    ::org::apache::poi::poifs::filesystem::POIFSDocumentPath* path {  };
+    ::poi::poifs::filesystem::DocumentInputStream* stream {  };
+    ::poi::poifs::filesystem::POIFSDocumentPath* path {  };
     ::java::lang::String* documentName {  };
 protected:
-    void ctor(::org::apache::poi::poifs::filesystem::DocumentInputStream* stream, ::org::apache::poi::poifs::filesystem::POIFSDocumentPath* path, ::java::lang::String* documentName);
+    void ctor(::poi::poifs::filesystem::DocumentInputStream* stream, ::poi::poifs::filesystem::POIFSDocumentPath* path, ::java::lang::String* documentName);
 
 public:
-    virtual ::org::apache::poi::poifs::filesystem::DocumentInputStream* getStream();
-    virtual ::org::apache::poi::poifs::filesystem::POIFSDocumentPath* getPath();
+    virtual ::poi::poifs::filesystem::DocumentInputStream* getStream();
+    virtual ::poi::poifs::filesystem::POIFSDocumentPath* getPath();
     virtual ::java::lang::String* getName();
 
     // Generated
 
 public: /* package */
-    POIFSReaderEvent(::org::apache::poi::poifs::filesystem::DocumentInputStream* stream, ::org::apache::poi::poifs::filesystem::POIFSDocumentPath* path, ::java::lang::String* documentName);
+    POIFSReaderEvent(::poi::poifs::filesystem::DocumentInputStream* stream, ::poi::poifs::filesystem::POIFSDocumentPath* path, ::java::lang::String* documentName);
 protected:
     POIFSReaderEvent(const ::default_init_tag&);
 

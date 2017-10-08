@@ -27,15 +27,15 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::dev::POIFSDump
+class poi::poifs::dev::POIFSDump
     : public virtual ::java::lang::Object
 {
 
 public:
     typedef ::java::lang::Object super;
     static void main(::java::lang::StringArray* args) /* throws(IOException) */;
-    static void dump(::org::apache::poi::poifs::filesystem::DirectoryEntry* root, ::java::io::File* parent) /* throws(IOException) */;
-    static void dump(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs, int32_t startBlock, ::java::lang::String* name, ::java::io::File* parent) /* throws(IOException) */;
+    static void dump(::poi::poifs::filesystem::DirectoryEntry* root, ::java::io::File* parent) /* throws(IOException) */;
+    static void dump(::poi::poifs::filesystem::NPOIFSFileSystem* fs, int32_t startBlock, ::java::lang::String* name, ::java::io::File* parent) /* throws(IOException) */;
 
     // Generated
     POIFSDump();

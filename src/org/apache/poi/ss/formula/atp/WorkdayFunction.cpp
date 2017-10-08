@@ -17,25 +17,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -44,35 +38,35 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::atp::WorkdayFunction::WorkdayFunction(const ::default_init_tag&)
+poi::ss::formula::atp::WorkdayFunction::WorkdayFunction(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::atp::WorkdayFunction::WorkdayFunction(ArgumentsEvaluator* anEvaluator) 
+poi::ss::formula::atp::WorkdayFunction::WorkdayFunction(ArgumentsEvaluator* anEvaluator) 
     : WorkdayFunction(*static_cast< ::default_init_tag* >(0))
 {
     ctor(anEvaluator);
 }
 
-org::apache::poi::ss::formula::functions::FreeRefFunction*& org::apache::poi::ss::formula::atp::WorkdayFunction::instance()
+poi::ss::formula::functions::FreeRefFunction*& poi::ss::formula::atp::WorkdayFunction::instance()
 {
     clinit();
     return instance_;
 }
-org::apache::poi::ss::formula::functions::FreeRefFunction* org::apache::poi::ss::formula::atp::WorkdayFunction::instance_;
+poi::ss::formula::functions::FreeRefFunction* poi::ss::formula::atp::WorkdayFunction::instance_;
 
-void org::apache::poi::ss::formula::atp::WorkdayFunction::ctor(ArgumentsEvaluator* anEvaluator)
+void poi::ss::formula::atp::WorkdayFunction::ctor(ArgumentsEvaluator* anEvaluator)
 {
     super::ctor();
     this->evaluator = anEvaluator;
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::atp::WorkdayFunction::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, ::org::apache::poi::ss::formula::OperationEvaluationContext* ec)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::atp::WorkdayFunction::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, ::poi::ss::formula::OperationEvaluationContext* ec)
 {
     if(npc(args)->length < 2 || npc(args)->length > 3) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
     auto srcCellRow = npc(ec)->getRowIndex();
     auto srcCellCol = npc(ec)->getColumnIndex();
@@ -82,23 +76,23 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::a
     try {
         start = npc(this->evaluator)->evaluateDateArg((*args)[int32_t(0)], srcCellRow, srcCellCol);
         days = static_cast< int32_t >(::java::lang::Math::floor(npc(this->evaluator)->evaluateNumberArg((*args)[int32_t(1)], srcCellRow, srcCellCol)));
-        auto holidaysCell = npc(args)->length == 3 ? (*args)[int32_t(2)] : static_cast< ::org::apache::poi::ss::formula::eval::ValueEval* >(nullptr);
+        auto holidaysCell = npc(args)->length == 3 ? (*args)[int32_t(2)] : static_cast< ::poi::ss::formula::eval::ValueEval* >(nullptr);
         holidays = npc(this->evaluator)->evaluateDatesArg(holidaysCell, srcCellRow, srcCellCol);
-        return new ::org::apache::poi::ss::formula::eval::NumberEval(::org::apache::poi::ss::usermodel::DateUtil::getExcelDate(npc(WorkdayCalculator::instance())->calculateWorkdays(start, days, holidays)));
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        return new ::poi::ss::formula::eval::NumberEval(::poi::ss::usermodel::DateUtil::getExcelDate(npc(WorkdayCalculator::instance())->calculateWorkdays(start, days, holidays)));
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::atp::WorkdayFunction::class_()
+java::lang::Class* poi::ss::formula::atp::WorkdayFunction::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.atp.WorkdayFunction", 45);
     return c;
 }
 
-void org::apache::poi::ss::formula::atp::WorkdayFunction::clinit()
+void poi::ss::formula::atp::WorkdayFunction::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -114,7 +108,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::formula::atp::WorkdayFunction::getClass0()
+java::lang::Class* poi::ss::formula::atp::WorkdayFunction::getClass0()
 {
     return class_();
 }

@@ -19,35 +19,29 @@ typedef ::SubArray< ::java::lang::Cloneable, ObjectArray > CloneableArray;
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
+            namespace cf
             {
-                namespace record
-                {
-                    namespace cf
-                    {
-typedef ::SubArray< ::org::apache::poi::hssf::record::cf::Threshold, ::java::lang::ObjectArray > ThresholdArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::cf::ColorGradientThreshold, ThresholdArray, ::java::lang::CloneableArray > ColorGradientThresholdArray;
-                    } // cf
+typedef ::SubArray< ::poi::hssf::record::cf::Threshold, ::java::lang::ObjectArray > ThresholdArray;
+typedef ::SubArray< ::poi::hssf::record::cf::ColorGradientThreshold, ThresholdArray, ::java::lang::CloneableArray > ColorGradientThresholdArray;
+            } // cf
 
-                    namespace common
-                    {
-typedef ::SubArray< ::org::apache::poi::hssf::record::common::ExtendedColor, ::java::lang::ObjectArray, ::java::lang::CloneableArray > ExtendedColorArray;
-                    } // common
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+            namespace common
+            {
+typedef ::SubArray< ::poi::hssf::record::common::ExtendedColor, ::java::lang::ObjectArray, ::java::lang::CloneableArray > ExtendedColorArray;
+            } // common
+        } // record
+    } // hssf
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::cf::ColorGradientFormatting final
+class poi::hssf::record::cf::ColorGradientFormatting final
     : public virtual ::java::lang::Object
     , public ::java::lang::Cloneable
 {
@@ -56,39 +50,39 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    static ::org::apache::poi::util::POILogger* log_;
+    static ::poi::util::POILogger* log_;
     int8_t options {  };
     ColorGradientThresholdArray* thresholds {  };
-    ::org::apache::poi::hssf::record::common::ExtendedColorArray* colors {  };
-    static ::org::apache::poi::util::BitField* clamp_;
-    static ::org::apache::poi::util::BitField* background_;
+    ::poi::hssf::record::common::ExtendedColorArray* colors {  };
+    static ::poi::util::BitField* clamp_;
+    static ::poi::util::BitField* background_;
 protected:
     void ctor();
-    void ctor(::org::apache::poi::util::LittleEndianInput* in);
+    void ctor(::poi::util::LittleEndianInput* in);
 
 public:
     int32_t getNumControlPoints();
     void setNumControlPoints(int32_t num);
     ColorGradientThresholdArray* getThresholds();
     void setThresholds(ColorGradientThresholdArray* thresholds);
-    ::org::apache::poi::hssf::record::common::ExtendedColorArray* getColors();
-    void setColors(::org::apache::poi::hssf::record::common::ExtendedColorArray* colors);
+    ::poi::hssf::record::common::ExtendedColorArray* getColors();
+    void setColors(::poi::hssf::record::common::ExtendedColorArray* colors);
     bool isClampToCurve();
     bool isAppliesToBackground();
 
 private:
-    bool getOptionFlag(::org::apache::poi::util::BitField* field);
+    bool getOptionFlag(::poi::util::BitField* field);
     void updateThresholdPositions();
 
 public:
     ::java::lang::String* toString() override;
     ::java::lang::Object* clone() override;
     int32_t getDataLength();
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out);
+    void serialize(::poi::util::LittleEndianOutput* out);
 
     // Generated
     ColorGradientFormatting();
-    ColorGradientFormatting(::org::apache::poi::util::LittleEndianInput* in);
+    ColorGradientFormatting(::poi::util::LittleEndianInput* in);
 protected:
     ColorGradientFormatting(const ::default_init_tag&);
 
@@ -99,8 +93,8 @@ public:
 
 private:
     void init();
-    static ::org::apache::poi::util::POILogger*& log();
-    static ::org::apache::poi::util::BitField*& clamp();
-    static ::org::apache::poi::util::BitField*& background();
+    static ::poi::util::POILogger*& log();
+    static ::poi::util::BitField*& clamp();
+    static ::poi::util::BitField*& background();
     virtual ::java::lang::Class* getClass0();
 };

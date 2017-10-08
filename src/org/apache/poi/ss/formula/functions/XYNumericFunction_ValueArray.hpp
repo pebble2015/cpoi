@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::XYNumericFunction_ValueArray
+class poi::ss::formula::functions::XYNumericFunction_ValueArray
     : public virtual ::java::lang::Object
     , public virtual LookupUtils_ValueVector
 {
@@ -24,10 +24,10 @@ protected:
     void ctor(int32_t size);
 
 public:
-    ::org::apache::poi::ss::formula::eval::ValueEval* getItem(int32_t index) override;
+    ::poi::ss::formula::eval::ValueEval* getItem(int32_t index) override;
 
 public: /* protected */
-    virtual ::org::apache::poi::ss::formula::eval::ValueEval* getItemInternal(int32_t index) = 0;
+    virtual ::poi::ss::formula::eval::ValueEval* getItemInternal(int32_t index) = 0;
 
 public:
     int32_t getSize() override;

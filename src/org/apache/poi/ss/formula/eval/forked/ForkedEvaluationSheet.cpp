@@ -34,28 +34,22 @@ typedef ::SubArray< ::java::lang::Comparable, ObjectArray > ComparableArray;
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
+                namespace forked
                 {
-                    namespace eval
-                    {
-                        namespace forked
-                        {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::forked::ForkedEvaluationSheet_RowColKey, ::java::lang::ObjectArray, ::java::lang::ComparableArray > ForkedEvaluationSheet_RowColKeyArray;
-                        } // forked
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::forked::ForkedEvaluationSheet_RowColKey, ::java::lang::ObjectArray, ::java::lang::ComparableArray > ForkedEvaluationSheet_RowColKeyArray;
+                } // forked
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -73,26 +67,26 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::eval::forked::ForkedEvaluationSheet::ForkedEvaluationSheet(const ::default_init_tag&)
+poi::ss::formula::eval::forked::ForkedEvaluationSheet::ForkedEvaluationSheet(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::eval::forked::ForkedEvaluationSheet::ForkedEvaluationSheet(::org::apache::poi::ss::formula::EvaluationSheet* masterSheet) 
+poi::ss::formula::eval::forked::ForkedEvaluationSheet::ForkedEvaluationSheet(::poi::ss::formula::EvaluationSheet* masterSheet) 
     : ForkedEvaluationSheet(*static_cast< ::default_init_tag* >(0))
 {
     ctor(masterSheet);
 }
 
-void org::apache::poi::ss::formula::eval::forked::ForkedEvaluationSheet::ctor(::org::apache::poi::ss::formula::EvaluationSheet* masterSheet)
+void poi::ss::formula::eval::forked::ForkedEvaluationSheet::ctor(::poi::ss::formula::EvaluationSheet* masterSheet)
 {
     super::ctor();
     _masterSheet = masterSheet;
     _sharedCellsByRowCol = new ::java::util::HashMap();
 }
 
-org::apache::poi::ss::formula::EvaluationCell* org::apache::poi::ss::formula::eval::forked::ForkedEvaluationSheet::getCell(int32_t rowIndex, int32_t columnIndex)
+poi::ss::formula::EvaluationCell* poi::ss::formula::eval::forked::ForkedEvaluationSheet::getCell(int32_t rowIndex, int32_t columnIndex)
 {
     auto key = new ForkedEvaluationSheet_RowColKey(rowIndex, columnIndex);
     auto result = java_cast< ForkedEvaluationCell* >(npc(_sharedCellsByRowCol)->get(key));
@@ -102,14 +96,14 @@ org::apache::poi::ss::formula::EvaluationCell* org::apache::poi::ss::formula::ev
     return result;
 }
 
-org::apache::poi::ss::formula::eval::forked::ForkedEvaluationCell* org::apache::poi::ss::formula::eval::forked::ForkedEvaluationSheet::getOrCreateUpdatableCell(int32_t rowIndex, int32_t columnIndex)
+poi::ss::formula::eval::forked::ForkedEvaluationCell* poi::ss::formula::eval::forked::ForkedEvaluationSheet::getOrCreateUpdatableCell(int32_t rowIndex, int32_t columnIndex)
 {
     auto key = new ForkedEvaluationSheet_RowColKey(rowIndex, columnIndex);
     auto result = java_cast< ForkedEvaluationCell* >(npc(_sharedCellsByRowCol)->get(key));
     if(result == nullptr) {
         auto mcell = npc(_masterSheet)->getCell(rowIndex, columnIndex);
         if(mcell == nullptr) {
-            auto cr = new ::org::apache::poi::ss::util::CellReference(rowIndex, columnIndex);
+            auto cr = new ::poi::ss::util::CellReference(rowIndex, columnIndex);
             throw new ::java::lang::UnsupportedOperationException(::java::lang::StringBuilder().append(u"Underlying cell '"_j)->append(npc(cr)->formatAsString())
                 ->append(u"' is missing in master sheet."_j)->toString());
         }
@@ -119,7 +113,7 @@ org::apache::poi::ss::formula::eval::forked::ForkedEvaluationCell* org::apache::
     return result;
 }
 
-void org::apache::poi::ss::formula::eval::forked::ForkedEvaluationSheet::copyUpdatedCells(::org::apache::poi::ss::usermodel::Sheet* sheet)
+void poi::ss::formula::eval::forked::ForkedEvaluationSheet::copyUpdatedCells(::poi::ss::usermodel::Sheet* sheet)
 {
     auto keys = new ForkedEvaluationSheet_RowColKeyArray(npc(_sharedCellsByRowCol)->size());
     npc(npc(_sharedCellsByRowCol)->keySet())->toArray_(static_cast< ::java::lang::ObjectArray* >(keys));
@@ -139,25 +133,25 @@ void org::apache::poi::ss::formula::eval::forked::ForkedEvaluationSheet::copyUpd
     }
 }
 
-int32_t org::apache::poi::ss::formula::eval::forked::ForkedEvaluationSheet::getSheetIndex(::org::apache::poi::ss::formula::EvaluationWorkbook* mewb)
+int32_t poi::ss::formula::eval::forked::ForkedEvaluationSheet::getSheetIndex(::poi::ss::formula::EvaluationWorkbook* mewb)
 {
     return npc(mewb)->getSheetIndex(_masterSheet);
 }
 
-void org::apache::poi::ss::formula::eval::forked::ForkedEvaluationSheet::clearAllCachedResultValues()
+void poi::ss::formula::eval::forked::ForkedEvaluationSheet::clearAllCachedResultValues()
 {
     npc(_masterSheet)->clearAllCachedResultValues();
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::eval::forked::ForkedEvaluationSheet::class_()
+java::lang::Class* poi::ss::formula::eval::forked::ForkedEvaluationSheet::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.eval.forked.ForkedEvaluationSheet", 59);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::eval::forked::ForkedEvaluationSheet::getClass0()
+java::lang::Class* poi::ss::formula::eval::forked::ForkedEvaluationSheet::getClass0()
 {
     return class_();
 }

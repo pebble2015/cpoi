@@ -17,24 +17,24 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDocumentInputStream::CryptoAPIDocumentInputStream(const ::default_init_tag&)
+poi::poifs::crypt::cryptoapi::CryptoAPIDocumentInputStream::CryptoAPIDocumentInputStream(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDocumentInputStream::CryptoAPIDocumentInputStream(CryptoAPIDecryptor* decryptor, ::int8_tArray* buf)  /* throws(GeneralSecurityException) */
+poi::poifs::crypt::cryptoapi::CryptoAPIDocumentInputStream::CryptoAPIDocumentInputStream(CryptoAPIDecryptor* decryptor, ::int8_tArray* buf)  /* throws(GeneralSecurityException) */
     : CryptoAPIDocumentInputStream(*static_cast< ::default_init_tag* >(0))
 {
     ctor(decryptor,buf);
 }
 
-void org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDocumentInputStream::init()
+void poi::poifs::crypt::cryptoapi::CryptoAPIDocumentInputStream::init()
 {
     oneByte = (new ::int8_tArray({static_cast< int8_t >(int32_t(0))}));
 }
 
-void org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDocumentInputStream::seek(int32_t newpos)
+void poi::poifs::crypt::cryptoapi::CryptoAPIDocumentInputStream::seek(int32_t newpos)
 {
     if(newpos > count) {
         throw new ::java::lang::ArrayIndexOutOfBoundsException(newpos);
@@ -43,12 +43,12 @@ void org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDocumentInputStream::se
     mark_ = newpos;
 }
 
-void org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDocumentInputStream::setBlock(int32_t block) /* throws(GeneralSecurityException) */
+void poi::poifs::crypt::cryptoapi::CryptoAPIDocumentInputStream::setBlock(int32_t block) /* throws(GeneralSecurityException) */
 {
     cipher = npc(decryptor)->initCipherForBlock(cipher, block);
 }
 
-int32_t org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDocumentInputStream::read()
+int32_t poi::poifs::crypt::cryptoapi::CryptoAPIDocumentInputStream::read()
 {
     auto ch = super::read();
     if(ch == -int32_t(1)) {
@@ -58,12 +58,12 @@ int32_t org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDocumentInputStream:
     try {
         npc(cipher)->update(oneByte, 0, 1, oneByte);
     } catch (::javax::crypto::ShortBufferException* e) {
-        throw new ::org::apache::poi::EncryptedDocumentException(static_cast< ::java::lang::Throwable* >(e));
+        throw new ::poi::EncryptedDocumentException(static_cast< ::java::lang::Throwable* >(e));
     }
     return (*oneByte)[int32_t(0)];
 }
 
-int32_t org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDocumentInputStream::read(::int8_tArray* b, int32_t off, int32_t len)
+int32_t poi::poifs::crypt::cryptoapi::CryptoAPIDocumentInputStream::read(::int8_tArray* b, int32_t off, int32_t len)
 {
     auto readLen = super::read(b, off, len);
     if(readLen == -int32_t(1)) {
@@ -72,12 +72,12 @@ int32_t org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDocumentInputStream:
     try {
         npc(cipher)->update(b, off, readLen, b, off);
     } catch (::javax::crypto::ShortBufferException* e) {
-        throw new ::org::apache::poi::EncryptedDocumentException(static_cast< ::java::lang::Throwable* >(e));
+        throw new ::poi::EncryptedDocumentException(static_cast< ::java::lang::Throwable* >(e));
     }
     return readLen;
 }
 
-void org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDocumentInputStream::ctor(CryptoAPIDecryptor* decryptor, ::int8_tArray* buf) /* throws(GeneralSecurityException) */
+void poi::poifs::crypt::cryptoapi::CryptoAPIDocumentInputStream::ctor(CryptoAPIDecryptor* decryptor, ::int8_tArray* buf) /* throws(GeneralSecurityException) */
 {
     super::ctor(buf);
     init();
@@ -87,18 +87,18 @@ void org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDocumentInputStream::ct
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDocumentInputStream::class_()
+java::lang::Class* poi::poifs::crypt::cryptoapi::CryptoAPIDocumentInputStream::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.crypt.cryptoapi.CryptoAPIDocumentInputStream", 65);
     return c;
 }
 
-int32_t org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDocumentInputStream::read(::int8_tArray* b)
+int32_t poi::poifs::crypt::cryptoapi::CryptoAPIDocumentInputStream::read(::int8_tArray* b)
 {
     return super::read(b);
 }
 
-java::lang::Class* org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDocumentInputStream::getClass0()
+java::lang::Class* poi::poifs::crypt::cryptoapi::CryptoAPIDocumentInputStream::getClass0()
 {
     return class_();
 }

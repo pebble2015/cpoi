@@ -23,26 +23,20 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace wp
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace wp
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::wp::usermodel::HeaderFooterType, ::java::lang::EnumArray > HeaderFooterTypeArray;
-                } // usermodel
-            } // wp
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::wp::usermodel::HeaderFooterType, ::java::lang::EnumArray > HeaderFooterTypeArray;
+        } // usermodel
+    } // wp
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::wp::usermodel::HeaderFooterType final
+class poi::wp::usermodel::HeaderFooterType final
     : public ::java::lang::Enum
 {
 

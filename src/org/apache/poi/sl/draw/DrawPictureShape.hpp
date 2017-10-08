@@ -13,7 +13,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::DrawPictureShape
+class poi::sl::draw::DrawPictureShape
     : public DrawSimpleShape
 {
 
@@ -21,25 +21,25 @@ public:
     typedef DrawSimpleShape super;
 
 private:
-    static ::org::apache::poi::util::POILogger* LOG_;
+    static ::poi::util::POILogger* LOG_;
     static ::java::lang::String* WMF_IMAGE_RENDERER_;
 protected:
-    void ctor(::org::apache::poi::sl::usermodel::PictureShape* shape);
+    void ctor(::poi::sl::usermodel::PictureShape* shape);
 
 public:
     void drawContent(::java::awt::Graphics2D* graphics) override;
     static ImageRenderer* getImageRenderer(::java::awt::Graphics2D* graphics, ::java::lang::String* contentType);
 
 public: /* protected */
-    ::org::apache::poi::sl::usermodel::PictureShape* getShape() override;
+    ::poi::sl::usermodel::PictureShape* getShape() override;
 
 public:
     virtual void resize();
     virtual void resize(::java::awt::geom::Rectangle2D* target);
-    virtual void resize(::java::awt::geom::Rectangle2D* target, ::org::apache::poi::sl::usermodel::RectAlign* align);
+    virtual void resize(::java::awt::geom::Rectangle2D* target, ::poi::sl::usermodel::RectAlign* align);
 
     // Generated
-    DrawPictureShape(::org::apache::poi::sl::usermodel::PictureShape* shape);
+    DrawPictureShape(::poi::sl::usermodel::PictureShape* shape);
 protected:
     DrawPictureShape(const ::default_init_tag&);
 
@@ -49,7 +49,7 @@ public:
     static void clinit();
 
 private:
-    static ::org::apache::poi::util::POILogger*& LOG();
+    static ::poi::util::POILogger*& LOG();
     static ::java::lang::String*& WMF_IMAGE_RENDERER();
     virtual ::java::lang::Class* getClass0();
 };

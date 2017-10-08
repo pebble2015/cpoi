@@ -17,22 +17,16 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
-            {
-                namespace record
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::record::PaletteRecord_PColor, ::java::lang::ObjectArray > PaletteRecord_PColorArray;
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hssf::record::PaletteRecord_PColor, ::java::lang::ObjectArray > PaletteRecord_PColorArray;
+        } // record
+    } // hssf
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -50,31 +44,31 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::PaletteRecord::PaletteRecord(const ::default_init_tag&)
+poi::hssf::record::PaletteRecord::PaletteRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::PaletteRecord::PaletteRecord() 
+poi::hssf::record::PaletteRecord::PaletteRecord() 
     : PaletteRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::PaletteRecord::PaletteRecord(RecordInputStream* in) 
+poi::hssf::record::PaletteRecord::PaletteRecord(RecordInputStream* in) 
     : PaletteRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::PaletteRecord::sid;
+constexpr int16_t poi::hssf::record::PaletteRecord::sid;
 
-constexpr int8_t org::apache::poi::hssf::record::PaletteRecord::STANDARD_PALETTE_SIZE;
+constexpr int8_t poi::hssf::record::PaletteRecord::STANDARD_PALETTE_SIZE;
 
-constexpr int16_t org::apache::poi::hssf::record::PaletteRecord::FIRST_COLOR_INDEX;
+constexpr int16_t poi::hssf::record::PaletteRecord::FIRST_COLOR_INDEX;
 
-void org::apache::poi::hssf::record::PaletteRecord::ctor()
+void poi::hssf::record::PaletteRecord::ctor()
 {
     super::ctor();
     auto defaultPalette = createDefaultPalette();
@@ -84,7 +78,7 @@ void org::apache::poi::hssf::record::PaletteRecord::ctor()
     }
 }
 
-void org::apache::poi::hssf::record::PaletteRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::PaletteRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     int32_t field_1_numcolors = npc(in)->readShort();
@@ -94,7 +88,7 @@ void org::apache::poi::hssf::record::PaletteRecord::ctor(RecordInputStream* in)
     }
 }
 
-java::lang::String* org::apache::poi::hssf::record::PaletteRecord::toString()
+java::lang::String* poi::hssf::record::PaletteRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[PALETTE]\n"_j);
@@ -109,7 +103,7 @@ java::lang::String* org::apache::poi::hssf::record::PaletteRecord::toString()
     return npc(buffer)->toString();
 }
 
-void org::apache::poi::hssf::record::PaletteRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::PaletteRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(npc(_colors)->size());
     for (auto i = int32_t(0); i < npc(_colors)->size(); i++) {
@@ -117,17 +111,17 @@ void org::apache::poi::hssf::record::PaletteRecord::serialize(::org::apache::poi
     }
 }
 
-int32_t org::apache::poi::hssf::record::PaletteRecord::getDataSize()
+int32_t poi::hssf::record::PaletteRecord::getDataSize()
 {
     return int32_t(2) + npc(_colors)->size() * PaletteRecord_PColor::ENCODED_SIZE;
 }
 
-int16_t org::apache::poi::hssf::record::PaletteRecord::getSid()
+int16_t poi::hssf::record::PaletteRecord::getSid()
 {
     return sid;
 }
 
-int8_tArray* org::apache::poi::hssf::record::PaletteRecord::getColor(int32_t byteIndex)
+int8_tArray* poi::hssf::record::PaletteRecord::getColor(int32_t byteIndex)
 {
     auto i = byteIndex - FIRST_COLOR_INDEX;
     if(i < 0 || i >= npc(_colors)->size()) {
@@ -136,7 +130,7 @@ int8_tArray* org::apache::poi::hssf::record::PaletteRecord::getColor(int32_t byt
     return npc(java_cast< PaletteRecord_PColor* >(npc(_colors)->get(i)))->getTriplet();
 }
 
-void org::apache::poi::hssf::record::PaletteRecord::setColor(int16_t byteIndex, int8_t red, int8_t green, int8_t blue)
+void poi::hssf::record::PaletteRecord::setColor(int16_t byteIndex, int8_t red, int8_t green, int8_t blue)
 {
     auto i = byteIndex - FIRST_COLOR_INDEX;
     if(i < 0 || i >= STANDARD_PALETTE_SIZE) {
@@ -149,7 +143,7 @@ void org::apache::poi::hssf::record::PaletteRecord::setColor(int16_t byteIndex, 
     npc(_colors)->set(i, custColor);
 }
 
-org::apache::poi::hssf::record::PaletteRecord_PColorArray* org::apache::poi::hssf::record::PaletteRecord::createDefaultPalette()
+poi::hssf::record::PaletteRecord_PColorArray* poi::hssf::record::PaletteRecord::createDefaultPalette()
 {
     clinit();
     return new PaletteRecord_PColorArray({
@@ -212,7 +206,7 @@ org::apache::poi::hssf::record::PaletteRecord_PColorArray* org::apache::poi::hss
     });
 }
 
-org::apache::poi::hssf::record::PaletteRecord_PColor* org::apache::poi::hssf::record::PaletteRecord::pc(int32_t r, int32_t g, int32_t b)
+poi::hssf::record::PaletteRecord_PColor* poi::hssf::record::PaletteRecord::pc(int32_t r, int32_t g, int32_t b)
 {
     clinit();
     return new PaletteRecord_PColor(r, g, b);
@@ -220,23 +214,23 @@ org::apache::poi::hssf::record::PaletteRecord_PColor* org::apache::poi::hssf::re
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::PaletteRecord::class_()
+java::lang::Class* poi::hssf::record::PaletteRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.PaletteRecord", 40);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::PaletteRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::PaletteRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::PaletteRecord::serialize()
+int8_tArray* poi::hssf::record::PaletteRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::PaletteRecord::getClass0()
+java::lang::Class* poi::hssf::record::PaletteRecord::getClass0()
 {
     return class_();
 }

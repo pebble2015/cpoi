@@ -17,31 +17,31 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::HeaderFooterBase::HeaderFooterBase(const ::default_init_tag&)
+poi::hssf::record::HeaderFooterBase::HeaderFooterBase(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::HeaderFooterBase::HeaderFooterBase(::java::lang::String* text) 
+poi::hssf::record::HeaderFooterBase::HeaderFooterBase(::java::lang::String* text) 
     : HeaderFooterBase(*static_cast< ::default_init_tag* >(0))
 {
     ctor(text);
 }
 
-org::apache::poi::hssf::record::HeaderFooterBase::HeaderFooterBase(RecordInputStream* in) 
+poi::hssf::record::HeaderFooterBase::HeaderFooterBase(RecordInputStream* in) 
     : HeaderFooterBase(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-void org::apache::poi::hssf::record::HeaderFooterBase::ctor(::java::lang::String* text)
+void poi::hssf::record::HeaderFooterBase::ctor(::java::lang::String* text)
 {
     super::ctor();
     setText(text);
 }
 
-void org::apache::poi::hssf::record::HeaderFooterBase::ctor(RecordInputStream* in)
+void poi::hssf::record::HeaderFooterBase::ctor(RecordInputStream* in)
 {
     super::ctor();
     if(npc(in)->remaining() > 0) {
@@ -63,12 +63,12 @@ void org::apache::poi::hssf::record::HeaderFooterBase::ctor(RecordInputStream* i
     }
 }
 
-void org::apache::poi::hssf::record::HeaderFooterBase::setText(::java::lang::String* text)
+void poi::hssf::record::HeaderFooterBase::setText(::java::lang::String* text)
 {
     if(text == nullptr) {
         throw new ::java::lang::IllegalArgumentException(u"text must not be null"_j);
     }
-    field_2_hasMultibyte = ::org::apache::poi::util::StringUtil::hasMultibyte(text);
+    field_2_hasMultibyte = ::poi::util::StringUtil::hasMultibyte(text);
     field_3_text = text;
     if(getDataSize() > RecordInputStream::MAX_RECORD_DATA_SIZE) {
         throw new ::java::lang::IllegalArgumentException(::java::lang::StringBuilder().append(u"Header/Footer string too long (limit is "_j)->append(RecordInputStream::MAX_RECORD_DATA_SIZE)
@@ -76,30 +76,30 @@ void org::apache::poi::hssf::record::HeaderFooterBase::setText(::java::lang::Str
     }
 }
 
-int32_t org::apache::poi::hssf::record::HeaderFooterBase::getTextLength()
+int32_t poi::hssf::record::HeaderFooterBase::getTextLength()
 {
     return npc(field_3_text)->length();
 }
 
-java::lang::String* org::apache::poi::hssf::record::HeaderFooterBase::getText()
+java::lang::String* poi::hssf::record::HeaderFooterBase::getText()
 {
     return field_3_text;
 }
 
-void org::apache::poi::hssf::record::HeaderFooterBase::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::HeaderFooterBase::serialize(::poi::util::LittleEndianOutput* out)
 {
     if(getTextLength() > 0) {
         npc(out)->writeShort(getTextLength());
         npc(out)->writeByte(field_2_hasMultibyte ? int32_t(1) : int32_t(0));
         if(field_2_hasMultibyte) {
-            ::org::apache::poi::util::StringUtil::putUnicodeLE(field_3_text, out);
+            ::poi::util::StringUtil::putUnicodeLE(field_3_text, out);
         } else {
-            ::org::apache::poi::util::StringUtil::putCompressedUnicode(field_3_text, out);
+            ::poi::util::StringUtil::putCompressedUnicode(field_3_text, out);
         }
     }
 }
 
-int32_t org::apache::poi::hssf::record::HeaderFooterBase::getDataSize()
+int32_t poi::hssf::record::HeaderFooterBase::getDataSize()
 {
     if(getTextLength() < 1) {
         return 0;
@@ -109,23 +109,23 @@ int32_t org::apache::poi::hssf::record::HeaderFooterBase::getDataSize()
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::HeaderFooterBase::class_()
+java::lang::Class* poi::hssf::record::HeaderFooterBase::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.HeaderFooterBase", 43);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::HeaderFooterBase::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::HeaderFooterBase::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::HeaderFooterBase::serialize()
+int8_tArray* poi::hssf::record::HeaderFooterBase::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::HeaderFooterBase::getClass0()
+java::lang::Class* poi::hssf::record::HeaderFooterBase::getClass0()
 {
     return class_();
 }

@@ -40,19 +40,13 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ddf
     {
-        namespace poi
-        {
-            namespace ddf
-            {
-typedef ::SubArray< ::org::apache::poi::ddf::EscherDump_propName_PropName_1, ::java::lang::ObjectArray > EscherDump_propName_PropName_1Array;
-            } // ddf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ddf::EscherDump_propName_PropName_1, ::java::lang::ObjectArray > EscherDump_propName_PropName_1Array;
+    } // ddf
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -61,24 +55,24 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ddf::EscherDump::EscherDump(const ::default_init_tag&)
+poi::ddf::EscherDump::EscherDump(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ddf::EscherDump::EscherDump() 
+poi::ddf::EscherDump::EscherDump() 
     : EscherDump(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::ddf::EscherDump::ctor()
+void poi::ddf::EscherDump::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::ddf::EscherDump::dump(::int8_tArray* data, int32_t offset, int32_t size, ::java::io::PrintStream* out)
+void poi::ddf::EscherDump::dump(::int8_tArray* data, int32_t offset, int32_t size, ::java::io::PrintStream* out)
 {
     EscherRecordFactory* recordFactory = new DefaultEscherRecordFactory();
     auto pos = offset;
@@ -90,7 +84,7 @@ void org::apache::poi::ddf::EscherDump::dump(::int8_tArray* data, int32_t offset
     }
 }
 
-void org::apache::poi::ddf::EscherDump::dumpOld(int64_t maxLength, ::java::io::InputStream* in, ::java::io::PrintStream* out) /* throws(IOException, LittleEndian.BufferUnderrunException) */
+void poi::ddf::EscherDump::dumpOld(int64_t maxLength, ::java::io::InputStream* in, ::java::io::PrintStream* out) /* throws(IOException, LittleEndian.BufferUnderrunException) */
 {
     auto remainingBytes = maxLength;
     int16_t options;
@@ -100,9 +94,9 @@ void org::apache::poi::ddf::EscherDump::dumpOld(int64_t maxLength, ::java::io::I
     ::java::lang::String* recordName;
     auto atEOF = false;
     while (!atEOF && (remainingBytes > 0)) {
-        options = ::org::apache::poi::util::LittleEndian::readShort(in);
-        recordId = ::org::apache::poi::util::LittleEndian::readShort(in);
-        recordBytesRemaining = ::org::apache::poi::util::LittleEndian::readInt(in);
+        options = ::poi::util::LittleEndian::readShort(in);
+        recordId = ::poi::util::LittleEndian::readShort(in);
+        recordBytesRemaining = ::poi::util::LittleEndian::readInt(in);
         remainingBytes -= int32_t(2) + int32_t(2) + int32_t(4);
         switch (recordId) {
         case static_cast< int16_t >(int32_t(61440)):
@@ -213,28 +207,28 @@ void org::apache::poi::ddf::EscherDump::dumpOld(int64_t maxLength, ::java::io::I
 
         auto stringBuf = new ::java::lang::StringBuilder();
         npc(stringBuf)->append(u"  "_j);
-        npc(stringBuf)->append(::org::apache::poi::util::HexDump::toHex(recordId));
+        npc(stringBuf)->append(::poi::util::HexDump::toHex(recordId));
         npc(npc(npc(stringBuf)->append(u"  "_j))->append(recordName))->append(u" ["_j);
-        npc(stringBuf)->append(::org::apache::poi::util::HexDump::toHex(options));
+        npc(stringBuf)->append(::poi::util::HexDump::toHex(options));
         npc(stringBuf)->append(u',');
-        npc(stringBuf)->append(::org::apache::poi::util::HexDump::toHex(recordBytesRemaining));
+        npc(stringBuf)->append(::poi::util::HexDump::toHex(recordBytesRemaining));
         npc(stringBuf)->append(u"]  instance: "_j);
-        npc(stringBuf)->append(::org::apache::poi::util::HexDump::toHex((static_cast< int16_t >((options >> int32_t(4))))));
+        npc(stringBuf)->append(::poi::util::HexDump::toHex((static_cast< int16_t >((options >> int32_t(4))))));
         npc(out)->println(static_cast< ::java::lang::Object* >(stringBuf));
         npc(stringBuf)->setLength(0);
         if(recordId == static_cast< int16_t >(int32_t(61447)) && 36 <= remainingBytes && 36 <= recordBytesRemaining) {
             int8_t n8;
             stringBuf = npc(stringBuf)->append(u"    btWin32: "_j);
             n8 = static_cast< int8_t >(npc(in)->read());
-            npc(stringBuf)->append(::org::apache::poi::util::HexDump::toHex(n8));
+            npc(stringBuf)->append(::poi::util::HexDump::toHex(n8));
             npc(stringBuf)->append(getBlipType(n8));
             npc(stringBuf)->append(u"  btMacOS: "_j);
             n8 = static_cast< int8_t >(npc(in)->read());
-            npc(stringBuf)->append(::org::apache::poi::util::HexDump::toHex(n8));
+            npc(stringBuf)->append(::poi::util::HexDump::toHex(n8));
             npc(stringBuf)->append(getBlipType(n8));
             npc(out)->println(static_cast< ::java::lang::Object* >(stringBuf));
             npc(out)->println(u"    rgbUid:"_j);
-            ::org::apache::poi::util::HexDump::dump(in, out, int32_t(0), int32_t(16));
+            ::poi::util::HexDump::dump(in, out, int32_t(0), int32_t(16));
             npc(out)->print(u"    tag: "_j);
             outHex(2, in, out);
             npc(out)->println();
@@ -291,12 +285,12 @@ void org::apache::poi::ddf::EscherDump::dumpOld(int64_t maxLength, ::java::io::I
             while (recordBytesRemaining >= int32_t(6) + nComplex && remainingBytes >= int32_t(6) + nComplex) {
                 int16_t n16;
                 int32_t n32;
-                n16 = ::org::apache::poi::util::LittleEndian::readShort(in);
-                n32 = ::org::apache::poi::util::LittleEndian::readInt(in);
+                n16 = ::poi::util::LittleEndian::readShort(in);
+                n32 = ::poi::util::LittleEndian::readInt(in);
                 recordBytesRemaining -= 6;
                 remainingBytes -= 6;
                 npc(out)->print(u"    "_j);
-                npc(out)->print(::org::apache::poi::util::HexDump::toHex(n16));
+                npc(out)->print(::poi::util::HexDump::toHex(n16));
                 npc(out)->print(u" ("_j);
                 auto propertyId = n16 & static_cast< int16_t >(int32_t(16383));
                 npc(out)->print(::java::lang::StringBuilder().append(u" "_j)->append(propertyId)->toString());
@@ -305,7 +299,7 @@ void org::apache::poi::ddf::EscherDump::dumpOld(int64_t maxLength, ::java::io::I
                         npc(out)->print(u", fBlipID"_j);
                     }
                     npc(out)->print(u")  "_j);
-                    npc(out)->print(::org::apache::poi::util::HexDump::toHex(n32));
+                    npc(out)->print(::poi::util::HexDump::toHex(n32));
                     if((n16 & static_cast< int16_t >(int32_t(16384))) == 0) {
                         npc(out)->print(u" ("_j);
                         npc(out)->print(dec1616(n32));
@@ -316,7 +310,7 @@ void org::apache::poi::ddf::EscherDump::dumpOld(int64_t maxLength, ::java::io::I
                     npc(out)->println();
                 } else {
                     npc(out)->print(u", fComplex)  "_j);
-                    npc(out)->print(::org::apache::poi::util::HexDump::toHex(n32));
+                    npc(out)->print(::poi::util::HexDump::toHex(n32));
                     npc(out)->print(u" - Complex prop len"_j);
                     npc(out)->println(::java::lang::StringBuilder().append(u" {"_j)->append(propName(static_cast< int16_t >(propertyId)))
                         ->append(u"}"_j)->toString());
@@ -325,39 +319,39 @@ void org::apache::poi::ddf::EscherDump::dumpOld(int64_t maxLength, ::java::io::I
             }
             while ((nComplex & remainingBytes) > 0) {
                 nDumpSize = (nComplex > static_cast< int32_t >(remainingBytes)) ? static_cast< int16_t >(remainingBytes) : static_cast< int16_t >(nComplex);
-                ::org::apache::poi::util::HexDump::dump(in, out, int32_t(0), static_cast< int32_t >(nDumpSize));
+                ::poi::util::HexDump::dump(in, out, int32_t(0), static_cast< int32_t >(nDumpSize));
                 nComplex -= nDumpSize;
                 recordBytesRemaining -= nDumpSize;
                 remainingBytes -= nDumpSize;
             }
         } else if(recordId == static_cast< int16_t >(int32_t(61458))) {
             npc(out)->print(u"    Connector rule: "_j);
-            npc(out)->print(::org::apache::poi::util::LittleEndian::readInt(in));
+            npc(out)->print(::poi::util::LittleEndian::readInt(in));
             npc(out)->print(u"    ShapeID A: "_j);
-            npc(out)->print(::org::apache::poi::util::LittleEndian::readInt(in));
+            npc(out)->print(::poi::util::LittleEndian::readInt(in));
             npc(out)->print(u"   ShapeID B: "_j);
-            npc(out)->print(::org::apache::poi::util::LittleEndian::readInt(in));
+            npc(out)->print(::poi::util::LittleEndian::readInt(in));
             npc(out)->print(u"    ShapeID connector: "_j);
-            npc(out)->print(::org::apache::poi::util::LittleEndian::readInt(in));
+            npc(out)->print(::poi::util::LittleEndian::readInt(in));
             npc(out)->print(u"   Connect pt A: "_j);
-            npc(out)->print(::org::apache::poi::util::LittleEndian::readInt(in));
+            npc(out)->print(::poi::util::LittleEndian::readInt(in));
             npc(out)->print(u"   Connect pt B: "_j);
-            npc(out)->println(::org::apache::poi::util::LittleEndian::readInt(in));
+            npc(out)->println(::poi::util::LittleEndian::readInt(in));
             recordBytesRemaining -= 24;
             remainingBytes -= 24;
         } else if(recordId >= static_cast< int16_t >(int32_t(61464)) && recordId < static_cast< int16_t >(int32_t(61719))) {
             npc(out)->println(u"    Secondary UID: "_j);
-            ::org::apache::poi::util::HexDump::dump(in, out, int32_t(0), int32_t(16));
-            npc(out)->println(::java::lang::StringBuilder().append(u"    Cache of size: "_j)->append(::org::apache::poi::util::HexDump::toHex(::org::apache::poi::util::LittleEndian::readInt(in)))->toString());
-            npc(out)->println(::java::lang::StringBuilder().append(u"    Boundary top: "_j)->append(::org::apache::poi::util::HexDump::toHex(::org::apache::poi::util::LittleEndian::readInt(in)))->toString());
-            npc(out)->println(::java::lang::StringBuilder().append(u"    Boundary left: "_j)->append(::org::apache::poi::util::HexDump::toHex(::org::apache::poi::util::LittleEndian::readInt(in)))->toString());
-            npc(out)->println(::java::lang::StringBuilder().append(u"    Boundary width: "_j)->append(::org::apache::poi::util::HexDump::toHex(::org::apache::poi::util::LittleEndian::readInt(in)))->toString());
-            npc(out)->println(::java::lang::StringBuilder().append(u"    Boundary height: "_j)->append(::org::apache::poi::util::HexDump::toHex(::org::apache::poi::util::LittleEndian::readInt(in)))->toString());
-            npc(out)->println(::java::lang::StringBuilder().append(u"    X: "_j)->append(::org::apache::poi::util::HexDump::toHex(::org::apache::poi::util::LittleEndian::readInt(in)))->toString());
-            npc(out)->println(::java::lang::StringBuilder().append(u"    Y: "_j)->append(::org::apache::poi::util::HexDump::toHex(::org::apache::poi::util::LittleEndian::readInt(in)))->toString());
-            npc(out)->println(::java::lang::StringBuilder().append(u"    Cache of saved size: "_j)->append(::org::apache::poi::util::HexDump::toHex(::org::apache::poi::util::LittleEndian::readInt(in)))->toString());
-            npc(out)->println(::java::lang::StringBuilder().append(u"    Compression Flag: "_j)->append(::org::apache::poi::util::HexDump::toHex(static_cast< int8_t >(npc(in)->read())))->toString());
-            npc(out)->println(::java::lang::StringBuilder().append(u"    Filter: "_j)->append(::org::apache::poi::util::HexDump::toHex(static_cast< int8_t >(npc(in)->read())))->toString());
+            ::poi::util::HexDump::dump(in, out, int32_t(0), int32_t(16));
+            npc(out)->println(::java::lang::StringBuilder().append(u"    Cache of size: "_j)->append(::poi::util::HexDump::toHex(::poi::util::LittleEndian::readInt(in)))->toString());
+            npc(out)->println(::java::lang::StringBuilder().append(u"    Boundary top: "_j)->append(::poi::util::HexDump::toHex(::poi::util::LittleEndian::readInt(in)))->toString());
+            npc(out)->println(::java::lang::StringBuilder().append(u"    Boundary left: "_j)->append(::poi::util::HexDump::toHex(::poi::util::LittleEndian::readInt(in)))->toString());
+            npc(out)->println(::java::lang::StringBuilder().append(u"    Boundary width: "_j)->append(::poi::util::HexDump::toHex(::poi::util::LittleEndian::readInt(in)))->toString());
+            npc(out)->println(::java::lang::StringBuilder().append(u"    Boundary height: "_j)->append(::poi::util::HexDump::toHex(::poi::util::LittleEndian::readInt(in)))->toString());
+            npc(out)->println(::java::lang::StringBuilder().append(u"    X: "_j)->append(::poi::util::HexDump::toHex(::poi::util::LittleEndian::readInt(in)))->toString());
+            npc(out)->println(::java::lang::StringBuilder().append(u"    Y: "_j)->append(::poi::util::HexDump::toHex(::poi::util::LittleEndian::readInt(in)))->toString());
+            npc(out)->println(::java::lang::StringBuilder().append(u"    Cache of saved size: "_j)->append(::poi::util::HexDump::toHex(::poi::util::LittleEndian::readInt(in)))->toString());
+            npc(out)->println(::java::lang::StringBuilder().append(u"    Compression Flag: "_j)->append(::poi::util::HexDump::toHex(static_cast< int8_t >(npc(in)->read())))->toString());
+            npc(out)->println(::java::lang::StringBuilder().append(u"    Filter: "_j)->append(::poi::util::HexDump::toHex(static_cast< int8_t >(npc(in)->read())))->toString());
             npc(out)->println(u"    Data (after decompression): "_j);
             recordBytesRemaining -= int32_t(34) + int32_t(16);
             remainingBytes -= int32_t(34) + int32_t(16);
@@ -370,7 +364,7 @@ void org::apache::poi::ddf::EscherDump::dumpOld(int64_t maxLength, ::java::io::I
             auto bin = new ::java::io::ByteArrayInputStream(buf);
             ::java::io::InputStream* in1 = new ::java::util::zip::InflaterInputStream(bin);
             auto bytesToDump = -int32_t(1);
-            ::org::apache::poi::util::HexDump::dump(in1, out, int32_t(0), bytesToDump);
+            ::poi::util::HexDump::dump(in1, out, int32_t(0), bytesToDump);
             recordBytesRemaining -= nDumpSize;
             remainingBytes -= nDumpSize;
         }
@@ -384,7 +378,7 @@ void org::apache::poi::ddf::EscherDump::dumpOld(int64_t maxLength, ::java::io::I
         } else if(remainingBytes >= 0) {
             nDumpSize = (recordBytesRemaining > static_cast< int32_t >(remainingBytes)) ? static_cast< int16_t >(remainingBytes) : static_cast< int16_t >(recordBytesRemaining);
             if(nDumpSize != 0) {
-                ::org::apache::poi::util::HexDump::dump(in, out, int32_t(0), static_cast< int32_t >(nDumpSize));
+                ::poi::util::HexDump::dump(in, out, int32_t(0), static_cast< int32_t >(nDumpSize));
                 remainingBytes -= nDumpSize;
             }
         } else {
@@ -393,7 +387,7 @@ void org::apache::poi::ddf::EscherDump::dumpOld(int64_t maxLength, ::java::io::I
     }
 }
 
-java::lang::String* org::apache::poi::ddf::EscherDump::propName(int16_t propertyId)
+java::lang::String* poi::ddf::EscherDump::propName(int16_t propertyId)
 {
     auto const props = new EscherDump_propName_PropName_1Array({
         new EscherDump_propName_PropName_1(this, int32_t(4), u"transform.rotation"_j)
@@ -679,13 +673,13 @@ java::lang::String* org::apache::poi::ddf::EscherDump::propName(int16_t property
     return u"unknown property"_j;
 }
 
-java::lang::String* org::apache::poi::ddf::EscherDump::getBlipType(int8_t b)
+java::lang::String* poi::ddf::EscherDump::getBlipType(int8_t b)
 {
     clinit();
     return EscherBSERecord::getBlipType(b);
 }
 
-java::lang::String* org::apache::poi::ddf::EscherDump::dec1616(int32_t n32)
+java::lang::String* poi::ddf::EscherDump::dec1616(int32_t n32)
 {
     auto result = u""_j;
     result = ::java::lang::StringBuilder(result).append(static_cast< int16_t >((n32 >> int32_t(16))))->toString();
@@ -694,17 +688,17 @@ java::lang::String* org::apache::poi::ddf::EscherDump::dec1616(int32_t n32)
     return result;
 }
 
-void org::apache::poi::ddf::EscherDump::outHex(int32_t bytes, ::java::io::InputStream* in, ::java::io::PrintStream* out) /* throws(IOException, LittleEndian.BufferUnderrunException) */
+void poi::ddf::EscherDump::outHex(int32_t bytes, ::java::io::InputStream* in, ::java::io::PrintStream* out) /* throws(IOException, LittleEndian.BufferUnderrunException) */
 {
     switch (bytes) {
     case int32_t(1):
-        npc(out)->print(::org::apache::poi::util::HexDump::toHex(static_cast< int8_t >(npc(in)->read())));
+        npc(out)->print(::poi::util::HexDump::toHex(static_cast< int8_t >(npc(in)->read())));
         break;
     case int32_t(2):
-        npc(out)->print(::org::apache::poi::util::HexDump::toHex(::org::apache::poi::util::LittleEndian::readShort(in)));
+        npc(out)->print(::poi::util::HexDump::toHex(::poi::util::LittleEndian::readShort(in)));
         break;
     case int32_t(4):
-        npc(out)->print(::org::apache::poi::util::HexDump::toHex(::org::apache::poi::util::LittleEndian::readInt(in)));
+        npc(out)->print(::poi::util::HexDump::toHex(::poi::util::LittleEndian::readInt(in)));
         break;
     default:
         throw new ::java::io::IOException(u"Unable to output variable of that width"_j);
@@ -712,13 +706,13 @@ void org::apache::poi::ddf::EscherDump::outHex(int32_t bytes, ::java::io::InputS
 
 }
 
-void org::apache::poi::ddf::EscherDump::main(::java::lang::StringArray* args)
+void poi::ddf::EscherDump::main(::java::lang::StringArray* args)
 {
     clinit();
     main(args, ::java::lang::System::out());
 }
 
-void org::apache::poi::ddf::EscherDump::main(::java::lang::StringArray* args, ::java::io::PrintStream* out)
+void poi::ddf::EscherDump::main(::java::lang::StringArray* args, ::java::io::PrintStream* out)
 {
     clinit();
     auto dump = ::java::lang::StringBuilder().append(u"0F 00 00 F0 89 07 00 00 00 00 06 F0 18 00 00 00 "_j)->append(u"05 04 00 00 02 00 00 00 05 00 00 00 01 00 00 00 "_j)
@@ -842,25 +836,25 @@ void org::apache::poi::ddf::EscherDump::main(::java::lang::StringArray* args, ::
         ->append(u"00 00 08 C0 01 40 00 00 08 40 00 1E F1 10 00 00 "_j)
         ->append(u"00 0D 00 00 08 0C 00 00 08 17 00 00 08 F7 00 00 "_j)
         ->append(u"10                                              "_j)->toString();
-    auto bytes = ::org::apache::poi::util::HexRead::readFromString(dump);
+    auto bytes = ::poi::util::HexRead::readFromString(dump);
     auto dumper = new EscherDump();
     npc(dumper)->dump(bytes, 0, npc(bytes)->length, out);
 }
 
-void org::apache::poi::ddf::EscherDump::dump(int32_t recordSize, ::int8_tArray* data, ::java::io::PrintStream* out)
+void poi::ddf::EscherDump::dump(int32_t recordSize, ::int8_tArray* data, ::java::io::PrintStream* out)
 {
     dump(data, 0, recordSize, out);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ddf::EscherDump::class_()
+java::lang::Class* poi::ddf::EscherDump::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ddf.EscherDump", 29);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ddf::EscherDump::getClass0()
+java::lang::Class* poi::ddf::EscherDump::getClass0()
 {
     return class_();
 }

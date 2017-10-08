@@ -2,29 +2,23 @@
 #pragma once
 
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
+                namespace forked
                 {
-                    namespace eval
-                    {
-                        namespace forked
-                        {
-                            class ForkedEvaluationCell;
-                            class ForkedEvaluationSheet;
-                            class ForkedEvaluationSheet_RowColKey;
-                            class ForkedEvaluationWorkbook;
-                            class ForkedEvaluator;
-                        } // forked
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+                    class ForkedEvaluationCell;
+                    class ForkedEvaluationSheet;
+                    class ForkedEvaluationSheet_RowColKey;
+                    class ForkedEvaluationWorkbook;
+                    class ForkedEvaluator;
+                } // forked
+            } // eval
+        } // formula
+    } // ss
+} // poi

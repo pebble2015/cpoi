@@ -13,7 +13,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::crypt::ChunkedCipherOutputStream
+class poi::poifs::crypt::ChunkedCipherOutputStream
     : public ::java::io::FilterOutputStream
 {
 
@@ -21,21 +21,21 @@ public:
     typedef ::java::io::FilterOutputStream super;
 
 private:
-    static ::org::apache::poi::util::POILogger* LOG_;
+    static ::poi::util::POILogger* LOG_;
     static constexpr int32_t STREAMING { int32_t(-1) };
     int32_t chunkSize {  };
     int32_t chunkBits {  };
     ::int8_tArray* chunk {  };
     ::java::util::BitSet* plainByteFlags {  };
     ::java::io::File* fileOut {  };
-    ::org::apache::poi::poifs::filesystem::DirectoryNode* dir {  };
+    ::poi::poifs::filesystem::DirectoryNode* dir {  };
     int64_t pos {  };
     int64_t totalPos {  };
     int64_t written {  };
     ::javax::crypto::Cipher* cipher {  };
     bool isClosed {  };
 protected:
-    void ctor(::org::apache::poi::poifs::filesystem::DirectoryNode* dir, int32_t chunkSize) /* throws(IOException, GeneralSecurityException) */;
+    void ctor(::poi::poifs::filesystem::DirectoryNode* dir, int32_t chunkSize) /* throws(IOException, GeneralSecurityException) */;
     void ctor(::java::io::OutputStream* stream, int32_t chunkSize) /* throws(IOException, GeneralSecurityException) */;
 
 public:
@@ -44,7 +44,7 @@ public:
 public: /* protected */
     virtual ::javax::crypto::Cipher* initCipherForBlock(::javax::crypto::Cipher* existing, int32_t block, bool lastChunk) /* throws(IOException, GeneralSecurityException) */ = 0;
     virtual void calculateChecksum(::java::io::File* fileOut, int32_t oleStreamSize) /* throws(GeneralSecurityException, IOException) */ = 0;
-    virtual void createEncryptionInfoEntry(::org::apache::poi::poifs::filesystem::DirectoryNode* dir, ::java::io::File* tmpFile) /* throws(IOException, GeneralSecurityException) */ = 0;
+    virtual void createEncryptionInfoEntry(::poi::poifs::filesystem::DirectoryNode* dir, ::java::io::File* tmpFile) /* throws(IOException, GeneralSecurityException) */ = 0;
 
 public:
     void write(int32_t b) /* throws(IOException) */ override;
@@ -71,7 +71,7 @@ public:
     virtual void setNextRecordSize(int32_t recordSize, bool isPlain);
 
     // Generated
-    ChunkedCipherOutputStream(::org::apache::poi::poifs::filesystem::DirectoryNode* dir, int32_t chunkSize);
+    ChunkedCipherOutputStream(::poi::poifs::filesystem::DirectoryNode* dir, int32_t chunkSize);
     ChunkedCipherOutputStream(::java::io::OutputStream* stream, int32_t chunkSize);
 protected:
     ChunkedCipherOutputStream(const ::default_init_tag&);
@@ -83,7 +83,7 @@ public:
 
 private:
     void init();
-    static ::org::apache::poi::util::POILogger*& LOG();
+    static ::poi::util::POILogger*& LOG();
     virtual ::java::lang::Class* getClass0();
     friend class ChunkedCipherOutputStream_EncryptedPackageWriter;
 };

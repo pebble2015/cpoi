@@ -27,9 +27,9 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HeaderFooter
+class poi::hssf::usermodel::HeaderFooter
     : public virtual ::java::lang::Object
-    , public virtual ::org::apache::poi::ss::usermodel::HeaderFooter
+    , public virtual ::poi::ss::usermodel::HeaderFooter
 {
 
 public:

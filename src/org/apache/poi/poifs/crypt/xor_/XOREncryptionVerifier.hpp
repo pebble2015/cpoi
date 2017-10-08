@@ -11,20 +11,20 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::crypt::xor_::XOREncryptionVerifier
-    : public ::org::apache::poi::poifs::crypt::EncryptionVerifier
-    , public virtual ::org::apache::poi::poifs::crypt::standard::EncryptionRecord
+class poi::poifs::crypt::xor_::XOREncryptionVerifier
+    : public ::poi::poifs::crypt::EncryptionVerifier
+    , public virtual ::poi::poifs::crypt::standard::EncryptionRecord
     , public virtual ::java::lang::Cloneable
 {
 
 public:
-    typedef ::org::apache::poi::poifs::crypt::EncryptionVerifier super;
+    typedef ::poi::poifs::crypt::EncryptionVerifier super;
 protected:
     void ctor();
-    void ctor(::org::apache::poi::util::LittleEndianInput* is);
+    void ctor(::poi::util::LittleEndianInput* is);
 
 public:
-    void write(::org::apache::poi::util::LittleEndianByteArrayOutputStream* bos) override;
+    void write(::poi::util::LittleEndianByteArrayOutputStream* bos) override;
     XOREncryptionVerifier* clone() /* throws(CloneNotSupportedException) */ override;
 
 public: /* protected */
@@ -33,7 +33,7 @@ public: /* protected */
 
     // Generated
     XOREncryptionVerifier();
-    XOREncryptionVerifier(::org::apache::poi::util::LittleEndianInput* is);
+    XOREncryptionVerifier(::poi::util::LittleEndianInput* is);
 protected:
     XOREncryptionVerifier(const ::default_init_tag&);
 

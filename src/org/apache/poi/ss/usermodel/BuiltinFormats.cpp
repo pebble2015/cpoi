@@ -34,34 +34,34 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::usermodel::BuiltinFormats::BuiltinFormats(const ::default_init_tag&)
+poi::ss::usermodel::BuiltinFormats::BuiltinFormats(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::usermodel::BuiltinFormats::BuiltinFormats()
+poi::ss::usermodel::BuiltinFormats::BuiltinFormats()
     : BuiltinFormats(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-constexpr int32_t org::apache::poi::ss::usermodel::BuiltinFormats::FIRST_USER_DEFINED_FORMAT_INDEX;
+constexpr int32_t poi::ss::usermodel::BuiltinFormats::FIRST_USER_DEFINED_FORMAT_INDEX;
 
-java::lang::StringArray*& org::apache::poi::ss::usermodel::BuiltinFormats::_formats()
+java::lang::StringArray*& poi::ss::usermodel::BuiltinFormats::_formats()
 {
     clinit();
     return _formats_;
 }
-java::lang::StringArray* org::apache::poi::ss::usermodel::BuiltinFormats::_formats_;
+java::lang::StringArray* poi::ss::usermodel::BuiltinFormats::_formats_;
 
-java::lang::StringArray* org::apache::poi::ss::usermodel::BuiltinFormats::getAll()
+java::lang::StringArray* poi::ss::usermodel::BuiltinFormats::getAll()
 {
     clinit();
     return npc(_formats_)->clone();
 }
 
-java::lang::String* org::apache::poi::ss::usermodel::BuiltinFormats::getBuiltinFormat(int32_t index)
+java::lang::String* poi::ss::usermodel::BuiltinFormats::getBuiltinFormat(int32_t index)
 {
     clinit();
     if(index < 0 || index >= npc(_formats_)->length) {
@@ -70,7 +70,7 @@ java::lang::String* org::apache::poi::ss::usermodel::BuiltinFormats::getBuiltinF
     return (*_formats_)[index];
 }
 
-int32_t org::apache::poi::ss::usermodel::BuiltinFormats::getBuiltinFormat(::java::lang::String* pFmt)
+int32_t poi::ss::usermodel::BuiltinFormats::getBuiltinFormat(::java::lang::String* pFmt)
 {
     clinit();
     auto fmt = npc(u"TEXT"_j)->equalsIgnoreCase(pFmt) ? u"@"_j : pFmt;
@@ -86,13 +86,13 @@ int32_t org::apache::poi::ss::usermodel::BuiltinFormats::getBuiltinFormat(::java
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::usermodel::BuiltinFormats::class_()
+java::lang::Class* poi::ss::usermodel::BuiltinFormats::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.usermodel.BuiltinFormats", 42);
     return c;
 }
 
-void org::apache::poi::ss::usermodel::BuiltinFormats::clinit()
+void poi::ss::usermodel::BuiltinFormats::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -159,7 +159,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::usermodel::BuiltinFormats::getClass0()
+java::lang::Class* poi::ss::usermodel::BuiltinFormats::getClass0()
 {
     return class_();
 }

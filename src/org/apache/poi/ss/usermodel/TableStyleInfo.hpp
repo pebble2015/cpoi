@@ -7,7 +7,7 @@
 #include <org/apache/poi/ss/usermodel/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::usermodel::TableStyleInfo
+struct poi::ss::usermodel::TableStyleInfo
     : public virtual ::java::lang::Object
 {
     virtual bool isShowColumnStripes() = 0;

@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::filesystem::DocumentFactoryHelper_getDecryptedStream_1
+class poi::poifs::filesystem::DocumentFactoryHelper_getDecryptedStream_1
     : public ::java::io::FilterInputStream
 {
 

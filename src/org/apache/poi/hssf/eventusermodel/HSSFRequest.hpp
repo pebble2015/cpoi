@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::eventusermodel::HSSFRequest
+class poi::hssf::eventusermodel::HSSFRequest
     : public virtual ::java::lang::Object
 {
 
@@ -27,7 +27,7 @@ public:
     virtual void addListenerForAllRecords(HSSFListener* lsnr);
 
 public: /* protected */
-    virtual int16_t processRecord(::org::apache::poi::hssf::record::Record* rec) /* throws(HSSFUserException) */;
+    virtual int16_t processRecord(::poi::hssf::record::Record* rec) /* throws(HSSFUserException) */;
 
     // Generated
 

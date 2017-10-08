@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::BoundSheetRecord_1
+class poi::hssf::record::BoundSheetRecord_1
     : public virtual ::java::lang::Object
     , public virtual ::java::util::Comparator
 {

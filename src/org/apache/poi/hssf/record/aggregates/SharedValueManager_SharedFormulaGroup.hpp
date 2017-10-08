@@ -10,33 +10,27 @@
 #include <java/lang/Object.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
-            {
-                namespace record
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::record::CellValueRecordInterface, ::java::lang::ObjectArray > CellValueRecordInterfaceArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
+typedef ::SubArray< ::poi::hssf::record::CellValueRecordInterface, ::java::lang::ObjectArray > CellValueRecordInterfaceArray;
+typedef ::SubArray< ::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
 
-                    namespace aggregates
-                    {
-typedef ::SubArray< ::org::apache::poi::hssf::record::aggregates::RecordAggregate, ::org::apache::poi::hssf::record::RecordBaseArray > RecordAggregateArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate, RecordAggregateArray, ::org::apache::poi::hssf::record::CellValueRecordInterfaceArray > FormulaRecordAggregateArray;
-                    } // aggregates
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+            namespace aggregates
+            {
+typedef ::SubArray< ::poi::hssf::record::aggregates::RecordAggregate, ::poi::hssf::record::RecordBaseArray > RecordAggregateArray;
+typedef ::SubArray< ::poi::hssf::record::aggregates::FormulaRecordAggregate, RecordAggregateArray, ::poi::hssf::record::CellValueRecordInterfaceArray > FormulaRecordAggregateArray;
+            } // aggregates
+        } // record
+    } // hssf
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::aggregates::SharedValueManager_SharedFormulaGroup final
+class poi::hssf::record::aggregates::SharedValueManager_SharedFormulaGroup final
     : public ::java::lang::Object
 {
 
@@ -44,21 +38,21 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    ::org::apache::poi::hssf::record::SharedFormulaRecord* _sfr {  };
+    ::poi::hssf::record::SharedFormulaRecord* _sfr {  };
     FormulaRecordAggregateArray* _frAggs {  };
     int32_t _numberOfFormulas {  };
-    ::org::apache::poi::ss::util::CellReference* _firstCell {  };
+    ::poi::ss::util::CellReference* _firstCell {  };
 protected:
-    void ctor(::org::apache::poi::hssf::record::SharedFormulaRecord* sfr, ::org::apache::poi::ss::util::CellReference* firstCell);
+    void ctor(::poi::hssf::record::SharedFormulaRecord* sfr, ::poi::ss::util::CellReference* firstCell);
 
 public:
     void add(FormulaRecordAggregate* agg);
     void unlinkSharedFormulas();
-    ::org::apache::poi::hssf::record::SharedFormulaRecord* getSFR();
+    ::poi::hssf::record::SharedFormulaRecord* getSFR();
     ::java::lang::String* toString() override;
 
     // Generated
-    SharedValueManager_SharedFormulaGroup(::org::apache::poi::hssf::record::SharedFormulaRecord* sfr, ::org::apache::poi::ss::util::CellReference* firstCell);
+    SharedValueManager_SharedFormulaGroup(::poi::hssf::record::SharedFormulaRecord* sfr, ::poi::ss::util::CellReference* firstCell);
 protected:
     SharedValueManager_SharedFormulaGroup(const ::default_init_tag&);
 

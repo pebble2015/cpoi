@@ -35,50 +35,50 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::ptg::ParenthesisPtg::ParenthesisPtg(const ::default_init_tag&)
+poi::ss::formula::ptg::ParenthesisPtg::ParenthesisPtg(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::ptg::ParenthesisPtg::ParenthesisPtg() 
+poi::ss::formula::ptg::ParenthesisPtg::ParenthesisPtg() 
     : ParenthesisPtg(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-constexpr int32_t org::apache::poi::ss::formula::ptg::ParenthesisPtg::SIZE;
+constexpr int32_t poi::ss::formula::ptg::ParenthesisPtg::SIZE;
 
-constexpr int8_t org::apache::poi::ss::formula::ptg::ParenthesisPtg::sid;
+constexpr int8_t poi::ss::formula::ptg::ParenthesisPtg::sid;
 
-org::apache::poi::ss::formula::ptg::ControlPtg*& org::apache::poi::ss::formula::ptg::ParenthesisPtg::instance()
+poi::ss::formula::ptg::ControlPtg*& poi::ss::formula::ptg::ParenthesisPtg::instance()
 {
     clinit();
     return instance_;
 }
-org::apache::poi::ss::formula::ptg::ControlPtg* org::apache::poi::ss::formula::ptg::ParenthesisPtg::instance_;
+poi::ss::formula::ptg::ControlPtg* poi::ss::formula::ptg::ParenthesisPtg::instance_;
 
-void org::apache::poi::ss::formula::ptg::ParenthesisPtg::ctor()
+void poi::ss::formula::ptg::ParenthesisPtg::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::ss::formula::ptg::ParenthesisPtg::write(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::ss::formula::ptg::ParenthesisPtg::write(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeByte(sid + getPtgClass());
 }
 
-int32_t org::apache::poi::ss::formula::ptg::ParenthesisPtg::getSize()
+int32_t poi::ss::formula::ptg::ParenthesisPtg::getSize()
 {
     return SIZE;
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::ParenthesisPtg::toFormulaString()
+java::lang::String* poi::ss::formula::ptg::ParenthesisPtg::toFormulaString()
 {
     return u"()"_j;
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::ParenthesisPtg::toFormulaString(::java::lang::StringArray* operands)
+java::lang::String* poi::ss::formula::ptg::ParenthesisPtg::toFormulaString(::java::lang::StringArray* operands)
 {
     return ::java::lang::StringBuilder().append(u"("_j)->append((*operands)[int32_t(0)])
         ->append(u")"_j)->toString();
@@ -86,13 +86,13 @@ java::lang::String* org::apache::poi::ss::formula::ptg::ParenthesisPtg::toFormul
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::ParenthesisPtg::class_()
+java::lang::Class* poi::ss::formula::ptg::ParenthesisPtg::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.ptg.ParenthesisPtg", 44);
     return c;
 }
 
-void org::apache::poi::ss::formula::ptg::ParenthesisPtg::clinit()
+void poi::ss::formula::ptg::ParenthesisPtg::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -108,7 +108,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::ParenthesisPtg::getClass0()
+java::lang::Class* poi::ss::formula::ptg::ParenthesisPtg::getClass0()
 {
     return class_();
 }

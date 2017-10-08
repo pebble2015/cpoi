@@ -24,24 +24,18 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace poifs
     {
-        namespace poi
+        namespace storage
         {
-            namespace poifs
-            {
-                namespace storage
-                {
-typedef ::SubArray< ::org::apache::poi::poifs::storage::BlockWritable, ::java::lang::ObjectArray > BlockWritableArray;
-typedef ::SubArray< ::org::apache::poi::poifs::storage::BigBlock, ::java::lang::ObjectArray, BlockWritableArray > BigBlockArray;
-typedef ::SubArray< ::org::apache::poi::poifs::storage::BATBlock, BigBlockArray > BATBlockArray;
-                } // storage
-            } // poifs
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::poifs::storage::BlockWritable, ::java::lang::ObjectArray > BlockWritableArray;
+typedef ::SubArray< ::poi::poifs::storage::BigBlock, ::java::lang::ObjectArray, BlockWritableArray > BigBlockArray;
+typedef ::SubArray< ::poi::poifs::storage::BATBlock, BigBlockArray > BATBlockArray;
+        } // storage
+    } // poifs
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -59,34 +53,34 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::storage::BATBlock::BATBlock(const ::default_init_tag&)
+poi::poifs::storage::BATBlock::BATBlock(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::storage::BATBlock::BATBlock(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize) 
+poi::poifs::storage::BATBlock::BATBlock(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize) 
     : BATBlock(*static_cast< ::default_init_tag* >(0))
 {
     ctor(bigBlockSize);
 }
 
-org::apache::poi::poifs::storage::BATBlock::BATBlock(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ::int32_tArray* entries, int32_t start_index, int32_t end_index) 
+poi::poifs::storage::BATBlock::BATBlock(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ::int32_tArray* entries, int32_t start_index, int32_t end_index) 
     : BATBlock(*static_cast< ::default_init_tag* >(0))
 {
     ctor(bigBlockSize,entries,start_index,end_index);
 }
 
-void org::apache::poi::poifs::storage::BATBlock::ctor(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize)
+void poi::poifs::storage::BATBlock::ctor(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize)
 {
     super::ctor(bigBlockSize);
     auto _entries_per_block = npc(bigBlockSize)->getBATEntriesPerBlock();
     _values = new ::int32_tArray(_entries_per_block);
     _has_free_sectors = true;
-    ::java::util::Arrays::fill(_values, ::org::apache::poi::poifs::common::POIFSConstants::UNUSED_BLOCK);
+    ::java::util::Arrays::fill(_values, ::poi::poifs::common::POIFSConstants::UNUSED_BLOCK);
 }
 
-void org::apache::poi::poifs::storage::BATBlock::ctor(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ::int32_tArray* entries, int32_t start_index, int32_t end_index)
+void poi::poifs::storage::BATBlock::ctor(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ::int32_tArray* entries, int32_t start_index, int32_t end_index)
 {
     ctor(bigBlockSize);
     for (auto k = start_index; k < end_index; k++) {
@@ -97,11 +91,11 @@ void org::apache::poi::poifs::storage::BATBlock::ctor(::org::apache::poi::poifs:
     }
 }
 
-void org::apache::poi::poifs::storage::BATBlock::recomputeFree()
+void poi::poifs::storage::BATBlock::recomputeFree()
 {
     auto hasFree = false;
     for (auto k = int32_t(0); k < npc(_values)->length; k++) {
-        if((*_values)[k] == ::org::apache::poi::poifs::common::POIFSConstants::UNUSED_BLOCK) {
+        if((*_values)[k] == ::poi::poifs::common::POIFSConstants::UNUSED_BLOCK) {
             hasFree = true;
             break;
         }
@@ -109,30 +103,30 @@ void org::apache::poi::poifs::storage::BATBlock::recomputeFree()
     _has_free_sectors = hasFree;
 }
 
-org::apache::poi::poifs::storage::BATBlock* org::apache::poi::poifs::storage::BATBlock::createBATBlock(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ::java::nio::ByteBuffer* data)
+poi::poifs::storage::BATBlock* poi::poifs::storage::BATBlock::createBATBlock(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ::java::nio::ByteBuffer* data)
 {
     clinit();
     auto block = new BATBlock(bigBlockSize);
-    auto buffer = new ::int8_tArray(::org::apache::poi::util::LittleEndian::INT_SIZE);
+    auto buffer = new ::int8_tArray(::poi::util::LittleEndian::INT_SIZE);
     for (auto i = int32_t(0); i < npc(npc(block)->_values)->length; i++) {
         npc(data)->get(buffer);
-        (*npc(block)->_values)[i] = ::org::apache::poi::util::LittleEndian::getInt(buffer);
+        (*npc(block)->_values)[i] = ::poi::util::LittleEndian::getInt(buffer);
     }
     npc(block)->recomputeFree();
     return block;
 }
 
-org::apache::poi::poifs::storage::BATBlock* org::apache::poi::poifs::storage::BATBlock::createEmptyBATBlock(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, bool isXBAT)
+poi::poifs::storage::BATBlock* poi::poifs::storage::BATBlock::createEmptyBATBlock(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, bool isXBAT)
 {
     clinit();
     auto block = new BATBlock(bigBlockSize);
     if(isXBAT) {
-        npc(block)->setXBATChain(bigBlockSize, ::org::apache::poi::poifs::common::POIFSConstants::END_OF_CHAIN);
+        npc(block)->setXBATChain(bigBlockSize, ::poi::poifs::common::POIFSConstants::END_OF_CHAIN);
     }
     return block;
 }
 
-org::apache::poi::poifs::storage::BATBlockArray* org::apache::poi::poifs::storage::BATBlock::createBATBlocks(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ::int32_tArray* entries)
+poi::poifs::storage::BATBlockArray* poi::poifs::storage::BATBlock::createBATBlocks(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ::int32_tArray* entries)
 {
     clinit();
     auto block_count = calculateStorageRequirements(bigBlockSize, npc(entries)->length);
@@ -147,7 +141,7 @@ org::apache::poi::poifs::storage::BATBlockArray* org::apache::poi::poifs::storag
     return blocks;
 }
 
-org::apache::poi::poifs::storage::BATBlockArray* org::apache::poi::poifs::storage::BATBlock::createXBATBlocks(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ::int32_tArray* entries, int32_t startBlock)
+poi::poifs::storage::BATBlockArray* poi::poifs::storage::BATBlock::createXBATBlocks(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ::int32_tArray* entries, int32_t startBlock)
 {
     clinit();
     auto block_count = calculateXBATStorageRequirements(bigBlockSize, npc(entries)->length);
@@ -163,26 +157,26 @@ org::apache::poi::poifs::storage::BATBlockArray* org::apache::poi::poifs::storag
         for (index = 0; index < npc(blocks)->length - int32_t(1); index++) {
             npc((*blocks)[index])->setXBATChain(bigBlockSize, startBlock + index + int32_t(1));
         }
-        npc((*blocks)[index])->setXBATChain(bigBlockSize, ::org::apache::poi::poifs::common::POIFSConstants::END_OF_CHAIN);
+        npc((*blocks)[index])->setXBATChain(bigBlockSize, ::poi::poifs::common::POIFSConstants::END_OF_CHAIN);
     }
     return blocks;
 }
 
-int32_t org::apache::poi::poifs::storage::BATBlock::calculateStorageRequirements(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, int32_t entryCount)
+int32_t poi::poifs::storage::BATBlock::calculateStorageRequirements(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, int32_t entryCount)
 {
     clinit();
     auto _entries_per_block = npc(bigBlockSize)->getBATEntriesPerBlock();
     return (entryCount + _entries_per_block - int32_t(1)) / _entries_per_block;
 }
 
-int32_t org::apache::poi::poifs::storage::BATBlock::calculateXBATStorageRequirements(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, int32_t entryCount)
+int32_t poi::poifs::storage::BATBlock::calculateXBATStorageRequirements(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, int32_t entryCount)
 {
     clinit();
     auto _entries_per_xbat_block = npc(bigBlockSize)->getXBATEntriesPerBlock();
     return (entryCount + _entries_per_xbat_block - int32_t(1)) / _entries_per_xbat_block;
 }
 
-int64_t org::apache::poi::poifs::storage::BATBlock::calculateMaximumSize(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, int32_t numBATs)
+int64_t poi::poifs::storage::BATBlock::calculateMaximumSize(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, int32_t numBATs)
 {
     clinit();
     int64_t size = int32_t(1);
@@ -190,13 +184,13 @@ int64_t org::apache::poi::poifs::storage::BATBlock::calculateMaximumSize(::org::
     return size * npc(bigBlockSize)->getBigBlockSize();
 }
 
-int64_t org::apache::poi::poifs::storage::BATBlock::calculateMaximumSize(HeaderBlock* header)
+int64_t poi::poifs::storage::BATBlock::calculateMaximumSize(HeaderBlock* header)
 {
     clinit();
     return calculateMaximumSize(npc(header)->getBigBlockSize(), npc(header)->getBATCount());
 }
 
-org::apache::poi::poifs::storage::BATBlock_BATBlockAndIndex* org::apache::poi::poifs::storage::BATBlock::getBATBlockAndIndex(int32_t offset, HeaderBlock* header, ::java::util::List* bats)
+poi::poifs::storage::BATBlock_BATBlockAndIndex* poi::poifs::storage::BATBlock::getBATBlockAndIndex(int32_t offset, HeaderBlock* header, ::java::util::List* bats)
 {
     clinit();
     auto bigBlockSize = npc(header)->getBigBlockSize();
@@ -206,7 +200,7 @@ org::apache::poi::poifs::storage::BATBlock_BATBlockAndIndex* org::apache::poi::p
     return new BATBlock_BATBlockAndIndex(index, java_cast< BATBlock* >(npc(bats)->get(whichBAT)));
 }
 
-org::apache::poi::poifs::storage::BATBlock_BATBlockAndIndex* org::apache::poi::poifs::storage::BATBlock::getSBATBlockAndIndex(int32_t offset, HeaderBlock* header, ::java::util::List* sbats)
+poi::poifs::storage::BATBlock_BATBlockAndIndex* poi::poifs::storage::BATBlock::getSBATBlockAndIndex(int32_t offset, HeaderBlock* header, ::java::util::List* sbats)
 {
     clinit();
     auto bigBlockSize = npc(header)->getBigBlockSize();
@@ -216,18 +210,18 @@ org::apache::poi::poifs::storage::BATBlock_BATBlockAndIndex* org::apache::poi::p
     return new BATBlock_BATBlockAndIndex(index, java_cast< BATBlock* >(npc(sbats)->get(whichSBAT)));
 }
 
-void org::apache::poi::poifs::storage::BATBlock::setXBATChain(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, int32_t chainIndex)
+void poi::poifs::storage::BATBlock::setXBATChain(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, int32_t chainIndex)
 {
     auto _entries_per_xbat_block = npc(bigBlockSize)->getXBATEntriesPerBlock();
     (*_values)[_entries_per_xbat_block] = chainIndex;
 }
 
-bool org::apache::poi::poifs::storage::BATBlock::hasFreeSectors()
+bool poi::poifs::storage::BATBlock::hasFreeSectors()
 {
     return _has_free_sectors;
 }
 
-int32_t org::apache::poi::poifs::storage::BATBlock::getUsedSectors(bool isAnXBAT)
+int32_t poi::poifs::storage::BATBlock::getUsedSectors(bool isAnXBAT)
 {
     auto usedSectors = int32_t(0);
     auto toCheck = npc(_values)->length;
@@ -235,14 +229,14 @@ int32_t org::apache::poi::poifs::storage::BATBlock::getUsedSectors(bool isAnXBAT
         toCheck--;
 
     for (auto k = int32_t(0); k < toCheck; k++) {
-        if((*_values)[k] != ::org::apache::poi::poifs::common::POIFSConstants::UNUSED_BLOCK) {
+        if((*_values)[k] != ::poi::poifs::common::POIFSConstants::UNUSED_BLOCK) {
             usedSectors++;
         }
     }
     return usedSectors;
 }
 
-int32_t org::apache::poi::poifs::storage::BATBlock::getValueAt(int32_t relativeOffset)
+int32_t poi::poifs::storage::BATBlock::getValueAt(int32_t relativeOffset)
 {
     if(relativeOffset >= npc(_values)->length) {
         throw new ::java::lang::ArrayIndexOutOfBoundsException(::java::lang::StringBuilder().append(u"Unable to fetch offset "_j)->append(relativeOffset)
@@ -254,59 +248,59 @@ int32_t org::apache::poi::poifs::storage::BATBlock::getValueAt(int32_t relativeO
     return (*_values)[relativeOffset];
 }
 
-void org::apache::poi::poifs::storage::BATBlock::setValueAt(int32_t relativeOffset, int32_t value)
+void poi::poifs::storage::BATBlock::setValueAt(int32_t relativeOffset, int32_t value)
 {
     auto oldValue = (*_values)[relativeOffset];
     (*_values)[relativeOffset] = value;
-    if(value == ::org::apache::poi::poifs::common::POIFSConstants::UNUSED_BLOCK) {
+    if(value == ::poi::poifs::common::POIFSConstants::UNUSED_BLOCK) {
         _has_free_sectors = true;
         return;
     }
-    if(oldValue == ::org::apache::poi::poifs::common::POIFSConstants::UNUSED_BLOCK) {
+    if(oldValue == ::poi::poifs::common::POIFSConstants::UNUSED_BLOCK) {
         recomputeFree();
     }
 }
 
-void org::apache::poi::poifs::storage::BATBlock::setOurBlockIndex(int32_t index)
+void poi::poifs::storage::BATBlock::setOurBlockIndex(int32_t index)
 {
     this->ourBlockIndex = index;
 }
 
-int32_t org::apache::poi::poifs::storage::BATBlock::getOurBlockIndex()
+int32_t poi::poifs::storage::BATBlock::getOurBlockIndex()
 {
     return ourBlockIndex;
 }
 
-void org::apache::poi::poifs::storage::BATBlock::writeData(::java::io::OutputStream* stream) /* throws(IOException) */
+void poi::poifs::storage::BATBlock::writeData(::java::io::OutputStream* stream) /* throws(IOException) */
 {
     npc(stream)->write(serialize());
 }
 
-void org::apache::poi::poifs::storage::BATBlock::writeData(::java::nio::ByteBuffer* block) /* throws(IOException) */
+void poi::poifs::storage::BATBlock::writeData(::java::nio::ByteBuffer* block) /* throws(IOException) */
 {
     npc(block)->put(serialize());
 }
 
-int8_tArray* org::apache::poi::poifs::storage::BATBlock::serialize()
+int8_tArray* poi::poifs::storage::BATBlock::serialize()
 {
     auto data = new ::int8_tArray(npc(bigBlockSize)->getBigBlockSize());
     auto offset = int32_t(0);
     for (auto i = int32_t(0); i < npc(_values)->length; i++) {
-        ::org::apache::poi::util::LittleEndian::putInt(data, offset, (*_values)[i]);
-        offset += ::org::apache::poi::util::LittleEndian::INT_SIZE;
+        ::poi::util::LittleEndian::putInt(data, offset, (*_values)[i]);
+        offset += ::poi::util::LittleEndian::INT_SIZE;
     }
     return data;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::storage::BATBlock::class_()
+java::lang::Class* poi::poifs::storage::BATBlock::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.storage.BATBlock", 37);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::storage::BATBlock::getClass0()
+java::lang::Class* poi::poifs::storage::BATBlock::getClass0()
 {
     return class_();
 }

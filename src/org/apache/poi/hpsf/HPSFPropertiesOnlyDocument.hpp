@@ -9,16 +9,16 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hpsf::HPSFPropertiesOnlyDocument
-    : public ::org::apache::poi::POIDocument
+class poi::hpsf::HPSFPropertiesOnlyDocument
+    : public ::poi::POIDocument
 {
 
 public:
-    typedef ::org::apache::poi::POIDocument super;
+    typedef ::poi::POIDocument super;
 protected:
-    void ctor(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs);
-    void ctor(::org::apache::poi::poifs::filesystem::OPOIFSFileSystem* fs);
-    void ctor(::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs);
+    void ctor(::poi::poifs::filesystem::NPOIFSFileSystem* fs);
+    void ctor(::poi::poifs::filesystem::OPOIFSFileSystem* fs);
+    void ctor(::poi::poifs::filesystem::POIFSFileSystem* fs);
 
 public:
     void write() /* throws(IOException) */ override;
@@ -26,14 +26,14 @@ public:
     void write(::java::io::OutputStream* out) /* throws(IOException) */ override;
 
 private:
-    void write(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs) /* throws(IOException) */;
+    void write(::poi::poifs::filesystem::NPOIFSFileSystem* fs) /* throws(IOException) */;
 
     // Generated
 
 public:
-    HPSFPropertiesOnlyDocument(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs);
-    HPSFPropertiesOnlyDocument(::org::apache::poi::poifs::filesystem::OPOIFSFileSystem* fs);
-    HPSFPropertiesOnlyDocument(::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs);
+    HPSFPropertiesOnlyDocument(::poi::poifs::filesystem::NPOIFSFileSystem* fs);
+    HPSFPropertiesOnlyDocument(::poi::poifs::filesystem::OPOIFSFileSystem* fs);
+    HPSFPropertiesOnlyDocument(::poi::poifs::filesystem::POIFSFileSystem* fs);
 protected:
     HPSFPropertiesOnlyDocument(const ::default_init_tag&);
 

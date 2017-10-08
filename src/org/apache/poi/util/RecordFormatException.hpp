@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::util::RecordFormatException
+class poi::util::RecordFormatException
     : public ::java::lang::RuntimeException
 {
 

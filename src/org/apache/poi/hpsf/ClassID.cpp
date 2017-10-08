@@ -29,241 +29,241 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hpsf::ClassID::ClassID(const ::default_init_tag&)
+poi::hpsf::ClassID::ClassID(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hpsf::ClassID::ClassID(::int8_tArray* src, int32_t offset) 
+poi::hpsf::ClassID::ClassID(::int8_tArray* src, int32_t offset) 
     : ClassID(*static_cast< ::default_init_tag* >(0))
 {
     ctor(src,offset);
 }
 
-org::apache::poi::hpsf::ClassID::ClassID() 
+poi::hpsf::ClassID::ClassID() 
     : ClassID(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hpsf::ClassID::ClassID(::java::lang::String* externalForm) 
+poi::hpsf::ClassID::ClassID(::java::lang::String* externalForm) 
     : ClassID(*static_cast< ::default_init_tag* >(0))
 {
     ctor(externalForm);
 }
 
-void org::apache::poi::hpsf::ClassID::init()
+void poi::hpsf::ClassID::init()
 {
     bytes = new ::int8_tArray(LENGTH);
 }
 
-org::apache::poi::hpsf::ClassID*& org::apache::poi::hpsf::ClassID::OLE10_PACKAGE()
+poi::hpsf::ClassID*& poi::hpsf::ClassID::OLE10_PACKAGE()
 {
     clinit();
     return OLE10_PACKAGE_;
 }
-org::apache::poi::hpsf::ClassID* org::apache::poi::hpsf::ClassID::OLE10_PACKAGE_;
+poi::hpsf::ClassID* poi::hpsf::ClassID::OLE10_PACKAGE_;
 
-org::apache::poi::hpsf::ClassID*& org::apache::poi::hpsf::ClassID::PPT_SHOW()
+poi::hpsf::ClassID*& poi::hpsf::ClassID::PPT_SHOW()
 {
     clinit();
     return PPT_SHOW_;
 }
-org::apache::poi::hpsf::ClassID* org::apache::poi::hpsf::ClassID::PPT_SHOW_;
+poi::hpsf::ClassID* poi::hpsf::ClassID::PPT_SHOW_;
 
-org::apache::poi::hpsf::ClassID*& org::apache::poi::hpsf::ClassID::XLS_WORKBOOK()
+poi::hpsf::ClassID*& poi::hpsf::ClassID::XLS_WORKBOOK()
 {
     clinit();
     return XLS_WORKBOOK_;
 }
-org::apache::poi::hpsf::ClassID* org::apache::poi::hpsf::ClassID::XLS_WORKBOOK_;
+poi::hpsf::ClassID* poi::hpsf::ClassID::XLS_WORKBOOK_;
 
-org::apache::poi::hpsf::ClassID*& org::apache::poi::hpsf::ClassID::TXT_ONLY()
+poi::hpsf::ClassID*& poi::hpsf::ClassID::TXT_ONLY()
 {
     clinit();
     return TXT_ONLY_;
 }
-org::apache::poi::hpsf::ClassID* org::apache::poi::hpsf::ClassID::TXT_ONLY_;
+poi::hpsf::ClassID* poi::hpsf::ClassID::TXT_ONLY_;
 
-org::apache::poi::hpsf::ClassID*& org::apache::poi::hpsf::ClassID::EXCEL_V3()
+poi::hpsf::ClassID*& poi::hpsf::ClassID::EXCEL_V3()
 {
     clinit();
     return EXCEL_V3_;
 }
-org::apache::poi::hpsf::ClassID* org::apache::poi::hpsf::ClassID::EXCEL_V3_;
+poi::hpsf::ClassID* poi::hpsf::ClassID::EXCEL_V3_;
 
-org::apache::poi::hpsf::ClassID*& org::apache::poi::hpsf::ClassID::EXCEL_V3_CHART()
+poi::hpsf::ClassID*& poi::hpsf::ClassID::EXCEL_V3_CHART()
 {
     clinit();
     return EXCEL_V3_CHART_;
 }
-org::apache::poi::hpsf::ClassID* org::apache::poi::hpsf::ClassID::EXCEL_V3_CHART_;
+poi::hpsf::ClassID* poi::hpsf::ClassID::EXCEL_V3_CHART_;
 
-org::apache::poi::hpsf::ClassID*& org::apache::poi::hpsf::ClassID::EXCEL_V3_MACRO()
+poi::hpsf::ClassID*& poi::hpsf::ClassID::EXCEL_V3_MACRO()
 {
     clinit();
     return EXCEL_V3_MACRO_;
 }
-org::apache::poi::hpsf::ClassID* org::apache::poi::hpsf::ClassID::EXCEL_V3_MACRO_;
+poi::hpsf::ClassID* poi::hpsf::ClassID::EXCEL_V3_MACRO_;
 
-org::apache::poi::hpsf::ClassID*& org::apache::poi::hpsf::ClassID::EXCEL95()
+poi::hpsf::ClassID*& poi::hpsf::ClassID::EXCEL95()
 {
     clinit();
     return EXCEL95_;
 }
-org::apache::poi::hpsf::ClassID* org::apache::poi::hpsf::ClassID::EXCEL95_;
+poi::hpsf::ClassID* poi::hpsf::ClassID::EXCEL95_;
 
-org::apache::poi::hpsf::ClassID*& org::apache::poi::hpsf::ClassID::EXCEL95_CHART()
+poi::hpsf::ClassID*& poi::hpsf::ClassID::EXCEL95_CHART()
 {
     clinit();
     return EXCEL95_CHART_;
 }
-org::apache::poi::hpsf::ClassID* org::apache::poi::hpsf::ClassID::EXCEL95_CHART_;
+poi::hpsf::ClassID* poi::hpsf::ClassID::EXCEL95_CHART_;
 
-org::apache::poi::hpsf::ClassID*& org::apache::poi::hpsf::ClassID::EXCEL97()
+poi::hpsf::ClassID*& poi::hpsf::ClassID::EXCEL97()
 {
     clinit();
     return EXCEL97_;
 }
-org::apache::poi::hpsf::ClassID* org::apache::poi::hpsf::ClassID::EXCEL97_;
+poi::hpsf::ClassID* poi::hpsf::ClassID::EXCEL97_;
 
-org::apache::poi::hpsf::ClassID*& org::apache::poi::hpsf::ClassID::EXCEL97_CHART()
+poi::hpsf::ClassID*& poi::hpsf::ClassID::EXCEL97_CHART()
 {
     clinit();
     return EXCEL97_CHART_;
 }
-org::apache::poi::hpsf::ClassID* org::apache::poi::hpsf::ClassID::EXCEL97_CHART_;
+poi::hpsf::ClassID* poi::hpsf::ClassID::EXCEL97_CHART_;
 
-org::apache::poi::hpsf::ClassID*& org::apache::poi::hpsf::ClassID::EXCEL2003()
+poi::hpsf::ClassID*& poi::hpsf::ClassID::EXCEL2003()
 {
     clinit();
     return EXCEL2003_;
 }
-org::apache::poi::hpsf::ClassID* org::apache::poi::hpsf::ClassID::EXCEL2003_;
+poi::hpsf::ClassID* poi::hpsf::ClassID::EXCEL2003_;
 
-org::apache::poi::hpsf::ClassID*& org::apache::poi::hpsf::ClassID::EXCEL2007()
+poi::hpsf::ClassID*& poi::hpsf::ClassID::EXCEL2007()
 {
     clinit();
     return EXCEL2007_;
 }
-org::apache::poi::hpsf::ClassID* org::apache::poi::hpsf::ClassID::EXCEL2007_;
+poi::hpsf::ClassID* poi::hpsf::ClassID::EXCEL2007_;
 
-org::apache::poi::hpsf::ClassID*& org::apache::poi::hpsf::ClassID::EXCEL2007_MACRO()
+poi::hpsf::ClassID*& poi::hpsf::ClassID::EXCEL2007_MACRO()
 {
     clinit();
     return EXCEL2007_MACRO_;
 }
-org::apache::poi::hpsf::ClassID* org::apache::poi::hpsf::ClassID::EXCEL2007_MACRO_;
+poi::hpsf::ClassID* poi::hpsf::ClassID::EXCEL2007_MACRO_;
 
-org::apache::poi::hpsf::ClassID*& org::apache::poi::hpsf::ClassID::EXCEL2007_XLSB()
+poi::hpsf::ClassID*& poi::hpsf::ClassID::EXCEL2007_XLSB()
 {
     clinit();
     return EXCEL2007_XLSB_;
 }
-org::apache::poi::hpsf::ClassID* org::apache::poi::hpsf::ClassID::EXCEL2007_XLSB_;
+poi::hpsf::ClassID* poi::hpsf::ClassID::EXCEL2007_XLSB_;
 
-org::apache::poi::hpsf::ClassID*& org::apache::poi::hpsf::ClassID::EXCEL2010()
+poi::hpsf::ClassID*& poi::hpsf::ClassID::EXCEL2010()
 {
     clinit();
     return EXCEL2010_;
 }
-org::apache::poi::hpsf::ClassID* org::apache::poi::hpsf::ClassID::EXCEL2010_;
+poi::hpsf::ClassID* poi::hpsf::ClassID::EXCEL2010_;
 
-org::apache::poi::hpsf::ClassID*& org::apache::poi::hpsf::ClassID::EXCEL2010_CHART()
+poi::hpsf::ClassID*& poi::hpsf::ClassID::EXCEL2010_CHART()
 {
     clinit();
     return EXCEL2010_CHART_;
 }
-org::apache::poi::hpsf::ClassID* org::apache::poi::hpsf::ClassID::EXCEL2010_CHART_;
+poi::hpsf::ClassID* poi::hpsf::ClassID::EXCEL2010_CHART_;
 
-org::apache::poi::hpsf::ClassID*& org::apache::poi::hpsf::ClassID::EXCEL2010_ODS()
+poi::hpsf::ClassID*& poi::hpsf::ClassID::EXCEL2010_ODS()
 {
     clinit();
     return EXCEL2010_ODS_;
 }
-org::apache::poi::hpsf::ClassID* org::apache::poi::hpsf::ClassID::EXCEL2010_ODS_;
+poi::hpsf::ClassID* poi::hpsf::ClassID::EXCEL2010_ODS_;
 
-org::apache::poi::hpsf::ClassID*& org::apache::poi::hpsf::ClassID::WORD97()
+poi::hpsf::ClassID*& poi::hpsf::ClassID::WORD97()
 {
     clinit();
     return WORD97_;
 }
-org::apache::poi::hpsf::ClassID* org::apache::poi::hpsf::ClassID::WORD97_;
+poi::hpsf::ClassID* poi::hpsf::ClassID::WORD97_;
 
-org::apache::poi::hpsf::ClassID*& org::apache::poi::hpsf::ClassID::WORD95()
+poi::hpsf::ClassID*& poi::hpsf::ClassID::WORD95()
 {
     clinit();
     return WORD95_;
 }
-org::apache::poi::hpsf::ClassID* org::apache::poi::hpsf::ClassID::WORD95_;
+poi::hpsf::ClassID* poi::hpsf::ClassID::WORD95_;
 
-org::apache::poi::hpsf::ClassID*& org::apache::poi::hpsf::ClassID::WORD2007()
+poi::hpsf::ClassID*& poi::hpsf::ClassID::WORD2007()
 {
     clinit();
     return WORD2007_;
 }
-org::apache::poi::hpsf::ClassID* org::apache::poi::hpsf::ClassID::WORD2007_;
+poi::hpsf::ClassID* poi::hpsf::ClassID::WORD2007_;
 
-org::apache::poi::hpsf::ClassID*& org::apache::poi::hpsf::ClassID::WORD2007_MACRO()
+poi::hpsf::ClassID*& poi::hpsf::ClassID::WORD2007_MACRO()
 {
     clinit();
     return WORD2007_MACRO_;
 }
-org::apache::poi::hpsf::ClassID* org::apache::poi::hpsf::ClassID::WORD2007_MACRO_;
+poi::hpsf::ClassID* poi::hpsf::ClassID::WORD2007_MACRO_;
 
-org::apache::poi::hpsf::ClassID*& org::apache::poi::hpsf::ClassID::POWERPOINT97()
+poi::hpsf::ClassID*& poi::hpsf::ClassID::POWERPOINT97()
 {
     clinit();
     return POWERPOINT97_;
 }
-org::apache::poi::hpsf::ClassID* org::apache::poi::hpsf::ClassID::POWERPOINT97_;
+poi::hpsf::ClassID* poi::hpsf::ClassID::POWERPOINT97_;
 
-org::apache::poi::hpsf::ClassID*& org::apache::poi::hpsf::ClassID::POWERPOINT95()
+poi::hpsf::ClassID*& poi::hpsf::ClassID::POWERPOINT95()
 {
     clinit();
     return POWERPOINT95_;
 }
-org::apache::poi::hpsf::ClassID* org::apache::poi::hpsf::ClassID::POWERPOINT95_;
+poi::hpsf::ClassID* poi::hpsf::ClassID::POWERPOINT95_;
 
-org::apache::poi::hpsf::ClassID*& org::apache::poi::hpsf::ClassID::POWERPOINT2007()
+poi::hpsf::ClassID*& poi::hpsf::ClassID::POWERPOINT2007()
 {
     clinit();
     return POWERPOINT2007_;
 }
-org::apache::poi::hpsf::ClassID* org::apache::poi::hpsf::ClassID::POWERPOINT2007_;
+poi::hpsf::ClassID* poi::hpsf::ClassID::POWERPOINT2007_;
 
-org::apache::poi::hpsf::ClassID*& org::apache::poi::hpsf::ClassID::POWERPOINT2007_MACRO()
+poi::hpsf::ClassID*& poi::hpsf::ClassID::POWERPOINT2007_MACRO()
 {
     clinit();
     return POWERPOINT2007_MACRO_;
 }
-org::apache::poi::hpsf::ClassID* org::apache::poi::hpsf::ClassID::POWERPOINT2007_MACRO_;
+poi::hpsf::ClassID* poi::hpsf::ClassID::POWERPOINT2007_MACRO_;
 
-org::apache::poi::hpsf::ClassID*& org::apache::poi::hpsf::ClassID::EQUATION30()
+poi::hpsf::ClassID*& poi::hpsf::ClassID::EQUATION30()
 {
     clinit();
     return EQUATION30_;
 }
-org::apache::poi::hpsf::ClassID* org::apache::poi::hpsf::ClassID::EQUATION30_;
+poi::hpsf::ClassID* poi::hpsf::ClassID::EQUATION30_;
 
-constexpr int32_t org::apache::poi::hpsf::ClassID::LENGTH;
+constexpr int32_t poi::hpsf::ClassID::LENGTH;
 
-void org::apache::poi::hpsf::ClassID::ctor(::int8_tArray* src, int32_t offset)
+void poi::hpsf::ClassID::ctor(::int8_tArray* src, int32_t offset)
 {
     super::ctor();
     init();
     read(src, offset);
 }
 
-void org::apache::poi::hpsf::ClassID::ctor()
+void poi::hpsf::ClassID::ctor()
 {
     super::ctor();
     init();
     ::java::util::Arrays::fill(bytes, static_cast< int8_t >(int32_t(0)));
 }
 
-void org::apache::poi::hpsf::ClassID::ctor(::java::lang::String* externalForm)
+void poi::hpsf::ClassID::ctor(::java::lang::String* externalForm)
 {
     super::ctor();
     init();
@@ -273,22 +273,22 @@ void org::apache::poi::hpsf::ClassID::ctor(::java::lang::String* externalForm)
     }
 }
 
-int32_t org::apache::poi::hpsf::ClassID::length()
+int32_t poi::hpsf::ClassID::length()
 {
     return LENGTH;
 }
 
-int8_tArray* org::apache::poi::hpsf::ClassID::getBytes()
+int8_tArray* poi::hpsf::ClassID::getBytes()
 {
     return bytes;
 }
 
-void org::apache::poi::hpsf::ClassID::setBytes(::int8_tArray* bytes)
+void poi::hpsf::ClassID::setBytes(::int8_tArray* bytes)
 {
     ::java::lang::System::arraycopy(bytes, 0, this->bytes, 0, LENGTH);
 }
 
-int8_tArray* org::apache::poi::hpsf::ClassID::read(::int8_tArray* src, int32_t offset)
+int8_tArray* poi::hpsf::ClassID::read(::int8_tArray* src, int32_t offset)
 {
     (*bytes)[int32_t(0)] = (*src)[int32_t(3) + offset];
     (*bytes)[int32_t(1)] = (*src)[int32_t(2) + offset];
@@ -302,7 +302,7 @@ int8_tArray* org::apache::poi::hpsf::ClassID::read(::int8_tArray* src, int32_t o
     return bytes;
 }
 
-void org::apache::poi::hpsf::ClassID::write(::int8_tArray* dst, int32_t offset) /* throws(ArrayStoreException) */
+void poi::hpsf::ClassID::write(::int8_tArray* dst, int32_t offset) /* throws(ArrayStoreException) */
 {
     if(npc(dst)->length < LENGTH) {
         throw new ::java::lang::ArrayStoreException(::java::lang::StringBuilder().append(::java::lang::StringBuilder().append(u"Destination byte[] must have room for at least 16 bytes, "_j)->append(u"but has a length of only "_j)->toString())->append(npc(dst)->length)
@@ -319,27 +319,27 @@ void org::apache::poi::hpsf::ClassID::write(::int8_tArray* dst, int32_t offset) 
     ::java::lang::System::arraycopy(bytes, 8, dst, int32_t(8) + offset, 8);
 }
 
-bool org::apache::poi::hpsf::ClassID::equals(::java::lang::Object* o)
+bool poi::hpsf::ClassID::equals(::java::lang::Object* o)
 {
     return (dynamic_cast< ClassID* >(o) != nullptr) && ::java::util::Arrays::equals(bytes, npc((java_cast< ClassID* >(o)))->bytes);
 }
 
-bool org::apache::poi::hpsf::ClassID::equalsInverted(ClassID* o)
+bool poi::hpsf::ClassID::equalsInverted(ClassID* o)
 {
     return (*npc(o)->bytes)[int32_t(0)] == (*bytes)[int32_t(3)] && (*npc(o)->bytes)[int32_t(1)] == (*bytes)[int32_t(2)] && (*npc(o)->bytes)[int32_t(2)] == (*bytes)[int32_t(1)] && (*npc(o)->bytes)[int32_t(3)] == (*bytes)[int32_t(0)] && (*npc(o)->bytes)[int32_t(4)] == (*bytes)[int32_t(5)] && (*npc(o)->bytes)[int32_t(5)] == (*bytes)[int32_t(4)] && (*npc(o)->bytes)[int32_t(6)] == (*bytes)[int32_t(7)] && (*npc(o)->bytes)[int32_t(7)] == (*bytes)[int32_t(6)] && (*npc(o)->bytes)[int32_t(8)] == (*bytes)[int32_t(8)] && (*npc(o)->bytes)[int32_t(9)] == (*bytes)[int32_t(9)] && (*npc(o)->bytes)[int32_t(10)] == (*bytes)[int32_t(10)] && (*npc(o)->bytes)[int32_t(11)] == (*bytes)[int32_t(11)] && (*npc(o)->bytes)[int32_t(12)] == (*bytes)[int32_t(12)] && (*npc(o)->bytes)[int32_t(13)] == (*bytes)[int32_t(13)] && (*npc(o)->bytes)[int32_t(14)] == (*bytes)[int32_t(14)] && (*npc(o)->bytes)[int32_t(15)] == (*bytes)[int32_t(15)];
 }
 
-int32_t org::apache::poi::hpsf::ClassID::hashCode()
+int32_t poi::hpsf::ClassID::hashCode()
 {
     return npc(toString())->hashCode();
 }
 
-java::lang::String* org::apache::poi::hpsf::ClassID::toString()
+java::lang::String* poi::hpsf::ClassID::toString()
 {
     auto sbClassId = new ::java::lang::StringBuilder(int32_t(38));
     npc(sbClassId)->append(u'{');
     for (auto i = int32_t(0); i < LENGTH; i++) {
-        npc(sbClassId)->append(::org::apache::poi::util::HexDump::toHex((*bytes)[i]));
+        npc(sbClassId)->append(::poi::util::HexDump::toHex((*bytes)[i]));
         if(i == 3 || i == 5 || i == 7 || i == 9) {
             npc(sbClassId)->append(u'-');
         }
@@ -350,13 +350,13 @@ java::lang::String* org::apache::poi::hpsf::ClassID::toString()
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hpsf::ClassID::class_()
+java::lang::Class* poi::hpsf::ClassID::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hpsf.ClassID", 27);
     return c;
 }
 
-void org::apache::poi::hpsf::ClassID::clinit()
+void poi::hpsf::ClassID::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -398,7 +398,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::hpsf::ClassID::getClass0()
+java::lang::Class* poi::hpsf::ClassID::getClass0()
 {
     return class_();
 }

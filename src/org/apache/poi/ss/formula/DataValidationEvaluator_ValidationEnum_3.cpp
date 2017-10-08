@@ -35,45 +35,45 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum_3::DataValidationEvaluator_ValidationEnum_3(::java::lang::String* name, int ordinal)
+poi::ss::formula::DataValidationEvaluator_ValidationEnum_3::DataValidationEvaluator_ValidationEnum_3(::java::lang::String* name, int ordinal)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
     ctor(name, ordinal);
 }
 
-bool org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum_3::isValidValue(::org::apache::poi::ss::usermodel::Cell* cell, DataValidationEvaluator_DataValidationContext* context)
+bool poi::ss::formula::DataValidationEvaluator_ValidationEnum_3::isValidValue(::poi::ss::usermodel::Cell* cell, DataValidationEvaluator_DataValidationContext* context)
 {
     auto const valueList = DataValidationEvaluator::getValidationValuesForConstraint(context);
     if(valueList == nullptr)
         return true;
 
     for (auto _i = npc(valueList)->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::ss::formula::eval::ValueEval* listVal = java_cast< ::org::apache::poi::ss::formula::eval::ValueEval* >(_i->next());
+        ::poi::ss::formula::eval::ValueEval* listVal = java_cast< ::poi::ss::formula::eval::ValueEval* >(_i->next());
         {
-            auto comp = dynamic_cast< ::org::apache::poi::ss::formula::eval::RefEval* >(listVal) != nullptr ? npc((java_cast< ::org::apache::poi::ss::formula::eval::RefEval* >(listVal)))->getInnerValueEval(npc(context)->getSheetIndex()) : listVal;
-            if(dynamic_cast< ::org::apache::poi::ss::formula::eval::BlankEval* >(comp) != nullptr)
+            auto comp = dynamic_cast< ::poi::ss::formula::eval::RefEval* >(listVal) != nullptr ? npc((java_cast< ::poi::ss::formula::eval::RefEval* >(listVal)))->getInnerValueEval(npc(context)->getSheetIndex()) : listVal;
+            if(dynamic_cast< ::poi::ss::formula::eval::BlankEval* >(comp) != nullptr)
                 return true;
 
-            if(dynamic_cast< ::org::apache::poi::ss::formula::eval::ErrorEval* >(comp) != nullptr)
+            if(dynamic_cast< ::poi::ss::formula::eval::ErrorEval* >(comp) != nullptr)
                 continue;
 
-            if(dynamic_cast< ::org::apache::poi::ss::formula::eval::BoolEval* >(comp) != nullptr) {
-                if(DataValidationEvaluator::isType(cell, ::org::apache::poi::ss::usermodel::CellType::BOOLEAN) && npc((java_cast< ::org::apache::poi::ss::formula::eval::BoolEval* >(comp)))->getBooleanValue() == npc(cell)->getBooleanCellValue()) {
+            if(dynamic_cast< ::poi::ss::formula::eval::BoolEval* >(comp) != nullptr) {
+                if(DataValidationEvaluator::isType(cell, ::poi::ss::usermodel::CellType::BOOLEAN) && npc((java_cast< ::poi::ss::formula::eval::BoolEval* >(comp)))->getBooleanValue() == npc(cell)->getBooleanCellValue()) {
                     return true;
                 } else {
                     continue;
                 }
             }
-            if(dynamic_cast< ::org::apache::poi::ss::formula::eval::NumberEval* >(comp) != nullptr) {
-                if(DataValidationEvaluator::isType(cell, ::org::apache::poi::ss::usermodel::CellType::NUMERIC) && npc((java_cast< ::org::apache::poi::ss::formula::eval::NumberEval* >(comp)))->getNumberValue() == npc(cell)->getNumericCellValue()) {
+            if(dynamic_cast< ::poi::ss::formula::eval::NumberEval* >(comp) != nullptr) {
+                if(DataValidationEvaluator::isType(cell, ::poi::ss::usermodel::CellType::NUMERIC) && npc((java_cast< ::poi::ss::formula::eval::NumberEval* >(comp)))->getNumberValue() == npc(cell)->getNumericCellValue()) {
                     return true;
                 } else {
                     continue;
                 }
             }
-            if(dynamic_cast< ::org::apache::poi::ss::formula::eval::StringEval* >(comp) != nullptr) {
-                if(DataValidationEvaluator::isType(cell, ::org::apache::poi::ss::usermodel::CellType::STRING) && npc(npc((java_cast< ::org::apache::poi::ss::formula::eval::StringEval* >(comp)))->getStringValue())->equalsIgnoreCase(npc(cell)->getStringCellValue())) {
+            if(dynamic_cast< ::poi::ss::formula::eval::StringEval* >(comp) != nullptr) {
+                if(DataValidationEvaluator::isType(cell, ::poi::ss::usermodel::CellType::STRING) && npc(npc((java_cast< ::poi::ss::formula::eval::StringEval* >(comp)))->getStringValue())->equalsIgnoreCase(npc(cell)->getStringCellValue())) {
                     return true;
                 } else {
                     continue;
@@ -86,13 +86,13 @@ bool org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum_3::is
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum_3::class_()
+java::lang::Class* poi::ss::formula::DataValidationEvaluator_ValidationEnum_3::class_()
 {
     static ::java::lang::Class* c = ::class_(u"", 0);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum_3::getClass0()
+java::lang::Class* poi::ss::formula::DataValidationEvaluator_ValidationEnum_3::getClass0()
 {
     return class_();
 }

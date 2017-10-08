@@ -6,7 +6,7 @@
 #include <org/apache/poi/ss/usermodel/charts/fwd-POI.hpp>
 #include <org/apache/poi/ss/usermodel/charts/ChartData.hpp>
 
-struct org::apache::poi::ss::usermodel::charts::ScatterChartData
+struct poi::ss::usermodel::charts::ScatterChartData
     : public virtual ChartData
 {
     virtual ScatterChartSeries* addSerie(ChartDataSource* xs, ChartDataSource* ys) = 0;

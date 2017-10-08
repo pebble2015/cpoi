@@ -18,31 +18,31 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::dev::BiffViewer_BiffDumpingStream::BiffViewer_BiffDumpingStream(const ::default_init_tag&)
+poi::hssf::dev::BiffViewer_BiffDumpingStream::BiffViewer_BiffDumpingStream(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::dev::BiffViewer_BiffDumpingStream::BiffViewer_BiffDumpingStream(::java::io::InputStream* is, BiffViewer_IBiffRecordListener* listener) 
+poi::hssf::dev::BiffViewer_BiffDumpingStream::BiffViewer_BiffDumpingStream(::java::io::InputStream* is, BiffViewer_IBiffRecordListener* listener) 
     : BiffViewer_BiffDumpingStream(*static_cast< ::default_init_tag* >(0))
 {
     ctor(is,listener);
 }
 
-void org::apache::poi::hssf::dev::BiffViewer_BiffDumpingStream::ctor(::java::io::InputStream* is, BiffViewer_IBiffRecordListener* listener)
+void poi::hssf::dev::BiffViewer_BiffDumpingStream::ctor(::java::io::InputStream* is, BiffViewer_IBiffRecordListener* listener)
 {
     super::ctor();
     _is = new ::java::io::DataInputStream(is);
     _listener = listener;
-    _data = new ::int8_tArray(::org::apache::poi::hssf::record::RecordInputStream::MAX_RECORD_DATA_SIZE + int32_t(4));
+    _data = new ::int8_tArray(::poi::hssf::record::RecordInputStream::MAX_RECORD_DATA_SIZE + int32_t(4));
     _recordCounter = 0;
     _overallStreamPos = 0;
     _currentSize = 0;
     _currentPos = 0;
 }
 
-int32_t org::apache::poi::hssf::dev::BiffViewer_BiffDumpingStream::read() /* throws(IOException) */
+int32_t poi::hssf::dev::BiffViewer_BiffDumpingStream::read() /* throws(IOException) */
 {
     if(_currentPos >= _currentSize) {
         fillNextBuffer();
@@ -57,7 +57,7 @@ int32_t org::apache::poi::hssf::dev::BiffViewer_BiffDumpingStream::read() /* thr
     return result;
 }
 
-int32_t org::apache::poi::hssf::dev::BiffViewer_BiffDumpingStream::read(::int8_tArray* b, int32_t off, int32_t len) /* throws(IOException) */
+int32_t poi::hssf::dev::BiffViewer_BiffDumpingStream::read(::int8_tArray* b, int32_t off, int32_t len) /* throws(IOException) */
 {
     if(_currentPos >= _currentSize) {
         fillNextBuffer();
@@ -80,12 +80,12 @@ int32_t org::apache::poi::hssf::dev::BiffViewer_BiffDumpingStream::read(::int8_t
     return result;
 }
 
-int32_t org::apache::poi::hssf::dev::BiffViewer_BiffDumpingStream::available() /* throws(IOException) */
+int32_t poi::hssf::dev::BiffViewer_BiffDumpingStream::available() /* throws(IOException) */
 {
     return _currentSize - _currentPos + npc(_is)->available();
 }
 
-void org::apache::poi::hssf::dev::BiffViewer_BiffDumpingStream::fillNextBuffer() /* throws(IOException) */
+void poi::hssf::dev::BiffViewer_BiffDumpingStream::fillNextBuffer() /* throws(IOException) */
 {
     if(_innerHasReachedEOF) {
         return;
@@ -97,43 +97,43 @@ void org::apache::poi::hssf::dev::BiffViewer_BiffDumpingStream::fillNextBuffer()
     }
     (*_data)[int32_t(0)] = static_cast< int8_t >(b0);
     npc(_is)->readFully(_data, int32_t(1), int32_t(3));
-    int32_t len = ::org::apache::poi::util::LittleEndian::getShort(_data, 2);
+    int32_t len = ::poi::util::LittleEndian::getShort(_data, 2);
     npc(_is)->readFully(_data, int32_t(4), len);
     _currentPos = 0;
     _currentSize = len + int32_t(4);
     _recordCounter++;
 }
 
-void org::apache::poi::hssf::dev::BiffViewer_BiffDumpingStream::formatBufferIfAtEndOfRec()
+void poi::hssf::dev::BiffViewer_BiffDumpingStream::formatBufferIfAtEndOfRec()
 {
     if(_currentPos != _currentSize) {
         return;
     }
     auto dataSize = _currentSize - int32_t(4);
-    int32_t sid = ::org::apache::poi::util::LittleEndian::getShort(_data, 0);
+    int32_t sid = ::poi::util::LittleEndian::getShort(_data, 0);
     auto globalOffset = _overallStreamPos - _currentSize;
     npc(_listener)->processRecord(globalOffset, _recordCounter, sid, dataSize, _data);
 }
 
-void org::apache::poi::hssf::dev::BiffViewer_BiffDumpingStream::close() /* throws(IOException) */
+void poi::hssf::dev::BiffViewer_BiffDumpingStream::close() /* throws(IOException) */
 {
     npc(_is)->close();
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::dev::BiffViewer_BiffDumpingStream::class_()
+java::lang::Class* poi::hssf::dev::BiffViewer_BiffDumpingStream::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.dev.BiffViewer.BiffDumpingStream", 52);
     return c;
 }
 
-int32_t org::apache::poi::hssf::dev::BiffViewer_BiffDumpingStream::read(::int8_tArray* b)
+int32_t poi::hssf::dev::BiffViewer_BiffDumpingStream::read(::int8_tArray* b)
 {
     return super::read(b);
 }
 
-java::lang::Class* org::apache::poi::hssf::dev::BiffViewer_BiffDumpingStream::getClass0()
+java::lang::Class* poi::hssf::dev::BiffViewer_BiffDumpingStream::getClass0()
 {
     return class_();
 }

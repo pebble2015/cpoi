@@ -17,34 +17,34 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::util::NumberToTextConverter::NumberToTextConverter(const ::default_init_tag&)
+poi::ss::util::NumberToTextConverter::NumberToTextConverter(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::util::NumberToTextConverter::NumberToTextConverter() 
+poi::ss::util::NumberToTextConverter::NumberToTextConverter() 
     : NumberToTextConverter(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-constexpr int64_t org::apache::poi::ss::util::NumberToTextConverter::EXCEL_NAN_BITS;
+constexpr int64_t poi::ss::util::NumberToTextConverter::EXCEL_NAN_BITS;
 
-constexpr int32_t org::apache::poi::ss::util::NumberToTextConverter::MAX_TEXT_LEN;
+constexpr int32_t poi::ss::util::NumberToTextConverter::MAX_TEXT_LEN;
 
-void org::apache::poi::ss::util::NumberToTextConverter::ctor()
+void poi::ss::util::NumberToTextConverter::ctor()
 {
     super::ctor();
 }
 
-java::lang::String* org::apache::poi::ss::util::NumberToTextConverter::toText(double value)
+java::lang::String* poi::ss::util::NumberToTextConverter::toText(double value)
 {
     clinit();
     return rawDoubleBitsToText(::java::lang::Double::doubleToLongBits(value));
 }
 
-java::lang::String* org::apache::poi::ss::util::NumberToTextConverter::rawDoubleBitsToText(int64_t pRawBits)
+java::lang::String* poi::ss::util::NumberToTextConverter::rawDoubleBitsToText(int64_t pRawBits)
 {
     clinit();
     auto rawBits = pRawBits;
@@ -74,7 +74,7 @@ java::lang::String* org::apache::poi::ss::util::NumberToTextConverter::rawDouble
     return npc(sb)->toString();
 }
 
-void org::apache::poi::ss::util::NumberToTextConverter::convertToText(::java::lang::StringBuilder* sb, NormalisedDecimal* pnd)
+void poi::ss::util::NumberToTextConverter::convertToText(::java::lang::StringBuilder* sb, NormalisedDecimal* pnd)
 {
     clinit();
     auto rnd = npc(pnd)->roundUnits();
@@ -96,7 +96,7 @@ void org::apache::poi::ss::util::NumberToTextConverter::convertToText(::java::la
     }
 }
 
-void org::apache::poi::ss::util::NumberToTextConverter::formatLessThanOne(::java::lang::StringBuilder* sb, ::java::lang::String* decimalDigits, int32_t decExponent, int32_t countSigDigits)
+void poi::ss::util::NumberToTextConverter::formatLessThanOne(::java::lang::StringBuilder* sb, ::java::lang::String* decimalDigits, int32_t decExponent, int32_t countSigDigits)
 {
     clinit();
     auto nLeadingZeros = -decExponent - int32_t(1);
@@ -118,7 +118,7 @@ void org::apache::poi::ss::util::NumberToTextConverter::formatLessThanOne(::java
     npc(sb)->append(npc(decimalDigits)->subSequence(int32_t(0), countSigDigits));
 }
 
-void org::apache::poi::ss::util::NumberToTextConverter::formatGreaterThanOne(::java::lang::StringBuilder* sb, ::java::lang::String* decimalDigits, int32_t decExponent, int32_t countSigDigits)
+void poi::ss::util::NumberToTextConverter::formatGreaterThanOne(::java::lang::StringBuilder* sb, ::java::lang::String* decimalDigits, int32_t decExponent, int32_t countSigDigits)
 {
     clinit();
     if(decExponent > 19) {
@@ -144,13 +144,13 @@ void org::apache::poi::ss::util::NumberToTextConverter::formatGreaterThanOne(::j
     }
 }
 
-bool org::apache::poi::ss::util::NumberToTextConverter::needsScientificNotation(int32_t nDigits)
+bool poi::ss::util::NumberToTextConverter::needsScientificNotation(int32_t nDigits)
 {
     clinit();
     return nDigits > MAX_TEXT_LEN;
 }
 
-int32_t org::apache::poi::ss::util::NumberToTextConverter::countSignifantDigits(::java::lang::String* sb)
+int32_t poi::ss::util::NumberToTextConverter::countSignifantDigits(::java::lang::String* sb)
 {
     clinit();
     auto result = npc(sb)->length() - int32_t(1);
@@ -163,7 +163,7 @@ int32_t org::apache::poi::ss::util::NumberToTextConverter::countSignifantDigits(
     return result + int32_t(1);
 }
 
-void org::apache::poi::ss::util::NumberToTextConverter::appendExp(::java::lang::StringBuilder* sb, int32_t val)
+void poi::ss::util::NumberToTextConverter::appendExp(::java::lang::StringBuilder* sb, int32_t val)
 {
     clinit();
     if(val < 10) {
@@ -176,13 +176,13 @@ void org::apache::poi::ss::util::NumberToTextConverter::appendExp(::java::lang::
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::util::NumberToTextConverter::class_()
+java::lang::Class* poi::ss::util::NumberToTextConverter::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.util.NumberToTextConverter", 44);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::util::NumberToTextConverter::getClass0()
+java::lang::Class* poi::ss::util::NumberToTextConverter::getClass0()
 {
     return class_();
 }

@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFCellStyle_1
+class poi::hssf::usermodel::HSSFCellStyle_1
     : public ::java::lang::ThreadLocal
 {
 

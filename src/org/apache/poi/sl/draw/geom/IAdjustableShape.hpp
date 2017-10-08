@@ -6,7 +6,7 @@
 #include <org/apache/poi/sl/draw/geom/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::sl::draw::geom::IAdjustableShape
+struct poi::sl::draw::geom::IAdjustableShape
     : public virtual ::java::lang::Object
 {
     virtual Guide* getAdjustValue(::java::lang::String* name) = 0;

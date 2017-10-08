@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::eventusermodel::HSSFEventFactory
+class poi::hssf::eventusermodel::HSSFEventFactory
     : public virtual ::java::lang::Object
 {
 
@@ -20,10 +20,10 @@ protected:
     void ctor();
 
 public:
-    virtual void processWorkbookEvents(HSSFRequest* req, ::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs) /* throws(IOException) */;
-    virtual void processWorkbookEvents(HSSFRequest* req, ::org::apache::poi::poifs::filesystem::DirectoryNode* dir) /* throws(IOException) */;
-    virtual int16_t abortableProcessWorkbookEvents(HSSFRequest* req, ::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs) /* throws(IOException, HSSFUserException) */;
-    virtual int16_t abortableProcessWorkbookEvents(HSSFRequest* req, ::org::apache::poi::poifs::filesystem::DirectoryNode* dir) /* throws(IOException, HSSFUserException) */;
+    virtual void processWorkbookEvents(HSSFRequest* req, ::poi::poifs::filesystem::POIFSFileSystem* fs) /* throws(IOException) */;
+    virtual void processWorkbookEvents(HSSFRequest* req, ::poi::poifs::filesystem::DirectoryNode* dir) /* throws(IOException) */;
+    virtual int16_t abortableProcessWorkbookEvents(HSSFRequest* req, ::poi::poifs::filesystem::POIFSFileSystem* fs) /* throws(IOException, HSSFUserException) */;
+    virtual int16_t abortableProcessWorkbookEvents(HSSFRequest* req, ::poi::poifs::filesystem::DirectoryNode* dir) /* throws(IOException, HSSFUserException) */;
     virtual void processEvents(HSSFRequest* req, ::java::io::InputStream* in);
     virtual int16_t abortableProcessEvents(HSSFRequest* req, ::java::io::InputStream* in) /* throws(HSSFUserException) */;
 

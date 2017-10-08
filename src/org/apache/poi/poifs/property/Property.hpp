@@ -15,10 +15,10 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::property::Property
+class poi::poifs::property::Property
     : public virtual ::java::lang::Object
     , public virtual Child
-    , public virtual ::org::apache::poi::poifs::dev::POIFSViewable
+    , public virtual ::poi::poifs::dev::POIFSViewable
 {
 
 public:
@@ -53,20 +53,20 @@ public: /* protected */
 private:
     static constexpr int32_t _big_block_minimum_bytes { int32_t(4096) };
     ::java::lang::String* _name {  };
-    ::org::apache::poi::util::ShortField* _name_size {  };
-    ::org::apache::poi::util::ByteField* _property_type {  };
-    ::org::apache::poi::util::ByteField* _node_color {  };
-    ::org::apache::poi::util::IntegerField* _previous_property {  };
-    ::org::apache::poi::util::IntegerField* _next_property {  };
-    ::org::apache::poi::util::IntegerField* _child_property {  };
-    ::org::apache::poi::hpsf::ClassID* _storage_clsid {  };
-    ::org::apache::poi::util::IntegerField* _user_flags {  };
-    ::org::apache::poi::util::IntegerField* _seconds_1 {  };
-    ::org::apache::poi::util::IntegerField* _days_1 {  };
-    ::org::apache::poi::util::IntegerField* _seconds_2 {  };
-    ::org::apache::poi::util::IntegerField* _days_2 {  };
-    ::org::apache::poi::util::IntegerField* _start_block {  };
-    ::org::apache::poi::util::IntegerField* _size {  };
+    ::poi::util::ShortField* _name_size {  };
+    ::poi::util::ByteField* _property_type {  };
+    ::poi::util::ByteField* _node_color {  };
+    ::poi::util::IntegerField* _previous_property {  };
+    ::poi::util::IntegerField* _next_property {  };
+    ::poi::util::IntegerField* _child_property {  };
+    ::poi::hpsf::ClassID* _storage_clsid {  };
+    ::poi::util::IntegerField* _user_flags {  };
+    ::poi::util::IntegerField* _seconds_1 {  };
+    ::poi::util::IntegerField* _days_1 {  };
+    ::poi::util::IntegerField* _seconds_2 {  };
+    ::poi::util::IntegerField* _days_2 {  };
+    ::poi::util::IntegerField* _start_block {  };
+    ::poi::util::IntegerField* _size {  };
     ::int8_tArray* _raw_data {  };
     int32_t _index {  };
     Child* _next_child {  };
@@ -84,13 +84,13 @@ public:
     static bool isSmall(int32_t length);
     virtual ::java::lang::String* getName();
     virtual bool isDirectory() = 0;
-    virtual ::org::apache::poi::hpsf::ClassID* getStorageClsid();
+    virtual ::poi::hpsf::ClassID* getStorageClsid();
 
 public: /* protected */
     virtual void setName(::java::lang::String* name);
 
 public:
-    virtual void setStorageClsid(::org::apache::poi::hpsf::ClassID* clsidStorage);
+    virtual void setStorageClsid(::poi::hpsf::ClassID* clsidStorage);
 
 public: /* protected */
     virtual void setPropertyType(int8_t propertyType);

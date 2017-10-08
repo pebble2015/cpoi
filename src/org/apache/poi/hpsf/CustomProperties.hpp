@@ -14,7 +14,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hpsf::CustomProperties
+class poi::hpsf::CustomProperties
     : public virtual ::java::lang::Object
     , public virtual ::java::util::Map
 {
@@ -23,7 +23,7 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    static ::org::apache::poi::util::POILogger* LOG_;
+    static ::poi::util::POILogger* LOG_;
     ::java::util::HashMap* props {  };
     ::org::apache::commons::collections4::bidimap::TreeBidiMap* dictionary {  };
     bool isPure_ {  };
@@ -83,6 +83,6 @@ public:
     virtual bool remove(::java::lang::Object* key, ::java::lang::Object* value);
 
 private:
-    static ::org::apache::poi::util::POILogger*& LOG();
+    static ::poi::util::POILogger*& LOG();
     virtual ::java::lang::Class* getClass0();
 };

@@ -19,27 +19,27 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::util::CellRangeAddress::CellRangeAddress(const ::default_init_tag&)
+poi::ss::util::CellRangeAddress::CellRangeAddress(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::util::CellRangeAddress::CellRangeAddress(int32_t firstRow, int32_t lastRow, int32_t firstCol, int32_t lastCol) 
+poi::ss::util::CellRangeAddress::CellRangeAddress(int32_t firstRow, int32_t lastRow, int32_t firstCol, int32_t lastCol) 
     : CellRangeAddress(*static_cast< ::default_init_tag* >(0))
 {
     ctor(firstRow,lastRow,firstCol,lastCol);
 }
 
-org::apache::poi::ss::util::CellRangeAddress::CellRangeAddress(::org::apache::poi::hssf::record::RecordInputStream* in) 
+poi::ss::util::CellRangeAddress::CellRangeAddress(::poi::hssf::record::RecordInputStream* in) 
     : CellRangeAddress(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int32_t org::apache::poi::ss::util::CellRangeAddress::ENCODED_SIZE;
+constexpr int32_t poi::ss::util::CellRangeAddress::ENCODED_SIZE;
 
-void org::apache::poi::ss::util::CellRangeAddress::ctor(int32_t firstRow, int32_t lastRow, int32_t firstCol, int32_t lastCol)
+void poi::ss::util::CellRangeAddress::ctor(int32_t firstRow, int32_t lastRow, int32_t firstCol, int32_t lastCol)
 {
     super::ctor(firstRow, lastRow, firstCol, lastCol);
     if(lastRow < firstRow || lastCol < firstCol) {
@@ -53,7 +53,7 @@ void org::apache::poi::ss::util::CellRangeAddress::ctor(int32_t firstRow, int32_
     }
 }
 
-void org::apache::poi::ss::util::CellRangeAddress::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::ss::util::CellRangeAddress::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(getFirstRow());
     npc(out)->writeShort(getLastRow());
@@ -61,12 +61,12 @@ void org::apache::poi::ss::util::CellRangeAddress::serialize(::org::apache::poi:
     npc(out)->writeShort(getLastColumn());
 }
 
-void org::apache::poi::ss::util::CellRangeAddress::ctor(::org::apache::poi::hssf::record::RecordInputStream* in)
+void poi::ss::util::CellRangeAddress::ctor(::poi::hssf::record::RecordInputStream* in)
 {
     super::ctor(readUShortAndCheck(in), npc(in)->readUShort(), npc(in)->readUShort(), npc(in)->readUShort());
 }
 
-int32_t org::apache::poi::ss::util::CellRangeAddress::readUShortAndCheck(::org::apache::poi::hssf::record::RecordInputStream* in)
+int32_t poi::ss::util::CellRangeAddress::readUShortAndCheck(::poi::hssf::record::RecordInputStream* in)
 {
     clinit();
     if(npc(in)->remaining() < ENCODED_SIZE) {
@@ -75,27 +75,27 @@ int32_t org::apache::poi::ss::util::CellRangeAddress::readUShortAndCheck(::org::
     return npc(in)->readUShort();
 }
 
-org::apache::poi::ss::util::CellRangeAddress* org::apache::poi::ss::util::CellRangeAddress::copy()
+poi::ss::util::CellRangeAddress* poi::ss::util::CellRangeAddress::copy()
 {
     return new CellRangeAddress(getFirstRow(), getLastRow(), getFirstColumn(), getLastColumn());
 }
 
-int32_t org::apache::poi::ss::util::CellRangeAddress::getEncodedSize(int32_t numberOfItems)
+int32_t poi::ss::util::CellRangeAddress::getEncodedSize(int32_t numberOfItems)
 {
     clinit();
     return numberOfItems * ENCODED_SIZE;
 }
 
-java::lang::String* org::apache::poi::ss::util::CellRangeAddress::formatAsString()
+java::lang::String* poi::ss::util::CellRangeAddress::formatAsString()
 {
     return formatAsString(nullptr, false);
 }
 
-java::lang::String* org::apache::poi::ss::util::CellRangeAddress::formatAsString(::java::lang::String* sheetName, bool useAbsoluteAddress)
+java::lang::String* poi::ss::util::CellRangeAddress::formatAsString(::java::lang::String* sheetName, bool useAbsoluteAddress)
 {
     auto sb = new ::java::lang::StringBuilder();
     if(sheetName != nullptr) {
-        npc(sb)->append(::org::apache::poi::ss::formula::SheetNameFormatter::format(sheetName));
+        npc(sb)->append(::poi::ss::formula::SheetNameFormatter::format(sheetName));
         npc(sb)->append(u"!"_j);
     }
     auto cellRefFrom = new CellReference(getFirstRow(), getFirstColumn(), useAbsoluteAddress, useAbsoluteAddress);
@@ -108,7 +108,7 @@ java::lang::String* org::apache::poi::ss::util::CellRangeAddress::formatAsString
     return npc(sb)->toString();
 }
 
-org::apache::poi::ss::util::CellRangeAddress* org::apache::poi::ss::util::CellRangeAddress::valueOf(::java::lang::String* ref)
+poi::ss::util::CellRangeAddress* poi::ss::util::CellRangeAddress::valueOf(::java::lang::String* ref)
 {
     clinit();
     auto sep = npc(ref)->indexOf(u":"_j);
@@ -126,13 +126,13 @@ org::apache::poi::ss::util::CellRangeAddress* org::apache::poi::ss::util::CellRa
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::util::CellRangeAddress::class_()
+java::lang::Class* poi::ss::util::CellRangeAddress::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.util.CellRangeAddress", 39);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::util::CellRangeAddress::getClass0()
+java::lang::Class* poi::ss::util::CellRangeAddress::getClass0()
 {
     return class_();
 }

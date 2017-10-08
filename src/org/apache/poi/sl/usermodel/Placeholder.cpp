@@ -26,22 +26,16 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace sl
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace sl
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::sl::usermodel::Placeholder, ::java::lang::EnumArray > PlaceholderArray;
-                } // usermodel
-            } // sl
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::sl::usermodel::Placeholder, ::java::lang::EnumArray > PlaceholderArray;
+        } // usermodel
+    } // sl
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -50,39 +44,39 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::sl::usermodel::Placeholder::Placeholder(const ::default_init_tag&)
+poi::sl::usermodel::Placeholder::Placeholder(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::usermodel::Placeholder::Placeholder(::java::lang::String* name, int ordinal, int32_t nativeSlideId, int32_t nativeSlideMasterId, int32_t nativeNotesId, int32_t nativeNotesMasterId, int32_t ooxmlId) 
+poi::sl::usermodel::Placeholder::Placeholder(::java::lang::String* name, int ordinal, int32_t nativeSlideId, int32_t nativeSlideMasterId, int32_t nativeNotesId, int32_t nativeNotesMasterId, int32_t ooxmlId) 
     : Placeholder(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal, nativeSlideId,nativeSlideMasterId,nativeNotesId,nativeNotesMasterId,ooxmlId);
 }
 
-org::apache::poi::sl::usermodel::Placeholder* org::apache::poi::sl::usermodel::Placeholder::NONE = new ::org::apache::poi::sl::usermodel::Placeholder(u"NONE"_j, 0, int32_t(0), int32_t(0), int32_t(0), int32_t(0), int32_t(0));
-org::apache::poi::sl::usermodel::Placeholder* org::apache::poi::sl::usermodel::Placeholder::TITLE = new ::org::apache::poi::sl::usermodel::Placeholder(u"TITLE"_j, 1, int32_t(13), int32_t(1), int32_t(1), int32_t(1), int32_t(1));
-org::apache::poi::sl::usermodel::Placeholder* org::apache::poi::sl::usermodel::Placeholder::BODY = new ::org::apache::poi::sl::usermodel::Placeholder(u"BODY"_j, 2, int32_t(14), int32_t(2), int32_t(12), int32_t(6), int32_t(2));
-org::apache::poi::sl::usermodel::Placeholder* org::apache::poi::sl::usermodel::Placeholder::CENTERED_TITLE = new ::org::apache::poi::sl::usermodel::Placeholder(u"CENTERED_TITLE"_j, 3, int32_t(15), int32_t(3), int32_t(3), int32_t(3), int32_t(3));
-org::apache::poi::sl::usermodel::Placeholder* org::apache::poi::sl::usermodel::Placeholder::SUBTITLE = new ::org::apache::poi::sl::usermodel::Placeholder(u"SUBTITLE"_j, 4, int32_t(16), int32_t(4), int32_t(4), int32_t(4), int32_t(4));
-org::apache::poi::sl::usermodel::Placeholder* org::apache::poi::sl::usermodel::Placeholder::DATETIME = new ::org::apache::poi::sl::usermodel::Placeholder(u"DATETIME"_j, 5, int32_t(7), int32_t(7), int32_t(7), int32_t(7), int32_t(5));
-org::apache::poi::sl::usermodel::Placeholder* org::apache::poi::sl::usermodel::Placeholder::SLIDE_NUMBER = new ::org::apache::poi::sl::usermodel::Placeholder(u"SLIDE_NUMBER"_j, 6, int32_t(8), int32_t(8), int32_t(8), int32_t(8), int32_t(6));
-org::apache::poi::sl::usermodel::Placeholder* org::apache::poi::sl::usermodel::Placeholder::FOOTER = new ::org::apache::poi::sl::usermodel::Placeholder(u"FOOTER"_j, 7, int32_t(9), int32_t(9), int32_t(9), int32_t(9), int32_t(7));
-org::apache::poi::sl::usermodel::Placeholder* org::apache::poi::sl::usermodel::Placeholder::HEADER = new ::org::apache::poi::sl::usermodel::Placeholder(u"HEADER"_j, 8, int32_t(10), int32_t(10), int32_t(10), int32_t(10), int32_t(8));
-org::apache::poi::sl::usermodel::Placeholder* org::apache::poi::sl::usermodel::Placeholder::CONTENT = new ::org::apache::poi::sl::usermodel::Placeholder(u"CONTENT"_j, 9, int32_t(19), int32_t(19), int32_t(19), int32_t(19), int32_t(9));
-org::apache::poi::sl::usermodel::Placeholder* org::apache::poi::sl::usermodel::Placeholder::CHART = new ::org::apache::poi::sl::usermodel::Placeholder(u"CHART"_j, 10, int32_t(20), int32_t(20), int32_t(20), int32_t(20), int32_t(10));
-org::apache::poi::sl::usermodel::Placeholder* org::apache::poi::sl::usermodel::Placeholder::TABLE = new ::org::apache::poi::sl::usermodel::Placeholder(u"TABLE"_j, 11, int32_t(21), int32_t(21), int32_t(21), int32_t(21), int32_t(11));
-org::apache::poi::sl::usermodel::Placeholder* org::apache::poi::sl::usermodel::Placeholder::CLIP_ART = new ::org::apache::poi::sl::usermodel::Placeholder(u"CLIP_ART"_j, 12, int32_t(22), int32_t(22), int32_t(22), int32_t(22), int32_t(12));
-org::apache::poi::sl::usermodel::Placeholder* org::apache::poi::sl::usermodel::Placeholder::DGM = new ::org::apache::poi::sl::usermodel::Placeholder(u"DGM"_j, 13, int32_t(23), int32_t(23), int32_t(23), int32_t(23), int32_t(13));
-org::apache::poi::sl::usermodel::Placeholder* org::apache::poi::sl::usermodel::Placeholder::MEDIA = new ::org::apache::poi::sl::usermodel::Placeholder(u"MEDIA"_j, 14, int32_t(24), int32_t(24), int32_t(24), int32_t(24), int32_t(14));
-org::apache::poi::sl::usermodel::Placeholder* org::apache::poi::sl::usermodel::Placeholder::SLIDE_IMAGE = new ::org::apache::poi::sl::usermodel::Placeholder(u"SLIDE_IMAGE"_j, 15, int32_t(11), int32_t(11), int32_t(11), int32_t(5), int32_t(15));
-org::apache::poi::sl::usermodel::Placeholder* org::apache::poi::sl::usermodel::Placeholder::PICTURE = new ::org::apache::poi::sl::usermodel::Placeholder(u"PICTURE"_j, 16, int32_t(26), int32_t(26), int32_t(26), int32_t(26), int32_t(16));
-org::apache::poi::sl::usermodel::Placeholder* org::apache::poi::sl::usermodel::Placeholder::VERTICAL_OBJECT = new ::org::apache::poi::sl::usermodel::Placeholder(u"VERTICAL_OBJECT"_j, 17, int32_t(25), int32_t(25), int32_t(25), int32_t(25), -int32_t(2));
-org::apache::poi::sl::usermodel::Placeholder* org::apache::poi::sl::usermodel::Placeholder::VERTICAL_TEXT_TITLE = new ::org::apache::poi::sl::usermodel::Placeholder(u"VERTICAL_TEXT_TITLE"_j, 18, int32_t(17), int32_t(17), int32_t(17), int32_t(17), -int32_t(2));
-org::apache::poi::sl::usermodel::Placeholder* org::apache::poi::sl::usermodel::Placeholder::VERTICAL_TEXT_BODY = new ::org::apache::poi::sl::usermodel::Placeholder(u"VERTICAL_TEXT_BODY"_j, 19, int32_t(18), int32_t(18), int32_t(18), int32_t(18), -int32_t(2));
-void org::apache::poi::sl::usermodel::Placeholder::ctor(::java::lang::String* name, int ordinal, int32_t nativeSlideId, int32_t nativeSlideMasterId, int32_t nativeNotesId, int32_t nativeNotesMasterId, int32_t ooxmlId)
+poi::sl::usermodel::Placeholder* poi::sl::usermodel::Placeholder::NONE = new ::poi::sl::usermodel::Placeholder(u"NONE"_j, 0, int32_t(0), int32_t(0), int32_t(0), int32_t(0), int32_t(0));
+poi::sl::usermodel::Placeholder* poi::sl::usermodel::Placeholder::TITLE = new ::poi::sl::usermodel::Placeholder(u"TITLE"_j, 1, int32_t(13), int32_t(1), int32_t(1), int32_t(1), int32_t(1));
+poi::sl::usermodel::Placeholder* poi::sl::usermodel::Placeholder::BODY = new ::poi::sl::usermodel::Placeholder(u"BODY"_j, 2, int32_t(14), int32_t(2), int32_t(12), int32_t(6), int32_t(2));
+poi::sl::usermodel::Placeholder* poi::sl::usermodel::Placeholder::CENTERED_TITLE = new ::poi::sl::usermodel::Placeholder(u"CENTERED_TITLE"_j, 3, int32_t(15), int32_t(3), int32_t(3), int32_t(3), int32_t(3));
+poi::sl::usermodel::Placeholder* poi::sl::usermodel::Placeholder::SUBTITLE = new ::poi::sl::usermodel::Placeholder(u"SUBTITLE"_j, 4, int32_t(16), int32_t(4), int32_t(4), int32_t(4), int32_t(4));
+poi::sl::usermodel::Placeholder* poi::sl::usermodel::Placeholder::DATETIME = new ::poi::sl::usermodel::Placeholder(u"DATETIME"_j, 5, int32_t(7), int32_t(7), int32_t(7), int32_t(7), int32_t(5));
+poi::sl::usermodel::Placeholder* poi::sl::usermodel::Placeholder::SLIDE_NUMBER = new ::poi::sl::usermodel::Placeholder(u"SLIDE_NUMBER"_j, 6, int32_t(8), int32_t(8), int32_t(8), int32_t(8), int32_t(6));
+poi::sl::usermodel::Placeholder* poi::sl::usermodel::Placeholder::FOOTER = new ::poi::sl::usermodel::Placeholder(u"FOOTER"_j, 7, int32_t(9), int32_t(9), int32_t(9), int32_t(9), int32_t(7));
+poi::sl::usermodel::Placeholder* poi::sl::usermodel::Placeholder::HEADER = new ::poi::sl::usermodel::Placeholder(u"HEADER"_j, 8, int32_t(10), int32_t(10), int32_t(10), int32_t(10), int32_t(8));
+poi::sl::usermodel::Placeholder* poi::sl::usermodel::Placeholder::CONTENT = new ::poi::sl::usermodel::Placeholder(u"CONTENT"_j, 9, int32_t(19), int32_t(19), int32_t(19), int32_t(19), int32_t(9));
+poi::sl::usermodel::Placeholder* poi::sl::usermodel::Placeholder::CHART = new ::poi::sl::usermodel::Placeholder(u"CHART"_j, 10, int32_t(20), int32_t(20), int32_t(20), int32_t(20), int32_t(10));
+poi::sl::usermodel::Placeholder* poi::sl::usermodel::Placeholder::TABLE = new ::poi::sl::usermodel::Placeholder(u"TABLE"_j, 11, int32_t(21), int32_t(21), int32_t(21), int32_t(21), int32_t(11));
+poi::sl::usermodel::Placeholder* poi::sl::usermodel::Placeholder::CLIP_ART = new ::poi::sl::usermodel::Placeholder(u"CLIP_ART"_j, 12, int32_t(22), int32_t(22), int32_t(22), int32_t(22), int32_t(12));
+poi::sl::usermodel::Placeholder* poi::sl::usermodel::Placeholder::DGM = new ::poi::sl::usermodel::Placeholder(u"DGM"_j, 13, int32_t(23), int32_t(23), int32_t(23), int32_t(23), int32_t(13));
+poi::sl::usermodel::Placeholder* poi::sl::usermodel::Placeholder::MEDIA = new ::poi::sl::usermodel::Placeholder(u"MEDIA"_j, 14, int32_t(24), int32_t(24), int32_t(24), int32_t(24), int32_t(14));
+poi::sl::usermodel::Placeholder* poi::sl::usermodel::Placeholder::SLIDE_IMAGE = new ::poi::sl::usermodel::Placeholder(u"SLIDE_IMAGE"_j, 15, int32_t(11), int32_t(11), int32_t(11), int32_t(5), int32_t(15));
+poi::sl::usermodel::Placeholder* poi::sl::usermodel::Placeholder::PICTURE = new ::poi::sl::usermodel::Placeholder(u"PICTURE"_j, 16, int32_t(26), int32_t(26), int32_t(26), int32_t(26), int32_t(16));
+poi::sl::usermodel::Placeholder* poi::sl::usermodel::Placeholder::VERTICAL_OBJECT = new ::poi::sl::usermodel::Placeholder(u"VERTICAL_OBJECT"_j, 17, int32_t(25), int32_t(25), int32_t(25), int32_t(25), -int32_t(2));
+poi::sl::usermodel::Placeholder* poi::sl::usermodel::Placeholder::VERTICAL_TEXT_TITLE = new ::poi::sl::usermodel::Placeholder(u"VERTICAL_TEXT_TITLE"_j, 18, int32_t(17), int32_t(17), int32_t(17), int32_t(17), -int32_t(2));
+poi::sl::usermodel::Placeholder* poi::sl::usermodel::Placeholder::VERTICAL_TEXT_BODY = new ::poi::sl::usermodel::Placeholder(u"VERTICAL_TEXT_BODY"_j, 19, int32_t(18), int32_t(18), int32_t(18), int32_t(18), -int32_t(2));
+void poi::sl::usermodel::Placeholder::ctor(::java::lang::String* name, int ordinal, int32_t nativeSlideId, int32_t nativeSlideMasterId, int32_t nativeNotesId, int32_t nativeNotesMasterId, int32_t ooxmlId)
 {
     super::ctor(name, ordinal);
     this->nativeSlideId = nativeSlideId;
@@ -92,31 +86,31 @@ void org::apache::poi::sl::usermodel::Placeholder::ctor(::java::lang::String* na
     this->ooxmlId = ooxmlId;
 }
 
-org::apache::poi::sl::usermodel::Placeholder* org::apache::poi::sl::usermodel::Placeholder::lookupNativeSlide(int32_t nativeId)
+poi::sl::usermodel::Placeholder* poi::sl::usermodel::Placeholder::lookupNativeSlide(int32_t nativeId)
 {
     clinit();
     return lookupNative(nativeId, 0);
 }
 
-org::apache::poi::sl::usermodel::Placeholder* org::apache::poi::sl::usermodel::Placeholder::lookupNativeSlideMaster(int32_t nativeId)
+poi::sl::usermodel::Placeholder* poi::sl::usermodel::Placeholder::lookupNativeSlideMaster(int32_t nativeId)
 {
     clinit();
     return lookupNative(nativeId, 1);
 }
 
-org::apache::poi::sl::usermodel::Placeholder* org::apache::poi::sl::usermodel::Placeholder::lookupNativeNotes(int32_t nativeId)
+poi::sl::usermodel::Placeholder* poi::sl::usermodel::Placeholder::lookupNativeNotes(int32_t nativeId)
 {
     clinit();
     return lookupNative(nativeId, 2);
 }
 
-org::apache::poi::sl::usermodel::Placeholder* org::apache::poi::sl::usermodel::Placeholder::lookupNativeNotesMaster(int32_t nativeId)
+poi::sl::usermodel::Placeholder* poi::sl::usermodel::Placeholder::lookupNativeNotesMaster(int32_t nativeId)
 {
     clinit();
     return lookupNative(nativeId, 3);
 }
 
-org::apache::poi::sl::usermodel::Placeholder* org::apache::poi::sl::usermodel::Placeholder::lookupNative(int32_t nativeId, int32_t type)
+poi::sl::usermodel::Placeholder* poi::sl::usermodel::Placeholder::lookupNative(int32_t nativeId, int32_t type)
 {
     clinit();
     for(auto ph : *npc(values())) {
@@ -127,7 +121,7 @@ org::apache::poi::sl::usermodel::Placeholder* org::apache::poi::sl::usermodel::P
     return nullptr;
 }
 
-org::apache::poi::sl::usermodel::Placeholder* org::apache::poi::sl::usermodel::Placeholder::lookupOoxml(int32_t ooxmlId)
+poi::sl::usermodel::Placeholder* poi::sl::usermodel::Placeholder::lookupOoxml(int32_t ooxmlId)
 {
     clinit();
     for(auto ph : *npc(values())) {
@@ -140,13 +134,13 @@ org::apache::poi::sl::usermodel::Placeholder* org::apache::poi::sl::usermodel::P
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::usermodel::Placeholder::class_()
+java::lang::Class* poi::sl::usermodel::Placeholder::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.usermodel.Placeholder", 39);
     return c;
 }
 
-org::apache::poi::sl::usermodel::Placeholder* org::apache::poi::sl::usermodel::Placeholder::valueOf(::java::lang::String* a0)
+poi::sl::usermodel::Placeholder* poi::sl::usermodel::Placeholder::valueOf(::java::lang::String* a0)
 {
     if(BODY->toString()->equals(a0))
         return BODY;
@@ -191,9 +185,9 @@ org::apache::poi::sl::usermodel::Placeholder* org::apache::poi::sl::usermodel::P
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::sl::usermodel::PlaceholderArray* org::apache::poi::sl::usermodel::Placeholder::values()
+poi::sl::usermodel::PlaceholderArray* poi::sl::usermodel::Placeholder::values()
 {
-    return new org::apache::poi::sl::usermodel::PlaceholderArray({
+    return new poi::sl::usermodel::PlaceholderArray({
         BODY,
         CENTERED_TITLE,
         CHART,
@@ -217,7 +211,7 @@ org::apache::poi::sl::usermodel::PlaceholderArray* org::apache::poi::sl::usermod
     });
 }
 
-java::lang::Class* org::apache::poi::sl::usermodel::Placeholder::getClass0()
+java::lang::Class* poi::sl::usermodel::Placeholder::getClass0()
 {
     return class_();
 }

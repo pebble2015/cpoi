@@ -26,59 +26,59 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::usermodel::charts::DataSources_ArrayDataSource::DataSources_ArrayDataSource(const ::default_init_tag&)
+poi::ss::usermodel::charts::DataSources_ArrayDataSource::DataSources_ArrayDataSource(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::usermodel::charts::DataSources_ArrayDataSource::DataSources_ArrayDataSource(::java::lang::ObjectArray* elements) 
+poi::ss::usermodel::charts::DataSources_ArrayDataSource::DataSources_ArrayDataSource(::java::lang::ObjectArray* elements) 
     : DataSources_ArrayDataSource(*static_cast< ::default_init_tag* >(0))
 {
     ctor(elements);
 }
 
-void org::apache::poi::ss::usermodel::charts::DataSources_ArrayDataSource::ctor(::java::lang::ObjectArray* elements)
+void poi::ss::usermodel::charts::DataSources_ArrayDataSource::ctor(::java::lang::ObjectArray* elements)
 {
     super::ctor();
     this->elements = java_cast< ::java::lang::ObjectArray* >(npc(elements)->clone());
 }
 
-int32_t org::apache::poi::ss::usermodel::charts::DataSources_ArrayDataSource::getPointCount()
+int32_t poi::ss::usermodel::charts::DataSources_ArrayDataSource::getPointCount()
 {
     return npc(elements)->length;
 }
 
-java::lang::Object* org::apache::poi::ss::usermodel::charts::DataSources_ArrayDataSource::getPointAt(int32_t index)
+java::lang::Object* poi::ss::usermodel::charts::DataSources_ArrayDataSource::getPointAt(int32_t index)
 {
     return (*elements)[index];
 }
 
-bool org::apache::poi::ss::usermodel::charts::DataSources_ArrayDataSource::isReference()
+bool poi::ss::usermodel::charts::DataSources_ArrayDataSource::isReference()
 {
     return false;
 }
 
-bool org::apache::poi::ss::usermodel::charts::DataSources_ArrayDataSource::isNumeric()
+bool poi::ss::usermodel::charts::DataSources_ArrayDataSource::isNumeric()
 {
     auto arrayComponentType = npc(npc(elements)->getClass())->getComponentType();
     return (npc(::java::lang::Number::class_())->isAssignableFrom(arrayComponentType));
 }
 
-java::lang::String* org::apache::poi::ss::usermodel::charts::DataSources_ArrayDataSource::getFormulaString()
+java::lang::String* poi::ss::usermodel::charts::DataSources_ArrayDataSource::getFormulaString()
 {
     throw new ::java::lang::UnsupportedOperationException(u"Literal data source can not be expressed by reference."_j);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::usermodel::charts::DataSources_ArrayDataSource::class_()
+java::lang::Class* poi::ss::usermodel::charts::DataSources_ArrayDataSource::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.usermodel.charts.DataSources.ArrayDataSource", 62);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::usermodel::charts::DataSources_ArrayDataSource::getClass0()
+java::lang::Class* poi::ss::usermodel::charts::DataSources_ArrayDataSource::getClass0()
 {
     return class_();
 }

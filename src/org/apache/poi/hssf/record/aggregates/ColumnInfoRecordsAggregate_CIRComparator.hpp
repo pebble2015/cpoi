@@ -12,7 +12,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate_CIRComparator final
+class poi::hssf::record::aggregates::ColumnInfoRecordsAggregate_CIRComparator final
     : public virtual ::java::lang::Object
     , public ::java::util::Comparator
 {
@@ -26,8 +26,8 @@ protected:
     void ctor();
 
 public:
-    int32_t compare(::org::apache::poi::hssf::record::ColumnInfoRecord* a, ::org::apache::poi::hssf::record::ColumnInfoRecord* b);
-    static int32_t compareColInfos(::org::apache::poi::hssf::record::ColumnInfoRecord* a, ::org::apache::poi::hssf::record::ColumnInfoRecord* b);
+    int32_t compare(::poi::hssf::record::ColumnInfoRecord* a, ::poi::hssf::record::ColumnInfoRecord* b);
+    static int32_t compareColInfos(::poi::hssf::record::ColumnInfoRecord* a, ::poi::hssf::record::ColumnInfoRecord* b);
 
     // Generated
 

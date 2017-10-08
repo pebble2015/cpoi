@@ -11,35 +11,35 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::POITextExtractor::POITextExtractor(const ::default_init_tag&)
+poi::POITextExtractor::POITextExtractor(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::POITextExtractor::POITextExtractor()
+poi::POITextExtractor::POITextExtractor()
     : POITextExtractor(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::POITextExtractor::ctor()
+void poi::POITextExtractor::ctor()
 {
     super::ctor();
     init();
 }
 
-void org::apache::poi::POITextExtractor::init()
+void poi::POITextExtractor::init()
 {
     fsToClose = nullptr;
 }
 
-void org::apache::poi::POITextExtractor::setFilesystem(::java::io::Closeable* fs)
+void poi::POITextExtractor::setFilesystem(::java::io::Closeable* fs)
 {
     fsToClose = fs;
 }
 
-void org::apache::poi::POITextExtractor::close() /* throws(IOException) */
+void poi::POITextExtractor::close() /* throws(IOException) */
 {
     if(fsToClose != nullptr) {
         npc(fsToClose)->close();
@@ -48,13 +48,13 @@ void org::apache::poi::POITextExtractor::close() /* throws(IOException) */
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::POITextExtractor::class_()
+java::lang::Class* poi::POITextExtractor::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.POITextExtractor", 31);
     return c;
 }
 
-java::lang::Class* org::apache::poi::POITextExtractor::getClass0()
+java::lang::Class* poi::POITextExtractor::getClass0()
 {
     return class_();
 }

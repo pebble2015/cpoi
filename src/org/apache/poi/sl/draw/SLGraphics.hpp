@@ -19,7 +19,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::SLGraphics final
+class poi::sl::draw::SLGraphics final
     : public ::java::awt::Graphics2D
     , public ::java::lang::Cloneable
 {
@@ -28,10 +28,10 @@ public:
     typedef ::java::awt::Graphics2D super;
 
 public: /* protected */
-    ::org::apache::poi::util::POILogger* log {  };
+    ::poi::util::POILogger* log {  };
 
 private:
-    ::org::apache::poi::sl::usermodel::GroupShape* _group {  };
+    ::poi::sl::usermodel::GroupShape* _group {  };
     ::java::awt::geom::AffineTransform* _transform {  };
     ::java::awt::Stroke* _stroke {  };
     ::java::awt::Paint* _paint {  };
@@ -40,10 +40,10 @@ private:
     ::java::awt::Color* _background {  };
     ::java::awt::RenderingHints* _hints {  };
 protected:
-    void ctor(::org::apache::poi::sl::usermodel::GroupShape* group);
+    void ctor(::poi::sl::usermodel::GroupShape* group);
 
 public:
-    ::org::apache::poi::sl::usermodel::GroupShape* getShapeGroup();
+    ::poi::sl::usermodel::GroupShape* getShapeGroup();
     ::java::awt::Font* getFont() override;
     void setFont(::java::awt::Font* font) override;
     ::java::awt::Color* getColor() override;
@@ -117,13 +117,13 @@ public:
     void drawRenderableImage(::java::awt::image::renderable::RenderableImage* img, ::java::awt::geom::AffineTransform* xform) override;
 
 public: /* protected */
-    void applyStroke(::org::apache::poi::sl::usermodel::SimpleShape* shape);
-    void applyPaint(::org::apache::poi::sl::usermodel::SimpleShape* shape);
+    void applyStroke(::poi::sl::usermodel::SimpleShape* shape);
+    void applyPaint(::poi::sl::usermodel::SimpleShape* shape);
 
     // Generated
 
 public:
-    SLGraphics(::org::apache::poi::sl::usermodel::GroupShape* group);
+    SLGraphics(::poi::sl::usermodel::GroupShape* group);
 protected:
     SLGraphics(const ::default_init_tag&);
 

@@ -26,7 +26,7 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::ptg::PowerPtg final
+class poi::ss::formula::ptg::PowerPtg final
     : public ValueOperatorPtg
 {
 

@@ -33,25 +33,19 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace functions
             {
-                namespace formula
-                {
-                    namespace functions
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::functions::FreeRefFunction, ::java::lang::ObjectArray > FreeRefFunctionArray;
-                    } // functions
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::functions::FreeRefFunction, ::java::lang::ObjectArray > FreeRefFunctionArray;
+            } // functions
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -69,19 +63,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::udf::DefaultUDFFinder::DefaultUDFFinder(const ::default_init_tag&)
+poi::ss::formula::udf::DefaultUDFFinder::DefaultUDFFinder(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::udf::DefaultUDFFinder::DefaultUDFFinder(::java::lang::StringArray* functionNames, ::org::apache::poi::ss::formula::functions::FreeRefFunctionArray* functionImpls) 
+poi::ss::formula::udf::DefaultUDFFinder::DefaultUDFFinder(::java::lang::StringArray* functionNames, ::poi::ss::formula::functions::FreeRefFunctionArray* functionImpls) 
     : DefaultUDFFinder(*static_cast< ::default_init_tag* >(0))
 {
     ctor(functionNames,functionImpls);
 }
 
-void org::apache::poi::ss::formula::udf::DefaultUDFFinder::ctor(::java::lang::StringArray* functionNames, ::org::apache::poi::ss::formula::functions::FreeRefFunctionArray* functionImpls)
+void poi::ss::formula::udf::DefaultUDFFinder::ctor(::java::lang::StringArray* functionNames, ::poi::ss::formula::functions::FreeRefFunctionArray* functionImpls)
 {
     super::ctor();
     auto nFuncs = npc(functionNames)->length;
@@ -95,20 +89,20 @@ void org::apache::poi::ss::formula::udf::DefaultUDFFinder::ctor(::java::lang::St
     _functionsByName = m;
 }
 
-org::apache::poi::ss::formula::functions::FreeRefFunction* org::apache::poi::ss::formula::udf::DefaultUDFFinder::findFunction(::java::lang::String* name)
+poi::ss::formula::functions::FreeRefFunction* poi::ss::formula::udf::DefaultUDFFinder::findFunction(::java::lang::String* name)
 {
-    return java_cast< ::org::apache::poi::ss::formula::functions::FreeRefFunction* >(npc(_functionsByName)->get(npc(name)->toUpperCase(::java::util::Locale::ROOT())));
+    return java_cast< ::poi::ss::formula::functions::FreeRefFunction* >(npc(_functionsByName)->get(npc(name)->toUpperCase(::java::util::Locale::ROOT())));
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::udf::DefaultUDFFinder::class_()
+java::lang::Class* poi::ss::formula::udf::DefaultUDFFinder::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.udf.DefaultUDFFinder", 46);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::udf::DefaultUDFFinder::getClass0()
+java::lang::Class* poi::ss::formula::udf::DefaultUDFFinder::getClass0()
 {
     return class_();
 }

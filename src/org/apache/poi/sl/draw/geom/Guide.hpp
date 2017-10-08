@@ -28,7 +28,7 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::geom::Guide
+class poi::sl::draw::geom::Guide
     : public virtual ::java::lang::Object
     , public virtual Formula
 {
@@ -42,7 +42,7 @@ private:
     Guide_Op* op {  };
     ::java::lang::StringArray* operands {  };
 protected:
-    void ctor(::org::apache::poi::sl::draw::binding::CTGeomGuide* gd);
+    void ctor(::poi::sl::draw::binding::CTGeomGuide* gd);
     void ctor(::java::lang::String* nm, ::java::lang::String* fm);
 
 public:
@@ -55,7 +55,7 @@ public:
     double evaluate(Context* ctx) override;
 
     // Generated
-    Guide(::org::apache::poi::sl::draw::binding::CTGeomGuide* gd);
+    Guide(::poi::sl::draw::binding::CTGeomGuide* gd);
     Guide(::java::lang::String* nm, ::java::lang::String* fm);
 protected:
     Guide(const ::default_init_tag&);

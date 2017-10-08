@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::util::LittleEndian
+class poi::util::LittleEndian
     : public virtual ::java::lang::Object
     , public virtual LittleEndianConsts
 {

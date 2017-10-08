@@ -19,23 +19,23 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::OldStringRecord::OldStringRecord(const ::default_init_tag&)
+poi::hssf::record::OldStringRecord::OldStringRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::OldStringRecord::OldStringRecord(RecordInputStream* in) 
+poi::hssf::record::OldStringRecord::OldStringRecord(RecordInputStream* in) 
     : OldStringRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::OldStringRecord::biff2_sid;
+constexpr int16_t poi::hssf::record::OldStringRecord::biff2_sid;
 
-constexpr int16_t org::apache::poi::hssf::record::OldStringRecord::biff345_sid;
+constexpr int16_t poi::hssf::record::OldStringRecord::biff345_sid;
 
-void org::apache::poi::hssf::record::OldStringRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::OldStringRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     sid = npc(in)->getSid();
@@ -48,41 +48,41 @@ void org::apache::poi::hssf::record::OldStringRecord::ctor(RecordInputStream* in
     npc(in)->read(field_2_bytes, 0, field_1_string_len);
 }
 
-bool org::apache::poi::hssf::record::OldStringRecord::isBiff2()
+bool poi::hssf::record::OldStringRecord::isBiff2()
 {
     return sid == biff2_sid;
 }
 
-int16_t org::apache::poi::hssf::record::OldStringRecord::getSid()
+int16_t poi::hssf::record::OldStringRecord::getSid()
 {
     return sid;
 }
 
-void org::apache::poi::hssf::record::OldStringRecord::setCodePage(CodepageRecord* codepage)
+void poi::hssf::record::OldStringRecord::setCodePage(CodepageRecord* codepage)
 {
     this->codepage = codepage;
 }
 
-java::lang::String* org::apache::poi::hssf::record::OldStringRecord::getString()
+java::lang::String* poi::hssf::record::OldStringRecord::getString()
 {
     return getString(field_2_bytes, codepage);
 }
 
-java::lang::String* org::apache::poi::hssf::record::OldStringRecord::getString(::int8_tArray* data, CodepageRecord* codepage)
+java::lang::String* poi::hssf::record::OldStringRecord::getString(::int8_tArray* data, CodepageRecord* codepage)
 {
     clinit();
-    auto cp = ::org::apache::poi::hpsf::Property::DEFAULT_CODEPAGE;
+    auto cp = ::poi::hpsf::Property::DEFAULT_CODEPAGE;
     if(codepage != nullptr) {
         cp = npc(codepage)->getCodepage() & int32_t(65535);
     }
     try {
-        return ::org::apache::poi::util::CodePageUtil::getStringFromCodePage(data, cp);
+        return ::poi::util::CodePageUtil::getStringFromCodePage(data, cp);
     } catch (::java::io::UnsupportedEncodingException* uee) {
         throw new ::java::lang::IllegalArgumentException(u"Unsupported codepage requested"_j, uee);
     }
 }
 
-java::lang::String* org::apache::poi::hssf::record::OldStringRecord::toString()
+java::lang::String* poi::hssf::record::OldStringRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[OLD STRING]\n"_j);
@@ -93,13 +93,13 @@ java::lang::String* org::apache::poi::hssf::record::OldStringRecord::toString()
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::OldStringRecord::class_()
+java::lang::Class* poi::hssf::record::OldStringRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.OldStringRecord", 42);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::record::OldStringRecord::getClass0()
+java::lang::Class* poi::hssf::record::OldStringRecord::getClass0()
 {
     return class_();
 }

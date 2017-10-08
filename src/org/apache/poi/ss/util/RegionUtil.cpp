@@ -14,24 +14,24 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::util::RegionUtil::RegionUtil(const ::default_init_tag&)
+poi::ss::util::RegionUtil::RegionUtil(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::util::RegionUtil::RegionUtil() 
+poi::ss::util::RegionUtil::RegionUtil() 
     : RegionUtil(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::ss::util::RegionUtil::ctor()
+void poi::ss::util::RegionUtil::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::ss::util::RegionUtil::setBorderLeft(int32_t border, CellRangeAddress* region, ::org::apache::poi::ss::usermodel::Sheet* sheet)
+void poi::ss::util::RegionUtil::setBorderLeft(int32_t border, CellRangeAddress* region, ::poi::ss::usermodel::Sheet* sheet)
 {
     clinit();
     auto rowStart = npc(region)->getFirstRow();
@@ -43,7 +43,7 @@ void org::apache::poi::ss::util::RegionUtil::setBorderLeft(int32_t border, CellR
     }
 }
 
-void org::apache::poi::ss::util::RegionUtil::setBorderLeft(::org::apache::poi::ss::usermodel::BorderStyle* border, CellRangeAddress* region, ::org::apache::poi::ss::usermodel::Sheet* sheet)
+void poi::ss::util::RegionUtil::setBorderLeft(::poi::ss::usermodel::BorderStyle* border, CellRangeAddress* region, ::poi::ss::usermodel::Sheet* sheet)
 {
     clinit();
     auto rowStart = npc(region)->getFirstRow();
@@ -55,7 +55,7 @@ void org::apache::poi::ss::util::RegionUtil::setBorderLeft(::org::apache::poi::s
     }
 }
 
-void org::apache::poi::ss::util::RegionUtil::setLeftBorderColor(int32_t color, CellRangeAddress* region, ::org::apache::poi::ss::usermodel::Sheet* sheet)
+void poi::ss::util::RegionUtil::setLeftBorderColor(int32_t color, CellRangeAddress* region, ::poi::ss::usermodel::Sheet* sheet)
 {
     clinit();
     auto rowStart = npc(region)->getFirstRow();
@@ -67,7 +67,7 @@ void org::apache::poi::ss::util::RegionUtil::setLeftBorderColor(int32_t color, C
     }
 }
 
-void org::apache::poi::ss::util::RegionUtil::setBorderRight(int32_t border, CellRangeAddress* region, ::org::apache::poi::ss::usermodel::Sheet* sheet)
+void poi::ss::util::RegionUtil::setBorderRight(int32_t border, CellRangeAddress* region, ::poi::ss::usermodel::Sheet* sheet)
 {
     clinit();
     auto rowStart = npc(region)->getFirstRow();
@@ -79,7 +79,7 @@ void org::apache::poi::ss::util::RegionUtil::setBorderRight(int32_t border, Cell
     }
 }
 
-void org::apache::poi::ss::util::RegionUtil::setBorderRight(::org::apache::poi::ss::usermodel::BorderStyle* border, CellRangeAddress* region, ::org::apache::poi::ss::usermodel::Sheet* sheet)
+void poi::ss::util::RegionUtil::setBorderRight(::poi::ss::usermodel::BorderStyle* border, CellRangeAddress* region, ::poi::ss::usermodel::Sheet* sheet)
 {
     clinit();
     auto rowStart = npc(region)->getFirstRow();
@@ -91,7 +91,7 @@ void org::apache::poi::ss::util::RegionUtil::setBorderRight(::org::apache::poi::
     }
 }
 
-void org::apache::poi::ss::util::RegionUtil::setRightBorderColor(int32_t color, CellRangeAddress* region, ::org::apache::poi::ss::usermodel::Sheet* sheet)
+void poi::ss::util::RegionUtil::setRightBorderColor(int32_t color, CellRangeAddress* region, ::poi::ss::usermodel::Sheet* sheet)
 {
     clinit();
     auto rowStart = npc(region)->getFirstRow();
@@ -103,7 +103,7 @@ void org::apache::poi::ss::util::RegionUtil::setRightBorderColor(int32_t color, 
     }
 }
 
-void org::apache::poi::ss::util::RegionUtil::setBorderBottom(int32_t border, CellRangeAddress* region, ::org::apache::poi::ss::usermodel::Sheet* sheet)
+void poi::ss::util::RegionUtil::setBorderBottom(int32_t border, CellRangeAddress* region, ::poi::ss::usermodel::Sheet* sheet)
 {
     clinit();
     auto colStart = npc(region)->getFirstColumn();
@@ -116,7 +116,7 @@ void org::apache::poi::ss::util::RegionUtil::setBorderBottom(int32_t border, Cel
     }
 }
 
-void org::apache::poi::ss::util::RegionUtil::setBorderBottom(::org::apache::poi::ss::usermodel::BorderStyle* border, CellRangeAddress* region, ::org::apache::poi::ss::usermodel::Sheet* sheet)
+void poi::ss::util::RegionUtil::setBorderBottom(::poi::ss::usermodel::BorderStyle* border, CellRangeAddress* region, ::poi::ss::usermodel::Sheet* sheet)
 {
     clinit();
     auto colStart = npc(region)->getFirstColumn();
@@ -129,7 +129,7 @@ void org::apache::poi::ss::util::RegionUtil::setBorderBottom(::org::apache::poi:
     }
 }
 
-void org::apache::poi::ss::util::RegionUtil::setBottomBorderColor(int32_t color, CellRangeAddress* region, ::org::apache::poi::ss::usermodel::Sheet* sheet)
+void poi::ss::util::RegionUtil::setBottomBorderColor(int32_t color, CellRangeAddress* region, ::poi::ss::usermodel::Sheet* sheet)
 {
     clinit();
     auto colStart = npc(region)->getFirstColumn();
@@ -142,7 +142,7 @@ void org::apache::poi::ss::util::RegionUtil::setBottomBorderColor(int32_t color,
     }
 }
 
-void org::apache::poi::ss::util::RegionUtil::setBorderTop(int32_t border, CellRangeAddress* region, ::org::apache::poi::ss::usermodel::Sheet* sheet)
+void poi::ss::util::RegionUtil::setBorderTop(int32_t border, CellRangeAddress* region, ::poi::ss::usermodel::Sheet* sheet)
 {
     clinit();
     auto colStart = npc(region)->getFirstColumn();
@@ -155,7 +155,7 @@ void org::apache::poi::ss::util::RegionUtil::setBorderTop(int32_t border, CellRa
     }
 }
 
-void org::apache::poi::ss::util::RegionUtil::setBorderTop(::org::apache::poi::ss::usermodel::BorderStyle* border, CellRangeAddress* region, ::org::apache::poi::ss::usermodel::Sheet* sheet)
+void poi::ss::util::RegionUtil::setBorderTop(::poi::ss::usermodel::BorderStyle* border, CellRangeAddress* region, ::poi::ss::usermodel::Sheet* sheet)
 {
     clinit();
     auto colStart = npc(region)->getFirstColumn();
@@ -168,7 +168,7 @@ void org::apache::poi::ss::util::RegionUtil::setBorderTop(::org::apache::poi::ss
     }
 }
 
-void org::apache::poi::ss::util::RegionUtil::setTopBorderColor(int32_t color, CellRangeAddress* region, ::org::apache::poi::ss::usermodel::Sheet* sheet)
+void poi::ss::util::RegionUtil::setTopBorderColor(int32_t color, CellRangeAddress* region, ::poi::ss::usermodel::Sheet* sheet)
 {
     clinit();
     auto colStart = npc(region)->getFirstColumn();
@@ -183,13 +183,13 @@ void org::apache::poi::ss::util::RegionUtil::setTopBorderColor(int32_t color, Ce
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::util::RegionUtil::class_()
+java::lang::Class* poi::ss::util::RegionUtil::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.util.RegionUtil", 33);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::util::RegionUtil::getClass0()
+java::lang::Class* poi::ss::util::RegionUtil::getClass0()
 {
     return class_();
 }

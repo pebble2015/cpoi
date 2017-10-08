@@ -43,50 +43,50 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hpsf::TypedPropertyValue::TypedPropertyValue(const ::default_init_tag&)
+poi::hpsf::TypedPropertyValue::TypedPropertyValue(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hpsf::TypedPropertyValue::TypedPropertyValue(int32_t type, ::java::lang::Object* value) 
+poi::hpsf::TypedPropertyValue::TypedPropertyValue(int32_t type, ::java::lang::Object* value) 
     : TypedPropertyValue(*static_cast< ::default_init_tag* >(0))
 {
     ctor(type,value);
 }
 
-org::apache::poi::util::POILogger*& org::apache::poi::hpsf::TypedPropertyValue::LOG()
+poi::util::POILogger*& poi::hpsf::TypedPropertyValue::LOG()
 {
     clinit();
     return LOG_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::hpsf::TypedPropertyValue::LOG_;
+poi::util::POILogger* poi::hpsf::TypedPropertyValue::LOG_;
 
-void org::apache::poi::hpsf::TypedPropertyValue::ctor(int32_t type, ::java::lang::Object* value)
+void poi::hpsf::TypedPropertyValue::ctor(int32_t type, ::java::lang::Object* value)
 {
     super::ctor();
     _type = type;
     _value = value;
 }
 
-java::lang::Object* org::apache::poi::hpsf::TypedPropertyValue::getValue()
+java::lang::Object* poi::hpsf::TypedPropertyValue::getValue()
 {
     return _value;
 }
 
-void org::apache::poi::hpsf::TypedPropertyValue::read(::org::apache::poi::util::LittleEndianByteArrayInputStream* lei)
+void poi::hpsf::TypedPropertyValue::read(::poi::util::LittleEndianByteArrayInputStream* lei)
 {
     _type = npc(lei)->readShort();
     auto padding = npc(lei)->readShort();
     if(padding != 0) {
-        npc(LOG_)->log(::org::apache::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"TypedPropertyValue padding at offset "_j)->append(npc(lei)->getReadIndex())
+        npc(LOG_)->log(::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"TypedPropertyValue padding at offset "_j)->append(npc(lei)->getReadIndex())
             ->append(u" MUST be 0, but it's value is "_j)
             ->append(padding)->toString())}));
     }
     readValue(lei);
 }
 
-void org::apache::poi::hpsf::TypedPropertyValue::readValue(::org::apache::poi::util::LittleEndianByteArrayInputStream* lei)
+void poi::hpsf::TypedPropertyValue::readValue(::poi::util::LittleEndianByteArrayInputStream* lei)
 {
     {
         Currency* cur;
@@ -134,7 +134,7 @@ void org::apache::poi::hpsf::TypedPropertyValue::readValue(::org::apache::poi::u
             _value = ::java::lang::Long::valueOf(npc(lei)->readLong());
             break;
         case Variant::VT_UI8: {
-                auto biBytesLE = new ::int8_tArray(::org::apache::poi::util::LittleEndianConsts::LONG_SIZE);
+                auto biBytesLE = new ::int8_tArray(::poi::util::LittleEndianConsts::LONG_SIZE);
                 npc(lei)->readFully(biBytesLE);
                 auto biBytesBE = new ::int8_tArray(int32_t(9));
                 auto i = npc(biBytesLE)->length;
@@ -272,7 +272,7 @@ void org::apache::poi::hpsf::TypedPropertyValue::readValue(::org::apache::poi::u
 
 }
 
-void org::apache::poi::hpsf::TypedPropertyValue::skipPadding(::org::apache::poi::util::LittleEndianByteArrayInputStream* lei)
+void poi::hpsf::TypedPropertyValue::skipPadding(::poi::util::LittleEndianByteArrayInputStream* lei)
 {
     clinit();
     auto const offset = npc(lei)->getReadIndex();
@@ -289,20 +289,20 @@ void org::apache::poi::hpsf::TypedPropertyValue::skipPadding(::org::apache::poi:
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hpsf::TypedPropertyValue::class_()
+java::lang::Class* poi::hpsf::TypedPropertyValue::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hpsf.TypedPropertyValue", 38);
     return c;
 }
 
-void org::apache::poi::hpsf::TypedPropertyValue::clinit()
+void poi::hpsf::TypedPropertyValue::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        LOG_ = ::org::apache::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(TypedPropertyValue::class_()));
+        LOG_ = ::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(TypedPropertyValue::class_()));
     }
 };
 
@@ -311,7 +311,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::hpsf::TypedPropertyValue::getClass0()
+java::lang::Class* poi::hpsf::TypedPropertyValue::getClass0()
 {
     return class_();
 }

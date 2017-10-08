@@ -37,27 +37,27 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::sl::draw::DrawFreeformShape::DrawFreeformShape(const ::default_init_tag&)
+poi::sl::draw::DrawFreeformShape::DrawFreeformShape(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::draw::DrawFreeformShape::DrawFreeformShape(::org::apache::poi::sl::usermodel::FreeformShape* shape) 
+poi::sl::draw::DrawFreeformShape::DrawFreeformShape(::poi::sl::usermodel::FreeformShape* shape) 
     : DrawFreeformShape(*static_cast< ::default_init_tag* >(0))
 {
     ctor(shape);
 }
 
-void org::apache::poi::sl::draw::DrawFreeformShape::ctor(::org::apache::poi::sl::usermodel::FreeformShape* shape)
+void poi::sl::draw::DrawFreeformShape::ctor(::poi::sl::usermodel::FreeformShape* shape)
 {
     super::ctor(shape);
 }
 
-java::util::Collection* org::apache::poi::sl::draw::DrawFreeformShape::computeOutlines(::java::awt::Graphics2D* graphics)
+java::util::Collection* poi::sl::draw::DrawFreeformShape::computeOutlines(::java::awt::Graphics2D* graphics)
 {
     ::java::util::List* lst = new ::java::util::ArrayList();
-    auto fsh = java_cast< ::org::apache::poi::sl::usermodel::FreeformShape* >(getShape());
+    auto fsh = java_cast< ::poi::sl::usermodel::FreeformShape* >(getShape());
     ::java::awt::geom::Path2D* sh = npc(fsh)->getPath();
     auto tx = java_cast< ::java::awt::geom::AffineTransform* >(npc(graphics)->getRenderingHint(Drawable::GROUP_TRANSFORM()));
     if(tx == nullptr) {
@@ -66,25 +66,25 @@ java::util::Collection* org::apache::poi::sl::draw::DrawFreeformShape::computeOu
     auto canvasShape = npc(tx)->createTransformedShape(sh);
     auto fs = npc(fsh)->getFillStyle();
     auto ss = npc(fsh)->getStrokeStyle();
-    auto path = new ::org::apache::poi::sl::draw::geom::Path(fs != nullptr, ss != nullptr);
-    npc(lst)->add(static_cast< ::java::lang::Object* >(new ::org::apache::poi::sl::draw::geom::Outline(canvasShape, path)));
+    auto path = new ::poi::sl::draw::geom::Path(fs != nullptr, ss != nullptr);
+    npc(lst)->add(static_cast< ::java::lang::Object* >(new ::poi::sl::draw::geom::Outline(canvasShape, path)));
     return lst;
 }
 
-org::apache::poi::sl::usermodel::TextShape* org::apache::poi::sl::draw::DrawFreeformShape::getShape()
+poi::sl::usermodel::TextShape* poi::sl::draw::DrawFreeformShape::getShape()
 {
-    return java_cast< ::org::apache::poi::sl::usermodel::TextShape* >(shape);
+    return java_cast< ::poi::sl::usermodel::TextShape* >(shape);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::draw::DrawFreeformShape::class_()
+java::lang::Class* poi::sl::draw::DrawFreeformShape::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.draw.DrawFreeformShape", 40);
     return c;
 }
 
-java::lang::Class* org::apache::poi::sl::draw::DrawFreeformShape::getClass0()
+java::lang::Class* poi::sl::draw::DrawFreeformShape::getClass0()
 {
     return class_();
 }

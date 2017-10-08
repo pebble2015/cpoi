@@ -7,7 +7,7 @@
 #include <org/apache/poi/sl/usermodel/fwd-POI.hpp>
 #include <java/lang/Iterable.hpp>
 
-struct org::apache::poi::sl::usermodel::ShapeContainer
+struct poi::sl::usermodel::ShapeContainer
     : public virtual ::java::lang::Iterable
 {
     virtual ::java::util::List* getShapes() = 0;

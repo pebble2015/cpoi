@@ -7,7 +7,7 @@
 #include <org/apache/poi/wp/usermodel/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::wp::usermodel::CharacterRun
+struct poi::wp::usermodel::CharacterRun
     : public virtual ::java::lang::Object
 {
     virtual bool isBold() = 0;

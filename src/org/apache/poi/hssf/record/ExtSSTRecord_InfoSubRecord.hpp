@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::ExtSSTRecord_InfoSubRecord final
+class poi::hssf::record::ExtSSTRecord_InfoSubRecord final
     : public ::java::lang::Object
 {
 
@@ -28,7 +28,7 @@ protected:
 public:
     int32_t getStreamPos();
     int32_t getBucketSSTOffset();
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out);
+    void serialize(::poi::util::LittleEndianOutput* out);
 
     // Generated
     ExtSSTRecord_InfoSubRecord(int32_t streamPos, int32_t bucketSstOffset);

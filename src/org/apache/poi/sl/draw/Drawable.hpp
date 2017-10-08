@@ -7,7 +7,7 @@
 #include <org/apache/poi/sl/draw/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::sl::draw::Drawable
+struct poi::sl::draw::Drawable
     : public virtual ::java::lang::Object
 {
 

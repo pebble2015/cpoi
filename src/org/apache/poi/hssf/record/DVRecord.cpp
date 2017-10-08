@@ -25,25 +25,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -61,96 +55,96 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::DVRecord::DVRecord(const ::default_init_tag&)
+poi::hssf::record::DVRecord::DVRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::DVRecord::DVRecord(int32_t validationType, int32_t operator_, int32_t errorStyle, bool emptyCellAllowed, bool suppressDropDownArrow, bool isExplicitList, bool showPromptBox, ::java::lang::String* promptTitle, ::java::lang::String* promptText, bool showErrorBox, ::java::lang::String* errorTitle, ::java::lang::String* errorText, ::org::apache::poi::ss::formula::ptg::PtgArray* formula1, ::org::apache::poi::ss::formula::ptg::PtgArray* formula2, ::org::apache::poi::ss::util::CellRangeAddressList* regions) 
+poi::hssf::record::DVRecord::DVRecord(int32_t validationType, int32_t operator_, int32_t errorStyle, bool emptyCellAllowed, bool suppressDropDownArrow, bool isExplicitList, bool showPromptBox, ::java::lang::String* promptTitle, ::java::lang::String* promptText, bool showErrorBox, ::java::lang::String* errorTitle, ::java::lang::String* errorText, ::poi::ss::formula::ptg::PtgArray* formula1, ::poi::ss::formula::ptg::PtgArray* formula2, ::poi::ss::util::CellRangeAddressList* regions) 
     : DVRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(validationType,operator_,errorStyle,emptyCellAllowed,suppressDropDownArrow,isExplicitList,showPromptBox,promptTitle,promptText,showErrorBox,errorTitle,errorText,formula1,formula2,regions);
 }
 
-org::apache::poi::hssf::record::DVRecord::DVRecord(RecordInputStream* in) 
+poi::hssf::record::DVRecord::DVRecord(RecordInputStream* in) 
     : DVRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-void org::apache::poi::hssf::record::DVRecord::init()
+void poi::hssf::record::DVRecord::init()
 {
     _not_used_1 = int32_t(16352);
     _not_used_2 = int32_t(0);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::DVRecord::sid;
+constexpr int16_t poi::hssf::record::DVRecord::sid;
 
-org::apache::poi::hssf::record::common::UnicodeString*& org::apache::poi::hssf::record::DVRecord::NULL_TEXT_STRING()
+poi::hssf::record::common::UnicodeString*& poi::hssf::record::DVRecord::NULL_TEXT_STRING()
 {
     clinit();
     return NULL_TEXT_STRING_;
 }
-org::apache::poi::hssf::record::common::UnicodeString* org::apache::poi::hssf::record::DVRecord::NULL_TEXT_STRING_;
+poi::hssf::record::common::UnicodeString* poi::hssf::record::DVRecord::NULL_TEXT_STRING_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::DVRecord::opt_data_type()
+poi::util::BitField*& poi::hssf::record::DVRecord::opt_data_type()
 {
     clinit();
     return opt_data_type_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::DVRecord::opt_data_type_;
+poi::util::BitField* poi::hssf::record::DVRecord::opt_data_type_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::DVRecord::opt_error_style()
+poi::util::BitField*& poi::hssf::record::DVRecord::opt_error_style()
 {
     clinit();
     return opt_error_style_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::DVRecord::opt_error_style_;
+poi::util::BitField* poi::hssf::record::DVRecord::opt_error_style_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::DVRecord::opt_string_list_formula()
+poi::util::BitField*& poi::hssf::record::DVRecord::opt_string_list_formula()
 {
     clinit();
     return opt_string_list_formula_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::DVRecord::opt_string_list_formula_;
+poi::util::BitField* poi::hssf::record::DVRecord::opt_string_list_formula_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::DVRecord::opt_empty_cell_allowed()
+poi::util::BitField*& poi::hssf::record::DVRecord::opt_empty_cell_allowed()
 {
     clinit();
     return opt_empty_cell_allowed_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::DVRecord::opt_empty_cell_allowed_;
+poi::util::BitField* poi::hssf::record::DVRecord::opt_empty_cell_allowed_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::DVRecord::opt_suppress_dropdown_arrow()
+poi::util::BitField*& poi::hssf::record::DVRecord::opt_suppress_dropdown_arrow()
 {
     clinit();
     return opt_suppress_dropdown_arrow_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::DVRecord::opt_suppress_dropdown_arrow_;
+poi::util::BitField* poi::hssf::record::DVRecord::opt_suppress_dropdown_arrow_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::DVRecord::opt_show_prompt_on_cell_selected()
+poi::util::BitField*& poi::hssf::record::DVRecord::opt_show_prompt_on_cell_selected()
 {
     clinit();
     return opt_show_prompt_on_cell_selected_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::DVRecord::opt_show_prompt_on_cell_selected_;
+poi::util::BitField* poi::hssf::record::DVRecord::opt_show_prompt_on_cell_selected_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::DVRecord::opt_show_error_on_invalid_value()
+poi::util::BitField*& poi::hssf::record::DVRecord::opt_show_error_on_invalid_value()
 {
     clinit();
     return opt_show_error_on_invalid_value_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::DVRecord::opt_show_error_on_invalid_value_;
+poi::util::BitField* poi::hssf::record::DVRecord::opt_show_error_on_invalid_value_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::DVRecord::opt_condition_operator()
+poi::util::BitField*& poi::hssf::record::DVRecord::opt_condition_operator()
 {
     clinit();
     return opt_condition_operator_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::DVRecord::opt_condition_operator_;
+poi::util::BitField* poi::hssf::record::DVRecord::opt_condition_operator_;
 
-void org::apache::poi::hssf::record::DVRecord::ctor(int32_t validationType, int32_t operator_, int32_t errorStyle, bool emptyCellAllowed, bool suppressDropDownArrow, bool isExplicitList, bool showPromptBox, ::java::lang::String* promptTitle, ::java::lang::String* promptText, bool showErrorBox, ::java::lang::String* errorTitle, ::java::lang::String* errorText, ::org::apache::poi::ss::formula::ptg::PtgArray* formula1, ::org::apache::poi::ss::formula::ptg::PtgArray* formula2, ::org::apache::poi::ss::util::CellRangeAddressList* regions)
+void poi::hssf::record::DVRecord::ctor(int32_t validationType, int32_t operator_, int32_t errorStyle, bool emptyCellAllowed, bool suppressDropDownArrow, bool isExplicitList, bool showPromptBox, ::java::lang::String* promptTitle, ::java::lang::String* promptText, bool showErrorBox, ::java::lang::String* errorTitle, ::java::lang::String* errorText, ::poi::ss::formula::ptg::PtgArray* formula1, ::poi::ss::formula::ptg::PtgArray* formula2, ::poi::ss::util::CellRangeAddressList* regions)
 {
     super::ctor();
     init();
@@ -180,12 +174,12 @@ void org::apache::poi::hssf::record::DVRecord::ctor(int32_t validationType, int3
     _promptText = resolveTitleText(promptText);
     _errorTitle = resolveTitleText(errorTitle);
     _errorText = resolveTitleText(errorText);
-    _formula1 = ::org::apache::poi::ss::formula::Formula::create(formula1);
-    _formula2 = ::org::apache::poi::ss::formula::Formula::create(formula2);
+    _formula1 = ::poi::ss::formula::Formula::create(formula1);
+    _formula2 = ::poi::ss::formula::Formula::create(formula2);
     _regions = regions;
 }
 
-void org::apache::poi::hssf::record::DVRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::DVRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     init();
@@ -196,89 +190,89 @@ void org::apache::poi::hssf::record::DVRecord::ctor(RecordInputStream* in)
     _errorText = readUnicodeString(in);
     auto field_size_first_formula = npc(in)->readUShort();
     _not_used_1 = npc(in)->readShort();
-    _formula1 = ::org::apache::poi::ss::formula::Formula::read(field_size_first_formula, in);
+    _formula1 = ::poi::ss::formula::Formula::read(field_size_first_formula, in);
     auto field_size_sec_formula = npc(in)->readUShort();
     _not_used_2 = npc(in)->readShort();
-    _formula2 = ::org::apache::poi::ss::formula::Formula::read(field_size_sec_formula, in);
-    _regions = new ::org::apache::poi::ss::util::CellRangeAddressList(in);
+    _formula2 = ::poi::ss::formula::Formula::read(field_size_sec_formula, in);
+    _regions = new ::poi::ss::util::CellRangeAddressList(in);
 }
 
-int32_t org::apache::poi::hssf::record::DVRecord::getDataType()
+int32_t poi::hssf::record::DVRecord::getDataType()
 {
     return npc(opt_data_type_)->getValue(_option_flags);
 }
 
-int32_t org::apache::poi::hssf::record::DVRecord::getErrorStyle()
+int32_t poi::hssf::record::DVRecord::getErrorStyle()
 {
     return npc(opt_error_style_)->getValue(_option_flags);
 }
 
-bool org::apache::poi::hssf::record::DVRecord::getListExplicitFormula()
+bool poi::hssf::record::DVRecord::getListExplicitFormula()
 {
     return (npc(opt_string_list_formula_)->isSet(_option_flags));
 }
 
-bool org::apache::poi::hssf::record::DVRecord::getEmptyCellAllowed()
+bool poi::hssf::record::DVRecord::getEmptyCellAllowed()
 {
     return (npc(opt_empty_cell_allowed_)->isSet(_option_flags));
 }
 
-bool org::apache::poi::hssf::record::DVRecord::getSuppressDropdownArrow()
+bool poi::hssf::record::DVRecord::getSuppressDropdownArrow()
 {
     return (npc(opt_suppress_dropdown_arrow_)->isSet(_option_flags));
 }
 
-bool org::apache::poi::hssf::record::DVRecord::getShowPromptOnCellSelected()
+bool poi::hssf::record::DVRecord::getShowPromptOnCellSelected()
 {
     return (npc(opt_show_prompt_on_cell_selected_)->isSet(_option_flags));
 }
 
-bool org::apache::poi::hssf::record::DVRecord::getShowErrorOnInvalidValue()
+bool poi::hssf::record::DVRecord::getShowErrorOnInvalidValue()
 {
     return (npc(opt_show_error_on_invalid_value_)->isSet(_option_flags));
 }
 
-int32_t org::apache::poi::hssf::record::DVRecord::getConditionOperator()
+int32_t poi::hssf::record::DVRecord::getConditionOperator()
 {
     return npc(opt_condition_operator_)->getValue(_option_flags);
 }
 
-java::lang::String* org::apache::poi::hssf::record::DVRecord::getPromptTitle()
+java::lang::String* poi::hssf::record::DVRecord::getPromptTitle()
 {
     return resolveTitleString(_promptTitle);
 }
 
-java::lang::String* org::apache::poi::hssf::record::DVRecord::getErrorTitle()
+java::lang::String* poi::hssf::record::DVRecord::getErrorTitle()
 {
     return resolveTitleString(_errorTitle);
 }
 
-java::lang::String* org::apache::poi::hssf::record::DVRecord::getPromptText()
+java::lang::String* poi::hssf::record::DVRecord::getPromptText()
 {
     return resolveTitleString(_promptText);
 }
 
-java::lang::String* org::apache::poi::hssf::record::DVRecord::getErrorText()
+java::lang::String* poi::hssf::record::DVRecord::getErrorText()
 {
     return resolveTitleString(_errorText);
 }
 
-org::apache::poi::ss::formula::ptg::PtgArray* org::apache::poi::hssf::record::DVRecord::getFormula1()
+poi::ss::formula::ptg::PtgArray* poi::hssf::record::DVRecord::getFormula1()
 {
-    return ::org::apache::poi::ss::formula::Formula::getTokens(_formula1);
+    return ::poi::ss::formula::Formula::getTokens(_formula1);
 }
 
-org::apache::poi::ss::formula::ptg::PtgArray* org::apache::poi::hssf::record::DVRecord::getFormula2()
+poi::ss::formula::ptg::PtgArray* poi::hssf::record::DVRecord::getFormula2()
 {
-    return ::org::apache::poi::ss::formula::Formula::getTokens(_formula2);
+    return ::poi::ss::formula::Formula::getTokens(_formula2);
 }
 
-org::apache::poi::ss::util::CellRangeAddressList* org::apache::poi::hssf::record::DVRecord::getCellRangeAddress()
+poi::ss::util::CellRangeAddressList* poi::hssf::record::DVRecord::getCellRangeAddress()
 {
     return this->_regions;
 }
 
-java::lang::String* org::apache::poi::hssf::record::DVRecord::toString()
+java::lang::String* poi::hssf::record::DVRecord::toString()
 {
     auto sb = new ::java::lang::StringBuffer();
     npc(sb)->append(u"[DV]\n"_j);
@@ -305,7 +299,7 @@ java::lang::String* org::apache::poi::hssf::record::DVRecord::toString()
     return npc(sb)->toString();
 }
 
-java::lang::String* org::apache::poi::hssf::record::DVRecord::formatTextTitle(::org::apache::poi::hssf::record::common::UnicodeString* us)
+java::lang::String* poi::hssf::record::DVRecord::formatTextTitle(::poi::hssf::record::common::UnicodeString* us)
 {
     clinit();
     auto str = npc(us)->getString();
@@ -315,7 +309,7 @@ java::lang::String* org::apache::poi::hssf::record::DVRecord::formatTextTitle(::
     return str;
 }
 
-void org::apache::poi::hssf::record::DVRecord::appendFormula(::java::lang::StringBuffer* sb, ::java::lang::String* label, ::org::apache::poi::ss::formula::Formula* f)
+void poi::hssf::record::DVRecord::appendFormula(::java::lang::StringBuffer* sb, ::java::lang::String* label, ::poi::ss::formula::Formula* f)
 {
     clinit();
     npc(sb)->append(label);
@@ -330,7 +324,7 @@ void org::apache::poi::hssf::record::DVRecord::appendFormula(::java::lang::Strin
     }
 }
 
-void org::apache::poi::hssf::record::DVRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::DVRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeInt(_option_flags);
     serializeUnicodeString(_promptTitle, out);
@@ -346,16 +340,16 @@ void org::apache::poi::hssf::record::DVRecord::serialize(::org::apache::poi::uti
     npc(_regions)->serialize(out);
 }
 
-org::apache::poi::hssf::record::common::UnicodeString* org::apache::poi::hssf::record::DVRecord::resolveTitleText(::java::lang::String* str)
+poi::hssf::record::common::UnicodeString* poi::hssf::record::DVRecord::resolveTitleText(::java::lang::String* str)
 {
     clinit();
     if(str == nullptr || npc(str)->length() < 1) {
         return NULL_TEXT_STRING_;
     }
-    return new ::org::apache::poi::hssf::record::common::UnicodeString(str);
+    return new ::poi::hssf::record::common::UnicodeString(str);
 }
 
-java::lang::String* org::apache::poi::hssf::record::DVRecord::resolveTitleString(::org::apache::poi::hssf::record::common::UnicodeString* us)
+java::lang::String* poi::hssf::record::DVRecord::resolveTitleString(::poi::hssf::record::common::UnicodeString* us)
 {
     clinit();
     if(us == nullptr || npc(us)->equals(static_cast< ::java::lang::Object* >(NULL_TEXT_STRING_))) {
@@ -364,26 +358,26 @@ java::lang::String* org::apache::poi::hssf::record::DVRecord::resolveTitleString
     return npc(us)->getString();
 }
 
-org::apache::poi::hssf::record::common::UnicodeString* org::apache::poi::hssf::record::DVRecord::readUnicodeString(RecordInputStream* in)
+poi::hssf::record::common::UnicodeString* poi::hssf::record::DVRecord::readUnicodeString(RecordInputStream* in)
 {
     clinit();
-    return new ::org::apache::poi::hssf::record::common::UnicodeString(in);
+    return new ::poi::hssf::record::common::UnicodeString(in);
 }
 
-void org::apache::poi::hssf::record::DVRecord::serializeUnicodeString(::org::apache::poi::hssf::record::common::UnicodeString* us, ::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::DVRecord::serializeUnicodeString(::poi::hssf::record::common::UnicodeString* us, ::poi::util::LittleEndianOutput* out)
 {
     clinit();
-    ::org::apache::poi::util::StringUtil::writeUnicodeString(out, npc(us)->getString());
+    ::poi::util::StringUtil::writeUnicodeString(out, npc(us)->getString());
 }
 
-int32_t org::apache::poi::hssf::record::DVRecord::getUnicodeStringSize(::org::apache::poi::hssf::record::common::UnicodeString* us)
+int32_t poi::hssf::record::DVRecord::getUnicodeStringSize(::poi::hssf::record::common::UnicodeString* us)
 {
     clinit();
     auto str = npc(us)->getString();
-    return int32_t(3) + npc(str)->length() * (::org::apache::poi::util::StringUtil::hasMultibyte(str) ? int32_t(2) : int32_t(1));
+    return int32_t(3) + npc(str)->length() * (::poi::util::StringUtil::hasMultibyte(str) ? int32_t(2) : int32_t(1));
 }
 
-int32_t org::apache::poi::hssf::record::DVRecord::getDataSize()
+int32_t poi::hssf::record::DVRecord::getDataSize()
 {
     auto size = int32_t(4) + int32_t(2) + int32_t(2)+ int32_t(2)+ int32_t(2);
     size += getUnicodeStringSize(_promptTitle);
@@ -396,40 +390,40 @@ int32_t org::apache::poi::hssf::record::DVRecord::getDataSize()
     return size;
 }
 
-int16_t org::apache::poi::hssf::record::DVRecord::getSid()
+int16_t poi::hssf::record::DVRecord::getSid()
 {
     return sid;
 }
 
-org::apache::poi::hssf::record::DVRecord* org::apache::poi::hssf::record::DVRecord::clone()
+poi::hssf::record::DVRecord* poi::hssf::record::DVRecord::clone()
 {
     return java_cast< DVRecord* >(cloneViaReserialise());
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::DVRecord::class_()
+java::lang::Class* poi::hssf::record::DVRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.DVRecord", 35);
     return c;
 }
 
-void org::apache::poi::hssf::record::DVRecord::clinit()
+void poi::hssf::record::DVRecord::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        NULL_TEXT_STRING_ = new ::org::apache::poi::hssf::record::common::UnicodeString(u"\0"_j);
-        opt_data_type_ = new ::org::apache::poi::util::BitField(int32_t(15));
-        opt_error_style_ = new ::org::apache::poi::util::BitField(int32_t(112));
-        opt_string_list_formula_ = new ::org::apache::poi::util::BitField(int32_t(128));
-        opt_empty_cell_allowed_ = new ::org::apache::poi::util::BitField(int32_t(256));
-        opt_suppress_dropdown_arrow_ = new ::org::apache::poi::util::BitField(int32_t(512));
-        opt_show_prompt_on_cell_selected_ = new ::org::apache::poi::util::BitField(int32_t(262144));
-        opt_show_error_on_invalid_value_ = new ::org::apache::poi::util::BitField(int32_t(524288));
-        opt_condition_operator_ = new ::org::apache::poi::util::BitField(int32_t(7340032));
+        NULL_TEXT_STRING_ = new ::poi::hssf::record::common::UnicodeString(u"\0"_j);
+        opt_data_type_ = new ::poi::util::BitField(int32_t(15));
+        opt_error_style_ = new ::poi::util::BitField(int32_t(112));
+        opt_string_list_formula_ = new ::poi::util::BitField(int32_t(128));
+        opt_empty_cell_allowed_ = new ::poi::util::BitField(int32_t(256));
+        opt_suppress_dropdown_arrow_ = new ::poi::util::BitField(int32_t(512));
+        opt_show_prompt_on_cell_selected_ = new ::poi::util::BitField(int32_t(262144));
+        opt_show_error_on_invalid_value_ = new ::poi::util::BitField(int32_t(524288));
+        opt_condition_operator_ = new ::poi::util::BitField(int32_t(7340032));
     }
 };
 
@@ -438,17 +432,17 @@ struct clinit_ {
     }
 }
 
-int32_t org::apache::poi::hssf::record::DVRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::DVRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::DVRecord::serialize()
+int8_tArray* poi::hssf::record::DVRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::DVRecord::getClass0()
+java::lang::Class* poi::hssf::record::DVRecord::getClass0()
 {
     return class_();
 }

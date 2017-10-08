@@ -25,46 +25,40 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace ss
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::ClientAnchor_AnchorType, ::java::lang::EnumArray > ClientAnchor_AnchorTypeArray;
-                } // usermodel
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::usermodel::ClientAnchor_AnchorType, ::java::lang::EnumArray > ClientAnchor_AnchorTypeArray;
+        } // usermodel
+    } // ss
+} // poi
 
-org::apache::poi::ss::usermodel::ClientAnchor_AnchorType::ClientAnchor_AnchorType(const ::default_init_tag&)
+poi::ss::usermodel::ClientAnchor_AnchorType::ClientAnchor_AnchorType(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::usermodel::ClientAnchor_AnchorType::ClientAnchor_AnchorType(::java::lang::String* name, int ordinal, int32_t value) 
+poi::ss::usermodel::ClientAnchor_AnchorType::ClientAnchor_AnchorType(::java::lang::String* name, int ordinal, int32_t value) 
     : ClientAnchor_AnchorType(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal, value);
 }
 
-org::apache::poi::ss::usermodel::ClientAnchor_AnchorType* org::apache::poi::ss::usermodel::ClientAnchor_AnchorType::MOVE_AND_RESIZE = new ::org::apache::poi::ss::usermodel::ClientAnchor_AnchorType(u"MOVE_AND_RESIZE"_j, 0, int32_t(0));
-org::apache::poi::ss::usermodel::ClientAnchor_AnchorType* org::apache::poi::ss::usermodel::ClientAnchor_AnchorType::DONT_MOVE_DO_RESIZE = new ::org::apache::poi::ss::usermodel::ClientAnchor_AnchorType(u"DONT_MOVE_DO_RESIZE"_j, 1, int32_t(1));
-org::apache::poi::ss::usermodel::ClientAnchor_AnchorType* org::apache::poi::ss::usermodel::ClientAnchor_AnchorType::MOVE_DONT_RESIZE = new ::org::apache::poi::ss::usermodel::ClientAnchor_AnchorType(u"MOVE_DONT_RESIZE"_j, 2, int32_t(2));
-org::apache::poi::ss::usermodel::ClientAnchor_AnchorType* org::apache::poi::ss::usermodel::ClientAnchor_AnchorType::DONT_MOVE_AND_RESIZE = new ::org::apache::poi::ss::usermodel::ClientAnchor_AnchorType(u"DONT_MOVE_AND_RESIZE"_j, 3, int32_t(3));
-void org::apache::poi::ss::usermodel::ClientAnchor_AnchorType::ctor(::java::lang::String* name, int ordinal, int32_t value)
+poi::ss::usermodel::ClientAnchor_AnchorType* poi::ss::usermodel::ClientAnchor_AnchorType::MOVE_AND_RESIZE = new ::poi::ss::usermodel::ClientAnchor_AnchorType(u"MOVE_AND_RESIZE"_j, 0, int32_t(0));
+poi::ss::usermodel::ClientAnchor_AnchorType* poi::ss::usermodel::ClientAnchor_AnchorType::DONT_MOVE_DO_RESIZE = new ::poi::ss::usermodel::ClientAnchor_AnchorType(u"DONT_MOVE_DO_RESIZE"_j, 1, int32_t(1));
+poi::ss::usermodel::ClientAnchor_AnchorType* poi::ss::usermodel::ClientAnchor_AnchorType::MOVE_DONT_RESIZE = new ::poi::ss::usermodel::ClientAnchor_AnchorType(u"MOVE_DONT_RESIZE"_j, 2, int32_t(2));
+poi::ss::usermodel::ClientAnchor_AnchorType* poi::ss::usermodel::ClientAnchor_AnchorType::DONT_MOVE_AND_RESIZE = new ::poi::ss::usermodel::ClientAnchor_AnchorType(u"DONT_MOVE_AND_RESIZE"_j, 3, int32_t(3));
+void poi::ss::usermodel::ClientAnchor_AnchorType::ctor(::java::lang::String* name, int ordinal, int32_t value)
 {
     super::ctor(name, ordinal);
     this->value = static_cast< int16_t >(value);
 }
 
-org::apache::poi::ss::usermodel::ClientAnchor_AnchorType* org::apache::poi::ss::usermodel::ClientAnchor_AnchorType::byId(int32_t value)
+poi::ss::usermodel::ClientAnchor_AnchorType* poi::ss::usermodel::ClientAnchor_AnchorType::byId(int32_t value)
 {
     clinit();
     return (*values())[value];
@@ -72,13 +66,13 @@ org::apache::poi::ss::usermodel::ClientAnchor_AnchorType* org::apache::poi::ss::
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::usermodel::ClientAnchor_AnchorType::class_()
+java::lang::Class* poi::ss::usermodel::ClientAnchor_AnchorType::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.usermodel.ClientAnchor.AnchorType", 51);
     return c;
 }
 
-org::apache::poi::ss::usermodel::ClientAnchor_AnchorType* org::apache::poi::ss::usermodel::ClientAnchor_AnchorType::valueOf(::java::lang::String* a0)
+poi::ss::usermodel::ClientAnchor_AnchorType* poi::ss::usermodel::ClientAnchor_AnchorType::valueOf(::java::lang::String* a0)
 {
     if(DONT_MOVE_AND_RESIZE->toString()->equals(a0))
         return DONT_MOVE_AND_RESIZE;
@@ -91,9 +85,9 @@ org::apache::poi::ss::usermodel::ClientAnchor_AnchorType* org::apache::poi::ss::
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::ss::usermodel::ClientAnchor_AnchorTypeArray* org::apache::poi::ss::usermodel::ClientAnchor_AnchorType::values()
+poi::ss::usermodel::ClientAnchor_AnchorTypeArray* poi::ss::usermodel::ClientAnchor_AnchorType::values()
 {
-    return new org::apache::poi::ss::usermodel::ClientAnchor_AnchorTypeArray({
+    return new poi::ss::usermodel::ClientAnchor_AnchorTypeArray({
         DONT_MOVE_AND_RESIZE,
         DONT_MOVE_DO_RESIZE,
         MOVE_AND_RESIZE,
@@ -101,7 +95,7 @@ org::apache::poi::ss::usermodel::ClientAnchor_AnchorTypeArray* org::apache::poi:
     });
 }
 
-java::lang::Class* org::apache::poi::ss::usermodel::ClientAnchor_AnchorType::getClass0()
+java::lang::Class* poi::ss::usermodel::ClientAnchor_AnchorType::getClass0()
 {
     return class_();
 }

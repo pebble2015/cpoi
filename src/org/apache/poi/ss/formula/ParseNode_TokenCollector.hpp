@@ -9,29 +9,23 @@
 #include <java/lang/Object.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::ParseNode_TokenCollector final
+class poi::ss::formula::ParseNode_TokenCollector final
     : public ::java::lang::Object
 {
 
@@ -39,7 +33,7 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    ::org::apache::poi::ss::formula::ptg::PtgArray* _ptgs {  };
+    ::poi::ss::formula::ptg::PtgArray* _ptgs {  };
     int32_t _offset {  };
 protected:
     void ctor(int32_t tokenCount);
@@ -47,9 +41,9 @@ protected:
 public:
     int32_t sumTokenSizes(int32_t fromIx, int32_t toIx);
     int32_t createPlaceholder();
-    void add(::org::apache::poi::ss::formula::ptg::Ptg* token);
-    void setPlaceholder(int32_t index, ::org::apache::poi::ss::formula::ptg::Ptg* token);
-    ::org::apache::poi::ss::formula::ptg::PtgArray* getResult();
+    void add(::poi::ss::formula::ptg::Ptg* token);
+    void setPlaceholder(int32_t index, ::poi::ss::formula::ptg::Ptg* token);
+    ::poi::ss::formula::ptg::PtgArray* getResult();
 
     // Generated
     ParseNode_TokenCollector(int32_t tokenCount);

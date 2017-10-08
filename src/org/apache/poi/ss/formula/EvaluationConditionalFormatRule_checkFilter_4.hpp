@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::EvaluationConditionalFormatRule_checkFilter_4
+class poi::ss::formula::EvaluationConditionalFormatRule_checkFilter_4
     : public virtual ::java::lang::Object
     , public virtual EvaluationConditionalFormatRule_ValueFunction
 {

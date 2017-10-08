@@ -9,46 +9,40 @@
 #include <org/apache/poi/ss/formula/functions/Fixed2ArgFunction.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::Countif final
+class poi::ss::formula::functions::Countif final
     : public Fixed2ArgFunction
 {
 
 public:
     typedef Fixed2ArgFunction super;
-    ::org::apache::poi::ss::formula::eval::ValueEval* evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* arg0, ::org::apache::poi::ss::formula::eval::ValueEval* arg1) override;
+    ::poi::ss::formula::eval::ValueEval* evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::poi::ss::formula::eval::ValueEval* arg0, ::poi::ss::formula::eval::ValueEval* arg1) override;
 
 private:
-    double countMatchingCellsInArea(::org::apache::poi::ss::formula::eval::ValueEval* rangeArg, CountUtils_I_MatchPredicate* criteriaPredicate);
+    double countMatchingCellsInArea(::poi::ss::formula::eval::ValueEval* rangeArg, CountUtils_I_MatchPredicate* criteriaPredicate);
 
 public: /* package */
-    static CountUtils_I_MatchPredicate* createCriteriaPredicate(::org::apache::poi::ss::formula::eval::ValueEval* arg, int32_t srcRowIndex, int32_t srcColumnIndex);
+    static CountUtils_I_MatchPredicate* createCriteriaPredicate(::poi::ss::formula::eval::ValueEval* arg, int32_t srcRowIndex, int32_t srcColumnIndex);
 
 private:
-    static ::org::apache::poi::ss::formula::eval::ValueEval* evaluateCriteriaArg(::org::apache::poi::ss::formula::eval::ValueEval* arg, int32_t srcRowIndex, int32_t srcColumnIndex);
-    static CountUtils_I_MatchPredicate* createGeneralMatchPredicate(::org::apache::poi::ss::formula::eval::StringEval* stringEval);
-    static ::org::apache::poi::ss::formula::eval::ErrorEval* parseError(::java::lang::String* value);
+    static ::poi::ss::formula::eval::ValueEval* evaluateCriteriaArg(::poi::ss::formula::eval::ValueEval* arg, int32_t srcRowIndex, int32_t srcColumnIndex);
+    static CountUtils_I_MatchPredicate* createGeneralMatchPredicate(::poi::ss::formula::eval::StringEval* stringEval);
+    static ::poi::ss::formula::eval::ErrorEval* parseError(::java::lang::String* value);
 
 public: /* package */
     static ::java::lang::Boolean* parseBoolean(::java::lang::String* strRep);
@@ -63,7 +57,7 @@ protected:
 
 public:
     static ::java::lang::Class *class_();
-    ::org::apache::poi::ss::formula::eval::ValueEval* evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex);
+    ::poi::ss::formula::eval::ValueEval* evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex);
 
 private:
     virtual ::java::lang::Class* getClass0();

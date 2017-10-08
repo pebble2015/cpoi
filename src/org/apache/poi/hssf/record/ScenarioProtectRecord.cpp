@@ -15,38 +15,38 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::ScenarioProtectRecord::ScenarioProtectRecord(const ::default_init_tag&)
+poi::hssf::record::ScenarioProtectRecord::ScenarioProtectRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::ScenarioProtectRecord::ScenarioProtectRecord() 
+poi::hssf::record::ScenarioProtectRecord::ScenarioProtectRecord() 
     : ScenarioProtectRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::ScenarioProtectRecord::ScenarioProtectRecord(RecordInputStream* in) 
+poi::hssf::record::ScenarioProtectRecord::ScenarioProtectRecord(RecordInputStream* in) 
     : ScenarioProtectRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::ScenarioProtectRecord::sid;
+constexpr int16_t poi::hssf::record::ScenarioProtectRecord::sid;
 
-void org::apache::poi::hssf::record::ScenarioProtectRecord::ctor()
+void poi::hssf::record::ScenarioProtectRecord::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hssf::record::ScenarioProtectRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::ScenarioProtectRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     field_1_protect = npc(in)->readShort();
 }
 
-void org::apache::poi::hssf::record::ScenarioProtectRecord::setProtect(bool protect)
+void poi::hssf::record::ScenarioProtectRecord::setProtect(bool protect)
 {
     if(protect) {
         field_1_protect = 1;
@@ -55,12 +55,12 @@ void org::apache::poi::hssf::record::ScenarioProtectRecord::setProtect(bool prot
     }
 }
 
-bool org::apache::poi::hssf::record::ScenarioProtectRecord::getProtect()
+bool poi::hssf::record::ScenarioProtectRecord::getProtect()
 {
     return (field_1_protect == 1);
 }
 
-java::lang::String* org::apache::poi::hssf::record::ScenarioProtectRecord::toString()
+java::lang::String* poi::hssf::record::ScenarioProtectRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[SCENARIOPROTECT]\n"_j);
@@ -69,22 +69,22 @@ java::lang::String* org::apache::poi::hssf::record::ScenarioProtectRecord::toStr
     return npc(buffer)->toString();
 }
 
-void org::apache::poi::hssf::record::ScenarioProtectRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::ScenarioProtectRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(field_1_protect);
 }
 
-int32_t org::apache::poi::hssf::record::ScenarioProtectRecord::getDataSize()
+int32_t poi::hssf::record::ScenarioProtectRecord::getDataSize()
 {
     return 2;
 }
 
-int16_t org::apache::poi::hssf::record::ScenarioProtectRecord::getSid()
+int16_t poi::hssf::record::ScenarioProtectRecord::getSid()
 {
     return sid;
 }
 
-java::lang::Object* org::apache::poi::hssf::record::ScenarioProtectRecord::clone()
+java::lang::Object* poi::hssf::record::ScenarioProtectRecord::clone()
 {
     auto rec = new ScenarioProtectRecord();
     npc(rec)->field_1_protect = field_1_protect;
@@ -93,23 +93,23 @@ java::lang::Object* org::apache::poi::hssf::record::ScenarioProtectRecord::clone
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::ScenarioProtectRecord::class_()
+java::lang::Class* poi::hssf::record::ScenarioProtectRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.ScenarioProtectRecord", 48);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::ScenarioProtectRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::ScenarioProtectRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::ScenarioProtectRecord::serialize()
+int8_tArray* poi::hssf::record::ScenarioProtectRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::ScenarioProtectRecord::getClass0()
+java::lang::Class* poi::hssf::record::ScenarioProtectRecord::getClass0()
 {
     return class_();
 }

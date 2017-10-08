@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::CFRuleBase_ComparisonOperator final
+class poi::hssf::record::CFRuleBase_ComparisonOperator final
     : public ::java::lang::Object
 {
 

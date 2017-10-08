@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::eventusermodel::MissingRecordAwareHSSFListener final
+class poi::hssf::eventusermodel::MissingRecordAwareHSSFListener final
     : public virtual ::java::lang::Object
     , public HSSFListener
 {
@@ -27,7 +27,7 @@ protected:
     void ctor(HSSFListener* listener);
 
 public:
-    void processRecord(::org::apache::poi::hssf::record::Record* record) override;
+    void processRecord(::poi::hssf::record::Record* record) override;
 
 private:
     void resetCounts();

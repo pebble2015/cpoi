@@ -6,7 +6,7 @@
 #include <org/apache/poi/sl/usermodel/fwd-POI.hpp>
 #include <org/apache/poi/sl/usermodel/Sheet.hpp>
 
-struct org::apache::poi::sl::usermodel::Notes
+struct poi::sl::usermodel::Notes
     : public virtual Sheet
 {
     virtual ::java::util::List* getTextParagraphs() = 0;

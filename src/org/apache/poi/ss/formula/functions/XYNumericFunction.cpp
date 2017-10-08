@@ -17,25 +17,19 @@
 #include <org/apache/poi/ss/formula/functions/XYNumericFunction_SingleCellValueArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -53,19 +47,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::XYNumericFunction::XYNumericFunction(const ::default_init_tag&)
+poi::ss::formula::functions::XYNumericFunction::XYNumericFunction(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::XYNumericFunction::XYNumericFunction()
+poi::ss::formula::functions::XYNumericFunction::XYNumericFunction()
     : XYNumericFunction(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::XYNumericFunction::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* arg0, ::org::apache::poi::ss::formula::eval::ValueEval* arg1)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::XYNumericFunction::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::poi::ss::formula::eval::ValueEval* arg0, ::poi::ss::formula::eval::ValueEval* arg1)
 {
     double result;
     try {
@@ -73,89 +67,89 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::f
         auto vvY = createValueVector(arg1);
         auto size = npc(vvX)->getSize();
         if(size == 0 || npc(vvY)->getSize() != size) {
-            return ::org::apache::poi::ss::formula::eval::ErrorEval::NA();
+            return ::poi::ss::formula::eval::ErrorEval::NA();
         }
         result = evaluateInternal(vvX, vvY, size);
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
         return npc(e)->getErrorEval();
     }
     if(::java::lang::Double::isNaN(result) || ::java::lang::Double::isInfinite(result)) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::NUM_ERROR();
+        return ::poi::ss::formula::eval::ErrorEval::NUM_ERROR();
     }
-    return new ::org::apache::poi::ss::formula::eval::NumberEval(result);
+    return new ::poi::ss::formula::eval::NumberEval(result);
 }
 
-double org::apache::poi::ss::formula::functions::XYNumericFunction::evaluateInternal(LookupUtils_ValueVector* x, LookupUtils_ValueVector* y, int32_t size) /* throws(EvaluationException) */
+double poi::ss::formula::functions::XYNumericFunction::evaluateInternal(LookupUtils_ValueVector* x, LookupUtils_ValueVector* y, int32_t size) /* throws(EvaluationException) */
 {
     auto acc = createAccumulator();
-    ::org::apache::poi::ss::formula::eval::ErrorEval* firstXerr = nullptr;
-    ::org::apache::poi::ss::formula::eval::ErrorEval* firstYerr = nullptr;
+    ::poi::ss::formula::eval::ErrorEval* firstXerr = nullptr;
+    ::poi::ss::formula::eval::ErrorEval* firstYerr = nullptr;
     auto accumlatedSome = false;
     auto result = 0.0;
     for (auto i = int32_t(0); i < size; i++) {
         auto vx = npc(x)->getItem(i);
         auto vy = npc(y)->getItem(i);
-        if(dynamic_cast< ::org::apache::poi::ss::formula::eval::ErrorEval* >(vx) != nullptr) {
+        if(dynamic_cast< ::poi::ss::formula::eval::ErrorEval* >(vx) != nullptr) {
             if(firstXerr == nullptr) {
-                firstXerr = java_cast< ::org::apache::poi::ss::formula::eval::ErrorEval* >(vx);
+                firstXerr = java_cast< ::poi::ss::formula::eval::ErrorEval* >(vx);
                 continue;
             }
         }
-        if(dynamic_cast< ::org::apache::poi::ss::formula::eval::ErrorEval* >(vy) != nullptr) {
+        if(dynamic_cast< ::poi::ss::formula::eval::ErrorEval* >(vy) != nullptr) {
             if(firstYerr == nullptr) {
-                firstYerr = java_cast< ::org::apache::poi::ss::formula::eval::ErrorEval* >(vy);
+                firstYerr = java_cast< ::poi::ss::formula::eval::ErrorEval* >(vy);
                 continue;
             }
         }
-        if(dynamic_cast< ::org::apache::poi::ss::formula::eval::NumberEval* >(vx) != nullptr && dynamic_cast< ::org::apache::poi::ss::formula::eval::NumberEval* >(vy) != nullptr) {
+        if(dynamic_cast< ::poi::ss::formula::eval::NumberEval* >(vx) != nullptr && dynamic_cast< ::poi::ss::formula::eval::NumberEval* >(vy) != nullptr) {
             accumlatedSome = true;
-            auto nx = java_cast< ::org::apache::poi::ss::formula::eval::NumberEval* >(vx);
-            auto ny = java_cast< ::org::apache::poi::ss::formula::eval::NumberEval* >(vy);
+            auto nx = java_cast< ::poi::ss::formula::eval::NumberEval* >(vx);
+            auto ny = java_cast< ::poi::ss::formula::eval::NumberEval* >(vy);
             result += npc(acc)->accumulate(npc(nx)->getNumberValue(), npc(ny)->getNumberValue());
         } else {
         }
     }
     if(firstXerr != nullptr) {
-        throw new ::org::apache::poi::ss::formula::eval::EvaluationException(firstXerr);
+        throw new ::poi::ss::formula::eval::EvaluationException(firstXerr);
     }
     if(firstYerr != nullptr) {
-        throw new ::org::apache::poi::ss::formula::eval::EvaluationException(firstYerr);
+        throw new ::poi::ss::formula::eval::EvaluationException(firstYerr);
     }
     if(!accumlatedSome) {
-        throw new ::org::apache::poi::ss::formula::eval::EvaluationException(::org::apache::poi::ss::formula::eval::ErrorEval::DIV_ZERO());
+        throw new ::poi::ss::formula::eval::EvaluationException(::poi::ss::formula::eval::ErrorEval::DIV_ZERO());
     }
     return result;
 }
 
-org::apache::poi::ss::formula::functions::LookupUtils_ValueVector* org::apache::poi::ss::formula::functions::XYNumericFunction::createValueVector(::org::apache::poi::ss::formula::eval::ValueEval* arg) /* throws(EvaluationException) */
+poi::ss::formula::functions::LookupUtils_ValueVector* poi::ss::formula::functions::XYNumericFunction::createValueVector(::poi::ss::formula::eval::ValueEval* arg) /* throws(EvaluationException) */
 {
     clinit();
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::ErrorEval* >(arg) != nullptr) {
-        throw new ::org::apache::poi::ss::formula::eval::EvaluationException(java_cast< ::org::apache::poi::ss::formula::eval::ErrorEval* >(arg));
+    if(dynamic_cast< ::poi::ss::formula::eval::ErrorEval* >(arg) != nullptr) {
+        throw new ::poi::ss::formula::eval::EvaluationException(java_cast< ::poi::ss::formula::eval::ErrorEval* >(arg));
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::TwoDEval* >(arg) != nullptr) {
-        return new XYNumericFunction_AreaValueArray(java_cast< ::org::apache::poi::ss::formula::TwoDEval* >(arg));
+    if(dynamic_cast< ::poi::ss::formula::TwoDEval* >(arg) != nullptr) {
+        return new XYNumericFunction_AreaValueArray(java_cast< ::poi::ss::formula::TwoDEval* >(arg));
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::RefEval* >(arg) != nullptr) {
-        return new XYNumericFunction_RefValueArray(java_cast< ::org::apache::poi::ss::formula::eval::RefEval* >(arg));
+    if(dynamic_cast< ::poi::ss::formula::eval::RefEval* >(arg) != nullptr) {
+        return new XYNumericFunction_RefValueArray(java_cast< ::poi::ss::formula::eval::RefEval* >(arg));
     }
     return new XYNumericFunction_SingleCellValueArray(arg);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::XYNumericFunction::class_()
+java::lang::Class* poi::ss::formula::functions::XYNumericFunction::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.XYNumericFunction", 53);
     return c;
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::XYNumericFunction::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::XYNumericFunction::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
 {
     return super::evaluate(args, srcRowIndex, srcColumnIndex);
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::XYNumericFunction::getClass0()
+java::lang::Class* poi::ss::formula::functions::XYNumericFunction::getClass0()
 {
     return class_();
 }

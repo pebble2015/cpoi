@@ -38,35 +38,35 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::usermodel::FractionFormat::FractionFormat(const ::default_init_tag&)
+poi::ss::usermodel::FractionFormat::FractionFormat(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::usermodel::FractionFormat::FractionFormat(::java::lang::String* wholePartFormatString, ::java::lang::String* denomFormatString) 
+poi::ss::usermodel::FractionFormat::FractionFormat(::java::lang::String* wholePartFormatString, ::java::lang::String* denomFormatString) 
     : FractionFormat(*static_cast< ::default_init_tag* >(0))
 {
     ctor(wholePartFormatString,denomFormatString);
 }
 
-org::apache::poi::util::POILogger*& org::apache::poi::ss::usermodel::FractionFormat::LOGGER()
+poi::util::POILogger*& poi::ss::usermodel::FractionFormat::LOGGER()
 {
     clinit();
     return LOGGER_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::ss::usermodel::FractionFormat::LOGGER_;
+poi::util::POILogger* poi::ss::usermodel::FractionFormat::LOGGER_;
 
-java::util::regex::Pattern*& org::apache::poi::ss::usermodel::FractionFormat::DENOM_FORMAT_PATTERN()
+java::util::regex::Pattern*& poi::ss::usermodel::FractionFormat::DENOM_FORMAT_PATTERN()
 {
     clinit();
     return DENOM_FORMAT_PATTERN_;
 }
-java::util::regex::Pattern* org::apache::poi::ss::usermodel::FractionFormat::DENOM_FORMAT_PATTERN_;
+java::util::regex::Pattern* poi::ss::usermodel::FractionFormat::DENOM_FORMAT_PATTERN_;
 
-constexpr int32_t org::apache::poi::ss::usermodel::FractionFormat::MAX_DENOM_POW;
+constexpr int32_t poi::ss::usermodel::FractionFormat::MAX_DENOM_POW;
 
-void org::apache::poi::ss::usermodel::FractionFormat::ctor(::java::lang::String* wholePartFormatString, ::java::lang::String* denomFormatString)
+void poi::ss::usermodel::FractionFormat::ctor(::java::lang::String* wholePartFormatString, ::java::lang::String* denomFormatString)
 {
     super::ctor();
     this->wholePartFormatString = wholePartFormatString;
@@ -97,7 +97,7 @@ void org::apache::poi::ss::usermodel::FractionFormat::ctor(::java::lang::String*
     maxDenom = tmpMax;
 }
 
-java::lang::String* org::apache::poi::ss::usermodel::FractionFormat::format(::java::lang::Number* num)
+java::lang::String* poi::ss::usermodel::FractionFormat::format(::java::lang::Number* num)
 {
     auto const doubleValue = npc(num)->doubleValue();
     auto const isNeg = (doubleValue < 0.0f) ? true : false;
@@ -115,15 +115,15 @@ java::lang::String* org::apache::poi::ss::usermodel::FractionFormat::format(::ja
         npc(sb)->append(static_cast< int32_t >(wholePart));
         return npc(sb)->toString();
     }
-    ::org::apache::poi::ss::format::SimpleFraction* fract = nullptr;
+    ::poi::ss::format::SimpleFraction* fract = nullptr;
     try {
         if(exactDenom > 0) {
-            fract = ::org::apache::poi::ss::format::SimpleFraction::buildFractionExactDenominator(decPart, exactDenom);
+            fract = ::poi::ss::format::SimpleFraction::buildFractionExactDenominator(decPart, exactDenom);
         } else {
-            fract = ::org::apache::poi::ss::format::SimpleFraction::buildFractionMaxDenominator(decPart, maxDenom);
+            fract = ::poi::ss::format::SimpleFraction::buildFractionMaxDenominator(decPart, maxDenom);
         }
     } catch (::java::lang::RuntimeException* e) {
-        npc(LOGGER_)->log(::org::apache::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"Can't format fraction"_j), static_cast< ::java::lang::Object* >(e)}));
+        npc(LOGGER_)->log(::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"Can't format fraction"_j), static_cast< ::java::lang::Object* >(e)}));
         return ::java::lang::Double::toString(doubleValue);
     }
     auto sb = new ::java::lang::StringBuilder();
@@ -149,32 +149,32 @@ java::lang::String* org::apache::poi::ss::usermodel::FractionFormat::format(::ja
     return npc(sb)->toString();
 }
 
-java::lang::StringBuffer* org::apache::poi::ss::usermodel::FractionFormat::format(::java::lang::Object* obj, ::java::lang::StringBuffer* toAppendTo, ::java::text::FieldPosition* pos)
+java::lang::StringBuffer* poi::ss::usermodel::FractionFormat::format(::java::lang::Object* obj, ::java::lang::StringBuffer* toAppendTo, ::java::text::FieldPosition* pos)
 {
     return npc(toAppendTo)->append(format(java_cast< ::java::lang::Number* >(obj)));
 }
 
-java::lang::Object* org::apache::poi::ss::usermodel::FractionFormat::parseObject(::java::lang::String* source, ::java::text::ParsePosition* pos)
+java::lang::Object* poi::ss::usermodel::FractionFormat::parseObject(::java::lang::String* source, ::java::text::ParsePosition* pos)
 {
-    throw new ::org::apache::poi::ss::formula::eval::NotImplementedException(u"Reverse parsing not supported"_j);
+    throw new ::poi::ss::formula::eval::NotImplementedException(u"Reverse parsing not supported"_j);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::usermodel::FractionFormat::class_()
+java::lang::Class* poi::ss::usermodel::FractionFormat::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.usermodel.FractionFormat", 42);
     return c;
 }
 
-void org::apache::poi::ss::usermodel::FractionFormat::clinit()
+void poi::ss::usermodel::FractionFormat::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        LOGGER_ = ::org::apache::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(FractionFormat::class_()));
+        LOGGER_ = ::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(FractionFormat::class_()));
         DENOM_FORMAT_PATTERN_ = ::java::util::regex::Pattern::compile(u"(?:(#+)|(\\d+))"_j);
     }
 };
@@ -184,17 +184,17 @@ struct clinit_ {
     }
 }
 
-java::lang::String* org::apache::poi::ss::usermodel::FractionFormat::format(::java::lang::Object* obj)
+java::lang::String* poi::ss::usermodel::FractionFormat::format(::java::lang::Object* obj)
 {
     return super::format(obj);
 }
 
-java::lang::Object* org::apache::poi::ss::usermodel::FractionFormat::parseObject(::java::lang::String* source)
+java::lang::Object* poi::ss::usermodel::FractionFormat::parseObject(::java::lang::String* source)
 {
     return super::parseObject(source);
 }
 
-java::lang::Class* org::apache::poi::ss::usermodel::FractionFormat::getClass0()
+java::lang::Class* poi::ss::usermodel::FractionFormat::getClass0()
 {
     return class_();
 }

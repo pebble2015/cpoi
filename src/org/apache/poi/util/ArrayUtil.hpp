@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::util::ArrayUtil
+class poi::util::ArrayUtil
     : public virtual ::java::lang::Object
 {
 

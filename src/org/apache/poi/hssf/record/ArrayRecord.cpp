@@ -18,25 +18,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -45,41 +39,41 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::ArrayRecord::ArrayRecord(const ::default_init_tag&)
+poi::hssf::record::ArrayRecord::ArrayRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::ArrayRecord::ArrayRecord(RecordInputStream* in) 
+poi::hssf::record::ArrayRecord::ArrayRecord(RecordInputStream* in) 
     : ArrayRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-org::apache::poi::hssf::record::ArrayRecord::ArrayRecord(::org::apache::poi::ss::formula::Formula* formula, ::org::apache::poi::hssf::util::CellRangeAddress8Bit* range) 
+poi::hssf::record::ArrayRecord::ArrayRecord(::poi::ss::formula::Formula* formula, ::poi::hssf::util::CellRangeAddress8Bit* range) 
     : ArrayRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(formula,range);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::ArrayRecord::sid;
+constexpr int16_t poi::hssf::record::ArrayRecord::sid;
 
-constexpr int32_t org::apache::poi::hssf::record::ArrayRecord::OPT_ALWAYS_RECALCULATE;
+constexpr int32_t poi::hssf::record::ArrayRecord::OPT_ALWAYS_RECALCULATE;
 
-constexpr int32_t org::apache::poi::hssf::record::ArrayRecord::OPT_CALCULATE_ON_OPEN;
+constexpr int32_t poi::hssf::record::ArrayRecord::OPT_CALCULATE_ON_OPEN;
 
-void org::apache::poi::hssf::record::ArrayRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::ArrayRecord::ctor(RecordInputStream* in)
 {
-    super::ctor(static_cast< ::org::apache::poi::util::LittleEndianInput* >(in));
+    super::ctor(static_cast< ::poi::util::LittleEndianInput* >(in));
     _options = npc(in)->readUShort();
     _field3notUsed = npc(in)->readInt();
     auto formulaTokenLen = npc(in)->readUShort();
     auto totalFormulaLen = npc(in)->available();
-    _formula = ::org::apache::poi::ss::formula::Formula::read(formulaTokenLen, in, totalFormulaLen);
+    _formula = ::poi::ss::formula::Formula::read(formulaTokenLen, in, totalFormulaLen);
 }
 
-void org::apache::poi::hssf::record::ArrayRecord::ctor(::org::apache::poi::ss::formula::Formula* formula, ::org::apache::poi::hssf::util::CellRangeAddress8Bit* range)
+void poi::hssf::record::ArrayRecord::ctor(::poi::ss::formula::Formula* formula, ::poi::hssf::util::CellRangeAddress8Bit* range)
 {
     super::ctor(range);
     _options = 0;
@@ -87,45 +81,45 @@ void org::apache::poi::hssf::record::ArrayRecord::ctor(::org::apache::poi::ss::f
     _formula = formula;
 }
 
-bool org::apache::poi::hssf::record::ArrayRecord::isAlwaysRecalculate()
+bool poi::hssf::record::ArrayRecord::isAlwaysRecalculate()
 {
     return (_options & OPT_ALWAYS_RECALCULATE) != 0;
 }
 
-bool org::apache::poi::hssf::record::ArrayRecord::isCalculateOnOpen()
+bool poi::hssf::record::ArrayRecord::isCalculateOnOpen()
 {
     return (_options & OPT_CALCULATE_ON_OPEN) != 0;
 }
 
-org::apache::poi::ss::formula::ptg::PtgArray* org::apache::poi::hssf::record::ArrayRecord::getFormulaTokens()
+poi::ss::formula::ptg::PtgArray* poi::hssf::record::ArrayRecord::getFormulaTokens()
 {
     return npc(_formula)->getTokens();
 }
 
-int32_t org::apache::poi::hssf::record::ArrayRecord::getExtraDataSize()
+int32_t poi::hssf::record::ArrayRecord::getExtraDataSize()
 {
     return int32_t(2) + int32_t(4) + npc(_formula)->getEncodedSize();
 }
 
-void org::apache::poi::hssf::record::ArrayRecord::serializeExtraData(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::ArrayRecord::serializeExtraData(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(_options);
     npc(out)->writeInt(_field3notUsed);
     npc(_formula)->serialize(out);
 }
 
-int16_t org::apache::poi::hssf::record::ArrayRecord::getSid()
+int16_t poi::hssf::record::ArrayRecord::getSid()
 {
     return sid;
 }
 
-java::lang::String* org::apache::poi::hssf::record::ArrayRecord::toString()
+java::lang::String* poi::hssf::record::ArrayRecord::toString()
 {
     auto sb = new ::java::lang::StringBuffer();
     npc(npc(sb)->append(npc(getClass())->getName()))->append(u" [ARRAY]\n"_j);
     npc(npc(npc(sb)->append(u" range="_j))->append(static_cast< ::java::lang::Object* >(getRange())))->append(u"\n"_j);
-    npc(npc(npc(sb)->append(u" options="_j))->append(::org::apache::poi::util::HexDump::shortToHex(_options)))->append(u"\n"_j);
-    npc(npc(npc(sb)->append(u" notUsed="_j))->append(::org::apache::poi::util::HexDump::intToHex(_field3notUsed)))->append(u"\n"_j);
+    npc(npc(npc(sb)->append(u" options="_j))->append(::poi::util::HexDump::shortToHex(_options)))->append(u"\n"_j);
+    npc(npc(npc(sb)->append(u" notUsed="_j))->append(::poi::util::HexDump::intToHex(_field3notUsed)))->append(u"\n"_j);
     npc(npc(sb)->append(u" formula:"_j))->append(u"\n"_j);
     auto ptgs = npc(_formula)->getTokens();
     for (auto i = int32_t(0); i < npc(ptgs)->length; i++) {
@@ -136,7 +130,7 @@ java::lang::String* org::apache::poi::hssf::record::ArrayRecord::toString()
     return npc(sb)->toString();
 }
 
-org::apache::poi::hssf::record::ArrayRecord* org::apache::poi::hssf::record::ArrayRecord::clone()
+poi::hssf::record::ArrayRecord* poi::hssf::record::ArrayRecord::clone()
 {
     auto rec = new ArrayRecord(npc(_formula)->copy(), getRange());
     npc(rec)->_options = _options;
@@ -146,13 +140,13 @@ org::apache::poi::hssf::record::ArrayRecord* org::apache::poi::hssf::record::Arr
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::ArrayRecord::class_()
+java::lang::Class* poi::hssf::record::ArrayRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.ArrayRecord", 38);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::record::ArrayRecord::getClass0()
+java::lang::Class* poi::hssf::record::ArrayRecord::getClass0()
 {
     return class_();
 }

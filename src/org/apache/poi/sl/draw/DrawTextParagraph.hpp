@@ -15,7 +15,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::DrawTextParagraph
+class poi::sl::draw::DrawTextParagraph
     : public virtual ::java::lang::Object
     , public virtual Drawable
 {
@@ -24,12 +24,12 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    static ::org::apache::poi::util::POILogger* LOG_;
+    static ::poi::util::POILogger* LOG_;
     static DrawTextParagraph_XlinkAttribute* HYPERLINK_HREF_;
     static DrawTextParagraph_XlinkAttribute* HYPERLINK_LABEL_;
 
 public: /* protected */
-    ::org::apache::poi::sl::usermodel::TextParagraph* paragraph {  };
+    ::poi::sl::usermodel::TextParagraph* paragraph {  };
 
 public: /* package */
     double x {  }, y {  };
@@ -41,7 +41,7 @@ public: /* protected */
     int32_t autoNbrIdx {  };
     double maxLineHeight {  };
 protected:
-    void ctor(::org::apache::poi::sl::usermodel::TextParagraph* paragraph);
+    void ctor(::poi::sl::usermodel::TextParagraph* paragraph);
 
 public:
     virtual void setPosition(double x, double y);
@@ -58,22 +58,22 @@ public:
 public: /* protected */
     virtual void breakText(::java::awt::Graphics2D* graphics);
     virtual DrawTextFragment* getBullet(::java::awt::Graphics2D* graphics, ::java::text::AttributedCharacterIterator* firstLineAttr);
-    virtual ::java::lang::String* getRenderableText(::java::awt::Graphics2D* graphics, ::org::apache::poi::sl::usermodel::TextRun* tr);
+    virtual ::java::lang::String* getRenderableText(::java::awt::Graphics2D* graphics, ::poi::sl::usermodel::TextRun* tr);
 
 private:
-    ::java::lang::String* tab2space(::org::apache::poi::sl::usermodel::TextRun* tr);
+    ::java::lang::String* tab2space(::poi::sl::usermodel::TextRun* tr);
 
 public: /* protected */
     virtual double getWrappingWidth(bool firstLine, ::java::awt::Graphics2D* graphics);
 
 private:
-    ::org::apache::poi::sl::usermodel::PlaceableShape* getParagraphShape();
+    ::poi::sl::usermodel::PlaceableShape* getParagraphShape();
 
 public: /* protected */
     virtual ::java::text::AttributedString* getAttributedString(::java::awt::Graphics2D* graphics, ::java::lang::StringBuilder* text);
 
 private:
-    void processGlyphs(::java::awt::Graphics2D* graphics, DrawFontManager* dfm, ::java::util::List* attList, int32_t beginIndex, ::org::apache::poi::sl::usermodel::TextRun* run, ::java::lang::String* runText);
+    void processGlyphs(::java::awt::Graphics2D* graphics, DrawFontManager* dfm, ::java::util::List* attList, int32_t beginIndex, ::poi::sl::usermodel::TextRun* run, ::java::lang::String* runText);
     static int32_t nextPart(::java::awt::Font* fontMapped, ::java::lang::String* runText, int32_t beginPart, int32_t endPart, bool isDisplayed);
 
 public: /* protected */
@@ -82,7 +82,7 @@ public: /* protected */
     // Generated
 
 public:
-    DrawTextParagraph(::org::apache::poi::sl::usermodel::TextParagraph* paragraph);
+    DrawTextParagraph(::poi::sl::usermodel::TextParagraph* paragraph);
 protected:
     DrawTextParagraph(const ::default_init_tag&);
 
@@ -93,7 +93,7 @@ public:
 
 private:
     void init();
-    static ::org::apache::poi::util::POILogger*& LOG();
+    static ::poi::util::POILogger*& LOG();
 
 public:
     static DrawTextParagraph_XlinkAttribute*& HYPERLINK_HREF();

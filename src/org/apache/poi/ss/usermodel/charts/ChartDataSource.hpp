@@ -7,7 +7,7 @@
 #include <org/apache/poi/ss/usermodel/charts/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::usermodel::charts::ChartDataSource
+struct poi::ss::usermodel::charts::ChartDataSource
     : public virtual ::java::lang::Object
 {
     virtual int32_t getPointCount() = 0;

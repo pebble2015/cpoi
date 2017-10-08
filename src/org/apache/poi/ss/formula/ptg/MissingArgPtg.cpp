@@ -12,58 +12,58 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::ptg::MissingArgPtg::MissingArgPtg(const ::default_init_tag&)
+poi::ss::formula::ptg::MissingArgPtg::MissingArgPtg(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::ptg::MissingArgPtg::MissingArgPtg() 
+poi::ss::formula::ptg::MissingArgPtg::MissingArgPtg() 
     : MissingArgPtg(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-constexpr int32_t org::apache::poi::ss::formula::ptg::MissingArgPtg::SIZE;
+constexpr int32_t poi::ss::formula::ptg::MissingArgPtg::SIZE;
 
-constexpr int8_t org::apache::poi::ss::formula::ptg::MissingArgPtg::sid;
+constexpr int8_t poi::ss::formula::ptg::MissingArgPtg::sid;
 
-org::apache::poi::ss::formula::ptg::Ptg*& org::apache::poi::ss::formula::ptg::MissingArgPtg::instance()
+poi::ss::formula::ptg::Ptg*& poi::ss::formula::ptg::MissingArgPtg::instance()
 {
     clinit();
     return instance_;
 }
-org::apache::poi::ss::formula::ptg::Ptg* org::apache::poi::ss::formula::ptg::MissingArgPtg::instance_;
+poi::ss::formula::ptg::Ptg* poi::ss::formula::ptg::MissingArgPtg::instance_;
 
-void org::apache::poi::ss::formula::ptg::MissingArgPtg::ctor()
+void poi::ss::formula::ptg::MissingArgPtg::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::ss::formula::ptg::MissingArgPtg::write(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::ss::formula::ptg::MissingArgPtg::write(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeByte(sid + getPtgClass());
 }
 
-int32_t org::apache::poi::ss::formula::ptg::MissingArgPtg::getSize()
+int32_t poi::ss::formula::ptg::MissingArgPtg::getSize()
 {
     return SIZE;
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::MissingArgPtg::toFormulaString()
+java::lang::String* poi::ss::formula::ptg::MissingArgPtg::toFormulaString()
 {
     return u" "_j;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::MissingArgPtg::class_()
+java::lang::Class* poi::ss::formula::ptg::MissingArgPtg::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.ptg.MissingArgPtg", 43);
     return c;
 }
 
-void org::apache::poi::ss::formula::ptg::MissingArgPtg::clinit()
+void poi::ss::formula::ptg::MissingArgPtg::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -79,7 +79,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::MissingArgPtg::getClass0()
+java::lang::Class* poi::ss::formula::ptg::MissingArgPtg::getClass0()
 {
     return class_();
 }

@@ -27,38 +27,38 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::usermodel::DataFormatter_SSNFormat::DataFormatter_SSNFormat(const ::default_init_tag&)
+poi::ss::usermodel::DataFormatter_SSNFormat::DataFormatter_SSNFormat(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::usermodel::DataFormatter_SSNFormat::DataFormatter_SSNFormat() 
+poi::ss::usermodel::DataFormatter_SSNFormat::DataFormatter_SSNFormat() 
     : DataFormatter_SSNFormat(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-java::text::Format*& org::apache::poi::ss::usermodel::DataFormatter_SSNFormat::instance()
+java::text::Format*& poi::ss::usermodel::DataFormatter_SSNFormat::instance()
 {
     clinit();
     return instance_;
 }
-java::text::Format* org::apache::poi::ss::usermodel::DataFormatter_SSNFormat::instance_;
+java::text::Format* poi::ss::usermodel::DataFormatter_SSNFormat::instance_;
 
-java::text::DecimalFormat*& org::apache::poi::ss::usermodel::DataFormatter_SSNFormat::df()
+java::text::DecimalFormat*& poi::ss::usermodel::DataFormatter_SSNFormat::df()
 {
     clinit();
     return df_;
 }
-java::text::DecimalFormat* org::apache::poi::ss::usermodel::DataFormatter_SSNFormat::df_;
+java::text::DecimalFormat* poi::ss::usermodel::DataFormatter_SSNFormat::df_;
 
-void org::apache::poi::ss::usermodel::DataFormatter_SSNFormat::ctor()
+void poi::ss::usermodel::DataFormatter_SSNFormat::ctor()
 {
     super::ctor();
 }
 
-java::lang::String* org::apache::poi::ss::usermodel::DataFormatter_SSNFormat::format(::java::lang::Number* num)
+java::lang::String* poi::ss::usermodel::DataFormatter_SSNFormat::format(::java::lang::Number* num)
 {
     clinit();
     auto result = npc(df_)->format(num);
@@ -68,25 +68,25 @@ java::lang::String* org::apache::poi::ss::usermodel::DataFormatter_SSNFormat::fo
         ->append(npc(result)->substring(5, 9))->toString();
 }
 
-java::lang::StringBuffer* org::apache::poi::ss::usermodel::DataFormatter_SSNFormat::format(::java::lang::Object* obj, ::java::lang::StringBuffer* toAppendTo, ::java::text::FieldPosition* pos)
+java::lang::StringBuffer* poi::ss::usermodel::DataFormatter_SSNFormat::format(::java::lang::Object* obj, ::java::lang::StringBuffer* toAppendTo, ::java::text::FieldPosition* pos)
 {
     return npc(toAppendTo)->append(format(java_cast< ::java::lang::Number* >(obj)));
 }
 
-java::lang::Object* org::apache::poi::ss::usermodel::DataFormatter_SSNFormat::parseObject(::java::lang::String* source, ::java::text::ParsePosition* pos)
+java::lang::Object* poi::ss::usermodel::DataFormatter_SSNFormat::parseObject(::java::lang::String* source, ::java::text::ParsePosition* pos)
 {
     return npc(df_)->parseObject(source, pos);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::usermodel::DataFormatter_SSNFormat::class_()
+java::lang::Class* poi::ss::usermodel::DataFormatter_SSNFormat::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.usermodel.DataFormatter.SSNFormat", 51);
     return c;
 }
 
-void org::apache::poi::ss::usermodel::DataFormatter_SSNFormat::clinit()
+void poi::ss::usermodel::DataFormatter_SSNFormat::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -103,17 +103,17 @@ struct clinit_ {
     }
 }
 
-java::lang::String* org::apache::poi::ss::usermodel::DataFormatter_SSNFormat::format(::java::lang::Object* obj)
+java::lang::String* poi::ss::usermodel::DataFormatter_SSNFormat::format(::java::lang::Object* obj)
 {
     return super::format(obj);
 }
 
-java::lang::Object* org::apache::poi::ss::usermodel::DataFormatter_SSNFormat::parseObject(::java::lang::String* source)
+java::lang::Object* poi::ss::usermodel::DataFormatter_SSNFormat::parseObject(::java::lang::String* source)
 {
     return super::parseObject(source);
 }
 
-java::lang::Class* org::apache::poi::ss::usermodel::DataFormatter_SSNFormat::getClass0()
+java::lang::Class* poi::ss::usermodel::DataFormatter_SSNFormat::getClass0()
 {
     return class_();
 }

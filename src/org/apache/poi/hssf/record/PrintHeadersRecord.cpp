@@ -15,38 +15,38 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::PrintHeadersRecord::PrintHeadersRecord(const ::default_init_tag&)
+poi::hssf::record::PrintHeadersRecord::PrintHeadersRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::PrintHeadersRecord::PrintHeadersRecord() 
+poi::hssf::record::PrintHeadersRecord::PrintHeadersRecord() 
     : PrintHeadersRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::PrintHeadersRecord::PrintHeadersRecord(RecordInputStream* in) 
+poi::hssf::record::PrintHeadersRecord::PrintHeadersRecord(RecordInputStream* in) 
     : PrintHeadersRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::PrintHeadersRecord::sid;
+constexpr int16_t poi::hssf::record::PrintHeadersRecord::sid;
 
-void org::apache::poi::hssf::record::PrintHeadersRecord::ctor()
+void poi::hssf::record::PrintHeadersRecord::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hssf::record::PrintHeadersRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::PrintHeadersRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     field_1_print_headers = npc(in)->readShort();
 }
 
-void org::apache::poi::hssf::record::PrintHeadersRecord::setPrintHeaders(bool p)
+void poi::hssf::record::PrintHeadersRecord::setPrintHeaders(bool p)
 {
     if(p == true) {
         field_1_print_headers = 1;
@@ -55,12 +55,12 @@ void org::apache::poi::hssf::record::PrintHeadersRecord::setPrintHeaders(bool p)
     }
 }
 
-bool org::apache::poi::hssf::record::PrintHeadersRecord::getPrintHeaders()
+bool poi::hssf::record::PrintHeadersRecord::getPrintHeaders()
 {
     return (field_1_print_headers == 1);
 }
 
-java::lang::String* org::apache::poi::hssf::record::PrintHeadersRecord::toString()
+java::lang::String* poi::hssf::record::PrintHeadersRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[PRINTHEADERS]\n"_j);
@@ -69,22 +69,22 @@ java::lang::String* org::apache::poi::hssf::record::PrintHeadersRecord::toString
     return npc(buffer)->toString();
 }
 
-void org::apache::poi::hssf::record::PrintHeadersRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::PrintHeadersRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(field_1_print_headers);
 }
 
-int32_t org::apache::poi::hssf::record::PrintHeadersRecord::getDataSize()
+int32_t poi::hssf::record::PrintHeadersRecord::getDataSize()
 {
     return 2;
 }
 
-int16_t org::apache::poi::hssf::record::PrintHeadersRecord::getSid()
+int16_t poi::hssf::record::PrintHeadersRecord::getSid()
 {
     return sid;
 }
 
-java::lang::Object* org::apache::poi::hssf::record::PrintHeadersRecord::clone()
+java::lang::Object* poi::hssf::record::PrintHeadersRecord::clone()
 {
     auto rec = new PrintHeadersRecord();
     npc(rec)->field_1_print_headers = field_1_print_headers;
@@ -93,23 +93,23 @@ java::lang::Object* org::apache::poi::hssf::record::PrintHeadersRecord::clone()
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::PrintHeadersRecord::class_()
+java::lang::Class* poi::hssf::record::PrintHeadersRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.PrintHeadersRecord", 45);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::PrintHeadersRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::PrintHeadersRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::PrintHeadersRecord::serialize()
+int8_tArray* poi::hssf::record::PrintHeadersRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::PrintHeadersRecord::getClass0()
+java::lang::Class* poi::hssf::record::PrintHeadersRecord::getClass0()
 {
     return class_();
 }

@@ -11,24 +11,24 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::chart::ValueRangeRecord final
-    : public ::org::apache::poi::hssf::record::StandardRecord
+class poi::hssf::record::chart::ValueRangeRecord final
+    : public ::poi::hssf::record::StandardRecord
 {
 
 public:
-    typedef ::org::apache::poi::hssf::record::StandardRecord super;
+    typedef ::poi::hssf::record::StandardRecord super;
     static constexpr int16_t sid { int16_t(4127) };
 
 private:
-    static ::org::apache::poi::util::BitField* automaticMinimum_;
-    static ::org::apache::poi::util::BitField* automaticMaximum_;
-    static ::org::apache::poi::util::BitField* automaticMajor_;
-    static ::org::apache::poi::util::BitField* automaticMinor_;
-    static ::org::apache::poi::util::BitField* automaticCategoryCrossing_;
-    static ::org::apache::poi::util::BitField* logarithmicScale_;
-    static ::org::apache::poi::util::BitField* valuesInReverse_;
-    static ::org::apache::poi::util::BitField* crossCategoryAxisAtMaximum_;
-    static ::org::apache::poi::util::BitField* reserved_;
+    static ::poi::util::BitField* automaticMinimum_;
+    static ::poi::util::BitField* automaticMaximum_;
+    static ::poi::util::BitField* automaticMajor_;
+    static ::poi::util::BitField* automaticMinor_;
+    static ::poi::util::BitField* automaticCategoryCrossing_;
+    static ::poi::util::BitField* logarithmicScale_;
+    static ::poi::util::BitField* valuesInReverse_;
+    static ::poi::util::BitField* crossCategoryAxisAtMaximum_;
+    static ::poi::util::BitField* reserved_;
     double field_1_minimumAxisValue {  };
     double field_2_maximumAxisValue {  };
     double field_3_majorIncrement {  };
@@ -37,11 +37,11 @@ private:
     int16_t field_6_options {  };
 protected:
     void ctor();
-    void ctor(::org::apache::poi::hssf::record::RecordInputStream* in);
+    void ctor(::poi::hssf::record::RecordInputStream* in);
 
 public:
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;
@@ -82,7 +82,7 @@ public:
 
     // Generated
     ValueRangeRecord();
-    ValueRangeRecord(::org::apache::poi::hssf::record::RecordInputStream* in);
+    ValueRangeRecord(::poi::hssf::record::RecordInputStream* in);
 protected:
     ValueRangeRecord(const ::default_init_tag&);
 
@@ -94,14 +94,14 @@ public:
     ::int8_tArray* serialize();
 
 private:
-    static ::org::apache::poi::util::BitField*& automaticMinimum();
-    static ::org::apache::poi::util::BitField*& automaticMaximum();
-    static ::org::apache::poi::util::BitField*& automaticMajor();
-    static ::org::apache::poi::util::BitField*& automaticMinor();
-    static ::org::apache::poi::util::BitField*& automaticCategoryCrossing();
-    static ::org::apache::poi::util::BitField*& logarithmicScale();
-    static ::org::apache::poi::util::BitField*& valuesInReverse();
-    static ::org::apache::poi::util::BitField*& crossCategoryAxisAtMaximum();
-    static ::org::apache::poi::util::BitField*& reserved();
+    static ::poi::util::BitField*& automaticMinimum();
+    static ::poi::util::BitField*& automaticMaximum();
+    static ::poi::util::BitField*& automaticMajor();
+    static ::poi::util::BitField*& automaticMinor();
+    static ::poi::util::BitField*& automaticCategoryCrossing();
+    static ::poi::util::BitField*& logarithmicScale();
+    static ::poi::util::BitField*& valuesInReverse();
+    static ::poi::util::BitField*& crossCategoryAxisAtMaximum();
+    static ::poi::util::BitField*& reserved();
     virtual ::java::lang::Class* getClass0();
 };

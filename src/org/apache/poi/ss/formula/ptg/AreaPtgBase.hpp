@@ -12,7 +12,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::ptg::AreaPtgBase
+class poi::ss::formula::ptg::AreaPtgBase
     : public OperandPtg
     , public virtual AreaI
 {
@@ -28,20 +28,20 @@ private:
     int32_t field_2_last_row {  };
     int32_t field_3_first_column {  };
     int32_t field_4_last_column {  };
-    static ::org::apache::poi::util::BitField* rowRelative_;
-    static ::org::apache::poi::util::BitField* colRelative_;
-    static ::org::apache::poi::util::BitField* columnMask_;
+    static ::poi::util::BitField* rowRelative_;
+    static ::poi::util::BitField* colRelative_;
+    static ::poi::util::BitField* columnMask_;
 protected:
     void ctor();
-    void ctor(::org::apache::poi::ss::util::AreaReference* ar);
+    void ctor(::poi::ss::util::AreaReference* ar);
     void ctor(int32_t firstRow, int32_t lastRow, int32_t firstColumn, int32_t lastColumn, bool firstRowRelative, bool lastRowRelative, bool firstColRelative, bool lastColRelative);
 
 public:
     virtual void sortTopLeftToBottomRight();
 
 public: /* protected */
-    void readCoordinates(::org::apache::poi::util::LittleEndianInput* in);
-    void writeCoordinates(::org::apache::poi::util::LittleEndianOutput* out);
+    void readCoordinates(::poi::util::LittleEndianInput* in);
+    void writeCoordinates(::poi::util::LittleEndianOutput* out);
 
 public:
     int32_t getFirstRow() override;
@@ -76,7 +76,7 @@ public:
 
 public: /* protected */
     AreaPtgBase();
-    AreaPtgBase(::org::apache::poi::ss::util::AreaReference* ar);
+    AreaPtgBase(::poi::ss::util::AreaReference* ar);
     AreaPtgBase(int32_t firstRow, int32_t lastRow, int32_t firstColumn, int32_t lastColumn, bool firstRowRelative, bool lastRowRelative, bool firstColRelative, bool lastColRelative);
 protected:
     AreaPtgBase(const ::default_init_tag&);
@@ -87,8 +87,8 @@ public:
     static void clinit();
 
 private:
-    static ::org::apache::poi::util::BitField*& rowRelative();
-    static ::org::apache::poi::util::BitField*& colRelative();
-    static ::org::apache::poi::util::BitField*& columnMask();
+    static ::poi::util::BitField*& rowRelative();
+    static ::poi::util::BitField*& colRelative();
+    static ::poi::util::BitField*& columnMask();
     virtual ::java::lang::Class* getClass0();
 };

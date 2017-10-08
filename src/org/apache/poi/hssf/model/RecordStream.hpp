@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::model::RecordStream final
+class poi::hssf::model::RecordStream final
     : public ::java::lang::Object
 {
 
@@ -29,7 +29,7 @@ protected:
 
 public:
     bool hasNext();
-    ::org::apache::poi::hssf::record::Record* getNext();
+    ::poi::hssf::record::Record* getNext();
     ::java::lang::Class* peekNextClass();
     int32_t peekNextSid();
     int32_t getCountRead();

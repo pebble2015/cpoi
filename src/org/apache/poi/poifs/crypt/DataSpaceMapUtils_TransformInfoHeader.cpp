@@ -16,25 +16,25 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::crypt::DataSpaceMapUtils_TransformInfoHeader::DataSpaceMapUtils_TransformInfoHeader(const ::default_init_tag&)
+poi::poifs::crypt::DataSpaceMapUtils_TransformInfoHeader::DataSpaceMapUtils_TransformInfoHeader(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::crypt::DataSpaceMapUtils_TransformInfoHeader::DataSpaceMapUtils_TransformInfoHeader(int32_t transformType, ::java::lang::String* transformerId, ::java::lang::String* transformerName, int32_t readerVersionMajor, int32_t readerVersionMinor, int32_t updaterVersionMajor, int32_t updaterVersionMinor, int32_t writerVersionMajor, int32_t writerVersionMinor) 
+poi::poifs::crypt::DataSpaceMapUtils_TransformInfoHeader::DataSpaceMapUtils_TransformInfoHeader(int32_t transformType, ::java::lang::String* transformerId, ::java::lang::String* transformerName, int32_t readerVersionMajor, int32_t readerVersionMinor, int32_t updaterVersionMajor, int32_t updaterVersionMinor, int32_t writerVersionMajor, int32_t writerVersionMinor) 
     : DataSpaceMapUtils_TransformInfoHeader(*static_cast< ::default_init_tag* >(0))
 {
     ctor(transformType,transformerId,transformerName,readerVersionMajor,readerVersionMinor,updaterVersionMajor,updaterVersionMinor,writerVersionMajor,writerVersionMinor);
 }
 
-org::apache::poi::poifs::crypt::DataSpaceMapUtils_TransformInfoHeader::DataSpaceMapUtils_TransformInfoHeader(::org::apache::poi::util::LittleEndianInput* is) 
+poi::poifs::crypt::DataSpaceMapUtils_TransformInfoHeader::DataSpaceMapUtils_TransformInfoHeader(::poi::util::LittleEndianInput* is) 
     : DataSpaceMapUtils_TransformInfoHeader(*static_cast< ::default_init_tag* >(0))
 {
     ctor(is);
 }
 
-void org::apache::poi::poifs::crypt::DataSpaceMapUtils_TransformInfoHeader::init()
+void poi::poifs::crypt::DataSpaceMapUtils_TransformInfoHeader::init()
 {
     readerVersionMajor = int32_t(1);
     readerVersionMinor = int32_t(0);
@@ -44,7 +44,7 @@ void org::apache::poi::poifs::crypt::DataSpaceMapUtils_TransformInfoHeader::init
     writerVersionMinor = int32_t(0);
 }
 
-void org::apache::poi::poifs::crypt::DataSpaceMapUtils_TransformInfoHeader::ctor(int32_t transformType, ::java::lang::String* transformerId, ::java::lang::String* transformerName, int32_t readerVersionMajor, int32_t readerVersionMinor, int32_t updaterVersionMajor, int32_t updaterVersionMinor, int32_t writerVersionMajor, int32_t writerVersionMinor)
+void poi::poifs::crypt::DataSpaceMapUtils_TransformInfoHeader::ctor(int32_t transformType, ::java::lang::String* transformerId, ::java::lang::String* transformerName, int32_t readerVersionMajor, int32_t readerVersionMinor, int32_t updaterVersionMajor, int32_t updaterVersionMinor, int32_t writerVersionMajor, int32_t writerVersionMinor)
 {
     super::ctor();
     init();
@@ -59,7 +59,7 @@ void org::apache::poi::poifs::crypt::DataSpaceMapUtils_TransformInfoHeader::ctor
     this->writerVersionMinor = writerVersionMinor;
 }
 
-void org::apache::poi::poifs::crypt::DataSpaceMapUtils_TransformInfoHeader::ctor(::org::apache::poi::util::LittleEndianInput* is)
+void poi::poifs::crypt::DataSpaceMapUtils_TransformInfoHeader::ctor(::poi::util::LittleEndianInput* is)
 {
     super::ctor();
     init();
@@ -75,10 +75,10 @@ void org::apache::poi::poifs::crypt::DataSpaceMapUtils_TransformInfoHeader::ctor
     writerVersionMinor = npc(is)->readShort();
 }
 
-void org::apache::poi::poifs::crypt::DataSpaceMapUtils_TransformInfoHeader::write(::org::apache::poi::util::LittleEndianByteArrayOutputStream* bos)
+void poi::poifs::crypt::DataSpaceMapUtils_TransformInfoHeader::write(::poi::util::LittleEndianByteArrayOutputStream* bos)
 {
     auto start = npc(bos)->getWriteIndex();
-    auto sizeOut = npc(bos)->createDelayedOutput(::org::apache::poi::util::LittleEndianConsts::INT_SIZE);
+    auto sizeOut = npc(bos)->createDelayedOutput(::poi::util::LittleEndianConsts::INT_SIZE);
     npc(bos)->writeInt(transformType);
     DataSpaceMapUtils::writeUnicodeLPP4(bos, transformerId);
     npc(sizeOut)->writeInt(npc(bos)->getWriteIndex() - start);
@@ -93,13 +93,13 @@ void org::apache::poi::poifs::crypt::DataSpaceMapUtils_TransformInfoHeader::writ
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::crypt::DataSpaceMapUtils_TransformInfoHeader::class_()
+java::lang::Class* poi::poifs::crypt::DataSpaceMapUtils_TransformInfoHeader::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.crypt.DataSpaceMapUtils.TransformInfoHeader", 64);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::crypt::DataSpaceMapUtils_TransformInfoHeader::getClass0()
+java::lang::Class* poi::poifs::crypt::DataSpaceMapUtils_TransformInfoHeader::getClass0()
 {
     return class_();
 }

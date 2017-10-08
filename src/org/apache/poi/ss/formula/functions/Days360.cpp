@@ -16,25 +16,19 @@
 #include <Array.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -43,43 +37,43 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::Days360::Days360(const ::default_init_tag&)
+poi::ss::formula::functions::Days360::Days360(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::Days360::Days360()
+poi::ss::formula::functions::Days360::Days360()
     : Days360(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Days360::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* arg0, ::org::apache::poi::ss::formula::eval::ValueEval* arg1)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Days360::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::poi::ss::formula::eval::ValueEval* arg0, ::poi::ss::formula::eval::ValueEval* arg1)
 {
     try {
         auto d0 = NumericFunction::singleOperandEvaluate(arg0, srcRowIndex, srcColumnIndex);
         auto d1 = NumericFunction::singleOperandEvaluate(arg1, srcRowIndex, srcColumnIndex);
-        return new ::org::apache::poi::ss::formula::eval::NumberEval(evaluate(d0, d1, false));
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+        return new ::poi::ss::formula::eval::NumberEval(evaluate(d0, d1, false));
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
         return npc(e)->getErrorEval();
     }
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Days360::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* arg0, ::org::apache::poi::ss::formula::eval::ValueEval* arg1, ::org::apache::poi::ss::formula::eval::ValueEval* arg2)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Days360::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::poi::ss::formula::eval::ValueEval* arg0, ::poi::ss::formula::eval::ValueEval* arg1, ::poi::ss::formula::eval::ValueEval* arg2)
 {
     try {
         auto d0 = NumericFunction::singleOperandEvaluate(arg0, srcRowIndex, srcColumnIndex);
         auto d1 = NumericFunction::singleOperandEvaluate(arg1, srcRowIndex, srcColumnIndex);
-        auto ve = ::org::apache::poi::ss::formula::eval::OperandResolver::getSingleValue(arg2, srcRowIndex, srcColumnIndex);
-        auto method = ::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToBoolean(ve, false);
-        return new ::org::apache::poi::ss::formula::eval::NumberEval(evaluate(d0, d1, method != nullptr && npc(method)->booleanValue()));
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+        auto ve = ::poi::ss::formula::eval::OperandResolver::getSingleValue(arg2, srcRowIndex, srcColumnIndex);
+        auto method = ::poi::ss::formula::eval::OperandResolver::coerceValueToBoolean(ve, false);
+        return new ::poi::ss::formula::eval::NumberEval(evaluate(d0, d1, method != nullptr && npc(method)->booleanValue()));
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
         return npc(e)->getErrorEval();
     }
 }
 
-double org::apache::poi::ss::formula::functions::Days360::evaluate(double d0, double d1, bool method)
+double poi::ss::formula::functions::Days360::evaluate(double d0, double d1, bool method)
 {
     clinit();
     auto realStart = getDate(d0);
@@ -89,15 +83,15 @@ double org::apache::poi::ss::formula::functions::Days360::evaluate(double d0, do
     return ((*endingDate)[int32_t(0)] * int32_t(360) + (*endingDate)[int32_t(1)] * int32_t(30) + (*endingDate)[int32_t(2)]) - ((*startingDate)[int32_t(0)] * int32_t(360) + (*startingDate)[int32_t(1)] * int32_t(30) + (*startingDate)[int32_t(2)]);
 }
 
-java::util::Calendar* org::apache::poi::ss::formula::functions::Days360::getDate(double date)
+java::util::Calendar* poi::ss::formula::functions::Days360::getDate(double date)
 {
     clinit();
-    auto processedDate = ::org::apache::poi::util::LocaleUtil::getLocaleCalendar();
-    npc(processedDate)->setTime(::org::apache::poi::ss::usermodel::DateUtil::getJavaDate(date, false));
+    auto processedDate = ::poi::util::LocaleUtil::getLocaleCalendar();
+    npc(processedDate)->setTime(::poi::ss::usermodel::DateUtil::getJavaDate(date, false));
     return processedDate;
 }
 
-int32_tArray* org::apache::poi::ss::formula::functions::Days360::getStartingDate(::java::util::Calendar* realStart, bool method)
+int32_tArray* poi::ss::formula::functions::Days360::getStartingDate(::java::util::Calendar* realStart, bool method)
 {
     clinit();
     auto yyyy = npc(realStart)->get(::java::util::Calendar::YEAR);
@@ -113,7 +107,7 @@ int32_tArray* org::apache::poi::ss::formula::functions::Days360::getStartingDate
     });
 }
 
-int32_tArray* org::apache::poi::ss::formula::functions::Days360::getEndingDate(::java::util::Calendar* realEnd, ::int32_tArray* startingDate, bool method)
+int32_tArray* poi::ss::formula::functions::Days360::getEndingDate(::java::util::Calendar* realEnd, ::int32_tArray* startingDate, bool method)
 {
     clinit();
     auto yyyy = npc(realEnd)->get(::java::util::Calendar::YEAR);
@@ -137,7 +131,7 @@ int32_tArray* org::apache::poi::ss::formula::functions::Days360::getEndingDate(:
     });
 }
 
-bool org::apache::poi::ss::formula::functions::Days360::isLastDayOfMonth(::java::util::Calendar* date)
+bool poi::ss::formula::functions::Days360::isLastDayOfMonth(::java::util::Calendar* date)
 {
     clinit();
     auto dayOfMonth = npc(date)->get(::java::util::Calendar::DAY_OF_MONTH);
@@ -147,18 +141,18 @@ bool org::apache::poi::ss::formula::functions::Days360::isLastDayOfMonth(::java:
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Days360::class_()
+java::lang::Class* poi::ss::formula::functions::Days360::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.Days360", 43);
     return c;
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Days360::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Days360::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
 {
     return super::evaluate(args, srcRowIndex, srcColumnIndex);
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Days360::getClass0()
+java::lang::Class* poi::ss::formula::functions::Days360::getClass0()
 {
     return class_();
 }

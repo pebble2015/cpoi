@@ -46,25 +46,19 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -98,32 +92,32 @@ namespace
 
     template<typename F> finally_<F> finally(F f) { return finally_<F>(f); }
 }
-org::apache::poi::hssf::dev::FormulaViewer::FormulaViewer(const ::default_init_tag&)
+poi::hssf::dev::FormulaViewer::FormulaViewer(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::dev::FormulaViewer::FormulaViewer() 
+poi::hssf::dev::FormulaViewer::FormulaViewer() 
     : FormulaViewer(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::hssf::dev::FormulaViewer::init()
+void poi::hssf::dev::FormulaViewer::init()
 {
     list = false;
 }
 
-void org::apache::poi::hssf::dev::FormulaViewer::ctor()
+void poi::hssf::dev::FormulaViewer::ctor()
 {
     super::ctor();
     init();
 }
 
-void org::apache::poi::hssf::dev::FormulaViewer::run() /* throws(IOException) */
+void poi::hssf::dev::FormulaViewer::run() /* throws(IOException) */
 {
-    auto fs = new ::org::apache::poi::poifs::filesystem::NPOIFSFileSystem(new ::java::io::File(file), true);
+    auto fs = new ::poi::poifs::filesystem::NPOIFSFileSystem(new ::java::io::File(file), true);
     {
         auto finally0 = finally([&] {
             npc(fs)->close();
@@ -135,15 +129,15 @@ void org::apache::poi::hssf::dev::FormulaViewer::run() /* throws(IOException) */
                     npc(is)->close();
                 });
                 {
-                    auto records = ::org::apache::poi::hssf::record::RecordFactory::createRecords(is);
+                    auto records = ::poi::hssf::record::RecordFactory::createRecords(is);
                     for (auto _i = npc(records)->iterator(); _i->hasNext(); ) {
-                        ::org::apache::poi::hssf::record::Record* record = java_cast< ::org::apache::poi::hssf::record::Record* >(_i->next());
+                        ::poi::hssf::record::Record* record = java_cast< ::poi::hssf::record::Record* >(_i->next());
                         {
-                            if(npc(record)->getSid() == ::org::apache::poi::hssf::record::FormulaRecord::sid) {
+                            if(npc(record)->getSid() == ::poi::hssf::record::FormulaRecord::sid) {
                                 if(list) {
-                                    listFormula(java_cast< ::org::apache::poi::hssf::record::FormulaRecord* >(record));
+                                    listFormula(java_cast< ::poi::hssf::record::FormulaRecord* >(record));
                                 } else {
-                                    parseFormulaRecord(java_cast< ::org::apache::poi::hssf::record::FormulaRecord* >(record));
+                                    parseFormulaRecord(java_cast< ::poi::hssf::record::FormulaRecord* >(record));
                                 }
                             }
                         }
@@ -156,33 +150,33 @@ void org::apache::poi::hssf::dev::FormulaViewer::run() /* throws(IOException) */
 
 }
 
-void org::apache::poi::hssf::dev::FormulaViewer::listFormula(::org::apache::poi::hssf::record::FormulaRecord* record)
+void poi::hssf::dev::FormulaViewer::listFormula(::poi::hssf::record::FormulaRecord* record)
 {
     auto sep = u"~"_j;
     auto tokens = npc(record)->getParsedExpression();
-    ::org::apache::poi::ss::formula::ptg::Ptg* token;
+    ::poi::ss::formula::ptg::Ptg* token;
     auto numptgs = npc(tokens)->length;
     ::java::lang::String* numArg;
     token = (*tokens)[numptgs - int32_t(1)];
-    if(dynamic_cast< ::org::apache::poi::ss::formula::ptg::FuncPtg* >(token) != nullptr) {
+    if(dynamic_cast< ::poi::ss::formula::ptg::FuncPtg* >(token) != nullptr) {
         numArg = ::java::lang::String::valueOf(numptgs - int32_t(1));
     } else {
         numArg = ::java::lang::String::valueOf(-int32_t(1));
     }
     auto buf = new ::java::lang::StringBuilder();
-    if(dynamic_cast< ::org::apache::poi::ss::formula::ptg::ExpPtg* >(token) != nullptr)
+    if(dynamic_cast< ::poi::ss::formula::ptg::ExpPtg* >(token) != nullptr)
         return;
 
     npc(buf)->append(npc(token)->toFormulaString());
     npc(buf)->append(sep);
     switch (npc(token)->getPtgClass()) {
-    case ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_REF:
+    case ::poi::ss::formula::ptg::Ptg::CLASS_REF:
         npc(buf)->append(u"REF"_j);
         break;
-    case ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_VALUE:
+    case ::poi::ss::formula::ptg::Ptg::CLASS_VALUE:
         npc(buf)->append(u"VALUE"_j);
         break;
-    case ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_ARRAY:
+    case ::poi::ss::formula::ptg::Ptg::CLASS_ARRAY:
         npc(buf)->append(u"ARRAY"_j);
         break;
     default:
@@ -193,13 +187,13 @@ void org::apache::poi::hssf::dev::FormulaViewer::listFormula(::org::apache::poi:
     if(numptgs > 1) {
         token = (*tokens)[numptgs - int32_t(2)];
         switch (npc(token)->getPtgClass()) {
-        case ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_REF:
+        case ::poi::ss::formula::ptg::Ptg::CLASS_REF:
             npc(buf)->append(u"REF"_j);
             break;
-        case ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_VALUE:
+        case ::poi::ss::formula::ptg::Ptg::CLASS_VALUE:
             npc(buf)->append(u"VALUE"_j);
             break;
-        case ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_ARRAY:
+        case ::poi::ss::formula::ptg::Ptg::CLASS_ARRAY:
             npc(buf)->append(u"ARRAY"_j);
             break;
         default:
@@ -214,7 +208,7 @@ void org::apache::poi::hssf::dev::FormulaViewer::listFormula(::org::apache::poi:
     npc(::java::lang::System::out())->println(static_cast< ::java::lang::Object* >(buf));
 }
 
-void org::apache::poi::hssf::dev::FormulaViewer::parseFormulaRecord(::org::apache::poi::hssf::record::FormulaRecord* record)
+void poi::hssf::dev::FormulaViewer::parseFormulaRecord(::poi::hssf::record::FormulaRecord* record)
 {
     npc(::java::lang::System::out())->println(u"=============================="_j);
     npc(::java::lang::System::out())->print(::java::lang::StringBuilder().append(u"row = "_j)->append(npc(record)->getRow())->toString());
@@ -227,20 +221,20 @@ void org::apache::poi::hssf::dev::FormulaViewer::parseFormulaRecord(::org::apach
     npc(::java::lang::System::out())->println(::java::lang::StringBuilder().append(u"Formula text = "_j)->append(composeFormula(record))->toString());
 }
 
-java::lang::String* org::apache::poi::hssf::dev::FormulaViewer::formulaString(::org::apache::poi::hssf::record::FormulaRecord* record)
+java::lang::String* poi::hssf::dev::FormulaViewer::formulaString(::poi::hssf::record::FormulaRecord* record)
 {
     auto buf = new ::java::lang::StringBuilder();
     auto tokens = npc(record)->getParsedExpression();
     for(auto token : *npc(tokens)) {
         npc(buf)->append(npc(token)->toFormulaString());
         switch (npc(token)->getPtgClass()) {
-        case ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_REF:
+        case ::poi::ss::formula::ptg::Ptg::CLASS_REF:
             npc(buf)->append(u"(R)"_j);
             break;
-        case ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_VALUE:
+        case ::poi::ss::formula::ptg::Ptg::CLASS_VALUE:
             npc(buf)->append(u"(V)"_j);
             break;
-        case ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_ARRAY:
+        case ::poi::ss::formula::ptg::Ptg::CLASS_ARRAY:
             npc(buf)->append(u"(A)"_j);
             break;
         default:
@@ -252,30 +246,30 @@ java::lang::String* org::apache::poi::hssf::dev::FormulaViewer::formulaString(::
     return npc(buf)->toString();
 }
 
-void org::apache::poi::hssf::dev::FormulaViewer::throwInvalidRVAToken(::org::apache::poi::ss::formula::ptg::Ptg* token)
+void poi::hssf::dev::FormulaViewer::throwInvalidRVAToken(::poi::ss::formula::ptg::Ptg* token)
 {
     clinit();
     throw new ::java::lang::IllegalStateException(::java::lang::StringBuilder().append(u"Invalid RVA type ("_j)->append(npc(token)->getPtgClass())
         ->append(u"). This should never happen."_j)->toString());
 }
 
-java::lang::String* org::apache::poi::hssf::dev::FormulaViewer::composeFormula(::org::apache::poi::hssf::record::FormulaRecord* record)
+java::lang::String* poi::hssf::dev::FormulaViewer::composeFormula(::poi::hssf::record::FormulaRecord* record)
 {
     clinit();
-    return ::org::apache::poi::hssf::model::HSSFFormulaParser::toFormulaString(static_cast< ::org::apache::poi::hssf::usermodel::HSSFWorkbook* >(nullptr), npc(record)->getParsedExpression());
+    return ::poi::hssf::model::HSSFFormulaParser::toFormulaString(static_cast< ::poi::hssf::usermodel::HSSFWorkbook* >(nullptr), npc(record)->getParsedExpression());
 }
 
-void org::apache::poi::hssf::dev::FormulaViewer::setFile(::java::lang::String* file)
+void poi::hssf::dev::FormulaViewer::setFile(::java::lang::String* file)
 {
     this->file = file;
 }
 
-void org::apache::poi::hssf::dev::FormulaViewer::setList(bool list)
+void poi::hssf::dev::FormulaViewer::setList(bool list)
 {
     this->list = list;
 }
 
-void org::apache::poi::hssf::dev::FormulaViewer::main(::java::lang::StringArray* args) /* throws(IOException) */
+void poi::hssf::dev::FormulaViewer::main(::java::lang::StringArray* args) /* throws(IOException) */
 {
     clinit();
     if((args == nullptr) || (npc(args)->length > 2) || npc((*args)[int32_t(0)])->equals(static_cast< ::java::lang::Object* >(u"--help"_j))) {
@@ -295,13 +289,13 @@ void org::apache::poi::hssf::dev::FormulaViewer::main(::java::lang::StringArray*
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::dev::FormulaViewer::class_()
+java::lang::Class* poi::hssf::dev::FormulaViewer::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.dev.FormulaViewer", 37);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::dev::FormulaViewer::getClass0()
+java::lang::Class* poi::hssf::dev::FormulaViewer::getClass0()
 {
     return class_();
 }

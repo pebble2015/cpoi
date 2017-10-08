@@ -34,24 +34,24 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::sl::draw::geom::Context::Context(const ::default_init_tag&)
+poi::sl::draw::geom::Context::Context(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::draw::geom::Context::Context(CustomGeometry* geom, ::java::awt::geom::Rectangle2D* anchor, IAdjustableShape* props) 
+poi::sl::draw::geom::Context::Context(CustomGeometry* geom, ::java::awt::geom::Rectangle2D* anchor, IAdjustableShape* props) 
     : Context(*static_cast< ::default_init_tag* >(0))
 {
     ctor(geom,anchor,props);
 }
 
-void org::apache::poi::sl::draw::geom::Context::init()
+void poi::sl::draw::geom::Context::init()
 {
     _ctx = new ::java::util::HashMap();
 }
 
-void org::apache::poi::sl::draw::geom::Context::ctor(CustomGeometry* geom, ::java::awt::geom::Rectangle2D* anchor, IAdjustableShape* props)
+void poi::sl::draw::geom::Context::ctor(CustomGeometry* geom, ::java::awt::geom::Rectangle2D* anchor, IAdjustableShape* props)
 {
     super::ctor();
     init();
@@ -71,17 +71,17 @@ void org::apache::poi::sl::draw::geom::Context::ctor(CustomGeometry* geom, ::jav
     }
 }
 
-java::awt::geom::Rectangle2D* org::apache::poi::sl::draw::geom::Context::getShapeAnchor()
+java::awt::geom::Rectangle2D* poi::sl::draw::geom::Context::getShapeAnchor()
 {
     return _anchor;
 }
 
-org::apache::poi::sl::draw::geom::Guide* org::apache::poi::sl::draw::geom::Context::getAdjustValue(::java::lang::String* name)
+poi::sl::draw::geom::Guide* poi::sl::draw::geom::Context::getAdjustValue(::java::lang::String* name)
 {
     return npc(_props)->getAdjustValue(name);
 }
 
-double org::apache::poi::sl::draw::geom::Context::getValue(::java::lang::String* key)
+double poi::sl::draw::geom::Context::getValue(::java::lang::String* key)
 {
     if(npc(key)->matches(u"(\\+|-)?\\d+"_j)) {
         return ::java::lang::Double::parseDouble(key);
@@ -90,7 +90,7 @@ double org::apache::poi::sl::draw::geom::Context::getValue(::java::lang::String*
     return (val != nullptr) ? (npc(val))->doubleValue() : evaluate(BuiltInGuide::valueOf(::java::lang::StringBuilder().append(u"_"_j)->append(key)->toString()));
 }
 
-double org::apache::poi::sl::draw::geom::Context::evaluate(Formula* fmla)
+double poi::sl::draw::geom::Context::evaluate(Formula* fmla)
 {
     auto result = npc(fmla)->evaluate(this);
     if(dynamic_cast< Guide* >(fmla) != nullptr) {
@@ -104,13 +104,13 @@ double org::apache::poi::sl::draw::geom::Context::evaluate(Formula* fmla)
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::draw::geom::Context::class_()
+java::lang::Class* poi::sl::draw::geom::Context::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.draw.geom.Context", 35);
     return c;
 }
 
-java::lang::Class* org::apache::poi::sl::draw::geom::Context::getClass0()
+java::lang::Class* poi::sl::draw::geom::Context::getClass0()
 {
     return class_();
 }

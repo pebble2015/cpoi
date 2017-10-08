@@ -31,25 +31,25 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::eventusermodel::HSSFRequest::HSSFRequest(const ::default_init_tag&)
+poi::hssf::eventusermodel::HSSFRequest::HSSFRequest(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::eventusermodel::HSSFRequest::HSSFRequest() 
+poi::hssf::eventusermodel::HSSFRequest::HSSFRequest() 
     : HSSFRequest(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::hssf::eventusermodel::HSSFRequest::ctor()
+void poi::hssf::eventusermodel::HSSFRequest::ctor()
 {
     super::ctor();
     _records = new ::java::util::HashMap(int32_t(50));
 }
 
-void org::apache::poi::hssf::eventusermodel::HSSFRequest::addListener(HSSFListener* lsnr, int16_t sid)
+void poi::hssf::eventusermodel::HSSFRequest::addListener(HSSFListener* lsnr, int16_t sid)
 {
     auto list = java_cast< ::java::util::List* >(npc(_records)->get(::java::lang::Short::valueOf(sid)));
     if(list == nullptr) {
@@ -59,15 +59,15 @@ void org::apache::poi::hssf::eventusermodel::HSSFRequest::addListener(HSSFListen
     npc(list)->add(static_cast< ::java::lang::Object* >(lsnr));
 }
 
-void org::apache::poi::hssf::eventusermodel::HSSFRequest::addListenerForAllRecords(HSSFListener* lsnr)
+void poi::hssf::eventusermodel::HSSFRequest::addListenerForAllRecords(HSSFListener* lsnr)
 {
-    auto rectypes = ::org::apache::poi::hssf::record::RecordFactory::getAllKnownRecordSIDs();
+    auto rectypes = ::poi::hssf::record::RecordFactory::getAllKnownRecordSIDs();
     for(auto rectype : *npc(rectypes)) {
         addListener(lsnr, rectype);
     }
 }
 
-int16_t org::apache::poi::hssf::eventusermodel::HSSFRequest::processRecord(::org::apache::poi::hssf::record::Record* rec) /* throws(HSSFUserException) */
+int16_t poi::hssf::eventusermodel::HSSFRequest::processRecord(::poi::hssf::record::Record* rec) /* throws(HSSFUserException) */
 {
     auto listeners = java_cast< ::java::util::List* >(npc(_records)->get(::java::lang::Short::valueOf(npc(rec)->getSid())));
     int16_t userCode = int32_t(0);
@@ -91,13 +91,13 @@ int16_t org::apache::poi::hssf::eventusermodel::HSSFRequest::processRecord(::org
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::eventusermodel::HSSFRequest::class_()
+java::lang::Class* poi::hssf::eventusermodel::HSSFRequest::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.eventusermodel.HSSFRequest", 46);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::eventusermodel::HSSFRequest::getClass0()
+java::lang::Class* poi::hssf::eventusermodel::HSSFRequest::getClass0()
 {
     return class_();
 }

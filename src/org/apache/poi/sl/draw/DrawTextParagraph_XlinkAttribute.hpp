@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::DrawTextParagraph_XlinkAttribute
+class poi::sl::draw::DrawTextParagraph_XlinkAttribute
     : public ::java::text::AttributedCharacterIterator_Attribute
 {
 

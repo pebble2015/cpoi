@@ -27,19 +27,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::usermodel::HSSFDataBarFormatting::HSSFDataBarFormatting(const ::default_init_tag&)
+poi::hssf::usermodel::HSSFDataBarFormatting::HSSFDataBarFormatting(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::usermodel::HSSFDataBarFormatting::HSSFDataBarFormatting(::org::apache::poi::hssf::record::CFRule12Record* cfRule12Record, HSSFSheet* sheet) 
+poi::hssf::usermodel::HSSFDataBarFormatting::HSSFDataBarFormatting(::poi::hssf::record::CFRule12Record* cfRule12Record, HSSFSheet* sheet) 
     : HSSFDataBarFormatting(*static_cast< ::default_init_tag* >(0))
 {
     ctor(cfRule12Record,sheet);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFDataBarFormatting::ctor(::org::apache::poi::hssf::record::CFRule12Record* cfRule12Record, HSSFSheet* sheet)
+void poi::hssf::usermodel::HSSFDataBarFormatting::ctor(::poi::hssf::record::CFRule12Record* cfRule12Record, HSSFSheet* sheet)
 {
     super::ctor();
     this->sheet = sheet;
@@ -47,81 +47,81 @@ void org::apache::poi::hssf::usermodel::HSSFDataBarFormatting::ctor(::org::apach
     this->databarFormatting = npc(this->cfRule12Record)->getDataBarFormatting();
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFDataBarFormatting::isLeftToRight()
+bool poi::hssf::usermodel::HSSFDataBarFormatting::isLeftToRight()
 {
     return !npc(databarFormatting)->isReversed();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFDataBarFormatting::setLeftToRight(bool ltr)
+void poi::hssf::usermodel::HSSFDataBarFormatting::setLeftToRight(bool ltr)
 {
     npc(databarFormatting)->setReversed(!ltr);
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFDataBarFormatting::getWidthMin()
+int32_t poi::hssf::usermodel::HSSFDataBarFormatting::getWidthMin()
 {
     return npc(databarFormatting)->getPercentMin();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFDataBarFormatting::setWidthMin(int32_t width)
+void poi::hssf::usermodel::HSSFDataBarFormatting::setWidthMin(int32_t width)
 {
     npc(databarFormatting)->setPercentMin(static_cast< int8_t >(width));
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFDataBarFormatting::getWidthMax()
+int32_t poi::hssf::usermodel::HSSFDataBarFormatting::getWidthMax()
 {
     return npc(databarFormatting)->getPercentMax();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFDataBarFormatting::setWidthMax(int32_t width)
+void poi::hssf::usermodel::HSSFDataBarFormatting::setWidthMax(int32_t width)
 {
     npc(databarFormatting)->setPercentMax(static_cast< int8_t >(width));
 }
 
-org::apache::poi::hssf::usermodel::HSSFExtendedColor* org::apache::poi::hssf::usermodel::HSSFDataBarFormatting::getColor()
+poi::hssf::usermodel::HSSFExtendedColor* poi::hssf::usermodel::HSSFDataBarFormatting::getColor()
 {
     return new HSSFExtendedColor(npc(databarFormatting)->getColor());
 }
 
-void org::apache::poi::hssf::usermodel::HSSFDataBarFormatting::setColor(::org::apache::poi::ss::usermodel::Color* color)
+void poi::hssf::usermodel::HSSFDataBarFormatting::setColor(::poi::ss::usermodel::Color* color)
 {
     auto hcolor = java_cast< HSSFExtendedColor* >(color);
     npc(databarFormatting)->setColor(npc(hcolor)->getExtendedColor());
 }
 
-org::apache::poi::hssf::usermodel::HSSFConditionalFormattingThreshold* org::apache::poi::hssf::usermodel::HSSFDataBarFormatting::getMinThreshold()
+poi::hssf::usermodel::HSSFConditionalFormattingThreshold* poi::hssf::usermodel::HSSFDataBarFormatting::getMinThreshold()
 {
     return new HSSFConditionalFormattingThreshold(npc(databarFormatting)->getThresholdMin(), sheet);
 }
 
-org::apache::poi::hssf::usermodel::HSSFConditionalFormattingThreshold* org::apache::poi::hssf::usermodel::HSSFDataBarFormatting::getMaxThreshold()
+poi::hssf::usermodel::HSSFConditionalFormattingThreshold* poi::hssf::usermodel::HSSFDataBarFormatting::getMaxThreshold()
 {
     return new HSSFConditionalFormattingThreshold(npc(databarFormatting)->getThresholdMax(), sheet);
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFDataBarFormatting::isIconOnly()
+bool poi::hssf::usermodel::HSSFDataBarFormatting::isIconOnly()
 {
     return npc(databarFormatting)->isIconOnly();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFDataBarFormatting::setIconOnly(bool only)
+void poi::hssf::usermodel::HSSFDataBarFormatting::setIconOnly(bool only)
 {
     npc(databarFormatting)->setIconOnly(only);
 }
 
-org::apache::poi::hssf::usermodel::HSSFConditionalFormattingThreshold* org::apache::poi::hssf::usermodel::HSSFDataBarFormatting::createThreshold()
+poi::hssf::usermodel::HSSFConditionalFormattingThreshold* poi::hssf::usermodel::HSSFDataBarFormatting::createThreshold()
 {
-    return new HSSFConditionalFormattingThreshold(new ::org::apache::poi::hssf::record::cf::DataBarThreshold(), sheet);
+    return new HSSFConditionalFormattingThreshold(new ::poi::hssf::record::cf::DataBarThreshold(), sheet);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFDataBarFormatting::class_()
+java::lang::Class* poi::hssf::usermodel::HSSFDataBarFormatting::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.usermodel.HSSFDataBarFormatting", 51);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFDataBarFormatting::getClass0()
+java::lang::Class* poi::hssf::usermodel::HSSFDataBarFormatting::getClass0()
 {
     return class_();
 }

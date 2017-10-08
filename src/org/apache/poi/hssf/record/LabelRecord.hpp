@@ -12,7 +12,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::LabelRecord final
+class poi::hssf::record::LabelRecord final
     : public Record
     , public CellValueRecordInterface
     , public ::java::lang::Cloneable
@@ -22,7 +22,7 @@ public:
     typedef Record super;
 
 private:
-    static ::org::apache::poi::util::POILogger* logger_;
+    static ::poi::util::POILogger* logger_;
 
 public:
     static constexpr int16_t sid { int16_t(516) };
@@ -67,6 +67,6 @@ public:
     ::int8_tArray* serialize();
 
 private:
-    static ::org::apache::poi::util::POILogger*& logger();
+    static ::poi::util::POILogger*& logger();
     virtual ::java::lang::Class* getClass0();
 };

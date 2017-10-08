@@ -2,23 +2,17 @@
 #pragma once
 
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace poifs
     {
-        namespace poi
+        namespace eventfilesystem
         {
-            namespace poifs
-            {
-                namespace eventfilesystem
-                {
-                    class POIFSReader;
-                    class POIFSReaderEvent;
-                    struct POIFSReaderListener;
-                    class POIFSReaderRegistry;
-                    class POIFSReader_SampleListener;
-                } // eventfilesystem
-            } // poifs
-        } // poi
-    } // apache
-} // org
+            class POIFSReader;
+            class POIFSReaderEvent;
+            struct POIFSReaderListener;
+            class POIFSReaderRegistry;
+            class POIFSReader_SampleListener;
+        } // eventfilesystem
+    } // poifs
+} // poi

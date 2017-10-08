@@ -11,26 +11,20 @@
 #include <java/lang/Object.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace util
         {
-            namespace ss
-            {
-                namespace util
-                {
-typedef ::SubArray< ::org::apache::poi::ss::util::CellUtil_UnicodeMapping, ::java::lang::ObjectArray > CellUtil_UnicodeMappingArray;
-                } // util
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::util::CellUtil_UnicodeMapping, ::java::lang::ObjectArray > CellUtil_UnicodeMappingArray;
+        } // util
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::util::CellUtil final
+class poi::ss::util::CellUtil final
     : public ::java::lang::Object
 {
 
@@ -38,7 +32,7 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    static ::org::apache::poi::util::POILogger* log_;
+    static ::poi::util::POILogger* log_;
     static ::java::lang::String* ALIGNMENT_;
     static ::java::lang::String* BORDER_BOTTOM_;
     static ::java::lang::String* BORDER_LEFT_;
@@ -67,30 +61,30 @@ protected:
     void ctor();
 
 public:
-    static ::org::apache::poi::ss::usermodel::Row* getRow(int32_t rowIndex, ::org::apache::poi::ss::usermodel::Sheet* sheet);
-    static ::org::apache::poi::ss::usermodel::Cell* getCell(::org::apache::poi::ss::usermodel::Row* row, int32_t columnIndex);
-    static ::org::apache::poi::ss::usermodel::Cell* createCell(::org::apache::poi::ss::usermodel::Row* row, int32_t column, ::java::lang::String* value, ::org::apache::poi::ss::usermodel::CellStyle* style);
-    static ::org::apache::poi::ss::usermodel::Cell* createCell(::org::apache::poi::ss::usermodel::Row* row, int32_t column, ::java::lang::String* value);
-    static void setAlignment(::org::apache::poi::ss::usermodel::Cell* cell, ::org::apache::poi::ss::usermodel::HorizontalAlignment* align);
-    static void setVerticalAlignment(::org::apache::poi::ss::usermodel::Cell* cell, ::org::apache::poi::ss::usermodel::VerticalAlignment* align);
-    static void setFont(::org::apache::poi::ss::usermodel::Cell* cell, ::org::apache::poi::ss::usermodel::Font* font);
-    static void setCellStyleProperties(::org::apache::poi::ss::usermodel::Cell* cell, ::java::util::Map* properties);
-    static void setCellStyleProperty(::org::apache::poi::ss::usermodel::Cell* cell, ::java::lang::String* propertyName, ::java::lang::Object* propertyValue);
+    static ::poi::ss::usermodel::Row* getRow(int32_t rowIndex, ::poi::ss::usermodel::Sheet* sheet);
+    static ::poi::ss::usermodel::Cell* getCell(::poi::ss::usermodel::Row* row, int32_t columnIndex);
+    static ::poi::ss::usermodel::Cell* createCell(::poi::ss::usermodel::Row* row, int32_t column, ::java::lang::String* value, ::poi::ss::usermodel::CellStyle* style);
+    static ::poi::ss::usermodel::Cell* createCell(::poi::ss::usermodel::Row* row, int32_t column, ::java::lang::String* value);
+    static void setAlignment(::poi::ss::usermodel::Cell* cell, ::poi::ss::usermodel::HorizontalAlignment* align);
+    static void setVerticalAlignment(::poi::ss::usermodel::Cell* cell, ::poi::ss::usermodel::VerticalAlignment* align);
+    static void setFont(::poi::ss::usermodel::Cell* cell, ::poi::ss::usermodel::Font* font);
+    static void setCellStyleProperties(::poi::ss::usermodel::Cell* cell, ::java::util::Map* properties);
+    static void setCellStyleProperty(::poi::ss::usermodel::Cell* cell, ::java::lang::String* propertyName, ::java::lang::Object* propertyValue);
 
 private:
-    static ::java::util::Map* getFormatProperties(::org::apache::poi::ss::usermodel::CellStyle* style);
+    static ::java::util::Map* getFormatProperties(::poi::ss::usermodel::CellStyle* style);
     static void putAll(::java::util::Map* src, ::java::util::Map* dest);
-    static void setFormatProperties(::org::apache::poi::ss::usermodel::CellStyle* style, ::org::apache::poi::ss::usermodel::Workbook* workbook, ::java::util::Map* properties);
+    static void setFormatProperties(::poi::ss::usermodel::CellStyle* style, ::poi::ss::usermodel::Workbook* workbook, ::java::util::Map* properties);
     static int16_t getShort(::java::util::Map* properties, ::java::lang::String* name);
-    static ::org::apache::poi::ss::usermodel::BorderStyle* getBorderStyle(::java::util::Map* properties, ::java::lang::String* name);
-    static ::org::apache::poi::ss::usermodel::FillPatternType* getFillPattern(::java::util::Map* properties, ::java::lang::String* name);
-    static ::org::apache::poi::ss::usermodel::HorizontalAlignment* getHorizontalAlignment(::java::util::Map* properties, ::java::lang::String* name);
-    static ::org::apache::poi::ss::usermodel::VerticalAlignment* getVerticalAlignment(::java::util::Map* properties, ::java::lang::String* name);
+    static ::poi::ss::usermodel::BorderStyle* getBorderStyle(::java::util::Map* properties, ::java::lang::String* name);
+    static ::poi::ss::usermodel::FillPatternType* getFillPattern(::java::util::Map* properties, ::java::lang::String* name);
+    static ::poi::ss::usermodel::HorizontalAlignment* getHorizontalAlignment(::java::util::Map* properties, ::java::lang::String* name);
+    static ::poi::ss::usermodel::VerticalAlignment* getVerticalAlignment(::java::util::Map* properties, ::java::lang::String* name);
     static bool getBoolean(::java::util::Map* properties, ::java::lang::String* name);
     static void put(::java::util::Map* properties, ::java::lang::String* name, ::java::lang::Object* value);
 
 public:
-    static ::org::apache::poi::ss::usermodel::Cell* translateUnicodeValues(::org::apache::poi::ss::usermodel::Cell* cell);
+    static ::poi::ss::usermodel::Cell* translateUnicodeValues(::poi::ss::usermodel::Cell* cell);
 
 private:
     static CellUtil_UnicodeMapping* um(::java::lang::String* entityName, ::java::lang::String* resolvedValue);
@@ -106,7 +100,7 @@ public:
     static void clinit();
 
 private:
-    static ::org::apache::poi::util::POILogger*& log();
+    static ::poi::util::POILogger*& log();
 
 public:
     static ::java::lang::String*& ALIGNMENT();

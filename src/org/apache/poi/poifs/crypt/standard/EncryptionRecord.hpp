@@ -6,10 +6,10 @@
 #include <org/apache/poi/util/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::poifs::crypt::standard::EncryptionRecord
+struct poi::poifs::crypt::standard::EncryptionRecord
     : public virtual ::java::lang::Object
 {
-    virtual void write(::org::apache::poi::util::LittleEndianByteArrayOutputStream* os) = 0;
+    virtual void write(::poi::util::LittleEndianByteArrayOutputStream* os) = 0;
 
     // Generated
     static ::java::lang::Class *class_();

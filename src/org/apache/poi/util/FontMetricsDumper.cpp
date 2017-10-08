@@ -61,19 +61,19 @@ namespace
 
     template<typename F> finally_<F> finally(F f) { return finally_<F>(f); }
 }
-org::apache::poi::util::FontMetricsDumper::FontMetricsDumper(const ::default_init_tag&)
+poi::util::FontMetricsDumper::FontMetricsDumper(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::util::FontMetricsDumper::FontMetricsDumper()
+poi::util::FontMetricsDumper::FontMetricsDumper()
     : FontMetricsDumper(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::util::FontMetricsDumper::main(::java::lang::StringArray* args) /* throws(IOException) */
+void poi::util::FontMetricsDumper::main(::java::lang::StringArray* args) /* throws(IOException) */
 {
     clinit();
     auto props = new ::java::util::Properties();
@@ -124,13 +124,13 @@ void org::apache::poi::util::FontMetricsDumper::main(::java::lang::StringArray* 
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::util::FontMetricsDumper::class_()
+java::lang::Class* poi::util::FontMetricsDumper::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.util.FontMetricsDumper", 37);
     return c;
 }
 
-java::lang::Class* org::apache::poi::util::FontMetricsDumper::getClass0()
+java::lang::Class* poi::util::FontMetricsDumper::getClass0()
 {
     return class_();
 }

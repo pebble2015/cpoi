@@ -6,7 +6,7 @@
 #include <org/apache/poi/poifs/common/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::poifs::common::POIFSConstants
+struct poi::poifs::common::POIFSConstants
     : public virtual ::java::lang::Object
 {
     static constexpr int32_t SMALLER_BIG_BLOCK_SIZE { int32_t(512) };

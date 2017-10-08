@@ -29,28 +29,28 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
 
 struct default_init_tag;
 
-class org::apache::poi::hpsf::extractor::HPSFPropertiesExtractor
-    : public ::org::apache::poi::POIOLE2TextExtractor
+class poi::hpsf::extractor::HPSFPropertiesExtractor
+    : public ::poi::POIOLE2TextExtractor
 {
 
 public:
-    typedef ::org::apache::poi::POIOLE2TextExtractor super;
+    typedef ::poi::POIOLE2TextExtractor super;
 protected:
-    void ctor(::org::apache::poi::POIOLE2TextExtractor* mainExtractor);
-    void ctor(::org::apache::poi::POIDocument* doc);
-    void ctor(::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs);
-    void ctor(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs);
+    void ctor(::poi::POIOLE2TextExtractor* mainExtractor);
+    void ctor(::poi::POIDocument* doc);
+    void ctor(::poi::poifs::filesystem::POIFSFileSystem* fs);
+    void ctor(::poi::poifs::filesystem::NPOIFSFileSystem* fs);
 
 public:
     virtual ::java::lang::String* getDocumentSummaryInformationText();
     virtual ::java::lang::String* getSummaryInformationText();
 
 private:
-    static ::java::lang::String* getPropertiesText(::org::apache::poi::hpsf::PropertySet* ps);
+    static ::java::lang::String* getPropertiesText(::poi::hpsf::PropertySet* ps);
 
 public:
     ::java::lang::String* getText() override;
-    ::org::apache::poi::POITextExtractor* getMetadataTextExtractor() override;
+    ::poi::POITextExtractor* getMetadataTextExtractor() override;
 
 private:
     static ::java::lang::String* getPropertyValueText(::java::lang::Object* val);
@@ -61,10 +61,10 @@ public:
     static void main(::java::lang::StringArray* args) /* throws(IOException) */;
 
     // Generated
-    HPSFPropertiesExtractor(::org::apache::poi::POIOLE2TextExtractor* mainExtractor);
-    HPSFPropertiesExtractor(::org::apache::poi::POIDocument* doc);
-    HPSFPropertiesExtractor(::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs);
-    HPSFPropertiesExtractor(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs);
+    HPSFPropertiesExtractor(::poi::POIOLE2TextExtractor* mainExtractor);
+    HPSFPropertiesExtractor(::poi::POIDocument* doc);
+    HPSFPropertiesExtractor(::poi::poifs::filesystem::POIFSFileSystem* fs);
+    HPSFPropertiesExtractor(::poi::poifs::filesystem::NPOIFSFileSystem* fs);
 protected:
     HPSFPropertiesExtractor(const ::default_init_tag&);
 

@@ -13,7 +13,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::EscherGraphics
+class poi::hssf::usermodel::EscherGraphics
     : public ::java::awt::Graphics
 {
 
@@ -28,7 +28,7 @@ private:
     ::java::awt::Color* foreground {  };
     ::java::awt::Color* background {  };
     ::java::awt::Font* font {  };
-    static ::org::apache::poi::util::POILogger* logger_;
+    static ::poi::util::POILogger* logger_;
 protected:
     void ctor(HSSFShapeGroup* escherGroup, HSSFWorkbook* workbook, ::java::awt::Color* forecolor, float verticalPointsPerPixel);
     void ctor(HSSFShapeGroup* escherGroup, HSSFWorkbook* workbook, ::java::awt::Color* foreground, ::java::awt::Font* font, float verticalPointsPerPixel);
@@ -120,6 +120,6 @@ public:
     virtual ::java::awt::FontMetrics* getFontMetrics();
 
 private:
-    static ::org::apache::poi::util::POILogger*& logger();
+    static ::poi::util::POILogger*& logger();
     virtual ::java::lang::Class* getClass0();
 };

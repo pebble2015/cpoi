@@ -7,7 +7,7 @@
 #include <org/apache/poi/ss/usermodel/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::usermodel::PictureData
+struct poi::ss::usermodel::PictureData
     : public virtual ::java::lang::Object
 {
     virtual ::int8_tArray* getData() = 0;

@@ -27,7 +27,7 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::ptg::AttrPtg final
+class poi::ss::formula::ptg::AttrPtg final
     : public ControlPtg
 {
 
@@ -41,16 +41,16 @@ private:
     int16_t _data {  };
     ::int32_tArray* _jumpTable {  };
     int32_t _chooseFuncOffset {  };
-    static ::org::apache::poi::util::BitField* semiVolatile_;
-    static ::org::apache::poi::util::BitField* optiIf_;
-    static ::org::apache::poi::util::BitField* optiChoose_;
-    static ::org::apache::poi::util::BitField* optiSkip_;
-    static ::org::apache::poi::util::BitField* optiSum_;
-    static ::org::apache::poi::util::BitField* baxcel_;
-    static ::org::apache::poi::util::BitField* space_;
+    static ::poi::util::BitField* semiVolatile_;
+    static ::poi::util::BitField* optiIf_;
+    static ::poi::util::BitField* optiChoose_;
+    static ::poi::util::BitField* optiSkip_;
+    static ::poi::util::BitField* optiSum_;
+    static ::poi::util::BitField* baxcel_;
+    static ::poi::util::BitField* space_;
     static AttrPtg* SUM_;
 protected:
-    void ctor(::org::apache::poi::util::LittleEndianInput* in);
+    void ctor(::poi::util::LittleEndianInput* in);
     void ctor(int32_t options, int32_t data, ::int32_tArray* jt, int32_t chooseFuncOffset);
 
 public:
@@ -73,7 +73,7 @@ public:
     ::int32_tArray* getJumpTable();
     int32_t getChooseFuncOffset();
     ::java::lang::String* toString() override;
-    void write(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void write(::poi::util::LittleEndianOutput* out) override;
     int32_t getSize() override;
     ::java::lang::String* toFormulaString(::java::lang::StringArray* operands);
     int32_t getNumberOfOperands();
@@ -81,7 +81,7 @@ public:
     ::java::lang::String* toFormulaString() override;
 
     // Generated
-    AttrPtg(::org::apache::poi::util::LittleEndianInput* in);
+    AttrPtg(::poi::util::LittleEndianInput* in);
 
 private:
     AttrPtg(int32_t options, int32_t data, ::int32_tArray* jt, int32_t chooseFuncOffset);
@@ -94,13 +94,13 @@ public:
     static void clinit();
 
 private:
-    static ::org::apache::poi::util::BitField*& semiVolatile();
-    static ::org::apache::poi::util::BitField*& optiIf();
-    static ::org::apache::poi::util::BitField*& optiChoose();
-    static ::org::apache::poi::util::BitField*& optiSkip();
-    static ::org::apache::poi::util::BitField*& optiSum();
-    static ::org::apache::poi::util::BitField*& baxcel();
-    static ::org::apache::poi::util::BitField*& space();
+    static ::poi::util::BitField*& semiVolatile();
+    static ::poi::util::BitField*& optiIf();
+    static ::poi::util::BitField*& optiChoose();
+    static ::poi::util::BitField*& optiSkip();
+    static ::poi::util::BitField*& optiSum();
+    static ::poi::util::BitField*& baxcel();
+    static ::poi::util::BitField*& space();
 
 public:
     static AttrPtg*& SUM();

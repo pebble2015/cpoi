@@ -10,20 +10,20 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::crypt::binaryrc4::BinaryRC4Encryptor_createEncryptionInfoEntry_1
+class poi::poifs::crypt::binaryrc4::BinaryRC4Encryptor_createEncryptionInfoEntry_1
     : public virtual ::java::lang::Object
-    , public virtual ::org::apache::poi::poifs::crypt::standard::EncryptionRecord
+    , public virtual ::poi::poifs::crypt::standard::EncryptionRecord
 {
 
 public:
     typedef ::java::lang::Object super;
-    void write(::org::apache::poi::util::LittleEndianByteArrayOutputStream* bos) override;
+    void write(::poi::util::LittleEndianByteArrayOutputStream* bos) override;
 
     // Generated
-    BinaryRC4Encryptor_createEncryptionInfoEntry_1(BinaryRC4Encryptor *BinaryRC4Encryptor_this, ::org::apache::poi::poifs::crypt::EncryptionInfo* info, BinaryRC4EncryptionHeader* header, BinaryRC4EncryptionVerifier* verifier);
+    BinaryRC4Encryptor_createEncryptionInfoEntry_1(BinaryRC4Encryptor *BinaryRC4Encryptor_this, ::poi::poifs::crypt::EncryptionInfo* info, BinaryRC4EncryptionHeader* header, BinaryRC4EncryptionVerifier* verifier);
     static ::java::lang::Class *class_();
     BinaryRC4Encryptor *BinaryRC4Encryptor_this;
-    ::org::apache::poi::poifs::crypt::EncryptionInfo* info;
+    ::poi::poifs::crypt::EncryptionInfo* info;
     BinaryRC4EncryptionHeader* header;
     BinaryRC4EncryptionVerifier* verifier;
 

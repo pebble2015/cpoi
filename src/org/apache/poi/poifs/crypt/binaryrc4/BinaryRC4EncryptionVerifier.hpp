@@ -11,17 +11,17 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::crypt::binaryrc4::BinaryRC4EncryptionVerifier
-    : public ::org::apache::poi::poifs::crypt::EncryptionVerifier
-    , public virtual ::org::apache::poi::poifs::crypt::standard::EncryptionRecord
+class poi::poifs::crypt::binaryrc4::BinaryRC4EncryptionVerifier
+    : public ::poi::poifs::crypt::EncryptionVerifier
+    , public virtual ::poi::poifs::crypt::standard::EncryptionRecord
     , public virtual ::java::lang::Cloneable
 {
 
 public:
-    typedef ::org::apache::poi::poifs::crypt::EncryptionVerifier super;
+    typedef ::poi::poifs::crypt::EncryptionVerifier super;
 protected:
     void ctor();
-    void ctor(::org::apache::poi::util::LittleEndianInput* is);
+    void ctor(::poi::util::LittleEndianInput* is);
 
 public: /* protected */
     void setSalt(::int8_tArray* salt) override;
@@ -29,14 +29,14 @@ public: /* protected */
     void setEncryptedVerifierHash(::int8_tArray* encryptedVerifierHash) override;
 
 public:
-    void write(::org::apache::poi::util::LittleEndianByteArrayOutputStream* bos) override;
+    void write(::poi::util::LittleEndianByteArrayOutputStream* bos) override;
     BinaryRC4EncryptionVerifier* clone() /* throws(CloneNotSupportedException) */ override;
 
     // Generated
 
 public: /* protected */
     BinaryRC4EncryptionVerifier();
-    BinaryRC4EncryptionVerifier(::org::apache::poi::util::LittleEndianInput* is);
+    BinaryRC4EncryptionVerifier(::poi::util::LittleEndianInput* is);
 protected:
     BinaryRC4EncryptionVerifier(const ::default_init_tag&);
 

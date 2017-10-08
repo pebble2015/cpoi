@@ -15,76 +15,76 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::RKRecord::RKRecord(const ::default_init_tag&)
+poi::hssf::record::RKRecord::RKRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::RKRecord::RKRecord() 
+poi::hssf::record::RKRecord::RKRecord() 
     : RKRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::RKRecord::RKRecord(RecordInputStream* in) 
+poi::hssf::record::RKRecord::RKRecord(RecordInputStream* in) 
     : RKRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::RKRecord::sid;
+constexpr int16_t poi::hssf::record::RKRecord::sid;
 
-constexpr int16_t org::apache::poi::hssf::record::RKRecord::RK_IEEE_NUMBER;
+constexpr int16_t poi::hssf::record::RKRecord::RK_IEEE_NUMBER;
 
-constexpr int16_t org::apache::poi::hssf::record::RKRecord::RK_IEEE_NUMBER_TIMES_100;
+constexpr int16_t poi::hssf::record::RKRecord::RK_IEEE_NUMBER_TIMES_100;
 
-constexpr int16_t org::apache::poi::hssf::record::RKRecord::RK_INTEGER;
+constexpr int16_t poi::hssf::record::RKRecord::RK_INTEGER;
 
-constexpr int16_t org::apache::poi::hssf::record::RKRecord::RK_INTEGER_TIMES_100;
+constexpr int16_t poi::hssf::record::RKRecord::RK_INTEGER_TIMES_100;
 
-void org::apache::poi::hssf::record::RKRecord::ctor()
+void poi::hssf::record::RKRecord::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hssf::record::RKRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::RKRecord::ctor(RecordInputStream* in)
 {
     super::ctor(in);
     field_4_rk_number = npc(in)->readInt();
 }
 
-double org::apache::poi::hssf::record::RKRecord::getRKNumber()
+double poi::hssf::record::RKRecord::getRKNumber()
 {
-    return ::org::apache::poi::hssf::util::RKUtil::decodeNumber(field_4_rk_number);
+    return ::poi::hssf::util::RKUtil::decodeNumber(field_4_rk_number);
 }
 
-java::lang::String* org::apache::poi::hssf::record::RKRecord::getRecordName()
+java::lang::String* poi::hssf::record::RKRecord::getRecordName()
 {
     return u"RK"_j;
 }
 
-void org::apache::poi::hssf::record::RKRecord::appendValueText(::java::lang::StringBuilder* sb)
+void poi::hssf::record::RKRecord::appendValueText(::java::lang::StringBuilder* sb)
 {
     npc(npc(sb)->append(u"  .value= "_j))->append(getRKNumber());
 }
 
-void org::apache::poi::hssf::record::RKRecord::serializeValue(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::RKRecord::serializeValue(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeInt(field_4_rk_number);
 }
 
-int32_t org::apache::poi::hssf::record::RKRecord::getValueDataSize()
+int32_t poi::hssf::record::RKRecord::getValueDataSize()
 {
     return 4;
 }
 
-int16_t org::apache::poi::hssf::record::RKRecord::getSid()
+int16_t poi::hssf::record::RKRecord::getSid()
 {
     return sid;
 }
 
-java::lang::Object* org::apache::poi::hssf::record::RKRecord::clone()
+java::lang::Object* poi::hssf::record::RKRecord::clone()
 {
     auto rec = new RKRecord();
     copyBaseFields(rec);
@@ -94,13 +94,13 @@ java::lang::Object* org::apache::poi::hssf::record::RKRecord::clone()
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::RKRecord::class_()
+java::lang::Class* poi::hssf::record::RKRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.RKRecord", 35);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::record::RKRecord::getClass0()
+java::lang::Class* poi::hssf::record::RKRecord::getClass0()
 {
     return class_();
 }

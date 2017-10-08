@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::BookBoolRecord final
+class poi::hssf::record::BookBoolRecord final
     : public StandardRecord
 {
 
@@ -28,7 +28,7 @@ public:
     void setSaveLinkValues(int16_t flag);
     int16_t getSaveLinkValues();
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;

@@ -17,25 +17,25 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::pivottable::ViewFieldsRecord::ViewFieldsRecord(const ::default_init_tag&)
+poi::hssf::record::pivottable::ViewFieldsRecord::ViewFieldsRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::pivottable::ViewFieldsRecord::ViewFieldsRecord(::org::apache::poi::hssf::record::RecordInputStream* in) 
+poi::hssf::record::pivottable::ViewFieldsRecord::ViewFieldsRecord(::poi::hssf::record::RecordInputStream* in) 
     : ViewFieldsRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::pivottable::ViewFieldsRecord::sid;
+constexpr int16_t poi::hssf::record::pivottable::ViewFieldsRecord::sid;
 
-constexpr int32_t org::apache::poi::hssf::record::pivottable::ViewFieldsRecord::STRING_NOT_PRESENT_LEN;
+constexpr int32_t poi::hssf::record::pivottable::ViewFieldsRecord::STRING_NOT_PRESENT_LEN;
 
-constexpr int32_t org::apache::poi::hssf::record::pivottable::ViewFieldsRecord::BASE_SIZE;
+constexpr int32_t poi::hssf::record::pivottable::ViewFieldsRecord::BASE_SIZE;
 
-void org::apache::poi::hssf::record::pivottable::ViewFieldsRecord::ctor(::org::apache::poi::hssf::record::RecordInputStream* in)
+void poi::hssf::record::pivottable::ViewFieldsRecord::ctor(::poi::hssf::record::RecordInputStream* in)
 {
     super::ctor();
     _sxaxis = npc(in)->readShort();
@@ -53,40 +53,40 @@ void org::apache::poi::hssf::record::pivottable::ViewFieldsRecord::ctor(::org::a
     }
 }
 
-void org::apache::poi::hssf::record::pivottable::ViewFieldsRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::pivottable::ViewFieldsRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(_sxaxis);
     npc(out)->writeShort(_cSub);
     npc(out)->writeShort(_grbitSub);
     npc(out)->writeShort(_cItm);
     if(_name != nullptr) {
-        ::org::apache::poi::util::StringUtil::writeUnicodeString(out, _name);
+        ::poi::util::StringUtil::writeUnicodeString(out, _name);
     } else {
         npc(out)->writeShort(STRING_NOT_PRESENT_LEN);
     }
 }
 
-int32_t org::apache::poi::hssf::record::pivottable::ViewFieldsRecord::getDataSize()
+int32_t poi::hssf::record::pivottable::ViewFieldsRecord::getDataSize()
 {
     if(_name == nullptr) {
         return BASE_SIZE;
     }
-    return BASE_SIZE + int32_t(1) + npc(_name)->length() * (::org::apache::poi::util::StringUtil::hasMultibyte(_name) ? int32_t(2) : int32_t(1));
+    return BASE_SIZE + int32_t(1) + npc(_name)->length() * (::poi::util::StringUtil::hasMultibyte(_name) ? int32_t(2) : int32_t(1));
 }
 
-int16_t org::apache::poi::hssf::record::pivottable::ViewFieldsRecord::getSid()
+int16_t poi::hssf::record::pivottable::ViewFieldsRecord::getSid()
 {
     return sid;
 }
 
-java::lang::String* org::apache::poi::hssf::record::pivottable::ViewFieldsRecord::toString()
+java::lang::String* poi::hssf::record::pivottable::ViewFieldsRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[SXVD]\n"_j);
-    npc(npc(npc(buffer)->append(u"    .sxaxis    = "_j))->append(::org::apache::poi::util::HexDump::shortToHex(_sxaxis)))->append(u'\u000a');
-    npc(npc(npc(buffer)->append(u"    .cSub      = "_j))->append(::org::apache::poi::util::HexDump::shortToHex(_cSub)))->append(u'\u000a');
-    npc(npc(npc(buffer)->append(u"    .grbitSub  = "_j))->append(::org::apache::poi::util::HexDump::shortToHex(_grbitSub)))->append(u'\u000a');
-    npc(npc(npc(buffer)->append(u"    .cItm      = "_j))->append(::org::apache::poi::util::HexDump::shortToHex(_cItm)))->append(u'\u000a');
+    npc(npc(npc(buffer)->append(u"    .sxaxis    = "_j))->append(::poi::util::HexDump::shortToHex(_sxaxis)))->append(u'\u000a');
+    npc(npc(npc(buffer)->append(u"    .cSub      = "_j))->append(::poi::util::HexDump::shortToHex(_cSub)))->append(u'\u000a');
+    npc(npc(npc(buffer)->append(u"    .grbitSub  = "_j))->append(::poi::util::HexDump::shortToHex(_grbitSub)))->append(u'\u000a');
+    npc(npc(npc(buffer)->append(u"    .cItm      = "_j))->append(::poi::util::HexDump::shortToHex(_cItm)))->append(u'\u000a');
     npc(npc(npc(buffer)->append(u"    .name      = "_j))->append(_name))->append(u'\u000a');
     npc(buffer)->append(u"[/SXVD]\n"_j);
     return npc(buffer)->toString();
@@ -94,23 +94,23 @@ java::lang::String* org::apache::poi::hssf::record::pivottable::ViewFieldsRecord
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::pivottable::ViewFieldsRecord::class_()
+java::lang::Class* poi::hssf::record::pivottable::ViewFieldsRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.pivottable.ViewFieldsRecord", 54);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::pivottable::ViewFieldsRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::pivottable::ViewFieldsRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::pivottable::ViewFieldsRecord::serialize()
+int8_tArray* poi::hssf::record::pivottable::ViewFieldsRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::pivottable::ViewFieldsRecord::getClass0()
+java::lang::Class* poi::hssf::record::pivottable::ViewFieldsRecord::getClass0()
 {
     return class_();
 }

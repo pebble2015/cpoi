@@ -3,19 +3,19 @@
 
 #include <java/lang/String.hpp>
 
-org::apache::poi::ss::util::CellReference_CellRefParts::CellReference_CellRefParts(const ::default_init_tag&)
+poi::ss::util::CellReference_CellRefParts::CellReference_CellRefParts(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::util::CellReference_CellRefParts::CellReference_CellRefParts(::java::lang::String* sheetName, ::java::lang::String* rowRef, ::java::lang::String* colRef) 
+poi::ss::util::CellReference_CellRefParts::CellReference_CellRefParts(::java::lang::String* sheetName, ::java::lang::String* rowRef, ::java::lang::String* colRef) 
     : CellReference_CellRefParts(*static_cast< ::default_init_tag* >(0))
 {
     ctor(sheetName,rowRef,colRef);
 }
 
-void org::apache::poi::ss::util::CellReference_CellRefParts::ctor(::java::lang::String* sheetName, ::java::lang::String* rowRef, ::java::lang::String* colRef)
+void poi::ss::util::CellReference_CellRefParts::ctor(::java::lang::String* sheetName, ::java::lang::String* rowRef, ::java::lang::String* colRef)
 {
     super::ctor();
     this->sheetName = sheetName;
@@ -25,13 +25,13 @@ void org::apache::poi::ss::util::CellReference_CellRefParts::ctor(::java::lang::
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::util::CellReference_CellRefParts::class_()
+java::lang::Class* poi::ss::util::CellReference_CellRefParts::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.util.CellReference.CellRefParts", 49);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::util::CellReference_CellRefParts::getClass0()
+java::lang::Class* poi::ss::util::CellReference_CellRefParts::getClass0()
 {
     return class_();
 }

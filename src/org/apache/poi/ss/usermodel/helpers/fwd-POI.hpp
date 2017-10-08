@@ -2,22 +2,16 @@
 #pragma once
 
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace ss
+            namespace helpers
             {
-                namespace usermodel
-                {
-                    namespace helpers
-                    {
-                        class RowShifter;
-                    } // helpers
-                } // usermodel
-            } // ss
-        } // poi
-    } // apache
-} // org
+                class RowShifter;
+            } // helpers
+        } // usermodel
+    } // ss
+} // poi

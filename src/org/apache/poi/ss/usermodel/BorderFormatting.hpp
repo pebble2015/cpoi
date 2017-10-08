@@ -6,7 +6,7 @@
 #include <org/apache/poi/ss/usermodel/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::usermodel::BorderFormatting
+struct poi::ss::usermodel::BorderFormatting
     : public virtual ::java::lang::Object
 {
     virtual int16_t getBorderBottom() = 0;

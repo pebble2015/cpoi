@@ -8,29 +8,23 @@
 #include <java/lang/Object.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::DVConstraint_FormulaPair final
+class poi::hssf::usermodel::DVConstraint_FormulaPair final
     : public ::java::lang::Object
 {
 
@@ -38,19 +32,19 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    ::org::apache::poi::ss::formula::ptg::PtgArray* _formula1 {  };
-    ::org::apache::poi::ss::formula::ptg::PtgArray* _formula2 {  };
+    ::poi::ss::formula::ptg::PtgArray* _formula1 {  };
+    ::poi::ss::formula::ptg::PtgArray* _formula2 {  };
 protected:
-    void ctor(::org::apache::poi::ss::formula::ptg::PtgArray* formula1, ::org::apache::poi::ss::formula::ptg::PtgArray* formula2);
+    void ctor(::poi::ss::formula::ptg::PtgArray* formula1, ::poi::ss::formula::ptg::PtgArray* formula2);
 
 public:
-    ::org::apache::poi::ss::formula::ptg::PtgArray* getFormula1();
-    ::org::apache::poi::ss::formula::ptg::PtgArray* getFormula2();
+    ::poi::ss::formula::ptg::PtgArray* getFormula1();
+    ::poi::ss::formula::ptg::PtgArray* getFormula2();
 
     // Generated
 
 public: /* package */
-    DVConstraint_FormulaPair(::org::apache::poi::ss::formula::ptg::PtgArray* formula1, ::org::apache::poi::ss::formula::ptg::PtgArray* formula2);
+    DVConstraint_FormulaPair(::poi::ss::formula::ptg::PtgArray* formula1, ::poi::ss::formula::ptg::PtgArray* formula2);
 protected:
     DVConstraint_FormulaPair(const ::default_init_tag&);
 

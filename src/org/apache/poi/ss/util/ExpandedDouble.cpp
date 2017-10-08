@@ -15,51 +15,51 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::util::ExpandedDouble::ExpandedDouble(const ::default_init_tag&)
+poi::ss::util::ExpandedDouble::ExpandedDouble(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::util::ExpandedDouble::ExpandedDouble(int64_t rawBits) 
+poi::ss::util::ExpandedDouble::ExpandedDouble(int64_t rawBits) 
     : ExpandedDouble(*static_cast< ::default_init_tag* >(0))
 {
     ctor(rawBits);
 }
 
-org::apache::poi::ss::util::ExpandedDouble::ExpandedDouble(::java::math::BigInteger* frac, int32_t binaryExp) 
+poi::ss::util::ExpandedDouble::ExpandedDouble(::java::math::BigInteger* frac, int32_t binaryExp) 
     : ExpandedDouble(*static_cast< ::default_init_tag* >(0))
 {
     ctor(frac,binaryExp);
 }
 
-java::math::BigInteger*& org::apache::poi::ss::util::ExpandedDouble::BI_FRAC_MASK()
+java::math::BigInteger*& poi::ss::util::ExpandedDouble::BI_FRAC_MASK()
 {
     clinit();
     return BI_FRAC_MASK_;
 }
-java::math::BigInteger* org::apache::poi::ss::util::ExpandedDouble::BI_FRAC_MASK_;
+java::math::BigInteger* poi::ss::util::ExpandedDouble::BI_FRAC_MASK_;
 
-java::math::BigInteger*& org::apache::poi::ss::util::ExpandedDouble::BI_IMPLIED_FRAC_MSB()
+java::math::BigInteger*& poi::ss::util::ExpandedDouble::BI_IMPLIED_FRAC_MSB()
 {
     clinit();
     return BI_IMPLIED_FRAC_MSB_;
 }
-java::math::BigInteger* org::apache::poi::ss::util::ExpandedDouble::BI_IMPLIED_FRAC_MSB_;
+java::math::BigInteger* poi::ss::util::ExpandedDouble::BI_IMPLIED_FRAC_MSB_;
 
-java::math::BigInteger* org::apache::poi::ss::util::ExpandedDouble::getFrac(int64_t rawBits)
+java::math::BigInteger* poi::ss::util::ExpandedDouble::getFrac(int64_t rawBits)
 {
     clinit();
     return npc(npc(npc(::java::math::BigInteger::valueOf(rawBits))->and_(BI_FRAC_MASK_))->or_(BI_IMPLIED_FRAC_MSB_))->shiftLeft(11);
 }
 
-org::apache::poi::ss::util::ExpandedDouble* org::apache::poi::ss::util::ExpandedDouble::fromRawBitsAndExponent(int64_t rawBits, int32_t exp)
+poi::ss::util::ExpandedDouble* poi::ss::util::ExpandedDouble::fromRawBitsAndExponent(int64_t rawBits, int32_t exp)
 {
     clinit();
     return new ExpandedDouble(getFrac(rawBits), exp);
 }
 
-void org::apache::poi::ss::util::ExpandedDouble::ctor(int64_t rawBits)
+void poi::ss::util::ExpandedDouble::ctor(int64_t rawBits)
 {
     super::ctor();
     auto biasedExp = static_cast< int32_t >((rawBits >> int32_t(52)));
@@ -75,7 +75,7 @@ void org::apache::poi::ss::util::ExpandedDouble::ctor(int64_t rawBits)
     }
 }
 
-void org::apache::poi::ss::util::ExpandedDouble::ctor(::java::math::BigInteger* frac, int32_t binaryExp)
+void poi::ss::util::ExpandedDouble::ctor(::java::math::BigInteger* frac, int32_t binaryExp)
 {
     super::ctor();
     if(npc(frac)->bitLength() != 64) {
@@ -85,30 +85,30 @@ void org::apache::poi::ss::util::ExpandedDouble::ctor(::java::math::BigInteger* 
     _binaryExponent = binaryExp;
 }
 
-org::apache::poi::ss::util::NormalisedDecimal* org::apache::poi::ss::util::ExpandedDouble::normaliseBaseTen()
+poi::ss::util::NormalisedDecimal* poi::ss::util::ExpandedDouble::normaliseBaseTen()
 {
     return NormalisedDecimal::create(_significand, _binaryExponent);
 }
 
-int32_t org::apache::poi::ss::util::ExpandedDouble::getBinaryExponent()
+int32_t poi::ss::util::ExpandedDouble::getBinaryExponent()
 {
     return _binaryExponent;
 }
 
-java::math::BigInteger* org::apache::poi::ss::util::ExpandedDouble::getSignificand()
+java::math::BigInteger* poi::ss::util::ExpandedDouble::getSignificand()
 {
     return _significand;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::util::ExpandedDouble::class_()
+java::lang::Class* poi::ss::util::ExpandedDouble::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.util.ExpandedDouble", 37);
     return c;
 }
 
-void org::apache::poi::ss::util::ExpandedDouble::clinit()
+void poi::ss::util::ExpandedDouble::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -125,7 +125,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::util::ExpandedDouble::getClass0()
+java::lang::Class* poi::ss::util::ExpandedDouble::getClass0()
 {
     return class_();
 }

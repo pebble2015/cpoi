@@ -11,7 +11,7 @@
 #include <org/apache/poi/sl/usermodel/SimpleShape.hpp>
 #include <java/lang/Iterable.hpp>
 
-struct org::apache::poi::sl::usermodel::TextShape
+struct poi::sl::usermodel::TextShape
     : public virtual SimpleShape
     , public virtual ::java::lang::Iterable
 {

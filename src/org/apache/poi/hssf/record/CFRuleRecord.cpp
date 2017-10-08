@@ -22,25 +22,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -49,45 +43,45 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::CFRuleRecord::CFRuleRecord(const ::default_init_tag&)
+poi::hssf::record::CFRuleRecord::CFRuleRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::CFRuleRecord::CFRuleRecord(int8_t conditionType, int8_t comparisonOperation) 
+poi::hssf::record::CFRuleRecord::CFRuleRecord(int8_t conditionType, int8_t comparisonOperation) 
     : CFRuleRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(conditionType,comparisonOperation);
 }
 
-org::apache::poi::hssf::record::CFRuleRecord::CFRuleRecord(int8_t conditionType, int8_t comparisonOperation, ::org::apache::poi::ss::formula::ptg::PtgArray* formula1, ::org::apache::poi::ss::formula::ptg::PtgArray* formula2) 
+poi::hssf::record::CFRuleRecord::CFRuleRecord(int8_t conditionType, int8_t comparisonOperation, ::poi::ss::formula::ptg::PtgArray* formula1, ::poi::ss::formula::ptg::PtgArray* formula2) 
     : CFRuleRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(conditionType,comparisonOperation,formula1,formula2);
 }
 
-org::apache::poi::hssf::record::CFRuleRecord::CFRuleRecord(RecordInputStream* in) 
+poi::hssf::record::CFRuleRecord::CFRuleRecord(RecordInputStream* in) 
     : CFRuleRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::CFRuleRecord::sid;
+constexpr int16_t poi::hssf::record::CFRuleRecord::sid;
 
-void org::apache::poi::hssf::record::CFRuleRecord::ctor(int8_t conditionType, int8_t comparisonOperation)
+void poi::hssf::record::CFRuleRecord::ctor(int8_t conditionType, int8_t comparisonOperation)
 {
     super::ctor(conditionType, comparisonOperation);
     setDefaults();
 }
 
-void org::apache::poi::hssf::record::CFRuleRecord::ctor(int8_t conditionType, int8_t comparisonOperation, ::org::apache::poi::ss::formula::ptg::PtgArray* formula1, ::org::apache::poi::ss::formula::ptg::PtgArray* formula2)
+void poi::hssf::record::CFRuleRecord::ctor(int8_t conditionType, int8_t comparisonOperation, ::poi::ss::formula::ptg::PtgArray* formula1, ::poi::ss::formula::ptg::PtgArray* formula2)
 {
     super::ctor(conditionType, comparisonOperation, formula1, formula2);
     setDefaults();
 }
 
-void org::apache::poi::hssf::record::CFRuleRecord::setDefaults()
+void poi::hssf::record::CFRuleRecord::setDefaults()
 {
     formatting_options = npc(modificationBits())->setValue(formatting_options, -int32_t(1));
     formatting_options = npc(fmtBlockBits())->setValue(formatting_options, 0);
@@ -98,14 +92,14 @@ void org::apache::poi::hssf::record::CFRuleRecord::setDefaults()
     _patternFormatting = nullptr;
 }
 
-org::apache::poi::hssf::record::CFRuleRecord* org::apache::poi::hssf::record::CFRuleRecord::create(::org::apache::poi::hssf::usermodel::HSSFSheet* sheet, ::java::lang::String* formulaText)
+poi::hssf::record::CFRuleRecord* poi::hssf::record::CFRuleRecord::create(::poi::hssf::usermodel::HSSFSheet* sheet, ::java::lang::String* formulaText)
 {
     clinit();
     auto formula1 = parseFormula(formulaText, sheet);
     return new CFRuleRecord(CONDITION_TYPE_FORMULA, CFRuleBase_ComparisonOperator::NO_COMPARISON, formula1, nullptr);
 }
 
-org::apache::poi::hssf::record::CFRuleRecord* org::apache::poi::hssf::record::CFRuleRecord::create(::org::apache::poi::hssf::usermodel::HSSFSheet* sheet, int8_t comparisonOperation, ::java::lang::String* formulaText1, ::java::lang::String* formulaText2)
+poi::hssf::record::CFRuleRecord* poi::hssf::record::CFRuleRecord::create(::poi::hssf::usermodel::HSSFSheet* sheet, int8_t comparisonOperation, ::java::lang::String* formulaText1, ::java::lang::String* formulaText2)
 {
     clinit();
     auto formula1 = parseFormula(formulaText1, sheet);
@@ -113,7 +107,7 @@ org::apache::poi::hssf::record::CFRuleRecord* org::apache::poi::hssf::record::CF
     return new CFRuleRecord(CONDITION_TYPE_CELL_VALUE_IS, comparisonOperation, formula1, formula2);
 }
 
-void org::apache::poi::hssf::record::CFRuleRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::CFRuleRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     setConditionType(npc(in)->readByte());
@@ -121,16 +115,16 @@ void org::apache::poi::hssf::record::CFRuleRecord::ctor(RecordInputStream* in)
     auto field_3_formula1_len = npc(in)->readUShort();
     auto field_4_formula2_len = npc(in)->readUShort();
     readFormatOptions(in);
-    setFormula1(::org::apache::poi::ss::formula::Formula::read(field_3_formula1_len, in));
-    setFormula2(::org::apache::poi::ss::formula::Formula::read(field_4_formula2_len, in));
+    setFormula1(::poi::ss::formula::Formula::read(field_3_formula1_len, in));
+    setFormula2(::poi::ss::formula::Formula::read(field_4_formula2_len, in));
 }
 
-int16_t org::apache::poi::hssf::record::CFRuleRecord::getSid()
+int16_t poi::hssf::record::CFRuleRecord::getSid()
 {
     return sid;
 }
 
-void org::apache::poi::hssf::record::CFRuleRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::CFRuleRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     auto formula1Len = getFormulaSize(getFormula1());
     auto formula2Len = getFormulaSize(getFormula2());
@@ -143,12 +137,12 @@ void org::apache::poi::hssf::record::CFRuleRecord::serialize(::org::apache::poi:
     npc(getFormula2())->serializeTokens(out);
 }
 
-int32_t org::apache::poi::hssf::record::CFRuleRecord::getDataSize()
+int32_t poi::hssf::record::CFRuleRecord::getDataSize()
 {
     return int32_t(6) + getFormattingBlockSize() + getFormulaSize(getFormula1())+ getFormulaSize(getFormula2());
 }
 
-java::lang::String* org::apache::poi::hssf::record::CFRuleRecord::toString()
+java::lang::String* poi::hssf::record::CFRuleRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[CFRULE]\n"_j);
@@ -169,7 +163,7 @@ java::lang::String* org::apache::poi::hssf::record::CFRuleRecord::toString()
     return npc(buffer)->toString();
 }
 
-org::apache::poi::hssf::record::CFRuleRecord* org::apache::poi::hssf::record::CFRuleRecord::clone()
+poi::hssf::record::CFRuleRecord* poi::hssf::record::CFRuleRecord::clone()
 {
     auto rec = new CFRuleRecord(getConditionType(), getComparisonOperation());
     super::copyTo(rec);
@@ -178,23 +172,23 @@ org::apache::poi::hssf::record::CFRuleRecord* org::apache::poi::hssf::record::CF
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::CFRuleRecord::class_()
+java::lang::Class* poi::hssf::record::CFRuleRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.CFRuleRecord", 39);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::CFRuleRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::CFRuleRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::CFRuleRecord::serialize()
+int8_tArray* poi::hssf::record::CFRuleRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::CFRuleRecord::getClass0()
+java::lang::Class* poi::hssf::record::CFRuleRecord::getClass0()
 {
     return class_();
 }

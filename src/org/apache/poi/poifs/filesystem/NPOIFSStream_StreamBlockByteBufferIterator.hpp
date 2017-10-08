@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::filesystem::NPOIFSStream_StreamBlockByteBufferIterator
+class poi::poifs::filesystem::NPOIFSStream_StreamBlockByteBufferIterator
     : public virtual ::java::lang::Object
     , public virtual ::java::util::Iterator
 {

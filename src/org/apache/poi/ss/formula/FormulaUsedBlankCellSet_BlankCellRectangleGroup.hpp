@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::FormulaUsedBlankCellSet_BlankCellRectangleGroup final
+class poi::ss::formula::FormulaUsedBlankCellSet_BlankCellRectangleGroup final
     : public ::java::lang::Object
 {
 

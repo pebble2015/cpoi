@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hpsf::MarkUnsupportedException
+class poi::hpsf::MarkUnsupportedException
     : public HPSFException
 {
 

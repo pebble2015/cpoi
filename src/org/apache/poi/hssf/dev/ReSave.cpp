@@ -73,19 +73,19 @@ namespace
 
     template<typename F> finally_<F> finally(F f) { return finally_<F>(f); }
 }
-org::apache::poi::hssf::dev::ReSave::ReSave(const ::default_init_tag&)
+poi::hssf::dev::ReSave::ReSave(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::dev::ReSave::ReSave()
+poi::hssf::dev::ReSave::ReSave()
     : ReSave(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::hssf::dev::ReSave::main(::java::lang::StringArray* args) /* throws(Exception) */
+void poi::hssf::dev::ReSave::main(::java::lang::StringArray* args) /* throws(Exception) */
 {
     clinit();
     auto initDrawing = false;
@@ -100,7 +100,7 @@ void org::apache::poi::hssf::dev::ReSave::main(::java::lang::StringArray* args) 
             npc(::java::lang::System::out())->print(::java::lang::StringBuilder().append(u"reading "_j)->append(filename)
                 ->append(u"..."_j)->toString());
             auto is = new ::java::io::FileInputStream(filename);
-            auto wb = new ::org::apache::poi::hssf::usermodel::HSSFWorkbook(static_cast< ::java::io::InputStream* >(is));
+            auto wb = new ::poi::hssf::usermodel::HSSFWorkbook(static_cast< ::java::io::InputStream* >(is));
             {
                 auto finally0 = finally([&] {
                     npc(wb)->close();
@@ -109,9 +109,9 @@ void org::apache::poi::hssf::dev::ReSave::main(::java::lang::StringArray* args) 
                 {
                     npc(::java::lang::System::out())->println(u"done"_j);
                     for (auto i = int32_t(0); i < npc(wb)->getNumberOfSheets(); i++) {
-                        auto sheet = java_cast< ::org::apache::poi::hssf::usermodel::HSSFSheet* >(npc(wb)->getSheetAt(i));
+                        auto sheet = java_cast< ::poi::hssf::usermodel::HSSFSheet* >(npc(wb)->getSheetAt(i));
                         if(initDrawing) {
-                            java_cast< ::org::apache::poi::hssf::usermodel::HSSFPatriarch* >(npc(sheet)->getDrawingPatriarch());
+                            java_cast< ::poi::hssf::usermodel::HSSFPatriarch* >(npc(sheet)->getDrawingPatriarch());
                         }
                     }
                     ::java::io::OutputStream* os;
@@ -143,13 +143,13 @@ void org::apache::poi::hssf::dev::ReSave::main(::java::lang::StringArray* args) 
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::dev::ReSave::class_()
+java::lang::Class* poi::hssf::dev::ReSave::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.dev.ReSave", 30);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::dev::ReSave::getClass0()
+java::lang::Class* poi::hssf::dev::ReSave::getClass0()
 {
     return class_();
 }

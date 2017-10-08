@@ -18,25 +18,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -54,47 +48,47 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::FactDouble::FactDouble(const ::default_init_tag&)
+poi::ss::formula::functions::FactDouble::FactDouble(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::FactDouble::FactDouble()
+poi::ss::formula::functions::FactDouble::FactDouble()
     : FactDouble(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::functions::FreeRefFunction*& org::apache::poi::ss::formula::functions::FactDouble::instance()
+poi::ss::formula::functions::FreeRefFunction*& poi::ss::formula::functions::FactDouble::instance()
 {
     clinit();
     return instance_;
 }
-org::apache::poi::ss::formula::functions::FreeRefFunction* org::apache::poi::ss::formula::functions::FactDouble::instance_;
+poi::ss::formula::functions::FreeRefFunction* poi::ss::formula::functions::FactDouble::instance_;
 
-java::util::HashMap*& org::apache::poi::ss::formula::functions::FactDouble::cache()
+java::util::HashMap*& poi::ss::formula::functions::FactDouble::cache()
 {
     clinit();
     return cache_;
 }
-java::util::HashMap* org::apache::poi::ss::formula::functions::FactDouble::cache_;
+java::util::HashMap* poi::ss::formula::functions::FactDouble::cache_;
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::FactDouble::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* numberVE)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::FactDouble::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::poi::ss::formula::eval::ValueEval* numberVE)
 {
     int32_t number;
     try {
-        number = ::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToInt(numberVE);
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        number = ::poi::ss::formula::eval::OperandResolver::coerceValueToInt(numberVE);
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
     if(number < 0) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::NUM_ERROR();
+        return ::poi::ss::formula::eval::ErrorEval::NUM_ERROR();
     }
-    return new ::org::apache::poi::ss::formula::eval::NumberEval(static_cast< double >(npc(factorial(number))->longValue()));
+    return new ::poi::ss::formula::eval::NumberEval(static_cast< double >(npc(factorial(number))->longValue()));
 }
 
-java::math::BigInteger* org::apache::poi::ss::formula::functions::FactDouble::factorial(int32_t n)
+java::math::BigInteger* poi::ss::formula::functions::FactDouble::factorial(int32_t n)
 {
     clinit();
     if(n == 0 || n < 0) {
@@ -108,23 +102,23 @@ java::math::BigInteger* org::apache::poi::ss::formula::functions::FactDouble::fa
     return result;
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::FactDouble::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, ::org::apache::poi::ss::formula::OperationEvaluationContext* ec)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::FactDouble::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, ::poi::ss::formula::OperationEvaluationContext* ec)
 {
     if(npc(args)->length != 1) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
     return evaluate(npc(ec)->getRowIndex(), npc(ec)->getColumnIndex(), (*args)[int32_t(0)]);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::FactDouble::class_()
+java::lang::Class* poi::ss::formula::functions::FactDouble::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.FactDouble", 46);
     return c;
 }
 
-void org::apache::poi::ss::formula::functions::FactDouble::clinit()
+void poi::ss::formula::functions::FactDouble::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -141,12 +135,12 @@ struct clinit_ {
     }
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::FactDouble::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::FactDouble::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
 {
     return super::evaluate(args, srcRowIndex, srcColumnIndex);
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::FactDouble::getClass0()
+java::lang::Class* poi::ss::formula::functions::FactDouble::getClass0()
 {
     return class_();
 }

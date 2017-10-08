@@ -2,29 +2,23 @@
 #pragma once
 
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace poifs
     {
-        namespace poi
+        namespace crypt
         {
-            namespace poifs
+            namespace standard
             {
-                namespace crypt
-                {
-                    namespace standard
-                    {
-                        struct EncryptionRecord;
-                        class StandardDecryptor;
-                        class StandardEncryptionHeader;
-                        class StandardEncryptionInfoBuilder;
-                        class StandardEncryptionVerifier;
-                        class StandardEncryptor;
-                        class StandardEncryptor_StandardCipherOutputStream;
-                        class StandardEncryptor_createEncryptionInfoEntry_1;
-                    } // standard
-                } // crypt
-            } // poifs
-        } // poi
-    } // apache
-} // org
+                struct EncryptionRecord;
+                class StandardDecryptor;
+                class StandardEncryptionHeader;
+                class StandardEncryptionInfoBuilder;
+                class StandardEncryptionVerifier;
+                class StandardEncryptor;
+                class StandardEncryptor_StandardCipherOutputStream;
+                class StandardEncryptor_createEncryptionInfoEntry_1;
+            } // standard
+        } // crypt
+    } // poifs
+} // poi

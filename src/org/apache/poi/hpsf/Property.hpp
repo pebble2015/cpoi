@@ -12,7 +12,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hpsf::Property
+class poi::hpsf::Property
     : public virtual ::java::lang::Object
 {
 
@@ -21,7 +21,7 @@ public:
     static constexpr int32_t DEFAULT_CODEPAGE { int32_t(1252) };
 
 private:
-    static ::org::apache::poi::util::POILogger* LOG_;
+    static ::poi::util::POILogger* LOG_;
     int64_t id {  };
     int64_t type {  };
     ::java::lang::Object* value {  };
@@ -30,7 +30,7 @@ protected:
     void ctor(Property* p);
     void ctor(int64_t id, int64_t type, ::java::lang::Object* value);
     void ctor(int64_t id, ::int8_tArray* src, int64_t offset, int32_t length, int32_t codepage) /* throws(UnsupportedEncodingException) */;
-    void ctor(int64_t id, ::org::apache::poi::util::LittleEndianByteArrayInputStream* leis, int32_t length, int32_t codepage) /* throws(UnsupportedEncodingException) */;
+    void ctor(int64_t id, ::poi::util::LittleEndianByteArrayInputStream* leis, int32_t length, int32_t codepage) /* throws(UnsupportedEncodingException) */;
 
 public:
     virtual int64_t getID();
@@ -53,7 +53,7 @@ private:
 public:
     int32_t hashCode() override;
     ::java::lang::String* toString() override;
-    virtual ::java::lang::String* toString(int32_t codepage, ::org::apache::poi::hpsf::wellknown::PropertyIDMap* idMap);
+    virtual ::java::lang::String* toString(int32_t codepage, ::poi::hpsf::wellknown::PropertyIDMap* idMap);
 
 private:
     ::java::lang::String* getVariantName();
@@ -67,7 +67,7 @@ public:
     Property(Property* p);
     Property(int64_t id, int64_t type, ::java::lang::Object* value);
     Property(int64_t id, ::int8_tArray* src, int64_t offset, int32_t length, int32_t codepage);
-    Property(int64_t id, ::org::apache::poi::util::LittleEndianByteArrayInputStream* leis, int32_t length, int32_t codepage);
+    Property(int64_t id, ::poi::util::LittleEndianByteArrayInputStream* leis, int32_t length, int32_t codepage);
 protected:
     Property(const ::default_init_tag&);
 
@@ -77,6 +77,6 @@ public:
     static void clinit();
 
 private:
-    static ::org::apache::poi::util::POILogger*& LOG();
+    static ::poi::util::POILogger*& LOG();
     virtual ::java::lang::Class* getClass0();
 };

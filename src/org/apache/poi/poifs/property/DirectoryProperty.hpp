@@ -12,7 +12,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::property::DirectoryProperty
+class poi::poifs::property::DirectoryProperty
     : public Property
     , public virtual Parent
     , public virtual ::java::lang::Iterable

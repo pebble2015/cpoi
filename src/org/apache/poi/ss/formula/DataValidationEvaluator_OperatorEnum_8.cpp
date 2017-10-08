@@ -11,27 +11,27 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum_8::DataValidationEvaluator_OperatorEnum_8(::java::lang::String* name, int ordinal)
+poi::ss::formula::DataValidationEvaluator_OperatorEnum_8::DataValidationEvaluator_OperatorEnum_8(::java::lang::String* name, int ordinal)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
     ctor(name, ordinal);
 }
 
-bool org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum_8::isValid(::java::lang::Double* cellValue, ::java::lang::Double* v1, ::java::lang::Double* v2)
+bool poi::ss::formula::DataValidationEvaluator_OperatorEnum_8::isValid(::java::lang::Double* cellValue, ::java::lang::Double* v1, ::java::lang::Double* v2)
 {
     return npc(cellValue)->compareTo(v1) <= 0;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum_8::class_()
+java::lang::Class* poi::ss::formula::DataValidationEvaluator_OperatorEnum_8::class_()
 {
     static ::java::lang::Class* c = ::class_(u"", 0);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum_8::getClass0()
+java::lang::Class* poi::ss::formula::DataValidationEvaluator_OperatorEnum_8::getClass0()
 {
     return class_();
 }

@@ -11,14 +11,14 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::DrawTextShape
+class poi::sl::draw::DrawTextShape
     : public DrawSimpleShape
 {
 
 public:
     typedef DrawSimpleShape super;
 protected:
-    void ctor(::org::apache::poi::sl::usermodel::TextShape* shape);
+    void ctor(::poi::sl::usermodel::TextShape* shape);
 
 public:
     void drawContent(::java::awt::Graphics2D* graphics) override;
@@ -27,12 +27,12 @@ public:
     virtual double getTextHeight(::java::awt::Graphics2D* oldGraphics);
 
 public: /* protected */
-    ::org::apache::poi::sl::usermodel::TextShape* getShape() override;
+    ::poi::sl::usermodel::TextShape* getShape() override;
 
     // Generated
 
 public:
-    DrawTextShape(::org::apache::poi::sl::usermodel::TextShape* shape);
+    DrawTextShape(::poi::sl::usermodel::TextShape* shape);
 protected:
     DrawTextShape(const ::default_init_tag&);
 

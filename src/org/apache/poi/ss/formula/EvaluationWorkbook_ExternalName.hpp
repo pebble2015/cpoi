@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::EvaluationWorkbook_ExternalName
+class poi::ss::formula::EvaluationWorkbook_ExternalName
     : public virtual ::java::lang::Object
 {
 

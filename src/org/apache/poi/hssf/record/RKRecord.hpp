@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::RKRecord final
+class poi::hssf::record::RKRecord final
     : public CellRecord
 {
 
@@ -34,7 +34,7 @@ public:
 public: /* protected */
     ::java::lang::String* getRecordName() override;
     void appendValueText(::java::lang::StringBuilder* sb) override;
-    void serializeValue(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serializeValue(::poi::util::LittleEndianOutput* out) override;
     int32_t getValueDataSize() override;
 
 public:

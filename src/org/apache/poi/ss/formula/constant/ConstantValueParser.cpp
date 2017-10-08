@@ -33,45 +33,45 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::constant::ConstantValueParser::ConstantValueParser(const ::default_init_tag&)
+poi::ss::formula::constant::ConstantValueParser::ConstantValueParser(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::constant::ConstantValueParser::ConstantValueParser() 
+poi::ss::formula::constant::ConstantValueParser::ConstantValueParser() 
     : ConstantValueParser(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-constexpr int32_t org::apache::poi::ss::formula::constant::ConstantValueParser::TYPE_EMPTY;
+constexpr int32_t poi::ss::formula::constant::ConstantValueParser::TYPE_EMPTY;
 
-constexpr int32_t org::apache::poi::ss::formula::constant::ConstantValueParser::TYPE_NUMBER;
+constexpr int32_t poi::ss::formula::constant::ConstantValueParser::TYPE_NUMBER;
 
-constexpr int32_t org::apache::poi::ss::formula::constant::ConstantValueParser::TYPE_STRING;
+constexpr int32_t poi::ss::formula::constant::ConstantValueParser::TYPE_STRING;
 
-constexpr int32_t org::apache::poi::ss::formula::constant::ConstantValueParser::TYPE_BOOLEAN;
+constexpr int32_t poi::ss::formula::constant::ConstantValueParser::TYPE_BOOLEAN;
 
-constexpr int32_t org::apache::poi::ss::formula::constant::ConstantValueParser::TYPE_ERROR_CODE;
+constexpr int32_t poi::ss::formula::constant::ConstantValueParser::TYPE_ERROR_CODE;
 
-constexpr int32_t org::apache::poi::ss::formula::constant::ConstantValueParser::TRUE_ENCODING;
+constexpr int32_t poi::ss::formula::constant::ConstantValueParser::TRUE_ENCODING;
 
-constexpr int32_t org::apache::poi::ss::formula::constant::ConstantValueParser::FALSE_ENCODING;
+constexpr int32_t poi::ss::formula::constant::ConstantValueParser::FALSE_ENCODING;
 
-java::lang::Object*& org::apache::poi::ss::formula::constant::ConstantValueParser::EMPTY_REPRESENTATION()
+java::lang::Object*& poi::ss::formula::constant::ConstantValueParser::EMPTY_REPRESENTATION()
 {
     clinit();
     return EMPTY_REPRESENTATION_;
 }
-java::lang::Object* org::apache::poi::ss::formula::constant::ConstantValueParser::EMPTY_REPRESENTATION_;
+java::lang::Object* poi::ss::formula::constant::ConstantValueParser::EMPTY_REPRESENTATION_;
 
-void org::apache::poi::ss::formula::constant::ConstantValueParser::ctor()
+void poi::ss::formula::constant::ConstantValueParser::ctor()
 {
     super::ctor();
 }
 
-java::lang::ObjectArray* org::apache::poi::ss::formula::constant::ConstantValueParser::parse(::org::apache::poi::util::LittleEndianInput* in, int32_t nValues)
+java::lang::ObjectArray* poi::ss::formula::constant::ConstantValueParser::parse(::poi::util::LittleEndianInput* in, int32_t nValues)
 {
     clinit();
     auto result = new ::java::lang::ObjectArray(nValues);
@@ -81,7 +81,7 @@ java::lang::ObjectArray* org::apache::poi::ss::formula::constant::ConstantValueP
     return result;
 }
 
-java::lang::Object* org::apache::poi::ss::formula::constant::ConstantValueParser::readAConstantValue(::org::apache::poi::util::LittleEndianInput* in)
+java::lang::Object* poi::ss::formula::constant::ConstantValueParser::readAConstantValue(::poi::util::LittleEndianInput* in)
 {
     clinit();
     auto grbit = npc(in)->readByte();
@@ -94,7 +94,7 @@ java::lang::Object* org::apache::poi::ss::formula::constant::ConstantValueParser
         case TYPE_NUMBER:
             return new ::java::lang::Double(npc(in)->readDouble());
         case TYPE_STRING:
-            return ::org::apache::poi::util::StringUtil::readUnicodeString(in);
+            return ::poi::util::StringUtil::readUnicodeString(in);
         case TYPE_BOOLEAN:
             return readBoolean(in);
         case TYPE_ERROR_CODE:
@@ -109,7 +109,7 @@ java::lang::Object* org::apache::poi::ss::formula::constant::ConstantValueParser
         ->append(u")"_j)->toString());
 }
 
-java::lang::Object* org::apache::poi::ss::formula::constant::ConstantValueParser::readBoolean(::org::apache::poi::util::LittleEndianInput* in)
+java::lang::Object* poi::ss::formula::constant::ConstantValueParser::readBoolean(::poi::util::LittleEndianInput* in)
 {
     clinit();
     auto val = static_cast< int8_t >(npc(in)->readLong());
@@ -124,7 +124,7 @@ java::lang::Object* org::apache::poi::ss::formula::constant::ConstantValueParser
         ->append(u")"_j)->toString());
 }
 
-int32_t org::apache::poi::ss::formula::constant::ConstantValueParser::getEncodedSize(::java::lang::ObjectArray* values)
+int32_t poi::ss::formula::constant::ConstantValueParser::getEncodedSize(::java::lang::ObjectArray* values)
 {
     clinit();
     auto result = npc(values)->length * int32_t(1);
@@ -134,7 +134,7 @@ int32_t org::apache::poi::ss::formula::constant::ConstantValueParser::getEncoded
     return result;
 }
 
-int32_t org::apache::poi::ss::formula::constant::ConstantValueParser::getEncodedSize(::java::lang::Object* object)
+int32_t poi::ss::formula::constant::ConstantValueParser::getEncodedSize(::java::lang::Object* object)
 {
     clinit();
     if(object == EMPTY_REPRESENTATION_) {
@@ -145,10 +145,10 @@ int32_t org::apache::poi::ss::formula::constant::ConstantValueParser::getEncoded
         return 8;
     }
     auto strVal = java_cast< ::java::lang::String* >(object);
-    return ::org::apache::poi::util::StringUtil::getEncodedSize(strVal);
+    return ::poi::util::StringUtil::getEncodedSize(strVal);
 }
 
-void org::apache::poi::ss::formula::constant::ConstantValueParser::encode(::org::apache::poi::util::LittleEndianOutput* out, ::java::lang::ObjectArray* values)
+void poi::ss::formula::constant::ConstantValueParser::encode(::poi::util::LittleEndianOutput* out, ::java::lang::ObjectArray* values)
 {
     clinit();
     for (auto i = int32_t(0); i < npc(values)->length; i++) {
@@ -156,7 +156,7 @@ void org::apache::poi::ss::formula::constant::ConstantValueParser::encode(::org:
     }
 }
 
-void org::apache::poi::ss::formula::constant::ConstantValueParser::encodeSingleValue(::org::apache::poi::util::LittleEndianOutput* out, ::java::lang::Object* value)
+void poi::ss::formula::constant::ConstantValueParser::encodeSingleValue(::poi::util::LittleEndianOutput* out, ::java::lang::Object* value)
 {
     clinit();
     if(value == EMPTY_REPRESENTATION_) {
@@ -180,7 +180,7 @@ void org::apache::poi::ss::formula::constant::ConstantValueParser::encodeSingleV
     if(dynamic_cast< ::java::lang::String* >(value) != nullptr) {
         auto val = java_cast< ::java::lang::String* >(value);
         npc(out)->writeByte(TYPE_STRING);
-        ::org::apache::poi::util::StringUtil::writeUnicodeString(out, val);
+        ::poi::util::StringUtil::writeUnicodeString(out, val);
         return;
     }
     if(dynamic_cast< ErrorConstant* >(value) != nullptr) {
@@ -196,13 +196,13 @@ void org::apache::poi::ss::formula::constant::ConstantValueParser::encodeSingleV
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::constant::ConstantValueParser::class_()
+java::lang::Class* poi::ss::formula::constant::ConstantValueParser::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.constant.ConstantValueParser", 54);
     return c;
 }
 
-void org::apache::poi::ss::formula::constant::ConstantValueParser::clinit()
+void poi::ss::formula::constant::ConstantValueParser::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -218,7 +218,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::formula::constant::ConstantValueParser::getClass0()
+java::lang::Class* poi::ss::formula::constant::ConstantValueParser::getClass0()
 {
     return class_();
 }

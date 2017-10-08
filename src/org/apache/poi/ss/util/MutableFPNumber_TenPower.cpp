@@ -9,22 +9,16 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace util
         {
-            namespace ss
-            {
-                namespace util
-                {
-typedef ::SubArray< ::org::apache::poi::ss::util::MutableFPNumber_TenPower, ::java::lang::ObjectArray > MutableFPNumber_TenPowerArray;
-                } // util
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::util::MutableFPNumber_TenPower, ::java::lang::ObjectArray > MutableFPNumber_TenPowerArray;
+        } // util
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -33,33 +27,33 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::util::MutableFPNumber_TenPower::MutableFPNumber_TenPower(const ::default_init_tag&)
+poi::ss::util::MutableFPNumber_TenPower::MutableFPNumber_TenPower(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::util::MutableFPNumber_TenPower::MutableFPNumber_TenPower(int32_t index) 
+poi::ss::util::MutableFPNumber_TenPower::MutableFPNumber_TenPower(int32_t index) 
     : MutableFPNumber_TenPower(*static_cast< ::default_init_tag* >(0))
 {
     ctor(index);
 }
 
-java::math::BigInteger*& org::apache::poi::ss::util::MutableFPNumber_TenPower::FIVE()
+java::math::BigInteger*& poi::ss::util::MutableFPNumber_TenPower::FIVE()
 {
     clinit();
     return FIVE_;
 }
-java::math::BigInteger* org::apache::poi::ss::util::MutableFPNumber_TenPower::FIVE_;
+java::math::BigInteger* poi::ss::util::MutableFPNumber_TenPower::FIVE_;
 
-org::apache::poi::ss::util::MutableFPNumber_TenPowerArray*& org::apache::poi::ss::util::MutableFPNumber_TenPower::_cache()
+poi::ss::util::MutableFPNumber_TenPowerArray*& poi::ss::util::MutableFPNumber_TenPower::_cache()
 {
     clinit();
     return _cache_;
 }
-org::apache::poi::ss::util::MutableFPNumber_TenPowerArray* org::apache::poi::ss::util::MutableFPNumber_TenPower::_cache_;
+poi::ss::util::MutableFPNumber_TenPowerArray* poi::ss::util::MutableFPNumber_TenPower::_cache_;
 
-void org::apache::poi::ss::util::MutableFPNumber_TenPower::ctor(int32_t index)
+void poi::ss::util::MutableFPNumber_TenPower::ctor(int32_t index)
 {
     super::ctor();
     auto fivePowIndex = npc(FIVE_)->pow(index);
@@ -80,7 +74,7 @@ void org::apache::poi::ss::util::MutableFPNumber_TenPower::ctor(int32_t index)
     }
 }
 
-org::apache::poi::ss::util::MutableFPNumber_TenPower* org::apache::poi::ss::util::MutableFPNumber_TenPower::getInstance(int32_t index)
+poi::ss::util::MutableFPNumber_TenPower* poi::ss::util::MutableFPNumber_TenPower::getInstance(int32_t index)
 {
     clinit();
     auto result = (*_cache_)[index];
@@ -93,13 +87,13 @@ org::apache::poi::ss::util::MutableFPNumber_TenPower* org::apache::poi::ss::util
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::util::MutableFPNumber_TenPower::class_()
+java::lang::Class* poi::ss::util::MutableFPNumber_TenPower::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.util.MutableFPNumber.TenPower", 47);
     return c;
 }
 
-void org::apache::poi::ss::util::MutableFPNumber_TenPower::clinit()
+void poi::ss::util::MutableFPNumber_TenPower::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -116,7 +110,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::util::MutableFPNumber_TenPower::getClass0()
+java::lang::Class* poi::ss::util::MutableFPNumber_TenPower::getClass0()
 {
     return class_();
 }

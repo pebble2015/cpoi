@@ -36,28 +36,28 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::sl::draw::DrawBackground::DrawBackground(const ::default_init_tag&)
+poi::sl::draw::DrawBackground::DrawBackground(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::draw::DrawBackground::DrawBackground(::org::apache::poi::sl::usermodel::Background* shape) 
+poi::sl::draw::DrawBackground::DrawBackground(::poi::sl::usermodel::Background* shape) 
     : DrawBackground(*static_cast< ::default_init_tag* >(0))
 {
     ctor(shape);
 }
 
-void org::apache::poi::sl::draw::DrawBackground::ctor(::org::apache::poi::sl::usermodel::Background* shape)
+void poi::sl::draw::DrawBackground::ctor(::poi::sl::usermodel::Background* shape)
 {
     super::ctor(shape);
 }
 
-void org::apache::poi::sl::draw::DrawBackground::draw(::java::awt::Graphics2D* graphics)
+void poi::sl::draw::DrawBackground::draw(::java::awt::Graphics2D* graphics)
 {
     auto pg = npc(npc(npc(shape)->getSheet())->getSlideShow())->getPageSize();
     ::java::awt::geom::Rectangle2D* const anchor = new ::java::awt::geom::Rectangle2D_Double(int32_t(0), int32_t(0), npc(pg)->getWidth(), npc(pg)->getHeight());
-    ::org::apache::poi::sl::usermodel::PlaceableShape* ps = new DrawBackground_draw_1(this, anchor);
+    ::poi::sl::usermodel::PlaceableShape* ps = new DrawBackground_draw_1(this, anchor);
     auto drawFact = DrawFactory::getInstance(graphics);
     auto dp = npc(drawFact)->getPaint(ps);
     auto fill = npc(dp)->getPaint(graphics, npc(npc(getShape())->getFillStyle())->getPaint());
@@ -69,20 +69,20 @@ void org::apache::poi::sl::draw::DrawBackground::draw(::java::awt::Graphics2D* g
     }
 }
 
-org::apache::poi::sl::usermodel::Background* org::apache::poi::sl::draw::DrawBackground::getShape()
+poi::sl::usermodel::Background* poi::sl::draw::DrawBackground::getShape()
 {
-    return java_cast< ::org::apache::poi::sl::usermodel::Background* >(shape);
+    return java_cast< ::poi::sl::usermodel::Background* >(shape);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::draw::DrawBackground::class_()
+java::lang::Class* poi::sl::draw::DrawBackground::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.draw.DrawBackground", 37);
     return c;
 }
 
-java::lang::Class* org::apache::poi::sl::draw::DrawBackground::getClass0()
+java::lang::Class* poi::sl::draw::DrawBackground::getClass0()
 {
     return class_();
 }

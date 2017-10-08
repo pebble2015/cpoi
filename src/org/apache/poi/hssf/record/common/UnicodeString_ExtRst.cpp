@@ -20,25 +20,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
+            namespace common
             {
-                namespace record
-                {
-                    namespace common
-                    {
-typedef ::SubArray< ::org::apache::poi::hssf::record::common::UnicodeString_PhRun, ::java::lang::ObjectArray > UnicodeString_PhRunArray;
-                    } // common
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hssf::record::common::UnicodeString_PhRun, ::java::lang::ObjectArray > UnicodeString_PhRunArray;
+            } // common
+        } // record
+    } // hssf
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -56,25 +50,25 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::common::UnicodeString_ExtRst::UnicodeString_ExtRst(const ::default_init_tag&)
+poi::hssf::record::common::UnicodeString_ExtRst::UnicodeString_ExtRst(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::common::UnicodeString_ExtRst::UnicodeString_ExtRst() 
+poi::hssf::record::common::UnicodeString_ExtRst::UnicodeString_ExtRst() 
     : UnicodeString_ExtRst(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::common::UnicodeString_ExtRst::UnicodeString_ExtRst(::org::apache::poi::util::LittleEndianInput* in, int32_t expectedLength) 
+poi::hssf::record::common::UnicodeString_ExtRst::UnicodeString_ExtRst(::poi::util::LittleEndianInput* in, int32_t expectedLength) 
     : UnicodeString_ExtRst(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in,expectedLength);
 }
 
-void org::apache::poi::hssf::record::common::UnicodeString_ExtRst::populateEmpty()
+void poi::hssf::record::common::UnicodeString_ExtRst::populateEmpty()
 {
     reserved = 1;
     phoneticText = u""_j;
@@ -82,13 +76,13 @@ void org::apache::poi::hssf::record::common::UnicodeString_ExtRst::populateEmpty
     extraData = new ::int8_tArray(int32_t(0));
 }
 
-void org::apache::poi::hssf::record::common::UnicodeString_ExtRst::ctor()
+void poi::hssf::record::common::UnicodeString_ExtRst::ctor()
 {
     super::ctor();
     populateEmpty();
 }
 
-void org::apache::poi::hssf::record::common::UnicodeString_ExtRst::ctor(::org::apache::poi::util::LittleEndianInput* in, int32_t expectedLength)
+void poi::hssf::record::common::UnicodeString_ExtRst::ctor(::poi::util::LittleEndianInput* in, int32_t expectedLength)
 {
     super::ctor();
     reserved = npc(in)->readShort();
@@ -97,7 +91,7 @@ void org::apache::poi::hssf::record::common::UnicodeString_ExtRst::ctor(::org::a
         return;
     }
     if(reserved != 1) {
-        npc(UnicodeString::_logger())->log(::org::apache::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Warning - ExtRst has wrong magic marker, expecting 1 but found "_j)->append(reserved)
+        npc(UnicodeString::_logger())->log(::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Warning - ExtRst has wrong magic marker, expecting 1 but found "_j)->append(reserved)
             ->append(u" - ignoring"_j)->toString())}));
         for (auto i = int32_t(0); i < expectedLength - int32_t(2); i++) {
             npc(in)->readByte();
@@ -119,7 +113,7 @@ void org::apache::poi::hssf::record::common::UnicodeString_ExtRst::ctor(::org::a
             ->append(u" vs "_j)
             ->append(length2)->toString());
     }
-    phoneticText = ::org::apache::poi::util::StringUtil::readUnicodeLE(in, length1);
+    phoneticText = ::poi::util::StringUtil::readUnicodeLE(in, length1);
     auto runData = stringDataSize - int32_t(4) - int32_t(6)- (int32_t(2) * npc(phoneticText)->length());
     auto numRuns = (runData / int32_t(6));
     phRuns = new UnicodeString_PhRunArray(numRuns);
@@ -128,7 +122,7 @@ void org::apache::poi::hssf::record::common::UnicodeString_ExtRst::ctor(::org::a
     }
     auto extraDataLength = runData - (numRuns * int32_t(6));
     if(extraDataLength < 0) {
-        npc(UnicodeString::_logger())->log(::org::apache::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Warning - ExtRst overran by "_j)->append((int32_t(0) - extraDataLength))
+        npc(UnicodeString::_logger())->log(::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Warning - ExtRst overran by "_j)->append((int32_t(0) - extraDataLength))
             ->append(u" bytes"_j)->toString())}));
         extraDataLength = 0;
     }
@@ -138,12 +132,12 @@ void org::apache::poi::hssf::record::common::UnicodeString_ExtRst::ctor(::org::a
     }
 }
 
-int32_t org::apache::poi::hssf::record::common::UnicodeString_ExtRst::getDataSize()
+int32_t poi::hssf::record::common::UnicodeString_ExtRst::getDataSize()
 {
     return int32_t(4) + int32_t(6) + (int32_t(2) * npc(phoneticText)->length())+ (int32_t(6) * npc(phRuns)->length)+ npc(extraData)->length;
 }
 
-void org::apache::poi::hssf::record::common::UnicodeString_ExtRst::serialize(::org::apache::poi::hssf::record::cont::ContinuableRecordOutput* out)
+void poi::hssf::record::common::UnicodeString_ExtRst::serialize(::poi::hssf::record::cont::ContinuableRecordOutput* out)
 {
     auto dataSize = getDataSize();
     npc(out)->writeContinueIfRequired(8);
@@ -156,14 +150,14 @@ void org::apache::poi::hssf::record::common::UnicodeString_ExtRst::serialize(::o
     npc(out)->writeShort(npc(phoneticText)->length());
     npc(out)->writeShort(npc(phoneticText)->length());
     npc(out)->writeContinueIfRequired(npc(phoneticText)->length() * int32_t(2));
-    ::org::apache::poi::util::StringUtil::putUnicodeLE(phoneticText, out);
+    ::poi::util::StringUtil::putUnicodeLE(phoneticText, out);
     for (auto i = int32_t(0); i < npc(phRuns)->length; i++) {
         npc((*phRuns)[i])->serialize(out);
     }
     npc(out)->write(extraData);
 }
 
-bool org::apache::poi::hssf::record::common::UnicodeString_ExtRst::equals(::java::lang::Object* obj)
+bool poi::hssf::record::common::UnicodeString_ExtRst::equals(::java::lang::Object* obj)
 {
     if(!(dynamic_cast< UnicodeString_ExtRst* >(obj) != nullptr)) {
         return false;
@@ -172,7 +166,7 @@ bool org::apache::poi::hssf::record::common::UnicodeString_ExtRst::equals(::java
     return (compareTo(other) == 0);
 }
 
-int32_t org::apache::poi::hssf::record::common::UnicodeString_ExtRst::compareTo(UnicodeString_ExtRst* o)
+int32_t poi::hssf::record::common::UnicodeString_ExtRst::compareTo(UnicodeString_ExtRst* o)
 {
     int32_t result;
     result = reserved - npc(o)->reserved;
@@ -217,12 +211,12 @@ int32_t org::apache::poi::hssf::record::common::UnicodeString_ExtRst::compareTo(
     return result;
 }
 
-int32_t org::apache::poi::hssf::record::common::UnicodeString_ExtRst::compareTo(::java::lang::Object* o)
+int32_t poi::hssf::record::common::UnicodeString_ExtRst::compareTo(::java::lang::Object* o)
 { 
     return compareTo(dynamic_cast< UnicodeString_ExtRst* >(o));
 }
 
-int32_t org::apache::poi::hssf::record::common::UnicodeString_ExtRst::hashCode()
+int32_t poi::hssf::record::common::UnicodeString_ExtRst::hashCode()
 {
     int32_t hash = reserved;
     hash = int32_t(31) * hash + formattingFontIndex;
@@ -239,7 +233,7 @@ int32_t org::apache::poi::hssf::record::common::UnicodeString_ExtRst::hashCode()
     return hash;
 }
 
-org::apache::poi::hssf::record::common::UnicodeString_ExtRst* org::apache::poi::hssf::record::common::UnicodeString_ExtRst::clone()
+poi::hssf::record::common::UnicodeString_ExtRst* poi::hssf::record::common::UnicodeString_ExtRst::clone()
 {
     auto ext = new UnicodeString_ExtRst();
     npc(ext)->reserved = reserved;
@@ -254,40 +248,40 @@ org::apache::poi::hssf::record::common::UnicodeString_ExtRst* org::apache::poi::
     return ext;
 }
 
-int16_t org::apache::poi::hssf::record::common::UnicodeString_ExtRst::getFormattingFontIndex()
+int16_t poi::hssf::record::common::UnicodeString_ExtRst::getFormattingFontIndex()
 {
     return formattingFontIndex;
 }
 
-int16_t org::apache::poi::hssf::record::common::UnicodeString_ExtRst::getFormattingOptions()
+int16_t poi::hssf::record::common::UnicodeString_ExtRst::getFormattingOptions()
 {
     return formattingOptions;
 }
 
-int32_t org::apache::poi::hssf::record::common::UnicodeString_ExtRst::getNumberOfRuns()
+int32_t poi::hssf::record::common::UnicodeString_ExtRst::getNumberOfRuns()
 {
     return numberOfRuns;
 }
 
-java::lang::String* org::apache::poi::hssf::record::common::UnicodeString_ExtRst::getPhoneticText()
+java::lang::String* poi::hssf::record::common::UnicodeString_ExtRst::getPhoneticText()
 {
     return phoneticText;
 }
 
-org::apache::poi::hssf::record::common::UnicodeString_PhRunArray* org::apache::poi::hssf::record::common::UnicodeString_ExtRst::getPhRuns()
+poi::hssf::record::common::UnicodeString_PhRunArray* poi::hssf::record::common::UnicodeString_ExtRst::getPhRuns()
 {
     return phRuns;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::common::UnicodeString_ExtRst::class_()
+java::lang::Class* poi::hssf::record::common::UnicodeString_ExtRst::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.common.UnicodeString.ExtRst", 54);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::record::common::UnicodeString_ExtRst::getClass0()
+java::lang::Class* poi::hssf::record::common::UnicodeString_ExtRst::getClass0()
 {
     return class_();
 }

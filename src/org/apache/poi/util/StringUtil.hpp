@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::util::StringUtil
+class poi::util::StringUtil
     : public virtual ::java::lang::Object
 {
 

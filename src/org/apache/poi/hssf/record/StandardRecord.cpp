@@ -16,28 +16,28 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::StandardRecord::StandardRecord(const ::default_init_tag&)
+poi::hssf::record::StandardRecord::StandardRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::StandardRecord::StandardRecord()
+poi::hssf::record::StandardRecord::StandardRecord()
     : StandardRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-int32_t org::apache::poi::hssf::record::StandardRecord::getRecordSize()
+int32_t poi::hssf::record::StandardRecord::getRecordSize()
 {
     return int32_t(4) + getDataSize();
 }
 
-int32_t org::apache::poi::hssf::record::StandardRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::StandardRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     auto dataSize = getDataSize();
     auto recSize = int32_t(4) + dataSize;
-    auto out = new ::org::apache::poi::util::LittleEndianByteArrayOutputStream(data, offset, recSize);
+    auto out = new ::poi::util::LittleEndianByteArrayOutputStream(data, offset, recSize);
     npc(out)->writeShort(static_cast< int32_t >(getSid()));
     npc(out)->writeShort(dataSize);
     serialize(out);
@@ -54,18 +54,18 @@ int32_t org::apache::poi::hssf::record::StandardRecord::serialize(int32_t offset
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::StandardRecord::class_()
+java::lang::Class* poi::hssf::record::StandardRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.StandardRecord", 41);
     return c;
 }
 
-int8_tArray* org::apache::poi::hssf::record::StandardRecord::serialize()
+int8_tArray* poi::hssf::record::StandardRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::StandardRecord::getClass0()
+java::lang::Class* poi::hssf::record::StandardRecord::getClass0()
 {
     return class_();
 }

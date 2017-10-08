@@ -2,25 +2,19 @@
 #pragma once
 
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace function
             {
-                namespace formula
-                {
-                    namespace function
-                    {
-                        class FunctionDataBuilder;
-                        class FunctionMetadata;
-                        class FunctionMetadataReader;
-                        class FunctionMetadataRegistry;
-                    } // function
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+                class FunctionDataBuilder;
+                class FunctionMetadata;
+                class FunctionMetadataReader;
+                class FunctionMetadataRegistry;
+            } // function
+        } // formula
+    } // ss
+} // poi

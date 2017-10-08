@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::filesystem::NDocumentInputStream final
+class poi::poifs::filesystem::NDocumentInputStream final
     : public DocumentInputStream
 {
 

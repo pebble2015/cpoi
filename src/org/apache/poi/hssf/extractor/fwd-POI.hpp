@@ -2,24 +2,18 @@
 #pragma once
 
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace extractor
         {
-            namespace hssf
-            {
-                namespace extractor
-                {
-                    class EventBasedExcelExtractor;
-                    class EventBasedExcelExtractor_TextListener;
-                    class ExcelExtractor;
-                    class ExcelExtractor_CommandArgs;
-                    class ExcelExtractor_CommandParseException;
-                    class OldExcelExtractor;
-                } // extractor
-            } // hssf
-        } // poi
-    } // apache
-} // org
+            class EventBasedExcelExtractor;
+            class EventBasedExcelExtractor_TextListener;
+            class ExcelExtractor;
+            class ExcelExtractor_CommandArgs;
+            class ExcelExtractor_CommandParseException;
+            class OldExcelExtractor;
+        } // extractor
+    } // hssf
+} // poi

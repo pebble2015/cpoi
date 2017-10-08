@@ -13,46 +13,46 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::EOFRecord::EOFRecord(const ::default_init_tag&)
+poi::hssf::record::EOFRecord::EOFRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::EOFRecord::EOFRecord() 
+poi::hssf::record::EOFRecord::EOFRecord() 
     : EOFRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::EOFRecord::EOFRecord(RecordInputStream* in) 
+poi::hssf::record::EOFRecord::EOFRecord(RecordInputStream* in) 
     : EOFRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::EOFRecord::sid;
+constexpr int16_t poi::hssf::record::EOFRecord::sid;
 
-constexpr int32_t org::apache::poi::hssf::record::EOFRecord::ENCODED_SIZE;
+constexpr int32_t poi::hssf::record::EOFRecord::ENCODED_SIZE;
 
-org::apache::poi::hssf::record::EOFRecord*& org::apache::poi::hssf::record::EOFRecord::instance()
+poi::hssf::record::EOFRecord*& poi::hssf::record::EOFRecord::instance()
 {
     clinit();
     return instance_;
 }
-org::apache::poi::hssf::record::EOFRecord* org::apache::poi::hssf::record::EOFRecord::instance_;
+poi::hssf::record::EOFRecord* poi::hssf::record::EOFRecord::instance_;
 
-void org::apache::poi::hssf::record::EOFRecord::ctor()
+void poi::hssf::record::EOFRecord::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hssf::record::EOFRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::EOFRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
 }
 
-java::lang::String* org::apache::poi::hssf::record::EOFRecord::toString()
+java::lang::String* poi::hssf::record::EOFRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[EOF]\n"_j);
@@ -60,34 +60,34 @@ java::lang::String* org::apache::poi::hssf::record::EOFRecord::toString()
     return npc(buffer)->toString();
 }
 
-void org::apache::poi::hssf::record::EOFRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::EOFRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
 }
 
-int32_t org::apache::poi::hssf::record::EOFRecord::getDataSize()
+int32_t poi::hssf::record::EOFRecord::getDataSize()
 {
     return ENCODED_SIZE - int32_t(4);
 }
 
-int16_t org::apache::poi::hssf::record::EOFRecord::getSid()
+int16_t poi::hssf::record::EOFRecord::getSid()
 {
     return sid;
 }
 
-org::apache::poi::hssf::record::EOFRecord* org::apache::poi::hssf::record::EOFRecord::clone()
+poi::hssf::record::EOFRecord* poi::hssf::record::EOFRecord::clone()
 {
     return instance_;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::EOFRecord::class_()
+java::lang::Class* poi::hssf::record::EOFRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.EOFRecord", 36);
     return c;
 }
 
-void org::apache::poi::hssf::record::EOFRecord::clinit()
+void poi::hssf::record::EOFRecord::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -103,17 +103,17 @@ struct clinit_ {
     }
 }
 
-int32_t org::apache::poi::hssf::record::EOFRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::EOFRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::EOFRecord::serialize()
+int8_tArray* poi::hssf::record::EOFRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::EOFRecord::getClass0()
+java::lang::Class* poi::hssf::record::EOFRecord::getClass0()
 {
     return class_();
 }

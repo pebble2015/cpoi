@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::util::ByteField
+class poi::util::ByteField
     : public virtual ::java::lang::Object
     , public virtual FixedField
 {

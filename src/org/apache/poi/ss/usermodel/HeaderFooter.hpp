@@ -6,7 +6,7 @@
 #include <org/apache/poi/ss/usermodel/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::usermodel::HeaderFooter
+struct poi::ss::usermodel::HeaderFooter
     : public virtual ::java::lang::Object
 {
     virtual ::java::lang::String* getLeft() = 0;

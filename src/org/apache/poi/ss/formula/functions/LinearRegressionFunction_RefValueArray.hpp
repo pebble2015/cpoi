@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::LinearRegressionFunction_RefValueArray final
+class poi::ss::formula::functions::LinearRegressionFunction_RefValueArray final
     : public LinearRegressionFunction_ValueArray
 {
 
@@ -17,18 +17,18 @@ public:
     typedef LinearRegressionFunction_ValueArray super;
 
 private:
-    ::org::apache::poi::ss::formula::eval::RefEval* _ref {  };
+    ::poi::ss::formula::eval::RefEval* _ref {  };
     int32_t _width {  };
 protected:
-    void ctor(::org::apache::poi::ss::formula::eval::RefEval* ref);
+    void ctor(::poi::ss::formula::eval::RefEval* ref);
 
 public: /* protected */
-    ::org::apache::poi::ss::formula::eval::ValueEval* getItemInternal(int32_t index) override;
+    ::poi::ss::formula::eval::ValueEval* getItemInternal(int32_t index) override;
 
     // Generated
 
 public:
-    LinearRegressionFunction_RefValueArray(::org::apache::poi::ss::formula::eval::RefEval* ref);
+    LinearRegressionFunction_RefValueArray(::poi::ss::formula::eval::RefEval* ref);
 protected:
     LinearRegressionFunction_RefValueArray(const ::default_init_tag&);
 

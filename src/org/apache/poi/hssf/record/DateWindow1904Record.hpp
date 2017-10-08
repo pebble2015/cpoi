@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::DateWindow1904Record final
+class poi::hssf::record::DateWindow1904Record final
     : public StandardRecord
 {
 
@@ -28,7 +28,7 @@ public:
     void setWindowing(int16_t window);
     int16_t getWindowing();
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;

@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::DeltaRecord final
+class poi::hssf::record::DeltaRecord final
     : public StandardRecord
     , public ::java::lang::Cloneable
 {
@@ -30,7 +30,7 @@ protected:
 public:
     double getMaxChange();
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;

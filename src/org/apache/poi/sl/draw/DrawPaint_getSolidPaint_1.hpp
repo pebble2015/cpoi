@@ -11,9 +11,9 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::DrawPaint_getSolidPaint_1
+class poi::sl::draw::DrawPaint_getSolidPaint_1
     : public virtual ::java::lang::Object
-    , public virtual ::org::apache::poi::sl::usermodel::ColorStyle
+    , public virtual ::poi::sl::usermodel::ColorStyle
 {
 
 public:
@@ -30,11 +30,11 @@ public:
     int32_t getTint() override;
 
     // Generated
-    DrawPaint_getSolidPaint_1(DrawPaint *DrawPaint_this, ::org::apache::poi::sl::usermodel::ColorStyle* orig, ::org::apache::poi::sl::usermodel::PaintStyle_PaintModifier* modifier);
+    DrawPaint_getSolidPaint_1(DrawPaint *DrawPaint_this, ::poi::sl::usermodel::ColorStyle* orig, ::poi::sl::usermodel::PaintStyle_PaintModifier* modifier);
     static ::java::lang::Class *class_();
     DrawPaint *DrawPaint_this;
-    ::org::apache::poi::sl::usermodel::ColorStyle* orig;
-    ::org::apache::poi::sl::usermodel::PaintStyle_PaintModifier* modifier;
+    ::poi::sl::usermodel::ColorStyle* orig;
+    ::poi::sl::usermodel::PaintStyle_PaintModifier* modifier;
 
 private:
     virtual ::java::lang::Class* getClass0();

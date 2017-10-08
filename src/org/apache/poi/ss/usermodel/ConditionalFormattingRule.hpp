@@ -7,7 +7,7 @@
 #include <org/apache/poi/ss/usermodel/fwd-POI.hpp>
 #include <org/apache/poi/ss/usermodel/DifferentialStyleProvider.hpp>
 
-struct org::apache::poi::ss::usermodel::ConditionalFormattingRule
+struct poi::ss::usermodel::ConditionalFormattingRule
     : public virtual DifferentialStyleProvider
 {
     virtual BorderFormatting* createBorderFormatting() = 0;

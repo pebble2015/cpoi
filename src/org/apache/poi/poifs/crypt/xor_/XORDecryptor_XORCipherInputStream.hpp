@@ -10,12 +10,12 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::crypt::xor_::XORDecryptor_XORCipherInputStream
-    : public ::org::apache::poi::poifs::crypt::ChunkedCipherInputStream
+class poi::poifs::crypt::xor_::XORDecryptor_XORCipherInputStream
+    : public ::poi::poifs::crypt::ChunkedCipherInputStream
 {
 
 public:
-    typedef ::org::apache::poi::poifs::crypt::ChunkedCipherInputStream super;
+    typedef ::poi::poifs::crypt::ChunkedCipherInputStream super;
 
 private:
     int32_t initialOffset {  };

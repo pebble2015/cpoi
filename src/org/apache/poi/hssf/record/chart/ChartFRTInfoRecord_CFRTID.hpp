@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::chart::ChartFRTInfoRecord_CFRTID final
+class poi::hssf::record::chart::ChartFRTInfoRecord_CFRTID final
     : public ::java::lang::Object
 {
 
@@ -21,13 +21,13 @@ private:
     int32_t rtFirst {  };
     int32_t rtLast {  };
 protected:
-    void ctor(::org::apache::poi::util::LittleEndianInput* in);
+    void ctor(::poi::util::LittleEndianInput* in);
 
 public:
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out);
+    void serialize(::poi::util::LittleEndianOutput* out);
 
     // Generated
-    ChartFRTInfoRecord_CFRTID(::org::apache::poi::util::LittleEndianInput* in);
+    ChartFRTInfoRecord_CFRTID(::poi::util::LittleEndianInput* in);
 protected:
     ChartFRTInfoRecord_CFRTID(const ::default_init_tag&);
 

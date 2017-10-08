@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::HCenterRecord final
+class poi::hssf::record::HCenterRecord final
     : public StandardRecord
     , public ::java::lang::Cloneable
 {
@@ -30,7 +30,7 @@ public:
     void setHCenter(bool hc);
     bool getHCenter();
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;

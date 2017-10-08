@@ -42,19 +42,13 @@ typedef ::SubArray< ::java::lang::Cloneable, ObjectArray > CloneableArray;
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ddf
     {
-        namespace poi
-        {
-            namespace ddf
-            {
-typedef ::SubArray< ::org::apache::poi::ddf::EscherDggRecord_FileIdCluster, ::java::lang::ObjectArray > EscherDggRecord_FileIdClusterArray;
-            } // ddf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ddf::EscherDggRecord_FileIdCluster, ::java::lang::ObjectArray > EscherDggRecord_FileIdClusterArray;
+    } // ddf
+} // poi
 
 namespace java
 {
@@ -80,55 +74,55 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ddf::EscherDggRecord::EscherDggRecord(const ::default_init_tag&)
+poi::ddf::EscherDggRecord::EscherDggRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ddf::EscherDggRecord::EscherDggRecord()
+poi::ddf::EscherDggRecord::EscherDggRecord()
     : EscherDggRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::ddf::EscherDggRecord::ctor()
+void poi::ddf::EscherDggRecord::ctor()
 {
     super::ctor();
     init();
 }
 
-void org::apache::poi::ddf::EscherDggRecord::init()
+void poi::ddf::EscherDggRecord::init()
 {
     field_5_fileIdClusters = new ::java::util::ArrayList();
 }
 
-constexpr int16_t org::apache::poi::ddf::EscherDggRecord::RECORD_ID;
+constexpr int16_t poi::ddf::EscherDggRecord::RECORD_ID;
 
-java::lang::String*& org::apache::poi::ddf::EscherDggRecord::RECORD_DESCRIPTION()
+java::lang::String*& poi::ddf::EscherDggRecord::RECORD_DESCRIPTION()
 {
     clinit();
     return RECORD_DESCRIPTION_;
 }
-java::lang::String* org::apache::poi::ddf::EscherDggRecord::RECORD_DESCRIPTION_;
+java::lang::String* poi::ddf::EscherDggRecord::RECORD_DESCRIPTION_;
 
-int32_t org::apache::poi::ddf::EscherDggRecord::fillFields(::int8_tArray* data, int32_t offset, EscherRecordFactory* recordFactory)
+int32_t poi::ddf::EscherDggRecord::fillFields(::int8_tArray* data, int32_t offset, EscherRecordFactory* recordFactory)
 {
     auto bytesRemaining = readHeader(data, offset);
     auto pos = offset + int32_t(8);
     auto size = int32_t(0);
-    field_1_shapeIdMax = ::org::apache::poi::util::LittleEndian::getInt(data, pos + size);
+    field_1_shapeIdMax = ::poi::util::LittleEndian::getInt(data, pos + size);
     size += 4;
     size += 4;
-    field_3_numShapesSaved = ::org::apache::poi::util::LittleEndian::getInt(data, pos + size);
+    field_3_numShapesSaved = ::poi::util::LittleEndian::getInt(data, pos + size);
     size += 4;
-    field_4_drawingsSaved = ::org::apache::poi::util::LittleEndian::getInt(data, pos + size);
+    field_4_drawingsSaved = ::poi::util::LittleEndian::getInt(data, pos + size);
     size += 4;
     npc(field_5_fileIdClusters)->clear();
     auto numIdClusters = (bytesRemaining - size) / int32_t(8);
     for (auto i = int32_t(0); i < numIdClusters; i++) {
-        auto drawingGroupId = ::org::apache::poi::util::LittleEndian::getInt(data, pos + size);
-        auto numShapeIdsUsed = ::org::apache::poi::util::LittleEndian::getInt(data, pos + size + int32_t(4));
+        auto drawingGroupId = ::poi::util::LittleEndian::getInt(data, pos + size);
+        auto numShapeIdsUsed = ::poi::util::LittleEndian::getInt(data, pos + size + int32_t(4));
         auto fic = new EscherDggRecord_FileIdCluster(drawingGroupId, numShapeIdsUsed);
         npc(field_5_fileIdClusters)->add(static_cast< ::java::lang::Object* >(fic));
         maxDgId = ::java::lang::Math::max(maxDgId, drawingGroupId);
@@ -136,37 +130,37 @@ int32_t org::apache::poi::ddf::EscherDggRecord::fillFields(::int8_tArray* data, 
     }
     bytesRemaining -= size;
     if(bytesRemaining != 0) {
-        throw new ::org::apache::poi::util::RecordFormatException(::java::lang::StringBuilder().append(u"Expecting no remaining data but got "_j)->append(bytesRemaining)
+        throw new ::poi::util::RecordFormatException(::java::lang::StringBuilder().append(u"Expecting no remaining data but got "_j)->append(bytesRemaining)
             ->append(u" byte(s)."_j)->toString());
     }
     return int32_t(8) + size;
 }
 
-int32_t org::apache::poi::ddf::EscherDggRecord::serialize(int32_t offset, ::int8_tArray* data, EscherSerializationListener* listener)
+int32_t poi::ddf::EscherDggRecord::serialize(int32_t offset, ::int8_tArray* data, EscherSerializationListener* listener)
 {
     npc(listener)->beforeRecordSerialize(offset, getRecordId(), this);
     auto pos = offset;
-    ::org::apache::poi::util::LittleEndian::putShort(data, pos, getOptions());
+    ::poi::util::LittleEndian::putShort(data, pos, getOptions());
     pos += 2;
-    ::org::apache::poi::util::LittleEndian::putShort(data, pos, getRecordId());
+    ::poi::util::LittleEndian::putShort(data, pos, getRecordId());
     pos += 2;
     auto remainingBytes = getRecordSize() - int32_t(8);
-    ::org::apache::poi::util::LittleEndian::putInt(data, pos, remainingBytes);
+    ::poi::util::LittleEndian::putInt(data, pos, remainingBytes);
     pos += 4;
-    ::org::apache::poi::util::LittleEndian::putInt(data, pos, field_1_shapeIdMax);
+    ::poi::util::LittleEndian::putInt(data, pos, field_1_shapeIdMax);
     pos += 4;
-    ::org::apache::poi::util::LittleEndian::putInt(data, pos, getNumIdClusters());
+    ::poi::util::LittleEndian::putInt(data, pos, getNumIdClusters());
     pos += 4;
-    ::org::apache::poi::util::LittleEndian::putInt(data, pos, field_3_numShapesSaved);
+    ::poi::util::LittleEndian::putInt(data, pos, field_3_numShapesSaved);
     pos += 4;
-    ::org::apache::poi::util::LittleEndian::putInt(data, pos, field_4_drawingsSaved);
+    ::poi::util::LittleEndian::putInt(data, pos, field_4_drawingsSaved);
     pos += 4;
     for (auto _i = npc(field_5_fileIdClusters)->iterator(); _i->hasNext(); ) {
         EscherDggRecord_FileIdCluster* fic = java_cast< EscherDggRecord_FileIdCluster* >(_i->next());
         {
-            ::org::apache::poi::util::LittleEndian::putInt(data, pos, npc(fic)->getDrawingGroupId());
+            ::poi::util::LittleEndian::putInt(data, pos, npc(fic)->getDrawingGroupId());
             pos += 4;
-            ::org::apache::poi::util::LittleEndian::putInt(data, pos, npc(fic)->getNumShapeIdsUsed());
+            ::poi::util::LittleEndian::putInt(data, pos, npc(fic)->getNumShapeIdsUsed());
             pos += 4;
         }
     }
@@ -174,67 +168,67 @@ int32_t org::apache::poi::ddf::EscherDggRecord::serialize(int32_t offset, ::int8
     return getRecordSize();
 }
 
-int32_t org::apache::poi::ddf::EscherDggRecord::getRecordSize()
+int32_t poi::ddf::EscherDggRecord::getRecordSize()
 {
     return int32_t(8) + int32_t(16) + (int32_t(8) * npc(field_5_fileIdClusters)->size());
 }
 
-int16_t org::apache::poi::ddf::EscherDggRecord::getRecordId()
+int16_t poi::ddf::EscherDggRecord::getRecordId()
 {
     return RECORD_ID;
 }
 
-java::lang::String* org::apache::poi::ddf::EscherDggRecord::getRecordName()
+java::lang::String* poi::ddf::EscherDggRecord::getRecordName()
 {
     return u"Dgg"_j;
 }
 
-int32_t org::apache::poi::ddf::EscherDggRecord::getShapeIdMax()
+int32_t poi::ddf::EscherDggRecord::getShapeIdMax()
 {
     return field_1_shapeIdMax;
 }
 
-void org::apache::poi::ddf::EscherDggRecord::setShapeIdMax(int32_t shapeIdMax)
+void poi::ddf::EscherDggRecord::setShapeIdMax(int32_t shapeIdMax)
 {
     this->field_1_shapeIdMax = shapeIdMax;
 }
 
-int32_t org::apache::poi::ddf::EscherDggRecord::getNumIdClusters()
+int32_t poi::ddf::EscherDggRecord::getNumIdClusters()
 {
     return (npc(field_5_fileIdClusters)->isEmpty() ? int32_t(0) : npc(field_5_fileIdClusters)->size() + int32_t(1));
 }
 
-int32_t org::apache::poi::ddf::EscherDggRecord::getNumShapesSaved()
+int32_t poi::ddf::EscherDggRecord::getNumShapesSaved()
 {
     return field_3_numShapesSaved;
 }
 
-void org::apache::poi::ddf::EscherDggRecord::setNumShapesSaved(int32_t numShapesSaved)
+void poi::ddf::EscherDggRecord::setNumShapesSaved(int32_t numShapesSaved)
 {
     this->field_3_numShapesSaved = numShapesSaved;
 }
 
-int32_t org::apache::poi::ddf::EscherDggRecord::getDrawingsSaved()
+int32_t poi::ddf::EscherDggRecord::getDrawingsSaved()
 {
     return field_4_drawingsSaved;
 }
 
-void org::apache::poi::ddf::EscherDggRecord::setDrawingsSaved(int32_t drawingsSaved)
+void poi::ddf::EscherDggRecord::setDrawingsSaved(int32_t drawingsSaved)
 {
     this->field_4_drawingsSaved = drawingsSaved;
 }
 
-int32_t org::apache::poi::ddf::EscherDggRecord::getMaxDrawingGroupId()
+int32_t poi::ddf::EscherDggRecord::getMaxDrawingGroupId()
 {
     return maxDgId;
 }
 
-org::apache::poi::ddf::EscherDggRecord_FileIdClusterArray* org::apache::poi::ddf::EscherDggRecord::getFileIdClusters()
+poi::ddf::EscherDggRecord_FileIdClusterArray* poi::ddf::EscherDggRecord::getFileIdClusters()
 {
     return java_cast< EscherDggRecord_FileIdClusterArray* >(npc(field_5_fileIdClusters)->toArray_(static_cast< ::java::lang::ObjectArray* >(new EscherDggRecord_FileIdClusterArray(npc(field_5_fileIdClusters)->size()))));
 }
 
-void org::apache::poi::ddf::EscherDggRecord::setFileIdClusters(EscherDggRecord_FileIdClusterArray* fileIdClusters)
+void poi::ddf::EscherDggRecord::setFileIdClusters(EscherDggRecord_FileIdClusterArray* fileIdClusters)
 {
     npc(field_5_fileIdClusters)->clear();
     if(fileIdClusters != nullptr) {
@@ -242,12 +236,12 @@ void org::apache::poi::ddf::EscherDggRecord::setFileIdClusters(EscherDggRecord_F
     }
 }
 
-org::apache::poi::ddf::EscherDggRecord_FileIdCluster* org::apache::poi::ddf::EscherDggRecord::addCluster(int32_t dgId, int32_t numShapedUsed)
+poi::ddf::EscherDggRecord_FileIdCluster* poi::ddf::EscherDggRecord::addCluster(int32_t dgId, int32_t numShapedUsed)
 {
     return addCluster(dgId, numShapedUsed, true);
 }
 
-org::apache::poi::ddf::EscherDggRecord_FileIdCluster* org::apache::poi::ddf::EscherDggRecord::addCluster(int32_t dgId, int32_t numShapedUsed, bool sort)
+poi::ddf::EscherDggRecord_FileIdCluster* poi::ddf::EscherDggRecord::addCluster(int32_t dgId, int32_t numShapedUsed, bool sort)
 {
     auto ficNew = new EscherDggRecord_FileIdCluster(dgId, numShapedUsed);
     npc(field_5_fileIdClusters)->add(static_cast< ::java::lang::Object* >(ficNew));
@@ -258,12 +252,12 @@ org::apache::poi::ddf::EscherDggRecord_FileIdCluster* org::apache::poi::ddf::Esc
     return ficNew;
 }
 
-void org::apache::poi::ddf::EscherDggRecord::sortCluster()
+void poi::ddf::EscherDggRecord::sortCluster()
 {
     ::java::util::Collections::sort(field_5_fileIdClusters, new EscherDggRecord_sortCluster_1(this));
 }
 
-int16_t org::apache::poi::ddf::EscherDggRecord::findNewDrawingGroupId()
+int16_t poi::ddf::EscherDggRecord::findNewDrawingGroupId()
 {
     auto bs = new ::java::util::BitSet();
     npc(bs)->set(0);
@@ -276,7 +270,7 @@ int16_t org::apache::poi::ddf::EscherDggRecord::findNewDrawingGroupId()
     return static_cast< int16_t >(npc(bs)->nextClearBit(0));
 }
 
-int32_t org::apache::poi::ddf::EscherDggRecord::allocateShapeId(EscherDgRecord* dg, bool sort)
+int32_t poi::ddf::EscherDggRecord::allocateShapeId(EscherDgRecord* dg, bool sort)
 {
     auto const drawingGroupId = npc(dg)->getDrawingGroupId();
     field_3_numShapesSaved++;
@@ -304,7 +298,7 @@ int32_t org::apache::poi::ddf::EscherDggRecord::allocateShapeId(EscherDgRecord* 
     return shapeId;
 }
 
-java::lang::ObjectArrayArray* org::apache::poi::ddf::EscherDggRecord::getAttributeMap()
+java::lang::ObjectArrayArray* poi::ddf::EscherDggRecord::getAttributeMap()
 {
     ::java::util::List* fldIds = new ::java::util::ArrayList();
     npc(fldIds)->add(static_cast< ::java::lang::Object* >(u"FileId Clusters"_j));
@@ -339,13 +333,13 @@ java::lang::ObjectArrayArray* org::apache::poi::ddf::EscherDggRecord::getAttribu
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ddf::EscherDggRecord::class_()
+java::lang::Class* poi::ddf::EscherDggRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ddf.EscherDggRecord", 34);
     return c;
 }
 
-void org::apache::poi::ddf::EscherDggRecord::clinit()
+void poi::ddf::EscherDggRecord::clinit()
 {
 struct string_init_ {
     string_init_() {
@@ -358,22 +352,22 @@ struct string_init_ {
     super::clinit();
 }
 
-int32_t org::apache::poi::ddf::EscherDggRecord::fillFields(::int8_tArray* data, EscherRecordFactory* f)
+int32_t poi::ddf::EscherDggRecord::fillFields(::int8_tArray* data, EscherRecordFactory* f)
 {
     return super::fillFields(data, f);
 }
 
-int8_tArray* org::apache::poi::ddf::EscherDggRecord::serialize()
+int8_tArray* poi::ddf::EscherDggRecord::serialize()
 {
     return super::serialize();
 }
 
-int32_t org::apache::poi::ddf::EscherDggRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::ddf::EscherDggRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-java::lang::Class* org::apache::poi::ddf::EscherDggRecord::getClass0()
+java::lang::Class* poi::ddf::EscherDggRecord::getClass0()
 {
     return class_();
 }

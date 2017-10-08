@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::RowRecord final
+class poi::hssf::record::RowRecord final
     : public StandardRecord
 {
 
@@ -28,16 +28,16 @@ private:
     int16_t field_5_optimize {  };
     int16_t field_6_reserved {  };
     int32_t field_7_option_flags {  };
-    static ::org::apache::poi::util::BitField* outlineLevel_;
-    static ::org::apache::poi::util::BitField* colapsed_;
-    static ::org::apache::poi::util::BitField* zeroHeight_;
-    static ::org::apache::poi::util::BitField* badFontHeight_;
-    static ::org::apache::poi::util::BitField* formatted_;
+    static ::poi::util::BitField* outlineLevel_;
+    static ::poi::util::BitField* colapsed_;
+    static ::poi::util::BitField* zeroHeight_;
+    static ::poi::util::BitField* badFontHeight_;
+    static ::poi::util::BitField* formatted_;
     int32_t field_8_option_flags {  };
-    static ::org::apache::poi::util::BitField* xfIndex_;
-    static ::org::apache::poi::util::BitField* topBorder_;
-    static ::org::apache::poi::util::BitField* bottomBorder_;
-    static ::org::apache::poi::util::BitField* phoeneticGuide_;
+    static ::poi::util::BitField* xfIndex_;
+    static ::poi::util::BitField* topBorder_;
+    static ::poi::util::BitField* bottomBorder_;
+    static ::poi::util::BitField* phoeneticGuide_;
 protected:
     void ctor(int32_t rowNumber);
     void ctor(RecordInputStream* in);
@@ -76,7 +76,7 @@ public:
     bool getBottomBorder();
     bool getPhoeneticGuide();
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;
@@ -99,14 +99,14 @@ public:
     ::int8_tArray* serialize();
 
 private:
-    static ::org::apache::poi::util::BitField*& outlineLevel();
-    static ::org::apache::poi::util::BitField*& colapsed();
-    static ::org::apache::poi::util::BitField*& zeroHeight();
-    static ::org::apache::poi::util::BitField*& badFontHeight();
-    static ::org::apache::poi::util::BitField*& formatted();
-    static ::org::apache::poi::util::BitField*& xfIndex();
-    static ::org::apache::poi::util::BitField*& topBorder();
-    static ::org::apache::poi::util::BitField*& bottomBorder();
-    static ::org::apache::poi::util::BitField*& phoeneticGuide();
+    static ::poi::util::BitField*& outlineLevel();
+    static ::poi::util::BitField*& colapsed();
+    static ::poi::util::BitField*& zeroHeight();
+    static ::poi::util::BitField*& badFontHeight();
+    static ::poi::util::BitField*& formatted();
+    static ::poi::util::BitField*& xfIndex();
+    static ::poi::util::BitField*& topBorder();
+    static ::poi::util::BitField*& bottomBorder();
+    static ::poi::util::BitField*& phoeneticGuide();
     virtual ::java::lang::Class* getClass0();
 };

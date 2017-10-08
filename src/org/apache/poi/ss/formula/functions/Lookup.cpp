@@ -13,25 +13,19 @@
 #include <org/apache/poi/ss/formula/functions/LookupUtils.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -40,22 +34,22 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::Lookup::Lookup(const ::default_init_tag&)
+poi::ss::formula::functions::Lookup::Lookup(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::Lookup::Lookup()
+poi::ss::formula::functions::Lookup::Lookup()
     : Lookup(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Lookup::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* arg0, ::org::apache::poi::ss::formula::eval::ValueEval* arg1)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Lookup::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::poi::ss::formula::eval::ValueEval* arg0, ::poi::ss::formula::eval::ValueEval* arg1)
 {
     try {
-        auto lookupValue = ::org::apache::poi::ss::formula::eval::OperandResolver::getSingleValue(arg0, srcRowIndex, srcColumnIndex);
+        auto lookupValue = ::poi::ss::formula::eval::OperandResolver::getSingleValue(arg0, srcRowIndex, srcColumnIndex);
         auto lookupArray_ = LookupUtils::resolveTableArrayArg(arg1);
         LookupUtils_ValueVector* lookupVector;
         LookupUtils_ValueVector* resultVector;
@@ -69,15 +63,15 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::f
         /* assert((npc(lookupVector)->getSize() == npc(resultVector)->getSize())) */ ;
         auto index = LookupUtils::lookupIndexOfValue(lookupValue, lookupVector, true);
         return npc(resultVector)->getItem(index);
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
         return npc(e)->getErrorEval();
     }
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Lookup::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* arg0, ::org::apache::poi::ss::formula::eval::ValueEval* arg1, ::org::apache::poi::ss::formula::eval::ValueEval* arg2)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Lookup::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::poi::ss::formula::eval::ValueEval* arg0, ::poi::ss::formula::eval::ValueEval* arg1, ::poi::ss::formula::eval::ValueEval* arg2)
 {
     try {
-        auto lookupValue = ::org::apache::poi::ss::formula::eval::OperandResolver::getSingleValue(arg0, srcRowIndex, srcColumnIndex);
+        auto lookupValue = ::poi::ss::formula::eval::OperandResolver::getSingleValue(arg0, srcRowIndex, srcColumnIndex);
         auto aeLookupVector = LookupUtils::resolveTableArrayArg(arg1);
         auto aeResultVector = LookupUtils::resolveTableArrayArg(arg2);
         auto lookupVector = createVector(aeLookupVector);
@@ -87,12 +81,12 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::f
         }
         auto index = LookupUtils::lookupIndexOfValue(lookupValue, lookupVector, true);
         return npc(resultVector)->getItem(index);
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
         return npc(e)->getErrorEval();
     }
 }
 
-org::apache::poi::ss::formula::functions::LookupUtils_ValueVector* org::apache::poi::ss::formula::functions::Lookup::createVector(::org::apache::poi::ss::formula::TwoDEval* ae)
+poi::ss::formula::functions::LookupUtils_ValueVector* poi::ss::formula::functions::Lookup::createVector(::poi::ss::formula::TwoDEval* ae)
 {
     clinit();
     auto result = LookupUtils::createVector(ae);
@@ -104,18 +98,18 @@ org::apache::poi::ss::formula::functions::LookupUtils_ValueVector* org::apache::
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Lookup::class_()
+java::lang::Class* poi::ss::formula::functions::Lookup::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.Lookup", 42);
     return c;
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Lookup::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Lookup::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
 {
     return super::evaluate(args, srcRowIndex, srcColumnIndex);
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Lookup::getClass0()
+java::lang::Class* poi::ss::formula::functions::Lookup::getClass0()
 {
     return class_();
 }

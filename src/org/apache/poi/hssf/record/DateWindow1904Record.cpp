@@ -16,48 +16,48 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::DateWindow1904Record::DateWindow1904Record(const ::default_init_tag&)
+poi::hssf::record::DateWindow1904Record::DateWindow1904Record(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::DateWindow1904Record::DateWindow1904Record() 
+poi::hssf::record::DateWindow1904Record::DateWindow1904Record() 
     : DateWindow1904Record(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::DateWindow1904Record::DateWindow1904Record(RecordInputStream* in) 
+poi::hssf::record::DateWindow1904Record::DateWindow1904Record(RecordInputStream* in) 
     : DateWindow1904Record(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::DateWindow1904Record::sid;
+constexpr int16_t poi::hssf::record::DateWindow1904Record::sid;
 
-void org::apache::poi::hssf::record::DateWindow1904Record::ctor()
+void poi::hssf::record::DateWindow1904Record::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hssf::record::DateWindow1904Record::ctor(RecordInputStream* in)
+void poi::hssf::record::DateWindow1904Record::ctor(RecordInputStream* in)
 {
     super::ctor();
     field_1_window = npc(in)->readShort();
 }
 
-void org::apache::poi::hssf::record::DateWindow1904Record::setWindowing(int16_t window)
+void poi::hssf::record::DateWindow1904Record::setWindowing(int16_t window)
 {
     field_1_window = window;
 }
 
-int16_t org::apache::poi::hssf::record::DateWindow1904Record::getWindowing()
+int16_t poi::hssf::record::DateWindow1904Record::getWindowing()
 {
     return field_1_window;
 }
 
-java::lang::String* org::apache::poi::hssf::record::DateWindow1904Record::toString()
+java::lang::String* poi::hssf::record::DateWindow1904Record::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[1904]\n"_j);
@@ -66,40 +66,40 @@ java::lang::String* org::apache::poi::hssf::record::DateWindow1904Record::toStri
     return npc(buffer)->toString();
 }
 
-void org::apache::poi::hssf::record::DateWindow1904Record::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::DateWindow1904Record::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(getWindowing());
 }
 
-int32_t org::apache::poi::hssf::record::DateWindow1904Record::getDataSize()
+int32_t poi::hssf::record::DateWindow1904Record::getDataSize()
 {
     return 2;
 }
 
-int16_t org::apache::poi::hssf::record::DateWindow1904Record::getSid()
+int16_t poi::hssf::record::DateWindow1904Record::getSid()
 {
     return sid;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::DateWindow1904Record::class_()
+java::lang::Class* poi::hssf::record::DateWindow1904Record::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.DateWindow1904Record", 47);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::DateWindow1904Record::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::DateWindow1904Record::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::DateWindow1904Record::serialize()
+int8_tArray* poi::hssf::record::DateWindow1904Record::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::DateWindow1904Record::getClass0()
+java::lang::Class* poi::hssf::record::DateWindow1904Record::getClass0()
 {
     return class_();
 }

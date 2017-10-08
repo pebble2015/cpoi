@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::ptg::ScalarConstantPtg
+class poi::ss::formula::ptg::ScalarConstantPtg
     : public Ptg
 {
 

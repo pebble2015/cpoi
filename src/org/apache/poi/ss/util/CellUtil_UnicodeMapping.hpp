@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::util::CellUtil_UnicodeMapping final
+class poi::ss::util::CellUtil_UnicodeMapping final
     : public ::java::lang::Object
 {
 

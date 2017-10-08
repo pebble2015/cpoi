@@ -15,51 +15,51 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hpsf::Filetime::Filetime(const ::default_init_tag&)
+poi::hpsf::Filetime::Filetime(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hpsf::Filetime::Filetime() 
+poi::hpsf::Filetime::Filetime() 
     : Filetime(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hpsf::Filetime::Filetime(int32_t low, int32_t high) 
+poi::hpsf::Filetime::Filetime(int32_t low, int32_t high) 
     : Filetime(*static_cast< ::default_init_tag* >(0))
 {
     ctor(low,high);
 }
 
-org::apache::poi::hpsf::Filetime::Filetime(::java::util::Date* date) 
+poi::hpsf::Filetime::Filetime(::java::util::Date* date) 
     : Filetime(*static_cast< ::default_init_tag* >(0))
 {
     ctor(date);
 }
 
-constexpr int64_t org::apache::poi::hpsf::Filetime::EPOCH_DIFF;
+constexpr int64_t poi::hpsf::Filetime::EPOCH_DIFF;
 
-constexpr int32_t org::apache::poi::hpsf::Filetime::SIZE;
+constexpr int32_t poi::hpsf::Filetime::SIZE;
 
-constexpr int64_t org::apache::poi::hpsf::Filetime::UINT_MASK;
+constexpr int64_t poi::hpsf::Filetime::UINT_MASK;
 
-constexpr int64_t org::apache::poi::hpsf::Filetime::NANO_100;
+constexpr int64_t poi::hpsf::Filetime::NANO_100;
 
-void org::apache::poi::hpsf::Filetime::ctor()
+void poi::hpsf::Filetime::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hpsf::Filetime::ctor(int32_t low, int32_t high)
+void poi::hpsf::Filetime::ctor(int32_t low, int32_t high)
 {
     super::ctor();
     _dwLowDateTime = low;
     _dwHighDateTime = high;
 }
 
-void org::apache::poi::hpsf::Filetime::ctor(::java::util::Date* date)
+void poi::hpsf::Filetime::ctor(::java::util::Date* date)
 {
     super::ctor();
     auto filetime = Filetime::dateToFileTime(date);
@@ -67,44 +67,44 @@ void org::apache::poi::hpsf::Filetime::ctor(::java::util::Date* date)
     _dwLowDateTime = static_cast< int32_t >((filetime & UINT_MASK));
 }
 
-void org::apache::poi::hpsf::Filetime::read(::org::apache::poi::util::LittleEndianByteArrayInputStream* lei)
+void poi::hpsf::Filetime::read(::poi::util::LittleEndianByteArrayInputStream* lei)
 {
     _dwLowDateTime = npc(lei)->readInt();
     _dwHighDateTime = npc(lei)->readInt();
 }
 
-int64_t org::apache::poi::hpsf::Filetime::getHigh()
+int64_t poi::hpsf::Filetime::getHigh()
 {
     return _dwHighDateTime;
 }
 
-int64_t org::apache::poi::hpsf::Filetime::getLow()
+int64_t poi::hpsf::Filetime::getLow()
 {
     return _dwLowDateTime;
 }
 
-int8_tArray* org::apache::poi::hpsf::Filetime::toByteArray_()
+int8_tArray* poi::hpsf::Filetime::toByteArray_()
 {
     auto result = new ::int8_tArray(SIZE);
-    ::org::apache::poi::util::LittleEndian::putInt(result, int32_t(0) * ::org::apache::poi::util::LittleEndianConsts::INT_SIZE, _dwLowDateTime);
-    ::org::apache::poi::util::LittleEndian::putInt(result, int32_t(1) * ::org::apache::poi::util::LittleEndianConsts::INT_SIZE, _dwHighDateTime);
+    ::poi::util::LittleEndian::putInt(result, int32_t(0) * ::poi::util::LittleEndianConsts::INT_SIZE, _dwLowDateTime);
+    ::poi::util::LittleEndian::putInt(result, int32_t(1) * ::poi::util::LittleEndianConsts::INT_SIZE, _dwHighDateTime);
     return result;
 }
 
-int32_t org::apache::poi::hpsf::Filetime::write(::java::io::OutputStream* out) /* throws(IOException) */
+int32_t poi::hpsf::Filetime::write(::java::io::OutputStream* out) /* throws(IOException) */
 {
-    ::org::apache::poi::util::LittleEndian::putInt(_dwLowDateTime, out);
-    ::org::apache::poi::util::LittleEndian::putInt(_dwHighDateTime, out);
+    ::poi::util::LittleEndian::putInt(_dwLowDateTime, out);
+    ::poi::util::LittleEndian::putInt(_dwHighDateTime, out);
     return SIZE;
 }
 
-java::util::Date* org::apache::poi::hpsf::Filetime::getJavaValue()
+java::util::Date* poi::hpsf::Filetime::getJavaValue()
 {
     auto l = ((static_cast< int64_t >(_dwHighDateTime)) << int32_t(32)) | (_dwLowDateTime & UINT_MASK);
     return filetimeToDate(l);
 }
 
-java::util::Date* org::apache::poi::hpsf::Filetime::filetimeToDate(int64_t filetime)
+java::util::Date* poi::hpsf::Filetime::filetimeToDate(int64_t filetime)
 {
     clinit();
     auto const ms_since_16010101 = filetime / NANO_100;
@@ -112,7 +112,7 @@ java::util::Date* org::apache::poi::hpsf::Filetime::filetimeToDate(int64_t filet
     return new ::java::util::Date(ms_since_19700101);
 }
 
-int64_t org::apache::poi::hpsf::Filetime::dateToFileTime(::java::util::Date* date)
+int64_t poi::hpsf::Filetime::dateToFileTime(::java::util::Date* date)
 {
     clinit();
     auto ms_since_19700101 = npc(date)->getTime();
@@ -120,7 +120,7 @@ int64_t org::apache::poi::hpsf::Filetime::dateToFileTime(::java::util::Date* dat
     return ms_since_16010101 * NANO_100;
 }
 
-bool org::apache::poi::hpsf::Filetime::isUndefined(::java::util::Date* date)
+bool poi::hpsf::Filetime::isUndefined(::java::util::Date* date)
 {
     clinit();
     return (date == nullptr || dateToFileTime(date) == 0);
@@ -128,13 +128,13 @@ bool org::apache::poi::hpsf::Filetime::isUndefined(::java::util::Date* date)
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hpsf::Filetime::class_()
+java::lang::Class* poi::hpsf::Filetime::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hpsf.Filetime", 28);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hpsf::Filetime::getClass0()
+java::lang::Class* poi::hpsf::Filetime::getClass0()
 {
     return class_();
 }

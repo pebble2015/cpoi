@@ -17,7 +17,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::DummyGraphics2d
+class poi::hssf::usermodel::DummyGraphics2d
     : public ::java::awt::Graphics2D
 {
 

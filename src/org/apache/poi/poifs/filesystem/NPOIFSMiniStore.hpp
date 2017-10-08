@@ -12,7 +12,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::filesystem::NPOIFSMiniStore
+class poi::poifs::filesystem::NPOIFSMiniStore
     : public BlockStore
 {
 
@@ -23,15 +23,15 @@ private:
     NPOIFSFileSystem* _filesystem {  };
     NPOIFSStream* _mini_stream {  };
     ::java::util::List* _sbat_blocks {  };
-    ::org::apache::poi::poifs::storage::HeaderBlock* _header {  };
-    ::org::apache::poi::poifs::property::RootProperty* _root {  };
+    ::poi::poifs::storage::HeaderBlock* _header {  };
+    ::poi::poifs::property::RootProperty* _root {  };
 protected:
-    void ctor(NPOIFSFileSystem* filesystem, ::org::apache::poi::poifs::property::RootProperty* root, ::java::util::List* sbats, ::org::apache::poi::poifs::storage::HeaderBlock* header);
+    void ctor(NPOIFSFileSystem* filesystem, ::poi::poifs::property::RootProperty* root, ::java::util::List* sbats, ::poi::poifs::storage::HeaderBlock* header);
 
 public: /* protected */
     ::java::nio::ByteBuffer* getBlockAt(int32_t offset) /* throws(IOException) */ override;
     ::java::nio::ByteBuffer* createBlockIfNeeded(int32_t offset) /* throws(IOException) */ override;
-    ::org::apache::poi::poifs::storage::BATBlock_BATBlockAndIndex* getBATBlockAndIndex(int32_t offset) override;
+    ::poi::poifs::storage::BATBlock_BATBlockAndIndex* getBATBlockAndIndex(int32_t offset) override;
     int32_t getNextBlock(int32_t offset) override;
     void setNextBlock(int32_t offset, int32_t nextBlock) override;
     int32_t getFreeBlock() /* throws(IOException) */ override;
@@ -40,7 +40,7 @@ public: /* protected */
     virtual void syncWithDataSource() /* throws(IOException) */;
 
     // Generated
-    NPOIFSMiniStore(NPOIFSFileSystem* filesystem, ::org::apache::poi::poifs::property::RootProperty* root, ::java::util::List* sbats, ::org::apache::poi::poifs::storage::HeaderBlock* header);
+    NPOIFSMiniStore(NPOIFSFileSystem* filesystem, ::poi::poifs::property::RootProperty* root, ::java::util::List* sbats, ::poi::poifs::storage::HeaderBlock* header);
 protected:
     NPOIFSMiniStore(const ::default_init_tag&);
 

@@ -54,19 +54,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::dev::POIFSViewer::POIFSViewer(const ::default_init_tag&)
+poi::poifs::dev::POIFSViewer::POIFSViewer(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::dev::POIFSViewer::POIFSViewer()
+poi::poifs::dev::POIFSViewer::POIFSViewer()
     : POIFSViewer(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::poifs::dev::POIFSViewer::main(::java::lang::StringArray* args)
+void poi::poifs::dev::POIFSViewer::main(::java::lang::StringArray* args)
 {
     clinit();
     if(npc(args)->length == 0) {
@@ -79,7 +79,7 @@ void org::apache::poi::poifs::dev::POIFSViewer::main(::java::lang::StringArray* 
     }
 }
 
-void org::apache::poi::poifs::dev::POIFSViewer::viewFile(::java::lang::String* filename, bool printName)
+void poi::poifs::dev::POIFSViewer::viewFile(::java::lang::String* filename, bool printName)
 {
     clinit();
     if(printName) {
@@ -95,7 +95,7 @@ void org::apache::poi::poifs::dev::POIFSViewer::viewFile(::java::lang::String* f
         npc(::java::lang::System::out())->println(static_cast< ::java::lang::Object* >(flowerbox));
     }
     try {
-        auto fs = new ::org::apache::poi::poifs::filesystem::NPOIFSFileSystem(new ::java::io::File(filename));
+        auto fs = new ::poi::poifs::filesystem::NPOIFSFileSystem(new ::java::io::File(filename));
         auto strings = POIFSViewEngine::inspectViewable(fs, true, 0, u"  "_j);
         for (auto _i = npc(strings)->iterator(); _i->hasNext(); ) {
             ::java::lang::String* s = java_cast< ::java::lang::String* >(_i->next());
@@ -111,13 +111,13 @@ void org::apache::poi::poifs::dev::POIFSViewer::viewFile(::java::lang::String* f
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::dev::POIFSViewer::class_()
+java::lang::Class* poi::poifs::dev::POIFSViewer::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.dev.POIFSViewer", 36);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::dev::POIFSViewer::getClass0()
+java::lang::Class* poi::poifs::dev::POIFSViewer::getClass0()
 {
     return class_();
 }

@@ -34,38 +34,38 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::format::CellFormatCondition::CellFormatCondition(const ::default_init_tag&)
+poi::ss::format::CellFormatCondition::CellFormatCondition(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::format::CellFormatCondition::CellFormatCondition()
+poi::ss::format::CellFormatCondition::CellFormatCondition()
     : CellFormatCondition(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-constexpr int32_t org::apache::poi::ss::format::CellFormatCondition::LT;
+constexpr int32_t poi::ss::format::CellFormatCondition::LT;
 
-constexpr int32_t org::apache::poi::ss::format::CellFormatCondition::LE;
+constexpr int32_t poi::ss::format::CellFormatCondition::LE;
 
-constexpr int32_t org::apache::poi::ss::format::CellFormatCondition::GT;
+constexpr int32_t poi::ss::format::CellFormatCondition::GT;
 
-constexpr int32_t org::apache::poi::ss::format::CellFormatCondition::GE;
+constexpr int32_t poi::ss::format::CellFormatCondition::GE;
 
-constexpr int32_t org::apache::poi::ss::format::CellFormatCondition::EQ;
+constexpr int32_t poi::ss::format::CellFormatCondition::EQ;
 
-constexpr int32_t org::apache::poi::ss::format::CellFormatCondition::NE;
+constexpr int32_t poi::ss::format::CellFormatCondition::NE;
 
-java::util::Map*& org::apache::poi::ss::format::CellFormatCondition::TESTS()
+java::util::Map*& poi::ss::format::CellFormatCondition::TESTS()
 {
     clinit();
     return TESTS_;
 }
-java::util::Map* org::apache::poi::ss::format::CellFormatCondition::TESTS_;
+java::util::Map* poi::ss::format::CellFormatCondition::TESTS_;
 
-org::apache::poi::ss::format::CellFormatCondition* org::apache::poi::ss::format::CellFormatCondition::getInstance(::java::lang::String* opString, ::java::lang::String* constStr)
+poi::ss::format::CellFormatCondition* poi::ss::format::CellFormatCondition::getInstance(::java::lang::String* opString, ::java::lang::String* constStr)
 {
     clinit();
     if(!npc(TESTS_)->containsKey(opString))
@@ -97,13 +97,13 @@ org::apache::poi::ss::format::CellFormatCondition* org::apache::poi::ss::format:
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::format::CellFormatCondition::class_()
+java::lang::Class* poi::ss::format::CellFormatCondition::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.format.CellFormatCondition", 44);
     return c;
 }
 
-void org::apache::poi::ss::format::CellFormatCondition::clinit()
+void poi::ss::format::CellFormatCondition::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -129,7 +129,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::format::CellFormatCondition::getClass0()
+java::lang::Class* poi::ss::format::CellFormatCondition::getClass0()
 {
     return class_();
 }

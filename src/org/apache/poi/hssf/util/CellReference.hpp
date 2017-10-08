@@ -9,12 +9,12 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::util::CellReference final
-    : public ::org::apache::poi::ss::util::CellReference
+class poi::hssf::util::CellReference final
+    : public ::poi::ss::util::CellReference
 {
 
 public:
-    typedef ::org::apache::poi::ss::util::CellReference super;
+    typedef ::poi::ss::util::CellReference super;
 protected:
     void ctor(::java::lang::String* cellRef);
     void ctor(int32_t pRow, int32_t pCol);

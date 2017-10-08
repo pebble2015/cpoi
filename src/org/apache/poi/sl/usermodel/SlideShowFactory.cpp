@@ -90,36 +90,36 @@ namespace
 
     template<typename F> finally_<F> finally(F f) { return finally_<F>(f); }
 }
-org::apache::poi::sl::usermodel::SlideShowFactory::SlideShowFactory(const ::default_init_tag&)
+poi::sl::usermodel::SlideShowFactory::SlideShowFactory(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::usermodel::SlideShowFactory::SlideShowFactory()
+poi::sl::usermodel::SlideShowFactory::SlideShowFactory()
     : SlideShowFactory(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::sl::usermodel::SlideShow* org::apache::poi::sl::usermodel::SlideShowFactory::create(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs) /* throws(IOException) */
+poi::sl::usermodel::SlideShow* poi::sl::usermodel::SlideShowFactory::create(::poi::poifs::filesystem::NPOIFSFileSystem* fs) /* throws(IOException) */
 {
     clinit();
     return create(fs, static_cast< ::java::lang::String* >(nullptr));
 }
 
-org::apache::poi::sl::usermodel::SlideShow* org::apache::poi::sl::usermodel::SlideShowFactory::create(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs, ::java::lang::String* password) /* throws(IOException) */
+poi::sl::usermodel::SlideShow* poi::sl::usermodel::SlideShowFactory::create(::poi::poifs::filesystem::NPOIFSFileSystem* fs, ::java::lang::String* password) /* throws(IOException) */
 {
     clinit();
     auto root = npc(fs)->getRoot();
-    if(npc(root)->hasEntry(::org::apache::poi::poifs::crypt::Decryptor::DEFAULT_POIFS_ENTRY())) {
+    if(npc(root)->hasEntry(::poi::poifs::crypt::Decryptor::DEFAULT_POIFS_ENTRY())) {
         ::java::io::InputStream* stream = nullptr;
         {
             auto finally0 = finally([&] {
-                ::org::apache::poi::util::IOUtils::closeQuietly(stream);
+                ::poi::util::IOUtils::closeQuietly(stream);
             });
             {
-                stream = ::org::apache::poi::poifs::filesystem::DocumentFactoryHelper::getDecryptedStream(fs, password);
+                stream = ::poi::poifs::filesystem::DocumentFactoryHelper::getDecryptedStream(fs, password);
                 return createXSLFSlideShow(new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(stream)}));
             }
         }
@@ -127,13 +127,13 @@ org::apache::poi::sl::usermodel::SlideShow* org::apache::poi::sl::usermodel::Sli
     }
     auto passwordSet = false;
     if(password != nullptr) {
-        ::org::apache::poi::hssf::record::crypto::Biff8EncryptionKey::setCurrentUserPassword(password);
+        ::poi::hssf::record::crypto::Biff8EncryptionKey::setCurrentUserPassword(password);
         passwordSet = true;
     }
     {
         auto finally1 = finally([&] {
             if(passwordSet) {
-                ::org::apache::poi::hssf::record::crypto::Biff8EncryptionKey::setCurrentUserPassword(nullptr);
+                ::poi::hssf::record::crypto::Biff8EncryptionKey::setCurrentUserPassword(nullptr);
             }
         });
         {
@@ -143,29 +143,29 @@ org::apache::poi::sl::usermodel::SlideShow* org::apache::poi::sl::usermodel::Sli
 
 }
 
-org::apache::poi::sl::usermodel::SlideShow* org::apache::poi::sl::usermodel::SlideShowFactory::create(::java::io::InputStream* inp) /* throws(IOException, EncryptedDocumentException) */
+poi::sl::usermodel::SlideShow* poi::sl::usermodel::SlideShowFactory::create(::java::io::InputStream* inp) /* throws(IOException, EncryptedDocumentException) */
 {
     clinit();
     return create(inp, static_cast< ::java::lang::String* >(nullptr));
 }
 
-org::apache::poi::sl::usermodel::SlideShow* org::apache::poi::sl::usermodel::SlideShowFactory::create(::java::io::InputStream* inp, ::java::lang::String* password) /* throws(IOException, EncryptedDocumentException) */
+poi::sl::usermodel::SlideShow* poi::sl::usermodel::SlideShowFactory::create(::java::io::InputStream* inp, ::java::lang::String* password) /* throws(IOException, EncryptedDocumentException) */
 {
     clinit();
-    auto is = ::org::apache::poi::poifs::filesystem::FileMagic::prepareToCheckMagic(inp);
-    auto fm = ::org::apache::poi::poifs::filesystem::FileMagic::valueOf(is);
+    auto is = ::poi::poifs::filesystem::FileMagic::prepareToCheckMagic(inp);
+    auto fm = ::poi::poifs::filesystem::FileMagic::valueOf(is);
     {
-        ::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs;
+        ::poi::poifs::filesystem::NPOIFSFileSystem* fs;
         {
             auto v = fm;
-            if((v == ::org::apache::poi::poifs::filesystem::FileMagic::OLE2)) {
-                auto fs = new ::org::apache::poi::poifs::filesystem::NPOIFSFileSystem(is);
+            if((v == ::poi::poifs::filesystem::FileMagic::OLE2)) {
+                auto fs = new ::poi::poifs::filesystem::NPOIFSFileSystem(is);
                 return create(fs, password);
             }
-            if((v == ::org::apache::poi::poifs::filesystem::FileMagic::OOXML)) {
+            if((v == ::poi::poifs::filesystem::FileMagic::OOXML)) {
                 return createXSLFSlideShow(new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(is)}));
             }
-            if((((v != ::org::apache::poi::poifs::filesystem::FileMagic::OLE2) && (v != ::org::apache::poi::poifs::filesystem::FileMagic::OOXML)))) {
+            if((((v != ::poi::poifs::filesystem::FileMagic::OLE2) && (v != ::poi::poifs::filesystem::FileMagic::OOXML)))) {
                 throw new ::java::lang::IllegalArgumentException(u"Your InputStream was neither an OLE2 stream, nor an OOXML stream"_j);
             }
 end_switch0:;
@@ -174,50 +174,50 @@ end_switch0:;
 
 }
 
-org::apache::poi::sl::usermodel::SlideShow* org::apache::poi::sl::usermodel::SlideShowFactory::create(::java::io::File* file) /* throws(IOException, EncryptedDocumentException) */
+poi::sl::usermodel::SlideShow* poi::sl::usermodel::SlideShowFactory::create(::java::io::File* file) /* throws(IOException, EncryptedDocumentException) */
 {
     clinit();
     return create(file, static_cast< ::java::lang::String* >(nullptr));
 }
 
-org::apache::poi::sl::usermodel::SlideShow* org::apache::poi::sl::usermodel::SlideShowFactory::create(::java::io::File* file, ::java::lang::String* password) /* throws(IOException, EncryptedDocumentException) */
+poi::sl::usermodel::SlideShow* poi::sl::usermodel::SlideShowFactory::create(::java::io::File* file, ::java::lang::String* password) /* throws(IOException, EncryptedDocumentException) */
 {
     clinit();
     return create(file, password, false);
 }
 
-org::apache::poi::sl::usermodel::SlideShow* org::apache::poi::sl::usermodel::SlideShowFactory::create(::java::io::File* file, ::java::lang::String* password, bool readOnly) /* throws(IOException, EncryptedDocumentException) */
+poi::sl::usermodel::SlideShow* poi::sl::usermodel::SlideShowFactory::create(::java::io::File* file, ::java::lang::String* password, bool readOnly) /* throws(IOException, EncryptedDocumentException) */
 {
     clinit();
     if(!npc(file)->exists()) {
         throw new ::java::io::FileNotFoundException(npc(file)->toString());
     }
-    ::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs = nullptr;
+    ::poi::poifs::filesystem::NPOIFSFileSystem* fs = nullptr;
     try {
-        fs = new ::org::apache::poi::poifs::filesystem::NPOIFSFileSystem(file, readOnly);
+        fs = new ::poi::poifs::filesystem::NPOIFSFileSystem(file, readOnly);
         return create(fs, password);
-    } catch (::org::apache::poi::poifs::filesystem::OfficeXmlFileException* e) {
-        ::org::apache::poi::util::IOUtils::closeQuietly(fs);
+    } catch (::poi::poifs::filesystem::OfficeXmlFileException* e) {
+        ::poi::util::IOUtils::closeQuietly(fs);
         return createXSLFSlideShow(new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(file), static_cast< ::java::lang::Object* >(::java::lang::Boolean::valueOf(readOnly))}));
     } catch (::java::lang::RuntimeException* e) {
-        ::org::apache::poi::util::IOUtils::closeQuietly(fs);
+        ::poi::util::IOUtils::closeQuietly(fs);
         throw e;
     }
 }
 
-org::apache::poi::sl::usermodel::SlideShow* org::apache::poi::sl::usermodel::SlideShowFactory::createHSLFSlideShow(::java::lang::ObjectArray*/*...*/ args) /* throws(IOException, EncryptedDocumentException) */
+poi::sl::usermodel::SlideShow* poi::sl::usermodel::SlideShowFactory::createHSLFSlideShow(::java::lang::ObjectArray*/*...*/ args) /* throws(IOException, EncryptedDocumentException) */
 {
     clinit();
     return createSlideShow(u"org.apache.poi.hslf.usermodel.HSLFSlideShowFactory"_j, args);
 }
 
-org::apache::poi::sl::usermodel::SlideShow* org::apache::poi::sl::usermodel::SlideShowFactory::createXSLFSlideShow(::java::lang::ObjectArray*/*...*/ args) /* throws(IOException, EncryptedDocumentException) */
+poi::sl::usermodel::SlideShow* poi::sl::usermodel::SlideShowFactory::createXSLFSlideShow(::java::lang::ObjectArray*/*...*/ args) /* throws(IOException, EncryptedDocumentException) */
 {
     clinit();
     return createSlideShow(u"org.apache.poi.xslf.usermodel.XSLFSlideShowFactory"_j, args);
 }
 
-org::apache::poi::sl::usermodel::SlideShow* org::apache::poi::sl::usermodel::SlideShowFactory::createSlideShow(::java::lang::String* factoryClass, ::java::lang::ObjectArray* args) /* throws(IOException, EncryptedDocumentException) */
+poi::sl::usermodel::SlideShow* poi::sl::usermodel::SlideShowFactory::createSlideShow(::java::lang::String* factoryClass, ::java::lang::ObjectArray* args) /* throws(IOException, EncryptedDocumentException) */
 {
     clinit();
     try {
@@ -239,10 +239,10 @@ org::apache::poi::sl::usermodel::SlideShow* org::apache::poi::sl::usermodel::Sli
         auto t = npc(e)->getCause();
         if(dynamic_cast< ::java::io::IOException* >(t) != nullptr) {
             throw java_cast< ::java::io::IOException* >(t);
-        } else if(dynamic_cast< ::org::apache::poi::EncryptedDocumentException* >(t) != nullptr) {
-            throw java_cast< ::org::apache::poi::EncryptedDocumentException* >(t);
-        } else if(dynamic_cast< ::org::apache::poi::OldFileFormatException* >(t) != nullptr) {
-            throw java_cast< ::org::apache::poi::OldFileFormatException* >(t);
+        } else if(dynamic_cast< ::poi::EncryptedDocumentException* >(t) != nullptr) {
+            throw java_cast< ::poi::EncryptedDocumentException* >(t);
+        } else if(dynamic_cast< ::poi::OldFileFormatException* >(t) != nullptr) {
+            throw java_cast< ::poi::OldFileFormatException* >(t);
         } else {
             throw new ::java::io::IOException(t);
         }
@@ -253,13 +253,13 @@ org::apache::poi::sl::usermodel::SlideShow* org::apache::poi::sl::usermodel::Sli
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::usermodel::SlideShowFactory::class_()
+java::lang::Class* poi::sl::usermodel::SlideShowFactory::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.usermodel.SlideShowFactory", 44);
     return c;
 }
 
-java::lang::Class* org::apache::poi::sl::usermodel::SlideShowFactory::getClass0()
+java::lang::Class* poi::sl::usermodel::SlideShowFactory::getClass0()
 {
     return class_();
 }

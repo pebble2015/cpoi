@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::extractor::OLE2ExtractorFactory_1
+class poi::extractor::OLE2ExtractorFactory_1
     : public ::java::lang::ThreadLocal
 {
 

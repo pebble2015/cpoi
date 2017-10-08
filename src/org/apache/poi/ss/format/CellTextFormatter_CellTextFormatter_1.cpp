@@ -14,7 +14,7 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::format::CellTextFormatter_CellTextFormatter_1::CellTextFormatter_CellTextFormatter_1(CellTextFormatter *CellTextFormatter_this, ::int32_tArray* numPlaces)
+poi::ss::format::CellTextFormatter_CellTextFormatter_1::CellTextFormatter_CellTextFormatter_1(CellTextFormatter *CellTextFormatter_this, ::int32_tArray* numPlaces)
     : super(*static_cast< ::default_init_tag* >(0))
     , CellTextFormatter_this(CellTextFormatter_this)
     , numPlaces(numPlaces)
@@ -23,7 +23,7 @@ org::apache::poi::ss::format::CellTextFormatter_CellTextFormatter_1::CellTextFor
     ctor();
 }
 
-java::lang::String* org::apache::poi::ss::format::CellTextFormatter_CellTextFormatter_1::handlePart(::java::util::regex::Matcher* m, ::java::lang::String* part, CellFormatType* type, ::java::lang::StringBuffer* desc)
+java::lang::String* poi::ss::format::CellTextFormatter_CellTextFormatter_1::handlePart(::java::util::regex::Matcher* m, ::java::lang::String* part, CellFormatType* type, ::java::lang::StringBuffer* desc)
 {
     if(npc(part)->equals(static_cast< ::java::lang::Object* >(u"@"_j))) {
         (*numPlaces)[int32_t(0)]++;
@@ -34,13 +34,13 @@ java::lang::String* org::apache::poi::ss::format::CellTextFormatter_CellTextForm
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::format::CellTextFormatter_CellTextFormatter_1::class_()
+java::lang::Class* poi::ss::format::CellTextFormatter_CellTextFormatter_1::class_()
 {
     static ::java::lang::Class* c = ::class_(u"", 0);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::format::CellTextFormatter_CellTextFormatter_1::getClass0()
+java::lang::Class* poi::ss::format::CellTextFormatter_CellTextFormatter_1::getClass0()
 {
     return class_();
 }

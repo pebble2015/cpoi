@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::DrawingGroupRecord final
+class poi::hssf::record::DrawingGroupRecord final
     : public AbstractEscherHolderRecord
 {
 

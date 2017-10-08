@@ -7,7 +7,7 @@
 #include <org/apache/poi/ss/usermodel/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::usermodel::DataFormat
+struct poi::ss::usermodel::DataFormat
     : public virtual ::java::lang::Object
 {
     virtual int16_t getFormat(::java::lang::String* format) = 0;

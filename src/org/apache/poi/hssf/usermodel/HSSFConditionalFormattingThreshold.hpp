@@ -11,27 +11,27 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFConditionalFormattingThreshold final
+class poi::hssf::usermodel::HSSFConditionalFormattingThreshold final
     : public virtual ::java::lang::Object
-    , public ::org::apache::poi::ss::usermodel::ConditionalFormattingThreshold
+    , public ::poi::ss::usermodel::ConditionalFormattingThreshold
 {
 
 public:
     typedef ::java::lang::Object super;
 
 private:
-    ::org::apache::poi::hssf::record::cf::Threshold* threshold {  };
+    ::poi::hssf::record::cf::Threshold* threshold {  };
     HSSFSheet* sheet {  };
     HSSFWorkbook* workbook {  };
 protected:
-    void ctor(::org::apache::poi::hssf::record::cf::Threshold* threshold, HSSFSheet* sheet);
+    void ctor(::poi::hssf::record::cf::Threshold* threshold, HSSFSheet* sheet);
 
 public: /* protected */
-    ::org::apache::poi::hssf::record::cf::Threshold* getThreshold();
+    ::poi::hssf::record::cf::Threshold* getThreshold();
 
 public:
-    ::org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType* getRangeType() override;
-    void setRangeType(::org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType* type) override;
+    ::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType* getRangeType() override;
+    void setRangeType(::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType* type) override;
     ::java::lang::String* getFormula() override;
     void setFormula(::java::lang::String* formula) override;
     ::java::lang::Double* getValue() override;
@@ -40,7 +40,7 @@ public:
     // Generated
 
 public: /* protected */
-    HSSFConditionalFormattingThreshold(::org::apache::poi::hssf::record::cf::Threshold* threshold, HSSFSheet* sheet);
+    HSSFConditionalFormattingThreshold(::poi::hssf::record::cf::Threshold* threshold, HSSFSheet* sheet);
 protected:
     HSSFConditionalFormattingThreshold(const ::default_init_tag&);
 

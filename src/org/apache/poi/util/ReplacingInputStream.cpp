@@ -18,25 +18,25 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::util::ReplacingInputStream::ReplacingInputStream(const ::default_init_tag&)
+poi::util::ReplacingInputStream::ReplacingInputStream(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::util::ReplacingInputStream::ReplacingInputStream(::java::io::InputStream* in, ::java::lang::String* pattern, ::java::lang::String* replacement) 
+poi::util::ReplacingInputStream::ReplacingInputStream(::java::io::InputStream* in, ::java::lang::String* pattern, ::java::lang::String* replacement) 
     : ReplacingInputStream(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in,pattern,replacement);
 }
 
-org::apache::poi::util::ReplacingInputStream::ReplacingInputStream(::java::io::InputStream* in, ::int8_tArray* pattern, ::int8_tArray* replacement) 
+poi::util::ReplacingInputStream::ReplacingInputStream(::java::io::InputStream* in, ::int8_tArray* pattern, ::int8_tArray* replacement) 
     : ReplacingInputStream(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in,pattern,replacement);
 }
 
-void org::apache::poi::util::ReplacingInputStream::init()
+void poi::util::ReplacingInputStream::init()
 {
     matchedIndex = int32_t(0);
     unbufferIndex = int32_t(0);
@@ -44,19 +44,19 @@ void org::apache::poi::util::ReplacingInputStream::init()
     state = ReplacingInputStream_State::NOT_MATCHED;
 }
 
-java::nio::charset::Charset*& org::apache::poi::util::ReplacingInputStream::UTF8()
+java::nio::charset::Charset*& poi::util::ReplacingInputStream::UTF8()
 {
     clinit();
     return UTF8_;
 }
-java::nio::charset::Charset* org::apache::poi::util::ReplacingInputStream::UTF8_;
+java::nio::charset::Charset* poi::util::ReplacingInputStream::UTF8_;
 
-void org::apache::poi::util::ReplacingInputStream::ctor(::java::io::InputStream* in, ::java::lang::String* pattern, ::java::lang::String* replacement)
+void poi::util::ReplacingInputStream::ctor(::java::io::InputStream* in, ::java::lang::String* pattern, ::java::lang::String* replacement)
 {
     ctor(in, npc(pattern)->getBytes(UTF8_), replacement == nullptr ? static_cast< ::int8_tArray* >(nullptr) : npc(replacement)->getBytes(UTF8_));
 }
 
-void org::apache::poi::util::ReplacingInputStream::ctor(::java::io::InputStream* in, ::int8_tArray* pattern, ::int8_tArray* replacement)
+void poi::util::ReplacingInputStream::ctor(::java::io::InputStream* in, ::int8_tArray* pattern, ::int8_tArray* replacement)
 {
     super::ctor(in);
     init();
@@ -68,7 +68,7 @@ void org::apache::poi::util::ReplacingInputStream::ctor(::java::io::InputStream*
     buf = new ::int32_tArray(npc(pattern)->length);
 }
 
-int32_t org::apache::poi::util::ReplacingInputStream::read(::int8_tArray* b, int32_t off, int32_t len) /* throws(IOException) */
+int32_t poi::util::ReplacingInputStream::read(::int8_tArray* b, int32_t off, int32_t len) /* throws(IOException) */
 {
     if(b == nullptr) {
         throw new ::java::lang::NullPointerException();
@@ -93,12 +93,12 @@ int32_t org::apache::poi::util::ReplacingInputStream::read(::int8_tArray* b, int
     return i;
 }
 
-int32_t org::apache::poi::util::ReplacingInputStream::read(::int8_tArray* b) /* throws(IOException) */
+int32_t poi::util::ReplacingInputStream::read(::int8_tArray* b) /* throws(IOException) */
 {
     return read(b, int32_t(0), npc(b)->length);
 }
 
-int32_t org::apache::poi::util::ReplacingInputStream::read() /* throws(IOException) */
+int32_t poi::util::ReplacingInputStream::read() /* throws(IOException) */
 {
     int32_t next;
     {
@@ -160,7 +160,7 @@ end_switch0:;
 
 }
 
-java::lang::String* org::apache::poi::util::ReplacingInputStream::toString()
+java::lang::String* poi::util::ReplacingInputStream::toString()
 {
     return ::java::lang::StringBuilder().append(npc(state)->name())->append(u" "_j)
         ->append(matchedIndex)
@@ -172,13 +172,13 @@ java::lang::String* org::apache::poi::util::ReplacingInputStream::toString()
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::util::ReplacingInputStream::class_()
+java::lang::Class* poi::util::ReplacingInputStream::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.util.ReplacingInputStream", 40);
     return c;
 }
 
-void org::apache::poi::util::ReplacingInputStream::clinit()
+void poi::util::ReplacingInputStream::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -194,7 +194,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::util::ReplacingInputStream::getClass0()
+java::lang::Class* poi::util::ReplacingInputStream::getClass0()
 {
     return class_();
 }

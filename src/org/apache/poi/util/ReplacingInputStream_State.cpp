@@ -25,45 +25,39 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace util
     {
-        namespace poi
-        {
-            namespace util
-            {
-typedef ::SubArray< ::org::apache::poi::util::ReplacingInputStream_State, ::java::lang::EnumArray > ReplacingInputStream_StateArray;
-            } // util
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::util::ReplacingInputStream_State, ::java::lang::EnumArray > ReplacingInputStream_StateArray;
+    } // util
+} // poi
 
-org::apache::poi::util::ReplacingInputStream_State::ReplacingInputStream_State(const ::default_init_tag&)
+poi::util::ReplacingInputStream_State::ReplacingInputStream_State(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::util::ReplacingInputStream_State::ReplacingInputStream_State(::java::lang::String* name, int ordinal)
+poi::util::ReplacingInputStream_State::ReplacingInputStream_State(::java::lang::String* name, int ordinal)
     : ReplacingInputStream_State(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal);
 }
 
-org::apache::poi::util::ReplacingInputStream_State* org::apache::poi::util::ReplacingInputStream_State::NOT_MATCHED = new ::org::apache::poi::util::ReplacingInputStream_State(u"NOT_MATCHED"_j, 0);
-org::apache::poi::util::ReplacingInputStream_State* org::apache::poi::util::ReplacingInputStream_State::MATCHING = new ::org::apache::poi::util::ReplacingInputStream_State(u"MATCHING"_j, 1);
-org::apache::poi::util::ReplacingInputStream_State* org::apache::poi::util::ReplacingInputStream_State::REPLACING = new ::org::apache::poi::util::ReplacingInputStream_State(u"REPLACING"_j, 2);
-org::apache::poi::util::ReplacingInputStream_State* org::apache::poi::util::ReplacingInputStream_State::UNBUFFER = new ::org::apache::poi::util::ReplacingInputStream_State(u"UNBUFFER"_j, 3);
+poi::util::ReplacingInputStream_State* poi::util::ReplacingInputStream_State::NOT_MATCHED = new ::poi::util::ReplacingInputStream_State(u"NOT_MATCHED"_j, 0);
+poi::util::ReplacingInputStream_State* poi::util::ReplacingInputStream_State::MATCHING = new ::poi::util::ReplacingInputStream_State(u"MATCHING"_j, 1);
+poi::util::ReplacingInputStream_State* poi::util::ReplacingInputStream_State::REPLACING = new ::poi::util::ReplacingInputStream_State(u"REPLACING"_j, 2);
+poi::util::ReplacingInputStream_State* poi::util::ReplacingInputStream_State::UNBUFFER = new ::poi::util::ReplacingInputStream_State(u"UNBUFFER"_j, 3);
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::util::ReplacingInputStream_State::class_()
+java::lang::Class* poi::util::ReplacingInputStream_State::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.util.ReplacingInputStream.State", 46);
     return c;
 }
 
-org::apache::poi::util::ReplacingInputStream_State* org::apache::poi::util::ReplacingInputStream_State::valueOf(::java::lang::String* a0)
+poi::util::ReplacingInputStream_State* poi::util::ReplacingInputStream_State::valueOf(::java::lang::String* a0)
 {
     if(MATCHING->toString()->equals(a0))
         return MATCHING;
@@ -76,9 +70,9 @@ org::apache::poi::util::ReplacingInputStream_State* org::apache::poi::util::Repl
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::util::ReplacingInputStream_StateArray* org::apache::poi::util::ReplacingInputStream_State::values()
+poi::util::ReplacingInputStream_StateArray* poi::util::ReplacingInputStream_State::values()
 {
-    return new org::apache::poi::util::ReplacingInputStream_StateArray({
+    return new poi::util::ReplacingInputStream_StateArray({
         MATCHING,
         NOT_MATCHED,
         REPLACING,
@@ -86,7 +80,7 @@ org::apache::poi::util::ReplacingInputStream_StateArray* org::apache::poi::util:
     });
 }
 
-java::lang::Class* org::apache::poi::util::ReplacingInputStream_State::getClass0()
+java::lang::Class* poi::util::ReplacingInputStream_State::getClass0()
 {
     return class_();
 }

@@ -28,22 +28,16 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace ss
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType, ::java::lang::EnumArray > ConditionalFormattingThreshold_RangeTypeArray;
-                } // usermodel
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType, ::java::lang::EnumArray > ConditionalFormattingThreshold_RangeTypeArray;
+        } // usermodel
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -52,38 +46,38 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::ConditionalFormattingThreshold_RangeType(const ::default_init_tag&)
+poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::ConditionalFormattingThreshold_RangeType(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::ConditionalFormattingThreshold_RangeType(::java::lang::String* name, int ordinal, int32_t id, ::java::lang::String* name1) 
+poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::ConditionalFormattingThreshold_RangeType(::java::lang::String* name, int ordinal, int32_t id, ::java::lang::String* name1) 
     : ConditionalFormattingThreshold_RangeType(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal, id,name1);
 }
 
-org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType* org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::NUMBER = new ::org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType(u"NUMBER"_j, 0, int32_t(1), u"num"_j);
-org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType* org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::MIN = new ::org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType(u"MIN"_j, 1, int32_t(2), u"min"_j);
-org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType* org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::MAX = new ::org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType(u"MAX"_j, 2, int32_t(3), u"max"_j);
-org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType* org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::PERCENT = new ::org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType(u"PERCENT"_j, 3, int32_t(4), u"percent"_j);
-org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType* org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::PERCENTILE = new ::org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType(u"PERCENTILE"_j, 4, int32_t(5), u"percentile"_j);
-org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType* org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::UNALLOCATED = new ::org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType(u"UNALLOCATED"_j, 5, int32_t(6), nullptr);
-org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType* org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::FORMULA = new ::org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType(u"FORMULA"_j, 6, int32_t(7), u"formula"_j);
-java::lang::String* org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::toString()
+poi::ss::usermodel::ConditionalFormattingThreshold_RangeType* poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::NUMBER = new ::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType(u"NUMBER"_j, 0, int32_t(1), u"num"_j);
+poi::ss::usermodel::ConditionalFormattingThreshold_RangeType* poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::MIN = new ::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType(u"MIN"_j, 1, int32_t(2), u"min"_j);
+poi::ss::usermodel::ConditionalFormattingThreshold_RangeType* poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::MAX = new ::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType(u"MAX"_j, 2, int32_t(3), u"max"_j);
+poi::ss::usermodel::ConditionalFormattingThreshold_RangeType* poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::PERCENT = new ::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType(u"PERCENT"_j, 3, int32_t(4), u"percent"_j);
+poi::ss::usermodel::ConditionalFormattingThreshold_RangeType* poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::PERCENTILE = new ::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType(u"PERCENTILE"_j, 4, int32_t(5), u"percentile"_j);
+poi::ss::usermodel::ConditionalFormattingThreshold_RangeType* poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::UNALLOCATED = new ::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType(u"UNALLOCATED"_j, 5, int32_t(6), nullptr);
+poi::ss::usermodel::ConditionalFormattingThreshold_RangeType* poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::FORMULA = new ::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType(u"FORMULA"_j, 6, int32_t(7), u"formula"_j);
+java::lang::String* poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::toString()
 {
     return ::java::lang::StringBuilder().append(id)->append(u" - "_j)
         ->append(name_)->toString();
 }
 
-org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType* org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::byId(int32_t id)
+poi::ss::usermodel::ConditionalFormattingThreshold_RangeType* poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::byId(int32_t id)
 {
     clinit();
     return (*values())[id - int32_t(1)];
 }
 
-org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType* org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::byName(::java::lang::String* name)
+poi::ss::usermodel::ConditionalFormattingThreshold_RangeType* poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::byName(::java::lang::String* name)
 {
     clinit();
     for(auto t : *npc(values())) {
@@ -94,7 +88,7 @@ org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType* org::
     return nullptr;
 }
 
-void org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::ctor(::java::lang::String* name, int ordinal, int32_t id, ::java::lang::String* name1)
+void poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::ctor(::java::lang::String* name, int ordinal, int32_t id, ::java::lang::String* name1)
 {
     super::ctor(name, ordinal);
     this->id = id;
@@ -103,13 +97,13 @@ void org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::class_()
+java::lang::Class* poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.usermodel.ConditionalFormattingThreshold.RangeType", 68);
     return c;
 }
 
-org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType* org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::valueOf(::java::lang::String* a0)
+poi::ss::usermodel::ConditionalFormattingThreshold_RangeType* poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::valueOf(::java::lang::String* a0)
 {
     if(FORMULA->toString()->equals(a0))
         return FORMULA;
@@ -128,9 +122,9 @@ org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType* org::
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeTypeArray* org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::values()
+poi::ss::usermodel::ConditionalFormattingThreshold_RangeTypeArray* poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::values()
 {
-    return new org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeTypeArray({
+    return new poi::ss::usermodel::ConditionalFormattingThreshold_RangeTypeArray({
         FORMULA,
         MAX,
         MIN,
@@ -141,7 +135,7 @@ org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeTypeArray* 
     });
 }
 
-java::lang::Class* org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::getClass0()
+java::lang::Class* poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::getClass0()
 {
     return class_();
 }

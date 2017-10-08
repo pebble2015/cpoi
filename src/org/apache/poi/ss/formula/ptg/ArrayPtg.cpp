@@ -55,31 +55,31 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::ptg::ArrayPtg::ArrayPtg(const ::default_init_tag&)
+poi::ss::formula::ptg::ArrayPtg::ArrayPtg(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::ptg::ArrayPtg::ArrayPtg(int32_t reserved0, int32_t reserved1, int32_t reserved2, int32_t nColumns, int32_t nRows, ::java::lang::ObjectArray* arrayValues) 
+poi::ss::formula::ptg::ArrayPtg::ArrayPtg(int32_t reserved0, int32_t reserved1, int32_t reserved2, int32_t nColumns, int32_t nRows, ::java::lang::ObjectArray* arrayValues) 
     : ArrayPtg(*static_cast< ::default_init_tag* >(0))
 {
     ctor(reserved0,reserved1,reserved2,nColumns,nRows,arrayValues);
 }
 
-org::apache::poi::ss::formula::ptg::ArrayPtg::ArrayPtg(::java::lang::ObjectArrayArray* values2d) 
+poi::ss::formula::ptg::ArrayPtg::ArrayPtg(::java::lang::ObjectArrayArray* values2d) 
     : ArrayPtg(*static_cast< ::default_init_tag* >(0))
 {
     ctor(values2d);
 }
 
-constexpr int8_t org::apache::poi::ss::formula::ptg::ArrayPtg::sid;
+constexpr int8_t poi::ss::formula::ptg::ArrayPtg::sid;
 
-constexpr int32_t org::apache::poi::ss::formula::ptg::ArrayPtg::RESERVED_FIELD_LEN;
+constexpr int32_t poi::ss::formula::ptg::ArrayPtg::RESERVED_FIELD_LEN;
 
-constexpr int32_t org::apache::poi::ss::formula::ptg::ArrayPtg::PLAIN_TOKEN_SIZE;
+constexpr int32_t poi::ss::formula::ptg::ArrayPtg::PLAIN_TOKEN_SIZE;
 
-void org::apache::poi::ss::formula::ptg::ArrayPtg::ctor(int32_t reserved0, int32_t reserved1, int32_t reserved2, int32_t nColumns, int32_t nRows, ::java::lang::ObjectArray* arrayValues)
+void poi::ss::formula::ptg::ArrayPtg::ctor(int32_t reserved0, int32_t reserved1, int32_t reserved2, int32_t nColumns, int32_t nRows, ::java::lang::ObjectArray* arrayValues)
 {
     super::ctor();
     _reserved0Int = reserved0;
@@ -90,7 +90,7 @@ void org::apache::poi::ss::formula::ptg::ArrayPtg::ctor(int32_t reserved0, int32
     _arrayValues = npc(arrayValues)->clone();
 }
 
-void org::apache::poi::ss::formula::ptg::ArrayPtg::ctor(::java::lang::ObjectArrayArray* values2d)
+void poi::ss::formula::ptg::ArrayPtg::ctor(::java::lang::ObjectArrayArray* values2d)
 {
     super::ctor();
     auto nColumns = npc((*values2d)[int32_t(0)])->length;
@@ -110,7 +110,7 @@ void org::apache::poi::ss::formula::ptg::ArrayPtg::ctor(::java::lang::ObjectArra
     _reserved2Byte = 0;
 }
 
-java::lang::ObjectArrayArray* org::apache::poi::ss::formula::ptg::ArrayPtg::getTokenArrayValues()
+java::lang::ObjectArrayArray* poi::ss::formula::ptg::ArrayPtg::getTokenArrayValues()
 {
     if(_arrayValues == nullptr) {
         throw new ::java::lang::IllegalStateException(u"array values not read yet"_j);
@@ -125,12 +125,12 @@ java::lang::ObjectArrayArray* org::apache::poi::ss::formula::ptg::ArrayPtg::getT
     return result;
 }
 
-bool org::apache::poi::ss::formula::ptg::ArrayPtg::isBaseToken()
+bool poi::ss::formula::ptg::ArrayPtg::isBaseToken()
 {
     return false;
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::ArrayPtg::toString()
+java::lang::String* poi::ss::formula::ptg::ArrayPtg::toString()
 {
     auto sb = new ::java::lang::StringBuffer(u"[ArrayPtg]\n"_j);
     npc(npc(npc(sb)->append(u"nRows = "_j))->append(getRowCount()))->append(u"\n"_j);
@@ -143,7 +143,7 @@ java::lang::String* org::apache::poi::ss::formula::ptg::ArrayPtg::toString()
     return npc(sb)->toString();
 }
 
-int32_t org::apache::poi::ss::formula::ptg::ArrayPtg::getValueIndex(int32_t colIx, int32_t rowIx)
+int32_t poi::ss::formula::ptg::ArrayPtg::getValueIndex(int32_t colIx, int32_t rowIx)
 {
     if(colIx < 0 || colIx >= _nColumns) {
         throw new ::java::lang::IllegalArgumentException(::java::lang::StringBuilder().append(u"Specified colIx ("_j)->append(colIx)
@@ -160,7 +160,7 @@ int32_t org::apache::poi::ss::formula::ptg::ArrayPtg::getValueIndex(int32_t colI
     return rowIx * _nColumns + colIx;
 }
 
-void org::apache::poi::ss::formula::ptg::ArrayPtg::write(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::ss::formula::ptg::ArrayPtg::write(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeByte(sid + getPtgClass());
     npc(out)->writeInt(_reserved0Int);
@@ -168,30 +168,30 @@ void org::apache::poi::ss::formula::ptg::ArrayPtg::write(::org::apache::poi::uti
     npc(out)->writeByte(_reserved2Byte);
 }
 
-int32_t org::apache::poi::ss::formula::ptg::ArrayPtg::writeTokenValueBytes(::org::apache::poi::util::LittleEndianOutput* out)
+int32_t poi::ss::formula::ptg::ArrayPtg::writeTokenValueBytes(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeByte(_nColumns - int32_t(1));
     npc(out)->writeShort(_nRows - int32_t(1));
-    ::org::apache::poi::ss::formula::constant::ConstantValueParser::encode(out, _arrayValues);
-    return int32_t(3) + ::org::apache::poi::ss::formula::constant::ConstantValueParser::getEncodedSize(_arrayValues);
+    ::poi::ss::formula::constant::ConstantValueParser::encode(out, _arrayValues);
+    return int32_t(3) + ::poi::ss::formula::constant::ConstantValueParser::getEncodedSize(_arrayValues);
 }
 
-int32_t org::apache::poi::ss::formula::ptg::ArrayPtg::getRowCount()
+int32_t poi::ss::formula::ptg::ArrayPtg::getRowCount()
 {
     return _nRows;
 }
 
-int32_t org::apache::poi::ss::formula::ptg::ArrayPtg::getColumnCount()
+int32_t poi::ss::formula::ptg::ArrayPtg::getColumnCount()
 {
     return _nColumns;
 }
 
-int32_t org::apache::poi::ss::formula::ptg::ArrayPtg::getSize()
+int32_t poi::ss::formula::ptg::ArrayPtg::getSize()
 {
-    return PLAIN_TOKEN_SIZE + int32_t(1) + int32_t(2)+ ::org::apache::poi::ss::formula::constant::ConstantValueParser::getEncodedSize(_arrayValues);
+    return PLAIN_TOKEN_SIZE + int32_t(1) + int32_t(2)+ ::poi::ss::formula::constant::ConstantValueParser::getEncodedSize(_arrayValues);
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::ArrayPtg::toFormulaString()
+java::lang::String* poi::ss::formula::ptg::ArrayPtg::toFormulaString()
 {
     auto b = new ::java::lang::StringBuffer();
     npc(b)->append(u"{"_j);
@@ -211,7 +211,7 @@ java::lang::String* org::apache::poi::ss::formula::ptg::ArrayPtg::toFormulaStrin
     return npc(b)->toString();
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::ArrayPtg::getConstantText(::java::lang::Object* o)
+java::lang::String* poi::ss::formula::ptg::ArrayPtg::getConstantText(::java::lang::Object* o)
 {
     clinit();
     if(o == nullptr) {
@@ -222,32 +222,32 @@ java::lang::String* org::apache::poi::ss::formula::ptg::ArrayPtg::getConstantTex
             ->append(u"\""_j)->toString();
     }
     if(dynamic_cast< ::java::lang::Double* >(o) != nullptr) {
-        return ::org::apache::poi::ss::util::NumberToTextConverter::toText(npc((java_cast< ::java::lang::Double* >(o)))->doubleValue());
+        return ::poi::ss::util::NumberToTextConverter::toText(npc((java_cast< ::java::lang::Double* >(o)))->doubleValue());
     }
     if(dynamic_cast< ::java::lang::Boolean* >(o) != nullptr) {
         return npc((java_cast< ::java::lang::Boolean* >(o)))->booleanValue() ? u"TRUE"_j : u"FALSE"_j;
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::constant::ErrorConstant* >(o) != nullptr) {
-        return npc((java_cast< ::org::apache::poi::ss::formula::constant::ErrorConstant* >(o)))->getText();
+    if(dynamic_cast< ::poi::ss::formula::constant::ErrorConstant* >(o) != nullptr) {
+        return npc((java_cast< ::poi::ss::formula::constant::ErrorConstant* >(o)))->getText();
     }
     throw new ::java::lang::IllegalArgumentException(::java::lang::StringBuilder().append(u"Unexpected constant class ("_j)->append(npc(npc(o)->getClass())->getName())
         ->append(u")"_j)->toString());
 }
 
-int8_t org::apache::poi::ss::formula::ptg::ArrayPtg::getDefaultOperandClass()
+int8_t poi::ss::formula::ptg::ArrayPtg::getDefaultOperandClass()
 {
     return Ptg::CLASS_ARRAY;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::ArrayPtg::class_()
+java::lang::Class* poi::ss::formula::ptg::ArrayPtg::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.ptg.ArrayPtg", 38);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::ArrayPtg::getClass0()
+java::lang::Class* poi::ss::formula::ptg::ArrayPtg::getClass0()
 {
     return class_();
 }

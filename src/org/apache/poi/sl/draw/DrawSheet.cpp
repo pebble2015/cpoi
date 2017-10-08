@@ -36,25 +36,25 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::sl::draw::DrawSheet::DrawSheet(const ::default_init_tag&)
+poi::sl::draw::DrawSheet::DrawSheet(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::draw::DrawSheet::DrawSheet(::org::apache::poi::sl::usermodel::Sheet* sheet) 
+poi::sl::draw::DrawSheet::DrawSheet(::poi::sl::usermodel::Sheet* sheet) 
     : DrawSheet(*static_cast< ::default_init_tag* >(0))
 {
     ctor(sheet);
 }
 
-void org::apache::poi::sl::draw::DrawSheet::ctor(::org::apache::poi::sl::usermodel::Sheet* sheet)
+void poi::sl::draw::DrawSheet::ctor(::poi::sl::usermodel::Sheet* sheet)
 {
     super::ctor();
     this->sheet = sheet;
 }
 
-void org::apache::poi::sl::draw::DrawSheet::draw(::java::awt::Graphics2D* graphics)
+void poi::sl::draw::DrawSheet::draw(::java::awt::Graphics2D* graphics)
 {
     auto dim = npc(npc(sheet)->getSlideShow())->getPageSize();
     auto whiteTrans = new ::java::awt::Color(1.0f, 1.0f, 1.0f, 0.0f);
@@ -63,19 +63,19 @@ void org::apache::poi::sl::draw::DrawSheet::draw(::java::awt::Graphics2D* graphi
     auto drawFact = DrawFactory::getInstance(graphics);
     auto master = npc(sheet)->getMasterSheet();
     if(npc(sheet)->getFollowMasterGraphics() && master != nullptr) {
-        Drawable* drawer = npc(drawFact)->getDrawable(static_cast< ::org::apache::poi::sl::usermodel::MasterSheet* >(master));
+        Drawable* drawer = npc(drawFact)->getDrawable(static_cast< ::poi::sl::usermodel::MasterSheet* >(master));
         npc(drawer)->draw(graphics);
     }
     npc(graphics)->setRenderingHint(Drawable::GROUP_TRANSFORM(), new ::java::awt::geom::AffineTransform());
     for (auto _i = npc(npc(sheet)->getShapes())->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::sl::usermodel::Shape* shape = java_cast< ::org::apache::poi::sl::usermodel::Shape* >(_i->next());
+        ::poi::sl::usermodel::Shape* shape = java_cast< ::poi::sl::usermodel::Shape* >(_i->next());
         {
             if(!canDraw(graphics, shape)) {
                 continue;
             }
             auto at = npc(graphics)->getTransform();
             npc(graphics)->setRenderingHint(Drawable::GSAVE(), ::java::lang::Boolean::valueOf(true));
-            auto drawer = npc(drawFact)->getDrawable(static_cast< ::org::apache::poi::sl::usermodel::Shape* >(shape));
+            auto drawer = npc(drawFact)->getDrawable(static_cast< ::poi::sl::usermodel::Shape* >(shape));
             npc(drawer)->applyTransform(graphics);
             npc(drawer)->draw(graphics);
             npc(graphics)->setTransform(at);
@@ -84,28 +84,28 @@ void org::apache::poi::sl::draw::DrawSheet::draw(::java::awt::Graphics2D* graphi
     }
 }
 
-void org::apache::poi::sl::draw::DrawSheet::applyTransform(::java::awt::Graphics2D* context)
+void poi::sl::draw::DrawSheet::applyTransform(::java::awt::Graphics2D* context)
 {
 }
 
-void org::apache::poi::sl::draw::DrawSheet::drawContent(::java::awt::Graphics2D* context)
+void poi::sl::draw::DrawSheet::drawContent(::java::awt::Graphics2D* context)
 {
 }
 
-bool org::apache::poi::sl::draw::DrawSheet::canDraw(::java::awt::Graphics2D* graphics, ::org::apache::poi::sl::usermodel::Shape* shape)
+bool poi::sl::draw::DrawSheet::canDraw(::java::awt::Graphics2D* graphics, ::poi::sl::usermodel::Shape* shape)
 {
     return true;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::draw::DrawSheet::class_()
+java::lang::Class* poi::sl::draw::DrawSheet::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.draw.DrawSheet", 32);
     return c;
 }
 
-java::lang::Class* org::apache::poi::sl::draw::DrawSheet::getClass0()
+java::lang::Class* poi::sl::draw::DrawSheet::getClass0()
 {
     return class_();
 }

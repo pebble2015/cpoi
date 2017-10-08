@@ -10,15 +10,15 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::eventusermodel::AbortableHSSFListener
+class poi::hssf::eventusermodel::AbortableHSSFListener
     : public virtual ::java::lang::Object
     , public virtual HSSFListener
 {
 
 public:
     typedef ::java::lang::Object super;
-    void processRecord(::org::apache::poi::hssf::record::Record* record) override;
-    virtual int16_t abortableProcessRecord(::org::apache::poi::hssf::record::Record* record) /* throws(HSSFUserException) */ = 0;
+    void processRecord(::poi::hssf::record::Record* record) override;
+    virtual int16_t abortableProcessRecord(::poi::hssf::record::Record* record) /* throws(HSSFUserException) */ = 0;
 
     // Generated
     AbortableHSSFListener();

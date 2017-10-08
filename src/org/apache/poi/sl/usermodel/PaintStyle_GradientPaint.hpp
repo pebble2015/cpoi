@@ -8,24 +8,18 @@
 #include <org/apache/poi/sl/usermodel/PaintStyle.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace sl
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace sl
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::sl::usermodel::ColorStyle, ::java::lang::ObjectArray > ColorStyleArray;
-                } // usermodel
-            } // sl
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::sl::usermodel::ColorStyle, ::java::lang::ObjectArray > ColorStyleArray;
+        } // usermodel
+    } // sl
+} // poi
 
-struct org::apache::poi::sl::usermodel::PaintStyle_GradientPaint
+struct poi::sl::usermodel::PaintStyle_GradientPaint
     : public virtual PaintStyle
 {
     virtual double getGradientAngle() = 0;

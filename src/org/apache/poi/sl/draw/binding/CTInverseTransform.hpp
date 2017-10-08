@@ -7,7 +7,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::binding::CTInverseTransform
+class poi::sl::draw::binding::CTInverseTransform
     : public virtual ::java::lang::Object
 {
 

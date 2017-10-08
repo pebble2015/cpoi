@@ -2,23 +2,17 @@
 #pragma once
 
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace constant
             {
-                namespace formula
-                {
-                    namespace constant
-                    {
-                        class ConstantValueParser;
-                        class ErrorConstant;
-                    } // constant
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+                class ConstantValueParser;
+                class ErrorConstant;
+            } // constant
+        } // formula
+    } // ss
+} // poi

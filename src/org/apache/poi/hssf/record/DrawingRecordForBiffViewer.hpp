@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::DrawingRecordForBiffViewer final
+class poi::hssf::record::DrawingRecordForBiffViewer final
     : public AbstractEscherHolderRecord
 {
 

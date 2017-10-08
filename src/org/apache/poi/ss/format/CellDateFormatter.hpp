@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::format::CellDateFormatter
+class poi::ss::format::CellDateFormatter
     : public CellFormatter
 {
 

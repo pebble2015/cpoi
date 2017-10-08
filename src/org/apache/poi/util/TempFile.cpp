@@ -15,38 +15,38 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::util::TempFile::TempFile(const ::default_init_tag&)
+poi::util::TempFile::TempFile(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::util::TempFile::TempFile() 
+poi::util::TempFile::TempFile() 
     : TempFile(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::util::TempFileCreationStrategy*& org::apache::poi::util::TempFile::strategy()
+poi::util::TempFileCreationStrategy*& poi::util::TempFile::strategy()
 {
     clinit();
     return strategy_;
 }
-org::apache::poi::util::TempFileCreationStrategy* org::apache::poi::util::TempFile::strategy_;
+poi::util::TempFileCreationStrategy* poi::util::TempFile::strategy_;
 
-java::lang::String*& org::apache::poi::util::TempFile::JAVA_IO_TMPDIR()
+java::lang::String*& poi::util::TempFile::JAVA_IO_TMPDIR()
 {
     clinit();
     return JAVA_IO_TMPDIR_;
 }
-java::lang::String* org::apache::poi::util::TempFile::JAVA_IO_TMPDIR_;
+java::lang::String* poi::util::TempFile::JAVA_IO_TMPDIR_;
 
-void org::apache::poi::util::TempFile::ctor()
+void poi::util::TempFile::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::util::TempFile::setTempFileCreationStrategy(TempFileCreationStrategy* strategy)
+void poi::util::TempFile::setTempFileCreationStrategy(TempFileCreationStrategy* strategy)
 {
     clinit();
     if(strategy == nullptr) {
@@ -55,13 +55,13 @@ void org::apache::poi::util::TempFile::setTempFileCreationStrategy(TempFileCreat
     TempFile::strategy_ = strategy;
 }
 
-java::io::File* org::apache::poi::util::TempFile::createTempFile(::java::lang::String* prefix, ::java::lang::String* suffix) /* throws(IOException) */
+java::io::File* poi::util::TempFile::createTempFile(::java::lang::String* prefix, ::java::lang::String* suffix) /* throws(IOException) */
 {
     clinit();
     return npc(strategy_)->createTempFile(prefix, suffix);
 }
 
-java::io::File* org::apache::poi::util::TempFile::createTempDirectory(::java::lang::String* name) /* throws(IOException) */
+java::io::File* poi::util::TempFile::createTempDirectory(::java::lang::String* name) /* throws(IOException) */
 {
     clinit();
     return npc(strategy_)->createTempDirectory(name);
@@ -69,13 +69,13 @@ java::io::File* org::apache::poi::util::TempFile::createTempDirectory(::java::la
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::util::TempFile::class_()
+java::lang::Class* poi::util::TempFile::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.util.TempFile", 28);
     return c;
 }
 
-void org::apache::poi::util::TempFile::clinit()
+void poi::util::TempFile::clinit()
 {
 struct string_init_ {
     string_init_() {
@@ -99,7 +99,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::util::TempFile::getClass0()
+java::lang::Class* poi::util::TempFile::getClass0()
 {
     return class_();
 }

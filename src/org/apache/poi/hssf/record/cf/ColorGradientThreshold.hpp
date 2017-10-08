@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::cf::ColorGradientThreshold final
+class poi::hssf::record::cf::ColorGradientThreshold final
     : public Threshold
     , public ::java::lang::Cloneable
 {
@@ -22,18 +22,18 @@ private:
     double position {  };
 protected:
     void ctor();
-    void ctor(::org::apache::poi::util::LittleEndianInput* in);
+    void ctor(::poi::util::LittleEndianInput* in);
 
 public:
     double getPosition();
     void setPosition(double position);
     int32_t getDataLength() override;
     ColorGradientThreshold* clone() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
     // Generated
     ColorGradientThreshold();
-    ColorGradientThreshold(::org::apache::poi::util::LittleEndianInput* in);
+    ColorGradientThreshold(::poi::util::LittleEndianInput* in);
 protected:
     ColorGradientThreshold(const ::default_init_tag&);
 

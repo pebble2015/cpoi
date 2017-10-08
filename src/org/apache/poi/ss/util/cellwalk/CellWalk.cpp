@@ -17,19 +17,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::util::cellwalk::CellWalk::CellWalk(const ::default_init_tag&)
+poi::ss::util::cellwalk::CellWalk::CellWalk(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::util::cellwalk::CellWalk::CellWalk(::org::apache::poi::ss::usermodel::Sheet* sheet, ::org::apache::poi::ss::util::CellRangeAddress* range) 
+poi::ss::util::cellwalk::CellWalk::CellWalk(::poi::ss::usermodel::Sheet* sheet, ::poi::ss::util::CellRangeAddress* range) 
     : CellWalk(*static_cast< ::default_init_tag* >(0))
 {
     ctor(sheet,range);
 }
 
-void org::apache::poi::ss::util::cellwalk::CellWalk::ctor(::org::apache::poi::ss::usermodel::Sheet* sheet, ::org::apache::poi::ss::util::CellRangeAddress* range)
+void poi::ss::util::cellwalk::CellWalk::ctor(::poi::ss::usermodel::Sheet* sheet, ::poi::ss::util::CellRangeAddress* range)
 {
     super::ctor();
     this->sheet = sheet;
@@ -37,17 +37,17 @@ void org::apache::poi::ss::util::cellwalk::CellWalk::ctor(::org::apache::poi::ss
     this->traverseEmptyCells = false;
 }
 
-bool org::apache::poi::ss::util::cellwalk::CellWalk::isTraverseEmptyCells()
+bool poi::ss::util::cellwalk::CellWalk::isTraverseEmptyCells()
 {
     return traverseEmptyCells;
 }
 
-void org::apache::poi::ss::util::cellwalk::CellWalk::setTraverseEmptyCells(bool traverseEmptyCells)
+void poi::ss::util::cellwalk::CellWalk::setTraverseEmptyCells(bool traverseEmptyCells)
 {
     this->traverseEmptyCells = traverseEmptyCells;
 }
 
-void org::apache::poi::ss::util::cellwalk::CellWalk::traverse(CellHandler* handler)
+void poi::ss::util::cellwalk::CellWalk::traverse(CellHandler* handler)
 {
     auto firstRow = npc(range)->getFirstRow();
     auto lastRow = npc(range)->getLastRow();
@@ -55,8 +55,8 @@ void org::apache::poi::ss::util::cellwalk::CellWalk::traverse(CellHandler* handl
     auto lastColumn = npc(range)->getLastColumn();
     auto const width = lastColumn - firstColumn + int32_t(1);
     auto ctx = new CellWalk_SimpleCellWalkContext();
-    ::org::apache::poi::ss::usermodel::Row* currentRow = nullptr;
-    ::org::apache::poi::ss::usermodel::Cell* currentCell = nullptr;
+    ::poi::ss::usermodel::Row* currentRow = nullptr;
+    ::poi::ss::usermodel::Cell* currentCell = nullptr;
     for (npc(ctx)->rowNumber = firstRow; npc(ctx)->rowNumber <= lastRow; ++npc(ctx)->rowNumber) {
         currentRow = npc(sheet)->getRow(npc(ctx)->rowNumber);
         if(currentRow == nullptr) {
@@ -76,20 +76,20 @@ void org::apache::poi::ss::util::cellwalk::CellWalk::traverse(CellHandler* handl
     }
 }
 
-bool org::apache::poi::ss::util::cellwalk::CellWalk::isEmpty(::org::apache::poi::ss::usermodel::Cell* cell)
+bool poi::ss::util::cellwalk::CellWalk::isEmpty(::poi::ss::usermodel::Cell* cell)
 {
-    return (npc(cell)->getCellTypeEnum() == ::org::apache::poi::ss::usermodel::CellType::BLANK);
+    return (npc(cell)->getCellTypeEnum() == ::poi::ss::usermodel::CellType::BLANK);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::util::cellwalk::CellWalk::class_()
+java::lang::Class* poi::ss::util::cellwalk::CellWalk::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.util.cellwalk.CellWalk", 40);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::util::cellwalk::CellWalk::getClass0()
+java::lang::Class* poi::ss::util::cellwalk::CellWalk::getClass0()
 {
     return class_();
 }

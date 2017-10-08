@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::HideObjRecord final
+class poi::hssf::record::HideObjRecord final
     : public StandardRecord
 {
 
@@ -31,7 +31,7 @@ public:
     void setHideObj(int16_t hide);
     int16_t getHideObj();
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;

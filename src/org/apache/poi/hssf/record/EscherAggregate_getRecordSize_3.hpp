@@ -11,15 +11,15 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::EscherAggregate_getRecordSize_3
+class poi::hssf::record::EscherAggregate_getRecordSize_3
     : public virtual ::java::lang::Object
-    , public virtual ::org::apache::poi::ddf::EscherSerializationListener
+    , public virtual ::poi::ddf::EscherSerializationListener
 {
 
 public:
     typedef ::java::lang::Object super;
-    void beforeRecordSerialize(int32_t offset, int16_t recordId, ::org::apache::poi::ddf::EscherRecord* record) override;
-    void afterRecordSerialize(int32_t offset, int16_t recordId, int32_t size, ::org::apache::poi::ddf::EscherRecord* record) override;
+    void beforeRecordSerialize(int32_t offset, int16_t recordId, ::poi::ddf::EscherRecord* record) override;
+    void afterRecordSerialize(int32_t offset, int16_t recordId, int32_t size, ::poi::ddf::EscherRecord* record) override;
 
     // Generated
     EscherAggregate_getRecordSize_3(EscherAggregate *EscherAggregate_this, ::java::util::List* spEndingOffsets);

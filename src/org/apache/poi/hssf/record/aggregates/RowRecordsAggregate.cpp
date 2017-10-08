@@ -43,25 +43,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
-            {
-                namespace record
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::Record, RecordBaseArray > RecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::StandardRecord, RecordArray > StandardRecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::RowRecord, StandardRecordArray > RowRecordArray;
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
+typedef ::SubArray< ::poi::hssf::record::Record, RecordBaseArray > RecordArray;
+typedef ::SubArray< ::poi::hssf::record::StandardRecord, RecordArray > StandardRecordArray;
+typedef ::SubArray< ::poi::hssf::record::RowRecord, StandardRecordArray > RowRecordArray;
+        } // record
+    } // hssf
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -79,43 +73,43 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::RowRecordsAggregate(const ::default_init_tag&)
+poi::hssf::record::aggregates::RowRecordsAggregate::RowRecordsAggregate(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::RowRecordsAggregate() 
+poi::hssf::record::aggregates::RowRecordsAggregate::RowRecordsAggregate() 
     : RowRecordsAggregate(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::RowRecordsAggregate(SharedValueManager* svm) 
+poi::hssf::record::aggregates::RowRecordsAggregate::RowRecordsAggregate(SharedValueManager* svm) 
     : RowRecordsAggregate(*static_cast< ::default_init_tag* >(0))
 {
     ctor(svm);
 }
 
-org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::RowRecordsAggregate(::org::apache::poi::hssf::model::RecordStream* rs, SharedValueManager* svm) 
+poi::hssf::record::aggregates::RowRecordsAggregate::RowRecordsAggregate(::poi::hssf::model::RecordStream* rs, SharedValueManager* svm) 
     : RowRecordsAggregate(*static_cast< ::default_init_tag* >(0))
 {
     ctor(rs,svm);
 }
 
-void org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::init()
+void poi::hssf::record::aggregates::RowRecordsAggregate::init()
 {
     _firstrow = -int32_t(1);
     _lastrow = -int32_t(1);
     _rowRecordValues = nullptr;
 }
 
-void org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::ctor()
+void poi::hssf::record::aggregates::RowRecordsAggregate::ctor()
 {
     ctor(SharedValueManager::createEmpty());
 }
 
-void org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::ctor(SharedValueManager* svm)
+void poi::hssf::record::aggregates::RowRecordsAggregate::ctor(SharedValueManager* svm)
 {
     super::ctor();
     init();
@@ -128,47 +122,47 @@ void org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::ctor(Share
     _sharedValueManager = svm;
 }
 
-void org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::ctor(::org::apache::poi::hssf::model::RecordStream* rs, SharedValueManager* svm)
+void poi::hssf::record::aggregates::RowRecordsAggregate::ctor(::poi::hssf::model::RecordStream* rs, SharedValueManager* svm)
 {
     ctor(svm);
     while (npc(rs)->hasNext()) {
         auto rec = npc(rs)->getNext();
         switch (npc(rec)->getSid()) {
-        case ::org::apache::poi::hssf::record::RowRecord::sid:
-            insertRow(java_cast< ::org::apache::poi::hssf::record::RowRecord* >(rec));
+        case ::poi::hssf::record::RowRecord::sid:
+            insertRow(java_cast< ::poi::hssf::record::RowRecord* >(rec));
             continue;
-        case ::org::apache::poi::hssf::record::DConRefRecord::sid:
+        case ::poi::hssf::record::DConRefRecord::sid:
             addUnknownRecord(rec);
             continue;
-        case ::org::apache::poi::hssf::record::DBCellRecord::sid:
+        case ::poi::hssf::record::DBCellRecord::sid:
             continue;
         }
 
-        if(dynamic_cast< ::org::apache::poi::hssf::record::UnknownRecord* >(rec) != nullptr) {
+        if(dynamic_cast< ::poi::hssf::record::UnknownRecord* >(rec) != nullptr) {
             addUnknownRecord(rec);
-            while (npc(rs)->peekNextSid() == ::org::apache::poi::hssf::record::ContinueRecord::sid) {
+            while (npc(rs)->peekNextSid() == ::poi::hssf::record::ContinueRecord::sid) {
                 addUnknownRecord(npc(rs)->getNext());
             }
             continue;
         }
-        if(dynamic_cast< ::org::apache::poi::hssf::record::MulBlankRecord* >(rec) != nullptr) {
-            npc(_valuesAgg)->addMultipleBlanks(java_cast< ::org::apache::poi::hssf::record::MulBlankRecord* >(rec));
+        if(dynamic_cast< ::poi::hssf::record::MulBlankRecord* >(rec) != nullptr) {
+            npc(_valuesAgg)->addMultipleBlanks(java_cast< ::poi::hssf::record::MulBlankRecord* >(rec));
             continue;
         }
-        if(!(dynamic_cast< ::org::apache::poi::hssf::record::CellValueRecordInterface* >(rec) != nullptr)) {
+        if(!(dynamic_cast< ::poi::hssf::record::CellValueRecordInterface* >(rec) != nullptr)) {
             throw new ::java::lang::RuntimeException(::java::lang::StringBuilder().append(u"Unexpected record type ("_j)->append(npc(npc(rec)->getClass())->getName())
                 ->append(u")"_j)->toString());
         }
-        npc(_valuesAgg)->construct(java_cast< ::org::apache::poi::hssf::record::CellValueRecordInterface* >(rec), rs, svm);
+        npc(_valuesAgg)->construct(java_cast< ::poi::hssf::record::CellValueRecordInterface* >(rec), rs, svm);
     }
 }
 
-void org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::addUnknownRecord(::org::apache::poi::hssf::record::Record* rec)
+void poi::hssf::record::aggregates::RowRecordsAggregate::addUnknownRecord(::poi::hssf::record::Record* rec)
 {
     npc(_unknownRecords)->add(static_cast< ::java::lang::Object* >(rec));
 }
 
-void org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::insertRow(::org::apache::poi::hssf::record::RowRecord* row)
+void poi::hssf::record::aggregates::RowRecordsAggregate::insertRow(::poi::hssf::record::RowRecord* row)
 {
     npc(_rowRecords)->put(::java::lang::Integer::valueOf(npc(row)->getRowNumber()), row);
     _rowRecordValues = nullptr;
@@ -180,12 +174,12 @@ void org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::insertRow(
     }
 }
 
-void org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::removeRow(::org::apache::poi::hssf::record::RowRecord* row)
+void poi::hssf::record::aggregates::RowRecordsAggregate::removeRow(::poi::hssf::record::RowRecord* row)
 {
     auto rowIndex = npc(row)->getRowNumber();
     npc(_valuesAgg)->removeAllCellsValuesForRow(rowIndex);
     auto key = ::java::lang::Integer::valueOf(rowIndex);
-    auto rr = java_cast< ::org::apache::poi::hssf::record::RowRecord* >(npc(_rowRecords)->remove(key));
+    auto rr = java_cast< ::poi::hssf::record::RowRecord* >(npc(_rowRecords)->remove(key));
     if(rr == nullptr) {
         throw new ::java::lang::RuntimeException(::java::lang::StringBuilder().append(u"Invalid row index ("_j)->append(npc(key)->intValue())
             ->append(u")"_j)->toString());
@@ -197,61 +191,61 @@ void org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::removeRow(
     _rowRecordValues = nullptr;
 }
 
-org::apache::poi::hssf::record::RowRecord* org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::getRow(int32_t rowIndex)
+poi::hssf::record::RowRecord* poi::hssf::record::aggregates::RowRecordsAggregate::getRow(int32_t rowIndex)
 {
-    auto maxrow = npc(::org::apache::poi::ss::SpreadsheetVersion::EXCEL97)->getLastRowIndex();
+    auto maxrow = npc(::poi::ss::SpreadsheetVersion::EXCEL97)->getLastRowIndex();
     if(rowIndex < 0 || rowIndex > maxrow) {
         throw new ::java::lang::IllegalArgumentException(::java::lang::StringBuilder().append(u"The row number must be between 0 and "_j)->append(maxrow)
             ->append(u", but had: "_j)
             ->append(rowIndex)->toString());
     }
-    return java_cast< ::org::apache::poi::hssf::record::RowRecord* >(npc(_rowRecords)->get(::java::lang::Integer::valueOf(rowIndex)));
+    return java_cast< ::poi::hssf::record::RowRecord* >(npc(_rowRecords)->get(::java::lang::Integer::valueOf(rowIndex)));
 }
 
-int32_t org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::getPhysicalNumberOfRows()
+int32_t poi::hssf::record::aggregates::RowRecordsAggregate::getPhysicalNumberOfRows()
 {
     return npc(_rowRecords)->size();
 }
 
-int32_t org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::getFirstRowNum()
+int32_t poi::hssf::record::aggregates::RowRecordsAggregate::getFirstRowNum()
 {
     return _firstrow;
 }
 
-int32_t org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::getLastRowNum()
+int32_t poi::hssf::record::aggregates::RowRecordsAggregate::getLastRowNum()
 {
     return _lastrow;
 }
 
-int32_t org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::getRowBlockCount()
+int32_t poi::hssf::record::aggregates::RowRecordsAggregate::getRowBlockCount()
 {
-    auto size = npc(_rowRecords)->size() / ::org::apache::poi::hssf::record::DBCellRecord::BLOCK_SIZE;
-    if((npc(_rowRecords)->size() % ::org::apache::poi::hssf::record::DBCellRecord::BLOCK_SIZE) != 0)
+    auto size = npc(_rowRecords)->size() / ::poi::hssf::record::DBCellRecord::BLOCK_SIZE;
+    if((npc(_rowRecords)->size() % ::poi::hssf::record::DBCellRecord::BLOCK_SIZE) != 0)
         size++;
 
     return size;
 }
 
-int32_t org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::getRowBlockSize(int32_t block)
+int32_t poi::hssf::record::aggregates::RowRecordsAggregate::getRowBlockSize(int32_t block)
 {
-    return ::org::apache::poi::hssf::record::RowRecord::ENCODED_SIZE * getRowCountForBlock(block);
+    return ::poi::hssf::record::RowRecord::ENCODED_SIZE * getRowCountForBlock(block);
 }
 
-int32_t org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::getRowCountForBlock(int32_t block)
+int32_t poi::hssf::record::aggregates::RowRecordsAggregate::getRowCountForBlock(int32_t block)
 {
-    auto startIndex = block * ::org::apache::poi::hssf::record::DBCellRecord::BLOCK_SIZE;
-    auto endIndex = startIndex + ::org::apache::poi::hssf::record::DBCellRecord::BLOCK_SIZE - int32_t(1);
+    auto startIndex = block * ::poi::hssf::record::DBCellRecord::BLOCK_SIZE;
+    auto endIndex = startIndex + ::poi::hssf::record::DBCellRecord::BLOCK_SIZE - int32_t(1);
     if(endIndex >= npc(_rowRecords)->size())
         endIndex = npc(_rowRecords)->size() - int32_t(1);
 
     return endIndex - startIndex + int32_t(1);
 }
 
-int32_t org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::getStartRowNumberForBlock(int32_t block)
+int32_t poi::hssf::record::aggregates::RowRecordsAggregate::getStartRowNumberForBlock(int32_t block)
 {
-    auto startIndex = block * ::org::apache::poi::hssf::record::DBCellRecord::BLOCK_SIZE;
+    auto startIndex = block * ::poi::hssf::record::DBCellRecord::BLOCK_SIZE;
     if(_rowRecordValues == nullptr) {
-        _rowRecordValues = java_cast< ::org::apache::poi::hssf::record::RowRecordArray* >(npc(npc(_rowRecords)->values())->toArray_(new ::org::apache::poi::hssf::record::RowRecordArray(npc(_rowRecords)->size())));
+        _rowRecordValues = java_cast< ::poi::hssf::record::RowRecordArray* >(npc(npc(_rowRecords)->values())->toArray_(new ::poi::hssf::record::RowRecordArray(npc(_rowRecords)->size())));
     }
     try {
         return npc((*_rowRecordValues)[startIndex])->getRowNumber();
@@ -260,14 +254,14 @@ int32_t org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::getStar
     }
 }
 
-int32_t org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::getEndRowNumberForBlock(int32_t block)
+int32_t poi::hssf::record::aggregates::RowRecordsAggregate::getEndRowNumberForBlock(int32_t block)
 {
-    auto endIndex = ((block + int32_t(1)) * ::org::apache::poi::hssf::record::DBCellRecord::BLOCK_SIZE) - int32_t(1);
+    auto endIndex = ((block + int32_t(1)) * ::poi::hssf::record::DBCellRecord::BLOCK_SIZE) - int32_t(1);
     if(endIndex >= npc(_rowRecords)->size())
         endIndex = npc(_rowRecords)->size() - int32_t(1);
 
     if(_rowRecordValues == nullptr) {
-        _rowRecordValues = java_cast< ::org::apache::poi::hssf::record::RowRecordArray* >(npc(npc(_rowRecords)->values())->toArray_(new ::org::apache::poi::hssf::record::RowRecordArray(npc(_rowRecords)->size())));
+        _rowRecordValues = java_cast< ::poi::hssf::record::RowRecordArray* >(npc(npc(_rowRecords)->values())->toArray_(new ::poi::hssf::record::RowRecordArray(npc(_rowRecords)->size())));
     }
     try {
         return npc((*_rowRecordValues)[endIndex])->getRowNumber();
@@ -276,10 +270,10 @@ int32_t org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::getEndR
     }
 }
 
-int32_t org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::visitRowRecordsForBlock(int32_t blockIndex, RecordAggregate_RecordVisitor* rv)
+int32_t poi::hssf::record::aggregates::RowRecordsAggregate::visitRowRecordsForBlock(int32_t blockIndex, RecordAggregate_RecordVisitor* rv)
 {
-    auto const startIndex = blockIndex * ::org::apache::poi::hssf::record::DBCellRecord::BLOCK_SIZE;
-    auto const endIndex = startIndex + ::org::apache::poi::hssf::record::DBCellRecord::BLOCK_SIZE;
+    auto const startIndex = blockIndex * ::poi::hssf::record::DBCellRecord::BLOCK_SIZE;
+    auto const endIndex = startIndex + ::poi::hssf::record::DBCellRecord::BLOCK_SIZE;
     auto rowIterator = npc(npc(_rowRecords)->values())->iterator();
     auto i = int32_t(0);
     for (; i < startIndex; i++) 
@@ -287,14 +281,14 @@ int32_t org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::visitRo
 
     auto result = int32_t(0);
     while (npc(rowIterator)->hasNext() && (i++ < endIndex)) {
-        ::org::apache::poi::hssf::record::Record* rec = java_cast< ::org::apache::poi::hssf::record::RowRecord* >(npc(rowIterator)->next());
+        ::poi::hssf::record::Record* rec = java_cast< ::poi::hssf::record::RowRecord* >(npc(rowIterator)->next());
         result += npc(rec)->getRecordSize();
         npc(rv)->visitRecord(rec);
     }
     return result;
 }
 
-void org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::visitContainedRecords(RecordAggregate_RecordVisitor* rv)
+void poi::hssf::record::aggregates::RowRecordsAggregate::visitContainedRecords(RecordAggregate_RecordVisitor* rv)
 {
     auto stv = new RecordAggregate_PositionTrackingVisitor(rv, int32_t(0));
     auto const blockCount = getRowBlockCount();
@@ -304,8 +298,8 @@ void org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::visitConta
         pos += rowBlockSize;
         auto const startRowNumber = getStartRowNumberForBlock(blockIndex);
         auto const endRowNumber = getEndRowNumberForBlock(blockIndex);
-        auto dbcrBuilder = new ::org::apache::poi::hssf::record::DBCellRecord_Builder();
-        auto cellRefOffset = (rowBlockSize - ::org::apache::poi::hssf::record::RowRecord::ENCODED_SIZE);
+        auto dbcrBuilder = new ::poi::hssf::record::DBCellRecord_Builder();
+        auto cellRefOffset = (rowBlockSize - ::poi::hssf::record::RowRecord::ENCODED_SIZE);
         for (auto row = startRowNumber; row <= endRowNumber; row++) {
             if(npc(_valuesAgg)->rowHasCells(row)) {
                 npc(stv)->setPosition(0);
@@ -319,19 +313,19 @@ void org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::visitConta
         npc(rv)->visitRecord(npc(dbcrBuilder)->build(pos));
     }
     for (auto _i = npc(_unknownRecords)->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::hssf::record::Record* _unknownRecord = java_cast< ::org::apache::poi::hssf::record::Record* >(_i->next());
+        ::poi::hssf::record::Record* _unknownRecord = java_cast< ::poi::hssf::record::Record* >(_i->next());
         {
             npc(rv)->visitRecord(_unknownRecord);
         }
     }
 }
 
-java::util::Iterator* org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::getIterator()
+java::util::Iterator* poi::hssf::record::aggregates::RowRecordsAggregate::getIterator()
 {
     return npc(npc(_rowRecords)->values())->iterator();
 }
 
-int32_t org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::findStartOfRowOutlineGroup(int32_t row)
+int32_t poi::hssf::record::aggregates::RowRecordsAggregate::findStartOfRowOutlineGroup(int32_t row)
 {
     auto rowRecord = this->getRow(row);
     int32_t level = npc(rowRecord)->getOutlineLevel();
@@ -346,7 +340,7 @@ int32_t org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::findSta
     return currentRow + int32_t(1);
 }
 
-int32_t org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::findEndOfRowOutlineGroup(int32_t row)
+int32_t poi::hssf::record::aggregates::RowRecordsAggregate::findEndOfRowOutlineGroup(int32_t row)
 {
     int32_t level = npc(getRow(row))->getOutlineLevel();
     int32_t currentRow;
@@ -358,7 +352,7 @@ int32_t org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::findEnd
     return currentRow - int32_t(1);
 }
 
-int32_t org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::writeHidden(::org::apache::poi::hssf::record::RowRecord* pRowRecord, int32_t row)
+int32_t poi::hssf::record::aggregates::RowRecordsAggregate::writeHidden(::poi::hssf::record::RowRecord* pRowRecord, int32_t row)
 {
     auto rowIx = row;
     auto rowRecord = pRowRecord;
@@ -371,7 +365,7 @@ int32_t org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::writeHi
     return rowIx;
 }
 
-void org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::collapseRow(int32_t rowNumber)
+void poi::hssf::record::aggregates::RowRecordsAggregate::collapseRow(int32_t rowNumber)
 {
     auto startRow = findStartOfRowOutlineGroup(rowNumber);
     auto rowRecord = getRow(startRow);
@@ -384,19 +378,19 @@ void org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::collapseRo
     npc(row)->setColapsed(true);
 }
 
-org::apache::poi::hssf::record::RowRecord* org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::createRow(int32_t rowNumber)
+poi::hssf::record::RowRecord* poi::hssf::record::aggregates::RowRecordsAggregate::createRow(int32_t rowNumber)
 {
     clinit();
-    return new ::org::apache::poi::hssf::record::RowRecord(rowNumber);
+    return new ::poi::hssf::record::RowRecord(rowNumber);
 }
 
-bool org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::isRowGroupCollapsed(int32_t row)
+bool poi::hssf::record::aggregates::RowRecordsAggregate::isRowGroupCollapsed(int32_t row)
 {
     auto collapseRow = findEndOfRowOutlineGroup(row) + int32_t(1);
     return getRow(collapseRow) != nullptr && npc(getRow(collapseRow))->getColapsed();
 }
 
-void org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::expandRow(int32_t rowNumber)
+void poi::hssf::record::aggregates::RowRecordsAggregate::expandRow(int32_t rowNumber)
 {
     if(rowNumber == -int32_t(1))
         return;
@@ -418,7 +412,7 @@ void org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::expandRow(
     npc(getRow(endIdx + int32_t(1)))->setColapsed(false);
 }
 
-bool org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::isRowGroupHiddenByParent(int32_t row)
+bool poi::hssf::record::aggregates::RowRecordsAggregate::isRowGroupHiddenByParent(int32_t row)
 {
     int32_t endLevel;
     bool endHidden;
@@ -446,18 +440,18 @@ bool org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::isRowGroup
     return startHidden;
 }
 
-java::util::Iterator* org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::getCellValueIterator()
+java::util::Iterator* poi::hssf::record::aggregates::RowRecordsAggregate::getCellValueIterator()
 {
     return npc(_valuesAgg)->iterator();
 }
 
-org::apache::poi::hssf::record::IndexRecord* org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::createIndexRecord(int32_t indexRecordOffset, int32_t sizeOfInitialSheetRecords)
+poi::hssf::record::IndexRecord* poi::hssf::record::aggregates::RowRecordsAggregate::createIndexRecord(int32_t indexRecordOffset, int32_t sizeOfInitialSheetRecords)
 {
-    auto result = new ::org::apache::poi::hssf::record::IndexRecord();
+    auto result = new ::poi::hssf::record::IndexRecord();
     npc(result)->setFirstRow(_firstrow);
     npc(result)->setLastRowAdd1(_lastrow + int32_t(1));
     auto blockCount = getRowBlockCount();
-    auto indexRecSize = ::org::apache::poi::hssf::record::IndexRecord::getRecordSizeForBlockCount(blockCount);
+    auto indexRecSize = ::poi::hssf::record::IndexRecord::getRecordSizeForBlockCount(blockCount);
     auto currentOffset = indexRecordOffset + indexRecSize + sizeOfInitialSheetRecords;
     for (auto block = int32_t(0); block < blockCount; block++) {
         currentOffset += getRowBlockSize(block);
@@ -468,12 +462,12 @@ org::apache::poi::hssf::record::IndexRecord* org::apache::poi::hssf::record::agg
     return result;
 }
 
-void org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::insertCell(::org::apache::poi::hssf::record::CellValueRecordInterface* cvRec)
+void poi::hssf::record::aggregates::RowRecordsAggregate::insertCell(::poi::hssf::record::CellValueRecordInterface* cvRec)
 {
     npc(_valuesAgg)->insertCell(cvRec);
 }
 
-void org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::removeCell(::org::apache::poi::hssf::record::CellValueRecordInterface* cvRec)
+void poi::hssf::record::aggregates::RowRecordsAggregate::removeCell(::poi::hssf::record::CellValueRecordInterface* cvRec)
 {
     if(dynamic_cast< FormulaRecordAggregate* >(cvRec) != nullptr) {
         npc((java_cast< FormulaRecordAggregate* >(cvRec)))->notifyFormulaChanging();
@@ -481,22 +475,22 @@ void org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::removeCell
     npc(_valuesAgg)->removeCell(cvRec);
 }
 
-org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate* org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::createFormula(int32_t row, int32_t col)
+poi::hssf::record::aggregates::FormulaRecordAggregate* poi::hssf::record::aggregates::RowRecordsAggregate::createFormula(int32_t row, int32_t col)
 {
-    auto fr = new ::org::apache::poi::hssf::record::FormulaRecord();
+    auto fr = new ::poi::hssf::record::FormulaRecord();
     npc(fr)->setRow(row);
     npc(fr)->setColumn(static_cast< int16_t >(col));
     return new FormulaRecordAggregate(fr, nullptr, _sharedValueManager);
 }
 
-void org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::updateFormulasAfterRowShift(::org::apache::poi::ss::formula::FormulaShifter* formulaShifter, int32_t currentExternSheetIndex)
+void poi::hssf::record::aggregates::RowRecordsAggregate::updateFormulasAfterRowShift(::poi::ss::formula::FormulaShifter* formulaShifter, int32_t currentExternSheetIndex)
 {
     npc(_valuesAgg)->updateFormulasAfterRowShift(formulaShifter, currentExternSheetIndex);
 }
 
-org::apache::poi::hssf::record::DimensionsRecord* org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::createDimensions()
+poi::hssf::record::DimensionsRecord* poi::hssf::record::aggregates::RowRecordsAggregate::createDimensions()
 {
-    auto result = new ::org::apache::poi::hssf::record::DimensionsRecord();
+    auto result = new ::poi::hssf::record::DimensionsRecord();
     npc(result)->setFirstRow(_firstrow);
     npc(result)->setLastRow(_lastrow);
     npc(result)->setFirstCol(static_cast< int16_t >(npc(_valuesAgg)->getFirstCellNum()));
@@ -506,13 +500,13 @@ org::apache::poi::hssf::record::DimensionsRecord* org::apache::poi::hssf::record
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::class_()
+java::lang::Class* poi::hssf::record::aggregates::RowRecordsAggregate::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.aggregates.RowRecordsAggregate", 57);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::record::aggregates::RowRecordsAggregate::getClass0()
+java::lang::Class* poi::hssf::record::aggregates::RowRecordsAggregate::getClass0()
 {
     return class_();
 }

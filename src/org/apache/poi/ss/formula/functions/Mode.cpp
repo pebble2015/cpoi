@@ -27,25 +27,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -63,23 +57,23 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::Mode::Mode(const ::default_init_tag&)
+poi::ss::formula::functions::Mode::Mode(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::Mode::Mode()
+poi::ss::formula::functions::Mode::Mode()
     : Mode(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-double org::apache::poi::ss::formula::functions::Mode::evaluate(::doubleArray* v) /* throws(EvaluationException) */
+double poi::ss::formula::functions::Mode::evaluate(::doubleArray* v) /* throws(EvaluationException) */
 {
     clinit();
     if(npc(v)->length < 2) {
-        throw new ::org::apache::poi::ss::formula::eval::EvaluationException(::org::apache::poi::ss::formula::eval::ErrorEval::NA());
+        throw new ::poi::ss::formula::eval::EvaluationException(::poi::ss::formula::eval::ErrorEval::NA());
     }
     auto counts = new ::int32_tArray(npc(v)->length);
     ::java::util::Arrays::fill(counts, int32_t(1));
@@ -101,10 +95,10 @@ double org::apache::poi::ss::formula::functions::Mode::evaluate(::doubleArray* v
     if(maxc > 1) {
         return maxv;
     }
-    throw new ::org::apache::poi::ss::formula::eval::EvaluationException(::org::apache::poi::ss::formula::eval::ErrorEval::NA());
+    throw new ::poi::ss::formula::eval::EvaluationException(::poi::ss::formula::eval::ErrorEval::NA());
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Mode::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcCellRow, int32_t srcCellCol)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Mode::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcCellRow, int32_t srcCellCol)
 {
     double result;
     try {
@@ -117,17 +111,17 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::f
             (*values)[i] = npc(java_cast< ::java::lang::Double* >(npc(temp)->get(i)))->doubleValue();
         }
         result = evaluate(values);
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
         return npc(e)->getErrorEval();
     }
-    return new ::org::apache::poi::ss::formula::eval::NumberEval(result);
+    return new ::poi::ss::formula::eval::NumberEval(result);
 }
 
-void org::apache::poi::ss::formula::functions::Mode::collectValues(::org::apache::poi::ss::formula::eval::ValueEval* arg, ::java::util::List* temp) /* throws(EvaluationException) */
+void poi::ss::formula::functions::Mode::collectValues(::poi::ss::formula::eval::ValueEval* arg, ::java::util::List* temp) /* throws(EvaluationException) */
 {
     clinit();
-    if(dynamic_cast< ::org::apache::poi::ss::formula::TwoDEval* >(arg) != nullptr) {
-        auto ae = java_cast< ::org::apache::poi::ss::formula::TwoDEval* >(arg);
+    if(dynamic_cast< ::poi::ss::formula::TwoDEval* >(arg) != nullptr) {
+        auto ae = java_cast< ::poi::ss::formula::TwoDEval* >(arg);
         auto width = npc(ae)->getWidth();
         auto height = npc(ae)->getHeight();
         for (auto rrIx = int32_t(0); rrIx < height; rrIx++) {
@@ -138,8 +132,8 @@ void org::apache::poi::ss::formula::functions::Mode::collectValues(::org::apache
         }
         return;
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::RefEval* >(arg) != nullptr) {
-        auto re = java_cast< ::org::apache::poi::ss::formula::eval::RefEval* >(arg);
+    if(dynamic_cast< ::poi::ss::formula::eval::RefEval* >(arg) != nullptr) {
+        auto re = java_cast< ::poi::ss::formula::eval::RefEval* >(arg);
         auto const firstSheetIndex = npc(re)->getFirstSheetIndex();
         auto const lastSheetIndex = npc(re)->getLastSheetIndex();
         for (auto sIx = firstSheetIndex; sIx <= lastSheetIndex; sIx++) {
@@ -150,20 +144,20 @@ void org::apache::poi::ss::formula::functions::Mode::collectValues(::org::apache
     collectValue(arg, temp, true);
 }
 
-void org::apache::poi::ss::formula::functions::Mode::collectValue(::org::apache::poi::ss::formula::eval::ValueEval* arg, ::java::util::List* temp, bool mustBeNumber) /* throws(EvaluationException) */
+void poi::ss::formula::functions::Mode::collectValue(::poi::ss::formula::eval::ValueEval* arg, ::java::util::List* temp, bool mustBeNumber) /* throws(EvaluationException) */
 {
     clinit();
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::ErrorEval* >(arg) != nullptr) {
-        throw new ::org::apache::poi::ss::formula::eval::EvaluationException(java_cast< ::org::apache::poi::ss::formula::eval::ErrorEval* >(arg));
+    if(dynamic_cast< ::poi::ss::formula::eval::ErrorEval* >(arg) != nullptr) {
+        throw new ::poi::ss::formula::eval::EvaluationException(java_cast< ::poi::ss::formula::eval::ErrorEval* >(arg));
     }
-    if(arg == static_cast< ::org::apache::poi::ss::formula::eval::ValueEval* >(::org::apache::poi::ss::formula::eval::BlankEval::instance()) || dynamic_cast< ::org::apache::poi::ss::formula::eval::BoolEval* >(arg) != nullptr || dynamic_cast< ::org::apache::poi::ss::formula::eval::StringEval* >(arg) != nullptr) {
+    if(arg == static_cast< ::poi::ss::formula::eval::ValueEval* >(::poi::ss::formula::eval::BlankEval::instance()) || dynamic_cast< ::poi::ss::formula::eval::BoolEval* >(arg) != nullptr || dynamic_cast< ::poi::ss::formula::eval::StringEval* >(arg) != nullptr) {
         if(mustBeNumber) {
-            throw ::org::apache::poi::ss::formula::eval::EvaluationException::invalidValue();
+            throw ::poi::ss::formula::eval::EvaluationException::invalidValue();
         }
         return;
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::NumberEval* >(arg) != nullptr) {
-        npc(temp)->add(static_cast< ::java::lang::Object* >(new ::java::lang::Double(npc((java_cast< ::org::apache::poi::ss::formula::eval::NumberEval* >(arg)))->getNumberValue())));
+    if(dynamic_cast< ::poi::ss::formula::eval::NumberEval* >(arg) != nullptr) {
+        npc(temp)->add(static_cast< ::java::lang::Object* >(new ::java::lang::Double(npc((java_cast< ::poi::ss::formula::eval::NumberEval* >(arg)))->getNumberValue())));
         return;
     }
     throw new ::java::lang::RuntimeException(::java::lang::StringBuilder().append(u"Unexpected value type ("_j)->append(npc(npc(arg)->getClass())->getName())
@@ -172,13 +166,13 @@ void org::apache::poi::ss::formula::functions::Mode::collectValue(::org::apache:
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Mode::class_()
+java::lang::Class* poi::ss::formula::functions::Mode::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.Mode", 40);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Mode::getClass0()
+java::lang::Class* poi::ss::formula::functions::Mode::getClass0()
 {
     return class_();
 }

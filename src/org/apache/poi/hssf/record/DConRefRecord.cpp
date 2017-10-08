@@ -19,63 +19,63 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::DConRefRecord::DConRefRecord(const ::default_init_tag&)
+poi::hssf::record::DConRefRecord::DConRefRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::DConRefRecord::DConRefRecord(::int8_tArray* data) 
+poi::hssf::record::DConRefRecord::DConRefRecord(::int8_tArray* data) 
     : DConRefRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(data);
 }
 
-org::apache::poi::hssf::record::DConRefRecord::DConRefRecord(RecordInputStream* inStream) 
+poi::hssf::record::DConRefRecord::DConRefRecord(RecordInputStream* inStream) 
     : DConRefRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(inStream);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::DConRefRecord::sid;
+constexpr int16_t poi::hssf::record::DConRefRecord::sid;
 
-void org::apache::poi::hssf::record::DConRefRecord::ctor(::int8_tArray* data)
+void poi::hssf::record::DConRefRecord::ctor(::int8_tArray* data)
 {
     super::ctor();
     auto offset = int32_t(0);
-    if(!(::org::apache::poi::util::LittleEndian::getShort(data, offset) == DConRefRecord::sid))
-        throw new ::org::apache::poi::util::RecordFormatException(u"incompatible sid."_j);
+    if(!(::poi::util::LittleEndian::getShort(data, offset) == DConRefRecord::sid))
+        throw new ::poi::util::RecordFormatException(u"incompatible sid."_j);
 
-    offset += ::org::apache::poi::util::LittleEndian::SHORT_SIZE;
-    offset += ::org::apache::poi::util::LittleEndian::SHORT_SIZE;
-    firstRow = ::org::apache::poi::util::LittleEndian::getUShort(data, offset);
-    offset += ::org::apache::poi::util::LittleEndian::SHORT_SIZE;
-    lastRow = ::org::apache::poi::util::LittleEndian::getUShort(data, offset);
-    offset += ::org::apache::poi::util::LittleEndian::SHORT_SIZE;
-    firstCol = ::org::apache::poi::util::LittleEndian::getUByte(data, offset);
-    offset += ::org::apache::poi::util::LittleEndian::BYTE_SIZE;
-    lastCol = ::org::apache::poi::util::LittleEndian::getUByte(data, offset);
-    offset += ::org::apache::poi::util::LittleEndian::BYTE_SIZE;
-    charCount = ::org::apache::poi::util::LittleEndian::getUShort(data, offset);
-    offset += ::org::apache::poi::util::LittleEndian::SHORT_SIZE;
+    offset += ::poi::util::LittleEndian::SHORT_SIZE;
+    offset += ::poi::util::LittleEndian::SHORT_SIZE;
+    firstRow = ::poi::util::LittleEndian::getUShort(data, offset);
+    offset += ::poi::util::LittleEndian::SHORT_SIZE;
+    lastRow = ::poi::util::LittleEndian::getUShort(data, offset);
+    offset += ::poi::util::LittleEndian::SHORT_SIZE;
+    firstCol = ::poi::util::LittleEndian::getUByte(data, offset);
+    offset += ::poi::util::LittleEndian::BYTE_SIZE;
+    lastCol = ::poi::util::LittleEndian::getUByte(data, offset);
+    offset += ::poi::util::LittleEndian::BYTE_SIZE;
+    charCount = ::poi::util::LittleEndian::getUShort(data, offset);
+    offset += ::poi::util::LittleEndian::SHORT_SIZE;
     if(charCount < 2)
-        throw new ::org::apache::poi::util::RecordFormatException(u"Character count must be >= 2"_j);
+        throw new ::poi::util::RecordFormatException(u"Character count must be >= 2"_j);
 
-    charType = ::org::apache::poi::util::LittleEndian::getUByte(data, offset);
-    offset += ::org::apache::poi::util::LittleEndian::BYTE_SIZE;
+    charType = ::poi::util::LittleEndian::getUByte(data, offset);
+    offset += ::poi::util::LittleEndian::BYTE_SIZE;
     auto byteLength = charCount * ((charType & int32_t(1)) + int32_t(1));
-    path = ::org::apache::poi::util::LittleEndian::getByteArray_(data, offset, byteLength);
+    path = ::poi::util::LittleEndian::getByteArray_(data, offset, byteLength);
     offset += byteLength;
     if((*path)[int32_t(0)] == 2)
-        _unused = ::org::apache::poi::util::LittleEndian::getByteArray_(data, offset, (charType + int32_t(1)));
+        _unused = ::poi::util::LittleEndian::getByteArray_(data, offset, (charType + int32_t(1)));
 
 }
 
-void org::apache::poi::hssf::record::DConRefRecord::ctor(RecordInputStream* inStream)
+void poi::hssf::record::DConRefRecord::ctor(RecordInputStream* inStream)
 {
     super::ctor();
     if(npc(inStream)->getSid() != sid)
-        throw new ::org::apache::poi::util::RecordFormatException(::java::lang::StringBuilder().append(u"Wrong sid: "_j)->append(npc(inStream)->getSid())->toString());
+        throw new ::poi::util::RecordFormatException(::java::lang::StringBuilder().append(u"Wrong sid: "_j)->append(npc(inStream)->getSid())->toString());
 
     firstRow = npc(inStream)->readUShort();
     lastRow = npc(inStream)->readUShort();
@@ -91,7 +91,7 @@ void org::apache::poi::hssf::record::DConRefRecord::ctor(RecordInputStream* inSt
 
 }
 
-int32_t org::apache::poi::hssf::record::DConRefRecord::getDataSize()
+int32_t poi::hssf::record::DConRefRecord::getDataSize()
 {
     auto sz = int32_t(9) + npc(path)->length;
     if((*path)[int32_t(0)] == 2)
@@ -100,7 +100,7 @@ int32_t org::apache::poi::hssf::record::DConRefRecord::getDataSize()
     return sz;
 }
 
-void org::apache::poi::hssf::record::DConRefRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::DConRefRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(firstRow);
     npc(out)->writeShort(lastRow);
@@ -114,32 +114,32 @@ void org::apache::poi::hssf::record::DConRefRecord::serialize(::org::apache::poi
 
 }
 
-int16_t org::apache::poi::hssf::record::DConRefRecord::getSid()
+int16_t poi::hssf::record::DConRefRecord::getSid()
 {
     return sid;
 }
 
-int32_t org::apache::poi::hssf::record::DConRefRecord::getFirstColumn()
+int32_t poi::hssf::record::DConRefRecord::getFirstColumn()
 {
     return firstCol;
 }
 
-int32_t org::apache::poi::hssf::record::DConRefRecord::getFirstRow()
+int32_t poi::hssf::record::DConRefRecord::getFirstRow()
 {
     return firstRow;
 }
 
-int32_t org::apache::poi::hssf::record::DConRefRecord::getLastColumn()
+int32_t poi::hssf::record::DConRefRecord::getLastColumn()
 {
     return lastCol;
 }
 
-int32_t org::apache::poi::hssf::record::DConRefRecord::getLastRow()
+int32_t poi::hssf::record::DConRefRecord::getLastRow()
 {
     return lastRow;
 }
 
-java::lang::String* org::apache::poi::hssf::record::DConRefRecord::toString()
+java::lang::String* poi::hssf::record::DConRefRecord::toString()
 {
     auto b = new ::java::lang::StringBuilder();
     npc(b)->append(u"[DCONREF]\n"_j);
@@ -156,26 +156,26 @@ java::lang::String* org::apache::poi::hssf::record::DConRefRecord::toString()
     return npc(b)->toString();
 }
 
-int8_tArray* org::apache::poi::hssf::record::DConRefRecord::getPath()
+int8_tArray* poi::hssf::record::DConRefRecord::getPath()
 {
     return ::java::util::Arrays::copyOf(path, npc(path)->length);
 }
 
-java::lang::String* org::apache::poi::hssf::record::DConRefRecord::getReadablePath()
+java::lang::String* poi::hssf::record::DConRefRecord::getReadablePath()
 {
     if(path != nullptr) {
         auto offset = int32_t(1);
         while ((*path)[offset] < 32 && offset < npc(path)->length) {
             offset++;
         }
-        auto out = new ::java::lang::String(::java::util::Arrays::copyOfRange(path, offset, npc(path)->length), ::org::apache::poi::util::StringUtil::UTF8());
+        auto out = new ::java::lang::String(::java::util::Arrays::copyOfRange(path, offset, npc(path)->length), ::poi::util::StringUtil::UTF8());
         out = npc(out)->replaceAll(u"\u0003"_j, u"/"_j);
         return out;
     }
     return nullptr;
 }
 
-bool org::apache::poi::hssf::record::DConRefRecord::isExternalRef()
+bool poi::hssf::record::DConRefRecord::isExternalRef()
 {
     if((*path)[int32_t(0)] == 1)
         return true;
@@ -185,23 +185,23 @@ bool org::apache::poi::hssf::record::DConRefRecord::isExternalRef()
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::DConRefRecord::class_()
+java::lang::Class* poi::hssf::record::DConRefRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.DConRefRecord", 40);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::DConRefRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::DConRefRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::DConRefRecord::serialize()
+int8_tArray* poi::hssf::record::DConRefRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::DConRefRecord::getClass0()
+java::lang::Class* poi::hssf::record::DConRefRecord::getClass0()
 {
     return class_();
 }

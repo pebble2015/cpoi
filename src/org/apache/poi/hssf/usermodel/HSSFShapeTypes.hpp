@@ -6,7 +6,7 @@
 #include <org/apache/poi/hssf/usermodel/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::hssf::usermodel::HSSFShapeTypes
+struct poi::hssf::usermodel::HSSFShapeTypes
     : public virtual ::java::lang::Object
 {
     static constexpr int32_t NotPrimitive { int32_t(0) };

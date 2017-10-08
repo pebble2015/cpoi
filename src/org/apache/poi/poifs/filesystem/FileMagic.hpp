@@ -24,22 +24,16 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace poifs
     {
-        namespace poi
+        namespace filesystem
         {
-            namespace poifs
-            {
-                namespace filesystem
-                {
-typedef ::SubArray< ::org::apache::poi::poifs::filesystem::FileMagic, ::java::lang::EnumArray > FileMagicArray;
-                } // filesystem
-            } // poifs
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::poifs::filesystem::FileMagic, ::java::lang::EnumArray > FileMagicArray;
+        } // filesystem
+    } // poifs
+} // poi
 
 namespace 
 {
@@ -48,7 +42,7 @@ typedef ::SubArray< ::int8_tArray, ::java::lang::CloneableArray, ::java::io::Ser
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::filesystem::FileMagic final
+class poi::poifs::filesystem::FileMagic final
     : public ::java::lang::Enum
 {
 

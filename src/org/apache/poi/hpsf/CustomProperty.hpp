@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hpsf::CustomProperty
+class poi::hpsf::CustomProperty
     : public MutableProperty
 {
 

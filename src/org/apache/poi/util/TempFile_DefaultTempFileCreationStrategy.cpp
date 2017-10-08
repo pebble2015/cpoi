@@ -1,13 +1,13 @@
 // Generated from /POI/java/org/apache/poi/util/TempFile.java
 #include <org/apache/poi/util/TempFile_DefaultTempFileCreationStrategy.hpp>
 
-org::apache::poi::util::TempFile_DefaultTempFileCreationStrategy::TempFile_DefaultTempFileCreationStrategy(const ::default_init_tag&)
+poi::util::TempFile_DefaultTempFileCreationStrategy::TempFile_DefaultTempFileCreationStrategy(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::util::TempFile_DefaultTempFileCreationStrategy::TempFile_DefaultTempFileCreationStrategy()
+poi::util::TempFile_DefaultTempFileCreationStrategy::TempFile_DefaultTempFileCreationStrategy()
     : TempFile_DefaultTempFileCreationStrategy(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
@@ -15,13 +15,13 @@ org::apache::poi::util::TempFile_DefaultTempFileCreationStrategy::TempFile_Defau
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::util::TempFile_DefaultTempFileCreationStrategy::class_()
+java::lang::Class* poi::util::TempFile_DefaultTempFileCreationStrategy::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.util.TempFile.DefaultTempFileCreationStrategy", 60);
     return c;
 }
 
-java::lang::Class* org::apache::poi::util::TempFile_DefaultTempFileCreationStrategy::getClass0()
+java::lang::Class* poi::util::TempFile_DefaultTempFileCreationStrategy::getClass0()
 {
     return class_();
 }

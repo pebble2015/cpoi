@@ -30,26 +30,20 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace sl
     {
-        namespace poi
+        namespace draw
         {
-            namespace sl
+            namespace geom
             {
-                namespace draw
-                {
-                    namespace geom
-                    {
-typedef ::SubArray< ::org::apache::poi::sl::draw::geom::Formula, ::java::lang::ObjectArray > FormulaArray;
-typedef ::SubArray< ::org::apache::poi::sl::draw::geom::BuiltInGuide, ::java::lang::EnumArray, FormulaArray > BuiltInGuideArray;
-                    } // geom
-                } // draw
-            } // sl
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::sl::draw::geom::Formula, ::java::lang::ObjectArray > FormulaArray;
+typedef ::SubArray< ::poi::sl::draw::geom::BuiltInGuide, ::java::lang::EnumArray, FormulaArray > BuiltInGuideArray;
+            } // geom
+        } // draw
+    } // sl
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -58,61 +52,61 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::sl::draw::geom::BuiltInGuide::BuiltInGuide(const ::default_init_tag&)
+poi::sl::draw::geom::BuiltInGuide::BuiltInGuide(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::draw::geom::BuiltInGuide::BuiltInGuide(::java::lang::String* name, int ordinal)
+poi::sl::draw::geom::BuiltInGuide::BuiltInGuide(::java::lang::String* name, int ordinal)
     : BuiltInGuide(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal);
 }
 
-org::apache::poi::sl::draw::geom::BuiltInGuide* org::apache::poi::sl::draw::geom::BuiltInGuide::_3cd4 = new ::org::apache::poi::sl::draw::geom::BuiltInGuide(u"_3cd4"_j, 0);
-org::apache::poi::sl::draw::geom::BuiltInGuide* org::apache::poi::sl::draw::geom::BuiltInGuide::_3cd8 = new ::org::apache::poi::sl::draw::geom::BuiltInGuide(u"_3cd8"_j, 1);
-org::apache::poi::sl::draw::geom::BuiltInGuide* org::apache::poi::sl::draw::geom::BuiltInGuide::_5cd8 = new ::org::apache::poi::sl::draw::geom::BuiltInGuide(u"_5cd8"_j, 2);
-org::apache::poi::sl::draw::geom::BuiltInGuide* org::apache::poi::sl::draw::geom::BuiltInGuide::_7cd8 = new ::org::apache::poi::sl::draw::geom::BuiltInGuide(u"_7cd8"_j, 3);
-org::apache::poi::sl::draw::geom::BuiltInGuide* org::apache::poi::sl::draw::geom::BuiltInGuide::_b = new ::org::apache::poi::sl::draw::geom::BuiltInGuide(u"_b"_j, 4);
-org::apache::poi::sl::draw::geom::BuiltInGuide* org::apache::poi::sl::draw::geom::BuiltInGuide::_cd2 = new ::org::apache::poi::sl::draw::geom::BuiltInGuide(u"_cd2"_j, 5);
-org::apache::poi::sl::draw::geom::BuiltInGuide* org::apache::poi::sl::draw::geom::BuiltInGuide::_cd4 = new ::org::apache::poi::sl::draw::geom::BuiltInGuide(u"_cd4"_j, 6);
-org::apache::poi::sl::draw::geom::BuiltInGuide* org::apache::poi::sl::draw::geom::BuiltInGuide::_cd8 = new ::org::apache::poi::sl::draw::geom::BuiltInGuide(u"_cd8"_j, 7);
-org::apache::poi::sl::draw::geom::BuiltInGuide* org::apache::poi::sl::draw::geom::BuiltInGuide::_hc = new ::org::apache::poi::sl::draw::geom::BuiltInGuide(u"_hc"_j, 8);
-org::apache::poi::sl::draw::geom::BuiltInGuide* org::apache::poi::sl::draw::geom::BuiltInGuide::_h = new ::org::apache::poi::sl::draw::geom::BuiltInGuide(u"_h"_j, 9);
-org::apache::poi::sl::draw::geom::BuiltInGuide* org::apache::poi::sl::draw::geom::BuiltInGuide::_hd2 = new ::org::apache::poi::sl::draw::geom::BuiltInGuide(u"_hd2"_j, 10);
-org::apache::poi::sl::draw::geom::BuiltInGuide* org::apache::poi::sl::draw::geom::BuiltInGuide::_hd3 = new ::org::apache::poi::sl::draw::geom::BuiltInGuide(u"_hd3"_j, 11);
-org::apache::poi::sl::draw::geom::BuiltInGuide* org::apache::poi::sl::draw::geom::BuiltInGuide::_hd4 = new ::org::apache::poi::sl::draw::geom::BuiltInGuide(u"_hd4"_j, 12);
-org::apache::poi::sl::draw::geom::BuiltInGuide* org::apache::poi::sl::draw::geom::BuiltInGuide::_hd5 = new ::org::apache::poi::sl::draw::geom::BuiltInGuide(u"_hd5"_j, 13);
-org::apache::poi::sl::draw::geom::BuiltInGuide* org::apache::poi::sl::draw::geom::BuiltInGuide::_hd6 = new ::org::apache::poi::sl::draw::geom::BuiltInGuide(u"_hd6"_j, 14);
-org::apache::poi::sl::draw::geom::BuiltInGuide* org::apache::poi::sl::draw::geom::BuiltInGuide::_hd8 = new ::org::apache::poi::sl::draw::geom::BuiltInGuide(u"_hd8"_j, 15);
-org::apache::poi::sl::draw::geom::BuiltInGuide* org::apache::poi::sl::draw::geom::BuiltInGuide::_l = new ::org::apache::poi::sl::draw::geom::BuiltInGuide(u"_l"_j, 16);
-org::apache::poi::sl::draw::geom::BuiltInGuide* org::apache::poi::sl::draw::geom::BuiltInGuide::_ls = new ::org::apache::poi::sl::draw::geom::BuiltInGuide(u"_ls"_j, 17);
-org::apache::poi::sl::draw::geom::BuiltInGuide* org::apache::poi::sl::draw::geom::BuiltInGuide::_r = new ::org::apache::poi::sl::draw::geom::BuiltInGuide(u"_r"_j, 18);
-org::apache::poi::sl::draw::geom::BuiltInGuide* org::apache::poi::sl::draw::geom::BuiltInGuide::_ss = new ::org::apache::poi::sl::draw::geom::BuiltInGuide(u"_ss"_j, 19);
-org::apache::poi::sl::draw::geom::BuiltInGuide* org::apache::poi::sl::draw::geom::BuiltInGuide::_ssd2 = new ::org::apache::poi::sl::draw::geom::BuiltInGuide(u"_ssd2"_j, 20);
-org::apache::poi::sl::draw::geom::BuiltInGuide* org::apache::poi::sl::draw::geom::BuiltInGuide::_ssd4 = new ::org::apache::poi::sl::draw::geom::BuiltInGuide(u"_ssd4"_j, 21);
-org::apache::poi::sl::draw::geom::BuiltInGuide* org::apache::poi::sl::draw::geom::BuiltInGuide::_ssd6 = new ::org::apache::poi::sl::draw::geom::BuiltInGuide(u"_ssd6"_j, 22);
-org::apache::poi::sl::draw::geom::BuiltInGuide* org::apache::poi::sl::draw::geom::BuiltInGuide::_ssd8 = new ::org::apache::poi::sl::draw::geom::BuiltInGuide(u"_ssd8"_j, 23);
-org::apache::poi::sl::draw::geom::BuiltInGuide* org::apache::poi::sl::draw::geom::BuiltInGuide::_ssd16 = new ::org::apache::poi::sl::draw::geom::BuiltInGuide(u"_ssd16"_j, 24);
-org::apache::poi::sl::draw::geom::BuiltInGuide* org::apache::poi::sl::draw::geom::BuiltInGuide::_ssd32 = new ::org::apache::poi::sl::draw::geom::BuiltInGuide(u"_ssd32"_j, 25);
-org::apache::poi::sl::draw::geom::BuiltInGuide* org::apache::poi::sl::draw::geom::BuiltInGuide::_t = new ::org::apache::poi::sl::draw::geom::BuiltInGuide(u"_t"_j, 26);
-org::apache::poi::sl::draw::geom::BuiltInGuide* org::apache::poi::sl::draw::geom::BuiltInGuide::_vc = new ::org::apache::poi::sl::draw::geom::BuiltInGuide(u"_vc"_j, 27);
-org::apache::poi::sl::draw::geom::BuiltInGuide* org::apache::poi::sl::draw::geom::BuiltInGuide::_w = new ::org::apache::poi::sl::draw::geom::BuiltInGuide(u"_w"_j, 28);
-org::apache::poi::sl::draw::geom::BuiltInGuide* org::apache::poi::sl::draw::geom::BuiltInGuide::_wd2 = new ::org::apache::poi::sl::draw::geom::BuiltInGuide(u"_wd2"_j, 29);
-org::apache::poi::sl::draw::geom::BuiltInGuide* org::apache::poi::sl::draw::geom::BuiltInGuide::_wd3 = new ::org::apache::poi::sl::draw::geom::BuiltInGuide(u"_wd3"_j, 30);
-org::apache::poi::sl::draw::geom::BuiltInGuide* org::apache::poi::sl::draw::geom::BuiltInGuide::_wd4 = new ::org::apache::poi::sl::draw::geom::BuiltInGuide(u"_wd4"_j, 31);
-org::apache::poi::sl::draw::geom::BuiltInGuide* org::apache::poi::sl::draw::geom::BuiltInGuide::_wd5 = new ::org::apache::poi::sl::draw::geom::BuiltInGuide(u"_wd5"_j, 32);
-org::apache::poi::sl::draw::geom::BuiltInGuide* org::apache::poi::sl::draw::geom::BuiltInGuide::_wd6 = new ::org::apache::poi::sl::draw::geom::BuiltInGuide(u"_wd6"_j, 33);
-org::apache::poi::sl::draw::geom::BuiltInGuide* org::apache::poi::sl::draw::geom::BuiltInGuide::_wd8 = new ::org::apache::poi::sl::draw::geom::BuiltInGuide(u"_wd8"_j, 34);
-org::apache::poi::sl::draw::geom::BuiltInGuide* org::apache::poi::sl::draw::geom::BuiltInGuide::_wd10 = new ::org::apache::poi::sl::draw::geom::BuiltInGuide(u"_wd10"_j, 35);
-org::apache::poi::sl::draw::geom::BuiltInGuide* org::apache::poi::sl::draw::geom::BuiltInGuide::_wd32 = new ::org::apache::poi::sl::draw::geom::BuiltInGuide(u"_wd32"_j, 36);
-java::lang::String* org::apache::poi::sl::draw::geom::BuiltInGuide::getName()
+poi::sl::draw::geom::BuiltInGuide* poi::sl::draw::geom::BuiltInGuide::_3cd4 = new ::poi::sl::draw::geom::BuiltInGuide(u"_3cd4"_j, 0);
+poi::sl::draw::geom::BuiltInGuide* poi::sl::draw::geom::BuiltInGuide::_3cd8 = new ::poi::sl::draw::geom::BuiltInGuide(u"_3cd8"_j, 1);
+poi::sl::draw::geom::BuiltInGuide* poi::sl::draw::geom::BuiltInGuide::_5cd8 = new ::poi::sl::draw::geom::BuiltInGuide(u"_5cd8"_j, 2);
+poi::sl::draw::geom::BuiltInGuide* poi::sl::draw::geom::BuiltInGuide::_7cd8 = new ::poi::sl::draw::geom::BuiltInGuide(u"_7cd8"_j, 3);
+poi::sl::draw::geom::BuiltInGuide* poi::sl::draw::geom::BuiltInGuide::_b = new ::poi::sl::draw::geom::BuiltInGuide(u"_b"_j, 4);
+poi::sl::draw::geom::BuiltInGuide* poi::sl::draw::geom::BuiltInGuide::_cd2 = new ::poi::sl::draw::geom::BuiltInGuide(u"_cd2"_j, 5);
+poi::sl::draw::geom::BuiltInGuide* poi::sl::draw::geom::BuiltInGuide::_cd4 = new ::poi::sl::draw::geom::BuiltInGuide(u"_cd4"_j, 6);
+poi::sl::draw::geom::BuiltInGuide* poi::sl::draw::geom::BuiltInGuide::_cd8 = new ::poi::sl::draw::geom::BuiltInGuide(u"_cd8"_j, 7);
+poi::sl::draw::geom::BuiltInGuide* poi::sl::draw::geom::BuiltInGuide::_hc = new ::poi::sl::draw::geom::BuiltInGuide(u"_hc"_j, 8);
+poi::sl::draw::geom::BuiltInGuide* poi::sl::draw::geom::BuiltInGuide::_h = new ::poi::sl::draw::geom::BuiltInGuide(u"_h"_j, 9);
+poi::sl::draw::geom::BuiltInGuide* poi::sl::draw::geom::BuiltInGuide::_hd2 = new ::poi::sl::draw::geom::BuiltInGuide(u"_hd2"_j, 10);
+poi::sl::draw::geom::BuiltInGuide* poi::sl::draw::geom::BuiltInGuide::_hd3 = new ::poi::sl::draw::geom::BuiltInGuide(u"_hd3"_j, 11);
+poi::sl::draw::geom::BuiltInGuide* poi::sl::draw::geom::BuiltInGuide::_hd4 = new ::poi::sl::draw::geom::BuiltInGuide(u"_hd4"_j, 12);
+poi::sl::draw::geom::BuiltInGuide* poi::sl::draw::geom::BuiltInGuide::_hd5 = new ::poi::sl::draw::geom::BuiltInGuide(u"_hd5"_j, 13);
+poi::sl::draw::geom::BuiltInGuide* poi::sl::draw::geom::BuiltInGuide::_hd6 = new ::poi::sl::draw::geom::BuiltInGuide(u"_hd6"_j, 14);
+poi::sl::draw::geom::BuiltInGuide* poi::sl::draw::geom::BuiltInGuide::_hd8 = new ::poi::sl::draw::geom::BuiltInGuide(u"_hd8"_j, 15);
+poi::sl::draw::geom::BuiltInGuide* poi::sl::draw::geom::BuiltInGuide::_l = new ::poi::sl::draw::geom::BuiltInGuide(u"_l"_j, 16);
+poi::sl::draw::geom::BuiltInGuide* poi::sl::draw::geom::BuiltInGuide::_ls = new ::poi::sl::draw::geom::BuiltInGuide(u"_ls"_j, 17);
+poi::sl::draw::geom::BuiltInGuide* poi::sl::draw::geom::BuiltInGuide::_r = new ::poi::sl::draw::geom::BuiltInGuide(u"_r"_j, 18);
+poi::sl::draw::geom::BuiltInGuide* poi::sl::draw::geom::BuiltInGuide::_ss = new ::poi::sl::draw::geom::BuiltInGuide(u"_ss"_j, 19);
+poi::sl::draw::geom::BuiltInGuide* poi::sl::draw::geom::BuiltInGuide::_ssd2 = new ::poi::sl::draw::geom::BuiltInGuide(u"_ssd2"_j, 20);
+poi::sl::draw::geom::BuiltInGuide* poi::sl::draw::geom::BuiltInGuide::_ssd4 = new ::poi::sl::draw::geom::BuiltInGuide(u"_ssd4"_j, 21);
+poi::sl::draw::geom::BuiltInGuide* poi::sl::draw::geom::BuiltInGuide::_ssd6 = new ::poi::sl::draw::geom::BuiltInGuide(u"_ssd6"_j, 22);
+poi::sl::draw::geom::BuiltInGuide* poi::sl::draw::geom::BuiltInGuide::_ssd8 = new ::poi::sl::draw::geom::BuiltInGuide(u"_ssd8"_j, 23);
+poi::sl::draw::geom::BuiltInGuide* poi::sl::draw::geom::BuiltInGuide::_ssd16 = new ::poi::sl::draw::geom::BuiltInGuide(u"_ssd16"_j, 24);
+poi::sl::draw::geom::BuiltInGuide* poi::sl::draw::geom::BuiltInGuide::_ssd32 = new ::poi::sl::draw::geom::BuiltInGuide(u"_ssd32"_j, 25);
+poi::sl::draw::geom::BuiltInGuide* poi::sl::draw::geom::BuiltInGuide::_t = new ::poi::sl::draw::geom::BuiltInGuide(u"_t"_j, 26);
+poi::sl::draw::geom::BuiltInGuide* poi::sl::draw::geom::BuiltInGuide::_vc = new ::poi::sl::draw::geom::BuiltInGuide(u"_vc"_j, 27);
+poi::sl::draw::geom::BuiltInGuide* poi::sl::draw::geom::BuiltInGuide::_w = new ::poi::sl::draw::geom::BuiltInGuide(u"_w"_j, 28);
+poi::sl::draw::geom::BuiltInGuide* poi::sl::draw::geom::BuiltInGuide::_wd2 = new ::poi::sl::draw::geom::BuiltInGuide(u"_wd2"_j, 29);
+poi::sl::draw::geom::BuiltInGuide* poi::sl::draw::geom::BuiltInGuide::_wd3 = new ::poi::sl::draw::geom::BuiltInGuide(u"_wd3"_j, 30);
+poi::sl::draw::geom::BuiltInGuide* poi::sl::draw::geom::BuiltInGuide::_wd4 = new ::poi::sl::draw::geom::BuiltInGuide(u"_wd4"_j, 31);
+poi::sl::draw::geom::BuiltInGuide* poi::sl::draw::geom::BuiltInGuide::_wd5 = new ::poi::sl::draw::geom::BuiltInGuide(u"_wd5"_j, 32);
+poi::sl::draw::geom::BuiltInGuide* poi::sl::draw::geom::BuiltInGuide::_wd6 = new ::poi::sl::draw::geom::BuiltInGuide(u"_wd6"_j, 33);
+poi::sl::draw::geom::BuiltInGuide* poi::sl::draw::geom::BuiltInGuide::_wd8 = new ::poi::sl::draw::geom::BuiltInGuide(u"_wd8"_j, 34);
+poi::sl::draw::geom::BuiltInGuide* poi::sl::draw::geom::BuiltInGuide::_wd10 = new ::poi::sl::draw::geom::BuiltInGuide(u"_wd10"_j, 35);
+poi::sl::draw::geom::BuiltInGuide* poi::sl::draw::geom::BuiltInGuide::_wd32 = new ::poi::sl::draw::geom::BuiltInGuide(u"_wd32"_j, 36);
+java::lang::String* poi::sl::draw::geom::BuiltInGuide::getName()
 {
     return npc(name())->substring(1);
 }
 
-double org::apache::poi::sl::draw::geom::BuiltInGuide::evaluate(Context* ctx)
+double poi::sl::draw::geom::BuiltInGuide::evaluate(Context* ctx)
 {
     auto anchor = npc(ctx)->getShapeAnchor();
     double height = npc(anchor)->getHeight(), width = npc(anchor)->getWidth(), ss = ::java::lang::Math::min(width, height);
@@ -239,13 +233,13 @@ end_switch0:;
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::draw::geom::BuiltInGuide::class_()
+java::lang::Class* poi::sl::draw::geom::BuiltInGuide::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.draw.geom.BuiltInGuide", 40);
     return c;
 }
 
-org::apache::poi::sl::draw::geom::BuiltInGuide* org::apache::poi::sl::draw::geom::BuiltInGuide::valueOf(::java::lang::String* a0)
+poi::sl::draw::geom::BuiltInGuide* poi::sl::draw::geom::BuiltInGuide::valueOf(::java::lang::String* a0)
 {
     if(_3cd4->toString()->equals(a0))
         return _3cd4;
@@ -324,9 +318,9 @@ org::apache::poi::sl::draw::geom::BuiltInGuide* org::apache::poi::sl::draw::geom
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::sl::draw::geom::BuiltInGuideArray* org::apache::poi::sl::draw::geom::BuiltInGuide::values()
+poi::sl::draw::geom::BuiltInGuideArray* poi::sl::draw::geom::BuiltInGuide::values()
 {
-    return new org::apache::poi::sl::draw::geom::BuiltInGuideArray({
+    return new poi::sl::draw::geom::BuiltInGuideArray({
         _3cd4,
         _3cd8,
         _5cd8,
@@ -367,7 +361,7 @@ org::apache::poi::sl::draw::geom::BuiltInGuideArray* org::apache::poi::sl::draw:
     });
 }
 
-java::lang::Class* org::apache::poi::sl::draw::geom::BuiltInGuide::getClass0()
+java::lang::Class* poi::sl::draw::geom::BuiltInGuide::getClass0()
 {
     return class_();
 }

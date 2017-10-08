@@ -13,24 +13,18 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
-            {
-                namespace formula
-                {
-typedef ::SubArray< ::org::apache::poi::ss::formula::IEvaluationListener_ICacheEntry, ::java::lang::ObjectArray > IEvaluationListener_ICacheEntryArray;
-typedef ::SubArray< ::org::apache::poi::ss::formula::CellCacheEntry, ::java::lang::ObjectArray, IEvaluationListener_ICacheEntryArray > CellCacheEntryArray;
-typedef ::SubArray< ::org::apache::poi::ss::formula::FormulaCellCacheEntry, CellCacheEntryArray > FormulaCellCacheEntryArray;
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::IEvaluationListener_ICacheEntry, ::java::lang::ObjectArray > IEvaluationListener_ICacheEntryArray;
+typedef ::SubArray< ::poi::ss::formula::CellCacheEntry, ::java::lang::ObjectArray, IEvaluationListener_ICacheEntryArray > CellCacheEntryArray;
+typedef ::SubArray< ::poi::ss::formula::FormulaCellCacheEntry, CellCacheEntryArray > FormulaCellCacheEntryArray;
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -39,32 +33,32 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::FormulaCellCacheEntrySet::FormulaCellCacheEntrySet(const ::default_init_tag&)
+poi::ss::formula::FormulaCellCacheEntrySet::FormulaCellCacheEntrySet(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::FormulaCellCacheEntrySet::FormulaCellCacheEntrySet() 
+poi::ss::formula::FormulaCellCacheEntrySet::FormulaCellCacheEntrySet() 
     : FormulaCellCacheEntrySet(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::FormulaCellCacheEntryArray*& org::apache::poi::ss::formula::FormulaCellCacheEntrySet::EMPTY_ARRAY()
+poi::ss::formula::FormulaCellCacheEntryArray*& poi::ss::formula::FormulaCellCacheEntrySet::EMPTY_ARRAY()
 {
     clinit();
     return EMPTY_ARRAY_;
 }
-org::apache::poi::ss::formula::FormulaCellCacheEntryArray* org::apache::poi::ss::formula::FormulaCellCacheEntrySet::EMPTY_ARRAY_;
+poi::ss::formula::FormulaCellCacheEntryArray* poi::ss::formula::FormulaCellCacheEntrySet::EMPTY_ARRAY_;
 
-void org::apache::poi::ss::formula::FormulaCellCacheEntrySet::ctor()
+void poi::ss::formula::FormulaCellCacheEntrySet::ctor()
 {
     super::ctor();
     _arr = EMPTY_ARRAY_;
 }
 
-org::apache::poi::ss::formula::FormulaCellCacheEntryArray* org::apache::poi::ss::formula::FormulaCellCacheEntrySet::toArray_()
+poi::ss::formula::FormulaCellCacheEntryArray* poi::ss::formula::FormulaCellCacheEntrySet::toArray_()
 {
     auto nItems = _size;
     if(nItems < 1) {
@@ -84,7 +78,7 @@ org::apache::poi::ss::formula::FormulaCellCacheEntryArray* org::apache::poi::ss:
     return result;
 }
 
-void org::apache::poi::ss::formula::FormulaCellCacheEntrySet::add(CellCacheEntry* cce)
+void poi::ss::formula::FormulaCellCacheEntrySet::add(CellCacheEntry* cce)
 {
     if(_size * int32_t(3) >= npc(_arr)->length * int32_t(2)) {
         auto prevArr = _arr;
@@ -102,7 +96,7 @@ void org::apache::poi::ss::formula::FormulaCellCacheEntrySet::add(CellCacheEntry
     }
 }
 
-bool org::apache::poi::ss::formula::FormulaCellCacheEntrySet::addInternal(CellCacheEntryArray* arr, CellCacheEntry* cce)
+bool poi::ss::formula::FormulaCellCacheEntrySet::addInternal(CellCacheEntryArray* arr, CellCacheEntry* cce)
 {
     clinit();
     auto startIx = ::java::lang::Math::abs(npc(cce)->hashCode() % npc(arr)->length);
@@ -129,7 +123,7 @@ bool org::apache::poi::ss::formula::FormulaCellCacheEntrySet::addInternal(CellCa
     throw new ::java::lang::IllegalStateException(u"No empty space found"_j);
 }
 
-bool org::apache::poi::ss::formula::FormulaCellCacheEntrySet::remove(CellCacheEntry* cce)
+bool poi::ss::formula::FormulaCellCacheEntrySet::remove(CellCacheEntry* cce)
 {
     auto arr = _arr;
     if(_size * int32_t(3) < npc(_arr)->length && npc(_arr)->length > 8) {
@@ -172,20 +166,20 @@ bool org::apache::poi::ss::formula::FormulaCellCacheEntrySet::remove(CellCacheEn
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::FormulaCellCacheEntrySet::class_()
+java::lang::Class* poi::ss::formula::FormulaCellCacheEntrySet::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.FormulaCellCacheEntrySet", 50);
     return c;
 }
 
-void org::apache::poi::ss::formula::FormulaCellCacheEntrySet::clinit()
+void poi::ss::formula::FormulaCellCacheEntrySet::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        EMPTY_ARRAY_ = (new ::org::apache::poi::ss::formula::FormulaCellCacheEntryArray({}));
+        EMPTY_ARRAY_ = (new ::poi::ss::formula::FormulaCellCacheEntryArray({}));
     }
 };
 
@@ -194,7 +188,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::formula::FormulaCellCacheEntrySet::getClass0()
+java::lang::Class* poi::ss::formula::FormulaCellCacheEntrySet::getClass0()
 {
     return class_();
 }

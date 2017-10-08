@@ -13,27 +13,21 @@
 #include <java/lang/Comparable.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace util
         {
-            namespace ss
-            {
-                namespace util
-                {
-typedef ::SubArray< ::org::apache::poi::ss::util::CellRangeAddressBase, ::java::lang::ObjectArray > CellRangeAddressBaseArray;
-typedef ::SubArray< ::org::apache::poi::ss::util::CellRangeAddress, CellRangeAddressBaseArray > CellRangeAddressArray;
-                } // util
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::util::CellRangeAddressBase, ::java::lang::ObjectArray > CellRangeAddressBaseArray;
+typedef ::SubArray< ::poi::ss::util::CellRangeAddress, CellRangeAddressBaseArray > CellRangeAddressArray;
+        } // util
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::EvaluationConditionalFormatRule
+class poi::ss::formula::EvaluationConditionalFormatRule
     : public virtual ::java::lang::Object
     , public virtual ::java::lang::Comparable
 {
@@ -43,10 +37,10 @@ public:
 
 private:
     WorkbookEvaluator* workbookEvaluator {  };
-    ::org::apache::poi::ss::usermodel::Sheet* sheet {  };
-    ::org::apache::poi::ss::usermodel::ConditionalFormatting* formatting {  };
-    ::org::apache::poi::ss::usermodel::ConditionalFormattingRule* rule {  };
-    ::org::apache::poi::ss::util::CellRangeAddressArray* regions {  };
+    ::poi::ss::usermodel::Sheet* sheet {  };
+    ::poi::ss::usermodel::ConditionalFormatting* formatting {  };
+    ::poi::ss::usermodel::ConditionalFormattingRule* rule {  };
+    ::poi::ss::util::CellRangeAddressArray* regions {  };
     ::java::util::Map* meaningfulRegionValues {  };
     int32_t priority {  };
     int32_t formattingIndex {  };
@@ -54,43 +48,43 @@ private:
     ::java::lang::String* formula1 {  };
     ::java::lang::String* formula2 {  };
     EvaluationConditionalFormatRule_OperatorEnum* operator_ {  };
-    ::org::apache::poi::ss::usermodel::ConditionType* type {  };
-    ::org::apache::poi::ss::usermodel::ExcelNumberFormat* numberFormat {  };
+    ::poi::ss::usermodel::ConditionType* type {  };
+    ::poi::ss::usermodel::ExcelNumberFormat* numberFormat {  };
 protected:
-    void ctor(WorkbookEvaluator* workbookEvaluator, ::org::apache::poi::ss::usermodel::Sheet* sheet, ::org::apache::poi::ss::usermodel::ConditionalFormatting* formatting, int32_t formattingIndex, ::org::apache::poi::ss::usermodel::ConditionalFormattingRule* rule, int32_t ruleIndex, ::org::apache::poi::ss::util::CellRangeAddressArray* regions);
+    void ctor(WorkbookEvaluator* workbookEvaluator, ::poi::ss::usermodel::Sheet* sheet, ::poi::ss::usermodel::ConditionalFormatting* formatting, int32_t formattingIndex, ::poi::ss::usermodel::ConditionalFormattingRule* rule, int32_t ruleIndex, ::poi::ss::util::CellRangeAddressArray* regions);
 
 public:
-    virtual ::org::apache::poi::ss::usermodel::Sheet* getSheet();
-    virtual ::org::apache::poi::ss::usermodel::ConditionalFormatting* getFormatting();
+    virtual ::poi::ss::usermodel::Sheet* getSheet();
+    virtual ::poi::ss::usermodel::ConditionalFormatting* getFormatting();
     virtual int32_t getFormattingIndex();
-    virtual ::org::apache::poi::ss::usermodel::ExcelNumberFormat* getNumberFormat();
-    virtual ::org::apache::poi::ss::usermodel::ConditionalFormattingRule* getRule();
+    virtual ::poi::ss::usermodel::ExcelNumberFormat* getNumberFormat();
+    virtual ::poi::ss::usermodel::ConditionalFormattingRule* getRule();
     virtual int32_t getRuleIndex();
-    virtual ::org::apache::poi::ss::util::CellRangeAddressArray* getRegions();
+    virtual ::poi::ss::util::CellRangeAddressArray* getRegions();
     virtual int32_t getPriority();
     virtual ::java::lang::String* getFormula1();
     virtual ::java::lang::String* getFormula2();
     virtual EvaluationConditionalFormatRule_OperatorEnum* getOperator();
-    virtual ::org::apache::poi::ss::usermodel::ConditionType* getType();
+    virtual ::poi::ss::usermodel::ConditionType* getType();
     bool equals(::java::lang::Object* obj) override;
     virtual int32_t compareTo(EvaluationConditionalFormatRule* o);
     int32_t hashCode() override;
 
 public: /* package */
-    virtual bool matches(::org::apache::poi::ss::util::CellReference* ref);
+    virtual bool matches(::poi::ss::util::CellReference* ref);
 
 private:
-    bool checkValue(::org::apache::poi::ss::usermodel::Cell* cell, ::org::apache::poi::ss::util::CellRangeAddress* region);
-    ::org::apache::poi::ss::formula::eval::ValueEval* unwrapEval(::org::apache::poi::ss::formula::eval::ValueEval* eval);
-    bool checkFormula(::org::apache::poi::ss::util::CellReference* ref, ::org::apache::poi::ss::util::CellRangeAddress* region);
-    bool checkFilter(::org::apache::poi::ss::usermodel::Cell* cell, ::org::apache::poi::ss::util::CellReference* ref, ::org::apache::poi::ss::util::CellRangeAddress* region);
-    ::java::util::Set* getMeaningfulValues(::org::apache::poi::ss::util::CellRangeAddress* region, bool withText, EvaluationConditionalFormatRule_ValueFunction* func);
-    EvaluationConditionalFormatRule_ValueAndFormat* getCellValue(::org::apache::poi::ss::usermodel::Cell* cell);
+    bool checkValue(::poi::ss::usermodel::Cell* cell, ::poi::ss::util::CellRangeAddress* region);
+    ::poi::ss::formula::eval::ValueEval* unwrapEval(::poi::ss::formula::eval::ValueEval* eval);
+    bool checkFormula(::poi::ss::util::CellReference* ref, ::poi::ss::util::CellRangeAddress* region);
+    bool checkFilter(::poi::ss::usermodel::Cell* cell, ::poi::ss::util::CellReference* ref, ::poi::ss::util::CellRangeAddress* region);
+    ::java::util::Set* getMeaningfulValues(::poi::ss::util::CellRangeAddress* region, bool withText, EvaluationConditionalFormatRule_ValueFunction* func);
+    EvaluationConditionalFormatRule_ValueAndFormat* getCellValue(::poi::ss::usermodel::Cell* cell);
 
     // Generated
 
 public:
-    EvaluationConditionalFormatRule(WorkbookEvaluator* workbookEvaluator, ::org::apache::poi::ss::usermodel::Sheet* sheet, ::org::apache::poi::ss::usermodel::ConditionalFormatting* formatting, int32_t formattingIndex, ::org::apache::poi::ss::usermodel::ConditionalFormattingRule* rule, int32_t ruleIndex, ::org::apache::poi::ss::util::CellRangeAddressArray* regions);
+    EvaluationConditionalFormatRule(WorkbookEvaluator* workbookEvaluator, ::poi::ss::usermodel::Sheet* sheet, ::poi::ss::usermodel::ConditionalFormatting* formatting, int32_t formattingIndex, ::poi::ss::usermodel::ConditionalFormattingRule* rule, int32_t ruleIndex, ::poi::ss::util::CellRangeAddressArray* regions);
 protected:
     EvaluationConditionalFormatRule(const ::default_init_tag&);
 

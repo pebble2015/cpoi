@@ -20,25 +20,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -56,7 +50,7 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::EvaluationConditionalFormatRule_checkFilter_4::EvaluationConditionalFormatRule_checkFilter_4(EvaluationConditionalFormatRule *EvaluationConditionalFormatRule_this)
+poi::ss::formula::EvaluationConditionalFormatRule_checkFilter_4::EvaluationConditionalFormatRule_checkFilter_4(EvaluationConditionalFormatRule *EvaluationConditionalFormatRule_this)
     : super(*static_cast< ::default_init_tag* >(0))
     , EvaluationConditionalFormatRule_this(EvaluationConditionalFormatRule_this)
 {
@@ -64,32 +58,32 @@ org::apache::poi::ss::formula::EvaluationConditionalFormatRule_checkFilter_4::Ev
     ctor();
 }
 
-java::util::Set* org::apache::poi::ss::formula::EvaluationConditionalFormatRule_checkFilter_4::evaluate(::java::util::List* allValues)
+java::util::Set* poi::ss::formula::EvaluationConditionalFormatRule_checkFilter_4::evaluate(::java::util::List* allValues)
 {
     auto values = allValues;
     double total = int32_t(0);
-    auto pop = new ::org::apache::poi::ss::formula::eval::ValueEvalArray(npc(values)->size());
+    auto pop = new ::poi::ss::formula::eval::ValueEvalArray(npc(values)->size());
     for (auto i = int32_t(0); i < npc(values)->size(); i++) {
         auto v = java_cast< EvaluationConditionalFormatRule_ValueAndFormat* >(npc(values)->get(i));
         total += npc(npc(v)->value)->doubleValue();
-        pop->set(i, new ::org::apache::poi::ss::formula::eval::NumberEval(npc(npc(v)->value)->doubleValue()));
+        pop->set(i, new ::poi::ss::formula::eval::NumberEval(npc(npc(v)->value)->doubleValue()));
     }
     ::java::util::Set* const avgSet = new ::java::util::LinkedHashSet(int32_t(1));
     npc(avgSet)->add(static_cast< ::java::lang::Object* >(new EvaluationConditionalFormatRule_ValueAndFormat(new ::java::lang::Double(npc(values)->size() == 0 ? static_cast< double >(int32_t(0)) : total / npc(values)->size()), static_cast< ::java::lang::String* >(nullptr))));
-    auto const stdDev = npc(values)->size() <= 1 ? static_cast< double >(int32_t(0)) : npc((java_cast< ::org::apache::poi::ss::formula::eval::NumberEval* >(npc(::org::apache::poi::ss::formula::functions::AggregateFunction::STDEV())->evaluate(pop, 0, 0))))->getNumberValue();
+    auto const stdDev = npc(values)->size() <= 1 ? static_cast< double >(int32_t(0)) : npc((java_cast< ::poi::ss::formula::eval::NumberEval* >(npc(::poi::ss::formula::functions::AggregateFunction::STDEV())->evaluate(pop, 0, 0))))->getNumberValue();
     npc(avgSet)->add(static_cast< ::java::lang::Object* >(new EvaluationConditionalFormatRule_ValueAndFormat(new ::java::lang::Double(stdDev), static_cast< ::java::lang::String* >(nullptr))));
     return avgSet;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::EvaluationConditionalFormatRule_checkFilter_4::class_()
+java::lang::Class* poi::ss::formula::EvaluationConditionalFormatRule_checkFilter_4::class_()
 {
     static ::java::lang::Class* c = ::class_(u"", 0);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::EvaluationConditionalFormatRule_checkFilter_4::getClass0()
+java::lang::Class* poi::ss::formula::EvaluationConditionalFormatRule_checkFilter_4::getClass0()
 {
     return class_();
 }

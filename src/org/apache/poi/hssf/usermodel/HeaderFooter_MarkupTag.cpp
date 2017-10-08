@@ -25,76 +25,70 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace hssf
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag, ::java::lang::EnumArray > HeaderFooter_MarkupTagArray;
-                } // usermodel
-            } // hssf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hssf::usermodel::HeaderFooter_MarkupTag, ::java::lang::EnumArray > HeaderFooter_MarkupTagArray;
+        } // usermodel
+    } // hssf
+} // poi
 
-org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag::HeaderFooter_MarkupTag(const ::default_init_tag&)
+poi::hssf::usermodel::HeaderFooter_MarkupTag::HeaderFooter_MarkupTag(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag::HeaderFooter_MarkupTag(::java::lang::String* name, int ordinal, ::java::lang::String* sequence, bool occursInPairs) 
+poi::hssf::usermodel::HeaderFooter_MarkupTag::HeaderFooter_MarkupTag(::java::lang::String* name, int ordinal, ::java::lang::String* sequence, bool occursInPairs) 
     : HeaderFooter_MarkupTag(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal, sequence,occursInPairs);
 }
 
-org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag* org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag::SHEET_NAME_FIELD = new ::org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag(u"SHEET_NAME_FIELD"_j, 0, u"&A"_j, false);
-org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag* org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag::DATE_FIELD = new ::org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag(u"DATE_FIELD"_j, 1, u"&D"_j, false);
-org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag* org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag::FILE_FIELD = new ::org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag(u"FILE_FIELD"_j, 2, u"&F"_j, false);
-org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag* org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag::FULL_FILE_FIELD = new ::org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag(u"FULL_FILE_FIELD"_j, 3, u"&Z"_j, false);
-org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag* org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag::PAGE_FIELD = new ::org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag(u"PAGE_FIELD"_j, 4, u"&P"_j, false);
-org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag* org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag::TIME_FIELD = new ::org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag(u"TIME_FIELD"_j, 5, u"&T"_j, false);
-org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag* org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag::NUM_PAGES_FIELD = new ::org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag(u"NUM_PAGES_FIELD"_j, 6, u"&N"_j, false);
-org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag* org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag::PICTURE_FIELD = new ::org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag(u"PICTURE_FIELD"_j, 7, u"&G"_j, false);
-org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag* org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag::BOLD_FIELD = new ::org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag(u"BOLD_FIELD"_j, 8, u"&B"_j, true);
-org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag* org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag::ITALIC_FIELD = new ::org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag(u"ITALIC_FIELD"_j, 9, u"&I"_j, true);
-org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag* org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag::STRIKETHROUGH_FIELD = new ::org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag(u"STRIKETHROUGH_FIELD"_j, 10, u"&S"_j, true);
-org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag* org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag::SUBSCRIPT_FIELD = new ::org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag(u"SUBSCRIPT_FIELD"_j, 11, u"&Y"_j, true);
-org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag* org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag::SUPERSCRIPT_FIELD = new ::org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag(u"SUPERSCRIPT_FIELD"_j, 12, u"&X"_j, true);
-org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag* org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag::UNDERLINE_FIELD = new ::org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag(u"UNDERLINE_FIELD"_j, 13, u"&U"_j, true);
-org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag* org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag::DOUBLE_UNDERLINE_FIELD = new ::org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag(u"DOUBLE_UNDERLINE_FIELD"_j, 14, u"&E"_j, true);
-void org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag::ctor(::java::lang::String* name, int ordinal, ::java::lang::String* sequence, bool occursInPairs)
+poi::hssf::usermodel::HeaderFooter_MarkupTag* poi::hssf::usermodel::HeaderFooter_MarkupTag::SHEET_NAME_FIELD = new ::poi::hssf::usermodel::HeaderFooter_MarkupTag(u"SHEET_NAME_FIELD"_j, 0, u"&A"_j, false);
+poi::hssf::usermodel::HeaderFooter_MarkupTag* poi::hssf::usermodel::HeaderFooter_MarkupTag::DATE_FIELD = new ::poi::hssf::usermodel::HeaderFooter_MarkupTag(u"DATE_FIELD"_j, 1, u"&D"_j, false);
+poi::hssf::usermodel::HeaderFooter_MarkupTag* poi::hssf::usermodel::HeaderFooter_MarkupTag::FILE_FIELD = new ::poi::hssf::usermodel::HeaderFooter_MarkupTag(u"FILE_FIELD"_j, 2, u"&F"_j, false);
+poi::hssf::usermodel::HeaderFooter_MarkupTag* poi::hssf::usermodel::HeaderFooter_MarkupTag::FULL_FILE_FIELD = new ::poi::hssf::usermodel::HeaderFooter_MarkupTag(u"FULL_FILE_FIELD"_j, 3, u"&Z"_j, false);
+poi::hssf::usermodel::HeaderFooter_MarkupTag* poi::hssf::usermodel::HeaderFooter_MarkupTag::PAGE_FIELD = new ::poi::hssf::usermodel::HeaderFooter_MarkupTag(u"PAGE_FIELD"_j, 4, u"&P"_j, false);
+poi::hssf::usermodel::HeaderFooter_MarkupTag* poi::hssf::usermodel::HeaderFooter_MarkupTag::TIME_FIELD = new ::poi::hssf::usermodel::HeaderFooter_MarkupTag(u"TIME_FIELD"_j, 5, u"&T"_j, false);
+poi::hssf::usermodel::HeaderFooter_MarkupTag* poi::hssf::usermodel::HeaderFooter_MarkupTag::NUM_PAGES_FIELD = new ::poi::hssf::usermodel::HeaderFooter_MarkupTag(u"NUM_PAGES_FIELD"_j, 6, u"&N"_j, false);
+poi::hssf::usermodel::HeaderFooter_MarkupTag* poi::hssf::usermodel::HeaderFooter_MarkupTag::PICTURE_FIELD = new ::poi::hssf::usermodel::HeaderFooter_MarkupTag(u"PICTURE_FIELD"_j, 7, u"&G"_j, false);
+poi::hssf::usermodel::HeaderFooter_MarkupTag* poi::hssf::usermodel::HeaderFooter_MarkupTag::BOLD_FIELD = new ::poi::hssf::usermodel::HeaderFooter_MarkupTag(u"BOLD_FIELD"_j, 8, u"&B"_j, true);
+poi::hssf::usermodel::HeaderFooter_MarkupTag* poi::hssf::usermodel::HeaderFooter_MarkupTag::ITALIC_FIELD = new ::poi::hssf::usermodel::HeaderFooter_MarkupTag(u"ITALIC_FIELD"_j, 9, u"&I"_j, true);
+poi::hssf::usermodel::HeaderFooter_MarkupTag* poi::hssf::usermodel::HeaderFooter_MarkupTag::STRIKETHROUGH_FIELD = new ::poi::hssf::usermodel::HeaderFooter_MarkupTag(u"STRIKETHROUGH_FIELD"_j, 10, u"&S"_j, true);
+poi::hssf::usermodel::HeaderFooter_MarkupTag* poi::hssf::usermodel::HeaderFooter_MarkupTag::SUBSCRIPT_FIELD = new ::poi::hssf::usermodel::HeaderFooter_MarkupTag(u"SUBSCRIPT_FIELD"_j, 11, u"&Y"_j, true);
+poi::hssf::usermodel::HeaderFooter_MarkupTag* poi::hssf::usermodel::HeaderFooter_MarkupTag::SUPERSCRIPT_FIELD = new ::poi::hssf::usermodel::HeaderFooter_MarkupTag(u"SUPERSCRIPT_FIELD"_j, 12, u"&X"_j, true);
+poi::hssf::usermodel::HeaderFooter_MarkupTag* poi::hssf::usermodel::HeaderFooter_MarkupTag::UNDERLINE_FIELD = new ::poi::hssf::usermodel::HeaderFooter_MarkupTag(u"UNDERLINE_FIELD"_j, 13, u"&U"_j, true);
+poi::hssf::usermodel::HeaderFooter_MarkupTag* poi::hssf::usermodel::HeaderFooter_MarkupTag::DOUBLE_UNDERLINE_FIELD = new ::poi::hssf::usermodel::HeaderFooter_MarkupTag(u"DOUBLE_UNDERLINE_FIELD"_j, 14, u"&E"_j, true);
+void poi::hssf::usermodel::HeaderFooter_MarkupTag::ctor(::java::lang::String* name, int ordinal, ::java::lang::String* sequence, bool occursInPairs)
 {
     super::ctor(name, ordinal);
     _representation = sequence;
     _occursInPairs = occursInPairs;
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag::getRepresentation()
+java::lang::String* poi::hssf::usermodel::HeaderFooter_MarkupTag::getRepresentation()
 {
     return _representation;
 }
 
-bool org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag::occursPairs()
+bool poi::hssf::usermodel::HeaderFooter_MarkupTag::occursPairs()
 {
     return _occursInPairs;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag::class_()
+java::lang::Class* poi::hssf::usermodel::HeaderFooter_MarkupTag::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.usermodel.HeaderFooter.MarkupTag", 52);
     return c;
 }
 
-org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag* org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag::valueOf(::java::lang::String* a0)
+poi::hssf::usermodel::HeaderFooter_MarkupTag* poi::hssf::usermodel::HeaderFooter_MarkupTag::valueOf(::java::lang::String* a0)
 {
     if(BOLD_FIELD->toString()->equals(a0))
         return BOLD_FIELD;
@@ -129,9 +123,9 @@ org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag* org::apache::poi::hss
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTagArray* org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag::values()
+poi::hssf::usermodel::HeaderFooter_MarkupTagArray* poi::hssf::usermodel::HeaderFooter_MarkupTag::values()
 {
-    return new org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTagArray({
+    return new poi::hssf::usermodel::HeaderFooter_MarkupTagArray({
         BOLD_FIELD,
         DATE_FIELD,
         DOUBLE_UNDERLINE_FIELD,
@@ -150,7 +144,7 @@ org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTagArray* org::apache::poi
     });
 }
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HeaderFooter_MarkupTag::getClass0()
+java::lang::Class* poi::hssf::usermodel::HeaderFooter_MarkupTag::getClass0()
 {
     return class_();
 }

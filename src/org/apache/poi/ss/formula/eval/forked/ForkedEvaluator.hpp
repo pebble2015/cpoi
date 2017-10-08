@@ -28,32 +28,26 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
+                namespace forked
                 {
-                    namespace eval
-                    {
-                        namespace forked
-                        {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::forked::ForkedEvaluator, ::java::lang::ObjectArray > ForkedEvaluatorArray;
-                        } // forked
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::forked::ForkedEvaluator, ::java::lang::ObjectArray > ForkedEvaluatorArray;
+                } // forked
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::eval::forked::ForkedEvaluator final
+class poi::ss::formula::eval::forked::ForkedEvaluator final
     : public ::java::lang::Object
 {
 
@@ -61,25 +55,25 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    ::org::apache::poi::ss::formula::WorkbookEvaluator* _evaluator {  };
+    ::poi::ss::formula::WorkbookEvaluator* _evaluator {  };
     ForkedEvaluationWorkbook* _sewb {  };
 protected:
-    void ctor(::org::apache::poi::ss::formula::EvaluationWorkbook* masterWorkbook, ::org::apache::poi::ss::formula::IStabilityClassifier* stabilityClassifier, ::org::apache::poi::ss::formula::udf::UDFFinder* udfFinder);
+    void ctor(::poi::ss::formula::EvaluationWorkbook* masterWorkbook, ::poi::ss::formula::IStabilityClassifier* stabilityClassifier, ::poi::ss::formula::udf::UDFFinder* udfFinder);
 
 private:
-    static ::org::apache::poi::ss::formula::EvaluationWorkbook* createEvaluationWorkbook(::org::apache::poi::ss::usermodel::Workbook* wb);
+    static ::poi::ss::formula::EvaluationWorkbook* createEvaluationWorkbook(::poi::ss::usermodel::Workbook* wb);
 
 public:
-    static ForkedEvaluator* create(::org::apache::poi::ss::usermodel::Workbook* wb, ::org::apache::poi::ss::formula::IStabilityClassifier* stabilityClassifier, ::org::apache::poi::ss::formula::udf::UDFFinder* udfFinder);
-    void updateCell(::java::lang::String* sheetName, int32_t rowIndex, int32_t columnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* value);
-    void copyUpdatedCells(::org::apache::poi::ss::usermodel::Workbook* workbook);
-    ::org::apache::poi::ss::formula::eval::ValueEval* evaluate(::java::lang::String* sheetName, int32_t rowIndex, int32_t columnIndex);
+    static ForkedEvaluator* create(::poi::ss::usermodel::Workbook* wb, ::poi::ss::formula::IStabilityClassifier* stabilityClassifier, ::poi::ss::formula::udf::UDFFinder* udfFinder);
+    void updateCell(::java::lang::String* sheetName, int32_t rowIndex, int32_t columnIndex, ::poi::ss::formula::eval::ValueEval* value);
+    void copyUpdatedCells(::poi::ss::usermodel::Workbook* workbook);
+    ::poi::ss::formula::eval::ValueEval* evaluate(::java::lang::String* sheetName, int32_t rowIndex, int32_t columnIndex);
     static void setupEnvironment(::java::lang::StringArray* workbookNames, ForkedEvaluatorArray* evaluators);
 
     // Generated
 
 private:
-    ForkedEvaluator(::org::apache::poi::ss::formula::EvaluationWorkbook* masterWorkbook, ::org::apache::poi::ss::formula::IStabilityClassifier* stabilityClassifier, ::org::apache::poi::ss::formula::udf::UDFFinder* udfFinder);
+    ForkedEvaluator(::poi::ss::formula::EvaluationWorkbook* masterWorkbook, ::poi::ss::formula::IStabilityClassifier* stabilityClassifier, ::poi::ss::formula::udf::UDFFinder* udfFinder);
 protected:
     ForkedEvaluator(const ::default_init_tag&);
 

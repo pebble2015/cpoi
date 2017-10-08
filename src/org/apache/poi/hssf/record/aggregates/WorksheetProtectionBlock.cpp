@@ -32,55 +32,55 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::aggregates::WorksheetProtectionBlock::WorksheetProtectionBlock(const ::default_init_tag&)
+poi::hssf::record::aggregates::WorksheetProtectionBlock::WorksheetProtectionBlock(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::aggregates::WorksheetProtectionBlock::WorksheetProtectionBlock() 
+poi::hssf::record::aggregates::WorksheetProtectionBlock::WorksheetProtectionBlock() 
     : WorksheetProtectionBlock(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::hssf::record::aggregates::WorksheetProtectionBlock::ctor()
+void poi::hssf::record::aggregates::WorksheetProtectionBlock::ctor()
 {
     super::ctor();
 }
 
-bool org::apache::poi::hssf::record::aggregates::WorksheetProtectionBlock::isComponentRecord(int32_t sid)
+bool poi::hssf::record::aggregates::WorksheetProtectionBlock::isComponentRecord(int32_t sid)
 {
     clinit();
     switch (sid) {
-    case ::org::apache::poi::hssf::record::ProtectRecord::sid:
-    case ::org::apache::poi::hssf::record::ObjectProtectRecord::sid:
-    case ::org::apache::poi::hssf::record::ScenarioProtectRecord::sid:
-    case ::org::apache::poi::hssf::record::PasswordRecord::sid:
+    case ::poi::hssf::record::ProtectRecord::sid:
+    case ::poi::hssf::record::ObjectProtectRecord::sid:
+    case ::poi::hssf::record::ScenarioProtectRecord::sid:
+    case ::poi::hssf::record::PasswordRecord::sid:
         return true;
     }
 
     return false;
 }
 
-bool org::apache::poi::hssf::record::aggregates::WorksheetProtectionBlock::readARecord(::org::apache::poi::hssf::model::RecordStream* rs)
+bool poi::hssf::record::aggregates::WorksheetProtectionBlock::readARecord(::poi::hssf::model::RecordStream* rs)
 {
     switch (npc(rs)->peekNextSid()) {
-    case ::org::apache::poi::hssf::record::ProtectRecord::sid:
+    case ::poi::hssf::record::ProtectRecord::sid:
         checkNotPresent(_protectRecord);
-        _protectRecord = java_cast< ::org::apache::poi::hssf::record::ProtectRecord* >(npc(rs)->getNext());
+        _protectRecord = java_cast< ::poi::hssf::record::ProtectRecord* >(npc(rs)->getNext());
         break;
-    case ::org::apache::poi::hssf::record::ObjectProtectRecord::sid:
+    case ::poi::hssf::record::ObjectProtectRecord::sid:
         checkNotPresent(_objectProtectRecord);
-        _objectProtectRecord = java_cast< ::org::apache::poi::hssf::record::ObjectProtectRecord* >(npc(rs)->getNext());
+        _objectProtectRecord = java_cast< ::poi::hssf::record::ObjectProtectRecord* >(npc(rs)->getNext());
         break;
-    case ::org::apache::poi::hssf::record::ScenarioProtectRecord::sid:
+    case ::poi::hssf::record::ScenarioProtectRecord::sid:
         checkNotPresent(_scenarioProtectRecord);
-        _scenarioProtectRecord = java_cast< ::org::apache::poi::hssf::record::ScenarioProtectRecord* >(npc(rs)->getNext());
+        _scenarioProtectRecord = java_cast< ::poi::hssf::record::ScenarioProtectRecord* >(npc(rs)->getNext());
         break;
-    case ::org::apache::poi::hssf::record::PasswordRecord::sid:
+    case ::poi::hssf::record::PasswordRecord::sid:
         checkNotPresent(_passwordRecord);
-        _passwordRecord = java_cast< ::org::apache::poi::hssf::record::PasswordRecord* >(npc(rs)->getNext());
+        _passwordRecord = java_cast< ::poi::hssf::record::PasswordRecord* >(npc(rs)->getNext());
         break;
     default:
         return false;
@@ -89,15 +89,15 @@ bool org::apache::poi::hssf::record::aggregates::WorksheetProtectionBlock::readA
     return true;
 }
 
-void org::apache::poi::hssf::record::aggregates::WorksheetProtectionBlock::checkNotPresent(::org::apache::poi::hssf::record::Record* rec)
+void poi::hssf::record::aggregates::WorksheetProtectionBlock::checkNotPresent(::poi::hssf::record::Record* rec)
 {
     if(rec != nullptr) {
-        throw new ::org::apache::poi::util::RecordFormatException(::java::lang::StringBuilder().append(u"Duplicate PageSettingsBlock record (sid=0x"_j)->append(::java::lang::Integer::toHexString(npc(rec)->getSid()))
+        throw new ::poi::util::RecordFormatException(::java::lang::StringBuilder().append(u"Duplicate PageSettingsBlock record (sid=0x"_j)->append(::java::lang::Integer::toHexString(npc(rec)->getSid()))
             ->append(u")"_j)->toString());
     }
 }
 
-void org::apache::poi::hssf::record::aggregates::WorksheetProtectionBlock::visitContainedRecords(RecordAggregate_RecordVisitor* rv)
+void poi::hssf::record::aggregates::WorksheetProtectionBlock::visitContainedRecords(RecordAggregate_RecordVisitor* rv)
 {
     visitIfPresent(_protectRecord, rv);
     visitIfPresent(_objectProtectRecord, rv);
@@ -105,7 +105,7 @@ void org::apache::poi::hssf::record::aggregates::WorksheetProtectionBlock::visit
     visitIfPresent(_passwordRecord, rv);
 }
 
-void org::apache::poi::hssf::record::aggregates::WorksheetProtectionBlock::visitIfPresent(::org::apache::poi::hssf::record::Record* r, RecordAggregate_RecordVisitor* rv)
+void poi::hssf::record::aggregates::WorksheetProtectionBlock::visitIfPresent(::poi::hssf::record::Record* r, RecordAggregate_RecordVisitor* rv)
 {
     clinit();
     if(r != nullptr) {
@@ -113,17 +113,17 @@ void org::apache::poi::hssf::record::aggregates::WorksheetProtectionBlock::visit
     }
 }
 
-org::apache::poi::hssf::record::PasswordRecord* org::apache::poi::hssf::record::aggregates::WorksheetProtectionBlock::getPasswordRecord()
+poi::hssf::record::PasswordRecord* poi::hssf::record::aggregates::WorksheetProtectionBlock::getPasswordRecord()
 {
     return _passwordRecord;
 }
 
-org::apache::poi::hssf::record::ScenarioProtectRecord* org::apache::poi::hssf::record::aggregates::WorksheetProtectionBlock::getHCenter()
+poi::hssf::record::ScenarioProtectRecord* poi::hssf::record::aggregates::WorksheetProtectionBlock::getHCenter()
 {
     return _scenarioProtectRecord;
 }
 
-void org::apache::poi::hssf::record::aggregates::WorksheetProtectionBlock::addRecords(::org::apache::poi::hssf::model::RecordStream* rs)
+void poi::hssf::record::aggregates::WorksheetProtectionBlock::addRecords(::poi::hssf::model::RecordStream* rs)
 {
     while (true) {
         if(!readARecord(rs)) {
@@ -132,15 +132,15 @@ void org::apache::poi::hssf::record::aggregates::WorksheetProtectionBlock::addRe
     }
 }
 
-org::apache::poi::hssf::record::ProtectRecord* org::apache::poi::hssf::record::aggregates::WorksheetProtectionBlock::getProtect()
+poi::hssf::record::ProtectRecord* poi::hssf::record::aggregates::WorksheetProtectionBlock::getProtect()
 {
     if(_protectRecord == nullptr) {
-        _protectRecord = new ::org::apache::poi::hssf::record::ProtectRecord(false);
+        _protectRecord = new ::poi::hssf::record::ProtectRecord(false);
     }
     return _protectRecord;
 }
 
-org::apache::poi::hssf::record::PasswordRecord* org::apache::poi::hssf::record::aggregates::WorksheetProtectionBlock::getPassword()
+poi::hssf::record::PasswordRecord* poi::hssf::record::aggregates::WorksheetProtectionBlock::getPassword()
 {
     if(_passwordRecord == nullptr) {
         _passwordRecord = createPassword();
@@ -148,7 +148,7 @@ org::apache::poi::hssf::record::PasswordRecord* org::apache::poi::hssf::record::
     return _passwordRecord;
 }
 
-void org::apache::poi::hssf::record::aggregates::WorksheetProtectionBlock::protectSheet(::java::lang::String* password, bool shouldProtectObjects, bool shouldProtectScenarios)
+void poi::hssf::record::aggregates::WorksheetProtectionBlock::protectSheet(::java::lang::String* password, bool shouldProtectObjects, bool shouldProtectScenarios)
 {
     if(password == nullptr) {
         _passwordRecord = nullptr;
@@ -160,7 +160,7 @@ void org::apache::poi::hssf::record::aggregates::WorksheetProtectionBlock::prote
     auto prec = getProtect();
     auto pass = getPassword();
     npc(prec)->setProtect(true);
-    npc(pass)->setPassword(static_cast< int16_t >(::org::apache::poi::poifs::crypt::CryptoFunctions::createXorVerifier1(password)));
+    npc(pass)->setPassword(static_cast< int16_t >(::poi::poifs::crypt::CryptoFunctions::createXorVerifier1(password)));
     if(_objectProtectRecord == nullptr && shouldProtectObjects) {
         auto rec = createObjectProtect();
         npc(rec)->setProtect(true);
@@ -173,44 +173,44 @@ void org::apache::poi::hssf::record::aggregates::WorksheetProtectionBlock::prote
     }
 }
 
-bool org::apache::poi::hssf::record::aggregates::WorksheetProtectionBlock::isSheetProtected()
+bool poi::hssf::record::aggregates::WorksheetProtectionBlock::isSheetProtected()
 {
     return _protectRecord != nullptr && npc(_protectRecord)->getProtect();
 }
 
-bool org::apache::poi::hssf::record::aggregates::WorksheetProtectionBlock::isObjectProtected()
+bool poi::hssf::record::aggregates::WorksheetProtectionBlock::isObjectProtected()
 {
     return _objectProtectRecord != nullptr && npc(_objectProtectRecord)->getProtect();
 }
 
-bool org::apache::poi::hssf::record::aggregates::WorksheetProtectionBlock::isScenarioProtected()
+bool poi::hssf::record::aggregates::WorksheetProtectionBlock::isScenarioProtected()
 {
     return _scenarioProtectRecord != nullptr && npc(_scenarioProtectRecord)->getProtect();
 }
 
-org::apache::poi::hssf::record::ObjectProtectRecord* org::apache::poi::hssf::record::aggregates::WorksheetProtectionBlock::createObjectProtect()
+poi::hssf::record::ObjectProtectRecord* poi::hssf::record::aggregates::WorksheetProtectionBlock::createObjectProtect()
 {
     clinit();
-    auto retval = new ::org::apache::poi::hssf::record::ObjectProtectRecord();
+    auto retval = new ::poi::hssf::record::ObjectProtectRecord();
     npc(retval)->setProtect(false);
     return retval;
 }
 
-org::apache::poi::hssf::record::ScenarioProtectRecord* org::apache::poi::hssf::record::aggregates::WorksheetProtectionBlock::createScenarioProtect()
+poi::hssf::record::ScenarioProtectRecord* poi::hssf::record::aggregates::WorksheetProtectionBlock::createScenarioProtect()
 {
     clinit();
-    auto retval = new ::org::apache::poi::hssf::record::ScenarioProtectRecord();
+    auto retval = new ::poi::hssf::record::ScenarioProtectRecord();
     npc(retval)->setProtect(false);
     return retval;
 }
 
-org::apache::poi::hssf::record::PasswordRecord* org::apache::poi::hssf::record::aggregates::WorksheetProtectionBlock::createPassword()
+poi::hssf::record::PasswordRecord* poi::hssf::record::aggregates::WorksheetProtectionBlock::createPassword()
 {
     clinit();
-    return new ::org::apache::poi::hssf::record::PasswordRecord(int32_t(0));
+    return new ::poi::hssf::record::PasswordRecord(int32_t(0));
 }
 
-int32_t org::apache::poi::hssf::record::aggregates::WorksheetProtectionBlock::getPasswordHash()
+int32_t poi::hssf::record::aggregates::WorksheetProtectionBlock::getPasswordHash()
 {
     if(_passwordRecord == nullptr) {
         return 0;
@@ -220,13 +220,13 @@ int32_t org::apache::poi::hssf::record::aggregates::WorksheetProtectionBlock::ge
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::aggregates::WorksheetProtectionBlock::class_()
+java::lang::Class* poi::hssf::record::aggregates::WorksheetProtectionBlock::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.aggregates.WorksheetProtectionBlock", 62);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::record::aggregates::WorksheetProtectionBlock::getClass0()
+java::lang::Class* poi::hssf::record::aggregates::WorksheetProtectionBlock::getClass0()
 {
     return class_();
 }

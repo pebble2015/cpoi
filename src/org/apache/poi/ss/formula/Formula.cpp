@@ -17,25 +17,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -44,39 +38,39 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::Formula::Formula(const ::default_init_tag&)
+poi::ss::formula::Formula::Formula(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::Formula::Formula(::int8_tArray* byteEncoding, int32_t encodedTokenLen) 
+poi::ss::formula::Formula::Formula(::int8_tArray* byteEncoding, int32_t encodedTokenLen) 
     : Formula(*static_cast< ::default_init_tag* >(0))
 {
     ctor(byteEncoding,encodedTokenLen);
 }
 
-org::apache::poi::ss::formula::Formula*& org::apache::poi::ss::formula::Formula::EMPTY()
+poi::ss::formula::Formula*& poi::ss::formula::Formula::EMPTY()
 {
     clinit();
     return EMPTY_;
 }
-org::apache::poi::ss::formula::Formula* org::apache::poi::ss::formula::Formula::EMPTY_;
+poi::ss::formula::Formula* poi::ss::formula::Formula::EMPTY_;
 
-void org::apache::poi::ss::formula::Formula::ctor(::int8_tArray* byteEncoding, int32_t encodedTokenLen)
+void poi::ss::formula::Formula::ctor(::int8_tArray* byteEncoding, int32_t encodedTokenLen)
 {
     super::ctor();
     _byteEncoding = npc(byteEncoding)->clone();
     _encodedTokenLen = encodedTokenLen;
 }
 
-org::apache::poi::ss::formula::Formula* org::apache::poi::ss::formula::Formula::read(int32_t encodedTokenLen, ::org::apache::poi::util::LittleEndianInput* in)
+poi::ss::formula::Formula* poi::ss::formula::Formula::read(int32_t encodedTokenLen, ::poi::util::LittleEndianInput* in)
 {
     clinit();
     return read(encodedTokenLen, in, encodedTokenLen);
 }
 
-org::apache::poi::ss::formula::Formula* org::apache::poi::ss::formula::Formula::read(int32_t encodedTokenLen, ::org::apache::poi::util::LittleEndianInput* in, int32_t totalEncodedLen)
+poi::ss::formula::Formula* poi::ss::formula::Formula::read(int32_t encodedTokenLen, ::poi::util::LittleEndianInput* in, int32_t totalEncodedLen)
 {
     clinit();
     auto byteEncoding = new ::int8_tArray(totalEncodedLen);
@@ -84,53 +78,53 @@ org::apache::poi::ss::formula::Formula* org::apache::poi::ss::formula::Formula::
     return new Formula(byteEncoding, encodedTokenLen);
 }
 
-org::apache::poi::ss::formula::ptg::PtgArray* org::apache::poi::ss::formula::Formula::getTokens()
+poi::ss::formula::ptg::PtgArray* poi::ss::formula::Formula::getTokens()
 {
-    ::org::apache::poi::util::LittleEndianInput* in = new ::org::apache::poi::util::LittleEndianByteArrayInputStream(_byteEncoding);
-    return ::org::apache::poi::ss::formula::ptg::Ptg::readTokens(_encodedTokenLen, in);
+    ::poi::util::LittleEndianInput* in = new ::poi::util::LittleEndianByteArrayInputStream(_byteEncoding);
+    return ::poi::ss::formula::ptg::Ptg::readTokens(_encodedTokenLen, in);
 }
 
-void org::apache::poi::ss::formula::Formula::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::ss::formula::Formula::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(_encodedTokenLen);
     npc(out)->write(_byteEncoding);
 }
 
-void org::apache::poi::ss::formula::Formula::serializeTokens(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::ss::formula::Formula::serializeTokens(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->write(_byteEncoding, 0, _encodedTokenLen);
 }
 
-void org::apache::poi::ss::formula::Formula::serializeArrayConstantData(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::ss::formula::Formula::serializeArrayConstantData(::poi::util::LittleEndianOutput* out)
 {
     auto len = npc(_byteEncoding)->length - _encodedTokenLen;
     npc(out)->write(_byteEncoding, _encodedTokenLen, len);
 }
 
-int32_t org::apache::poi::ss::formula::Formula::getEncodedSize()
+int32_t poi::ss::formula::Formula::getEncodedSize()
 {
     return int32_t(2) + npc(_byteEncoding)->length;
 }
 
-int32_t org::apache::poi::ss::formula::Formula::getEncodedTokenSize()
+int32_t poi::ss::formula::Formula::getEncodedTokenSize()
 {
     return _encodedTokenLen;
 }
 
-org::apache::poi::ss::formula::Formula* org::apache::poi::ss::formula::Formula::create(::org::apache::poi::ss::formula::ptg::PtgArray* ptgs)
+poi::ss::formula::Formula* poi::ss::formula::Formula::create(::poi::ss::formula::ptg::PtgArray* ptgs)
 {
     clinit();
     if(ptgs == nullptr || npc(ptgs)->length < 1) {
         return EMPTY_;
     }
-    auto totalSize = ::org::apache::poi::ss::formula::ptg::Ptg::getEncodedSize(ptgs);
+    auto totalSize = ::poi::ss::formula::ptg::Ptg::getEncodedSize(ptgs);
     auto encodedData = new ::int8_tArray(totalSize);
-    ::org::apache::poi::ss::formula::ptg::Ptg::serializePtgs(ptgs, encodedData, 0);
-    auto encodedTokenLen = ::org::apache::poi::ss::formula::ptg::Ptg::getEncodedSizeWithoutArrayData(ptgs);
+    ::poi::ss::formula::ptg::Ptg::serializePtgs(ptgs, encodedData, 0);
+    auto encodedTokenLen = ::poi::ss::formula::ptg::Ptg::getEncodedSizeWithoutArrayData(ptgs);
     return new Formula(encodedData, encodedTokenLen);
 }
 
-org::apache::poi::ss::formula::ptg::PtgArray* org::apache::poi::ss::formula::Formula::getTokens(Formula* formula)
+poi::ss::formula::ptg::PtgArray* poi::ss::formula::Formula::getTokens(Formula* formula)
 {
     clinit();
     if(formula == nullptr) {
@@ -139,45 +133,45 @@ org::apache::poi::ss::formula::ptg::PtgArray* org::apache::poi::ss::formula::For
     return npc(formula)->getTokens();
 }
 
-org::apache::poi::ss::formula::Formula* org::apache::poi::ss::formula::Formula::copy()
+poi::ss::formula::Formula* poi::ss::formula::Formula::copy()
 {
     return this;
 }
 
-org::apache::poi::ss::util::CellReference* org::apache::poi::ss::formula::Formula::getExpReference()
+poi::ss::util::CellReference* poi::ss::formula::Formula::getExpReference()
 {
     auto data = _byteEncoding;
     if(npc(data)->length != 5) {
         return nullptr;
     }
     switch ((*data)[int32_t(0)]) {
-    case ::org::apache::poi::ss::formula::ptg::ExpPtg::sid:
+    case ::poi::ss::formula::ptg::ExpPtg::sid:
         break;
-    case ::org::apache::poi::ss::formula::ptg::TblPtg::sid:
+    case ::poi::ss::formula::ptg::TblPtg::sid:
         break;
     default:
         return nullptr;
     }
 
-    auto firstRow = ::org::apache::poi::util::LittleEndian::getUShort(data, 1);
-    auto firstColumn = ::org::apache::poi::util::LittleEndian::getUShort(data, 3);
-    return new ::org::apache::poi::ss::util::CellReference(firstRow, firstColumn);
+    auto firstRow = ::poi::util::LittleEndian::getUShort(data, 1);
+    auto firstColumn = ::poi::util::LittleEndian::getUShort(data, 3);
+    return new ::poi::ss::util::CellReference(firstRow, firstColumn);
 }
 
-bool org::apache::poi::ss::formula::Formula::isSame(Formula* other)
+bool poi::ss::formula::Formula::isSame(Formula* other)
 {
     return ::java::util::Arrays::equals(_byteEncoding, npc(other)->_byteEncoding);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::Formula::class_()
+java::lang::Class* poi::ss::formula::Formula::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.Formula", 33);
     return c;
 }
 
-void org::apache::poi::ss::formula::Formula::clinit()
+void poi::ss::formula::Formula::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -193,7 +187,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::formula::Formula::getClass0()
+java::lang::Class* poi::ss::formula::Formula::getClass0()
 {
     return class_();
 }

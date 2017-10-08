@@ -11,16 +11,16 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFShapeFactory
+class poi::hssf::usermodel::HSSFShapeFactory
     : public virtual ::java::lang::Object
 {
 
 public:
     typedef ::java::lang::Object super;
-    static void createShapeTree(::org::apache::poi::ddf::EscherContainerRecord* container, ::org::apache::poi::hssf::record::EscherAggregate* agg, HSSFShapeContainer* out, ::org::apache::poi::poifs::filesystem::DirectoryNode* root);
+    static void createShapeTree(::poi::ddf::EscherContainerRecord* container, ::poi::hssf::record::EscherAggregate* agg, HSSFShapeContainer* out, ::poi::poifs::filesystem::DirectoryNode* root);
 
 private:
-    static bool isEmbeddedObject(::org::apache::poi::hssf::record::ObjRecord* obj);
+    static bool isEmbeddedObject(::poi::hssf::record::ObjRecord* obj);
 
     // Generated
 

@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::geom::PresetGeometries
+class poi::sl::draw::geom::PresetGeometries
     : public ::java::util::LinkedHashMap
 {
 
@@ -19,7 +19,7 @@ public:
     typedef ::java::util::LinkedHashMap super;
 
 private:
-    static ::org::apache::poi::util::POILogger* LOG_;
+    static ::poi::util::POILogger* LOG_;
     static ::java::lang::String* BINDING_PACKAGE_;
     static PresetGeometries* _inst_;
 protected:
@@ -43,7 +43,7 @@ public:
     static void clinit();
 
 private:
-    static ::org::apache::poi::util::POILogger*& LOG();
+    static ::poi::util::POILogger*& LOG();
 
 public: /* protected */
     static ::java::lang::String*& BINDING_PACKAGE();

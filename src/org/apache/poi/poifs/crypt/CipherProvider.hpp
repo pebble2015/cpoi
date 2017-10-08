@@ -23,26 +23,20 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace poifs
     {
-        namespace poi
+        namespace crypt
         {
-            namespace poifs
-            {
-                namespace crypt
-                {
-typedef ::SubArray< ::org::apache::poi::poifs::crypt::CipherProvider, ::java::lang::EnumArray > CipherProviderArray;
-                } // crypt
-            } // poifs
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::poifs::crypt::CipherProvider, ::java::lang::EnumArray > CipherProviderArray;
+        } // crypt
+    } // poifs
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::crypt::CipherProvider final
+class poi::poifs::crypt::CipherProvider final
     : public ::java::lang::Enum
 {
 

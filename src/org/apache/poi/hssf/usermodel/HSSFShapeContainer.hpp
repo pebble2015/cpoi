@@ -7,8 +7,8 @@
 #include <org/apache/poi/hssf/usermodel/fwd-POI.hpp>
 #include <org/apache/poi/ss/usermodel/ShapeContainer.hpp>
 
-struct org::apache::poi::hssf::usermodel::HSSFShapeContainer
-    : public virtual ::org::apache::poi::ss::usermodel::ShapeContainer
+struct poi::hssf::usermodel::HSSFShapeContainer
+    : public virtual ::poi::ss::usermodel::ShapeContainer
 {
     virtual ::java::util::List* getChildren() = 0;
     virtual void addShape(HSSFShape* shape) = 0;

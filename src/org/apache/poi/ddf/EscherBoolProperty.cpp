@@ -14,49 +14,49 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ddf::EscherBoolProperty::EscherBoolProperty(const ::default_init_tag&)
+poi::ddf::EscherBoolProperty::EscherBoolProperty(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ddf::EscherBoolProperty::EscherBoolProperty(int16_t propertyNumber, int32_t value) 
+poi::ddf::EscherBoolProperty::EscherBoolProperty(int16_t propertyNumber, int32_t value) 
     : EscherBoolProperty(*static_cast< ::default_init_tag* >(0))
 {
     ctor(propertyNumber,value);
 }
 
-void org::apache::poi::ddf::EscherBoolProperty::ctor(int16_t propertyNumber, int32_t value)
+void poi::ddf::EscherBoolProperty::ctor(int16_t propertyNumber, int32_t value)
 {
     super::ctor(propertyNumber, value);
 }
 
-bool org::apache::poi::ddf::EscherBoolProperty::isTrue()
+bool poi::ddf::EscherBoolProperty::isTrue()
 {
     return getPropertyValue() != 0;
 }
 
-bool org::apache::poi::ddf::EscherBoolProperty::isFalse()
+bool poi::ddf::EscherBoolProperty::isFalse()
 {
     return !isTrue();
 }
 
-java::lang::String* org::apache::poi::ddf::EscherBoolProperty::toXml(::java::lang::String* tab)
+java::lang::String* poi::ddf::EscherBoolProperty::toXml(::java::lang::String* tab)
 {
     auto builder = new ::java::lang::StringBuilder();
-    npc(npc(npc(npc(npc(npc(npc(npc(npc(npc(npc(npc(npc(npc(npc(builder)->append(tab))->append(u"<"_j))->append(npc(getClass())->getSimpleName()))->append(u" id=\"0x"_j))->append(::org::apache::poi::util::HexDump::toHex(getId())))->append(u"\" name=\""_j))->append(getName()))->append(u"\" simpleValue=\""_j))->append(getPropertyValue()))->append(u"\" blipId=\""_j))->append(isBlipId()))->append(u"\" value=\""_j))->append(isTrue()))->append(u"\""_j))->append(u"/>"_j);
+    npc(npc(npc(npc(npc(npc(npc(npc(npc(npc(npc(npc(npc(npc(npc(builder)->append(tab))->append(u"<"_j))->append(npc(getClass())->getSimpleName()))->append(u" id=\"0x"_j))->append(::poi::util::HexDump::toHex(getId())))->append(u"\" name=\""_j))->append(getName()))->append(u"\" simpleValue=\""_j))->append(getPropertyValue()))->append(u"\" blipId=\""_j))->append(isBlipId()))->append(u"\" value=\""_j))->append(isTrue()))->append(u"\""_j))->append(u"/>"_j);
     return npc(builder)->toString();
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ddf::EscherBoolProperty::class_()
+java::lang::Class* poi::ddf::EscherBoolProperty::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ddf.EscherBoolProperty", 37);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ddf::EscherBoolProperty::getClass0()
+java::lang::Class* poi::ddf::EscherBoolProperty::getClass0()
 {
     return class_();
 }

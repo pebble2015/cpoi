@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::DrawingSelectionRecord_OfficeArtRecordHeader final
+class poi::hssf::record::DrawingSelectionRecord_OfficeArtRecordHeader final
     : public ::java::lang::Object
 {
 
@@ -23,14 +23,14 @@ private:
     int32_t _type {  };
     int32_t _length {  };
 protected:
-    void ctor(::org::apache::poi::util::LittleEndianInput* in);
+    void ctor(::poi::util::LittleEndianInput* in);
 
 public:
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out);
+    void serialize(::poi::util::LittleEndianOutput* out);
     ::java::lang::String* debugFormatAsString();
 
     // Generated
-    DrawingSelectionRecord_OfficeArtRecordHeader(::org::apache::poi::util::LittleEndianInput* in);
+    DrawingSelectionRecord_OfficeArtRecordHeader(::poi::util::LittleEndianInput* in);
 protected:
     DrawingSelectionRecord_OfficeArtRecordHeader(const ::default_init_tag&);
 

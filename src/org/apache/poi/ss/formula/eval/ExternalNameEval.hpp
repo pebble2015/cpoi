@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::eval::ExternalNameEval final
+class poi::ss::formula::eval::ExternalNameEval final
     : public virtual ::java::lang::Object
     , public ValueEval
 {
@@ -19,16 +19,16 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    ::org::apache::poi::ss::formula::EvaluationName* _name {  };
+    ::poi::ss::formula::EvaluationName* _name {  };
 protected:
-    void ctor(::org::apache::poi::ss::formula::EvaluationName* name);
+    void ctor(::poi::ss::formula::EvaluationName* name);
 
 public:
-    ::org::apache::poi::ss::formula::EvaluationName* getName();
+    ::poi::ss::formula::EvaluationName* getName();
     ::java::lang::String* toString() override;
 
     // Generated
-    ExternalNameEval(::org::apache::poi::ss::formula::EvaluationName* name);
+    ExternalNameEval(::poi::ss::formula::EvaluationName* name);
 protected:
     ExternalNameEval(const ::default_init_tag&);
 

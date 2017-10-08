@@ -26,24 +26,24 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::filesystem::DocumentDescriptor::DocumentDescriptor(const ::default_init_tag&)
+poi::poifs::filesystem::DocumentDescriptor::DocumentDescriptor(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::filesystem::DocumentDescriptor::DocumentDescriptor(POIFSDocumentPath* path, ::java::lang::String* name) 
+poi::poifs::filesystem::DocumentDescriptor::DocumentDescriptor(POIFSDocumentPath* path, ::java::lang::String* name) 
     : DocumentDescriptor(*static_cast< ::default_init_tag* >(0))
 {
     ctor(path,name);
 }
 
-void org::apache::poi::poifs::filesystem::DocumentDescriptor::init()
+void poi::poifs::filesystem::DocumentDescriptor::init()
 {
     hashcode = int32_t(0);
 }
 
-void org::apache::poi::poifs::filesystem::DocumentDescriptor::ctor(POIFSDocumentPath* path, ::java::lang::String* name)
+void poi::poifs::filesystem::DocumentDescriptor::ctor(POIFSDocumentPath* path, ::java::lang::String* name)
 {
     super::ctor();
     init();
@@ -60,7 +60,7 @@ void org::apache::poi::poifs::filesystem::DocumentDescriptor::ctor(POIFSDocument
     this->name = name;
 }
 
-bool org::apache::poi::poifs::filesystem::DocumentDescriptor::equals(::java::lang::Object* o)
+bool poi::poifs::filesystem::DocumentDescriptor::equals(::java::lang::Object* o)
 {
     auto rval = false;
     if((o != nullptr) && (static_cast< ::java::lang::Object* >(npc(o)->getClass()) == static_cast< ::java::lang::Object* >(this->getClass()))) {
@@ -74,7 +74,7 @@ bool org::apache::poi::poifs::filesystem::DocumentDescriptor::equals(::java::lan
     return rval;
 }
 
-int32_t org::apache::poi::poifs::filesystem::DocumentDescriptor::hashCode()
+int32_t poi::poifs::filesystem::DocumentDescriptor::hashCode()
 {
     if(hashcode == 0) {
         hashcode = npc(path)->hashCode() ^ npc(name)->hashCode();
@@ -82,7 +82,7 @@ int32_t org::apache::poi::poifs::filesystem::DocumentDescriptor::hashCode()
     return hashcode;
 }
 
-java::lang::String* org::apache::poi::poifs::filesystem::DocumentDescriptor::toString()
+java::lang::String* poi::poifs::filesystem::DocumentDescriptor::toString()
 {
     auto buffer = new ::java::lang::StringBuffer(int32_t(40) * (npc(path)->length() + int32_t(1)));
     for (auto j = int32_t(0); j < npc(path)->length(); j++) {
@@ -94,13 +94,13 @@ java::lang::String* org::apache::poi::poifs::filesystem::DocumentDescriptor::toS
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::filesystem::DocumentDescriptor::class_()
+java::lang::Class* poi::poifs::filesystem::DocumentDescriptor::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.filesystem.DocumentDescriptor", 50);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::filesystem::DocumentDescriptor::getClass0()
+java::lang::Class* poi::poifs::filesystem::DocumentDescriptor::getClass0()
 {
     return class_();
 }

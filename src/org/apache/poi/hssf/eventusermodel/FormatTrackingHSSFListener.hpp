@@ -15,7 +15,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::eventusermodel::FormatTrackingHSSFListener
+class poi::hssf::eventusermodel::FormatTrackingHSSFListener
     : public virtual ::java::lang::Object
     , public virtual HSSFListener
 {
@@ -24,9 +24,9 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    static ::org::apache::poi::util::POILogger* logger_;
+    static ::poi::util::POILogger* logger_;
     HSSFListener* _childListener {  };
-    ::org::apache::poi::hssf::usermodel::HSSFDataFormatter* _formatter {  };
+    ::poi::hssf::usermodel::HSSFDataFormatter* _formatter {  };
     ::java::text::NumberFormat* _defaultFormat {  };
     ::java::util::Map* _customFormatRecords {  };
     ::java::util::List* _xfRecords {  };
@@ -39,12 +39,12 @@ public: /* protected */
     virtual int32_t getNumberOfExtendedFormats();
 
 public:
-    void processRecord(::org::apache::poi::hssf::record::Record* record) override;
-    virtual void processRecordInternally(::org::apache::poi::hssf::record::Record* record);
-    virtual ::java::lang::String* formatNumberDateCell(::org::apache::poi::hssf::record::CellValueRecordInterface* cell);
+    void processRecord(::poi::hssf::record::Record* record) override;
+    virtual void processRecordInternally(::poi::hssf::record::Record* record);
+    virtual ::java::lang::String* formatNumberDateCell(::poi::hssf::record::CellValueRecordInterface* cell);
     virtual ::java::lang::String* getFormatString(int32_t formatIndex);
-    virtual ::java::lang::String* getFormatString(::org::apache::poi::hssf::record::CellValueRecordInterface* cell);
-    virtual int32_t getFormatIndex(::org::apache::poi::hssf::record::CellValueRecordInterface* cell);
+    virtual ::java::lang::String* getFormatString(::poi::hssf::record::CellValueRecordInterface* cell);
+    virtual int32_t getFormatIndex(::poi::hssf::record::CellValueRecordInterface* cell);
 
     // Generated
     FormatTrackingHSSFListener(HSSFListener* childListener);
@@ -59,6 +59,6 @@ public:
 
 private:
     void init();
-    static ::org::apache::poi::util::POILogger*& logger();
+    static ::poi::util::POILogger*& logger();
     virtual ::java::lang::Class* getClass0();
 };

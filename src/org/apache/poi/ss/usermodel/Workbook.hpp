@@ -12,7 +12,7 @@
 #include <java/io/Closeable.hpp>
 #include <java/lang/Iterable.hpp>
 
-struct org::apache::poi::ss::usermodel::Workbook
+struct poi::ss::usermodel::Workbook
     : public virtual ::java::io::Closeable
     , public virtual ::java::lang::Iterable
 {
@@ -81,10 +81,10 @@ struct org::apache::poi::ss::usermodel::Workbook
     virtual void setSheetHidden(int32_t sheetIx, int32_t hidden) = 0;
     virtual SheetVisibility* getSheetVisibility(int32_t sheetIx) = 0;
     virtual void setSheetVisibility(int32_t sheetIx, SheetVisibility* visibility) = 0;
-    virtual void addToolPack(::org::apache::poi::ss::formula::udf::UDFFinder* toopack) = 0;
+    virtual void addToolPack(::poi::ss::formula::udf::UDFFinder* toopack) = 0;
     virtual void setForceFormulaRecalculation(bool value) = 0;
     virtual bool getForceFormulaRecalculation() = 0;
-    virtual ::org::apache::poi::ss::SpreadsheetVersion* getSpreadsheetVersion() = 0;
+    virtual ::poi::ss::SpreadsheetVersion* getSpreadsheetVersion() = 0;
     virtual int32_t addOlePackage(::int8_tArray* oleData, ::java::lang::String* label, ::java::lang::String* fileName, ::java::lang::String* command) /* throws(IOException) */ = 0;
 
     // Generated

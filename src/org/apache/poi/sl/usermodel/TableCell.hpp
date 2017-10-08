@@ -7,7 +7,7 @@
 #include <org/apache/poi/sl/usermodel/fwd-POI.hpp>
 #include <org/apache/poi/sl/usermodel/TextShape.hpp>
 
-struct org::apache::poi::sl::usermodel::TableCell
+struct poi::sl::usermodel::TableCell
     : public virtual TextShape
 {
     virtual StrokeStyle* getBorderStyle(TableCell_BorderEdge* edge) = 0;

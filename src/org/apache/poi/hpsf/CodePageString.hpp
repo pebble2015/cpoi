@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hpsf::CodePageString
+class poi::hpsf::CodePageString
     : public virtual ::java::lang::Object
 {
 
@@ -19,13 +19,13 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    static ::org::apache::poi::util::POILogger* LOG_;
+    static ::poi::util::POILogger* LOG_;
     ::int8_tArray* _value {  };
 protected:
     void ctor();
 
 public: /* package */
-    virtual void read(::org::apache::poi::util::LittleEndianByteArrayInputStream* lei);
+    virtual void read(::poi::util::LittleEndianByteArrayInputStream* lei);
     virtual ::java::lang::String* getJavaValue(int32_t codepage) /* throws(UnsupportedEncodingException) */;
     virtual int32_t getSize();
     virtual void setJavaValue(::java::lang::String* string, int32_t codepage) /* throws(UnsupportedEncodingException) */;
@@ -42,6 +42,6 @@ public:
     static void clinit();
 
 private:
-    static ::org::apache::poi::util::POILogger*& LOG();
+    static ::poi::util::POILogger*& LOG();
     virtual ::java::lang::Class* getClass0();
 };

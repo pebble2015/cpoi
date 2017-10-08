@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::dev::POIFSViewEngine
+class poi::poifs::dev::POIFSViewEngine
     : public virtual ::java::lang::Object
 {
 

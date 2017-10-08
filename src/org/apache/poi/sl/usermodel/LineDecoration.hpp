@@ -5,7 +5,7 @@
 #include <org/apache/poi/sl/usermodel/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::sl::usermodel::LineDecoration
+struct poi::sl::usermodel::LineDecoration
     : public virtual ::java::lang::Object
 {
     virtual LineDecoration_DecorationShape* getHeadShape() = 0;

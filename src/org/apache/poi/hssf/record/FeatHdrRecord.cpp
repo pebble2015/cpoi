@@ -27,57 +27,57 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::FeatHdrRecord::FeatHdrRecord(const ::default_init_tag&)
+poi::hssf::record::FeatHdrRecord::FeatHdrRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::FeatHdrRecord::FeatHdrRecord() 
+poi::hssf::record::FeatHdrRecord::FeatHdrRecord() 
     : FeatHdrRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::FeatHdrRecord::FeatHdrRecord(RecordInputStream* in) 
+poi::hssf::record::FeatHdrRecord::FeatHdrRecord(RecordInputStream* in) 
     : FeatHdrRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int32_t org::apache::poi::hssf::record::FeatHdrRecord::SHAREDFEATURES_ISFPROTECTION;
+constexpr int32_t poi::hssf::record::FeatHdrRecord::SHAREDFEATURES_ISFPROTECTION;
 
-constexpr int32_t org::apache::poi::hssf::record::FeatHdrRecord::SHAREDFEATURES_ISFFEC2;
+constexpr int32_t poi::hssf::record::FeatHdrRecord::SHAREDFEATURES_ISFFEC2;
 
-constexpr int32_t org::apache::poi::hssf::record::FeatHdrRecord::SHAREDFEATURES_ISFFACTOID;
+constexpr int32_t poi::hssf::record::FeatHdrRecord::SHAREDFEATURES_ISFFACTOID;
 
-constexpr int32_t org::apache::poi::hssf::record::FeatHdrRecord::SHAREDFEATURES_ISFLIST;
+constexpr int32_t poi::hssf::record::FeatHdrRecord::SHAREDFEATURES_ISFLIST;
 
-constexpr int16_t org::apache::poi::hssf::record::FeatHdrRecord::sid;
+constexpr int16_t poi::hssf::record::FeatHdrRecord::sid;
 
-void org::apache::poi::hssf::record::FeatHdrRecord::ctor()
+void poi::hssf::record::FeatHdrRecord::ctor()
 {
     super::ctor();
-    futureHeader = new ::org::apache::poi::hssf::record::common::FtrHeader();
+    futureHeader = new ::poi::hssf::record::common::FtrHeader();
     npc(futureHeader)->setRecordType(sid);
 }
 
-int16_t org::apache::poi::hssf::record::FeatHdrRecord::getSid()
+int16_t poi::hssf::record::FeatHdrRecord::getSid()
 {
     return sid;
 }
 
-void org::apache::poi::hssf::record::FeatHdrRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::FeatHdrRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
-    futureHeader = new ::org::apache::poi::hssf::record::common::FtrHeader(in);
+    futureHeader = new ::poi::hssf::record::common::FtrHeader(in);
     isf_sharedFeatureType = npc(in)->readShort();
     reserved = npc(in)->readByte();
     cbHdrData = npc(in)->readInt();
     rgbHdrData = npc(in)->readRemainder();
 }
 
-java::lang::String* org::apache::poi::hssf::record::FeatHdrRecord::toString()
+java::lang::String* poi::hssf::record::FeatHdrRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[FEATURE HEADER]\n"_j);
@@ -85,7 +85,7 @@ java::lang::String* org::apache::poi::hssf::record::FeatHdrRecord::toString()
     return npc(buffer)->toString();
 }
 
-void org::apache::poi::hssf::record::FeatHdrRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::FeatHdrRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(futureHeader)->serialize(out);
     npc(out)->writeShort(isf_sharedFeatureType);
@@ -94,35 +94,35 @@ void org::apache::poi::hssf::record::FeatHdrRecord::serialize(::org::apache::poi
     npc(out)->write(rgbHdrData);
 }
 
-int32_t org::apache::poi::hssf::record::FeatHdrRecord::getDataSize()
+int32_t poi::hssf::record::FeatHdrRecord::getDataSize()
 {
     return int32_t(12) + int32_t(2) + int32_t(1)+ int32_t(4)+ npc(rgbHdrData)->length;
 }
 
-org::apache::poi::hssf::record::FeatHdrRecord* org::apache::poi::hssf::record::FeatHdrRecord::clone()
+poi::hssf::record::FeatHdrRecord* poi::hssf::record::FeatHdrRecord::clone()
 {
     return java_cast< FeatHdrRecord* >(cloneViaReserialise());
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::FeatHdrRecord::class_()
+java::lang::Class* poi::hssf::record::FeatHdrRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.FeatHdrRecord", 40);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::FeatHdrRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::FeatHdrRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::FeatHdrRecord::serialize()
+int8_tArray* poi::hssf::record::FeatHdrRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::FeatHdrRecord::getClass0()
+java::lang::Class* poi::hssf::record::FeatHdrRecord::getClass0()
 {
     return class_();
 }

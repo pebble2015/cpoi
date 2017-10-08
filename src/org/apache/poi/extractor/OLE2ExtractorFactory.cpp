@@ -83,16 +83,10 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
-    {
-        namespace poi
-        {
-typedef ::SubArray< ::org::apache::poi::POITextExtractor, ::java::lang::ObjectArray, ::java::io::CloseableArray > POITextExtractorArray;
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::POITextExtractor, ::java::lang::ObjectArray, ::java::io::CloseableArray > POITextExtractorArray;
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -126,64 +120,64 @@ namespace
 
     template<typename F> finally_<F> finally(F f) { return finally_<F>(f); }
 }
-org::apache::poi::extractor::OLE2ExtractorFactory::OLE2ExtractorFactory(const ::default_init_tag&)
+poi::extractor::OLE2ExtractorFactory::OLE2ExtractorFactory(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::extractor::OLE2ExtractorFactory::OLE2ExtractorFactory()
+poi::extractor::OLE2ExtractorFactory::OLE2ExtractorFactory()
     : OLE2ExtractorFactory(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::util::POILogger*& org::apache::poi::extractor::OLE2ExtractorFactory::LOGGER()
+poi::util::POILogger*& poi::extractor::OLE2ExtractorFactory::LOGGER()
 {
     clinit();
     return LOGGER_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::extractor::OLE2ExtractorFactory::LOGGER_;
+poi::util::POILogger* poi::extractor::OLE2ExtractorFactory::LOGGER_;
 
-java::lang::ThreadLocal*& org::apache::poi::extractor::OLE2ExtractorFactory::threadPreferEventExtractors()
+java::lang::ThreadLocal*& poi::extractor::OLE2ExtractorFactory::threadPreferEventExtractors()
 {
     clinit();
     return threadPreferEventExtractors_;
 }
-java::lang::ThreadLocal* org::apache::poi::extractor::OLE2ExtractorFactory::threadPreferEventExtractors_;
+java::lang::ThreadLocal* poi::extractor::OLE2ExtractorFactory::threadPreferEventExtractors_;
 
-java::lang::Boolean*& org::apache::poi::extractor::OLE2ExtractorFactory::allPreferEventExtractors()
+java::lang::Boolean*& poi::extractor::OLE2ExtractorFactory::allPreferEventExtractors()
 {
     clinit();
     return allPreferEventExtractors_;
 }
-java::lang::Boolean* org::apache::poi::extractor::OLE2ExtractorFactory::allPreferEventExtractors_;
+java::lang::Boolean* poi::extractor::OLE2ExtractorFactory::allPreferEventExtractors_;
 
-bool org::apache::poi::extractor::OLE2ExtractorFactory::getThreadPrefersEventExtractors()
+bool poi::extractor::OLE2ExtractorFactory::getThreadPrefersEventExtractors()
 {
     clinit();
     return (npc(java_cast< ::java::lang::Boolean* >(npc(threadPreferEventExtractors_)->get())))->booleanValue();
 }
 
-java::lang::Boolean* org::apache::poi::extractor::OLE2ExtractorFactory::getAllThreadsPreferEventExtractors()
+java::lang::Boolean* poi::extractor::OLE2ExtractorFactory::getAllThreadsPreferEventExtractors()
 {
     clinit();
     return allPreferEventExtractors_;
 }
 
-void org::apache::poi::extractor::OLE2ExtractorFactory::setThreadPrefersEventExtractors(bool preferEventExtractors)
+void poi::extractor::OLE2ExtractorFactory::setThreadPrefersEventExtractors(bool preferEventExtractors)
 {
     clinit();
     npc(threadPreferEventExtractors_)->set(::java::lang::Boolean::valueOf(preferEventExtractors));
 }
 
-void org::apache::poi::extractor::OLE2ExtractorFactory::setAllThreadsPreferEventExtractors(::java::lang::Boolean* preferEventExtractors)
+void poi::extractor::OLE2ExtractorFactory::setAllThreadsPreferEventExtractors(::java::lang::Boolean* preferEventExtractors)
 {
     clinit();
     allPreferEventExtractors_ = preferEventExtractors;
 }
 
-bool org::apache::poi::extractor::OLE2ExtractorFactory::getPreferEventExtractor()
+bool poi::extractor::OLE2ExtractorFactory::getPreferEventExtractor()
 {
     clinit();
     if(allPreferEventExtractors_ != nullptr) {
@@ -192,82 +186,82 @@ bool org::apache::poi::extractor::OLE2ExtractorFactory::getPreferEventExtractor(
     return (npc(java_cast< ::java::lang::Boolean* >(npc(threadPreferEventExtractors_)->get())))->booleanValue();
 }
 
-org::apache::poi::POIOLE2TextExtractor* org::apache::poi::extractor::OLE2ExtractorFactory::createExtractor(::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs) /* throws(IOException) */
+poi::POIOLE2TextExtractor* poi::extractor::OLE2ExtractorFactory::createExtractor(::poi::poifs::filesystem::POIFSFileSystem* fs) /* throws(IOException) */
 {
     clinit();
-    return java_cast< ::org::apache::poi::POIOLE2TextExtractor* >(createExtractor(npc(fs)->getRoot()));
+    return java_cast< ::poi::POIOLE2TextExtractor* >(createExtractor(npc(fs)->getRoot()));
 }
 
-org::apache::poi::POIOLE2TextExtractor* org::apache::poi::extractor::OLE2ExtractorFactory::createExtractor(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs) /* throws(IOException) */
+poi::POIOLE2TextExtractor* poi::extractor::OLE2ExtractorFactory::createExtractor(::poi::poifs::filesystem::NPOIFSFileSystem* fs) /* throws(IOException) */
 {
     clinit();
-    return java_cast< ::org::apache::poi::POIOLE2TextExtractor* >(createExtractor(npc(fs)->getRoot()));
+    return java_cast< ::poi::POIOLE2TextExtractor* >(createExtractor(npc(fs)->getRoot()));
 }
 
-org::apache::poi::POIOLE2TextExtractor* org::apache::poi::extractor::OLE2ExtractorFactory::createExtractor(::org::apache::poi::poifs::filesystem::OPOIFSFileSystem* fs) /* throws(IOException) */
+poi::POIOLE2TextExtractor* poi::extractor::OLE2ExtractorFactory::createExtractor(::poi::poifs::filesystem::OPOIFSFileSystem* fs) /* throws(IOException) */
 {
     clinit();
-    return java_cast< ::org::apache::poi::POIOLE2TextExtractor* >(createExtractor(npc(fs)->getRoot()));
+    return java_cast< ::poi::POIOLE2TextExtractor* >(createExtractor(npc(fs)->getRoot()));
 }
 
-org::apache::poi::POITextExtractor* org::apache::poi::extractor::OLE2ExtractorFactory::createExtractor(::java::io::InputStream* input) /* throws(IOException) */
+poi::POITextExtractor* poi::extractor::OLE2ExtractorFactory::createExtractor(::java::io::InputStream* input) /* throws(IOException) */
 {
     clinit();
     auto cls = getOOXMLClass();
     if(cls != nullptr) {
         try {
             auto m = npc(cls)->getDeclaredMethod(u"createExtractor"_j, new ::java::lang::ClassArray({static_cast< ::java::lang::Class* >(::java::io::InputStream::class_())}));
-            return java_cast< ::org::apache::poi::POITextExtractor* >(npc(m)->invoke(nullptr, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(input)})));
+            return java_cast< ::poi::POITextExtractor* >(npc(m)->invoke(nullptr, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(input)})));
         } catch (::java::lang::IllegalArgumentException* iae) {
             throw iae;
         } catch (::java::lang::Exception* e) {
             throw new ::java::lang::IllegalArgumentException(u"Error creating Extractor for InputStream"_j, e);
         }
     } else {
-        return createExtractor(new ::org::apache::poi::poifs::filesystem::NPOIFSFileSystem(input));
+        return createExtractor(new ::poi::poifs::filesystem::NPOIFSFileSystem(input));
     }
 }
 
-java::lang::Class* org::apache::poi::extractor::OLE2ExtractorFactory::getOOXMLClass()
+java::lang::Class* poi::extractor::OLE2ExtractorFactory::getOOXMLClass()
 {
     clinit();
     try {
         return npc(npc(OLE2ExtractorFactory::class_())->getClassLoader())->loadClass(u"org.apache.poi.extractor.ExtractorFactory"_j);
     } catch (::java::lang::ClassNotFoundException* e) {
-        npc(LOGGER_)->log(::org::apache::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"POI OOXML jar missing"_j)}));
+        npc(LOGGER_)->log(::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"POI OOXML jar missing"_j)}));
         return nullptr;
     }
 }
 
-java::lang::Class* org::apache::poi::extractor::OLE2ExtractorFactory::getScratchpadClass()
+java::lang::Class* poi::extractor::OLE2ExtractorFactory::getScratchpadClass()
 {
     clinit();
     try {
         return npc(npc(OLE2ExtractorFactory::class_())->getClassLoader())->loadClass(u"org.apache.poi.extractor.OLE2ScratchpadExtractorFactory"_j);
     } catch (::java::lang::ClassNotFoundException* e) {
-        npc(LOGGER_)->log(::org::apache::poi::util::POILogger::ERROR, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"POI Scratchpad jar missing"_j)}));
+        npc(LOGGER_)->log(::poi::util::POILogger::ERROR, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"POI Scratchpad jar missing"_j)}));
         throw new ::java::lang::IllegalStateException(u"POI Scratchpad jar missing, required for ExtractorFactory"_j);
     }
 }
 
-org::apache::poi::POITextExtractor* org::apache::poi::extractor::OLE2ExtractorFactory::createExtractor(::org::apache::poi::poifs::filesystem::DirectoryNode* poifsDir) /* throws(IOException) */
+poi::POITextExtractor* poi::extractor::OLE2ExtractorFactory::createExtractor(::poi::poifs::filesystem::DirectoryNode* poifsDir) /* throws(IOException) */
 {
     clinit();
-    for(auto workbookName : *npc(::org::apache::poi::hssf::model::InternalWorkbook::WORKBOOK_DIR_ENTRY_NAMES())) {
+    for(auto workbookName : *npc(::poi::hssf::model::InternalWorkbook::WORKBOOK_DIR_ENTRY_NAMES())) {
         if(npc(poifsDir)->hasEntry(workbookName)) {
             if(getPreferEventExtractor()) {
-                return new ::org::apache::poi::hssf::extractor::EventBasedExcelExtractor(poifsDir);
+                return new ::poi::hssf::extractor::EventBasedExcelExtractor(poifsDir);
             }
-            return new ::org::apache::poi::hssf::extractor::ExcelExtractor(poifsDir);
+            return new ::poi::hssf::extractor::ExcelExtractor(poifsDir);
         }
     }
-    if(npc(poifsDir)->hasEntry(::org::apache::poi::hssf::model::InternalWorkbook::OLD_WORKBOOK_DIR_ENTRY_NAME())) {
-        throw new ::org::apache::poi::hssf::OldExcelFormatException(::java::lang::StringBuilder().append(u"Old Excel Spreadsheet format (1-95) "_j)->append(u"found. Please call OldExcelExtractor directly for basic text extraction"_j)->toString());
+    if(npc(poifsDir)->hasEntry(::poi::hssf::model::InternalWorkbook::OLD_WORKBOOK_DIR_ENTRY_NAME())) {
+        throw new ::poi::hssf::OldExcelFormatException(::java::lang::StringBuilder().append(u"Old Excel Spreadsheet format (1-95) "_j)->append(u"found. Please call OldExcelExtractor directly for basic text extraction"_j)->toString());
     }
     auto cls = getScratchpadClass();
     try {
-        auto m = npc(cls)->getDeclaredMethod(u"createExtractor"_j, new ::java::lang::ClassArray({static_cast< ::java::lang::Class* >(::org::apache::poi::poifs::filesystem::DirectoryNode::class_())}));
-        auto ext = java_cast< ::org::apache::poi::POITextExtractor* >(npc(m)->invoke(nullptr, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(poifsDir)})));
+        auto m = npc(cls)->getDeclaredMethod(u"createExtractor"_j, new ::java::lang::ClassArray({static_cast< ::java::lang::Class* >(::poi::poifs::filesystem::DirectoryNode::class_())}));
+        auto ext = java_cast< ::poi::POITextExtractor* >(npc(m)->invoke(nullptr, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(poifsDir)})));
         if(ext != nullptr)
             return ext;
 
@@ -279,7 +273,7 @@ org::apache::poi::POITextExtractor* org::apache::poi::extractor::OLE2ExtractorFa
     throw new ::java::lang::IllegalArgumentException(u"No supported documents found in the OLE2 stream"_j);
 }
 
-org::apache::poi::POITextExtractorArray* org::apache::poi::extractor::OLE2ExtractorFactory::getEmbededDocsTextExtractors(::org::apache::poi::POIOLE2TextExtractor* ext) /* throws(IOException) */
+poi::POITextExtractorArray* poi::extractor::OLE2ExtractorFactory::getEmbededDocsTextExtractors(::poi::POIOLE2TextExtractor* ext) /* throws(IOException) */
 {
     clinit();
     ::java::util::List* dirs = new ::java::util::ArrayList();
@@ -288,10 +282,10 @@ org::apache::poi::POITextExtractorArray* org::apache::poi::extractor::OLE2Extrac
     if(root == nullptr) {
         throw new ::java::lang::IllegalStateException(u"The extractor didn't know which POIFS it came from!"_j);
     }
-    if(dynamic_cast< ::org::apache::poi::hssf::extractor::ExcelExtractor* >(ext) != nullptr) {
+    if(dynamic_cast< ::poi::hssf::extractor::ExcelExtractor* >(ext) != nullptr) {
         auto it = npc(root)->getEntries();
         while (npc(it)->hasNext()) {
-            auto entry = java_cast< ::org::apache::poi::poifs::filesystem::Entry* >(npc(it)->next());
+            auto entry = java_cast< ::poi::poifs::filesystem::Entry* >(npc(it)->next());
             if(npc(npc(entry)->getName())->startsWith(u"MBD"_j)) {
                 npc(dirs)->add(static_cast< ::java::lang::Object* >(entry));
             }
@@ -299,20 +293,20 @@ org::apache::poi::POITextExtractorArray* org::apache::poi::extractor::OLE2Extrac
     } else {
         auto cls = getScratchpadClass();
         try {
-            auto m = npc(cls)->getDeclaredMethod(u"identifyEmbeddedResources"_j, new ::java::lang::ClassArray({static_cast< ::java::lang::Class* >(::org::apache::poi::POIOLE2TextExtractor::class_()), static_cast< ::java::lang::Class* >(::java::util::List::class_()), static_cast< ::java::lang::Class* >(::java::util::List::class_())}));
+            auto m = npc(cls)->getDeclaredMethod(u"identifyEmbeddedResources"_j, new ::java::lang::ClassArray({static_cast< ::java::lang::Class* >(::poi::POIOLE2TextExtractor::class_()), static_cast< ::java::lang::Class* >(::java::util::List::class_()), static_cast< ::java::lang::Class* >(::java::util::List::class_())}));
             npc(m)->invoke(nullptr, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(ext), static_cast< ::java::lang::Object* >(dirs), static_cast< ::java::lang::Object* >(nonPOIFS)}));
         } catch (::java::lang::Exception* e) {
             throw new ::java::lang::IllegalArgumentException(u"Error checking for Scratchpad embedded resources"_j, e);
         }
     }
     if(npc(dirs)->size() == 0 && npc(nonPOIFS)->size() == 0) {
-        return new ::org::apache::poi::POITextExtractorArray(int32_t(0));
+        return new ::poi::POITextExtractorArray(int32_t(0));
     }
     auto e = new ::java::util::ArrayList();
     for (auto _i = npc(dirs)->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::poifs::filesystem::Entry* dir = java_cast< ::org::apache::poi::poifs::filesystem::Entry* >(_i->next());
+        ::poi::poifs::filesystem::Entry* dir = java_cast< ::poi::poifs::filesystem::Entry* >(_i->next());
         {
-            npc(e)->add(static_cast< ::java::lang::Object* >(createExtractor(java_cast< ::org::apache::poi::poifs::filesystem::DirectoryNode* >(dir))));
+            npc(e)->add(static_cast< ::java::lang::Object* >(createExtractor(java_cast< ::poi::poifs::filesystem::DirectoryNode* >(dir))));
         }
     }
     for (auto _i = npc(nonPOIFS)->iterator(); _i->hasNext(); ) {
@@ -321,32 +315,32 @@ org::apache::poi::POITextExtractorArray* org::apache::poi::extractor::OLE2Extrac
             try {
                 npc(e)->add(static_cast< ::java::lang::Object* >(createExtractor(nonPOIF)));
             } catch (::java::lang::IllegalArgumentException* ie) {
-                npc(LOGGER_)->log(::org::apache::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(ie)}));
+                npc(LOGGER_)->log(::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(ie)}));
             } catch (::java::lang::Exception* xe) {
-                npc(LOGGER_)->log(::org::apache::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(xe)}));
+                npc(LOGGER_)->log(::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(xe)}));
             }
         }
     }
-    return java_cast< ::org::apache::poi::POITextExtractorArray* >(npc(e)->toArray_(static_cast< ::java::lang::ObjectArray* >(new ::org::apache::poi::POITextExtractorArray(npc(e)->size()))));
+    return java_cast< ::poi::POITextExtractorArray* >(npc(e)->toArray_(static_cast< ::java::lang::ObjectArray* >(new ::poi::POITextExtractorArray(npc(e)->size()))));
 }
 
-org::apache::poi::POITextExtractor* org::apache::poi::extractor::OLE2ExtractorFactory::createEncyptedOOXMLExtractor(::org::apache::poi::poifs::filesystem::DirectoryNode* poifsDir) /* throws(IOException) */
+poi::POITextExtractor* poi::extractor::OLE2ExtractorFactory::createEncyptedOOXMLExtractor(::poi::poifs::filesystem::DirectoryNode* poifsDir) /* throws(IOException) */
 {
     clinit();
-    auto pass = ::org::apache::poi::hssf::record::crypto::Biff8EncryptionKey::getCurrentUserPassword();
+    auto pass = ::poi::hssf::record::crypto::Biff8EncryptionKey::getCurrentUserPassword();
     if(pass == nullptr) {
-        pass = ::org::apache::poi::poifs::crypt::Decryptor::DEFAULT_PASSWORD();
+        pass = ::poi::poifs::crypt::Decryptor::DEFAULT_PASSWORD();
     }
-    auto ei = new ::org::apache::poi::poifs::crypt::EncryptionInfo(poifsDir);
+    auto ei = new ::poi::poifs::crypt::EncryptionInfo(poifsDir);
     auto dec = npc(ei)->getDecryptor();
     ::java::io::InputStream* is = nullptr;
     {
         auto finally0 = finally([&] {
-            ::org::apache::poi::util::IOUtils::closeQuietly(is);
+            ::poi::util::IOUtils::closeQuietly(is);
         });
         try {
             if(!npc(dec)->verifyPassword(pass)) {
-                throw new ::org::apache::poi::EncryptedDocumentException(u"Invalid password specified - use Biff8EncryptionKey.setCurrentUserPassword() before calling extractor"_j);
+                throw new ::poi::EncryptedDocumentException(u"Invalid password specified - use Biff8EncryptionKey.setCurrentUserPassword() before calling extractor"_j);
             }
             is = npc(dec)->getDataStream(poifsDir);
             return createExtractor(is);
@@ -360,20 +354,20 @@ org::apache::poi::POITextExtractor* org::apache::poi::extractor::OLE2ExtractorFa
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::extractor::OLE2ExtractorFactory::class_()
+java::lang::Class* poi::extractor::OLE2ExtractorFactory::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.extractor.OLE2ExtractorFactory", 45);
     return c;
 }
 
-void org::apache::poi::extractor::OLE2ExtractorFactory::clinit()
+void poi::extractor::OLE2ExtractorFactory::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        LOGGER_ = ::org::apache::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(OLE2ExtractorFactory::class_()));
+        LOGGER_ = ::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(OLE2ExtractorFactory::class_()));
         threadPreferEventExtractors_ = new OLE2ExtractorFactory_1();
     }
 };
@@ -383,7 +377,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::extractor::OLE2ExtractorFactory::getClass0()
+java::lang::Class* poi::extractor::OLE2ExtractorFactory::getClass0()
 {
     return class_();
 }

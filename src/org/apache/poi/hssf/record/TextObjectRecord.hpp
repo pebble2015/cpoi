@@ -13,19 +13,19 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::TextObjectRecord final
-    : public ::org::apache::poi::hssf::record::cont::ContinuableRecord
+class poi::hssf::record::TextObjectRecord final
+    : public ::poi::hssf::record::cont::ContinuableRecord
 {
 
 public:
-    typedef ::org::apache::poi::hssf::record::cont::ContinuableRecord super;
+    typedef ::poi::hssf::record::cont::ContinuableRecord super;
     static constexpr int16_t sid { int16_t(438) };
 
 private:
     static constexpr int32_t FORMAT_RUN_ENCODED_SIZE { int32_t(8) };
-    static ::org::apache::poi::util::BitField* HorizontalTextAlignment_;
-    static ::org::apache::poi::util::BitField* VerticalTextAlignment_;
-    static ::org::apache::poi::util::BitField* textLocked_;
+    static ::poi::util::BitField* HorizontalTextAlignment_;
+    static ::poi::util::BitField* VerticalTextAlignment_;
+    static ::poi::util::BitField* textLocked_;
 
 public:
     static constexpr int16_t HORIZONTAL_TEXT_ALIGNMENT_LEFT_ALIGNED { int16_t(1) };
@@ -48,9 +48,9 @@ private:
     int32_t field_4_reserved5 {  };
     int32_t field_5_reserved6 {  };
     int32_t field_8_reserved7 {  };
-    ::org::apache::poi::hssf::usermodel::HSSFRichTextString* _text {  };
+    ::poi::hssf::usermodel::HSSFRichTextString* _text {  };
     int32_t _unknownPreFormulaInt {  };
-    ::org::apache::poi::ss::formula::ptg::OperandPtg* _linkRefPtg {  };
+    ::poi::ss::formula::ptg::OperandPtg* _linkRefPtg {  };
     ::java::lang::Byte* _unknownPostFormulaByte {  };
 protected:
     void ctor();
@@ -58,21 +58,21 @@ protected:
 
 private:
     static ::java::lang::String* readRawString(RecordInputStream* in, int32_t textLength);
-    static void processFontRuns(RecordInputStream* in, ::org::apache::poi::hssf::usermodel::HSSFRichTextString* str, int32_t formattingRunDataLength);
+    static void processFontRuns(RecordInputStream* in, ::poi::hssf::usermodel::HSSFRichTextString* str, int32_t formattingRunDataLength);
 
 public:
     int16_t getSid() override;
 
 private:
-    void serializeTXORecord(::org::apache::poi::hssf::record::cont::ContinuableRecordOutput* out);
-    void serializeTrailingRecords(::org::apache::poi::hssf::record::cont::ContinuableRecordOutput* out);
+    void serializeTXORecord(::poi::hssf::record::cont::ContinuableRecordOutput* out);
+    void serializeTrailingRecords(::poi::hssf::record::cont::ContinuableRecordOutput* out);
 
 public: /* protected */
-    void serialize(::org::apache::poi::hssf::record::cont::ContinuableRecordOutput* out) override;
+    void serialize(::poi::hssf::record::cont::ContinuableRecordOutput* out) override;
 
 private:
     int32_t getFormattingDataLength();
-    static void writeFormatData(::org::apache::poi::hssf::record::cont::ContinuableRecordOutput* out, ::org::apache::poi::hssf::usermodel::HSSFRichTextString* str);
+    static void writeFormatData(::poi::hssf::record::cont::ContinuableRecordOutput* out, ::poi::hssf::usermodel::HSSFRichTextString* str);
 
 public:
     void setHorizontalTextAlignment(int32_t value);
@@ -83,9 +83,9 @@ public:
     bool isTextLocked();
     int32_t getTextOrientation();
     void setTextOrientation(int32_t textOrientation);
-    ::org::apache::poi::hssf::usermodel::HSSFRichTextString* getStr();
-    void setStr(::org::apache::poi::hssf::usermodel::HSSFRichTextString* str);
-    ::org::apache::poi::ss::formula::ptg::Ptg* getLinkRefPtg();
+    ::poi::hssf::usermodel::HSSFRichTextString* getStr();
+    void setStr(::poi::hssf::usermodel::HSSFRichTextString* str);
+    ::poi::ss::formula::ptg::Ptg* getLinkRefPtg();
     ::java::lang::String* toString() override;
     ::java::lang::Object* clone() override;
 
@@ -103,8 +103,8 @@ public:
     ::int8_tArray* serialize();
 
 private:
-    static ::org::apache::poi::util::BitField*& HorizontalTextAlignment();
-    static ::org::apache::poi::util::BitField*& VerticalTextAlignment();
-    static ::org::apache::poi::util::BitField*& textLocked();
+    static ::poi::util::BitField*& HorizontalTextAlignment();
+    static ::poi::util::BitField*& VerticalTextAlignment();
+    static ::poi::util::BitField*& textLocked();
     virtual ::java::lang::Class* getClass0();
 };

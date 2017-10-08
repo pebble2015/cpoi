@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::filesystem::FilteringDirectoryNode_FilteringIterator
+class poi::poifs::filesystem::FilteringDirectoryNode_FilteringIterator
     : public virtual ::java::lang::Object
     , public virtual ::java::util::Iterator
 {

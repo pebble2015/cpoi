@@ -6,8 +6,8 @@
 #include <org/apache/poi/ss/usermodel/fwd-POI.hpp>
 #include <org/apache/poi/common/usermodel/Hyperlink.hpp>
 
-struct org::apache::poi::ss::usermodel::Hyperlink
-    : public virtual ::org::apache::poi::common::usermodel::Hyperlink
+struct poi::ss::usermodel::Hyperlink
+    : public virtual ::poi::common::usermodel::Hyperlink
 {
     virtual int32_t getFirstRow() = 0;
     virtual void setFirstRow(int32_t row) = 0;

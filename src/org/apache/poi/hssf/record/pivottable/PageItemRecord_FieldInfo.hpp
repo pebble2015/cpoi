@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::pivottable::PageItemRecord_FieldInfo final
+class poi::hssf::record::pivottable::PageItemRecord_FieldInfo final
     : public ::java::lang::Object
 {
 
@@ -24,16 +24,16 @@ private:
     int32_t _isxvd {  };
     int32_t _idObj {  };
 protected:
-    void ctor(::org::apache::poi::hssf::record::RecordInputStream* in);
+    void ctor(::poi::hssf::record::RecordInputStream* in);
 
 public: /* protected */
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out);
+    void serialize(::poi::util::LittleEndianOutput* out);
 
 public:
     void appendDebugInfo(::java::lang::StringBuffer* sb);
 
     // Generated
-    PageItemRecord_FieldInfo(::org::apache::poi::hssf::record::RecordInputStream* in);
+    PageItemRecord_FieldInfo(::poi::hssf::record::RecordInputStream* in);
 protected:
     PageItemRecord_FieldInfo(const ::default_init_tag&);
 

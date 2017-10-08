@@ -46,87 +46,87 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::SupBookRecord::SupBookRecord(const ::default_init_tag&)
+poi::hssf::record::SupBookRecord::SupBookRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::SupBookRecord::SupBookRecord(bool isAddInFuncs, int16_t numberOfSheets) 
+poi::hssf::record::SupBookRecord::SupBookRecord(bool isAddInFuncs, int16_t numberOfSheets) 
     : SupBookRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(isAddInFuncs,numberOfSheets);
 }
 
-org::apache::poi::hssf::record::SupBookRecord::SupBookRecord(::java::lang::String* url, ::java::lang::StringArray* sheetNames) 
+poi::hssf::record::SupBookRecord::SupBookRecord(::java::lang::String* url, ::java::lang::StringArray* sheetNames) 
     : SupBookRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(url,sheetNames);
 }
 
-org::apache::poi::hssf::record::SupBookRecord::SupBookRecord(RecordInputStream* in) 
+poi::hssf::record::SupBookRecord::SupBookRecord(RecordInputStream* in) 
     : SupBookRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-org::apache::poi::util::POILogger*& org::apache::poi::hssf::record::SupBookRecord::logger()
+poi::util::POILogger*& poi::hssf::record::SupBookRecord::logger()
 {
     clinit();
     return logger_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::hssf::record::SupBookRecord::logger_;
+poi::util::POILogger* poi::hssf::record::SupBookRecord::logger_;
 
-constexpr int16_t org::apache::poi::hssf::record::SupBookRecord::sid;
+constexpr int16_t poi::hssf::record::SupBookRecord::sid;
 
-constexpr int16_t org::apache::poi::hssf::record::SupBookRecord::SMALL_RECORD_SIZE;
+constexpr int16_t poi::hssf::record::SupBookRecord::SMALL_RECORD_SIZE;
 
-constexpr int16_t org::apache::poi::hssf::record::SupBookRecord::TAG_INTERNAL_REFERENCES;
+constexpr int16_t poi::hssf::record::SupBookRecord::TAG_INTERNAL_REFERENCES;
 
-constexpr int16_t org::apache::poi::hssf::record::SupBookRecord::TAG_ADD_IN_FUNCTIONS;
+constexpr int16_t poi::hssf::record::SupBookRecord::TAG_ADD_IN_FUNCTIONS;
 
-constexpr char16_t org::apache::poi::hssf::record::SupBookRecord::CH_VOLUME;
+constexpr char16_t poi::hssf::record::SupBookRecord::CH_VOLUME;
 
-constexpr char16_t org::apache::poi::hssf::record::SupBookRecord::CH_SAME_VOLUME;
+constexpr char16_t poi::hssf::record::SupBookRecord::CH_SAME_VOLUME;
 
-constexpr char16_t org::apache::poi::hssf::record::SupBookRecord::CH_DOWN_DIR;
+constexpr char16_t poi::hssf::record::SupBookRecord::CH_DOWN_DIR;
 
-constexpr char16_t org::apache::poi::hssf::record::SupBookRecord::CH_UP_DIR;
+constexpr char16_t poi::hssf::record::SupBookRecord::CH_UP_DIR;
 
-constexpr char16_t org::apache::poi::hssf::record::SupBookRecord::CH_LONG_VOLUME;
+constexpr char16_t poi::hssf::record::SupBookRecord::CH_LONG_VOLUME;
 
-constexpr char16_t org::apache::poi::hssf::record::SupBookRecord::CH_STARTUP_DIR;
+constexpr char16_t poi::hssf::record::SupBookRecord::CH_STARTUP_DIR;
 
-constexpr char16_t org::apache::poi::hssf::record::SupBookRecord::CH_ALT_STARTUP_DIR;
+constexpr char16_t poi::hssf::record::SupBookRecord::CH_ALT_STARTUP_DIR;
 
-constexpr char16_t org::apache::poi::hssf::record::SupBookRecord::CH_LIB_DIR;
+constexpr char16_t poi::hssf::record::SupBookRecord::CH_LIB_DIR;
 
-java::lang::String*& org::apache::poi::hssf::record::SupBookRecord::PATH_SEPERATOR()
+java::lang::String*& poi::hssf::record::SupBookRecord::PATH_SEPERATOR()
 {
     clinit();
     return PATH_SEPERATOR_;
 }
-java::lang::String* org::apache::poi::hssf::record::SupBookRecord::PATH_SEPERATOR_;
+java::lang::String* poi::hssf::record::SupBookRecord::PATH_SEPERATOR_;
 
-org::apache::poi::hssf::record::SupBookRecord* org::apache::poi::hssf::record::SupBookRecord::createInternalReferences(int16_t numberOfSheets)
+poi::hssf::record::SupBookRecord* poi::hssf::record::SupBookRecord::createInternalReferences(int16_t numberOfSheets)
 {
     clinit();
     return new SupBookRecord(false, numberOfSheets);
 }
 
-org::apache::poi::hssf::record::SupBookRecord* org::apache::poi::hssf::record::SupBookRecord::createAddInFunctions()
+poi::hssf::record::SupBookRecord* poi::hssf::record::SupBookRecord::createAddInFunctions()
 {
     clinit();
     return new SupBookRecord(true, static_cast< int16_t >(int32_t(1)));
 }
 
-org::apache::poi::hssf::record::SupBookRecord* org::apache::poi::hssf::record::SupBookRecord::createExternalReferences(::java::lang::String* url, ::java::lang::StringArray* sheetNames)
+poi::hssf::record::SupBookRecord* poi::hssf::record::SupBookRecord::createExternalReferences(::java::lang::String* url, ::java::lang::StringArray* sheetNames)
 {
     clinit();
     return new SupBookRecord(url, sheetNames);
 }
 
-void org::apache::poi::hssf::record::SupBookRecord::ctor(bool isAddInFuncs, int16_t numberOfSheets)
+void poi::hssf::record::SupBookRecord::ctor(bool isAddInFuncs, int16_t numberOfSheets)
 {
     super::ctor();
     field_1_number_of_sheets = numberOfSheets;
@@ -135,7 +135,7 @@ void org::apache::poi::hssf::record::SupBookRecord::ctor(bool isAddInFuncs, int1
     _isAddInFunctions = isAddInFuncs;
 }
 
-void org::apache::poi::hssf::record::SupBookRecord::ctor(::java::lang::String* url, ::java::lang::StringArray* sheetNames)
+void poi::hssf::record::SupBookRecord::ctor(::java::lang::String* url, ::java::lang::StringArray* sheetNames)
 {
     super::ctor();
     field_1_number_of_sheets = static_cast< int16_t >(npc(sheetNames)->length);
@@ -144,22 +144,22 @@ void org::apache::poi::hssf::record::SupBookRecord::ctor(::java::lang::String* u
     _isAddInFunctions = false;
 }
 
-bool org::apache::poi::hssf::record::SupBookRecord::isExternalReferences()
+bool poi::hssf::record::SupBookRecord::isExternalReferences()
 {
     return field_3_sheet_names != nullptr;
 }
 
-bool org::apache::poi::hssf::record::SupBookRecord::isInternalReferences()
+bool poi::hssf::record::SupBookRecord::isInternalReferences()
 {
     return field_3_sheet_names == nullptr && !_isAddInFunctions;
 }
 
-bool org::apache::poi::hssf::record::SupBookRecord::isAddInFunctions()
+bool poi::hssf::record::SupBookRecord::isAddInFunctions()
 {
     return field_3_sheet_names == nullptr && _isAddInFunctions;
 }
 
-void org::apache::poi::hssf::record::SupBookRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::SupBookRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     auto recLen = npc(in)->remaining();
@@ -191,7 +191,7 @@ void org::apache::poi::hssf::record::SupBookRecord::ctor(RecordInputStream* in)
     }
 }
 
-java::lang::String* org::apache::poi::hssf::record::SupBookRecord::toString()
+java::lang::String* poi::hssf::record::SupBookRecord::toString()
 {
     auto sb = new ::java::lang::StringBuffer();
     npc(sb)->append(u"[SUPBOOK "_j);
@@ -213,26 +213,26 @@ java::lang::String* org::apache::poi::hssf::record::SupBookRecord::toString()
     return npc(sb)->toString();
 }
 
-int32_t org::apache::poi::hssf::record::SupBookRecord::getDataSize()
+int32_t poi::hssf::record::SupBookRecord::getDataSize()
 {
     if(!isExternalReferences()) {
         return SMALL_RECORD_SIZE;
     }
     auto sum = int32_t(2);
-    sum += ::org::apache::poi::util::StringUtil::getEncodedSize(field_2_encoded_url);
+    sum += ::poi::util::StringUtil::getEncodedSize(field_2_encoded_url);
     for (auto i = int32_t(0); i < npc(field_3_sheet_names)->length; i++) {
-        sum += ::org::apache::poi::util::StringUtil::getEncodedSize((*field_3_sheet_names)[i]);
+        sum += ::poi::util::StringUtil::getEncodedSize((*field_3_sheet_names)[i]);
     }
     return sum;
 }
 
-void org::apache::poi::hssf::record::SupBookRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::SupBookRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(field_1_number_of_sheets);
     if(isExternalReferences()) {
-        ::org::apache::poi::util::StringUtil::writeUnicodeString(out, field_2_encoded_url);
+        ::poi::util::StringUtil::writeUnicodeString(out, field_2_encoded_url);
         for (auto i = int32_t(0); i < npc(field_3_sheet_names)->length; i++) {
-            ::org::apache::poi::util::StringUtil::writeUnicodeString(out, (*field_3_sheet_names)[i]);
+            ::poi::util::StringUtil::writeUnicodeString(out, (*field_3_sheet_names)[i]);
         }
     } else {
         int32_t field2val = _isAddInFunctions ? TAG_ADD_IN_FUNCTIONS : TAG_INTERNAL_REFERENCES;
@@ -240,22 +240,22 @@ void org::apache::poi::hssf::record::SupBookRecord::serialize(::org::apache::poi
     }
 }
 
-void org::apache::poi::hssf::record::SupBookRecord::setNumberOfSheets(int16_t number)
+void poi::hssf::record::SupBookRecord::setNumberOfSheets(int16_t number)
 {
     field_1_number_of_sheets = number;
 }
 
-int16_t org::apache::poi::hssf::record::SupBookRecord::getNumberOfSheets()
+int16_t poi::hssf::record::SupBookRecord::getNumberOfSheets()
 {
     return field_1_number_of_sheets;
 }
 
-int16_t org::apache::poi::hssf::record::SupBookRecord::getSid()
+int16_t poi::hssf::record::SupBookRecord::getSid()
 {
     return sid;
 }
 
-java::lang::String* org::apache::poi::hssf::record::SupBookRecord::getURL()
+java::lang::String* poi::hssf::record::SupBookRecord::getURL()
 {
     auto encodedUrl = field_2_encoded_url;
     switch (npc(encodedUrl)->charAt(int32_t(0))) {
@@ -270,7 +270,7 @@ java::lang::String* org::apache::poi::hssf::record::SupBookRecord::getURL()
     return encodedUrl;
 }
 
-java::lang::String* org::apache::poi::hssf::record::SupBookRecord::decodeFileName(::java::lang::String* encodedUrl)
+java::lang::String* poi::hssf::record::SupBookRecord::decodeFileName(::java::lang::String* encodedUrl)
 {
     clinit();
     auto sb = new ::java::lang::StringBuilder();
@@ -297,12 +297,12 @@ java::lang::String* org::apache::poi::hssf::record::SupBookRecord::decodeFileNam
                 npc(npc(sb)->append(u".."_j))->append(PATH_SEPERATOR_);
                 break;
             case CH_LONG_VOLUME:
-                npc(logger_)->log(::org::apache::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"Found unexpected key: ChLongVolume - IGNORING"_j)}));
+                npc(logger_)->log(::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"Found unexpected key: ChLongVolume - IGNORING"_j)}));
                 break;
             case CH_STARTUP_DIR:
             case CH_ALT_STARTUP_DIR:
             case CH_LIB_DIR:
-                npc(logger_)->log(::org::apache::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"EXCEL.EXE path unkown - using this directoy instead: ."_j)}));
+                npc(logger_)->log(::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"EXCEL.EXE path unkown - using this directoy instead: ."_j)}));
                 npc(npc(sb)->append(u"."_j))->append(PATH_SEPERATOR_);
                 break;
             default:
@@ -314,32 +314,32 @@ java::lang::String* org::apache::poi::hssf::record::SupBookRecord::decodeFileNam
     return npc(sb)->toString();
 }
 
-java::lang::StringArray* org::apache::poi::hssf::record::SupBookRecord::getSheetNames()
+java::lang::StringArray* poi::hssf::record::SupBookRecord::getSheetNames()
 {
     return npc(field_3_sheet_names)->clone();
 }
 
-void org::apache::poi::hssf::record::SupBookRecord::setURL(::java::lang::String* pUrl)
+void poi::hssf::record::SupBookRecord::setURL(::java::lang::String* pUrl)
 {
     field_2_encoded_url = ::java::lang::StringBuilder().append(npc(field_2_encoded_url)->substring(0, 1))->append(pUrl)->toString();
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::SupBookRecord::class_()
+java::lang::Class* poi::hssf::record::SupBookRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.SupBookRecord", 40);
     return c;
 }
 
-void org::apache::poi::hssf::record::SupBookRecord::clinit()
+void poi::hssf::record::SupBookRecord::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        logger_ = ::org::apache::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(SupBookRecord::class_()));
+        logger_ = ::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(SupBookRecord::class_()));
         PATH_SEPERATOR_ = ::java::lang::System::getProperty(u"file.separator"_j);
     }
 };
@@ -349,17 +349,17 @@ struct clinit_ {
     }
 }
 
-int32_t org::apache::poi::hssf::record::SupBookRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::SupBookRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::SupBookRecord::serialize()
+int8_tArray* poi::hssf::record::SupBookRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::SupBookRecord::getClass0()
+java::lang::Class* poi::hssf::record::SupBookRecord::getClass0()
 {
     return class_();
 }

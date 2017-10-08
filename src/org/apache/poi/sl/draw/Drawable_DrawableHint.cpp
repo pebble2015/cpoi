@@ -4,29 +4,29 @@
 #include <java/lang/String.hpp>
 #include <java/lang/StringBuilder.hpp>
 
-org::apache::poi::sl::draw::Drawable_DrawableHint::Drawable_DrawableHint(const ::default_init_tag&)
+poi::sl::draw::Drawable_DrawableHint::Drawable_DrawableHint(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::draw::Drawable_DrawableHint::Drawable_DrawableHint(int32_t id) 
+poi::sl::draw::Drawable_DrawableHint::Drawable_DrawableHint(int32_t id) 
     : Drawable_DrawableHint(*static_cast< ::default_init_tag* >(0))
 {
     ctor(id);
 }
 
-void org::apache::poi::sl::draw::Drawable_DrawableHint::ctor(int32_t id)
+void poi::sl::draw::Drawable_DrawableHint::ctor(int32_t id)
 {
     super::ctor(id);
 }
 
-bool org::apache::poi::sl::draw::Drawable_DrawableHint::isCompatibleValue(::java::lang::Object* val)
+bool poi::sl::draw::Drawable_DrawableHint::isCompatibleValue(::java::lang::Object* val)
 {
     return true;
 }
 
-java::lang::String* org::apache::poi::sl::draw::Drawable_DrawableHint::toString()
+java::lang::String* poi::sl::draw::Drawable_DrawableHint::toString()
 {
     switch (intKey()) {
     case int32_t(1):
@@ -59,13 +59,13 @@ java::lang::String* org::apache::poi::sl::draw::Drawable_DrawableHint::toString(
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::draw::Drawable_DrawableHint::class_()
+java::lang::Class* poi::sl::draw::Drawable_DrawableHint::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.draw.Drawable.DrawableHint", 44);
     return c;
 }
 
-java::lang::Class* org::apache::poi::sl::draw::Drawable_DrawableHint::getClass0()
+java::lang::Class* poi::sl::draw::Drawable_DrawableHint::getClass0()
 {
     return class_();
 }

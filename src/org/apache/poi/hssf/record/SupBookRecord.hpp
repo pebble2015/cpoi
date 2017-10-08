@@ -27,7 +27,7 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::SupBookRecord final
+class poi::hssf::record::SupBookRecord final
     : public StandardRecord
 {
 
@@ -35,7 +35,7 @@ public:
     typedef StandardRecord super;
 
 private:
-    static ::org::apache::poi::util::POILogger* logger_;
+    static ::poi::util::POILogger* logger_;
 
 public:
     static constexpr int16_t sid { int16_t(430) };
@@ -84,7 +84,7 @@ public: /* protected */
     int32_t getDataSize() override;
 
 public:
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
     void setNumberOfSheets(int16_t number);
     int16_t getNumberOfSheets();
     int16_t getSid() override;
@@ -116,7 +116,7 @@ public:
     ::int8_tArray* serialize();
 
 private:
-    static ::org::apache::poi::util::POILogger*& logger();
+    static ::poi::util::POILogger*& logger();
 
 public: /* protected */
     static ::java::lang::String*& PATH_SEPERATOR();

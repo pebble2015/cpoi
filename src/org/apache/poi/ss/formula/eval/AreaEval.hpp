@@ -7,9 +7,9 @@
 #include <org/apache/poi/ss/formula/TwoDEval.hpp>
 #include <org/apache/poi/ss/formula/ThreeDEval.hpp>
 
-struct org::apache::poi::ss::formula::eval::AreaEval
-    : public virtual ::org::apache::poi::ss::formula::TwoDEval
-    , public virtual ::org::apache::poi::ss::formula::ThreeDEval
+struct poi::ss::formula::eval::AreaEval
+    : public virtual ::poi::ss::formula::TwoDEval
+    , public virtual ::poi::ss::formula::ThreeDEval
 {
     virtual int32_t getFirstRow() = 0;
     virtual int32_t getLastRow() = 0;

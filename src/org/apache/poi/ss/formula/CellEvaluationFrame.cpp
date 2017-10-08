@@ -17,23 +17,17 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
-            {
-                namespace formula
-                {
-typedef ::SubArray< ::org::apache::poi::ss::formula::IEvaluationListener_ICacheEntry, ::java::lang::ObjectArray > IEvaluationListener_ICacheEntryArray;
-typedef ::SubArray< ::org::apache::poi::ss::formula::CellCacheEntry, ::java::lang::ObjectArray, IEvaluationListener_ICacheEntryArray > CellCacheEntryArray;
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::IEvaluationListener_ICacheEntry, ::java::lang::ObjectArray > IEvaluationListener_ICacheEntryArray;
+typedef ::SubArray< ::poi::ss::formula::CellCacheEntry, ::java::lang::ObjectArray, IEvaluationListener_ICacheEntryArray > CellCacheEntryArray;
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -42,31 +36,31 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::CellEvaluationFrame::CellEvaluationFrame(const ::default_init_tag&)
+poi::ss::formula::CellEvaluationFrame::CellEvaluationFrame(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::CellEvaluationFrame::CellEvaluationFrame(FormulaCellCacheEntry* cce) 
+poi::ss::formula::CellEvaluationFrame::CellEvaluationFrame(FormulaCellCacheEntry* cce) 
     : CellEvaluationFrame(*static_cast< ::default_init_tag* >(0))
 {
     ctor(cce);
 }
 
-void org::apache::poi::ss::formula::CellEvaluationFrame::ctor(FormulaCellCacheEntry* cce)
+void poi::ss::formula::CellEvaluationFrame::ctor(FormulaCellCacheEntry* cce)
 {
     super::ctor();
     _cce = cce;
     _sensitiveInputCells = new ::java::util::HashSet();
 }
 
-org::apache::poi::ss::formula::CellCacheEntry* org::apache::poi::ss::formula::CellEvaluationFrame::getCCE()
+poi::ss::formula::CellCacheEntry* poi::ss::formula::CellEvaluationFrame::getCCE()
 {
     return _cce;
 }
 
-java::lang::String* org::apache::poi::ss::formula::CellEvaluationFrame::toString()
+java::lang::String* poi::ss::formula::CellEvaluationFrame::toString()
 {
     auto sb = new ::java::lang::StringBuffer(int32_t(64));
     npc(npc(sb)->append(npc(getClass())->getName()))->append(u" ["_j);
@@ -74,12 +68,12 @@ java::lang::String* org::apache::poi::ss::formula::CellEvaluationFrame::toString
     return npc(sb)->toString();
 }
 
-void org::apache::poi::ss::formula::CellEvaluationFrame::addSensitiveInputCell(CellCacheEntry* inputCell)
+void poi::ss::formula::CellEvaluationFrame::addSensitiveInputCell(CellCacheEntry* inputCell)
 {
     npc(_sensitiveInputCells)->add(static_cast< ::java::lang::Object* >(inputCell));
 }
 
-org::apache::poi::ss::formula::CellCacheEntryArray* org::apache::poi::ss::formula::CellEvaluationFrame::getSensitiveInputCells()
+poi::ss::formula::CellCacheEntryArray* poi::ss::formula::CellEvaluationFrame::getSensitiveInputCells()
 {
     auto nItems = npc(_sensitiveInputCells)->size();
     if(nItems < 1) {
@@ -90,7 +84,7 @@ org::apache::poi::ss::formula::CellCacheEntryArray* org::apache::poi::ss::formul
     return result;
 }
 
-void org::apache::poi::ss::formula::CellEvaluationFrame::addUsedBlankCell(int32_t bookIndex, int32_t sheetIndex, int32_t rowIndex, int32_t columnIndex)
+void poi::ss::formula::CellEvaluationFrame::addUsedBlankCell(int32_t bookIndex, int32_t sheetIndex, int32_t rowIndex, int32_t columnIndex)
 {
     if(_usedBlankCellGroup == nullptr) {
         _usedBlankCellGroup = new FormulaUsedBlankCellSet();
@@ -98,20 +92,20 @@ void org::apache::poi::ss::formula::CellEvaluationFrame::addUsedBlankCell(int32_
     npc(_usedBlankCellGroup)->addCell(bookIndex, sheetIndex, rowIndex, columnIndex);
 }
 
-void org::apache::poi::ss::formula::CellEvaluationFrame::updateFormulaResult(::org::apache::poi::ss::formula::eval::ValueEval* result)
+void poi::ss::formula::CellEvaluationFrame::updateFormulaResult(::poi::ss::formula::eval::ValueEval* result)
 {
     npc(_cce)->updateFormulaResult(result, getSensitiveInputCells(), _usedBlankCellGroup);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::CellEvaluationFrame::class_()
+java::lang::Class* poi::ss::formula::CellEvaluationFrame::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.CellEvaluationFrame", 45);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::CellEvaluationFrame::getClass0()
+java::lang::Class* poi::ss::formula::CellEvaluationFrame::getClass0()
 {
     return class_();
 }

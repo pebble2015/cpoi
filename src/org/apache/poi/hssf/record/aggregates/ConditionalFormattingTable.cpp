@@ -33,41 +33,41 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::aggregates::ConditionalFormattingTable::ConditionalFormattingTable(const ::default_init_tag&)
+poi::hssf::record::aggregates::ConditionalFormattingTable::ConditionalFormattingTable(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::aggregates::ConditionalFormattingTable::ConditionalFormattingTable() 
+poi::hssf::record::aggregates::ConditionalFormattingTable::ConditionalFormattingTable() 
     : ConditionalFormattingTable(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::aggregates::ConditionalFormattingTable::ConditionalFormattingTable(::org::apache::poi::hssf::model::RecordStream* rs) 
+poi::hssf::record::aggregates::ConditionalFormattingTable::ConditionalFormattingTable(::poi::hssf::model::RecordStream* rs) 
     : ConditionalFormattingTable(*static_cast< ::default_init_tag* >(0))
 {
     ctor(rs);
 }
 
-void org::apache::poi::hssf::record::aggregates::ConditionalFormattingTable::ctor()
+void poi::hssf::record::aggregates::ConditionalFormattingTable::ctor()
 {
     super::ctor();
     _cfHeaders = new ::java::util::ArrayList();
 }
 
-void org::apache::poi::hssf::record::aggregates::ConditionalFormattingTable::ctor(::org::apache::poi::hssf::model::RecordStream* rs)
+void poi::hssf::record::aggregates::ConditionalFormattingTable::ctor(::poi::hssf::model::RecordStream* rs)
 {
     super::ctor();
     ::java::util::List* temp = new ::java::util::ArrayList();
-    while (static_cast< ::java::lang::Object* >(npc(rs)->peekNextClass()) == static_cast< ::java::lang::Object* >(::org::apache::poi::hssf::record::CFHeaderRecord::class_()) || static_cast< ::java::lang::Object* >(npc(rs)->peekNextClass()) == static_cast< ::java::lang::Object* >(::org::apache::poi::hssf::record::CFHeader12Record::class_())) {
+    while (static_cast< ::java::lang::Object* >(npc(rs)->peekNextClass()) == static_cast< ::java::lang::Object* >(::poi::hssf::record::CFHeaderRecord::class_()) || static_cast< ::java::lang::Object* >(npc(rs)->peekNextClass()) == static_cast< ::java::lang::Object* >(::poi::hssf::record::CFHeader12Record::class_())) {
         npc(temp)->add(static_cast< ::java::lang::Object* >(CFRecordsAggregate::createCFAggregate(rs)));
     }
     _cfHeaders = temp;
 }
 
-void org::apache::poi::hssf::record::aggregates::ConditionalFormattingTable::visitContainedRecords(RecordAggregate_RecordVisitor* rv)
+void poi::hssf::record::aggregates::ConditionalFormattingTable::visitContainedRecords(RecordAggregate_RecordVisitor* rv)
 {
     for (auto _i = npc(_cfHeaders)->iterator(); _i->hasNext(); ) {
         CFRecordsAggregate* subAgg = java_cast< CFRecordsAggregate* >(_i->next());
@@ -77,31 +77,31 @@ void org::apache::poi::hssf::record::aggregates::ConditionalFormattingTable::vis
     }
 }
 
-int32_t org::apache::poi::hssf::record::aggregates::ConditionalFormattingTable::add(CFRecordsAggregate* cfAggregate)
+int32_t poi::hssf::record::aggregates::ConditionalFormattingTable::add(CFRecordsAggregate* cfAggregate)
 {
     npc(npc(cfAggregate)->getHeader())->setID(npc(_cfHeaders)->size());
     npc(_cfHeaders)->add(static_cast< ::java::lang::Object* >(cfAggregate));
     return npc(_cfHeaders)->size() - int32_t(1);
 }
 
-int32_t org::apache::poi::hssf::record::aggregates::ConditionalFormattingTable::size()
+int32_t poi::hssf::record::aggregates::ConditionalFormattingTable::size()
 {
     return npc(_cfHeaders)->size();
 }
 
-org::apache::poi::hssf::record::aggregates::CFRecordsAggregate* org::apache::poi::hssf::record::aggregates::ConditionalFormattingTable::get(int32_t index)
+poi::hssf::record::aggregates::CFRecordsAggregate* poi::hssf::record::aggregates::ConditionalFormattingTable::get(int32_t index)
 {
     checkIndex(index);
     return java_cast< CFRecordsAggregate* >(npc(_cfHeaders)->get(index));
 }
 
-void org::apache::poi::hssf::record::aggregates::ConditionalFormattingTable::remove(int32_t index)
+void poi::hssf::record::aggregates::ConditionalFormattingTable::remove(int32_t index)
 {
     checkIndex(index);
     npc(_cfHeaders)->remove(index);
 }
 
-void org::apache::poi::hssf::record::aggregates::ConditionalFormattingTable::checkIndex(int32_t index)
+void poi::hssf::record::aggregates::ConditionalFormattingTable::checkIndex(int32_t index)
 {
     if(index < 0 || index >= npc(_cfHeaders)->size()) {
         throw new ::java::lang::IllegalArgumentException(::java::lang::StringBuilder().append(u"Specified CF index "_j)->append(index)
@@ -111,7 +111,7 @@ void org::apache::poi::hssf::record::aggregates::ConditionalFormattingTable::che
     }
 }
 
-void org::apache::poi::hssf::record::aggregates::ConditionalFormattingTable::updateFormulasAfterCellShift(::org::apache::poi::ss::formula::FormulaShifter* shifter, int32_t externSheetIndex)
+void poi::hssf::record::aggregates::ConditionalFormattingTable::updateFormulasAfterCellShift(::poi::ss::formula::FormulaShifter* shifter, int32_t externSheetIndex)
 {
     for (auto i = int32_t(0); i < npc(_cfHeaders)->size(); i++) {
         auto subAgg = java_cast< CFRecordsAggregate* >(npc(_cfHeaders)->get(i));
@@ -125,13 +125,13 @@ void org::apache::poi::hssf::record::aggregates::ConditionalFormattingTable::upd
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::aggregates::ConditionalFormattingTable::class_()
+java::lang::Class* poi::hssf::record::aggregates::ConditionalFormattingTable::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.aggregates.ConditionalFormattingTable", 64);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::record::aggregates::ConditionalFormattingTable::getClass0()
+java::lang::Class* poi::hssf::record::aggregates::ConditionalFormattingTable::getClass0()
 {
     return class_();
 }

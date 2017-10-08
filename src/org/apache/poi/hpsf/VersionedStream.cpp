@@ -12,31 +12,31 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hpsf::VersionedStream::VersionedStream(const ::default_init_tag&)
+poi::hpsf::VersionedStream::VersionedStream(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hpsf::VersionedStream::VersionedStream() 
+poi::hpsf::VersionedStream::VersionedStream() 
     : VersionedStream(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::hpsf::VersionedStream::init()
+void poi::hpsf::VersionedStream::init()
 {
     _versionGuid = new GUID();
     _streamName = new IndirectPropertyName();
 }
 
-void org::apache::poi::hpsf::VersionedStream::ctor()
+void poi::hpsf::VersionedStream::ctor()
 {
     super::ctor();
     init();
 }
 
-void org::apache::poi::hpsf::VersionedStream::read(::org::apache::poi::util::LittleEndianByteArrayInputStream* lei)
+void poi::hpsf::VersionedStream::read(::poi::util::LittleEndianByteArrayInputStream* lei)
 {
     npc(_versionGuid)->read(lei);
     npc(_streamName)->read(lei);
@@ -44,13 +44,13 @@ void org::apache::poi::hpsf::VersionedStream::read(::org::apache::poi::util::Lit
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hpsf::VersionedStream::class_()
+java::lang::Class* poi::hpsf::VersionedStream::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hpsf.VersionedStream", 35);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hpsf::VersionedStream::getClass0()
+java::lang::Class* poi::hpsf::VersionedStream::getClass0()
 {
     return class_();
 }

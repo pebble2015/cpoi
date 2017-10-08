@@ -9,23 +9,17 @@
 #include <java/lang/Object.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hpsf
     {
-        namespace poi
-        {
-            namespace hpsf
-            {
-typedef ::SubArray< ::org::apache::poi::hpsf::TypedPropertyValue, ::java::lang::ObjectArray > TypedPropertyValueArray;
-            } // hpsf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hpsf::TypedPropertyValue, ::java::lang::ObjectArray > TypedPropertyValueArray;
+    } // hpsf
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hpsf::Vector
+class poi::hpsf::Vector
     : public virtual ::java::lang::Object
 {
 
@@ -39,7 +33,7 @@ protected:
     void ctor(int16_t type);
 
 public: /* package */
-    virtual void read(::org::apache::poi::util::LittleEndianByteArrayInputStream* lei);
+    virtual void read(::poi::util::LittleEndianByteArrayInputStream* lei);
     virtual TypedPropertyValueArray* getValues();
 
     // Generated

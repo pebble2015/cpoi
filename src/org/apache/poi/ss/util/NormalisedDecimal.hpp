@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::util::NormalisedDecimal final
+class poi::ss::util::NormalisedDecimal final
     : public ::java::lang::Object
 {
 

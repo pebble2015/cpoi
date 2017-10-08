@@ -12,39 +12,33 @@
 #include <org/apache/poi/poifs/storage/BlockWritable.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace poifs
     {
-        namespace poi
+        namespace storage
         {
-            namespace poifs
-            {
-                namespace storage
-                {
-typedef ::SubArray< ::org::apache::poi::poifs::storage::BlockWritable, ::java::lang::ObjectArray > BlockWritableArray;
-                } // storage
-            } // poifs
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::poifs::storage::BlockWritable, ::java::lang::ObjectArray > BlockWritableArray;
+        } // storage
+    } // poifs
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::property::PropertyTable final
+class poi::poifs::property::PropertyTable final
     : public PropertyTableBase
-    , public ::org::apache::poi::poifs::storage::BlockWritable
+    , public ::poi::poifs::storage::BlockWritable
 {
 
 public:
     typedef PropertyTableBase super;
 
 private:
-    ::org::apache::poi::poifs::common::POIFSBigBlockSize* _bigBigBlockSize {  };
-    ::org::apache::poi::poifs::storage::BlockWritableArray* _blocks {  };
+    ::poi::poifs::common::POIFSBigBlockSize* _bigBigBlockSize {  };
+    ::poi::poifs::storage::BlockWritableArray* _blocks {  };
 protected:
-    void ctor(::org::apache::poi::poifs::storage::HeaderBlock* headerBlock);
-    void ctor(::org::apache::poi::poifs::storage::HeaderBlock* headerBlock, ::org::apache::poi::poifs::storage::RawDataBlockList* blockList) /* throws(IOException) */;
+    void ctor(::poi::poifs::storage::HeaderBlock* headerBlock);
+    void ctor(::poi::poifs::storage::HeaderBlock* headerBlock, ::poi::poifs::storage::RawDataBlockList* blockList) /* throws(IOException) */;
 
 public:
     void preWrite();
@@ -52,8 +46,8 @@ public:
     void writeBlocks(::java::io::OutputStream* stream) /* throws(IOException) */ override;
 
     // Generated
-    PropertyTable(::org::apache::poi::poifs::storage::HeaderBlock* headerBlock);
-    PropertyTable(::org::apache::poi::poifs::storage::HeaderBlock* headerBlock, ::org::apache::poi::poifs::storage::RawDataBlockList* blockList);
+    PropertyTable(::poi::poifs::storage::HeaderBlock* headerBlock);
+    PropertyTable(::poi::poifs::storage::HeaderBlock* headerBlock, ::poi::poifs::storage::RawDataBlockList* blockList);
 protected:
     PropertyTable(const ::default_init_tag&);
 

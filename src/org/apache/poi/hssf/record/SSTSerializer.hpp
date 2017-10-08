@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::SSTSerializer final
+class poi::hssf::record::SSTSerializer final
     : public ::java::lang::Object
 {
 
@@ -21,25 +21,25 @@ public:
 private:
     int32_t _numStrings {  };
     int32_t _numUniqueStrings {  };
-    ::org::apache::poi::util::IntMapper* strings {  };
+    ::poi::util::IntMapper* strings {  };
     ::int32_tArray* bucketAbsoluteOffsets {  };
     ::int32_tArray* bucketRelativeOffsets {  };
 protected:
-    void ctor(::org::apache::poi::util::IntMapper* strings, int32_t numStrings, int32_t numUniqueStrings);
+    void ctor(::poi::util::IntMapper* strings, int32_t numStrings, int32_t numUniqueStrings);
 
 public:
-    void serialize(::org::apache::poi::hssf::record::cont::ContinuableRecordOutput* out);
+    void serialize(::poi::hssf::record::cont::ContinuableRecordOutput* out);
 
 private:
-    ::org::apache::poi::hssf::record::common::UnicodeString* getUnicodeString(int32_t index);
-    static ::org::apache::poi::hssf::record::common::UnicodeString* getUnicodeString(::org::apache::poi::util::IntMapper* strings, int32_t index);
+    ::poi::hssf::record::common::UnicodeString* getUnicodeString(int32_t index);
+    static ::poi::hssf::record::common::UnicodeString* getUnicodeString(::poi::util::IntMapper* strings, int32_t index);
 
 public:
     ::int32_tArray* getBucketAbsoluteOffsets();
     ::int32_tArray* getBucketRelativeOffsets();
 
     // Generated
-    SSTSerializer(::org::apache::poi::util::IntMapper* strings, int32_t numStrings, int32_t numUniqueStrings);
+    SSTSerializer(::poi::util::IntMapper* strings, int32_t numStrings, int32_t numUniqueStrings);
 protected:
     SSTSerializer(const ::default_init_tag&);
 

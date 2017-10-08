@@ -10,29 +10,23 @@
 #include <java/lang/Object.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::SharedFormula
+class poi::ss::formula::SharedFormula
     : public virtual ::java::lang::Object
 {
 
@@ -43,10 +37,10 @@ private:
     int32_t _columnWrappingMask {  };
     int32_t _rowWrappingMask {  };
 protected:
-    void ctor(::org::apache::poi::ss::SpreadsheetVersion* ssVersion);
+    void ctor(::poi::ss::SpreadsheetVersion* ssVersion);
 
 public:
-    virtual ::org::apache::poi::ss::formula::ptg::PtgArray* convertSharedFormulas(::org::apache::poi::ss::formula::ptg::PtgArray* ptgs, int32_t formulaRow, int32_t formulaColumn);
+    virtual ::poi::ss::formula::ptg::PtgArray* convertSharedFormulas(::poi::ss::formula::ptg::PtgArray* ptgs, int32_t formulaRow, int32_t formulaColumn);
 
 private:
     int32_t fixupRelativeColumn(int32_t currentcolumn, int32_t column, bool relative);
@@ -55,7 +49,7 @@ private:
     // Generated
 
 public:
-    SharedFormula(::org::apache::poi::ss::SpreadsheetVersion* ssVersion);
+    SharedFormula(::poi::ss::SpreadsheetVersion* ssVersion);
 protected:
     SharedFormula(const ::default_init_tag&);
 

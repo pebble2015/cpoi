@@ -13,19 +13,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::LookupUtils_CompareResult::LookupUtils_CompareResult(const ::default_init_tag&)
+poi::ss::formula::functions::LookupUtils_CompareResult::LookupUtils_CompareResult(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::LookupUtils_CompareResult::LookupUtils_CompareResult(bool isTypeMismatch, int32_t simpleCompareResult) 
+poi::ss::formula::functions::LookupUtils_CompareResult::LookupUtils_CompareResult(bool isTypeMismatch, int32_t simpleCompareResult) 
     : LookupUtils_CompareResult(*static_cast< ::default_init_tag* >(0))
 {
     ctor(isTypeMismatch,simpleCompareResult);
 }
 
-void org::apache::poi::ss::formula::functions::LookupUtils_CompareResult::ctor(bool isTypeMismatch, int32_t simpleCompareResult)
+void poi::ss::formula::functions::LookupUtils_CompareResult::ctor(bool isTypeMismatch, int32_t simpleCompareResult)
 {
     super::ctor();
     if(isTypeMismatch) {
@@ -41,35 +41,35 @@ void org::apache::poi::ss::formula::functions::LookupUtils_CompareResult::ctor(b
     }
 }
 
-org::apache::poi::ss::formula::functions::LookupUtils_CompareResult*& org::apache::poi::ss::formula::functions::LookupUtils_CompareResult::TYPE_MISMATCH()
+poi::ss::formula::functions::LookupUtils_CompareResult*& poi::ss::formula::functions::LookupUtils_CompareResult::TYPE_MISMATCH()
 {
     clinit();
     return TYPE_MISMATCH_;
 }
-org::apache::poi::ss::formula::functions::LookupUtils_CompareResult* org::apache::poi::ss::formula::functions::LookupUtils_CompareResult::TYPE_MISMATCH_;
+poi::ss::formula::functions::LookupUtils_CompareResult* poi::ss::formula::functions::LookupUtils_CompareResult::TYPE_MISMATCH_;
 
-org::apache::poi::ss::formula::functions::LookupUtils_CompareResult*& org::apache::poi::ss::formula::functions::LookupUtils_CompareResult::LESS_THAN()
+poi::ss::formula::functions::LookupUtils_CompareResult*& poi::ss::formula::functions::LookupUtils_CompareResult::LESS_THAN()
 {
     clinit();
     return LESS_THAN_;
 }
-org::apache::poi::ss::formula::functions::LookupUtils_CompareResult* org::apache::poi::ss::formula::functions::LookupUtils_CompareResult::LESS_THAN_;
+poi::ss::formula::functions::LookupUtils_CompareResult* poi::ss::formula::functions::LookupUtils_CompareResult::LESS_THAN_;
 
-org::apache::poi::ss::formula::functions::LookupUtils_CompareResult*& org::apache::poi::ss::formula::functions::LookupUtils_CompareResult::EQUAL()
+poi::ss::formula::functions::LookupUtils_CompareResult*& poi::ss::formula::functions::LookupUtils_CompareResult::EQUAL()
 {
     clinit();
     return EQUAL_;
 }
-org::apache::poi::ss::formula::functions::LookupUtils_CompareResult* org::apache::poi::ss::formula::functions::LookupUtils_CompareResult::EQUAL_;
+poi::ss::formula::functions::LookupUtils_CompareResult* poi::ss::formula::functions::LookupUtils_CompareResult::EQUAL_;
 
-org::apache::poi::ss::formula::functions::LookupUtils_CompareResult*& org::apache::poi::ss::formula::functions::LookupUtils_CompareResult::GREATER_THAN()
+poi::ss::formula::functions::LookupUtils_CompareResult*& poi::ss::formula::functions::LookupUtils_CompareResult::GREATER_THAN()
 {
     clinit();
     return GREATER_THAN_;
 }
-org::apache::poi::ss::formula::functions::LookupUtils_CompareResult* org::apache::poi::ss::formula::functions::LookupUtils_CompareResult::GREATER_THAN_;
+poi::ss::formula::functions::LookupUtils_CompareResult* poi::ss::formula::functions::LookupUtils_CompareResult::GREATER_THAN_;
 
-org::apache::poi::ss::formula::functions::LookupUtils_CompareResult* org::apache::poi::ss::formula::functions::LookupUtils_CompareResult::valueOf(int32_t simpleCompareResult)
+poi::ss::formula::functions::LookupUtils_CompareResult* poi::ss::formula::functions::LookupUtils_CompareResult::valueOf(int32_t simpleCompareResult)
 {
     clinit();
     if(simpleCompareResult < 0) {
@@ -81,7 +81,7 @@ org::apache::poi::ss::formula::functions::LookupUtils_CompareResult* org::apache
     return EQUAL_;
 }
 
-org::apache::poi::ss::formula::functions::LookupUtils_CompareResult* org::apache::poi::ss::formula::functions::LookupUtils_CompareResult::valueOf(bool matches)
+poi::ss::formula::functions::LookupUtils_CompareResult* poi::ss::formula::functions::LookupUtils_CompareResult::valueOf(bool matches)
 {
     clinit();
     if(matches) {
@@ -90,34 +90,34 @@ org::apache::poi::ss::formula::functions::LookupUtils_CompareResult* org::apache
     return LESS_THAN_;
 }
 
-bool org::apache::poi::ss::formula::functions::LookupUtils_CompareResult::isTypeMismatch()
+bool poi::ss::formula::functions::LookupUtils_CompareResult::isTypeMismatch()
 {
     return _isTypeMismatch;
 }
 
-bool org::apache::poi::ss::formula::functions::LookupUtils_CompareResult::isLessThan()
+bool poi::ss::formula::functions::LookupUtils_CompareResult::isLessThan()
 {
     return _isLessThan;
 }
 
-bool org::apache::poi::ss::formula::functions::LookupUtils_CompareResult::isEqual()
+bool poi::ss::formula::functions::LookupUtils_CompareResult::isEqual()
 {
     return _isEqual;
 }
 
-bool org::apache::poi::ss::formula::functions::LookupUtils_CompareResult::isGreaterThan()
+bool poi::ss::formula::functions::LookupUtils_CompareResult::isGreaterThan()
 {
     return _isGreaterThan;
 }
 
-java::lang::String* org::apache::poi::ss::formula::functions::LookupUtils_CompareResult::toString()
+java::lang::String* poi::ss::formula::functions::LookupUtils_CompareResult::toString()
 {
     return ::java::lang::StringBuilder().append(npc(getClass())->getName())->append(u" ["_j)
         ->append(formatAsString())
         ->append(u"]"_j)->toString();
 }
 
-java::lang::String* org::apache::poi::ss::formula::functions::LookupUtils_CompareResult::formatAsString()
+java::lang::String* poi::ss::formula::functions::LookupUtils_CompareResult::formatAsString()
 {
     if(_isTypeMismatch) {
         return u"TYPE_MISMATCH"_j;
@@ -136,13 +136,13 @@ java::lang::String* org::apache::poi::ss::formula::functions::LookupUtils_Compar
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::LookupUtils_CompareResult::class_()
+java::lang::Class* poi::ss::formula::functions::LookupUtils_CompareResult::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.LookupUtils.CompareResult", 61);
     return c;
 }
 
-void org::apache::poi::ss::formula::functions::LookupUtils_CompareResult::clinit()
+void poi::ss::formula::functions::LookupUtils_CompareResult::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -161,7 +161,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::LookupUtils_CompareResult::getClass0()
+java::lang::Class* poi::ss::formula::functions::LookupUtils_CompareResult::getClass0()
 {
     return class_();
 }

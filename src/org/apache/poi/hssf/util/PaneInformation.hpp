@@ -8,12 +8,12 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::util::PaneInformation
-    : public ::org::apache::poi::ss::util::PaneInformation
+class poi::hssf::util::PaneInformation
+    : public ::poi::ss::util::PaneInformation
 {
 
 public:
-    typedef ::org::apache::poi::ss::util::PaneInformation super;
+    typedef ::poi::ss::util::PaneInformation super;
 protected:
     void ctor(int16_t x, int16_t y, int16_t top, int16_t left, int8_t active, bool frozen);
 

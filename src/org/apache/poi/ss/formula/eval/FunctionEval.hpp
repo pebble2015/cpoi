@@ -10,29 +10,23 @@
 #include <java/lang/Object.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace functions
             {
-                namespace formula
-                {
-                    namespace functions
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::functions::Function, ::java::lang::ObjectArray > FunctionArray;
-                    } // functions
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::functions::Function, ::java::lang::ObjectArray > FunctionArray;
+            } // functions
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::eval::FunctionEval final
+class poi::ss::formula::eval::FunctionEval final
     : public ::java::lang::Object
 {
 
@@ -42,12 +36,12 @@ protected:
     void ctor();
 
 private:
-    static ::org::apache::poi::ss::formula::functions::FunctionArray* functions_;
-    static ::org::apache::poi::ss::formula::functions::FunctionArray* produceFunctions();
+    static ::poi::ss::formula::functions::FunctionArray* functions_;
+    static ::poi::ss::formula::functions::FunctionArray* produceFunctions();
 
 public:
-    static ::org::apache::poi::ss::formula::functions::Function* getBasicFunction(int32_t functionIndex);
-    static void registerFunction(::java::lang::String* name, ::org::apache::poi::ss::formula::functions::Function* func);
+    static ::poi::ss::formula::functions::Function* getBasicFunction(int32_t functionIndex);
+    static void registerFunction(::java::lang::String* name, ::poi::ss::formula::functions::Function* func);
     static ::java::util::Collection* getSupportedFunctionNames();
     static ::java::util::Collection* getNotSupportedFunctionNames();
 
@@ -64,7 +58,7 @@ public:
     static void clinit();
 
 public: /* protected */
-    static ::org::apache::poi::ss::formula::functions::FunctionArray*& functions();
+    static ::poi::ss::formula::functions::FunctionArray*& functions();
 
 private:
     virtual ::java::lang::Class* getClass0();

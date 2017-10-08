@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::FontRecord final
+class poi::hssf::record::FontRecord final
     : public StandardRecord
 {
 
@@ -29,10 +29,10 @@ public:
 private:
     int16_t field_1_font_height {  };
     int16_t field_2_attributes {  };
-    static ::org::apache::poi::util::BitField* italic_;
-    static ::org::apache::poi::util::BitField* strikeout_;
-    static ::org::apache::poi::util::BitField* macoutline_;
-    static ::org::apache::poi::util::BitField* macshadow_;
+    static ::poi::util::BitField* italic_;
+    static ::poi::util::BitField* strikeout_;
+    static ::poi::util::BitField* macoutline_;
+    static ::poi::util::BitField* macshadow_;
     int16_t field_3_color_palette_index {  };
     int16_t field_4_bold_weight {  };
     int16_t field_5_super_sub_script {  };
@@ -73,7 +73,7 @@ public:
     int8_t getCharset();
     ::java::lang::String* getFontName();
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;
@@ -109,9 +109,9 @@ public:
     ::int8_tArray* serialize();
 
 private:
-    static ::org::apache::poi::util::BitField*& italic();
-    static ::org::apache::poi::util::BitField*& strikeout();
-    static ::org::apache::poi::util::BitField*& macoutline();
-    static ::org::apache::poi::util::BitField*& macshadow();
+    static ::poi::util::BitField*& italic();
+    static ::poi::util::BitField*& strikeout();
+    static ::poi::util::BitField*& macoutline();
+    static ::poi::util::BitField*& macshadow();
     virtual ::java::lang::Class* getClass0();
 };

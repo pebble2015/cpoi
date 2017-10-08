@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ddf::EscherArrayProperty_iterator_1
+class poi::ddf::EscherArrayProperty_iterator_1
     : public virtual ::java::lang::Object
     , public virtual ::java::util::Iterator
 {

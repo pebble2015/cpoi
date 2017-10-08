@@ -12,25 +12,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -39,49 +33,49 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::atp::IfError::IfError(const ::default_init_tag&)
+poi::ss::formula::atp::IfError::IfError(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::atp::IfError::IfError() 
+poi::ss::formula::atp::IfError::IfError() 
     : IfError(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::functions::FreeRefFunction*& org::apache::poi::ss::formula::atp::IfError::instance()
+poi::ss::formula::functions::FreeRefFunction*& poi::ss::formula::atp::IfError::instance()
 {
     clinit();
     return instance_;
 }
-org::apache::poi::ss::formula::functions::FreeRefFunction* org::apache::poi::ss::formula::atp::IfError::instance_;
+poi::ss::formula::functions::FreeRefFunction* poi::ss::formula::atp::IfError::instance_;
 
-void org::apache::poi::ss::formula::atp::IfError::ctor()
+void poi::ss::formula::atp::IfError::ctor()
 {
     super::ctor();
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::atp::IfError::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, ::org::apache::poi::ss::formula::OperationEvaluationContext* ec)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::atp::IfError::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, ::poi::ss::formula::OperationEvaluationContext* ec)
 {
     if(npc(args)->length != 2) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
-    ::org::apache::poi::ss::formula::eval::ValueEval* val;
+    ::poi::ss::formula::eval::ValueEval* val;
     try {
         val = evaluateInternal((*args)[int32_t(0)], (*args)[int32_t(1)], npc(ec)->getRowIndex(), npc(ec)->getColumnIndex());
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
         return npc(e)->getErrorEval();
     }
     return val;
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::atp::IfError::evaluateInternal(::org::apache::poi::ss::formula::eval::ValueEval* arg, ::org::apache::poi::ss::formula::eval::ValueEval* iferror, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */
+poi::ss::formula::eval::ValueEval* poi::ss::formula::atp::IfError::evaluateInternal(::poi::ss::formula::eval::ValueEval* arg, ::poi::ss::formula::eval::ValueEval* iferror, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */
 {
     clinit();
-    arg = ::org::apache::poi::ss::formula::WorkbookEvaluator::dereferenceResult(arg, srcCellRow, srcCellCol);
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::ErrorEval* >(arg) != nullptr) {
+    arg = ::poi::ss::formula::WorkbookEvaluator::dereferenceResult(arg, srcCellRow, srcCellCol);
+    if(dynamic_cast< ::poi::ss::formula::eval::ErrorEval* >(arg) != nullptr) {
         return iferror;
     } else {
         return arg;
@@ -90,13 +84,13 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::a
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::atp::IfError::class_()
+java::lang::Class* poi::ss::formula::atp::IfError::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.atp.IfError", 37);
     return c;
 }
 
-void org::apache::poi::ss::formula::atp::IfError::clinit()
+void poi::ss::formula::atp::IfError::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -112,7 +106,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::formula::atp::IfError::getClass0()
+java::lang::Class* poi::ss::formula::atp::IfError::getClass0()
 {
     return class_();
 }

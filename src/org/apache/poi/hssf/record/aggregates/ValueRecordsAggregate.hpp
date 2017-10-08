@@ -27,27 +27,21 @@ typedef ::SubArray< ::java::lang::Cloneable, ObjectArray > CloneableArray;
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
-            {
-                namespace record
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::record::CellValueRecordInterface, ::java::lang::ObjectArray > CellValueRecordInterfaceArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::CellValueRecordInterfaceArray, ::java::lang::CloneableArray, ::java::io::SerializableArray > CellValueRecordInterfaceArrayArray;
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hssf::record::CellValueRecordInterface, ::java::lang::ObjectArray > CellValueRecordInterfaceArray;
+typedef ::SubArray< ::poi::hssf::record::CellValueRecordInterfaceArray, ::java::lang::CloneableArray, ::java::io::SerializableArray > CellValueRecordInterfaceArrayArray;
+        } // record
+    } // hssf
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::aggregates::ValueRecordsAggregate final
+class poi::hssf::record::aggregates::ValueRecordsAggregate final
     : public virtual ::java::lang::Object
     , public ::java::lang::Iterable
 {
@@ -60,35 +54,35 @@ private:
     static constexpr int32_t INDEX_NOT_SET { int32_t(-1) };
     int32_t firstcell {  };
     int32_t lastcell {  };
-    ::org::apache::poi::hssf::record::CellValueRecordInterfaceArrayArray* records {  };
+    ::poi::hssf::record::CellValueRecordInterfaceArrayArray* records {  };
 protected:
     void ctor();
-    void ctor(int32_t firstCellIx, int32_t lastCellIx, ::org::apache::poi::hssf::record::CellValueRecordInterfaceArrayArray* pRecords);
+    void ctor(int32_t firstCellIx, int32_t lastCellIx, ::poi::hssf::record::CellValueRecordInterfaceArrayArray* pRecords);
 
 public:
-    void insertCell(::org::apache::poi::hssf::record::CellValueRecordInterface* cell);
-    void removeCell(::org::apache::poi::hssf::record::CellValueRecordInterface* cell);
+    void insertCell(::poi::hssf::record::CellValueRecordInterface* cell);
+    void removeCell(::poi::hssf::record::CellValueRecordInterface* cell);
     void removeAllCellsValuesForRow(int32_t rowIndex);
     int32_t getPhysicalNumberOfCells();
     int32_t getFirstCellNum();
     int32_t getLastCellNum();
-    void addMultipleBlanks(::org::apache::poi::hssf::record::MulBlankRecord* mbr);
-    void construct(::org::apache::poi::hssf::record::CellValueRecordInterface* rec, ::org::apache::poi::hssf::model::RecordStream* rs, SharedValueManager* sfh);
+    void addMultipleBlanks(::poi::hssf::record::MulBlankRecord* mbr);
+    void construct(::poi::hssf::record::CellValueRecordInterface* rec, ::poi::hssf::model::RecordStream* rs, SharedValueManager* sfh);
     int32_t getRowCellBlockSize(int32_t startRow, int32_t endRow);
     bool rowHasCells(int32_t row);
 
 private:
-    static int32_t getRowSerializedSize(::org::apache::poi::hssf::record::CellValueRecordInterfaceArray* rowCells);
+    static int32_t getRowSerializedSize(::poi::hssf::record::CellValueRecordInterfaceArray* rowCells);
 
 public:
     void visitCellsForRow(int32_t rowIndex, RecordAggregate_RecordVisitor* rv);
 
 private:
-    static int32_t countBlanks(::org::apache::poi::hssf::record::CellValueRecordInterfaceArray* rowCellValues, int32_t startIx);
-    ::org::apache::poi::hssf::record::MulBlankRecord* createMBR(::org::apache::poi::hssf::record::CellValueRecordInterfaceArray* cellValues, int32_t startIx, int32_t nBlank);
+    static int32_t countBlanks(::poi::hssf::record::CellValueRecordInterfaceArray* rowCellValues, int32_t startIx);
+    ::poi::hssf::record::MulBlankRecord* createMBR(::poi::hssf::record::CellValueRecordInterfaceArray* cellValues, int32_t startIx, int32_t nBlank);
 
 public:
-    void updateFormulasAfterRowShift(::org::apache::poi::ss::formula::FormulaShifter* shifter, int32_t currentExternSheetIndex);
+    void updateFormulasAfterRowShift(::poi::ss::formula::FormulaShifter* shifter, int32_t currentExternSheetIndex);
     ::java::util::Iterator* iterator() override;
     ::java::lang::Object* clone() override;
 
@@ -96,7 +90,7 @@ public:
     ValueRecordsAggregate();
 
 private:
-    ValueRecordsAggregate(int32_t firstCellIx, int32_t lastCellIx, ::org::apache::poi::hssf::record::CellValueRecordInterfaceArrayArray* pRecords);
+    ValueRecordsAggregate(int32_t firstCellIx, int32_t lastCellIx, ::poi::hssf::record::CellValueRecordInterfaceArrayArray* pRecords);
 protected:
     ValueRecordsAggregate(const ::default_init_tag&);
 

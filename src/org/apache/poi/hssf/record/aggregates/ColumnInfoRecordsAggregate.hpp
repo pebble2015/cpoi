@@ -13,7 +13,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate final
+class poi::hssf::record::aggregates::ColumnInfoRecordsAggregate final
     : public RecordAggregate
     , public ::java::lang::Cloneable
 {
@@ -25,14 +25,14 @@ private:
     ::java::util::List* records {  };
 protected:
     void ctor();
-    void ctor(::org::apache::poi::hssf::model::RecordStream* rs);
+    void ctor(::poi::hssf::model::RecordStream* rs);
 
 public:
     ColumnInfoRecordsAggregate* clone() override;
-    void insertColumn(::org::apache::poi::hssf::record::ColumnInfoRecord* col);
+    void insertColumn(::poi::hssf::record::ColumnInfoRecord* col);
 
 private:
-    void insertColumn(int32_t idx, ::org::apache::poi::hssf::record::ColumnInfoRecord* col);
+    void insertColumn(int32_t idx, ::poi::hssf::record::ColumnInfoRecord* col);
 
 public: /* package */
     int32_t getNumColumns();
@@ -43,7 +43,7 @@ public:
 private:
     int32_t findStartOfColumnOutlineGroup(int32_t pIdx);
     int32_t findEndOfColumnOutlineGroup(int32_t colInfoIndex);
-    ::org::apache::poi::hssf::record::ColumnInfoRecord* getColInfo(int32_t idx);
+    ::poi::hssf::record::ColumnInfoRecord* getColInfo(int32_t idx);
     bool isColumnGroupCollapsed(int32_t idx);
     bool isColumnGroupHiddenByParent(int32_t idx);
 
@@ -57,26 +57,26 @@ public:
     void expandColumn(int32_t columnIndex);
 
 private:
-    static ::org::apache::poi::hssf::record::ColumnInfoRecord* copyColInfo(::org::apache::poi::hssf::record::ColumnInfoRecord* ci);
+    static ::poi::hssf::record::ColumnInfoRecord* copyColInfo(::poi::hssf::record::ColumnInfoRecord* ci);
 
 public:
     void setColumn(int32_t targetColumnIx, ::java::lang::Short* xfIndex, ::java::lang::Integer* width, ::java::lang::Integer* level, ::java::lang::Boolean* hidden, ::java::lang::Boolean* collapsed);
 
 private:
-    static void setColumnInfoFields(::org::apache::poi::hssf::record::ColumnInfoRecord* ci, ::java::lang::Short* xfStyle, ::java::lang::Integer* width, ::java::lang::Integer* level, ::java::lang::Boolean* hidden, ::java::lang::Boolean* collapsed);
+    static void setColumnInfoFields(::poi::hssf::record::ColumnInfoRecord* ci, ::java::lang::Short* xfStyle, ::java::lang::Integer* width, ::java::lang::Integer* level, ::java::lang::Boolean* hidden, ::java::lang::Boolean* collapsed);
     int32_t findColInfoIdx(int32_t columnIx, int32_t fromColInfoIdx);
     void attemptMergeColInfoRecords(int32_t colInfoIx);
-    static bool mergeColInfoRecords(::org::apache::poi::hssf::record::ColumnInfoRecord* ciA, ::org::apache::poi::hssf::record::ColumnInfoRecord* ciB);
+    static bool mergeColInfoRecords(::poi::hssf::record::ColumnInfoRecord* ciA, ::poi::hssf::record::ColumnInfoRecord* ciB);
 
 public:
     void groupColumnRange(int32_t fromColumnIx, int32_t toColumnIx, bool indent);
-    ::org::apache::poi::hssf::record::ColumnInfoRecord* findColumnInfo(int32_t columnIndex);
+    ::poi::hssf::record::ColumnInfoRecord* findColumnInfo(int32_t columnIndex);
     int32_t getMaxOutlineLevel();
     int32_t getOutlineLevel(int32_t columnIndex);
 
     // Generated
     ColumnInfoRecordsAggregate();
-    ColumnInfoRecordsAggregate(::org::apache::poi::hssf::model::RecordStream* rs);
+    ColumnInfoRecordsAggregate(::poi::hssf::model::RecordStream* rs);
 protected:
     ColumnInfoRecordsAggregate(const ::default_init_tag&);
 

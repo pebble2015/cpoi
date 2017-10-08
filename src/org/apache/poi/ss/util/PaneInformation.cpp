@@ -1,27 +1,27 @@
 // Generated from /POI/java/org/apache/poi/ss/util/PaneInformation.java
 #include <org/apache/poi/ss/util/PaneInformation.hpp>
 
-org::apache::poi::ss::util::PaneInformation::PaneInformation(const ::default_init_tag&)
+poi::ss::util::PaneInformation::PaneInformation(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::util::PaneInformation::PaneInformation(int16_t x, int16_t y, int16_t top, int16_t left, int8_t active, bool frozen) 
+poi::ss::util::PaneInformation::PaneInformation(int16_t x, int16_t y, int16_t top, int16_t left, int8_t active, bool frozen) 
     : PaneInformation(*static_cast< ::default_init_tag* >(0))
 {
     ctor(x,y,top,left,active,frozen);
 }
 
-constexpr int8_t org::apache::poi::ss::util::PaneInformation::PANE_LOWER_RIGHT;
+constexpr int8_t poi::ss::util::PaneInformation::PANE_LOWER_RIGHT;
 
-constexpr int8_t org::apache::poi::ss::util::PaneInformation::PANE_UPPER_RIGHT;
+constexpr int8_t poi::ss::util::PaneInformation::PANE_UPPER_RIGHT;
 
-constexpr int8_t org::apache::poi::ss::util::PaneInformation::PANE_LOWER_LEFT;
+constexpr int8_t poi::ss::util::PaneInformation::PANE_LOWER_LEFT;
 
-constexpr int8_t org::apache::poi::ss::util::PaneInformation::PANE_UPPER_LEFT;
+constexpr int8_t poi::ss::util::PaneInformation::PANE_UPPER_LEFT;
 
-void org::apache::poi::ss::util::PaneInformation::ctor(int16_t x, int16_t y, int16_t top, int16_t left, int8_t active, bool frozen)
+void poi::ss::util::PaneInformation::ctor(int16_t x, int16_t y, int16_t top, int16_t left, int8_t active, bool frozen)
 {
     super::ctor();
     this->x = x;
@@ -32,45 +32,45 @@ void org::apache::poi::ss::util::PaneInformation::ctor(int16_t x, int16_t y, int
     this->frozen = frozen;
 }
 
-int16_t org::apache::poi::ss::util::PaneInformation::getVerticalSplitPosition()
+int16_t poi::ss::util::PaneInformation::getVerticalSplitPosition()
 {
     return x;
 }
 
-int16_t org::apache::poi::ss::util::PaneInformation::getHorizontalSplitPosition()
+int16_t poi::ss::util::PaneInformation::getHorizontalSplitPosition()
 {
     return y;
 }
 
-int16_t org::apache::poi::ss::util::PaneInformation::getHorizontalSplitTopRow()
+int16_t poi::ss::util::PaneInformation::getHorizontalSplitTopRow()
 {
     return topRow;
 }
 
-int16_t org::apache::poi::ss::util::PaneInformation::getVerticalSplitLeftColumn()
+int16_t poi::ss::util::PaneInformation::getVerticalSplitLeftColumn()
 {
     return leftColumn;
 }
 
-int8_t org::apache::poi::ss::util::PaneInformation::getActivePane()
+int8_t poi::ss::util::PaneInformation::getActivePane()
 {
     return activePane;
 }
 
-bool org::apache::poi::ss::util::PaneInformation::isFreezePane()
+bool poi::ss::util::PaneInformation::isFreezePane()
 {
     return frozen;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::util::PaneInformation::class_()
+java::lang::Class* poi::ss::util::PaneInformation::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.util.PaneInformation", 38);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::util::PaneInformation::getClass0()
+java::lang::Class* poi::ss::util::PaneInformation::getClass0()
 {
     return class_();
 }

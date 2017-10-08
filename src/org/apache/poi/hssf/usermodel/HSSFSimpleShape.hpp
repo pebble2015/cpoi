@@ -14,9 +14,9 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFSimpleShape
+class poi::hssf::usermodel::HSSFSimpleShape
     : public HSSFShape
-    , public virtual ::org::apache::poi::ss::usermodel::SimpleShape
+    , public virtual ::poi::ss::usermodel::SimpleShape
 {
 
 public:
@@ -34,22 +34,22 @@ public:
     static constexpr int32_t WRAP_NONE { int32_t(2) };
 
 private:
-    ::org::apache::poi::hssf::record::TextObjectRecord* _textObjectRecord {  };
+    ::poi::hssf::record::TextObjectRecord* _textObjectRecord {  };
 protected:
-    void ctor(::org::apache::poi::ddf::EscherContainerRecord* spContainer, ::org::apache::poi::hssf::record::ObjRecord* objRecord, ::org::apache::poi::hssf::record::TextObjectRecord* textObjectRecord);
-    void ctor(::org::apache::poi::ddf::EscherContainerRecord* spContainer, ::org::apache::poi::hssf::record::ObjRecord* objRecord);
+    void ctor(::poi::ddf::EscherContainerRecord* spContainer, ::poi::hssf::record::ObjRecord* objRecord, ::poi::hssf::record::TextObjectRecord* textObjectRecord);
+    void ctor(::poi::ddf::EscherContainerRecord* spContainer, ::poi::hssf::record::ObjRecord* objRecord);
     void ctor(HSSFShape* parent, HSSFAnchor* anchor);
 
 public: /* protected */
-    virtual ::org::apache::poi::hssf::record::TextObjectRecord* getTextObjectRecord();
-    virtual ::org::apache::poi::hssf::record::TextObjectRecord* createTextObjRecord();
-    ::org::apache::poi::ddf::EscherContainerRecord* createSpContainer() override;
-    ::org::apache::poi::hssf::record::ObjRecord* createObjRecord() override;
+    virtual ::poi::hssf::record::TextObjectRecord* getTextObjectRecord();
+    virtual ::poi::hssf::record::TextObjectRecord* createTextObjRecord();
+    ::poi::ddf::EscherContainerRecord* createSpContainer() override;
+    ::poi::hssf::record::ObjRecord* createObjRecord() override;
     void afterRemove(HSSFPatriarch* patriarch) override;
 
 public:
     virtual HSSFRichTextString* getString();
-    virtual void setString(::org::apache::poi::ss::usermodel::RichTextString* string);
+    virtual void setString(::poi::ss::usermodel::RichTextString* string);
 
 public: /* package */
     void afterInsert(HSSFPatriarch* patriarch) override;
@@ -64,14 +64,14 @@ public:
     virtual void setShapeType(int32_t value);
 
 private:
-    ::org::apache::poi::hssf::record::TextObjectRecord* getOrCreateTextObjRecord();
+    ::poi::hssf::record::TextObjectRecord* getOrCreateTextObjRecord();
 
 public:
     int32_t getShapeId() override;
 
     // Generated
-    HSSFSimpleShape(::org::apache::poi::ddf::EscherContainerRecord* spContainer, ::org::apache::poi::hssf::record::ObjRecord* objRecord, ::org::apache::poi::hssf::record::TextObjectRecord* textObjectRecord);
-    HSSFSimpleShape(::org::apache::poi::ddf::EscherContainerRecord* spContainer, ::org::apache::poi::hssf::record::ObjRecord* objRecord);
+    HSSFSimpleShape(::poi::ddf::EscherContainerRecord* spContainer, ::poi::hssf::record::ObjRecord* objRecord, ::poi::hssf::record::TextObjectRecord* textObjectRecord);
+    HSSFSimpleShape(::poi::ddf::EscherContainerRecord* spContainer, ::poi::hssf::record::ObjRecord* objRecord);
     HSSFSimpleShape(HSSFShape* parent, HSSFAnchor* anchor);
 protected:
     HSSFSimpleShape(const ::default_init_tag&);

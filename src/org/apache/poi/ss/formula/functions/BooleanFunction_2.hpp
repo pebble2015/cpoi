@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::BooleanFunction_2
+class poi::ss::formula::functions::BooleanFunction_2
     : public BooleanFunction
 {
 

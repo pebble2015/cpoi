@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::binding::CTConnectionSite
+class poi::sl::draw::binding::CTConnectionSite
     : public virtual ::java::lang::Object
 {
 

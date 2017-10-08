@@ -9,27 +9,21 @@
 #include <org/apache/poi/ss/formula/CellCacheEntry.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
-            {
-                namespace formula
-                {
-typedef ::SubArray< ::org::apache::poi::ss::formula::IEvaluationListener_ICacheEntry, ::java::lang::ObjectArray > IEvaluationListener_ICacheEntryArray;
-typedef ::SubArray< ::org::apache::poi::ss::formula::CellCacheEntry, ::java::lang::ObjectArray, IEvaluationListener_ICacheEntryArray > CellCacheEntryArray;
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::IEvaluationListener_ICacheEntry, ::java::lang::ObjectArray > IEvaluationListener_ICacheEntryArray;
+typedef ::SubArray< ::poi::ss::formula::CellCacheEntry, ::java::lang::ObjectArray, IEvaluationListener_ICacheEntryArray > CellCacheEntryArray;
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::FormulaCellCacheEntry final
+class poi::ss::formula::FormulaCellCacheEntry final
     : public CellCacheEntry
 {
 
@@ -51,7 +45,7 @@ private:
     void changeConsumingCells(CellCacheEntryArray* usedCells);
 
 public:
-    void updateFormulaResult(::org::apache::poi::ss::formula::eval::ValueEval* result, CellCacheEntryArray* sensitiveInputCells, FormulaUsedBlankCellSet* usedBlankAreas);
+    void updateFormulaResult(::poi::ss::formula::eval::ValueEval* result, CellCacheEntryArray* sensitiveInputCells, FormulaUsedBlankCellSet* usedBlankAreas);
     void notifyUpdatedBlankCell(FormulaUsedBlankCellSet_BookSheetKey* bsk, int32_t rowIndex, int32_t columnIndex, IEvaluationListener* evaluationListener);
 
     // Generated

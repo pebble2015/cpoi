@@ -4,46 +4,46 @@
 #include <org/apache/poi/ss/formula/functions/MinaMaxa_1.hpp>
 #include <org/apache/poi/ss/formula/functions/MinaMaxa_2.hpp>
 
-org::apache::poi::ss::formula::functions::MinaMaxa::MinaMaxa(const ::default_init_tag&)
+poi::ss::formula::functions::MinaMaxa::MinaMaxa(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::MinaMaxa::MinaMaxa() 
+poi::ss::formula::functions::MinaMaxa::MinaMaxa() 
     : MinaMaxa(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::ss::formula::functions::MinaMaxa::ctor()
+void poi::ss::formula::functions::MinaMaxa::ctor()
 {
     super::ctor(true, true);
 }
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::MinaMaxa::MAXA()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::MinaMaxa::MAXA()
 {
     clinit();
     return MAXA_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::MinaMaxa::MAXA_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::MinaMaxa::MAXA_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::MinaMaxa::MINA()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::MinaMaxa::MINA()
 {
     clinit();
     return MINA_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::MinaMaxa::MINA_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::MinaMaxa::MINA_;
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::MinaMaxa::class_()
+java::lang::Class* poi::ss::formula::functions::MinaMaxa::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.MinaMaxa", 44);
     return c;
 }
 
-void org::apache::poi::ss::formula::functions::MinaMaxa::clinit()
+void poi::ss::formula::functions::MinaMaxa::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -60,7 +60,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::MinaMaxa::getClass0()
+java::lang::Class* poi::ss::formula::functions::MinaMaxa::getClass0()
 {
     return class_();
 }

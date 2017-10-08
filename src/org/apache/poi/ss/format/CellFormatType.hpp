@@ -24,26 +24,20 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace format
         {
-            namespace ss
-            {
-                namespace format
-                {
-typedef ::SubArray< ::org::apache::poi::ss::format::CellFormatType, ::java::lang::EnumArray > CellFormatTypeArray;
-                } // format
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::format::CellFormatType, ::java::lang::EnumArray > CellFormatTypeArray;
+        } // format
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::format::CellFormatType
+class poi::ss::format::CellFormatType
     : public ::java::lang::Enum
 {
 

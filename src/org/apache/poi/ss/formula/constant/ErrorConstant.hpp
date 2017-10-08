@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::constant::ErrorConstant
+class poi::ss::formula::constant::ErrorConstant
     : public virtual ::java::lang::Object
 {
 
@@ -18,7 +18,7 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    static ::org::apache::poi::util::POILogger* logger_;
+    static ::poi::util::POILogger* logger_;
     static ErrorConstant* NULL__;
     static ErrorConstant* DIV_0_;
     static ErrorConstant* VALUE_;
@@ -49,7 +49,7 @@ public:
     static void clinit();
 
 private:
-    static ::org::apache::poi::util::POILogger*& logger();
+    static ::poi::util::POILogger*& logger();
     static ErrorConstant*& NULL_();
     static ErrorConstant*& DIV_0();
     static ErrorConstant*& VALUE();

@@ -14,19 +14,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::OldCellRecord::OldCellRecord(const ::default_init_tag&)
+poi::hssf::record::OldCellRecord::OldCellRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::OldCellRecord::OldCellRecord(RecordInputStream* in, bool isBiff2) 
+poi::hssf::record::OldCellRecord::OldCellRecord(RecordInputStream* in, bool isBiff2) 
     : OldCellRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in,isBiff2);
 }
 
-void org::apache::poi::hssf::record::OldCellRecord::ctor(RecordInputStream* in, bool isBiff2)
+void poi::hssf::record::OldCellRecord::ctor(RecordInputStream* in, bool isBiff2)
 {
     super::ctor();
     this->sid = npc(in)->getSid();
@@ -41,47 +41,47 @@ void org::apache::poi::hssf::record::OldCellRecord::ctor(RecordInputStream* in, 
     }
 }
 
-int32_t org::apache::poi::hssf::record::OldCellRecord::getRow()
+int32_t poi::hssf::record::OldCellRecord::getRow()
 {
     return field_1_row;
 }
 
-int16_t org::apache::poi::hssf::record::OldCellRecord::getColumn()
+int16_t poi::hssf::record::OldCellRecord::getColumn()
 {
     return field_2_column;
 }
 
-int16_t org::apache::poi::hssf::record::OldCellRecord::getXFIndex()
+int16_t poi::hssf::record::OldCellRecord::getXFIndex()
 {
     return field_3_xf_index;
 }
 
-int32_t org::apache::poi::hssf::record::OldCellRecord::getCellAttrs()
+int32_t poi::hssf::record::OldCellRecord::getCellAttrs()
 {
     return field_3_cell_attrs;
 }
 
-bool org::apache::poi::hssf::record::OldCellRecord::isBiff2()
+bool poi::hssf::record::OldCellRecord::isBiff2()
 {
     return isBiff2_;
 }
 
-int16_t org::apache::poi::hssf::record::OldCellRecord::getSid()
+int16_t poi::hssf::record::OldCellRecord::getSid()
 {
     return sid;
 }
 
-java::lang::String* org::apache::poi::hssf::record::OldCellRecord::toString()
+java::lang::String* poi::hssf::record::OldCellRecord::toString()
 {
     auto sb = new ::java::lang::StringBuilder();
     auto recordName = getRecordName();
     npc(npc(npc(sb)->append(u"["_j))->append(recordName))->append(u"]\n"_j);
-    npc(npc(npc(sb)->append(u"    .row    = "_j))->append(::org::apache::poi::util::HexDump::shortToHex(getRow())))->append(u"\n"_j);
-    npc(npc(npc(sb)->append(u"    .col    = "_j))->append(::org::apache::poi::util::HexDump::shortToHex(getColumn())))->append(u"\n"_j);
+    npc(npc(npc(sb)->append(u"    .row    = "_j))->append(::poi::util::HexDump::shortToHex(getRow())))->append(u"\n"_j);
+    npc(npc(npc(sb)->append(u"    .col    = "_j))->append(::poi::util::HexDump::shortToHex(getColumn())))->append(u"\n"_j);
     if(isBiff2()) {
-        npc(npc(npc(sb)->append(u"    .cellattrs = "_j))->append(::org::apache::poi::util::HexDump::shortToHex(getCellAttrs())))->append(u"\n"_j);
+        npc(npc(npc(sb)->append(u"    .cellattrs = "_j))->append(::poi::util::HexDump::shortToHex(getCellAttrs())))->append(u"\n"_j);
     } else {
-        npc(npc(npc(sb)->append(u"    .xfindex   = "_j))->append(::org::apache::poi::util::HexDump::shortToHex(getXFIndex())))->append(u"\n"_j);
+        npc(npc(npc(sb)->append(u"    .xfindex   = "_j))->append(::poi::util::HexDump::shortToHex(getXFIndex())))->append(u"\n"_j);
     }
     appendValueText(sb);
     npc(sb)->append(u"\n"_j);
@@ -91,13 +91,13 @@ java::lang::String* org::apache::poi::hssf::record::OldCellRecord::toString()
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::OldCellRecord::class_()
+java::lang::Class* poi::hssf::record::OldCellRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.OldCellRecord", 40);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::record::OldCellRecord::getClass0()
+java::lang::Class* poi::hssf::record::OldCellRecord::getClass0()
 {
     return class_();
 }

@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::WSBoolRecord final
+class poi::hssf::record::WSBoolRecord final
     : public StandardRecord
 {
 
@@ -21,15 +21,15 @@ public:
 private:
     int8_t field_1_wsbool {  };
     int8_t field_2_wsbool {  };
-    static ::org::apache::poi::util::BitField* autobreaks_;
-    static ::org::apache::poi::util::BitField* dialog_;
-    static ::org::apache::poi::util::BitField* applystyles_;
-    static ::org::apache::poi::util::BitField* rowsumsbelow_;
-    static ::org::apache::poi::util::BitField* rowsumsright_;
-    static ::org::apache::poi::util::BitField* fittopage_;
-    static ::org::apache::poi::util::BitField* displayguts_;
-    static ::org::apache::poi::util::BitField* alternateexpression_;
-    static ::org::apache::poi::util::BitField* alternateformula_;
+    static ::poi::util::BitField* autobreaks_;
+    static ::poi::util::BitField* dialog_;
+    static ::poi::util::BitField* applystyles_;
+    static ::poi::util::BitField* rowsumsbelow_;
+    static ::poi::util::BitField* rowsumsright_;
+    static ::poi::util::BitField* fittopage_;
+    static ::poi::util::BitField* displayguts_;
+    static ::poi::util::BitField* alternateexpression_;
+    static ::poi::util::BitField* alternateformula_;
 protected:
     void ctor();
     void ctor(RecordInputStream* in);
@@ -56,7 +56,7 @@ public:
     bool getAlternateExpression();
     bool getAlternateFormula();
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;
@@ -79,14 +79,14 @@ public:
     ::int8_tArray* serialize();
 
 private:
-    static ::org::apache::poi::util::BitField*& autobreaks();
-    static ::org::apache::poi::util::BitField*& dialog();
-    static ::org::apache::poi::util::BitField*& applystyles();
-    static ::org::apache::poi::util::BitField*& rowsumsbelow();
-    static ::org::apache::poi::util::BitField*& rowsumsright();
-    static ::org::apache::poi::util::BitField*& fittopage();
-    static ::org::apache::poi::util::BitField*& displayguts();
-    static ::org::apache::poi::util::BitField*& alternateexpression();
-    static ::org::apache::poi::util::BitField*& alternateformula();
+    static ::poi::util::BitField*& autobreaks();
+    static ::poi::util::BitField*& dialog();
+    static ::poi::util::BitField*& applystyles();
+    static ::poi::util::BitField*& rowsumsbelow();
+    static ::poi::util::BitField*& rowsumsright();
+    static ::poi::util::BitField*& fittopage();
+    static ::poi::util::BitField*& displayguts();
+    static ::poi::util::BitField*& alternateexpression();
+    static ::poi::util::BitField*& alternateformula();
     virtual ::java::lang::Class* getClass0();
 };

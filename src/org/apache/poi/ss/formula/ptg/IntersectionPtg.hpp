@@ -27,7 +27,7 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::ptg::IntersectionPtg final
+class poi::ss::formula::ptg::IntersectionPtg final
     : public OperationPtg
 {
 
@@ -43,7 +43,7 @@ protected:
 public:
     bool isBaseToken() override;
     int32_t getSize() override;
-    void write(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void write(::poi::util::LittleEndianOutput* out) override;
     ::java::lang::String* toFormulaString() override;
     ::java::lang::String* toFormulaString(::java::lang::StringArray* operands) override;
     int32_t getNumberOfOperands() override;

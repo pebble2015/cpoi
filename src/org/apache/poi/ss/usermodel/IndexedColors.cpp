@@ -27,22 +27,16 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace ss
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::IndexedColors, ::java::lang::EnumArray > IndexedColorsArray;
-                } // usermodel
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::usermodel::IndexedColors, ::java::lang::EnumArray > IndexedColorsArray;
+        } // usermodel
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -51,94 +45,94 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::usermodel::IndexedColors::IndexedColors(const ::default_init_tag&)
+poi::ss::usermodel::IndexedColors::IndexedColors(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::usermodel::IndexedColors::IndexedColors(::java::lang::String* name, int ordinal, int32_t idx) 
+poi::ss::usermodel::IndexedColors::IndexedColors(::java::lang::String* name, int ordinal, int32_t idx) 
     : IndexedColors(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal, idx);
 }
 
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::BLACK1 = new ::org::apache::poi::ss::usermodel::IndexedColors(u"BLACK1"_j, 0, int32_t(0));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::WHITE1 = new ::org::apache::poi::ss::usermodel::IndexedColors(u"WHITE1"_j, 1, int32_t(1));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::RED1 = new ::org::apache::poi::ss::usermodel::IndexedColors(u"RED1"_j, 2, int32_t(2));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::BRIGHT_GREEN1 = new ::org::apache::poi::ss::usermodel::IndexedColors(u"BRIGHT_GREEN1"_j, 3, int32_t(3));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::BLUE1 = new ::org::apache::poi::ss::usermodel::IndexedColors(u"BLUE1"_j, 4, int32_t(4));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::YELLOW1 = new ::org::apache::poi::ss::usermodel::IndexedColors(u"YELLOW1"_j, 5, int32_t(5));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::PINK1 = new ::org::apache::poi::ss::usermodel::IndexedColors(u"PINK1"_j, 6, int32_t(6));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::TURQUOISE1 = new ::org::apache::poi::ss::usermodel::IndexedColors(u"TURQUOISE1"_j, 7, int32_t(7));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::BLACK = new ::org::apache::poi::ss::usermodel::IndexedColors(u"BLACK"_j, 8, int32_t(8));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::WHITE = new ::org::apache::poi::ss::usermodel::IndexedColors(u"WHITE"_j, 9, int32_t(9));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::RED = new ::org::apache::poi::ss::usermodel::IndexedColors(u"RED"_j, 10, int32_t(10));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::BRIGHT_GREEN = new ::org::apache::poi::ss::usermodel::IndexedColors(u"BRIGHT_GREEN"_j, 11, int32_t(11));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::BLUE = new ::org::apache::poi::ss::usermodel::IndexedColors(u"BLUE"_j, 12, int32_t(12));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::YELLOW = new ::org::apache::poi::ss::usermodel::IndexedColors(u"YELLOW"_j, 13, int32_t(13));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::PINK = new ::org::apache::poi::ss::usermodel::IndexedColors(u"PINK"_j, 14, int32_t(14));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::TURQUOISE = new ::org::apache::poi::ss::usermodel::IndexedColors(u"TURQUOISE"_j, 15, int32_t(15));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::DARK_RED = new ::org::apache::poi::ss::usermodel::IndexedColors(u"DARK_RED"_j, 16, int32_t(16));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::GREEN = new ::org::apache::poi::ss::usermodel::IndexedColors(u"GREEN"_j, 17, int32_t(17));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::DARK_BLUE = new ::org::apache::poi::ss::usermodel::IndexedColors(u"DARK_BLUE"_j, 18, int32_t(18));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::DARK_YELLOW = new ::org::apache::poi::ss::usermodel::IndexedColors(u"DARK_YELLOW"_j, 19, int32_t(19));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::VIOLET = new ::org::apache::poi::ss::usermodel::IndexedColors(u"VIOLET"_j, 20, int32_t(20));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::TEAL = new ::org::apache::poi::ss::usermodel::IndexedColors(u"TEAL"_j, 21, int32_t(21));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::GREY_25_PERCENT = new ::org::apache::poi::ss::usermodel::IndexedColors(u"GREY_25_PERCENT"_j, 22, int32_t(22));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::GREY_50_PERCENT = new ::org::apache::poi::ss::usermodel::IndexedColors(u"GREY_50_PERCENT"_j, 23, int32_t(23));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::CORNFLOWER_BLUE = new ::org::apache::poi::ss::usermodel::IndexedColors(u"CORNFLOWER_BLUE"_j, 24, int32_t(24));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::MAROON = new ::org::apache::poi::ss::usermodel::IndexedColors(u"MAROON"_j, 25, int32_t(25));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::LEMON_CHIFFON = new ::org::apache::poi::ss::usermodel::IndexedColors(u"LEMON_CHIFFON"_j, 26, int32_t(26));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::LIGHT_TURQUOISE1 = new ::org::apache::poi::ss::usermodel::IndexedColors(u"LIGHT_TURQUOISE1"_j, 27, int32_t(27));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::ORCHID = new ::org::apache::poi::ss::usermodel::IndexedColors(u"ORCHID"_j, 28, int32_t(28));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::CORAL = new ::org::apache::poi::ss::usermodel::IndexedColors(u"CORAL"_j, 29, int32_t(29));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::ROYAL_BLUE = new ::org::apache::poi::ss::usermodel::IndexedColors(u"ROYAL_BLUE"_j, 30, int32_t(30));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::LIGHT_CORNFLOWER_BLUE = new ::org::apache::poi::ss::usermodel::IndexedColors(u"LIGHT_CORNFLOWER_BLUE"_j, 31, int32_t(31));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::SKY_BLUE = new ::org::apache::poi::ss::usermodel::IndexedColors(u"SKY_BLUE"_j, 32, int32_t(40));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::LIGHT_TURQUOISE = new ::org::apache::poi::ss::usermodel::IndexedColors(u"LIGHT_TURQUOISE"_j, 33, int32_t(41));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::LIGHT_GREEN = new ::org::apache::poi::ss::usermodel::IndexedColors(u"LIGHT_GREEN"_j, 34, int32_t(42));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::LIGHT_YELLOW = new ::org::apache::poi::ss::usermodel::IndexedColors(u"LIGHT_YELLOW"_j, 35, int32_t(43));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::PALE_BLUE = new ::org::apache::poi::ss::usermodel::IndexedColors(u"PALE_BLUE"_j, 36, int32_t(44));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::ROSE = new ::org::apache::poi::ss::usermodel::IndexedColors(u"ROSE"_j, 37, int32_t(45));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::LAVENDER = new ::org::apache::poi::ss::usermodel::IndexedColors(u"LAVENDER"_j, 38, int32_t(46));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::TAN = new ::org::apache::poi::ss::usermodel::IndexedColors(u"TAN"_j, 39, int32_t(47));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::LIGHT_BLUE = new ::org::apache::poi::ss::usermodel::IndexedColors(u"LIGHT_BLUE"_j, 40, int32_t(48));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::AQUA = new ::org::apache::poi::ss::usermodel::IndexedColors(u"AQUA"_j, 41, int32_t(49));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::LIME = new ::org::apache::poi::ss::usermodel::IndexedColors(u"LIME"_j, 42, int32_t(50));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::GOLD = new ::org::apache::poi::ss::usermodel::IndexedColors(u"GOLD"_j, 43, int32_t(51));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::LIGHT_ORANGE = new ::org::apache::poi::ss::usermodel::IndexedColors(u"LIGHT_ORANGE"_j, 44, int32_t(52));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::ORANGE = new ::org::apache::poi::ss::usermodel::IndexedColors(u"ORANGE"_j, 45, int32_t(53));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::BLUE_GREY = new ::org::apache::poi::ss::usermodel::IndexedColors(u"BLUE_GREY"_j, 46, int32_t(54));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::GREY_40_PERCENT = new ::org::apache::poi::ss::usermodel::IndexedColors(u"GREY_40_PERCENT"_j, 47, int32_t(55));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::DARK_TEAL = new ::org::apache::poi::ss::usermodel::IndexedColors(u"DARK_TEAL"_j, 48, int32_t(56));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::SEA_GREEN = new ::org::apache::poi::ss::usermodel::IndexedColors(u"SEA_GREEN"_j, 49, int32_t(57));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::DARK_GREEN = new ::org::apache::poi::ss::usermodel::IndexedColors(u"DARK_GREEN"_j, 50, int32_t(58));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::OLIVE_GREEN = new ::org::apache::poi::ss::usermodel::IndexedColors(u"OLIVE_GREEN"_j, 51, int32_t(59));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::BROWN = new ::org::apache::poi::ss::usermodel::IndexedColors(u"BROWN"_j, 52, int32_t(60));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::PLUM = new ::org::apache::poi::ss::usermodel::IndexedColors(u"PLUM"_j, 53, int32_t(61));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::INDIGO = new ::org::apache::poi::ss::usermodel::IndexedColors(u"INDIGO"_j, 54, int32_t(62));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::GREY_80_PERCENT = new ::org::apache::poi::ss::usermodel::IndexedColors(u"GREY_80_PERCENT"_j, 55, int32_t(63));
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::AUTOMATIC = new ::org::apache::poi::ss::usermodel::IndexedColors(u"AUTOMATIC"_j, 56, int32_t(64));
-org::apache::poi::ss::usermodel::IndexedColorsArray*& org::apache::poi::ss::usermodel::IndexedColors::_values()
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::BLACK1 = new ::poi::ss::usermodel::IndexedColors(u"BLACK1"_j, 0, int32_t(0));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::WHITE1 = new ::poi::ss::usermodel::IndexedColors(u"WHITE1"_j, 1, int32_t(1));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::RED1 = new ::poi::ss::usermodel::IndexedColors(u"RED1"_j, 2, int32_t(2));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::BRIGHT_GREEN1 = new ::poi::ss::usermodel::IndexedColors(u"BRIGHT_GREEN1"_j, 3, int32_t(3));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::BLUE1 = new ::poi::ss::usermodel::IndexedColors(u"BLUE1"_j, 4, int32_t(4));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::YELLOW1 = new ::poi::ss::usermodel::IndexedColors(u"YELLOW1"_j, 5, int32_t(5));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::PINK1 = new ::poi::ss::usermodel::IndexedColors(u"PINK1"_j, 6, int32_t(6));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::TURQUOISE1 = new ::poi::ss::usermodel::IndexedColors(u"TURQUOISE1"_j, 7, int32_t(7));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::BLACK = new ::poi::ss::usermodel::IndexedColors(u"BLACK"_j, 8, int32_t(8));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::WHITE = new ::poi::ss::usermodel::IndexedColors(u"WHITE"_j, 9, int32_t(9));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::RED = new ::poi::ss::usermodel::IndexedColors(u"RED"_j, 10, int32_t(10));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::BRIGHT_GREEN = new ::poi::ss::usermodel::IndexedColors(u"BRIGHT_GREEN"_j, 11, int32_t(11));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::BLUE = new ::poi::ss::usermodel::IndexedColors(u"BLUE"_j, 12, int32_t(12));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::YELLOW = new ::poi::ss::usermodel::IndexedColors(u"YELLOW"_j, 13, int32_t(13));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::PINK = new ::poi::ss::usermodel::IndexedColors(u"PINK"_j, 14, int32_t(14));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::TURQUOISE = new ::poi::ss::usermodel::IndexedColors(u"TURQUOISE"_j, 15, int32_t(15));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::DARK_RED = new ::poi::ss::usermodel::IndexedColors(u"DARK_RED"_j, 16, int32_t(16));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::GREEN = new ::poi::ss::usermodel::IndexedColors(u"GREEN"_j, 17, int32_t(17));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::DARK_BLUE = new ::poi::ss::usermodel::IndexedColors(u"DARK_BLUE"_j, 18, int32_t(18));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::DARK_YELLOW = new ::poi::ss::usermodel::IndexedColors(u"DARK_YELLOW"_j, 19, int32_t(19));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::VIOLET = new ::poi::ss::usermodel::IndexedColors(u"VIOLET"_j, 20, int32_t(20));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::TEAL = new ::poi::ss::usermodel::IndexedColors(u"TEAL"_j, 21, int32_t(21));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::GREY_25_PERCENT = new ::poi::ss::usermodel::IndexedColors(u"GREY_25_PERCENT"_j, 22, int32_t(22));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::GREY_50_PERCENT = new ::poi::ss::usermodel::IndexedColors(u"GREY_50_PERCENT"_j, 23, int32_t(23));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::CORNFLOWER_BLUE = new ::poi::ss::usermodel::IndexedColors(u"CORNFLOWER_BLUE"_j, 24, int32_t(24));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::MAROON = new ::poi::ss::usermodel::IndexedColors(u"MAROON"_j, 25, int32_t(25));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::LEMON_CHIFFON = new ::poi::ss::usermodel::IndexedColors(u"LEMON_CHIFFON"_j, 26, int32_t(26));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::LIGHT_TURQUOISE1 = new ::poi::ss::usermodel::IndexedColors(u"LIGHT_TURQUOISE1"_j, 27, int32_t(27));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::ORCHID = new ::poi::ss::usermodel::IndexedColors(u"ORCHID"_j, 28, int32_t(28));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::CORAL = new ::poi::ss::usermodel::IndexedColors(u"CORAL"_j, 29, int32_t(29));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::ROYAL_BLUE = new ::poi::ss::usermodel::IndexedColors(u"ROYAL_BLUE"_j, 30, int32_t(30));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::LIGHT_CORNFLOWER_BLUE = new ::poi::ss::usermodel::IndexedColors(u"LIGHT_CORNFLOWER_BLUE"_j, 31, int32_t(31));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::SKY_BLUE = new ::poi::ss::usermodel::IndexedColors(u"SKY_BLUE"_j, 32, int32_t(40));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::LIGHT_TURQUOISE = new ::poi::ss::usermodel::IndexedColors(u"LIGHT_TURQUOISE"_j, 33, int32_t(41));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::LIGHT_GREEN = new ::poi::ss::usermodel::IndexedColors(u"LIGHT_GREEN"_j, 34, int32_t(42));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::LIGHT_YELLOW = new ::poi::ss::usermodel::IndexedColors(u"LIGHT_YELLOW"_j, 35, int32_t(43));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::PALE_BLUE = new ::poi::ss::usermodel::IndexedColors(u"PALE_BLUE"_j, 36, int32_t(44));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::ROSE = new ::poi::ss::usermodel::IndexedColors(u"ROSE"_j, 37, int32_t(45));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::LAVENDER = new ::poi::ss::usermodel::IndexedColors(u"LAVENDER"_j, 38, int32_t(46));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::TAN = new ::poi::ss::usermodel::IndexedColors(u"TAN"_j, 39, int32_t(47));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::LIGHT_BLUE = new ::poi::ss::usermodel::IndexedColors(u"LIGHT_BLUE"_j, 40, int32_t(48));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::AQUA = new ::poi::ss::usermodel::IndexedColors(u"AQUA"_j, 41, int32_t(49));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::LIME = new ::poi::ss::usermodel::IndexedColors(u"LIME"_j, 42, int32_t(50));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::GOLD = new ::poi::ss::usermodel::IndexedColors(u"GOLD"_j, 43, int32_t(51));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::LIGHT_ORANGE = new ::poi::ss::usermodel::IndexedColors(u"LIGHT_ORANGE"_j, 44, int32_t(52));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::ORANGE = new ::poi::ss::usermodel::IndexedColors(u"ORANGE"_j, 45, int32_t(53));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::BLUE_GREY = new ::poi::ss::usermodel::IndexedColors(u"BLUE_GREY"_j, 46, int32_t(54));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::GREY_40_PERCENT = new ::poi::ss::usermodel::IndexedColors(u"GREY_40_PERCENT"_j, 47, int32_t(55));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::DARK_TEAL = new ::poi::ss::usermodel::IndexedColors(u"DARK_TEAL"_j, 48, int32_t(56));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::SEA_GREEN = new ::poi::ss::usermodel::IndexedColors(u"SEA_GREEN"_j, 49, int32_t(57));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::DARK_GREEN = new ::poi::ss::usermodel::IndexedColors(u"DARK_GREEN"_j, 50, int32_t(58));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::OLIVE_GREEN = new ::poi::ss::usermodel::IndexedColors(u"OLIVE_GREEN"_j, 51, int32_t(59));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::BROWN = new ::poi::ss::usermodel::IndexedColors(u"BROWN"_j, 52, int32_t(60));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::PLUM = new ::poi::ss::usermodel::IndexedColors(u"PLUM"_j, 53, int32_t(61));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::INDIGO = new ::poi::ss::usermodel::IndexedColors(u"INDIGO"_j, 54, int32_t(62));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::GREY_80_PERCENT = new ::poi::ss::usermodel::IndexedColors(u"GREY_80_PERCENT"_j, 55, int32_t(63));
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::AUTOMATIC = new ::poi::ss::usermodel::IndexedColors(u"AUTOMATIC"_j, 56, int32_t(64));
+poi::ss::usermodel::IndexedColorsArray*& poi::ss::usermodel::IndexedColors::_values()
 {
     clinit();
     return _values_;
 }
-org::apache::poi::ss::usermodel::IndexedColorsArray* org::apache::poi::ss::usermodel::IndexedColors::_values_;
+poi::ss::usermodel::IndexedColorsArray* poi::ss::usermodel::IndexedColors::_values_;
 
-void org::apache::poi::ss::usermodel::IndexedColors::ctor(::java::lang::String* name, int ordinal, int32_t idx)
+void poi::ss::usermodel::IndexedColors::ctor(::java::lang::String* name, int ordinal, int32_t idx)
 {
     super::ctor(name, ordinal);
     index = static_cast< int16_t >(idx);
 }
 
-int16_t org::apache::poi::ss::usermodel::IndexedColors::getIndex()
+int16_t poi::ss::usermodel::IndexedColors::getIndex()
 {
     return index;
 }
 
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::fromInt(int32_t index)
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::fromInt(int32_t index)
 {
     clinit();
     if(index < 0 || index >= npc(_values_)->length) {
@@ -153,13 +147,13 @@ org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel:
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::usermodel::IndexedColors::class_()
+java::lang::Class* poi::ss::usermodel::IndexedColors::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.usermodel.IndexedColors", 41);
     return c;
 }
 
-void org::apache::poi::ss::usermodel::IndexedColors::clinit()
+void poi::ss::usermodel::IndexedColors::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -180,7 +174,7 @@ struct clinit_ {
     }
 }
 
-org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel::IndexedColors::valueOf(::java::lang::String* a0)
+poi::ss::usermodel::IndexedColors* poi::ss::usermodel::IndexedColors::valueOf(::java::lang::String* a0)
 {
     if(AQUA->toString()->equals(a0))
         return AQUA;
@@ -299,9 +293,9 @@ org::apache::poi::ss::usermodel::IndexedColors* org::apache::poi::ss::usermodel:
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::ss::usermodel::IndexedColorsArray* org::apache::poi::ss::usermodel::IndexedColors::values()
+poi::ss::usermodel::IndexedColorsArray* poi::ss::usermodel::IndexedColors::values()
 {
-    return new org::apache::poi::ss::usermodel::IndexedColorsArray({
+    return new poi::ss::usermodel::IndexedColorsArray({
         AQUA,
         AUTOMATIC,
         BLACK,
@@ -362,7 +356,7 @@ org::apache::poi::ss::usermodel::IndexedColorsArray* org::apache::poi::ss::userm
     });
 }
 
-java::lang::Class* org::apache::poi::ss::usermodel::IndexedColors::getClass0()
+java::lang::Class* poi::ss::usermodel::IndexedColors::getClass0()
 {
     return class_();
 }

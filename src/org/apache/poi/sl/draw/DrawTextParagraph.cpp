@@ -81,68 +81,68 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::sl::draw::DrawTextParagraph::DrawTextParagraph(const ::default_init_tag&)
+poi::sl::draw::DrawTextParagraph::DrawTextParagraph(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::draw::DrawTextParagraph::DrawTextParagraph(::org::apache::poi::sl::usermodel::TextParagraph* paragraph) 
+poi::sl::draw::DrawTextParagraph::DrawTextParagraph(::poi::sl::usermodel::TextParagraph* paragraph) 
     : DrawTextParagraph(*static_cast< ::default_init_tag* >(0))
 {
     ctor(paragraph);
 }
 
-void org::apache::poi::sl::draw::DrawTextParagraph::init()
+void poi::sl::draw::DrawTextParagraph::init()
 {
     lines = new ::java::util::ArrayList();
 }
 
-org::apache::poi::util::POILogger*& org::apache::poi::sl::draw::DrawTextParagraph::LOG()
+poi::util::POILogger*& poi::sl::draw::DrawTextParagraph::LOG()
 {
     clinit();
     return LOG_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::sl::draw::DrawTextParagraph::LOG_;
+poi::util::POILogger* poi::sl::draw::DrawTextParagraph::LOG_;
 
-org::apache::poi::sl::draw::DrawTextParagraph_XlinkAttribute*& org::apache::poi::sl::draw::DrawTextParagraph::HYPERLINK_HREF()
+poi::sl::draw::DrawTextParagraph_XlinkAttribute*& poi::sl::draw::DrawTextParagraph::HYPERLINK_HREF()
 {
     clinit();
     return HYPERLINK_HREF_;
 }
-org::apache::poi::sl::draw::DrawTextParagraph_XlinkAttribute* org::apache::poi::sl::draw::DrawTextParagraph::HYPERLINK_HREF_;
+poi::sl::draw::DrawTextParagraph_XlinkAttribute* poi::sl::draw::DrawTextParagraph::HYPERLINK_HREF_;
 
-org::apache::poi::sl::draw::DrawTextParagraph_XlinkAttribute*& org::apache::poi::sl::draw::DrawTextParagraph::HYPERLINK_LABEL()
+poi::sl::draw::DrawTextParagraph_XlinkAttribute*& poi::sl::draw::DrawTextParagraph::HYPERLINK_LABEL()
 {
     clinit();
     return HYPERLINK_LABEL_;
 }
-org::apache::poi::sl::draw::DrawTextParagraph_XlinkAttribute* org::apache::poi::sl::draw::DrawTextParagraph::HYPERLINK_LABEL_;
+poi::sl::draw::DrawTextParagraph_XlinkAttribute* poi::sl::draw::DrawTextParagraph::HYPERLINK_LABEL_;
 
-void org::apache::poi::sl::draw::DrawTextParagraph::ctor(::org::apache::poi::sl::usermodel::TextParagraph* paragraph)
+void poi::sl::draw::DrawTextParagraph::ctor(::poi::sl::usermodel::TextParagraph* paragraph)
 {
     super::ctor();
     init();
     this->paragraph = paragraph;
 }
 
-void org::apache::poi::sl::draw::DrawTextParagraph::setPosition(double x, double y)
+void poi::sl::draw::DrawTextParagraph::setPosition(double x, double y)
 {
     this->x = x;
     this->y = y;
 }
 
-double org::apache::poi::sl::draw::DrawTextParagraph::getY()
+double poi::sl::draw::DrawTextParagraph::getY()
 {
     return y;
 }
 
-void org::apache::poi::sl::draw::DrawTextParagraph::setAutoNumberingIdx(int32_t index)
+void poi::sl::draw::DrawTextParagraph::setAutoNumberingIdx(int32_t index)
 {
     autoNbrIdx = index;
 }
 
-void org::apache::poi::sl::draw::DrawTextParagraph::draw(::java::awt::Graphics2D* graphics)
+void poi::sl::draw::DrawTextParagraph::draw(::java::awt::Graphics2D* graphics)
 {
     if(npc(lines)->isEmpty()) {
         return;
@@ -152,11 +152,11 @@ void org::apache::poi::sl::draw::DrawTextParagraph::draw(::java::awt::Graphics2D
     auto indentLevel = npc(paragraph)->getIndentLevel();
     auto leftMargin = npc(paragraph)->getLeftMargin();
     if(leftMargin == nullptr) {
-        leftMargin = ::java::lang::Double::valueOf(::org::apache::poi::util::Units::toPoints(int64_t(347663LL) * indentLevel));
+        leftMargin = ::java::lang::Double::valueOf(::poi::util::Units::toPoints(int64_t(347663LL) * indentLevel));
     }
     auto indent = npc(paragraph)->getIndent();
     if(indent == nullptr) {
-        indent = ::java::lang::Double::valueOf(::org::apache::poi::util::Units::toPoints(int64_t(347663LL) * indentLevel));
+        indent = ::java::lang::Double::valueOf(::poi::util::Units::toPoints(int64_t(347663LL) * indentLevel));
     }
     if(isHSLF()) {
         //TODO:fix this
@@ -185,25 +185,25 @@ void org::apache::poi::sl::draw::DrawTextParagraph::draw(::java::awt::Graphics2D
             } else {
                 penX = x + (npc(leftMargin))->doubleValue();
             }
-            auto anchor = DrawShape::getAnchor(graphics, static_cast< ::org::apache::poi::sl::usermodel::PlaceableShape* >(npc(paragraph)->getParentShape()));
+            auto anchor = DrawShape::getAnchor(graphics, static_cast< ::poi::sl::usermodel::PlaceableShape* >(npc(paragraph)->getParentShape()));
             auto insets = npc(npc(paragraph)->getParentShape())->getInsets();
             auto leftInset = npc(insets)->left;
             auto rightInset = npc(insets)->right;
             auto ta = npc(paragraph)->getTextAlign();
             if(ta == nullptr) {
-                ta = ::org::apache::poi::sl::usermodel::TextParagraph_TextAlign::LEFT;
+                ta = ::poi::sl::usermodel::TextParagraph_TextAlign::LEFT;
             }
             {
                 auto v = ta;
-                if((v == ::org::apache::poi::sl::usermodel::TextParagraph_TextAlign::CENTER)) {
+                if((v == ::poi::sl::usermodel::TextParagraph_TextAlign::CENTER)) {
                     penX += (npc(anchor)->getWidth() - npc(line)->getWidth() - leftInset- rightInset- (npc(leftMargin))->doubleValue()) / int32_t(2);
                     goto end_switch0;;
                 }
-                if((v == ::org::apache::poi::sl::usermodel::TextParagraph_TextAlign::RIGHT)) {
+                if((v == ::poi::sl::usermodel::TextParagraph_TextAlign::RIGHT)) {
                     penX += (npc(anchor)->getWidth() - npc(line)->getWidth() - leftInset- rightInset);
                     goto end_switch0;;
                 }
-                if((((v != ::org::apache::poi::sl::usermodel::TextParagraph_TextAlign::CENTER) && (v != ::org::apache::poi::sl::usermodel::TextParagraph_TextAlign::RIGHT)))) {
+                if((((v != ::poi::sl::usermodel::TextParagraph_TextAlign::CENTER) && (v != ::poi::sl::usermodel::TextParagraph_TextAlign::RIGHT)))) {
                     goto end_switch0;;
                 }
 end_switch0:;
@@ -222,35 +222,35 @@ end_switch0:;
     y = penY - y;
 }
 
-float org::apache::poi::sl::draw::DrawTextParagraph::getFirstLineLeading()
+float poi::sl::draw::DrawTextParagraph::getFirstLineLeading()
 {
     return (npc(lines)->isEmpty()) ? static_cast< float >(int32_t(0)) : npc(java_cast< DrawTextFragment* >(npc(lines)->get(0)))->getLeading();
 }
 
-float org::apache::poi::sl::draw::DrawTextParagraph::getFirstLineHeight()
+float poi::sl::draw::DrawTextParagraph::getFirstLineHeight()
 {
     return (npc(lines)->isEmpty()) ? static_cast< float >(int32_t(0)) : npc(java_cast< DrawTextFragment* >(npc(lines)->get(0)))->getHeight();
 }
 
-float org::apache::poi::sl::draw::DrawTextParagraph::getLastLineHeight()
+float poi::sl::draw::DrawTextParagraph::getLastLineHeight()
 {
     return (npc(lines)->isEmpty()) ? static_cast< float >(int32_t(0)) : npc(java_cast< DrawTextFragment* >(npc(lines)->get(npc(lines)->size() - int32_t(1))))->getHeight();
 }
 
-bool org::apache::poi::sl::draw::DrawTextParagraph::isEmptyParagraph()
+bool poi::sl::draw::DrawTextParagraph::isEmptyParagraph()
 {
     return (npc(lines)->isEmpty() || npc(npc(rawText)->trim())->isEmpty());
 }
 
-void org::apache::poi::sl::draw::DrawTextParagraph::applyTransform(::java::awt::Graphics2D* graphics)
+void poi::sl::draw::DrawTextParagraph::applyTransform(::java::awt::Graphics2D* graphics)
 {
 }
 
-void org::apache::poi::sl::draw::DrawTextParagraph::drawContent(::java::awt::Graphics2D* graphics)
+void poi::sl::draw::DrawTextParagraph::drawContent(::java::awt::Graphics2D* graphics)
 {
 }
 
-void org::apache::poi::sl::draw::DrawTextParagraph::breakText(::java::awt::Graphics2D* graphics)
+void poi::sl::draw::DrawTextParagraph::breakText(::java::awt::Graphics2D* graphics)
 {
     npc(lines)->clear();
     auto fact = DrawFactory::getInstance(graphics);
@@ -282,7 +282,7 @@ void org::apache::poi::sl::draw::DrawTextParagraph::breakText(::java::awt::Graph
             npc(measurer)->setPosition(endIndex + int32_t(1));
         }
         auto hAlign = npc(paragraph)->getTextAlign();
-        if(hAlign == ::org::apache::poi::sl::usermodel::TextParagraph_TextAlign::JUSTIFY || hAlign == ::org::apache::poi::sl::usermodel::TextParagraph_TextAlign::JUSTIFY_LOW) {
+        if(hAlign == ::poi::sl::usermodel::TextParagraph_TextAlign::JUSTIFY || hAlign == ::poi::sl::usermodel::TextParagraph_TextAlign::JUSTIFY_LOW) {
             layout = npc(layout)->getJustifiedLayout(static_cast< float >(wrappingWidth));
         }
         auto str = (emptyParagraph) ? static_cast< ::java::text::AttributedString* >(nullptr) : new ::java::text::AttributedString(it, startIndex, endIndex);
@@ -296,7 +296,7 @@ void org::apache::poi::sl::draw::DrawTextParagraph::breakText(::java::awt::Graph
     rawText = npc(text)->toString();
 }
 
-org::apache::poi::sl::draw::DrawTextFragment* org::apache::poi::sl::draw::DrawTextParagraph::getBullet(::java::awt::Graphics2D* graphics, ::java::text::AttributedCharacterIterator* firstLineAttr)
+poi::sl::draw::DrawTextFragment* poi::sl::draw::DrawTextParagraph::getBullet(::java::awt::Graphics2D* graphics, ::java::text::AttributedCharacterIterator* firstLineAttr)
 {
     auto bulletStyle = npc(paragraph)->getBulletStyle();
     if(bulletStyle == nullptr) {
@@ -335,7 +335,7 @@ org::apache::poi::sl::draw::DrawTextFragment* org::apache::poi::sl::draw::DrawTe
         buFontStr = npc(paragraph)->getDefaultFontFamily();
     }
     /* assert((buFontStr != nullptr)) */ ;
-    ::org::apache::poi::common::usermodel::fonts::FontInfo* buFont = new DrawFontInfo(buFontStr);
+    ::poi::common::usermodel::fonts::FontInfo* buFont = new DrawFontInfo(buFontStr);
     auto dfm = npc(DrawFactory::getInstance(graphics))->getFontManager(graphics);
     buFont = npc(dfm)->getMappedFont(graphics, buFont);
     auto str = new ::java::text::AttributedString(npc(dfm)->mapFontCharset(graphics, buFont, buCharacter));
@@ -347,10 +347,10 @@ org::apache::poi::sl::draw::DrawTextFragment* org::apache::poi::sl::draw::DrawTe
     return npc(fact)->getTextFragment(layout, str);
 }
 
-java::lang::String* org::apache::poi::sl::draw::DrawTextParagraph::getRenderableText(::java::awt::Graphics2D* graphics, ::org::apache::poi::sl::usermodel::TextRun* tr)
+java::lang::String* poi::sl::draw::DrawTextParagraph::getRenderableText(::java::awt::Graphics2D* graphics, ::poi::sl::usermodel::TextRun* tr)
 {
-    if(npc(tr)->getFieldType() == ::org::apache::poi::sl::usermodel::TextRun_FieldType::SLIDE_NUMBER) {
-        auto slide = java_cast< ::org::apache::poi::sl::usermodel::Slide* >(npc(graphics)->getRenderingHint(Drawable::CURRENT_SLIDE()));
+    if(npc(tr)->getFieldType() == ::poi::sl::usermodel::TextRun_FieldType::SLIDE_NUMBER) {
+        auto slide = java_cast< ::poi::sl::usermodel::Slide* >(npc(graphics)->getRenderingHint(Drawable::CURRENT_SLIDE()));
         return (slide == nullptr) ? u""_j : ::java::lang::Integer::toString(npc(slide)->getSlideNumber());
     }
     auto buf = new ::java::lang::StringBuilder();
@@ -370,15 +370,15 @@ java::lang::String* org::apache::poi::sl::draw::DrawTextParagraph::getRenderable
         default:
             {
                 auto v = cap;
-                if((v == ::org::apache::poi::sl::usermodel::TextRun_TextCap::ALL)) {
+                if((v == ::poi::sl::usermodel::TextRun_TextCap::ALL)) {
                     c = ::java::lang::Character::toUpperCase(c);
                     goto end_switch1;;
                 }
-                if((v == ::org::apache::poi::sl::usermodel::TextRun_TextCap::SMALL)) {
+                if((v == ::poi::sl::usermodel::TextRun_TextCap::SMALL)) {
                     c = ::java::lang::Character::toLowerCase(c);
                     goto end_switch1;;
                 }
-                if((v == ::org::apache::poi::sl::usermodel::TextRun_TextCap::NONE)) {
+                if((v == ::poi::sl::usermodel::TextRun_TextCap::NONE)) {
                     goto end_switch1;;
                 }
 end_switch1:;
@@ -392,7 +392,7 @@ end_switch1:;
     return npc(buf)->toString();
 }
 
-java::lang::String* org::apache::poi::sl::draw::DrawTextParagraph::tab2space(::org::apache::poi::sl::usermodel::TextRun* tr)
+java::lang::String* poi::sl::draw::DrawTextParagraph::tab2space(::poi::sl::usermodel::TextRun* tr)
 {
     auto string = new ::java::text::AttributedString(u" "_j);
     auto fontFamily = npc(tr)->getFontFamily();
@@ -419,7 +419,7 @@ java::lang::String* org::apache::poi::sl::draw::DrawTextParagraph::tab2space(::o
     return npc(buf)->toString();
 }
 
-double org::apache::poi::sl::draw::DrawTextParagraph::getWrappingWidth(bool firstLine, ::java::awt::Graphics2D* graphics)
+double poi::sl::draw::DrawTextParagraph::getWrappingWidth(bool firstLine, ::java::awt::Graphics2D* graphics)
 {
     auto ts = npc(paragraph)->getParentShape();
     auto insets = npc(ts)->getInsets();
@@ -431,27 +431,27 @@ double org::apache::poi::sl::draw::DrawTextParagraph::getWrappingWidth(bool firs
     }
     auto leftMargin = npc(paragraph)->getLeftMargin();
     if(leftMargin == nullptr) {
-        leftMargin = ::java::lang::Double::valueOf(::org::apache::poi::util::Units::toPoints(int64_t(347663LL) * (indentLevel + int32_t(1))));
+        leftMargin = ::java::lang::Double::valueOf(::poi::util::Units::toPoints(int64_t(347663LL) * (indentLevel + int32_t(1))));
     }
     auto indent = npc(paragraph)->getIndent();
     if(indent == nullptr) {
-        indent = ::java::lang::Double::valueOf(::org::apache::poi::util::Units::toPoints(int64_t(347663LL) * indentLevel));
+        indent = ::java::lang::Double::valueOf(::poi::util::Units::toPoints(int64_t(347663LL) * indentLevel));
     }
     auto rightMargin = npc(paragraph)->getRightMargin();
     if(rightMargin == nullptr) {
         rightMargin = ::java::lang::Double::valueOf(0.0);
     }
-    auto anchor = DrawShape::getAnchor(graphics, static_cast< ::org::apache::poi::sl::usermodel::PlaceableShape* >(ts));
+    auto anchor = DrawShape::getAnchor(graphics, static_cast< ::poi::sl::usermodel::PlaceableShape* >(ts));
     auto textDir = npc(ts)->getTextDirection();
     double width;
     if(!npc(ts)->getWordWrap()) {
         auto pageDim = npc(npc(npc(ts)->getSheet())->getSlideShow())->getPageSize();
         {
             auto v = textDir;
-            if((v == ::org::apache::poi::sl::usermodel::TextShape_TextDirection::VERTICAL)) {
+            if((v == ::poi::sl::usermodel::TextShape_TextDirection::VERTICAL)) {
                 width = npc(pageDim)->getHeight() - npc(anchor)->getX();
                 goto end_switch2;;
-            } else if((v == ::org::apache::poi::sl::usermodel::TextShape_TextDirection::VERTICAL_270)) {
+            } else if((v == ::poi::sl::usermodel::TextShape_TextDirection::VERTICAL_270)) {
                 width = npc(anchor)->getX();
                 goto end_switch2;;
             } else {
@@ -464,7 +464,7 @@ end_switch2:;
     } else {
         {
             auto v = textDir;
-            if((v == ::org::apache::poi::sl::usermodel::TextShape_TextDirection::VERTICAL) || (v == ::org::apache::poi::sl::usermodel::TextShape_TextDirection::VERTICAL_270)) {
+            if((v == ::poi::sl::usermodel::TextShape_TextDirection::VERTICAL) || (v == ::poi::sl::usermodel::TextShape_TextDirection::VERTICAL_270)) {
                 width = npc(anchor)->getHeight() - leftInset - rightInset- (npc(leftMargin))->doubleValue()- (npc(rightMargin))->doubleValue();
                 goto end_switch3;;
             } else {
@@ -491,12 +491,12 @@ end_switch3:;
     return width;
 }
 
-org::apache::poi::sl::usermodel::PlaceableShape* org::apache::poi::sl::draw::DrawTextParagraph::getParagraphShape()
+poi::sl::usermodel::PlaceableShape* poi::sl::draw::DrawTextParagraph::getParagraphShape()
 {
     return new DrawTextParagraph_getParagraphShape_1(this);
 }
 
-java::text::AttributedString* org::apache::poi::sl::draw::DrawTextParagraph::getAttributedString(::java::awt::Graphics2D* graphics, ::java::lang::StringBuilder* text)
+java::text::AttributedString* poi::sl::draw::DrawTextParagraph::getAttributedString(::java::awt::Graphics2D* graphics, ::java::lang::StringBuilder* text)
 {
     ::java::util::List* attList = new ::java::util::ArrayList();
     if(text == nullptr) {
@@ -506,7 +506,7 @@ java::text::AttributedString* org::apache::poi::sl::draw::DrawTextParagraph::get
     auto dfm = npc(DrawFactory::getInstance(graphics))->getFontManager(graphics);
     /* assert((dfm != nullptr)) */ ;
     for (auto _i = npc(paragraph)->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::sl::usermodel::TextRun* run = java_cast< ::org::apache::poi::sl::usermodel::TextRun* >(_i->next());
+        ::poi::sl::usermodel::TextRun* run = java_cast< ::poi::sl::usermodel::TextRun* >(_i->next());
         {
             auto runText = getRenderableText(graphics, run);
             if(npc(runText)->isEmpty()) {
@@ -566,16 +566,16 @@ java::text::AttributedString* org::apache::poi::sl::draw::DrawTextParagraph::get
     return string;
 }
 
-void org::apache::poi::sl::draw::DrawTextParagraph::processGlyphs(::java::awt::Graphics2D* graphics, DrawFontManager* dfm, ::java::util::List* attList, int32_t beginIndex, ::org::apache::poi::sl::usermodel::TextRun* run, ::java::lang::String* runText)
+void poi::sl::draw::DrawTextParagraph::processGlyphs(::java::awt::Graphics2D* graphics, DrawFontManager* dfm, ::java::util::List* attList, int32_t beginIndex, ::poi::sl::usermodel::TextRun* run, ::java::lang::String* runText)
 {
-    auto ttrList = ::org::apache::poi::common::usermodel::fonts::FontGroup::getFontGroupRanges(runText);
+    auto ttrList = ::poi::common::usermodel::fonts::FontGroup::getFontGroupRanges(runText);
     auto rangeBegin = int32_t(0);
     for (auto _i = npc(ttrList)->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::common::usermodel::fonts::FontGroup_FontGroupRange* ttr = java_cast< ::org::apache::poi::common::usermodel::fonts::FontGroup_FontGroupRange* >(_i->next());
+        ::poi::common::usermodel::fonts::FontGroup_FontGroupRange* ttr = java_cast< ::poi::common::usermodel::fonts::FontGroup_FontGroupRange* >(_i->next());
         {
             auto fiRun = npc(run)->getFontInfo(npc(ttr)->getFontGroup());
             if(fiRun == nullptr) {
-                fiRun = npc(run)->getFontInfo(::org::apache::poi::common::usermodel::fonts::FontGroup::LATIN);
+                fiRun = npc(run)->getFontInfo(::poi::common::usermodel::fonts::FontGroup::LATIN);
             }
             auto fiMapped = npc(dfm)->getMappedFont(graphics, fiRun);
             auto fiFallback = npc(dfm)->getFallbackFont(graphics, fiRun);
@@ -595,16 +595,16 @@ void org::apache::poi::sl::draw::DrawTextParagraph::processGlyphs(::java::awt::G
                 partEnd = nextPart(fontMapped, runText, partBegin, rangeBegin + rangeLen, true);
                 if(partBegin < partEnd) {
                     npc(attList)->add(static_cast< ::java::lang::Object* >(new DrawTextParagraph_AttributedStringData(::java::awt::font::TextAttribute::FAMILY(), npc(fontMapped)->getFontName(::java::util::Locale::ROOT()), beginIndex + partBegin, beginIndex + partEnd)));
-                    if(npc(LOG_)->check(::org::apache::poi::util::POILogger::DEBUG)) {
-                        npc(LOG_)->log(::org::apache::poi::util::POILogger::DEBUG, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"mapped: "_j), static_cast< ::java::lang::Object* >(npc(fontMapped)->getFontName(::java::util::Locale::ROOT())), static_cast< ::java::lang::Object* >(u" "_j), static_cast< ::java::lang::Object* >(::java::lang::Integer::valueOf((beginIndex + partBegin))), static_cast< ::java::lang::Object* >(u" "_j), static_cast< ::java::lang::Object* >(::java::lang::Integer::valueOf((beginIndex + partEnd))), static_cast< ::java::lang::Object* >(u" - "_j), static_cast< ::java::lang::Object* >(npc(runText)->substring(beginIndex + partBegin, beginIndex + partEnd))}));
+                    if(npc(LOG_)->check(::poi::util::POILogger::DEBUG)) {
+                        npc(LOG_)->log(::poi::util::POILogger::DEBUG, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"mapped: "_j), static_cast< ::java::lang::Object* >(npc(fontMapped)->getFontName(::java::util::Locale::ROOT())), static_cast< ::java::lang::Object* >(u" "_j), static_cast< ::java::lang::Object* >(::java::lang::Integer::valueOf((beginIndex + partBegin))), static_cast< ::java::lang::Object* >(u" "_j), static_cast< ::java::lang::Object* >(::java::lang::Integer::valueOf((beginIndex + partEnd))), static_cast< ::java::lang::Object* >(u" - "_j), static_cast< ::java::lang::Object* >(npc(runText)->substring(beginIndex + partBegin, beginIndex + partEnd))}));
                     }
                 }
                 partBegin = partEnd;
                 partEnd = nextPart(fontMapped, runText, partBegin, rangeBegin + rangeLen, false);
                 if(partBegin < partEnd) {
                     npc(attList)->add(static_cast< ::java::lang::Object* >(new DrawTextParagraph_AttributedStringData(::java::awt::font::TextAttribute::FAMILY(), npc(fontFallback)->getFontName(::java::util::Locale::ROOT()), beginIndex + partBegin, beginIndex + partEnd)));
-                    if(npc(LOG_)->check(::org::apache::poi::util::POILogger::DEBUG)) {
-                        npc(LOG_)->log(::org::apache::poi::util::POILogger::DEBUG, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"fallback: "_j), static_cast< ::java::lang::Object* >(npc(fontFallback)->getFontName(::java::util::Locale::ROOT())), static_cast< ::java::lang::Object* >(u" "_j), static_cast< ::java::lang::Object* >(::java::lang::Integer::valueOf((beginIndex + partBegin))), static_cast< ::java::lang::Object* >(u" "_j), static_cast< ::java::lang::Object* >(::java::lang::Integer::valueOf((beginIndex + partEnd))), static_cast< ::java::lang::Object* >(u" - "_j), static_cast< ::java::lang::Object* >(npc(runText)->substring(beginIndex + partBegin, beginIndex + partEnd))}));
+                    if(npc(LOG_)->check(::poi::util::POILogger::DEBUG)) {
+                        npc(LOG_)->log(::poi::util::POILogger::DEBUG, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"fallback: "_j), static_cast< ::java::lang::Object* >(npc(fontFallback)->getFontName(::java::util::Locale::ROOT())), static_cast< ::java::lang::Object* >(u" "_j), static_cast< ::java::lang::Object* >(::java::lang::Integer::valueOf((beginIndex + partBegin))), static_cast< ::java::lang::Object* >(u" "_j), static_cast< ::java::lang::Object* >(::java::lang::Integer::valueOf((beginIndex + partEnd))), static_cast< ::java::lang::Object* >(u" - "_j), static_cast< ::java::lang::Object* >(npc(runText)->substring(beginIndex + partBegin, beginIndex + partEnd))}));
                     }
                 }
             }
@@ -613,7 +613,7 @@ void org::apache::poi::sl::draw::DrawTextParagraph::processGlyphs(::java::awt::G
     }
 }
 
-int32_t org::apache::poi::sl::draw::DrawTextParagraph::nextPart(::java::awt::Font* fontMapped, ::java::lang::String* runText, int32_t beginPart, int32_t endPart, bool isDisplayed)
+int32_t poi::sl::draw::DrawTextParagraph::nextPart(::java::awt::Font* fontMapped, ::java::lang::String* runText, int32_t beginPart, int32_t endPart, bool isDisplayed)
 {
     clinit();
     auto rIdx = beginPart;
@@ -627,27 +627,27 @@ int32_t org::apache::poi::sl::draw::DrawTextParagraph::nextPart(::java::awt::Fon
     return rIdx;
 }
 
-bool org::apache::poi::sl::draw::DrawTextParagraph::isHSLF()
+bool poi::sl::draw::DrawTextParagraph::isHSLF()
 {
     return DrawShape::isHSLF(npc(paragraph)->getParentShape());
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::draw::DrawTextParagraph::class_()
+java::lang::Class* poi::sl::draw::DrawTextParagraph::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.draw.DrawTextParagraph", 40);
     return c;
 }
 
-void org::apache::poi::sl::draw::DrawTextParagraph::clinit()
+void poi::sl::draw::DrawTextParagraph::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        LOG_ = ::org::apache::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(DrawTextParagraph::class_()));
+        LOG_ = ::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(DrawTextParagraph::class_()));
         HYPERLINK_HREF_ = new DrawTextParagraph_XlinkAttribute(u"href"_j);
         HYPERLINK_LABEL_ = new DrawTextParagraph_XlinkAttribute(u"label"_j);
     }
@@ -658,7 +658,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::sl::draw::DrawTextParagraph::getClass0()
+java::lang::Class* poi::sl::draw::DrawTextParagraph::getClass0()
 {
     return class_();
 }

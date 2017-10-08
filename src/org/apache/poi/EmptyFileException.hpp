@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::EmptyFileException
+class poi::EmptyFileException
     : public ::java::lang::IllegalArgumentException
 {
 

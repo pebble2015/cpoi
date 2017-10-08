@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ddf::EscherPropertyFactory final
+class poi::ddf::EscherPropertyFactory final
     : public ::java::lang::Object
 {
 

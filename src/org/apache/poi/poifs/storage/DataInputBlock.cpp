@@ -12,19 +12,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::storage::DataInputBlock::DataInputBlock(const ::default_init_tag&)
+poi::poifs::storage::DataInputBlock::DataInputBlock(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::storage::DataInputBlock::DataInputBlock(::int8_tArray* data, int32_t startOffset) 
+poi::poifs::storage::DataInputBlock::DataInputBlock(::int8_tArray* data, int32_t startOffset) 
     : DataInputBlock(*static_cast< ::default_init_tag* >(0))
 {
     ctor(data,startOffset);
 }
 
-void org::apache::poi::poifs::storage::DataInputBlock::ctor(::int8_tArray* data, int32_t startOffset)
+void poi::poifs::storage::DataInputBlock::ctor(::int8_tArray* data, int32_t startOffset)
 {
     super::ctor();
     _buf = data;
@@ -32,17 +32,17 @@ void org::apache::poi::poifs::storage::DataInputBlock::ctor(::int8_tArray* data,
     _maxIndex = npc(_buf)->length;
 }
 
-int32_t org::apache::poi::poifs::storage::DataInputBlock::available()
+int32_t poi::poifs::storage::DataInputBlock::available()
 {
     return _maxIndex - _readIndex;
 }
 
-int32_t org::apache::poi::poifs::storage::DataInputBlock::readUByte()
+int32_t poi::poifs::storage::DataInputBlock::readUByte()
 {
     return (*_buf)[_readIndex++] & int32_t(255);
 }
 
-int32_t org::apache::poi::poifs::storage::DataInputBlock::readUShortLE()
+int32_t poi::poifs::storage::DataInputBlock::readUShortLE()
 {
     auto i = _readIndex;
     auto b0 = (*_buf)[i++] & int32_t(255);
@@ -51,7 +51,7 @@ int32_t org::apache::poi::poifs::storage::DataInputBlock::readUShortLE()
     return (b1 << int32_t(8)) + (b0 << int32_t(0));
 }
 
-int32_t org::apache::poi::poifs::storage::DataInputBlock::readUShortLE(DataInputBlock* prevBlock)
+int32_t poi::poifs::storage::DataInputBlock::readUShortLE(DataInputBlock* prevBlock)
 {
     auto i = npc(npc(prevBlock)->_buf)->length - int32_t(1);
     auto b0 = (*npc(prevBlock)->_buf)[i] & int32_t(255);
@@ -59,7 +59,7 @@ int32_t org::apache::poi::poifs::storage::DataInputBlock::readUShortLE(DataInput
     return (b1 << int32_t(8)) + (b0 << int32_t(0));
 }
 
-int32_t org::apache::poi::poifs::storage::DataInputBlock::readIntLE()
+int32_t poi::poifs::storage::DataInputBlock::readIntLE()
 {
     auto i = _readIndex;
     auto b0 = (*_buf)[i++] & int32_t(255);
@@ -70,7 +70,7 @@ int32_t org::apache::poi::poifs::storage::DataInputBlock::readIntLE()
     return (b3 << int32_t(24)) + (b2 << int32_t(16)) + (b1 << int32_t(8))+ (b0 << int32_t(0));
 }
 
-int32_t org::apache::poi::poifs::storage::DataInputBlock::readIntLE(DataInputBlock* prevBlock, int32_t prevBlockAvailable)
+int32_t poi::poifs::storage::DataInputBlock::readIntLE(DataInputBlock* prevBlock, int32_t prevBlockAvailable)
 {
     auto buf = new ::int8_tArray(int32_t(4));
     readSpanning(prevBlock, prevBlockAvailable, buf);
@@ -81,7 +81,7 @@ int32_t org::apache::poi::poifs::storage::DataInputBlock::readIntLE(DataInputBlo
     return (b3 << int32_t(24)) + (b2 << int32_t(16)) + (b1 << int32_t(8))+ (b0 << int32_t(0));
 }
 
-int64_t org::apache::poi::poifs::storage::DataInputBlock::readLongLE()
+int64_t poi::poifs::storage::DataInputBlock::readLongLE()
 {
     auto i = _readIndex;
     auto b0 = (*_buf)[i++] & int32_t(255);
@@ -96,7 +96,7 @@ int64_t org::apache::poi::poifs::storage::DataInputBlock::readLongLE()
     return ((static_cast< int64_t >(b7) << int32_t(56)) + (static_cast< int64_t >(b6) << int32_t(48)) + (static_cast< int64_t >(b5) << int32_t(40))+ (static_cast< int64_t >(b4) << int32_t(32))+ (static_cast< int64_t >(b3) << int32_t(24))+ (b2 << int32_t(16))+ (b1 << int32_t(8))+ (b0 << int32_t(0)));
 }
 
-int64_t org::apache::poi::poifs::storage::DataInputBlock::readLongLE(DataInputBlock* prevBlock, int32_t prevBlockAvailable)
+int64_t poi::poifs::storage::DataInputBlock::readLongLE(DataInputBlock* prevBlock, int32_t prevBlockAvailable)
 {
     auto buf = new ::int8_tArray(int32_t(8));
     readSpanning(prevBlock, prevBlockAvailable, buf);
@@ -111,7 +111,7 @@ int64_t org::apache::poi::poifs::storage::DataInputBlock::readLongLE(DataInputBl
     return ((static_cast< int64_t >(b7) << int32_t(56)) + (static_cast< int64_t >(b6) << int32_t(48)) + (static_cast< int64_t >(b5) << int32_t(40))+ (static_cast< int64_t >(b4) << int32_t(32))+ (static_cast< int64_t >(b3) << int32_t(24))+ (b2 << int32_t(16))+ (b1 << int32_t(8))+ (b0 << int32_t(0)));
 }
 
-void org::apache::poi::poifs::storage::DataInputBlock::readSpanning(DataInputBlock* prevBlock, int32_t prevBlockAvailable, ::int8_tArray* buf)
+void poi::poifs::storage::DataInputBlock::readSpanning(DataInputBlock* prevBlock, int32_t prevBlockAvailable, ::int8_tArray* buf)
 {
     ::java::lang::System::arraycopy(npc(prevBlock)->_buf, npc(prevBlock)->_readIndex, buf, 0, prevBlockAvailable);
     auto secondReadLen = npc(buf)->length - prevBlockAvailable;
@@ -119,7 +119,7 @@ void org::apache::poi::poifs::storage::DataInputBlock::readSpanning(DataInputBlo
     _readIndex = secondReadLen;
 }
 
-void org::apache::poi::poifs::storage::DataInputBlock::readFully(::int8_tArray* buf, int32_t off, int32_t len)
+void poi::poifs::storage::DataInputBlock::readFully(::int8_tArray* buf, int32_t off, int32_t len)
 {
     ::java::lang::System::arraycopy(_buf, _readIndex, buf, off, len);
     _readIndex += len;
@@ -127,13 +127,13 @@ void org::apache::poi::poifs::storage::DataInputBlock::readFully(::int8_tArray* 
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::storage::DataInputBlock::class_()
+java::lang::Class* poi::poifs::storage::DataInputBlock::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.storage.DataInputBlock", 43);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::storage::DataInputBlock::getClass0()
+java::lang::Class* poi::poifs::storage::DataInputBlock::getClass0()
 {
     return class_();
 }

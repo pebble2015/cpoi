@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::filesystem::NPOIFSStream
+class poi::poifs::filesystem::NPOIFSStream
     : public virtual ::java::lang::Object
     , public virtual ::java::lang::Iterable
 {

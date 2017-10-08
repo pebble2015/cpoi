@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::Countif_StringMatcher final
+class poi::ss::formula::functions::Countif_StringMatcher final
     : public Countif_MatcherBase
 {
 
@@ -28,7 +28,7 @@ public: /* protected */
     ::java::lang::String* getValueText() override;
 
 public:
-    bool matches(::org::apache::poi::ss::formula::eval::ValueEval* x) override;
+    bool matches(::poi::ss::formula::eval::ValueEval* x) override;
     static ::java::util::regex::Pattern* getWildCardPattern(::java::lang::String* value);
 
     // Generated

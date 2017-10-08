@@ -32,47 +32,41 @@ typedef ::SubArray< ::java::lang::Iterable, ObjectArray > IterableArray;
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace ss
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::Sheet, ::java::lang::ObjectArray, ::java::lang::IterableArray > SheetArray;
-                } // usermodel
-            } // ss
+typedef ::SubArray< ::poi::ss::usermodel::Sheet, ::java::lang::ObjectArray, ::java::lang::IterableArray > SheetArray;
+        } // usermodel
+    } // ss
 
-            namespace hssf
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::usermodel::HSSFSheet, ::java::lang::ObjectArray, ::org::apache::poi::ss::usermodel::SheetArray > HSSFSheetArray;
-                } // usermodel
-            } // hssf
-        } // poi
-    } // apache
-} // org
+    namespace hssf
+    {
+        namespace usermodel
+        {
+typedef ::SubArray< ::poi::hssf::usermodel::HSSFSheet, ::java::lang::ObjectArray, ::poi::ss::usermodel::SheetArray > HSSFSheetArray;
+        } // usermodel
+    } // hssf
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFWorkbook final
-    : public ::org::apache::poi::POIDocument
-    , public ::org::apache::poi::ss::usermodel::Workbook
+class poi::hssf::usermodel::HSSFWorkbook final
+    : public ::poi::POIDocument
+    , public ::poi::ss::usermodel::Workbook
 {
 
 public:
-    typedef ::org::apache::poi::POIDocument super;
+    typedef ::poi::POIDocument super;
 
 private:
     static ::java::util::regex::Pattern* COMMA_PATTERN_;
     static constexpr int32_t MAX_STYLES { int32_t(4030) };
     static constexpr int32_t DEBUG { int32_t(1) };
     static int32_t INITIAL_CAPACITY_;
-    ::org::apache::poi::hssf::model::InternalWorkbook* workbook {  };
+    ::poi::hssf::model::InternalWorkbook* workbook {  };
 
 public: /* protected */
     ::java::util::List* _sheets {  };
@@ -82,34 +76,34 @@ private:
     ::java::util::Map* fonts {  };
     bool preserveNodes {  };
     HSSFDataFormat* formatter {  };
-    ::org::apache::poi::ss::usermodel::Row_MissingCellPolicy* missingCellPolicy {  };
-    static ::org::apache::poi::util::POILogger* log_;
-    ::org::apache::poi::ss::formula::udf::UDFFinder* _udfFinder {  };
+    ::poi::ss::usermodel::Row_MissingCellPolicy* missingCellPolicy {  };
+    static ::poi::util::POILogger* log_;
+    ::poi::ss::formula::udf::UDFFinder* _udfFinder {  };
 
 public:
-    static HSSFWorkbook* create(::org::apache::poi::hssf::model::InternalWorkbook* book);
+    static HSSFWorkbook* create(::poi::hssf::model::InternalWorkbook* book);
 protected:
     void ctor();
-    void ctor(::org::apache::poi::hssf::model::InternalWorkbook* book);
-    void ctor(::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs) /* throws(IOException) */;
-    void ctor(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs) /* throws(IOException) */;
-    void ctor(::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs, bool preserveNodes) /* throws(IOException) */;
+    void ctor(::poi::hssf::model::InternalWorkbook* book);
+    void ctor(::poi::poifs::filesystem::POIFSFileSystem* fs) /* throws(IOException) */;
+    void ctor(::poi::poifs::filesystem::NPOIFSFileSystem* fs) /* throws(IOException) */;
+    void ctor(::poi::poifs::filesystem::POIFSFileSystem* fs, bool preserveNodes) /* throws(IOException) */;
 
 public:
-    static ::java::lang::String* getWorkbookDirEntryName(::org::apache::poi::poifs::filesystem::DirectoryNode* directory);
+    static ::java::lang::String* getWorkbookDirEntryName(::poi::poifs::filesystem::DirectoryNode* directory);
 protected:
-    void ctor(::org::apache::poi::poifs::filesystem::DirectoryNode* directory, ::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs, bool preserveNodes) /* throws(IOException) */;
-    void ctor(::org::apache::poi::poifs::filesystem::DirectoryNode* directory, bool preserveNodes) /* throws(IOException) */;
+    void ctor(::poi::poifs::filesystem::DirectoryNode* directory, ::poi::poifs::filesystem::POIFSFileSystem* fs, bool preserveNodes) /* throws(IOException) */;
+    void ctor(::poi::poifs::filesystem::DirectoryNode* directory, bool preserveNodes) /* throws(IOException) */;
     void ctor(::java::io::InputStream* s) /* throws(IOException) */;
     void ctor(::java::io::InputStream* s, bool preserveNodes) /* throws(IOException) */;
 
 private:
-    void setPropertiesFromWorkbook(::org::apache::poi::hssf::model::InternalWorkbook* book);
+    void setPropertiesFromWorkbook(::poi::hssf::model::InternalWorkbook* book);
     void convertLabelRecords(::java::util::List* records, int32_t offset);
 
 public:
-    ::org::apache::poi::ss::usermodel::Row_MissingCellPolicy* getMissingCellPolicy() override;
-    void setMissingCellPolicy(::org::apache::poi::ss::usermodel::Row_MissingCellPolicy* missingCellPolicy) override;
+    ::poi::ss::usermodel::Row_MissingCellPolicy* getMissingCellPolicy() override;
+    void setMissingCellPolicy(::poi::ss::usermodel::Row_MissingCellPolicy* missingCellPolicy) override;
     void setSheetOrder(::java::lang::String* sheetname, int32_t pos) override;
 
 private:
@@ -132,20 +126,20 @@ public:
     void setHidden(bool hiddenFlag) override;
     bool isSheetHidden(int32_t sheetIx) override;
     bool isSheetVeryHidden(int32_t sheetIx) override;
-    ::org::apache::poi::ss::usermodel::SheetVisibility* getSheetVisibility(int32_t sheetIx) override;
+    ::poi::ss::usermodel::SheetVisibility* getSheetVisibility(int32_t sheetIx) override;
     void setSheetHidden(int32_t sheetIx, bool hidden) override;
     void setSheetHidden(int32_t sheetIx, int32_t hidden) override;
-    void setSheetVisibility(int32_t sheetIx, ::org::apache::poi::ss::usermodel::SheetVisibility* visibility) override;
+    void setSheetVisibility(int32_t sheetIx, ::poi::ss::usermodel::SheetVisibility* visibility) override;
     int32_t getSheetIndex(::java::lang::String* name) override;
-    int32_t getSheetIndex(::org::apache::poi::ss::usermodel::Sheet* sheet) override;
-    ::org::apache::poi::ss::usermodel::Sheet* createSheet() override;
-    ::org::apache::poi::ss::usermodel::Sheet* cloneSheet(int32_t sheetIndex) override;
+    int32_t getSheetIndex(::poi::ss::usermodel::Sheet* sheet) override;
+    ::poi::ss::usermodel::Sheet* createSheet() override;
+    ::poi::ss::usermodel::Sheet* cloneSheet(int32_t sheetIndex) override;
 
 private:
     ::java::lang::String* getUniqueSheetName(::java::lang::String* srcName);
 
 public:
-    ::org::apache::poi::ss::usermodel::Sheet* createSheet(::java::lang::String* sheetname) override;
+    ::poi::ss::usermodel::Sheet* createSheet(::java::lang::String* sheetname) override;
     ::java::util::Iterator* sheetIterator() override;
     ::java::util::Iterator* iterator() override;
     int32_t getNumberOfSheets() override;
@@ -154,8 +148,8 @@ private:
     HSSFSheetArray* getSheets();
 
 public:
-    ::org::apache::poi::ss::usermodel::Sheet* getSheetAt(int32_t index) override;
-    ::org::apache::poi::ss::usermodel::Sheet* getSheet(::java::lang::String* name) override;
+    ::poi::ss::usermodel::Sheet* getSheetAt(int32_t index) override;
+    ::poi::ss::usermodel::Sheet* getSheet(::java::lang::String* name) override;
     void removeSheetAt(int32_t index) override;
     void setBackupFlag(bool backupValue);
     bool getBackupFlag();
@@ -184,7 +178,7 @@ public:
     void write(::java::io::OutputStream* stream) /* throws(IOException) */ override;
 
 private:
-    void write(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs) /* throws(IOException) */;
+    void write(::poi::poifs::filesystem::NPOIFSFileSystem* fs) /* throws(IOException) */;
 
 public:
     ::int8_tArray* getBytes();
@@ -193,7 +187,7 @@ public: /* protected */
     void encryptBytes(::int8_tArray* buf);
 
 public: /* package */
-    ::org::apache::poi::hssf::model::InternalWorkbook* getWorkbook();
+    ::poi::hssf::model::InternalWorkbook* getWorkbook();
 
 public:
     int32_t getNumberOfNames() override;
@@ -201,7 +195,7 @@ public:
     ::java::util::List* getNames(::java::lang::String* name) override;
     HSSFName* getNameAt(int32_t nameIndex) override;
     ::java::util::List* getAllNames() override;
-    ::org::apache::poi::hssf::record::NameRecord* getNameRecord(int32_t nameIndex);
+    ::poi::hssf::record::NameRecord* getNameRecord(int32_t nameIndex);
     ::java::lang::String* getNameName(int32_t index);
     void setPrintArea(int32_t sheetIndex, ::java::lang::String* reference) override;
     void setPrintArea(int32_t sheetIndex, int32_t startColumn, int32_t endColumn, int32_t startRow, int32_t endRow) override;
@@ -217,7 +211,7 @@ public:
     void removeName(int32_t index) override;
     HSSFDataFormat* createDataFormat() override;
     void removeName(::java::lang::String* name) override;
-    void removeName(::org::apache::poi::ss::usermodel::Name* name) override;
+    void removeName(::poi::ss::usermodel::Name* name) override;
     HSSFPalette* getCustomPalette();
     void insertChartRecord();
     void dumpDrawingGroupRecords(bool fat);
@@ -236,9 +230,9 @@ public: /* protected */
     static ::java::util::Map* getOleMap();
 
 public:
-    int32_t addOlePackage(::org::apache::poi::poifs::filesystem::POIFSFileSystem* poiData, ::java::lang::String* label, ::java::lang::String* fileName, ::java::lang::String* command) /* throws(IOException) */;
+    int32_t addOlePackage(::poi::poifs::filesystem::POIFSFileSystem* poiData, ::java::lang::String* label, ::java::lang::String* fileName, ::java::lang::String* command) /* throws(IOException) */;
     int32_t addOlePackage(::int8_tArray* oleData, ::java::lang::String* label, ::java::lang::String* fileName, ::java::lang::String* command) /* throws(IOException) */ override;
-    int32_t linkExternalWorkbook(::java::lang::String* name, ::org::apache::poi::ss::usermodel::Workbook* workbook) override;
+    int32_t linkExternalWorkbook(::java::lang::String* name, ::poi::ss::usermodel::Workbook* workbook) override;
     bool isWriteProtected();
     void writeProtectWorkbook(::java::lang::String* password, ::java::lang::String* username);
     void unwriteProtectWorkbook();
@@ -249,20 +243,20 @@ private:
     void getAllEmbeddedObjects(HSSFShapeContainer* parent, ::java::util::List* objects);
 
 public:
-    ::org::apache::poi::ss::usermodel::CreationHelper* getCreationHelper() override;
+    ::poi::ss::usermodel::CreationHelper* getCreationHelper() override;
 
 public: /* package */
-    ::org::apache::poi::ss::formula::udf::UDFFinder* getUDFFinder();
+    ::poi::ss::formula::udf::UDFFinder* getUDFFinder();
 
 public:
-    void addToolPack(::org::apache::poi::ss::formula::udf::UDFFinder* toopack) override;
+    void addToolPack(::poi::ss::formula::udf::UDFFinder* toopack) override;
     void setForceFormulaRecalculation(bool value) override;
     bool getForceFormulaRecalculation() override;
     bool changeExternalReference(::java::lang::String* oldUrl, ::java::lang::String* newUrl);
-    ::org::apache::poi::poifs::filesystem::DirectoryNode* getRootDirectory();
-    ::org::apache::poi::hssf::model::InternalWorkbook* getInternalWorkbook();
-    ::org::apache::poi::ss::SpreadsheetVersion* getSpreadsheetVersion() override;
-    ::org::apache::poi::poifs::crypt::EncryptionInfo* getEncryptionInfo() override;
+    ::poi::poifs::filesystem::DirectoryNode* getRootDirectory();
+    ::poi::hssf::model::InternalWorkbook* getInternalWorkbook();
+    ::poi::ss::SpreadsheetVersion* getSpreadsheetVersion() override;
+    ::poi::poifs::crypt::EncryptionInfo* getEncryptionInfo() override;
 
 private:
     void updateEncryptionInfo();
@@ -273,14 +267,14 @@ public:
     HSSFWorkbook();
 
 private:
-    HSSFWorkbook(::org::apache::poi::hssf::model::InternalWorkbook* book);
+    HSSFWorkbook(::poi::hssf::model::InternalWorkbook* book);
 
 public:
-    HSSFWorkbook(::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs);
-    HSSFWorkbook(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs);
-    HSSFWorkbook(::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs, bool preserveNodes);
-    HSSFWorkbook(::org::apache::poi::poifs::filesystem::DirectoryNode* directory, ::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs, bool preserveNodes);
-    HSSFWorkbook(::org::apache::poi::poifs::filesystem::DirectoryNode* directory, bool preserveNodes);
+    HSSFWorkbook(::poi::poifs::filesystem::POIFSFileSystem* fs);
+    HSSFWorkbook(::poi::poifs::filesystem::NPOIFSFileSystem* fs);
+    HSSFWorkbook(::poi::poifs::filesystem::POIFSFileSystem* fs, bool preserveNodes);
+    HSSFWorkbook(::poi::poifs::filesystem::DirectoryNode* directory, ::poi::poifs::filesystem::POIFSFileSystem* fs, bool preserveNodes);
+    HSSFWorkbook(::poi::poifs::filesystem::DirectoryNode* directory, bool preserveNodes);
     HSSFWorkbook(::java::io::InputStream* s);
     HSSFWorkbook(::java::io::InputStream* s, bool preserveNodes);
 protected:
@@ -299,7 +293,7 @@ public:
     static int32_t& INITIAL_CAPACITY();
 
 private:
-    static ::org::apache::poi::util::POILogger*& log();
+    static ::poi::util::POILogger*& log();
     virtual ::java::lang::Class* getClass0();
     friend class HSSFWorkbook_SheetIterator;
     friend class HSSFWorkbook_SheetRecordCollector;

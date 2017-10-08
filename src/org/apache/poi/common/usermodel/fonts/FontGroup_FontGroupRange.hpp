@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::common::usermodel::fonts::FontGroup_FontGroupRange
+class poi::common::usermodel::fonts::FontGroup_FontGroupRange
     : public virtual ::java::lang::Object
 {
 

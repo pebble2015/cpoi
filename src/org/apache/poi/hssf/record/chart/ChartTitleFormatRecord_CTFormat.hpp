@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::chart::ChartTitleFormatRecord_CTFormat final
+class poi::hssf::record::chart::ChartTitleFormatRecord_CTFormat final
     : public ::java::lang::Object
 {
 
@@ -22,16 +22,16 @@ private:
     int32_t _offset {  };
     int32_t _fontIndex {  };
 protected:
-    void ctor(::org::apache::poi::hssf::record::RecordInputStream* in);
+    void ctor(::poi::hssf::record::RecordInputStream* in);
 
 public:
     int32_t getOffset();
     void setOffset(int32_t newOff);
     int32_t getFontIndex();
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out);
+    void serialize(::poi::util::LittleEndianOutput* out);
 
     // Generated
-    ChartTitleFormatRecord_CTFormat(::org::apache::poi::hssf::record::RecordInputStream* in);
+    ChartTitleFormatRecord_CTFormat(::poi::hssf::record::RecordInputStream* in);
 protected:
     ChartTitleFormatRecord_CTFormat(const ::default_init_tag&);
 

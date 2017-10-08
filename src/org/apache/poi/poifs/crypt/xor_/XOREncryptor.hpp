@@ -13,20 +13,20 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::crypt::xor_::XOREncryptor
-    : public ::org::apache::poi::poifs::crypt::Encryptor
+class poi::poifs::crypt::xor_::XOREncryptor
+    : public ::poi::poifs::crypt::Encryptor
     , public virtual ::java::lang::Cloneable
 {
 
 public:
-    typedef ::org::apache::poi::poifs::crypt::Encryptor super;
+    typedef ::poi::poifs::crypt::Encryptor super;
 protected:
     void ctor();
 
 public:
     void confirmPassword(::java::lang::String* password) override;
     void confirmPassword(::java::lang::String* password, ::int8_tArray* keySpec, ::int8_tArray* keySalt, ::int8_tArray* verifier, ::int8_tArray* verifierSalt, ::int8_tArray* integritySalt) override;
-    ::java::io::OutputStream* getDataStream(::org::apache::poi::poifs::filesystem::DirectoryNode* dir) /* throws(IOException, GeneralSecurityException) */ override;
+    ::java::io::OutputStream* getDataStream(::poi::poifs::filesystem::DirectoryNode* dir) /* throws(IOException, GeneralSecurityException) */ override;
     XOREncryptor_XORCipherOutputStream* getDataStream(::java::io::OutputStream* stream, int32_t initialOffset) /* throws(IOException, GeneralSecurityException) */ override;
 
 public: /* protected */
@@ -36,7 +36,7 @@ public:
     void setChunkSize(int32_t chunkSize) override;
 
 public: /* protected */
-    virtual void createEncryptionInfoEntry(::org::apache::poi::poifs::filesystem::DirectoryNode* dir) /* throws(IOException) */;
+    virtual void createEncryptionInfoEntry(::poi::poifs::filesystem::DirectoryNode* dir) /* throws(IOException) */;
 
 public:
     XOREncryptor* clone() /* throws(CloneNotSupportedException) */ override;
@@ -51,9 +51,9 @@ protected:
 
 public:
     static ::java::lang::Class *class_();
-    virtual ::java::io::OutputStream* getDataStream(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs);
-    virtual ::java::io::OutputStream* getDataStream(::org::apache::poi::poifs::filesystem::OPOIFSFileSystem* fs);
-    virtual ::java::io::OutputStream* getDataStream(::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs);
+    virtual ::java::io::OutputStream* getDataStream(::poi::poifs::filesystem::NPOIFSFileSystem* fs);
+    virtual ::java::io::OutputStream* getDataStream(::poi::poifs::filesystem::OPOIFSFileSystem* fs);
+    virtual ::java::io::OutputStream* getDataStream(::poi::poifs::filesystem::POIFSFileSystem* fs);
 
 private:
     virtual ::java::lang::Class* getClass0();

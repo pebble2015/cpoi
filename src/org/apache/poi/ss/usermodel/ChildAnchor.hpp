@@ -6,7 +6,7 @@
 #include <org/apache/poi/ss/usermodel/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::usermodel::ChildAnchor
+struct poi::ss::usermodel::ChildAnchor
     : public virtual ::java::lang::Object
 {
     virtual int32_t getDx1() = 0;

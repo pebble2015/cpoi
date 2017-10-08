@@ -34,52 +34,52 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::ptg::PercentPtg::PercentPtg(const ::default_init_tag&)
+poi::ss::formula::ptg::PercentPtg::PercentPtg(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::ptg::PercentPtg::PercentPtg() 
+poi::ss::formula::ptg::PercentPtg::PercentPtg() 
     : PercentPtg(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-constexpr int32_t org::apache::poi::ss::formula::ptg::PercentPtg::SIZE;
+constexpr int32_t poi::ss::formula::ptg::PercentPtg::SIZE;
 
-constexpr int8_t org::apache::poi::ss::formula::ptg::PercentPtg::sid;
+constexpr int8_t poi::ss::formula::ptg::PercentPtg::sid;
 
-java::lang::String*& org::apache::poi::ss::formula::ptg::PercentPtg::PERCENT()
+java::lang::String*& poi::ss::formula::ptg::PercentPtg::PERCENT()
 {
     clinit();
     return PERCENT_;
 }
-java::lang::String* org::apache::poi::ss::formula::ptg::PercentPtg::PERCENT_;
+java::lang::String* poi::ss::formula::ptg::PercentPtg::PERCENT_;
 
-org::apache::poi::ss::formula::ptg::ValueOperatorPtg*& org::apache::poi::ss::formula::ptg::PercentPtg::instance()
+poi::ss::formula::ptg::ValueOperatorPtg*& poi::ss::formula::ptg::PercentPtg::instance()
 {
     clinit();
     return instance_;
 }
-org::apache::poi::ss::formula::ptg::ValueOperatorPtg* org::apache::poi::ss::formula::ptg::PercentPtg::instance_;
+poi::ss::formula::ptg::ValueOperatorPtg* poi::ss::formula::ptg::PercentPtg::instance_;
 
-void org::apache::poi::ss::formula::ptg::PercentPtg::ctor()
+void poi::ss::formula::ptg::PercentPtg::ctor()
 {
     super::ctor();
 }
 
-int8_t org::apache::poi::ss::formula::ptg::PercentPtg::getSid()
+int8_t poi::ss::formula::ptg::PercentPtg::getSid()
 {
     return sid;
 }
 
-int32_t org::apache::poi::ss::formula::ptg::PercentPtg::getNumberOfOperands()
+int32_t poi::ss::formula::ptg::PercentPtg::getNumberOfOperands()
 {
     return 1;
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::PercentPtg::toFormulaString(::java::lang::StringArray* operands)
+java::lang::String* poi::ss::formula::ptg::PercentPtg::toFormulaString(::java::lang::StringArray* operands)
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append((*operands)[int32_t(0)]);
@@ -89,13 +89,13 @@ java::lang::String* org::apache::poi::ss::formula::ptg::PercentPtg::toFormulaStr
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::PercentPtg::class_()
+java::lang::Class* poi::ss::formula::ptg::PercentPtg::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.ptg.PercentPtg", 40);
     return c;
 }
 
-void org::apache::poi::ss::formula::ptg::PercentPtg::clinit()
+void poi::ss::formula::ptg::PercentPtg::clinit()
 {
 struct string_init_ {
     string_init_() {
@@ -119,12 +119,12 @@ struct clinit_ {
     }
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::PercentPtg::toFormulaString()
+java::lang::String* poi::ss::formula::ptg::PercentPtg::toFormulaString()
 {
     return super::toFormulaString();
 }
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::PercentPtg::getClass0()
+java::lang::Class* poi::ss::formula::ptg::PercentPtg::getClass0()
 {
     return class_();
 }

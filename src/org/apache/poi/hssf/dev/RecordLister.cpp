@@ -63,26 +63,26 @@ namespace
 
     template<typename F> finally_<F> finally(F f) { return finally_<F>(f); }
 }
-org::apache::poi::hssf::dev::RecordLister::RecordLister(const ::default_init_tag&)
+poi::hssf::dev::RecordLister::RecordLister(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::dev::RecordLister::RecordLister() 
+poi::hssf::dev::RecordLister::RecordLister() 
     : RecordLister(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::hssf::dev::RecordLister::ctor()
+void poi::hssf::dev::RecordLister::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hssf::dev::RecordLister::run() /* throws(IOException) */
+void poi::hssf::dev::RecordLister::run() /* throws(IOException) */
 {
-    auto fs = new ::org::apache::poi::poifs::filesystem::NPOIFSFileSystem(new ::java::io::File(file), true);
+    auto fs = new ::poi::poifs::filesystem::NPOIFSFileSystem(new ::java::io::File(file), true);
     {
         auto finally0 = finally([&] {
             npc(fs)->close();
@@ -94,12 +94,12 @@ void org::apache::poi::hssf::dev::RecordLister::run() /* throws(IOException) */
                     npc(din)->close();
                 });
                 {
-                    auto rinp = new ::org::apache::poi::hssf::record::RecordInputStream(din);
+                    auto rinp = new ::poi::hssf::record::RecordInputStream(din);
                     while (npc(rinp)->hasNextRecord()) {
                         auto sid = npc(rinp)->getNextSid();
                         npc(rinp)->nextRecord();
                         auto size = npc(rinp)->available();
-                        auto clz = ::org::apache::poi::hssf::record::RecordFactory::getRecordClass(sid);
+                        auto clz = ::poi::hssf::record::RecordFactory::getRecordClass(sid);
                         npc(::java::lang::System::out())->print(::java::lang::StringBuilder().append(formatSID(sid))->append(u" - "_j)
                             ->append(formatSize(size))
                             ->append(u" bytes"_j)->toString());
@@ -122,7 +122,7 @@ void org::apache::poi::hssf::dev::RecordLister::run() /* throws(IOException) */
 
 }
 
-java::lang::String* org::apache::poi::hssf::dev::RecordLister::formatSID(int32_t sid)
+java::lang::String* poi::hssf::dev::RecordLister::formatSID(int32_t sid)
 {
     clinit();
     auto hex = ::java::lang::Integer::toHexString(sid);
@@ -142,7 +142,7 @@ java::lang::String* org::apache::poi::hssf::dev::RecordLister::formatSID(int32_t
     return npc(s)->toString();
 }
 
-java::lang::String* org::apache::poi::hssf::dev::RecordLister::formatSize(int32_t size)
+java::lang::String* poi::hssf::dev::RecordLister::formatSize(int32_t size)
 {
     clinit();
     auto hex = ::java::lang::Integer::toHexString(size);
@@ -161,7 +161,7 @@ java::lang::String* org::apache::poi::hssf::dev::RecordLister::formatSize(int32_
     return npc(s)->toString();
 }
 
-java::lang::String* org::apache::poi::hssf::dev::RecordLister::formatData(::int8_tArray* data)
+java::lang::String* poi::hssf::dev::RecordLister::formatData(::int8_tArray* data)
 {
     clinit();
     if(data == nullptr || npc(data)->length == 0)
@@ -195,7 +195,7 @@ java::lang::String* org::apache::poi::hssf::dev::RecordLister::formatData(::int8
     return npc(s)->toString();
 }
 
-java::lang::String* org::apache::poi::hssf::dev::RecordLister::byteToHex(int8_t b)
+java::lang::String* poi::hssf::dev::RecordLister::byteToHex(int8_t b)
 {
     clinit();
     int32_t i = b;
@@ -209,12 +209,12 @@ java::lang::String* org::apache::poi::hssf::dev::RecordLister::byteToHex(int8_t 
     return s;
 }
 
-void org::apache::poi::hssf::dev::RecordLister::setFile(::java::lang::String* file)
+void poi::hssf::dev::RecordLister::setFile(::java::lang::String* file)
 {
     this->file = file;
 }
 
-void org::apache::poi::hssf::dev::RecordLister::main(::java::lang::StringArray* args) /* throws(IOException) */
+void poi::hssf::dev::RecordLister::main(::java::lang::StringArray* args) /* throws(IOException) */
 {
     clinit();
     if((npc(args)->length == 1) && !npc((*args)[int32_t(0)])->equals(static_cast< ::java::lang::Object* >(u"--help"_j))) {
@@ -230,13 +230,13 @@ void org::apache::poi::hssf::dev::RecordLister::main(::java::lang::StringArray* 
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::dev::RecordLister::class_()
+java::lang::Class* poi::hssf::dev::RecordLister::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.dev.RecordLister", 36);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::dev::RecordLister::getClass0()
+java::lang::Class* poi::hssf::dev::RecordLister::getClass0()
 {
     return class_();
 }

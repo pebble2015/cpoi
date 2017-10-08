@@ -17,98 +17,98 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::chart::AxisUsedRecord::AxisUsedRecord(const ::default_init_tag&)
+poi::hssf::record::chart::AxisUsedRecord::AxisUsedRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::chart::AxisUsedRecord::AxisUsedRecord() 
+poi::hssf::record::chart::AxisUsedRecord::AxisUsedRecord() 
     : AxisUsedRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::chart::AxisUsedRecord::AxisUsedRecord(::org::apache::poi::hssf::record::RecordInputStream* in) 
+poi::hssf::record::chart::AxisUsedRecord::AxisUsedRecord(::poi::hssf::record::RecordInputStream* in) 
     : AxisUsedRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::chart::AxisUsedRecord::sid;
+constexpr int16_t poi::hssf::record::chart::AxisUsedRecord::sid;
 
-void org::apache::poi::hssf::record::chart::AxisUsedRecord::ctor()
+void poi::hssf::record::chart::AxisUsedRecord::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hssf::record::chart::AxisUsedRecord::ctor(::org::apache::poi::hssf::record::RecordInputStream* in)
+void poi::hssf::record::chart::AxisUsedRecord::ctor(::poi::hssf::record::RecordInputStream* in)
 {
     super::ctor();
     field_1_numAxis = npc(in)->readShort();
 }
 
-java::lang::String* org::apache::poi::hssf::record::chart::AxisUsedRecord::toString()
+java::lang::String* poi::hssf::record::chart::AxisUsedRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[AXISUSED]\n"_j);
-    npc(npc(npc(npc(npc(npc(buffer)->append(u"    .numAxis              = "_j))->append(u"0x"_j))->append(::org::apache::poi::util::HexDump::toHex(getNumAxis())))->append(u" ("_j))->append(static_cast< int32_t >(getNumAxis())))->append(u" )"_j);
+    npc(npc(npc(npc(npc(npc(buffer)->append(u"    .numAxis              = "_j))->append(u"0x"_j))->append(::poi::util::HexDump::toHex(getNumAxis())))->append(u" ("_j))->append(static_cast< int32_t >(getNumAxis())))->append(u" )"_j);
     npc(buffer)->append(::java::lang::System::getProperty(u"line.separator"_j));
     npc(buffer)->append(u"[/AXISUSED]\n"_j);
     return npc(buffer)->toString();
 }
 
-void org::apache::poi::hssf::record::chart::AxisUsedRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::chart::AxisUsedRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(field_1_numAxis);
 }
 
-int32_t org::apache::poi::hssf::record::chart::AxisUsedRecord::getDataSize()
+int32_t poi::hssf::record::chart::AxisUsedRecord::getDataSize()
 {
     return 2;
 }
 
-int16_t org::apache::poi::hssf::record::chart::AxisUsedRecord::getSid()
+int16_t poi::hssf::record::chart::AxisUsedRecord::getSid()
 {
     return sid;
 }
 
-org::apache::poi::hssf::record::chart::AxisUsedRecord* org::apache::poi::hssf::record::chart::AxisUsedRecord::clone()
+poi::hssf::record::chart::AxisUsedRecord* poi::hssf::record::chart::AxisUsedRecord::clone()
 {
     auto rec = new AxisUsedRecord();
     npc(rec)->field_1_numAxis = field_1_numAxis;
     return rec;
 }
 
-int16_t org::apache::poi::hssf::record::chart::AxisUsedRecord::getNumAxis()
+int16_t poi::hssf::record::chart::AxisUsedRecord::getNumAxis()
 {
     return field_1_numAxis;
 }
 
-void org::apache::poi::hssf::record::chart::AxisUsedRecord::setNumAxis(int16_t field_1_numAxis)
+void poi::hssf::record::chart::AxisUsedRecord::setNumAxis(int16_t field_1_numAxis)
 {
     this->field_1_numAxis = field_1_numAxis;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::chart::AxisUsedRecord::class_()
+java::lang::Class* poi::hssf::record::chart::AxisUsedRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.chart.AxisUsedRecord", 47);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::chart::AxisUsedRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::chart::AxisUsedRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::chart::AxisUsedRecord::serialize()
+int8_tArray* poi::hssf::record::chart::AxisUsedRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::chart::AxisUsedRecord::getClass0()
+java::lang::Class* poi::hssf::record::chart::AxisUsedRecord::getClass0()
 {
     return class_();
 }

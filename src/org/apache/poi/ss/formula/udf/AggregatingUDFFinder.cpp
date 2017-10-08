@@ -17,25 +17,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace udf
             {
-                namespace formula
-                {
-                    namespace udf
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::udf::UDFFinder, ::java::lang::ObjectArray > UDFFinderArray;
-                    } // udf
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::udf::UDFFinder, ::java::lang::ObjectArray > UDFFinderArray;
+            } // udf
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -53,35 +47,35 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::udf::AggregatingUDFFinder::AggregatingUDFFinder(const ::default_init_tag&)
+poi::ss::formula::udf::AggregatingUDFFinder::AggregatingUDFFinder(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::udf::AggregatingUDFFinder::AggregatingUDFFinder(UDFFinderArray*/*...*/ usedToolPacks) 
+poi::ss::formula::udf::AggregatingUDFFinder::AggregatingUDFFinder(UDFFinderArray*/*...*/ usedToolPacks) 
     : AggregatingUDFFinder(*static_cast< ::default_init_tag* >(0))
 {
     ctor(usedToolPacks);
 }
 
-org::apache::poi::ss::formula::udf::UDFFinder*& org::apache::poi::ss::formula::udf::AggregatingUDFFinder::DEFAULT()
+poi::ss::formula::udf::UDFFinder*& poi::ss::formula::udf::AggregatingUDFFinder::DEFAULT()
 {
     clinit();
     return DEFAULT_;
 }
-org::apache::poi::ss::formula::udf::UDFFinder* org::apache::poi::ss::formula::udf::AggregatingUDFFinder::DEFAULT_;
+poi::ss::formula::udf::UDFFinder* poi::ss::formula::udf::AggregatingUDFFinder::DEFAULT_;
 
-void org::apache::poi::ss::formula::udf::AggregatingUDFFinder::ctor(UDFFinderArray*/*...*/ usedToolPacks)
+void poi::ss::formula::udf::AggregatingUDFFinder::ctor(UDFFinderArray*/*...*/ usedToolPacks)
 {
     super::ctor();
     _usedToolPacks = new ::java::util::ArrayList(npc(usedToolPacks)->length);
     npc(_usedToolPacks)->addAll(::java::util::Arrays::asList(usedToolPacks));
 }
 
-org::apache::poi::ss::formula::functions::FreeRefFunction* org::apache::poi::ss::formula::udf::AggregatingUDFFinder::findFunction(::java::lang::String* name)
+poi::ss::formula::functions::FreeRefFunction* poi::ss::formula::udf::AggregatingUDFFinder::findFunction(::java::lang::String* name)
 {
-    ::org::apache::poi::ss::formula::functions::FreeRefFunction* evaluatorForFunction;
+    ::poi::ss::formula::functions::FreeRefFunction* evaluatorForFunction;
     for (auto _i = npc(_usedToolPacks)->iterator(); _i->hasNext(); ) {
         UDFFinder* pack = java_cast< UDFFinder* >(_i->next());
         {
@@ -94,27 +88,27 @@ org::apache::poi::ss::formula::functions::FreeRefFunction* org::apache::poi::ss:
     return nullptr;
 }
 
-void org::apache::poi::ss::formula::udf::AggregatingUDFFinder::add(UDFFinder* toolPack)
+void poi::ss::formula::udf::AggregatingUDFFinder::add(UDFFinder* toolPack)
 {
     npc(_usedToolPacks)->add(toolPack);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::udf::AggregatingUDFFinder::class_()
+java::lang::Class* poi::ss::formula::udf::AggregatingUDFFinder::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.udf.AggregatingUDFFinder", 50);
     return c;
 }
 
-void org::apache::poi::ss::formula::udf::AggregatingUDFFinder::clinit()
+void poi::ss::formula::udf::AggregatingUDFFinder::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        DEFAULT_ = new AggregatingUDFFinder(new UDFFinderArray({::org::apache::poi::ss::formula::atp::AnalysisToolPak::instance()}));
+        DEFAULT_ = new AggregatingUDFFinder(new UDFFinderArray({::poi::ss::formula::atp::AnalysisToolPak::instance()}));
     }
 };
 
@@ -123,7 +117,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::formula::udf::AggregatingUDFFinder::getClass0()
+java::lang::Class* poi::ss::formula::udf::AggregatingUDFFinder::getClass0()
 {
     return class_();
 }

@@ -107,25 +107,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -143,54 +137,54 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::usermodel::HSSFSheet::HSSFSheet(const ::default_init_tag&)
+poi::hssf::usermodel::HSSFSheet::HSSFSheet(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::usermodel::HSSFSheet::HSSFSheet(HSSFWorkbook* workbook) 
+poi::hssf::usermodel::HSSFSheet::HSSFSheet(HSSFWorkbook* workbook) 
     : HSSFSheet(*static_cast< ::default_init_tag* >(0))
 {
     ctor(workbook);
 }
 
-org::apache::poi::hssf::usermodel::HSSFSheet::HSSFSheet(HSSFWorkbook* workbook, ::org::apache::poi::hssf::model::InternalSheet* sheet) 
+poi::hssf::usermodel::HSSFSheet::HSSFSheet(HSSFWorkbook* workbook, ::poi::hssf::model::InternalSheet* sheet) 
     : HSSFSheet(*static_cast< ::default_init_tag* >(0))
 {
     ctor(workbook,sheet);
 }
 
-org::apache::poi::util::POILogger*& org::apache::poi::hssf::usermodel::HSSFSheet::log()
+poi::util::POILogger*& poi::hssf::usermodel::HSSFSheet::log()
 {
     clinit();
     return log_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::hssf::usermodel::HSSFSheet::log_;
+poi::util::POILogger* poi::hssf::usermodel::HSSFSheet::log_;
 
-constexpr int32_t org::apache::poi::hssf::usermodel::HSSFSheet::DEBUG;
+constexpr int32_t poi::hssf::usermodel::HSSFSheet::DEBUG;
 
-constexpr float org::apache::poi::hssf::usermodel::HSSFSheet::PX_DEFAULT;
+constexpr float poi::hssf::usermodel::HSSFSheet::PX_DEFAULT;
 
-constexpr float org::apache::poi::hssf::usermodel::HSSFSheet::PX_MODIFIED;
+constexpr float poi::hssf::usermodel::HSSFSheet::PX_MODIFIED;
 
-int32_t& org::apache::poi::hssf::usermodel::HSSFSheet::INITIAL_CAPACITY()
+int32_t& poi::hssf::usermodel::HSSFSheet::INITIAL_CAPACITY()
 {
     clinit();
     return INITIAL_CAPACITY_;
 }
-int32_t org::apache::poi::hssf::usermodel::HSSFSheet::INITIAL_CAPACITY_;
+int32_t poi::hssf::usermodel::HSSFSheet::INITIAL_CAPACITY_;
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::ctor(HSSFWorkbook* workbook)
+void poi::hssf::usermodel::HSSFSheet::ctor(HSSFWorkbook* workbook)
 {
     super::ctor();
-    _sheet = ::org::apache::poi::hssf::model::InternalSheet::createSheet();
+    _sheet = ::poi::hssf::model::InternalSheet::createSheet();
     _rows = new ::java::util::TreeMap();
     this->_workbook = workbook;
     this->_book = npc(workbook)->getWorkbook();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::ctor(HSSFWorkbook* workbook, ::org::apache::poi::hssf::model::InternalSheet* sheet)
+void poi::hssf::usermodel::HSSFSheet::ctor(HSSFWorkbook* workbook, ::poi::hssf::model::InternalSheet* sheet)
 {
     super::ctor();
     this->_sheet = sheet;
@@ -200,12 +194,12 @@ void org::apache::poi::hssf::usermodel::HSSFSheet::ctor(HSSFWorkbook* workbook, 
     setPropertiesFromSheet(sheet);
 }
 
-org::apache::poi::hssf::usermodel::HSSFSheet* org::apache::poi::hssf::usermodel::HSSFSheet::cloneSheet(HSSFWorkbook* workbook)
+poi::hssf::usermodel::HSSFSheet* poi::hssf::usermodel::HSSFSheet::cloneSheet(HSSFWorkbook* workbook)
 {
     java_cast< HSSFPatriarch* >(this->getDrawingPatriarch());
     auto sheet = new HSSFSheet(workbook, npc(_sheet)->cloneSheet());
-    auto pos = npc(npc(sheet)->_sheet)->findFirstRecordLocBySid(::org::apache::poi::hssf::record::DrawingRecord::sid);
-    auto dr = java_cast< ::org::apache::poi::hssf::record::DrawingRecord* >(npc(npc(sheet)->_sheet)->findFirstRecordBySid(::org::apache::poi::hssf::record::DrawingRecord::sid));
+    auto pos = npc(npc(sheet)->_sheet)->findFirstRecordLocBySid(::poi::hssf::record::DrawingRecord::sid);
+    auto dr = java_cast< ::poi::hssf::record::DrawingRecord* >(npc(npc(sheet)->_sheet)->findFirstRecordBySid(::poi::hssf::record::DrawingRecord::sid));
     if(nullptr != dr) {
         npc(npc(npc(sheet)->_sheet)->getRecords())->remove(static_cast< ::java::lang::Object* >(dr));
     }
@@ -217,19 +211,19 @@ org::apache::poi::hssf::usermodel::HSSFSheet* org::apache::poi::hssf::usermodel:
     return sheet;
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::preSerialize()
+void poi::hssf::usermodel::HSSFSheet::preSerialize()
 {
     if(_patriarch != nullptr) {
         npc(_patriarch)->preSerialize();
     }
 }
 
-org::apache::poi::ss::usermodel::Workbook* org::apache::poi::hssf::usermodel::HSSFSheet::getWorkbook()
+poi::ss::usermodel::Workbook* poi::hssf::usermodel::HSSFSheet::getWorkbook()
 {
     return _workbook;
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::setPropertiesFromSheet(::org::apache::poi::hssf::model::InternalSheet* sheet)
+void poi::hssf::usermodel::HSSFSheet::setPropertiesFromSheet(::poi::hssf::model::InternalSheet* sheet)
 {
     auto row = npc(sheet)->getNextRow();
     while (row != nullptr) {
@@ -238,41 +232,41 @@ void org::apache::poi::hssf::usermodel::HSSFSheet::setPropertiesFromSheet(::org:
     }
     auto iter = npc(sheet)->getCellValueIterator();
     auto timestart = ::java::lang::System::currentTimeMillis();
-    if(npc(log_)->check(::org::apache::poi::util::POILogger::DEBUG)) {
+    if(npc(log_)->check(::poi::util::POILogger::DEBUG)) {
         npc(log_)->log(DEBUG, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"Time at start of cell creating in HSSF sheet = "_j), static_cast< ::java::lang::Object* >(::java::lang::Long::valueOf(timestart))}));
     }
     HSSFRow* lastrow = nullptr;
     while (npc(iter)->hasNext()) {
-        auto cval = java_cast< ::org::apache::poi::hssf::record::CellValueRecordInterface* >(npc(iter)->next());
+        auto cval = java_cast< ::poi::hssf::record::CellValueRecordInterface* >(npc(iter)->next());
         auto cellstart = ::java::lang::System::currentTimeMillis();
         auto hrow = lastrow;
         if(hrow == nullptr || npc(hrow)->getRowNum() != npc(cval)->getRow()) {
             hrow = java_cast< HSSFRow* >(getRow(npc(cval)->getRow()));
             lastrow = hrow;
             if(hrow == nullptr) {
-                auto rowRec = new ::org::apache::poi::hssf::record::RowRecord(npc(cval)->getRow());
+                auto rowRec = new ::poi::hssf::record::RowRecord(npc(cval)->getRow());
                 npc(sheet)->addRow(rowRec);
                 hrow = createRowFromRecord(rowRec);
             }
         }
-        if(npc(log_)->check(::org::apache::poi::util::POILogger::DEBUG)) {
-            if(dynamic_cast< ::org::apache::poi::hssf::record::Record* >(cval) != nullptr) {
-                npc(log_)->log(DEBUG, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"record id = "_j)->append(::java::lang::Integer::toHexString(npc((java_cast< ::org::apache::poi::hssf::record::Record* >(cval)))->getSid()))->toString())}));
+        if(npc(log_)->check(::poi::util::POILogger::DEBUG)) {
+            if(dynamic_cast< ::poi::hssf::record::Record* >(cval) != nullptr) {
+                npc(log_)->log(DEBUG, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"record id = "_j)->append(::java::lang::Integer::toHexString(npc((java_cast< ::poi::hssf::record::Record* >(cval)))->getSid()))->toString())}));
             } else {
                 npc(log_)->log(DEBUG, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"record = "_j)->append(static_cast< ::java::lang::Object* >(cval))->toString())}));
             }
         }
         npc(hrow)->createCellFromRecord(cval);
-        if(npc(log_)->check(::org::apache::poi::util::POILogger::DEBUG)) {
+        if(npc(log_)->check(::poi::util::POILogger::DEBUG)) {
             npc(log_)->log(DEBUG, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"record took "_j), static_cast< ::java::lang::Object* >(::java::lang::Long::valueOf(::java::lang::System::currentTimeMillis() - cellstart))}));
         }
     }
-    if(npc(log_)->check(::org::apache::poi::util::POILogger::DEBUG)) {
+    if(npc(log_)->check(::poi::util::POILogger::DEBUG)) {
         npc(log_)->log(DEBUG, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"total sheet cell creation took "_j), static_cast< ::java::lang::Object* >(::java::lang::Long::valueOf(::java::lang::System::currentTimeMillis() - timestart))}));
     }
 }
 
-org::apache::poi::ss::usermodel::Row* org::apache::poi::hssf::usermodel::HSSFSheet::createRow(int32_t rownum)
+poi::ss::usermodel::Row* poi::hssf::usermodel::HSSFSheet::createRow(int32_t rownum)
 {
     auto row = new HSSFRow(_workbook, this, rownum);
     npc(row)->setHeight(getDefaultRowHeight());
@@ -281,21 +275,21 @@ org::apache::poi::ss::usermodel::Row* org::apache::poi::hssf::usermodel::HSSFShe
     return row;
 }
 
-org::apache::poi::hssf::usermodel::HSSFRow* org::apache::poi::hssf::usermodel::HSSFSheet::createRowFromRecord(::org::apache::poi::hssf::record::RowRecord* row)
+poi::hssf::usermodel::HSSFRow* poi::hssf::usermodel::HSSFSheet::createRowFromRecord(::poi::hssf::record::RowRecord* row)
 {
     auto hrow = new HSSFRow(_workbook, this, row);
     addRow(hrow, false);
     return hrow;
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::removeRow(::org::apache::poi::ss::usermodel::Row* row)
+void poi::hssf::usermodel::HSSFSheet::removeRow(::poi::ss::usermodel::Row* row)
 {
     auto hrow = java_cast< HSSFRow* >(row);
-    if(npc(row)->getSheet() != static_cast< ::org::apache::poi::ss::usermodel::Sheet* >(this)) {
+    if(npc(row)->getSheet() != static_cast< ::poi::ss::usermodel::Sheet* >(this)) {
         throw new ::java::lang::IllegalArgumentException(u"Specified row does not belong to this sheet"_j);
     }
     for (auto _i = npc(row)->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::ss::usermodel::Cell* cell = java_cast< ::org::apache::poi::ss::usermodel::Cell* >(_i->next());
+        ::poi::ss::usermodel::Cell* cell = java_cast< ::poi::ss::usermodel::Cell* >(_i->next());
         {
             auto xcell = java_cast< HSSFCell* >(cell);
             if(npc(xcell)->isPartOfArrayFormulaGroup()) {
@@ -321,7 +315,7 @@ void org::apache::poi::hssf::usermodel::HSSFSheet::removeRow(::org::apache::poi:
     }
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFSheet::findLastRow(int32_t lastrow)
+int32_t poi::hssf::usermodel::HSSFSheet::findLastRow(int32_t lastrow)
 {
     if(lastrow < 1) {
         return 0;
@@ -337,7 +331,7 @@ int32_t org::apache::poi::hssf::usermodel::HSSFSheet::findLastRow(int32_t lastro
     return rownum;
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFSheet::findFirstRow(int32_t firstrow)
+int32_t poi::hssf::usermodel::HSSFSheet::findFirstRow(int32_t firstrow)
 {
     auto rownum = firstrow + int32_t(1);
     auto r = java_cast< HSSFRow* >(getRow(rownum));
@@ -350,7 +344,7 @@ int32_t org::apache::poi::hssf::usermodel::HSSFSheet::findFirstRow(int32_t first
     return rownum;
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::addRow(HSSFRow* row, bool addLow)
+void poi::hssf::usermodel::HSSFSheet::addRow(HSSFRow* row, bool addLow)
 {
     npc(_rows)->put(static_cast< ::java::lang::Object* >(::java::lang::Integer::valueOf(npc(row)->getRowNum())), static_cast< ::java::lang::Object* >(row));
     if(addLow) {
@@ -365,36 +359,36 @@ void org::apache::poi::hssf::usermodel::HSSFSheet::addRow(HSSFRow* row, bool add
     }
 }
 
-org::apache::poi::ss::usermodel::Row* org::apache::poi::hssf::usermodel::HSSFSheet::getRow(int32_t rowIndex)
+poi::ss::usermodel::Row* poi::hssf::usermodel::HSSFSheet::getRow(int32_t rowIndex)
 {
     return java_cast< HSSFRow* >(npc(_rows)->get(static_cast< ::java::lang::Object* >(::java::lang::Integer::valueOf(rowIndex))));
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFSheet::getPhysicalNumberOfRows()
+int32_t poi::hssf::usermodel::HSSFSheet::getPhysicalNumberOfRows()
 {
     return npc(_rows)->size();
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFSheet::getFirstRowNum()
+int32_t poi::hssf::usermodel::HSSFSheet::getFirstRowNum()
 {
     return _firstrow;
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFSheet::getLastRowNum()
+int32_t poi::hssf::usermodel::HSSFSheet::getLastRowNum()
 {
     return _lastrow;
 }
 
-java::util::List* org::apache::poi::hssf::usermodel::HSSFSheet::getDataValidations()
+java::util::List* poi::hssf::usermodel::HSSFSheet::getDataValidations()
 {
     auto dvt = npc(_sheet)->getOrCreateDataValidityTable();
     ::java::util::List* const hssfValidations = new ::java::util::ArrayList();
-    ::org::apache::poi::hssf::record::aggregates::RecordAggregate_RecordVisitor* visitor = new HSSFSheet_getDataValidations_1(this, hssfValidations);
+    ::poi::hssf::record::aggregates::RecordAggregate_RecordVisitor* visitor = new HSSFSheet_getDataValidations_1(this, hssfValidations);
     npc(dvt)->visitContainedRecords(visitor);
     return hssfValidations;
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::addValidationData(::org::apache::poi::ss::usermodel::DataValidation* dataValidation)
+void poi::hssf::usermodel::HSSFSheet::addValidationData(::poi::ss::usermodel::DataValidation* dataValidation)
 {
     if(dataValidation == nullptr) {
         throw new ::java::lang::IllegalArgumentException(u"objValidation must not be null"_j);
@@ -405,27 +399,27 @@ void org::apache::poi::hssf::usermodel::HSSFSheet::addValidationData(::org::apac
     npc(dvt)->addDataValidation(dvRecord);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::setColumnHidden(int32_t columnIndex, bool hidden)
+void poi::hssf::usermodel::HSSFSheet::setColumnHidden(int32_t columnIndex, bool hidden)
 {
     npc(_sheet)->setColumnHidden(columnIndex, hidden);
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFSheet::isColumnHidden(int32_t columnIndex)
+bool poi::hssf::usermodel::HSSFSheet::isColumnHidden(int32_t columnIndex)
 {
     return npc(_sheet)->isColumnHidden(columnIndex);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::setColumnWidth(int32_t columnIndex, int32_t width)
+void poi::hssf::usermodel::HSSFSheet::setColumnWidth(int32_t columnIndex, int32_t width)
 {
     npc(_sheet)->setColumnWidth(columnIndex, width);
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFSheet::getColumnWidth(int32_t columnIndex)
+int32_t poi::hssf::usermodel::HSSFSheet::getColumnWidth(int32_t columnIndex)
 {
     return npc(_sheet)->getColumnWidth(columnIndex);
 }
 
-float org::apache::poi::hssf::usermodel::HSSFSheet::getColumnWidthInPixels(int32_t column)
+float poi::hssf::usermodel::HSSFSheet::getColumnWidthInPixels(int32_t column)
 {
     auto cw = getColumnWidth(column);
     auto def = getDefaultColumnWidth() * int32_t(256);
@@ -433,37 +427,37 @@ float org::apache::poi::hssf::usermodel::HSSFSheet::getColumnWidthInPixels(int32
     return cw / px;
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFSheet::getDefaultColumnWidth()
+int32_t poi::hssf::usermodel::HSSFSheet::getDefaultColumnWidth()
 {
     return npc(_sheet)->getDefaultColumnWidth();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::setDefaultColumnWidth(int32_t width)
+void poi::hssf::usermodel::HSSFSheet::setDefaultColumnWidth(int32_t width)
 {
     npc(_sheet)->setDefaultColumnWidth(width);
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFSheet::getDefaultRowHeight()
+int16_t poi::hssf::usermodel::HSSFSheet::getDefaultRowHeight()
 {
     return npc(_sheet)->getDefaultRowHeight();
 }
 
-float org::apache::poi::hssf::usermodel::HSSFSheet::getDefaultRowHeightInPoints()
+float poi::hssf::usermodel::HSSFSheet::getDefaultRowHeightInPoints()
 {
     return (static_cast< float >(npc(_sheet)->getDefaultRowHeight()) / int32_t(20));
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::setDefaultRowHeight(int16_t height)
+void poi::hssf::usermodel::HSSFSheet::setDefaultRowHeight(int16_t height)
 {
     npc(_sheet)->setDefaultRowHeight(height);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::setDefaultRowHeightInPoints(float height)
+void poi::hssf::usermodel::HSSFSheet::setDefaultRowHeightInPoints(float height)
 {
     npc(_sheet)->setDefaultRowHeight(static_cast< int16_t >((height * int32_t(20))));
 }
 
-org::apache::poi::hssf::usermodel::HSSFCellStyle* org::apache::poi::hssf::usermodel::HSSFSheet::getColumnStyle(int32_t column)
+poi::hssf::usermodel::HSSFCellStyle* poi::hssf::usermodel::HSSFSheet::getColumnStyle(int32_t column)
 {
     auto styleIndex = npc(_sheet)->getXFIndexForColAt(static_cast< int16_t >(column));
     if(styleIndex == 15) {
@@ -473,39 +467,39 @@ org::apache::poi::hssf::usermodel::HSSFCellStyle* org::apache::poi::hssf::usermo
     return new HSSFCellStyle(styleIndex, xf, _book);
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFSheet::isGridsPrinted()
+bool poi::hssf::usermodel::HSSFSheet::isGridsPrinted()
 {
     return npc(_sheet)->isGridsPrinted();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::setGridsPrinted(bool value)
+void poi::hssf::usermodel::HSSFSheet::setGridsPrinted(bool value)
 {
     npc(_sheet)->setGridsPrinted(value);
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFSheet::addMergedRegion(::org::apache::poi::ss::util::CellRangeAddress* region)
+int32_t poi::hssf::usermodel::HSSFSheet::addMergedRegion(::poi::ss::util::CellRangeAddress* region)
 {
     return addMergedRegion(region, true);
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFSheet::addMergedRegionUnsafe(::org::apache::poi::ss::util::CellRangeAddress* region)
+int32_t poi::hssf::usermodel::HSSFSheet::addMergedRegionUnsafe(::poi::ss::util::CellRangeAddress* region)
 {
     return addMergedRegion(region, false);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::validateMergedRegions()
+void poi::hssf::usermodel::HSSFSheet::validateMergedRegions()
 {
     checkForMergedRegionsIntersectingArrayFormulas();
     checkForIntersectingMergedRegions();
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFSheet::addMergedRegion(::org::apache::poi::ss::util::CellRangeAddress* region, bool validate)
+int32_t poi::hssf::usermodel::HSSFSheet::addMergedRegion(::poi::ss::util::CellRangeAddress* region, bool validate)
 {
     if(npc(region)->getNumberOfCells() < 2) {
         throw new ::java::lang::IllegalArgumentException(::java::lang::StringBuilder().append(u"Merged region "_j)->append(npc(region)->formatAsString())
             ->append(u" must contain 2 or more cells"_j)->toString());
     }
-    npc(region)->validate(::org::apache::poi::ss::SpreadsheetVersion::EXCEL97);
+    npc(region)->validate(::poi::ss::SpreadsheetVersion::EXCEL97);
     if(validate) {
         validateArrayFormulas(region);
         validateMergedRegions(region);
@@ -513,7 +507,7 @@ int32_t org::apache::poi::hssf::usermodel::HSSFSheet::addMergedRegion(::org::apa
     return npc(_sheet)->addMergedRegion(npc(region)->getFirstRow(), npc(region)->getFirstColumn(), npc(region)->getLastRow(), npc(region)->getLastColumn());
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::validateArrayFormulas(::org::apache::poi::ss::util::CellRangeAddress* region)
+void poi::hssf::usermodel::HSSFSheet::validateArrayFormulas(::poi::ss::util::CellRangeAddress* region)
 {
     auto firstRow = npc(region)->getFirstRow();
     auto firstColumn = npc(region)->getFirstColumn();
@@ -542,20 +536,20 @@ void org::apache::poi::hssf::usermodel::HSSFSheet::validateArrayFormulas(::org::
     }
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::checkForMergedRegionsIntersectingArrayFormulas()
+void poi::hssf::usermodel::HSSFSheet::checkForMergedRegionsIntersectingArrayFormulas()
 {
     for (auto _i = npc(getMergedRegions())->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::ss::util::CellRangeAddress* region = java_cast< ::org::apache::poi::ss::util::CellRangeAddress* >(_i->next());
+        ::poi::ss::util::CellRangeAddress* region = java_cast< ::poi::ss::util::CellRangeAddress* >(_i->next());
         {
             validateArrayFormulas(region);
         }
     }
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::validateMergedRegions(::org::apache::poi::ss::util::CellRangeAddress* candidateRegion)
+void poi::hssf::usermodel::HSSFSheet::validateMergedRegions(::poi::ss::util::CellRangeAddress* candidateRegion)
 {
     for (auto _i = npc(getMergedRegions())->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::ss::util::CellRangeAddress* existingRegion = java_cast< ::org::apache::poi::ss::util::CellRangeAddress* >(_i->next());
+        ::poi::ss::util::CellRangeAddress* existingRegion = java_cast< ::poi::ss::util::CellRangeAddress* >(_i->next());
         {
             if(npc(existingRegion)->intersects(candidateRegion)) {
                 throw new ::java::lang::IllegalStateException(::java::lang::StringBuilder().append(u"Cannot add merged region "_j)->append(npc(candidateRegion)->formatAsString())
@@ -567,14 +561,14 @@ void org::apache::poi::hssf::usermodel::HSSFSheet::validateMergedRegions(::org::
     }
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::checkForIntersectingMergedRegions()
+void poi::hssf::usermodel::HSSFSheet::checkForIntersectingMergedRegions()
 {
     auto const regions = getMergedRegions();
     auto const size = npc(regions)->size();
     for (auto i = int32_t(0); i < size; i++) {
-        auto const region = java_cast< ::org::apache::poi::ss::util::CellRangeAddress* >(npc(regions)->get(i));
+        auto const region = java_cast< ::poi::ss::util::CellRangeAddress* >(npc(regions)->get(i));
         for (auto _i = npc(npc(regions)->subList(i + int32_t(1), npc(regions)->size()))->iterator(); _i->hasNext(); ) {
-            ::org::apache::poi::ss::util::CellRangeAddress* other = java_cast< ::org::apache::poi::ss::util::CellRangeAddress* >(_i->next());
+            ::poi::ss::util::CellRangeAddress* other = java_cast< ::poi::ss::util::CellRangeAddress* >(_i->next());
             {
                 if(npc(region)->intersects(other)) {
                     auto msg = ::java::lang::StringBuilder().append(u"The range "_j)->append(npc(region)->formatAsString())
@@ -588,52 +582,52 @@ void org::apache::poi::hssf::usermodel::HSSFSheet::checkForIntersectingMergedReg
     }
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::setForceFormulaRecalculation(bool value)
+void poi::hssf::usermodel::HSSFSheet::setForceFormulaRecalculation(bool value)
 {
     npc(_sheet)->setUncalced(value);
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFSheet::getForceFormulaRecalculation()
+bool poi::hssf::usermodel::HSSFSheet::getForceFormulaRecalculation()
 {
     return npc(_sheet)->getUncalced();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::setVerticallyCenter(bool value)
+void poi::hssf::usermodel::HSSFSheet::setVerticallyCenter(bool value)
 {
     npc(npc(npc(_sheet)->getPageSettings())->getVCenter())->setVCenter(value);
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFSheet::getVerticallyCenter()
+bool poi::hssf::usermodel::HSSFSheet::getVerticallyCenter()
 {
     return npc(npc(npc(_sheet)->getPageSettings())->getVCenter())->getVCenter();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::setHorizontallyCenter(bool value)
+void poi::hssf::usermodel::HSSFSheet::setHorizontallyCenter(bool value)
 {
     npc(npc(npc(_sheet)->getPageSettings())->getHCenter())->setHCenter(value);
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFSheet::getHorizontallyCenter()
+bool poi::hssf::usermodel::HSSFSheet::getHorizontallyCenter()
 {
     return npc(npc(npc(_sheet)->getPageSettings())->getHCenter())->getHCenter();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::setRightToLeft(bool value)
+void poi::hssf::usermodel::HSSFSheet::setRightToLeft(bool value)
 {
     npc(npc(_sheet)->getWindowTwo())->setArabic(value);
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFSheet::isRightToLeft()
+bool poi::hssf::usermodel::HSSFSheet::isRightToLeft()
 {
     return npc(npc(_sheet)->getWindowTwo())->getArabic();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::removeMergedRegion(int32_t index)
+void poi::hssf::usermodel::HSSFSheet::removeMergedRegion(int32_t index)
 {
     npc(_sheet)->removeMergedRegion(index);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::removeMergedRegions(::java::util::Collection* indices)
+void poi::hssf::usermodel::HSSFSheet::removeMergedRegions(::java::util::Collection* indices)
 {
     for (auto _i = npc((new ::java::util::TreeSet(static_cast< ::java::util::Collection* >(indices)))->descendingSet())->iterator(); _i->hasNext(); ) {
         int32_t i = npc(java_cast< ::java::lang::Integer* >(_i->next()))->intValue();
@@ -643,17 +637,17 @@ void org::apache::poi::hssf::usermodel::HSSFSheet::removeMergedRegions(::java::u
     }
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFSheet::getNumMergedRegions()
+int32_t poi::hssf::usermodel::HSSFSheet::getNumMergedRegions()
 {
     return npc(_sheet)->getNumMergedRegions();
 }
 
-org::apache::poi::ss::util::CellRangeAddress* org::apache::poi::hssf::usermodel::HSSFSheet::getMergedRegion(int32_t index)
+poi::ss::util::CellRangeAddress* poi::hssf::usermodel::HSSFSheet::getMergedRegion(int32_t index)
 {
     return npc(_sheet)->getMergedRegionAt(index);
 }
 
-java::util::List* org::apache::poi::hssf::usermodel::HSSFSheet::getMergedRegions()
+java::util::List* poi::hssf::usermodel::HSSFSheet::getMergedRegions()
 {
     ::java::util::List* addresses = new ::java::util::ArrayList();
     auto count = npc(_sheet)->getNumMergedRegions();
@@ -663,177 +657,177 @@ java::util::List* org::apache::poi::hssf::usermodel::HSSFSheet::getMergedRegions
     return addresses;
 }
 
-java::util::Iterator* org::apache::poi::hssf::usermodel::HSSFSheet::rowIterator()
+java::util::Iterator* poi::hssf::usermodel::HSSFSheet::rowIterator()
 {
     auto result = java_cast< ::java::util::Iterator* >(java_cast< ::java::util::Iterator* >(npc(npc(_rows)->values())->iterator()));
     return result;
 }
 
-java::util::Iterator* org::apache::poi::hssf::usermodel::HSSFSheet::iterator()
+java::util::Iterator* poi::hssf::usermodel::HSSFSheet::iterator()
 {
     return rowIterator();
 }
 
-org::apache::poi::hssf::model::InternalSheet* org::apache::poi::hssf::usermodel::HSSFSheet::getSheet()
+poi::hssf::model::InternalSheet* poi::hssf::usermodel::HSSFSheet::getSheet()
 {
     return _sheet;
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::setAlternativeExpression(bool b)
+void poi::hssf::usermodel::HSSFSheet::setAlternativeExpression(bool b)
 {
-    auto record = java_cast< ::org::apache::poi::hssf::record::WSBoolRecord* >(npc(_sheet)->findFirstRecordBySid(::org::apache::poi::hssf::record::WSBoolRecord::sid));
+    auto record = java_cast< ::poi::hssf::record::WSBoolRecord* >(npc(_sheet)->findFirstRecordBySid(::poi::hssf::record::WSBoolRecord::sid));
     npc(record)->setAlternateExpression(b);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::setAlternativeFormula(bool b)
+void poi::hssf::usermodel::HSSFSheet::setAlternativeFormula(bool b)
 {
-    auto record = java_cast< ::org::apache::poi::hssf::record::WSBoolRecord* >(npc(_sheet)->findFirstRecordBySid(::org::apache::poi::hssf::record::WSBoolRecord::sid));
+    auto record = java_cast< ::poi::hssf::record::WSBoolRecord* >(npc(_sheet)->findFirstRecordBySid(::poi::hssf::record::WSBoolRecord::sid));
     npc(record)->setAlternateFormula(b);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::setAutobreaks(bool b)
+void poi::hssf::usermodel::HSSFSheet::setAutobreaks(bool b)
 {
-    auto record = java_cast< ::org::apache::poi::hssf::record::WSBoolRecord* >(npc(_sheet)->findFirstRecordBySid(::org::apache::poi::hssf::record::WSBoolRecord::sid));
+    auto record = java_cast< ::poi::hssf::record::WSBoolRecord* >(npc(_sheet)->findFirstRecordBySid(::poi::hssf::record::WSBoolRecord::sid));
     npc(record)->setAutobreaks(b);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::setDialog(bool b)
+void poi::hssf::usermodel::HSSFSheet::setDialog(bool b)
 {
-    auto record = java_cast< ::org::apache::poi::hssf::record::WSBoolRecord* >(npc(_sheet)->findFirstRecordBySid(::org::apache::poi::hssf::record::WSBoolRecord::sid));
+    auto record = java_cast< ::poi::hssf::record::WSBoolRecord* >(npc(_sheet)->findFirstRecordBySid(::poi::hssf::record::WSBoolRecord::sid));
     npc(record)->setDialog(b);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::setDisplayGuts(bool b)
+void poi::hssf::usermodel::HSSFSheet::setDisplayGuts(bool b)
 {
-    auto record = java_cast< ::org::apache::poi::hssf::record::WSBoolRecord* >(npc(_sheet)->findFirstRecordBySid(::org::apache::poi::hssf::record::WSBoolRecord::sid));
+    auto record = java_cast< ::poi::hssf::record::WSBoolRecord* >(npc(_sheet)->findFirstRecordBySid(::poi::hssf::record::WSBoolRecord::sid));
     npc(record)->setDisplayGuts(b);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::setFitToPage(bool b)
+void poi::hssf::usermodel::HSSFSheet::setFitToPage(bool b)
 {
-    auto record = java_cast< ::org::apache::poi::hssf::record::WSBoolRecord* >(npc(_sheet)->findFirstRecordBySid(::org::apache::poi::hssf::record::WSBoolRecord::sid));
+    auto record = java_cast< ::poi::hssf::record::WSBoolRecord* >(npc(_sheet)->findFirstRecordBySid(::poi::hssf::record::WSBoolRecord::sid));
     npc(record)->setFitToPage(b);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::setRowSumsBelow(bool b)
+void poi::hssf::usermodel::HSSFSheet::setRowSumsBelow(bool b)
 {
-    auto record = java_cast< ::org::apache::poi::hssf::record::WSBoolRecord* >(npc(_sheet)->findFirstRecordBySid(::org::apache::poi::hssf::record::WSBoolRecord::sid));
+    auto record = java_cast< ::poi::hssf::record::WSBoolRecord* >(npc(_sheet)->findFirstRecordBySid(::poi::hssf::record::WSBoolRecord::sid));
     npc(record)->setRowSumsBelow(b);
     npc(record)->setAlternateExpression(b);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::setRowSumsRight(bool b)
+void poi::hssf::usermodel::HSSFSheet::setRowSumsRight(bool b)
 {
-    auto record = java_cast< ::org::apache::poi::hssf::record::WSBoolRecord* >(npc(_sheet)->findFirstRecordBySid(::org::apache::poi::hssf::record::WSBoolRecord::sid));
+    auto record = java_cast< ::poi::hssf::record::WSBoolRecord* >(npc(_sheet)->findFirstRecordBySid(::poi::hssf::record::WSBoolRecord::sid));
     npc(record)->setRowSumsRight(b);
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFSheet::getAlternateExpression()
+bool poi::hssf::usermodel::HSSFSheet::getAlternateExpression()
 {
-    return npc((java_cast< ::org::apache::poi::hssf::record::WSBoolRecord* >(npc(_sheet)->findFirstRecordBySid(::org::apache::poi::hssf::record::WSBoolRecord::sid))))->getAlternateExpression();
+    return npc((java_cast< ::poi::hssf::record::WSBoolRecord* >(npc(_sheet)->findFirstRecordBySid(::poi::hssf::record::WSBoolRecord::sid))))->getAlternateExpression();
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFSheet::getAlternateFormula()
+bool poi::hssf::usermodel::HSSFSheet::getAlternateFormula()
 {
-    return npc((java_cast< ::org::apache::poi::hssf::record::WSBoolRecord* >(npc(_sheet)->findFirstRecordBySid(::org::apache::poi::hssf::record::WSBoolRecord::sid))))->getAlternateFormula();
+    return npc((java_cast< ::poi::hssf::record::WSBoolRecord* >(npc(_sheet)->findFirstRecordBySid(::poi::hssf::record::WSBoolRecord::sid))))->getAlternateFormula();
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFSheet::getAutobreaks()
+bool poi::hssf::usermodel::HSSFSheet::getAutobreaks()
 {
-    return npc((java_cast< ::org::apache::poi::hssf::record::WSBoolRecord* >(npc(_sheet)->findFirstRecordBySid(::org::apache::poi::hssf::record::WSBoolRecord::sid))))->getAutobreaks();
+    return npc((java_cast< ::poi::hssf::record::WSBoolRecord* >(npc(_sheet)->findFirstRecordBySid(::poi::hssf::record::WSBoolRecord::sid))))->getAutobreaks();
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFSheet::getDialog()
+bool poi::hssf::usermodel::HSSFSheet::getDialog()
 {
-    return npc((java_cast< ::org::apache::poi::hssf::record::WSBoolRecord* >(npc(_sheet)->findFirstRecordBySid(::org::apache::poi::hssf::record::WSBoolRecord::sid))))->getDialog();
+    return npc((java_cast< ::poi::hssf::record::WSBoolRecord* >(npc(_sheet)->findFirstRecordBySid(::poi::hssf::record::WSBoolRecord::sid))))->getDialog();
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFSheet::getDisplayGuts()
+bool poi::hssf::usermodel::HSSFSheet::getDisplayGuts()
 {
-    return npc((java_cast< ::org::apache::poi::hssf::record::WSBoolRecord* >(npc(_sheet)->findFirstRecordBySid(::org::apache::poi::hssf::record::WSBoolRecord::sid))))->getDisplayGuts();
+    return npc((java_cast< ::poi::hssf::record::WSBoolRecord* >(npc(_sheet)->findFirstRecordBySid(::poi::hssf::record::WSBoolRecord::sid))))->getDisplayGuts();
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFSheet::isDisplayZeros()
+bool poi::hssf::usermodel::HSSFSheet::isDisplayZeros()
 {
     return npc(npc(_sheet)->getWindowTwo())->getDisplayZeros();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::setDisplayZeros(bool value)
+void poi::hssf::usermodel::HSSFSheet::setDisplayZeros(bool value)
 {
     npc(npc(_sheet)->getWindowTwo())->setDisplayZeros(value);
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFSheet::getFitToPage()
+bool poi::hssf::usermodel::HSSFSheet::getFitToPage()
 {
-    return npc((java_cast< ::org::apache::poi::hssf::record::WSBoolRecord* >(npc(_sheet)->findFirstRecordBySid(::org::apache::poi::hssf::record::WSBoolRecord::sid))))->getFitToPage();
+    return npc((java_cast< ::poi::hssf::record::WSBoolRecord* >(npc(_sheet)->findFirstRecordBySid(::poi::hssf::record::WSBoolRecord::sid))))->getFitToPage();
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFSheet::getRowSumsBelow()
+bool poi::hssf::usermodel::HSSFSheet::getRowSumsBelow()
 {
-    return npc((java_cast< ::org::apache::poi::hssf::record::WSBoolRecord* >(npc(_sheet)->findFirstRecordBySid(::org::apache::poi::hssf::record::WSBoolRecord::sid))))->getRowSumsBelow();
+    return npc((java_cast< ::poi::hssf::record::WSBoolRecord* >(npc(_sheet)->findFirstRecordBySid(::poi::hssf::record::WSBoolRecord::sid))))->getRowSumsBelow();
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFSheet::getRowSumsRight()
+bool poi::hssf::usermodel::HSSFSheet::getRowSumsRight()
 {
-    return npc((java_cast< ::org::apache::poi::hssf::record::WSBoolRecord* >(npc(_sheet)->findFirstRecordBySid(::org::apache::poi::hssf::record::WSBoolRecord::sid))))->getRowSumsRight();
+    return npc((java_cast< ::poi::hssf::record::WSBoolRecord* >(npc(_sheet)->findFirstRecordBySid(::poi::hssf::record::WSBoolRecord::sid))))->getRowSumsRight();
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFSheet::isPrintGridlines()
+bool poi::hssf::usermodel::HSSFSheet::isPrintGridlines()
 {
     return npc(npc(getSheet())->getPrintGridlines())->getPrintGridlines();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::setPrintGridlines(bool show)
+void poi::hssf::usermodel::HSSFSheet::setPrintGridlines(bool show)
 {
     npc(npc(getSheet())->getPrintGridlines())->setPrintGridlines(show);
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFSheet::isPrintRowAndColumnHeadings()
+bool poi::hssf::usermodel::HSSFSheet::isPrintRowAndColumnHeadings()
 {
     return npc(npc(getSheet())->getPrintHeaders())->getPrintHeaders();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::setPrintRowAndColumnHeadings(bool show)
+void poi::hssf::usermodel::HSSFSheet::setPrintRowAndColumnHeadings(bool show)
 {
     npc(npc(getSheet())->getPrintHeaders())->setPrintHeaders(show);
 }
 
-org::apache::poi::hssf::usermodel::HSSFPrintSetup* org::apache::poi::hssf::usermodel::HSSFSheet::getPrintSetup()
+poi::hssf::usermodel::HSSFPrintSetup* poi::hssf::usermodel::HSSFSheet::getPrintSetup()
 {
     return new HSSFPrintSetup(npc(npc(_sheet)->getPageSettings())->getPrintSetup());
 }
 
-org::apache::poi::hssf::usermodel::HSSFHeader* org::apache::poi::hssf::usermodel::HSSFSheet::getHeader()
+poi::hssf::usermodel::HSSFHeader* poi::hssf::usermodel::HSSFSheet::getHeader()
 {
     return new HSSFHeader(npc(_sheet)->getPageSettings());
 }
 
-org::apache::poi::hssf::usermodel::HSSFFooter* org::apache::poi::hssf::usermodel::HSSFSheet::getFooter()
+poi::hssf::usermodel::HSSFFooter* poi::hssf::usermodel::HSSFSheet::getFooter()
 {
     return new HSSFFooter(npc(_sheet)->getPageSettings());
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFSheet::isSelected()
+bool poi::hssf::usermodel::HSSFSheet::isSelected()
 {
     return npc(npc(getSheet())->getWindowTwo())->getSelected();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::setSelected(bool sel)
+void poi::hssf::usermodel::HSSFSheet::setSelected(bool sel)
 {
     npc(npc(getSheet())->getWindowTwo())->setSelected(sel);
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFSheet::isActive()
+bool poi::hssf::usermodel::HSSFSheet::isActive()
 {
     return npc(npc(getSheet())->getWindowTwo())->isActive();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::setActive(bool sel)
+void poi::hssf::usermodel::HSSFSheet::setActive(bool sel)
 {
     npc(npc(getSheet())->getWindowTwo())->setActive(sel);
 }
 
-double org::apache::poi::hssf::usermodel::HSSFSheet::getMargin(int16_t margin)
+double poi::hssf::usermodel::HSSFSheet::getMargin(int16_t margin)
 {
     switch (margin) {
     case FooterMargin:
@@ -846,7 +840,7 @@ double org::apache::poi::hssf::usermodel::HSSFSheet::getMargin(int16_t margin)
 
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::setMargin(int16_t margin, double size)
+void poi::hssf::usermodel::HSSFSheet::setMargin(int16_t margin, double size)
 {
     switch (margin) {
     case FooterMargin:
@@ -861,37 +855,37 @@ void org::apache::poi::hssf::usermodel::HSSFSheet::setMargin(int16_t margin, dou
 
 }
 
-org::apache::poi::hssf::record::aggregates::WorksheetProtectionBlock* org::apache::poi::hssf::usermodel::HSSFSheet::getProtectionBlock()
+poi::hssf::record::aggregates::WorksheetProtectionBlock* poi::hssf::usermodel::HSSFSheet::getProtectionBlock()
 {
     return npc(_sheet)->getProtectionBlock();
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFSheet::getProtect()
+bool poi::hssf::usermodel::HSSFSheet::getProtect()
 {
     return npc(getProtectionBlock())->isSheetProtected();
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFSheet::getPassword()
+int16_t poi::hssf::usermodel::HSSFSheet::getPassword()
 {
     return static_cast< int16_t >(npc(getProtectionBlock())->getPasswordHash());
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFSheet::getObjectProtect()
+bool poi::hssf::usermodel::HSSFSheet::getObjectProtect()
 {
     return npc(getProtectionBlock())->isObjectProtected();
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFSheet::getScenarioProtect()
+bool poi::hssf::usermodel::HSSFSheet::getScenarioProtect()
 {
     return npc(getProtectionBlock())->isScenarioProtected();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::protectSheet(::java::lang::String* password)
+void poi::hssf::usermodel::HSSFSheet::protectSheet(::java::lang::String* password)
 {
     npc(getProtectionBlock())->protectSheet(password, true, true);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::setZoom(int32_t numerator, int32_t denominator)
+void poi::hssf::usermodel::HSSFSheet::setZoom(int32_t numerator, int32_t denominator)
 {
     if(numerator < 1 || numerator > 65535)
         throw new ::java::lang::IllegalArgumentException(u"Numerator must be greater than 0 and less than 65536"_j);
@@ -899,65 +893,65 @@ void org::apache::poi::hssf::usermodel::HSSFSheet::setZoom(int32_t numerator, in
     if(denominator < 1 || denominator > 65535)
         throw new ::java::lang::IllegalArgumentException(u"Denominator must be greater than 0 and less than 65536"_j);
 
-    auto sclRecord = new ::org::apache::poi::hssf::record::SCLRecord();
+    auto sclRecord = new ::poi::hssf::record::SCLRecord();
     npc(sclRecord)->setNumerator(static_cast< int16_t >(numerator));
     npc(sclRecord)->setDenominator(static_cast< int16_t >(denominator));
     npc(getSheet())->setSCLRecord(sclRecord);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::setZoom(int32_t scale)
+void poi::hssf::usermodel::HSSFSheet::setZoom(int32_t scale)
 {
     setZoom(scale, 100);
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFSheet::getTopRow()
+int16_t poi::hssf::usermodel::HSSFSheet::getTopRow()
 {
     return npc(_sheet)->getTopRow();
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFSheet::getLeftCol()
+int16_t poi::hssf::usermodel::HSSFSheet::getLeftCol()
 {
     return npc(_sheet)->getLeftCol();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::showInPane(int32_t toprow, int32_t leftcol)
+void poi::hssf::usermodel::HSSFSheet::showInPane(int32_t toprow, int32_t leftcol)
 {
-    auto maxrow = npc(::org::apache::poi::ss::SpreadsheetVersion::EXCEL97)->getLastRowIndex();
+    auto maxrow = npc(::poi::ss::SpreadsheetVersion::EXCEL97)->getLastRowIndex();
     if(toprow > maxrow)
         throw new ::java::lang::IllegalArgumentException(::java::lang::StringBuilder().append(u"Maximum row number is "_j)->append(maxrow)->toString());
 
     showInPane(static_cast< int16_t >(toprow), static_cast< int16_t >(leftcol));
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::showInPane(int16_t toprow, int16_t leftcol)
+void poi::hssf::usermodel::HSSFSheet::showInPane(int16_t toprow, int16_t leftcol)
 {
     npc(_sheet)->setTopRow(toprow);
     npc(_sheet)->setLeftCol(leftcol);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::shiftMerged(int32_t startRow, int32_t endRow, int32_t n, bool isRow)
+void poi::hssf::usermodel::HSSFSheet::shiftMerged(int32_t startRow, int32_t endRow, int32_t n, bool isRow)
 {
-    ::org::apache::poi::ss::usermodel::helpers::RowShifter* rowShifter = new ::org::apache::poi::hssf::usermodel::helpers::HSSFRowShifter(this);
+    ::poi::ss::usermodel::helpers::RowShifter* rowShifter = new ::poi::hssf::usermodel::helpers::HSSFRowShifter(this);
     npc(rowShifter)->shiftMergedRegions(startRow, endRow, n);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::shiftRows(int32_t startRow, int32_t endRow, int32_t n)
+void poi::hssf::usermodel::HSSFSheet::shiftRows(int32_t startRow, int32_t endRow, int32_t n)
 {
     shiftRows(startRow, endRow, n, false, false);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::shiftRows(int32_t startRow, int32_t endRow, int32_t n, bool copyRowHeight, bool resetOriginalRowHeight)
+void poi::hssf::usermodel::HSSFSheet::shiftRows(int32_t startRow, int32_t endRow, int32_t n, bool copyRowHeight, bool resetOriginalRowHeight)
 {
     shiftRows(startRow, endRow, n, copyRowHeight, resetOriginalRowHeight, true);
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFSheet::clip(int32_t row)
+int32_t poi::hssf::usermodel::HSSFSheet::clip(int32_t row)
 {
     clinit();
-    return ::java::lang::Math::min(::java::lang::Math::max(int32_t(0), row), npc(::org::apache::poi::ss::SpreadsheetVersion::EXCEL97)->getLastRowIndex());
+    return ::java::lang::Math::min(::java::lang::Math::max(int32_t(0), row), npc(::poi::ss::SpreadsheetVersion::EXCEL97)->getLastRowIndex());
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::shiftRows(int32_t startRow, int32_t endRow, int32_t n, bool copyRowHeight, bool resetOriginalRowHeight, bool moveComments)
+void poi::hssf::usermodel::HSSFSheet::shiftRows(int32_t startRow, int32_t endRow, int32_t n, bool copyRowHeight, bool resetOriginalRowHeight, bool moveComments)
 {
     int32_t s, inc;
     if(endRow < startRow) {
@@ -972,7 +966,7 @@ void org::apache::poi::hssf::usermodel::HSSFSheet::shiftRows(int32_t startRow, i
     } else {
         return;
     }
-    ::org::apache::poi::ss::usermodel::helpers::RowShifter* const rowShifter = new ::org::apache::poi::hssf::usermodel::helpers::HSSFRowShifter(this);
+    ::poi::ss::usermodel::helpers::RowShifter* const rowShifter = new ::poi::hssf::usermodel::helpers::HSSFRowShifter(this);
     if(moveComments) {
         auto const patriarch = java_cast< HSSFPatriarch* >(createDrawingPatriarch());
         for (auto _i = npc(npc(patriarch)->getChildren())->iterator(); _i->hasNext(); ) {
@@ -1023,9 +1017,9 @@ void org::apache::poi::hssf::usermodel::HSSFSheet::shiftRows(int32_t startRow, i
             npc(row)->setHeight(static_cast< int16_t >(int32_t(255)));
         }
         for (auto *cells = npc(row)->cellIterator(); npc(cells)->hasNext(); ) {
-            auto cell = java_cast< HSSFCell* >(java_cast< ::org::apache::poi::ss::usermodel::Cell* >(npc(cells)->next()));
+            auto cell = java_cast< HSSFCell* >(java_cast< ::poi::ss::usermodel::Cell* >(npc(cells)->next()));
             auto link = npc(cell)->getHyperlink();
-            npc(row)->removeCell(static_cast< ::org::apache::poi::ss::usermodel::Cell* >(cell));
+            npc(row)->removeCell(static_cast< ::poi::ss::usermodel::Cell* >(cell));
             auto cellRecord = npc(cell)->getCellValueRecord();
             npc(cellRecord)->setRow(rowNum + n);
             npc(row2Replace)->createCellFromRecord(cellRecord);
@@ -1048,14 +1042,14 @@ void org::apache::poi::hssf::usermodel::HSSFSheet::shiftRows(int32_t startRow, i
             }
         }
         if(endRow + n > _lastrow) {
-            _lastrow = ::java::lang::Math::min(endRow + n, npc(::org::apache::poi::ss::SpreadsheetVersion::EXCEL97)->getLastRowIndex());
+            _lastrow = ::java::lang::Math::min(endRow + n, npc(::poi::ss::SpreadsheetVersion::EXCEL97)->getLastRowIndex());
         }
     } else {
         if(startRow + n < _firstrow) {
             _firstrow = ::java::lang::Math::max(startRow + n, int32_t(0));
         }
         if(endRow == _lastrow) {
-            _lastrow = ::java::lang::Math::min(endRow + n, npc(::org::apache::poi::ss::SpreadsheetVersion::EXCEL97)->getLastRowIndex());
+            _lastrow = ::java::lang::Math::min(endRow + n, npc(::poi::ss::SpreadsheetVersion::EXCEL97)->getLastRowIndex());
             for (auto i = endRow - int32_t(1); i > endRow + n; i--) {
                 if(java_cast< HSSFRow* >(getRow(i)) != nullptr) {
                     _lastrow = i;
@@ -1064,10 +1058,10 @@ void org::apache::poi::hssf::usermodel::HSSFSheet::shiftRows(int32_t startRow, i
             }
         }
     }
-    auto sheetIndex = npc(_workbook)->getSheetIndex(static_cast< ::org::apache::poi::ss::usermodel::Sheet* >(this));
+    auto sheetIndex = npc(_workbook)->getSheetIndex(static_cast< ::poi::ss::usermodel::Sheet* >(this));
     auto sheetName = npc(_workbook)->getSheetName(sheetIndex);
     auto externSheetIndex = npc(_book)->checkExternSheet(sheetIndex);
-    auto shifter = ::org::apache::poi::ss::formula::FormulaShifter::createForRowShift(externSheetIndex, sheetName, startRow, endRow, n, ::org::apache::poi::ss::SpreadsheetVersion::EXCEL97);
+    auto shifter = ::poi::ss::formula::FormulaShifter::createForRowShift(externSheetIndex, sheetName, startRow, endRow, n, ::poi::ss::SpreadsheetVersion::EXCEL97);
     npc(_sheet)->updateFormulasAfterCellShift(shifter, externSheetIndex);
     auto nSheets = npc(_workbook)->getNumberOfSheets();
     for (auto i = int32_t(0); i < nSheets; i++) {
@@ -1081,19 +1075,19 @@ void org::apache::poi::hssf::usermodel::HSSFSheet::shiftRows(int32_t startRow, i
     npc(npc(_workbook)->getWorkbook())->updateNamesAfterCellShift(shifter);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::insertChartRecords(::java::util::List* records)
+void poi::hssf::usermodel::HSSFSheet::insertChartRecords(::java::util::List* records)
 {
-    auto window2Loc = npc(_sheet)->findFirstRecordLocBySid(::org::apache::poi::hssf::record::WindowTwoRecord::sid);
+    auto window2Loc = npc(_sheet)->findFirstRecordLocBySid(::poi::hssf::record::WindowTwoRecord::sid);
     npc(npc(_sheet)->getRecords())->addAll(window2Loc, records);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::notifyRowShifting(HSSFRow* row)
+void poi::hssf::usermodel::HSSFSheet::notifyRowShifting(HSSFRow* row)
 {
     auto msg = ::java::lang::StringBuilder().append(u"Row[rownum="_j)->append(npc(row)->getRowNum())
         ->append(u"] contains cell(s) included in a multi-cell array formula. "_j)
         ->append(u"You cannot change part of an array."_j)->toString();
     for (auto _i = npc(row)->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::ss::usermodel::Cell* cell = java_cast< ::org::apache::poi::ss::usermodel::Cell* >(_i->next());
+        ::poi::ss::usermodel::Cell* cell = java_cast< ::poi::ss::usermodel::Cell* >(_i->next());
         {
             auto hcell = java_cast< HSSFCell* >(cell);
             if(npc(hcell)->isPartOfArrayFormulaGroup()) {
@@ -1103,7 +1097,7 @@ void org::apache::poi::hssf::usermodel::HSSFSheet::notifyRowShifting(HSSFRow* ro
     }
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::createFreezePane(int32_t colSplit, int32_t rowSplit, int32_t leftmostColumn, int32_t topRow)
+void poi::hssf::usermodel::HSSFSheet::createFreezePane(int32_t colSplit, int32_t rowSplit, int32_t leftmostColumn, int32_t topRow)
 {
     validateColumn(colSplit);
     validateRow(rowSplit);
@@ -1116,96 +1110,96 @@ void org::apache::poi::hssf::usermodel::HSSFSheet::createFreezePane(int32_t colS
     npc(getSheet())->createFreezePane(colSplit, rowSplit, topRow, leftmostColumn);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::createFreezePane(int32_t colSplit, int32_t rowSplit)
+void poi::hssf::usermodel::HSSFSheet::createFreezePane(int32_t colSplit, int32_t rowSplit)
 {
     createFreezePane(colSplit, rowSplit, colSplit, rowSplit);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::createSplitPane(int32_t xSplitPos, int32_t ySplitPos, int32_t leftmostColumn, int32_t topRow, int32_t activePane)
+void poi::hssf::usermodel::HSSFSheet::createSplitPane(int32_t xSplitPos, int32_t ySplitPos, int32_t leftmostColumn, int32_t topRow, int32_t activePane)
 {
     npc(getSheet())->createSplitPane(xSplitPos, ySplitPos, topRow, leftmostColumn, activePane);
 }
 
-org::apache::poi::ss::util::PaneInformation* org::apache::poi::hssf::usermodel::HSSFSheet::getPaneInformation()
+poi::ss::util::PaneInformation* poi::hssf::usermodel::HSSFSheet::getPaneInformation()
 {
     return npc(getSheet())->getPaneInformation();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::setDisplayGridlines(bool show)
+void poi::hssf::usermodel::HSSFSheet::setDisplayGridlines(bool show)
 {
     npc(_sheet)->setDisplayGridlines(show);
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFSheet::isDisplayGridlines()
+bool poi::hssf::usermodel::HSSFSheet::isDisplayGridlines()
 {
     return npc(_sheet)->isDisplayGridlines();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::setDisplayFormulas(bool show)
+void poi::hssf::usermodel::HSSFSheet::setDisplayFormulas(bool show)
 {
     npc(_sheet)->setDisplayFormulas(show);
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFSheet::isDisplayFormulas()
+bool poi::hssf::usermodel::HSSFSheet::isDisplayFormulas()
 {
     return npc(_sheet)->isDisplayFormulas();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::setDisplayRowColHeadings(bool show)
+void poi::hssf::usermodel::HSSFSheet::setDisplayRowColHeadings(bool show)
 {
     npc(_sheet)->setDisplayRowColHeadings(show);
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFSheet::isDisplayRowColHeadings()
+bool poi::hssf::usermodel::HSSFSheet::isDisplayRowColHeadings()
 {
     return npc(_sheet)->isDisplayRowColHeadings();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::setRowBreak(int32_t row)
+void poi::hssf::usermodel::HSSFSheet::setRowBreak(int32_t row)
 {
     validateRow(row);
     npc(npc(_sheet)->getPageSettings())->setRowBreak(row, static_cast< int16_t >(int32_t(0)), static_cast< int16_t >(int32_t(255)));
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFSheet::isRowBroken(int32_t row)
+bool poi::hssf::usermodel::HSSFSheet::isRowBroken(int32_t row)
 {
     return npc(npc(_sheet)->getPageSettings())->isRowBroken(row);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::removeRowBreak(int32_t row)
+void poi::hssf::usermodel::HSSFSheet::removeRowBreak(int32_t row)
 {
     npc(npc(_sheet)->getPageSettings())->removeRowBreak(row);
 }
 
-int32_tArray* org::apache::poi::hssf::usermodel::HSSFSheet::getRowBreaks()
+int32_tArray* poi::hssf::usermodel::HSSFSheet::getRowBreaks()
 {
     return npc(npc(_sheet)->getPageSettings())->getRowBreaks();
 }
 
-int32_tArray* org::apache::poi::hssf::usermodel::HSSFSheet::getColumnBreaks()
+int32_tArray* poi::hssf::usermodel::HSSFSheet::getColumnBreaks()
 {
     return npc(npc(_sheet)->getPageSettings())->getColumnBreaks();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::setColumnBreak(int32_t column)
+void poi::hssf::usermodel::HSSFSheet::setColumnBreak(int32_t column)
 {
     validateColumn(static_cast< int16_t >(column));
-    npc(npc(_sheet)->getPageSettings())->setColumnBreak(static_cast< int16_t >(column), static_cast< int16_t >(int32_t(0)), static_cast< int16_t >(npc(::org::apache::poi::ss::SpreadsheetVersion::EXCEL97)->getLastRowIndex()));
+    npc(npc(_sheet)->getPageSettings())->setColumnBreak(static_cast< int16_t >(column), static_cast< int16_t >(int32_t(0)), static_cast< int16_t >(npc(::poi::ss::SpreadsheetVersion::EXCEL97)->getLastRowIndex()));
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFSheet::isColumnBroken(int32_t column)
+bool poi::hssf::usermodel::HSSFSheet::isColumnBroken(int32_t column)
 {
     return npc(npc(_sheet)->getPageSettings())->isColumnBroken(column);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::removeColumnBreak(int32_t column)
+void poi::hssf::usermodel::HSSFSheet::removeColumnBreak(int32_t column)
 {
     npc(npc(_sheet)->getPageSettings())->removeColumnBreak(column);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::validateRow(int32_t row)
+void poi::hssf::usermodel::HSSFSheet::validateRow(int32_t row)
 {
-    auto maxrow = npc(::org::apache::poi::ss::SpreadsheetVersion::EXCEL97)->getLastRowIndex();
+    auto maxrow = npc(::poi::ss::SpreadsheetVersion::EXCEL97)->getLastRowIndex();
     if(row > maxrow)
         throw new ::java::lang::IllegalArgumentException(::java::lang::StringBuilder().append(u"Maximum row number is "_j)->append(maxrow)->toString());
 
@@ -1214,9 +1208,9 @@ void org::apache::poi::hssf::usermodel::HSSFSheet::validateRow(int32_t row)
 
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::validateColumn(int32_t column)
+void poi::hssf::usermodel::HSSFSheet::validateColumn(int32_t column)
 {
-    auto maxcol = npc(::org::apache::poi::ss::SpreadsheetVersion::EXCEL97)->getLastColumnIndex();
+    auto maxcol = npc(::poi::ss::SpreadsheetVersion::EXCEL97)->getLastColumnIndex();
     if(column > maxcol)
         throw new ::java::lang::IllegalArgumentException(::java::lang::StringBuilder().append(u"Maximum column number is "_j)->append(maxcol)->toString());
 
@@ -1225,13 +1219,13 @@ void org::apache::poi::hssf::usermodel::HSSFSheet::validateColumn(int32_t column
 
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::dumpDrawingRecords(bool fat, ::java::io::PrintWriter* pw)
+void poi::hssf::usermodel::HSSFSheet::dumpDrawingRecords(bool fat, ::java::io::PrintWriter* pw)
 {
     npc(_sheet)->aggregateDrawingRecords(npc(_book)->getDrawingManager(), false);
-    auto r = java_cast< ::org::apache::poi::hssf::record::EscherAggregate* >(npc(getSheet())->findFirstRecordBySid(::org::apache::poi::hssf::record::EscherAggregate::sid_));
+    auto r = java_cast< ::poi::hssf::record::EscherAggregate* >(npc(getSheet())->findFirstRecordBySid(::poi::hssf::record::EscherAggregate::sid_));
     auto escherRecords = npc(r)->getEscherRecords();
     for (auto _i = npc(escherRecords)->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::ddf::EscherRecord* escherRecord = java_cast< ::org::apache::poi::ddf::EscherRecord* >(_i->next());
+        ::poi::ddf::EscherRecord* escherRecord = java_cast< ::poi::ddf::EscherRecord* >(_i->next());
         {
             if(fat) {
                 npc(pw)->println(static_cast< ::java::lang::Object* >(escherRecord));
@@ -1243,7 +1237,7 @@ void org::apache::poi::hssf::usermodel::HSSFSheet::dumpDrawingRecords(bool fat, 
     npc(pw)->flush();
 }
 
-org::apache::poi::hssf::record::EscherAggregate* org::apache::poi::hssf::usermodel::HSSFSheet::getDrawingEscherAggregate()
+poi::hssf::record::EscherAggregate* poi::hssf::usermodel::HSSFSheet::getDrawingEscherAggregate()
 {
     npc(_book)->findDrawingGroup();
     if(npc(_book)->getDrawingManager() == nullptr) {
@@ -1253,22 +1247,22 @@ org::apache::poi::hssf::record::EscherAggregate* org::apache::poi::hssf::usermod
     if(found == -int32_t(1)) {
         return nullptr;
     }
-    return java_cast< ::org::apache::poi::hssf::record::EscherAggregate* >(npc(_sheet)->findFirstRecordBySid(::org::apache::poi::hssf::record::EscherAggregate::sid_));
+    return java_cast< ::poi::hssf::record::EscherAggregate* >(npc(_sheet)->findFirstRecordBySid(::poi::hssf::record::EscherAggregate::sid_));
 }
 
-org::apache::poi::ss::usermodel::Drawing* org::apache::poi::hssf::usermodel::HSSFSheet::getDrawingPatriarch()
+poi::ss::usermodel::Drawing* poi::hssf::usermodel::HSSFSheet::getDrawingPatriarch()
 {
     _patriarch = getPatriarch(false);
     return _patriarch;
 }
 
-org::apache::poi::ss::usermodel::Drawing* org::apache::poi::hssf::usermodel::HSSFSheet::createDrawingPatriarch()
+poi::ss::usermodel::Drawing* poi::hssf::usermodel::HSSFSheet::createDrawingPatriarch()
 {
     _patriarch = getPatriarch(true);
     return _patriarch;
 }
 
-org::apache::poi::hssf::usermodel::HSSFPatriarch* org::apache::poi::hssf::usermodel::HSSFSheet::getPatriarch(bool createIfMissing)
+poi::hssf::usermodel::HSSFPatriarch* poi::hssf::usermodel::HSSFSheet::getPatriarch(bool createIfMissing)
 {
     if(_patriarch != nullptr) {
         return _patriarch;
@@ -1282,13 +1276,13 @@ org::apache::poi::hssf::usermodel::HSSFPatriarch* org::apache::poi::hssf::usermo
             dm = npc(_book)->getDrawingManager();
         }
     }
-    auto agg = java_cast< ::org::apache::poi::hssf::record::EscherAggregate* >(npc(_sheet)->findFirstRecordBySid(::org::apache::poi::hssf::record::EscherAggregate::sid_));
+    auto agg = java_cast< ::poi::hssf::record::EscherAggregate* >(npc(_sheet)->findFirstRecordBySid(::poi::hssf::record::EscherAggregate::sid_));
     if(nullptr == agg) {
         auto pos = npc(_sheet)->aggregateDrawingRecords(dm, false);
         if(-int32_t(1) == pos) {
             if(createIfMissing) {
                 pos = npc(_sheet)->aggregateDrawingRecords(dm, true);
-                agg = java_cast< ::org::apache::poi::hssf::record::EscherAggregate* >(java_cast< ::org::apache::poi::hssf::record::RecordBase* >(npc(npc(_sheet)->getRecords())->get(pos)));
+                agg = java_cast< ::poi::hssf::record::EscherAggregate* >(java_cast< ::poi::hssf::record::RecordBase* >(npc(npc(_sheet)->getRecords())->get(pos)));
                 auto patriarch = new HSSFPatriarch(this, agg);
                 npc(patriarch)->afterCreate();
                 return patriarch;
@@ -1296,37 +1290,37 @@ org::apache::poi::hssf::usermodel::HSSFPatriarch* org::apache::poi::hssf::usermo
                 return nullptr;
             }
         }
-        agg = java_cast< ::org::apache::poi::hssf::record::EscherAggregate* >(java_cast< ::org::apache::poi::hssf::record::RecordBase* >(npc(npc(_sheet)->getRecords())->get(pos)));
+        agg = java_cast< ::poi::hssf::record::EscherAggregate* >(java_cast< ::poi::hssf::record::RecordBase* >(npc(npc(_sheet)->getRecords())->get(pos)));
     }
     return new HSSFPatriarch(this, agg);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::setColumnGroupCollapsed(int32_t columnNumber, bool collapsed)
+void poi::hssf::usermodel::HSSFSheet::setColumnGroupCollapsed(int32_t columnNumber, bool collapsed)
 {
     npc(_sheet)->setColumnGroupCollapsed(columnNumber, collapsed);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::groupColumn(int32_t fromColumn, int32_t toColumn)
+void poi::hssf::usermodel::HSSFSheet::groupColumn(int32_t fromColumn, int32_t toColumn)
 {
     npc(_sheet)->groupColumnRange(fromColumn, toColumn, true);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::ungroupColumn(int32_t fromColumn, int32_t toColumn)
+void poi::hssf::usermodel::HSSFSheet::ungroupColumn(int32_t fromColumn, int32_t toColumn)
 {
     npc(_sheet)->groupColumnRange(fromColumn, toColumn, false);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::groupRow(int32_t fromRow, int32_t toRow)
+void poi::hssf::usermodel::HSSFSheet::groupRow(int32_t fromRow, int32_t toRow)
 {
     npc(_sheet)->groupRowRange(fromRow, toRow, true);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::ungroupRow(int32_t fromRow, int32_t toRow)
+void poi::hssf::usermodel::HSSFSheet::ungroupRow(int32_t fromRow, int32_t toRow)
 {
     npc(_sheet)->groupRowRange(fromRow, toRow, false);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::setRowGroupCollapsed(int32_t rowIndex, bool collapse)
+void poi::hssf::usermodel::HSSFSheet::setRowGroupCollapsed(int32_t rowIndex, bool collapse)
 {
     if(collapse) {
         npc(npc(_sheet)->getRowsAggregate())->collapseRow(rowIndex);
@@ -1335,19 +1329,19 @@ void org::apache::poi::hssf::usermodel::HSSFSheet::setRowGroupCollapsed(int32_t 
     }
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::setDefaultColumnStyle(int32_t column, ::org::apache::poi::ss::usermodel::CellStyle* style)
+void poi::hssf::usermodel::HSSFSheet::setDefaultColumnStyle(int32_t column, ::poi::ss::usermodel::CellStyle* style)
 {
     npc(_sheet)->setDefaultColumnStyle(column, npc((java_cast< HSSFCellStyle* >(style)))->getIndex());
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::autoSizeColumn(int32_t column)
+void poi::hssf::usermodel::HSSFSheet::autoSizeColumn(int32_t column)
 {
     autoSizeColumn(column, false);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::autoSizeColumn(int32_t column, bool useMergedCells)
+void poi::hssf::usermodel::HSSFSheet::autoSizeColumn(int32_t column, bool useMergedCells)
 {
-    auto width = ::org::apache::poi::ss::util::SheetUtil::getColumnWidth(this, column, useMergedCells);
+    auto width = ::poi::ss::util::SheetUtil::getColumnWidth(this, column, useMergedCells);
     if(width != -int32_t(1)) {
         width *= 256;
         auto maxColumnWidth = int32_t(255) * int32_t(256);
@@ -1358,18 +1352,18 @@ void org::apache::poi::hssf::usermodel::HSSFSheet::autoSizeColumn(int32_t column
     }
 }
 
-org::apache::poi::hssf::usermodel::HSSFComment* org::apache::poi::hssf::usermodel::HSSFSheet::getCellComment(::org::apache::poi::ss::util::CellAddress* ref)
+poi::hssf::usermodel::HSSFComment* poi::hssf::usermodel::HSSFSheet::getCellComment(::poi::ss::util::CellAddress* ref)
 {
     return findCellComment(npc(ref)->getRow(), npc(ref)->getColumn());
 }
 
-org::apache::poi::hssf::usermodel::HSSFHyperlink* org::apache::poi::hssf::usermodel::HSSFSheet::getHyperlink(int32_t row, int32_t column)
+poi::hssf::usermodel::HSSFHyperlink* poi::hssf::usermodel::HSSFSheet::getHyperlink(int32_t row, int32_t column)
 {
     for (auto _i = npc(npc(_sheet)->getRecords())->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::hssf::record::RecordBase* rec = java_cast< ::org::apache::poi::hssf::record::RecordBase* >(_i->next());
+        ::poi::hssf::record::RecordBase* rec = java_cast< ::poi::hssf::record::RecordBase* >(_i->next());
         {
-            if(dynamic_cast< ::org::apache::poi::hssf::record::HyperlinkRecord* >(rec) != nullptr) {
-                auto link = java_cast< ::org::apache::poi::hssf::record::HyperlinkRecord* >(rec);
+            if(dynamic_cast< ::poi::hssf::record::HyperlinkRecord* >(rec) != nullptr) {
+                auto link = java_cast< ::poi::hssf::record::HyperlinkRecord* >(rec);
                 if(npc(link)->getFirstColumn() == column && npc(link)->getFirstRow() == row) {
                     return new HSSFHyperlink(link);
                 }
@@ -1379,19 +1373,19 @@ org::apache::poi::hssf::usermodel::HSSFHyperlink* org::apache::poi::hssf::usermo
     return nullptr;
 }
 
-org::apache::poi::hssf::usermodel::HSSFHyperlink* org::apache::poi::hssf::usermodel::HSSFSheet::getHyperlink(::org::apache::poi::ss::util::CellAddress* addr)
+poi::hssf::usermodel::HSSFHyperlink* poi::hssf::usermodel::HSSFSheet::getHyperlink(::poi::ss::util::CellAddress* addr)
 {
     return getHyperlink(npc(addr)->getRow(), npc(addr)->getColumn());
 }
 
-java::util::List* org::apache::poi::hssf::usermodel::HSSFSheet::getHyperlinkList()
+java::util::List* poi::hssf::usermodel::HSSFSheet::getHyperlinkList()
 {
     ::java::util::List* const hyperlinkList = new ::java::util::ArrayList();
     for (auto _i = npc(npc(_sheet)->getRecords())->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::hssf::record::RecordBase* rec = java_cast< ::org::apache::poi::hssf::record::RecordBase* >(_i->next());
+        ::poi::hssf::record::RecordBase* rec = java_cast< ::poi::hssf::record::RecordBase* >(_i->next());
         {
-            if(dynamic_cast< ::org::apache::poi::hssf::record::HyperlinkRecord* >(rec) != nullptr) {
-                auto link = java_cast< ::org::apache::poi::hssf::record::HyperlinkRecord* >(rec);
+            if(dynamic_cast< ::poi::hssf::record::HyperlinkRecord* >(rec) != nullptr) {
+                auto link = java_cast< ::poi::hssf::record::HyperlinkRecord* >(rec);
                 npc(hyperlinkList)->add(static_cast< ::java::lang::Object* >(new HSSFHyperlink(link)));
             }
         }
@@ -1399,17 +1393,17 @@ java::util::List* org::apache::poi::hssf::usermodel::HSSFSheet::getHyperlinkList
     return hyperlinkList;
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::removeHyperlink(HSSFHyperlink* link)
+void poi::hssf::usermodel::HSSFSheet::removeHyperlink(HSSFHyperlink* link)
 {
     removeHyperlink(npc(link)->record);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::removeHyperlink(::org::apache::poi::hssf::record::HyperlinkRecord* link)
+void poi::hssf::usermodel::HSSFSheet::removeHyperlink(::poi::hssf::record::HyperlinkRecord* link)
 {
     for (auto *it = npc(npc(_sheet)->getRecords())->iterator(); npc(it)->hasNext(); ) {
-        auto rec = java_cast< ::org::apache::poi::hssf::record::RecordBase* >(npc(it)->next());
-        if(dynamic_cast< ::org::apache::poi::hssf::record::HyperlinkRecord* >(rec) != nullptr) {
-            auto recLink = java_cast< ::org::apache::poi::hssf::record::HyperlinkRecord* >(rec);
+        auto rec = java_cast< ::poi::hssf::record::RecordBase* >(npc(it)->next());
+        if(dynamic_cast< ::poi::hssf::record::HyperlinkRecord* >(rec) != nullptr) {
+            auto recLink = java_cast< ::poi::hssf::record::HyperlinkRecord* >(rec);
             if(link == recLink) {
                 npc(it)->remove();
                 return;
@@ -1418,19 +1412,19 @@ void org::apache::poi::hssf::usermodel::HSSFSheet::removeHyperlink(::org::apache
     }
 }
 
-org::apache::poi::hssf::usermodel::HSSFSheetConditionalFormatting* org::apache::poi::hssf::usermodel::HSSFSheet::getSheetConditionalFormatting()
+poi::hssf::usermodel::HSSFSheetConditionalFormatting* poi::hssf::usermodel::HSSFSheet::getSheetConditionalFormatting()
 {
     return new HSSFSheetConditionalFormatting(this);
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HSSFSheet::getSheetName()
+java::lang::String* poi::hssf::usermodel::HSSFSheet::getSheetName()
 {
     auto wb = java_cast< HSSFWorkbook* >(getWorkbook());
-    auto idx = npc(wb)->getSheetIndex(static_cast< ::org::apache::poi::ss::usermodel::Sheet* >(this));
+    auto idx = npc(wb)->getSheetIndex(static_cast< ::poi::ss::usermodel::Sheet* >(this));
     return npc(wb)->getSheetName(idx);
 }
 
-org::apache::poi::ss::usermodel::CellRange* org::apache::poi::hssf::usermodel::HSSFSheet::getCellRange(::org::apache::poi::ss::util::CellRangeAddress* range)
+poi::ss::usermodel::CellRange* poi::hssf::usermodel::HSSFSheet::getCellRange(::poi::ss::util::CellRangeAddress* range)
 {
     auto firstRow = npc(range)->getFirstRow();
     auto firstColumn = npc(range)->getFirstColumn();
@@ -1452,13 +1446,13 @@ org::apache::poi::ss::usermodel::CellRange* org::apache::poi::hssf::usermodel::H
             npc(temp)->add(static_cast< ::java::lang::Object* >(cell));
         }
     }
-    return ::org::apache::poi::ss::util::SSCellRange::create(firstRow, firstColumn, height, width, temp, HSSFCell::class_());
+    return ::poi::ss::util::SSCellRange::create(firstRow, firstColumn, height, width, temp, HSSFCell::class_());
 }
 
-org::apache::poi::ss::usermodel::CellRange* org::apache::poi::hssf::usermodel::HSSFSheet::setArrayFormula(::java::lang::String* formula, ::org::apache::poi::ss::util::CellRangeAddress* range)
+poi::ss::usermodel::CellRange* poi::hssf::usermodel::HSSFSheet::setArrayFormula(::java::lang::String* formula, ::poi::ss::util::CellRangeAddress* range)
 {
-    auto sheetIndex = npc(_workbook)->getSheetIndex(static_cast< ::org::apache::poi::ss::usermodel::Sheet* >(this));
-    auto ptgs = ::org::apache::poi::hssf::model::HSSFFormulaParser::parse(formula, _workbook, ::org::apache::poi::ss::formula::FormulaType::ARRAY, sheetIndex);
+    auto sheetIndex = npc(_workbook)->getSheetIndex(static_cast< ::poi::ss::usermodel::Sheet* >(this));
+    auto ptgs = ::poi::hssf::model::HSSFFormulaParser::parse(formula, _workbook, ::poi::ss::formula::FormulaType::ARRAY, sheetIndex);
     auto cells = getCellRange(range);
     for (auto _i = npc(cells)->iterator(); _i->hasNext(); ) {
         HSSFCell* c = java_cast< HSSFCell* >(_i->next());
@@ -1467,57 +1461,57 @@ org::apache::poi::ss::usermodel::CellRange* org::apache::poi::hssf::usermodel::H
         }
     }
     auto mainArrayFormulaCell = java_cast< HSSFCell* >(npc(cells)->getTopLeftCell());
-    auto agg = java_cast< ::org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate* >(npc(mainArrayFormulaCell)->getCellValueRecord());
+    auto agg = java_cast< ::poi::hssf::record::aggregates::FormulaRecordAggregate* >(npc(mainArrayFormulaCell)->getCellValueRecord());
     npc(agg)->setArrayFormula(range, ptgs);
     return cells;
 }
 
-org::apache::poi::ss::usermodel::CellRange* org::apache::poi::hssf::usermodel::HSSFSheet::removeArrayFormula(::org::apache::poi::ss::usermodel::Cell* cell)
+poi::ss::usermodel::CellRange* poi::hssf::usermodel::HSSFSheet::removeArrayFormula(::poi::ss::usermodel::Cell* cell)
 {
-    if(npc(cell)->getSheet() != static_cast< ::org::apache::poi::ss::usermodel::Sheet* >(this)) {
+    if(npc(cell)->getSheet() != static_cast< ::poi::ss::usermodel::Sheet* >(this)) {
         throw new ::java::lang::IllegalArgumentException(u"Specified cell does not belong to this sheet."_j);
     }
     auto rec = npc((java_cast< HSSFCell* >(cell)))->getCellValueRecord();
-    if(!(dynamic_cast< ::org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate* >(rec) != nullptr)) {
-        auto ref = (new ::org::apache::poi::ss::util::CellReference(cell))->formatAsString();
+    if(!(dynamic_cast< ::poi::hssf::record::aggregates::FormulaRecordAggregate* >(rec) != nullptr)) {
+        auto ref = (new ::poi::ss::util::CellReference(cell))->formatAsString();
         throw new ::java::lang::IllegalArgumentException(::java::lang::StringBuilder().append(u"Cell "_j)->append(ref)
             ->append(u" is not part of an array formula."_j)->toString());
     }
-    auto fra = java_cast< ::org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate* >(rec);
+    auto fra = java_cast< ::poi::hssf::record::aggregates::FormulaRecordAggregate* >(rec);
     auto range = npc(fra)->removeArrayFormula(npc(cell)->getRowIndex(), npc(cell)->getColumnIndex());
     auto result = getCellRange(range);
     for (auto _i = npc(result)->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::ss::usermodel::Cell* c = java_cast< ::org::apache::poi::ss::usermodel::Cell* >(_i->next());
+        ::poi::ss::usermodel::Cell* c = java_cast< ::poi::ss::usermodel::Cell* >(_i->next());
         {
-            npc(c)->setCellType(::org::apache::poi::ss::usermodel::CellType::BLANK);
+            npc(c)->setCellType(::poi::ss::usermodel::CellType::BLANK);
         }
     }
     return result;
 }
 
-org::apache::poi::ss::usermodel::DataValidationHelper* org::apache::poi::hssf::usermodel::HSSFSheet::getDataValidationHelper()
+poi::ss::usermodel::DataValidationHelper* poi::hssf::usermodel::HSSFSheet::getDataValidationHelper()
 {
     return new HSSFDataValidationHelper(this);
 }
 
-org::apache::poi::hssf::usermodel::HSSFAutoFilter* org::apache::poi::hssf::usermodel::HSSFSheet::setAutoFilter(::org::apache::poi::ss::util::CellRangeAddress* range)
+poi::hssf::usermodel::HSSFAutoFilter* poi::hssf::usermodel::HSSFSheet::setAutoFilter(::poi::ss::util::CellRangeAddress* range)
 {
     auto workbook = npc(_workbook)->getWorkbook();
-    auto sheetIndex = npc(_workbook)->getSheetIndex(static_cast< ::org::apache::poi::ss::usermodel::Sheet* >(this));
-    auto name = npc(workbook)->getSpecificBuiltinRecord(::org::apache::poi::hssf::record::NameRecord::BUILTIN_FILTER_DB, sheetIndex + int32_t(1));
+    auto sheetIndex = npc(_workbook)->getSheetIndex(static_cast< ::poi::ss::usermodel::Sheet* >(this));
+    auto name = npc(workbook)->getSpecificBuiltinRecord(::poi::hssf::record::NameRecord::BUILTIN_FILTER_DB, sheetIndex + int32_t(1));
     if(name == nullptr) {
-        name = npc(workbook)->createBuiltInName(::org::apache::poi::hssf::record::NameRecord::BUILTIN_FILTER_DB, sheetIndex + int32_t(1));
+        name = npc(workbook)->createBuiltInName(::poi::hssf::record::NameRecord::BUILTIN_FILTER_DB, sheetIndex + int32_t(1));
     }
     auto firstRow = npc(range)->getFirstRow();
     if(firstRow == -int32_t(1)) {
         firstRow = 0;
     }
-    auto ptg = new ::org::apache::poi::ss::formula::ptg::Area3DPtg(firstRow, npc(range)->getLastRow(), npc(range)->getFirstColumn(), npc(range)->getLastColumn(), false, false, false, false, sheetIndex);
-    npc(name)->setNameDefinition(new ::org::apache::poi::ss::formula::ptg::PtgArray({static_cast< ::org::apache::poi::ss::formula::ptg::Ptg* >(ptg)}));
-    auto r = new ::org::apache::poi::hssf::record::AutoFilterInfoRecord();
+    auto ptg = new ::poi::ss::formula::ptg::Area3DPtg(firstRow, npc(range)->getLastRow(), npc(range)->getFirstColumn(), npc(range)->getLastColumn(), false, false, false, false, sheetIndex);
+    npc(name)->setNameDefinition(new ::poi::ss::formula::ptg::PtgArray({static_cast< ::poi::ss::formula::ptg::Ptg* >(ptg)}));
+    auto r = new ::poi::hssf::record::AutoFilterInfoRecord();
     auto numcols = int32_t(1) + npc(range)->getLastColumn() - npc(range)->getFirstColumn();
     npc(r)->setNumEntries(static_cast< int16_t >(numcols));
-    auto idx = npc(_sheet)->findFirstRecordLocBySid(::org::apache::poi::hssf::record::DimensionsRecord::sid);
+    auto idx = npc(_sheet)->findFirstRecordLocBySid(::poi::hssf::record::DimensionsRecord::sid);
     npc(npc(_sheet)->getRecords())->add(idx, r);
     auto p = java_cast< HSSFPatriarch* >(createDrawingPatriarch());
     auto const firstColumn = npc(range)->getFirstColumn();
@@ -1528,7 +1522,7 @@ org::apache::poi::hssf::usermodel::HSSFAutoFilter* org::apache::poi::hssf::userm
     return new HSSFAutoFilter(this);
 }
 
-org::apache::poi::hssf::usermodel::HSSFComment* org::apache::poi::hssf::usermodel::HSSFSheet::findCellComment(int32_t row, int32_t column)
+poi::hssf::usermodel::HSSFComment* poi::hssf::usermodel::HSSFSheet::findCellComment(int32_t row, int32_t column)
 {
     auto patriarch = java_cast< HSSFPatriarch* >(getDrawingPatriarch());
     if(nullptr == patriarch) {
@@ -1537,7 +1531,7 @@ org::apache::poi::hssf::usermodel::HSSFComment* org::apache::poi::hssf::usermode
     return lookForComment(patriarch, row, column);
 }
 
-org::apache::poi::hssf::usermodel::HSSFComment* org::apache::poi::hssf::usermodel::HSSFSheet::lookForComment(HSSFShapeContainer* container, int32_t row, int32_t column)
+poi::hssf::usermodel::HSSFComment* poi::hssf::usermodel::HSSFSheet::lookForComment(HSSFShapeContainer* container, int32_t row, int32_t column)
 {
     for (auto _i = npc(npc(container)->getChildren())->iterator(); _i->hasNext(); ) {
         ::java::lang::Object* object = java_cast< ::java::lang::Object* >(_i->next());
@@ -1561,7 +1555,7 @@ org::apache::poi::hssf::usermodel::HSSFComment* org::apache::poi::hssf::usermode
     return nullptr;
 }
 
-java::util::Map* org::apache::poi::hssf::usermodel::HSSFSheet::getCellComments()
+java::util::Map* poi::hssf::usermodel::HSSFSheet::getCellComments()
 {
     auto patriarch = java_cast< HSSFPatriarch* >(getDrawingPatriarch());
     if(nullptr == patriarch) {
@@ -1572,7 +1566,7 @@ java::util::Map* org::apache::poi::hssf::usermodel::HSSFSheet::getCellComments()
     return locations;
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::findCellCommentLocations(HSSFShapeContainer* container, ::java::util::Map* locations)
+void poi::hssf::usermodel::HSSFSheet::findCellCommentLocations(HSSFShapeContainer* container, ::java::util::Map* locations)
 {
     for (auto _i = npc(npc(container)->getChildren())->iterator(); _i->hasNext(); ) {
         ::java::lang::Object* object = java_cast< ::java::lang::Object* >(_i->next());
@@ -1585,40 +1579,40 @@ void org::apache::poi::hssf::usermodel::HSSFSheet::findCellCommentLocations(HSSF
             if(dynamic_cast< HSSFComment* >(shape) != nullptr) {
                 auto comment = java_cast< HSSFComment* >(shape);
                 if(npc(comment)->hasPosition()) {
-                    npc(locations)->put(new ::org::apache::poi::ss::util::CellAddress(npc(comment)->getRow(), npc(comment)->getColumn()), comment);
+                    npc(locations)->put(new ::poi::ss::util::CellAddress(npc(comment)->getRow(), npc(comment)->getColumn()), comment);
                 }
             }
         }
     }
 }
 
-org::apache::poi::ss::util::CellRangeAddress* org::apache::poi::hssf::usermodel::HSSFSheet::getRepeatingRows()
+poi::ss::util::CellRangeAddress* poi::hssf::usermodel::HSSFSheet::getRepeatingRows()
 {
     return getRepeatingRowsOrColums(true);
 }
 
-org::apache::poi::ss::util::CellRangeAddress* org::apache::poi::hssf::usermodel::HSSFSheet::getRepeatingColumns()
+poi::ss::util::CellRangeAddress* poi::hssf::usermodel::HSSFSheet::getRepeatingColumns()
 {
     return getRepeatingRowsOrColums(false);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::setRepeatingRows(::org::apache::poi::ss::util::CellRangeAddress* rowRangeRef)
+void poi::hssf::usermodel::HSSFSheet::setRepeatingRows(::poi::ss::util::CellRangeAddress* rowRangeRef)
 {
     auto columnRangeRef = getRepeatingColumns();
     setRepeatingRowsAndColumns(rowRangeRef, columnRangeRef);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::setRepeatingColumns(::org::apache::poi::ss::util::CellRangeAddress* columnRangeRef)
+void poi::hssf::usermodel::HSSFSheet::setRepeatingColumns(::poi::ss::util::CellRangeAddress* columnRangeRef)
 {
     auto rowRangeRef = getRepeatingRows();
     setRepeatingRowsAndColumns(rowRangeRef, columnRangeRef);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::setRepeatingRowsAndColumns(::org::apache::poi::ss::util::CellRangeAddress* rowDef, ::org::apache::poi::ss::util::CellRangeAddress* colDef)
+void poi::hssf::usermodel::HSSFSheet::setRepeatingRowsAndColumns(::poi::ss::util::CellRangeAddress* rowDef, ::poi::ss::util::CellRangeAddress* colDef)
 {
-    auto sheetIndex = npc(_workbook)->getSheetIndex(static_cast< ::org::apache::poi::ss::usermodel::Sheet* >(this));
-    auto maxRowIndex = npc(::org::apache::poi::ss::SpreadsheetVersion::EXCEL97)->getLastRowIndex();
-    auto maxColIndex = npc(::org::apache::poi::ss::SpreadsheetVersion::EXCEL97)->getLastColumnIndex();
+    auto sheetIndex = npc(_workbook)->getSheetIndex(static_cast< ::poi::ss::usermodel::Sheet* >(this));
+    auto maxRowIndex = npc(::poi::ss::SpreadsheetVersion::EXCEL97)->getLastRowIndex();
+    auto maxColIndex = npc(::poi::ss::SpreadsheetVersion::EXCEL97)->getLastColumnIndex();
     auto col1 = -int32_t(1);
     auto col2 = -int32_t(1);
     auto row1 = -int32_t(1);
@@ -1640,33 +1634,33 @@ void org::apache::poi::hssf::usermodel::HSSFSheet::setRepeatingRowsAndColumns(::
     auto externSheetIndex = npc(npc(_workbook)->getWorkbook())->checkExternSheet(sheetIndex);
     auto setBoth = rowDef != nullptr && colDef != nullptr;
     auto removeAll = rowDef == nullptr && colDef == nullptr;
-    auto name = npc(_workbook)->getBuiltInName(::org::apache::poi::hssf::record::NameRecord::BUILTIN_PRINT_TITLE, sheetIndex);
+    auto name = npc(_workbook)->getBuiltInName(::poi::hssf::record::NameRecord::BUILTIN_PRINT_TITLE, sheetIndex);
     if(removeAll) {
         if(name != nullptr) {
-            npc(_workbook)->removeName(static_cast< ::org::apache::poi::ss::usermodel::Name* >(name));
+            npc(_workbook)->removeName(static_cast< ::poi::ss::usermodel::Name* >(name));
         }
         return;
     }
     if(name == nullptr) {
-        name = npc(_workbook)->createBuiltInName(::org::apache::poi::hssf::record::NameRecord::BUILTIN_PRINT_TITLE, sheetIndex);
+        name = npc(_workbook)->createBuiltInName(::poi::hssf::record::NameRecord::BUILTIN_PRINT_TITLE, sheetIndex);
     }
     ::java::util::List* ptgList = new ::java::util::ArrayList();
     if(setBoth) {
         auto const exprsSize = int32_t(2) * int32_t(11) + int32_t(1);
-        npc(ptgList)->add(static_cast< ::java::lang::Object* >(new ::org::apache::poi::ss::formula::ptg::MemFuncPtg(exprsSize)));
+        npc(ptgList)->add(static_cast< ::java::lang::Object* >(new ::poi::ss::formula::ptg::MemFuncPtg(exprsSize)));
     }
     if(colDef != nullptr) {
-        auto colArea = new ::org::apache::poi::ss::formula::ptg::Area3DPtg(int32_t(0), maxRowIndex, col1, col2, false, false, false, false, externSheetIndex);
+        auto colArea = new ::poi::ss::formula::ptg::Area3DPtg(int32_t(0), maxRowIndex, col1, col2, false, false, false, false, externSheetIndex);
         npc(ptgList)->add(static_cast< ::java::lang::Object* >(colArea));
     }
     if(rowDef != nullptr) {
-        auto rowArea = new ::org::apache::poi::ss::formula::ptg::Area3DPtg(row1, row2, int32_t(0), maxColIndex, false, false, false, false, externSheetIndex);
+        auto rowArea = new ::poi::ss::formula::ptg::Area3DPtg(row1, row2, int32_t(0), maxColIndex, false, false, false, false, externSheetIndex);
         npc(ptgList)->add(static_cast< ::java::lang::Object* >(rowArea));
     }
     if(setBoth) {
-        npc(ptgList)->add(static_cast< ::java::lang::Object* >(::org::apache::poi::ss::formula::ptg::UnionPtg::instance()));
+        npc(ptgList)->add(static_cast< ::java::lang::Object* >(::poi::ss::formula::ptg::UnionPtg::instance()));
     }
-    auto ptgs = new ::org::apache::poi::ss::formula::ptg::PtgArray(npc(ptgList)->size());
+    auto ptgs = new ::poi::ss::formula::ptg::PtgArray(npc(ptgList)->size());
     npc(ptgList)->toArray_(static_cast< ::java::lang::ObjectArray* >(ptgs));
     npc(name)->setNameDefinition(ptgs);
     auto printSetup = getPrintSetup();
@@ -1674,9 +1668,9 @@ void org::apache::poi::hssf::usermodel::HSSFSheet::setRepeatingRowsAndColumns(::
     setActive(true);
 }
 
-org::apache::poi::ss::util::CellRangeAddress* org::apache::poi::hssf::usermodel::HSSFSheet::getRepeatingRowsOrColums(bool rows)
+poi::ss::util::CellRangeAddress* poi::hssf::usermodel::HSSFSheet::getRepeatingRowsOrColums(bool rows)
 {
-    auto rec = getBuiltinNameRecord(::org::apache::poi::hssf::record::NameRecord::BUILTIN_PRINT_TITLE);
+    auto rec = getBuiltinNameRecord(::poi::hssf::record::NameRecord::BUILTIN_PRINT_TITLE);
     if(rec == nullptr) {
         return nullptr;
     }
@@ -1684,18 +1678,18 @@ org::apache::poi::ss::util::CellRangeAddress* org::apache::poi::hssf::usermodel:
     if(nameDefinition == nullptr) {
         return nullptr;
     }
-    auto maxRowIndex = npc(::org::apache::poi::ss::SpreadsheetVersion::EXCEL97)->getLastRowIndex();
-    auto maxColIndex = npc(::org::apache::poi::ss::SpreadsheetVersion::EXCEL97)->getLastColumnIndex();
+    auto maxRowIndex = npc(::poi::ss::SpreadsheetVersion::EXCEL97)->getLastRowIndex();
+    auto maxColIndex = npc(::poi::ss::SpreadsheetVersion::EXCEL97)->getLastColumnIndex();
     for(auto ptg : *npc(nameDefinition)) {
-        if(dynamic_cast< ::org::apache::poi::ss::formula::ptg::Area3DPtg* >(ptg) != nullptr) {
-            auto areaPtg = java_cast< ::org::apache::poi::ss::formula::ptg::Area3DPtg* >(ptg);
+        if(dynamic_cast< ::poi::ss::formula::ptg::Area3DPtg* >(ptg) != nullptr) {
+            auto areaPtg = java_cast< ::poi::ss::formula::ptg::Area3DPtg* >(ptg);
             if(npc(areaPtg)->getFirstColumn() == 0 && npc(areaPtg)->getLastColumn() == maxColIndex) {
                 if(rows) {
-                    return new ::org::apache::poi::ss::util::CellRangeAddress(npc(areaPtg)->getFirstRow(), npc(areaPtg)->getLastRow(), -int32_t(1), -int32_t(1));
+                    return new ::poi::ss::util::CellRangeAddress(npc(areaPtg)->getFirstRow(), npc(areaPtg)->getLastRow(), -int32_t(1), -int32_t(1));
                 }
             } else if(npc(areaPtg)->getFirstRow() == 0 && npc(areaPtg)->getLastRow() == maxRowIndex) {
                 if(!rows) {
-                    return new ::org::apache::poi::ss::util::CellRangeAddress(-int32_t(1), -int32_t(1), npc(areaPtg)->getFirstColumn(), npc(areaPtg)->getLastColumn());
+                    return new ::poi::ss::util::CellRangeAddress(-int32_t(1), -int32_t(1), npc(areaPtg)->getFirstColumn(), npc(areaPtg)->getLastColumn());
                 }
             }
         }
@@ -1703,9 +1697,9 @@ org::apache::poi::ss::util::CellRangeAddress* org::apache::poi::hssf::usermodel:
     return nullptr;
 }
 
-org::apache::poi::hssf::record::NameRecord* org::apache::poi::hssf::usermodel::HSSFSheet::getBuiltinNameRecord(int8_t builtinCode)
+poi::hssf::record::NameRecord* poi::hssf::usermodel::HSSFSheet::getBuiltinNameRecord(int8_t builtinCode)
 {
-    auto sheetIndex = npc(_workbook)->getSheetIndex(static_cast< ::org::apache::poi::ss::usermodel::Sheet* >(this));
+    auto sheetIndex = npc(_workbook)->getSheetIndex(static_cast< ::poi::ss::usermodel::Sheet* >(this));
     auto recIndex = npc(_workbook)->findExistingBuiltinNameRecordIdx(sheetIndex, builtinCode);
     if(recIndex == -int32_t(1)) {
         return nullptr;
@@ -1713,19 +1707,19 @@ org::apache::poi::hssf::record::NameRecord* org::apache::poi::hssf::usermodel::H
     return npc(_workbook)->getNameRecord(recIndex);
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFSheet::getColumnOutlineLevel(int32_t columnIndex)
+int32_t poi::hssf::usermodel::HSSFSheet::getColumnOutlineLevel(int32_t columnIndex)
 {
     return npc(_sheet)->getColumnOutlineLevel(columnIndex);
 }
 
-org::apache::poi::ss::util::CellAddress* org::apache::poi::hssf::usermodel::HSSFSheet::getActiveCell()
+poi::ss::util::CellAddress* poi::hssf::usermodel::HSSFSheet::getActiveCell()
 {
     auto row = npc(_sheet)->getActiveCellRow();
     int32_t col = npc(_sheet)->getActiveCellCol();
-    return new ::org::apache::poi::ss::util::CellAddress(row, col);
+    return new ::poi::ss::util::CellAddress(row, col);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::setActiveCell(::org::apache::poi::ss::util::CellAddress* address)
+void poi::hssf::usermodel::HSSFSheet::setActiveCell(::poi::ss::util::CellAddress* address)
 {
     auto row = npc(address)->getRow();
     auto col = static_cast< int16_t >(npc(address)->getColumn());
@@ -1735,21 +1729,21 @@ void org::apache::poi::hssf::usermodel::HSSFSheet::setActiveCell(::org::apache::
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFSheet::class_()
+java::lang::Class* poi::hssf::usermodel::HSSFSheet::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.usermodel.HSSFSheet", 39);
     return c;
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet::clinit()
+void poi::hssf::usermodel::HSSFSheet::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        log_ = ::org::apache::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(HSSFSheet::class_()));
-        INITIAL_CAPACITY_ = ::org::apache::poi::util::Configurator::getIntValue(u"HSSFSheet.RowInitialCapacity"_j, 20);
+        log_ = ::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(HSSFSheet::class_()));
+        INITIAL_CAPACITY_ = ::poi::util::Configurator::getIntValue(u"HSSFSheet.RowInitialCapacity"_j, 20);
     }
 };
 
@@ -1758,7 +1752,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFSheet::getClass0()
+java::lang::Class* poi::hssf::usermodel::HSSFSheet::getClass0()
 {
     return class_();
 }

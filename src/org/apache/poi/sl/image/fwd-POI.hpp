@@ -2,22 +2,16 @@
 #pragma once
 
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace sl
     {
-        namespace poi
+        namespace image
         {
-            namespace sl
-            {
-                namespace image
-                {
-                    class ImageHeaderBitmap;
-                    class ImageHeaderEMF;
-                    class ImageHeaderPICT;
-                    class ImageHeaderWMF;
-                } // image
-            } // sl
-        } // poi
-    } // apache
-} // org
+            class ImageHeaderBitmap;
+            class ImageHeaderEMF;
+            class ImageHeaderPICT;
+            class ImageHeaderWMF;
+        } // image
+    } // sl
+} // poi

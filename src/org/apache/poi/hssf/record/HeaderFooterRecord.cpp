@@ -32,96 +32,96 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::HeaderFooterRecord::HeaderFooterRecord(const ::default_init_tag&)
+poi::hssf::record::HeaderFooterRecord::HeaderFooterRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::HeaderFooterRecord::HeaderFooterRecord(::int8_tArray* data) 
+poi::hssf::record::HeaderFooterRecord::HeaderFooterRecord(::int8_tArray* data) 
     : HeaderFooterRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(data);
 }
 
-org::apache::poi::hssf::record::HeaderFooterRecord::HeaderFooterRecord(RecordInputStream* in) 
+poi::hssf::record::HeaderFooterRecord::HeaderFooterRecord(RecordInputStream* in) 
     : HeaderFooterRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-int8_tArray*& org::apache::poi::hssf::record::HeaderFooterRecord::BLANK_GUID()
+int8_tArray*& poi::hssf::record::HeaderFooterRecord::BLANK_GUID()
 {
     clinit();
     return BLANK_GUID_;
 }
-int8_tArray* org::apache::poi::hssf::record::HeaderFooterRecord::BLANK_GUID_;
+int8_tArray* poi::hssf::record::HeaderFooterRecord::BLANK_GUID_;
 
-constexpr int16_t org::apache::poi::hssf::record::HeaderFooterRecord::sid;
+constexpr int16_t poi::hssf::record::HeaderFooterRecord::sid;
 
-void org::apache::poi::hssf::record::HeaderFooterRecord::ctor(::int8_tArray* data)
+void poi::hssf::record::HeaderFooterRecord::ctor(::int8_tArray* data)
 {
     super::ctor();
     _rawData = data;
 }
 
-void org::apache::poi::hssf::record::HeaderFooterRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::HeaderFooterRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     _rawData = npc(in)->readRemainder();
 }
 
-void org::apache::poi::hssf::record::HeaderFooterRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::HeaderFooterRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->write(_rawData);
 }
 
-int32_t org::apache::poi::hssf::record::HeaderFooterRecord::getDataSize()
+int32_t poi::hssf::record::HeaderFooterRecord::getDataSize()
 {
     return npc(_rawData)->length;
 }
 
-int16_t org::apache::poi::hssf::record::HeaderFooterRecord::getSid()
+int16_t poi::hssf::record::HeaderFooterRecord::getSid()
 {
     return sid;
 }
 
-int8_tArray* org::apache::poi::hssf::record::HeaderFooterRecord::getGuid()
+int8_tArray* poi::hssf::record::HeaderFooterRecord::getGuid()
 {
     auto guid = new ::int8_tArray(int32_t(16));
     ::java::lang::System::arraycopy(_rawData, 12, guid, 0, npc(guid)->length);
     return guid;
 }
 
-bool org::apache::poi::hssf::record::HeaderFooterRecord::isCurrentSheet()
+bool poi::hssf::record::HeaderFooterRecord::isCurrentSheet()
 {
     return ::java::util::Arrays::equals(getGuid(), BLANK_GUID_);
 }
 
-java::lang::String* org::apache::poi::hssf::record::HeaderFooterRecord::toString()
+java::lang::String* poi::hssf::record::HeaderFooterRecord::toString()
 {
     auto sb = new ::java::lang::StringBuffer();
     npc(npc(npc(sb)->append(u"["_j))->append(u"HEADERFOOTER"_j))->append(u"] (0x"_j);
     npc(sb)->append(::java::lang::StringBuilder().append(npc(::java::lang::Integer::toHexString(sid))->toUpperCase(::java::util::Locale::ROOT()))->append(u")\n"_j)->toString());
-    npc(npc(npc(sb)->append(u"  rawData="_j))->append(::org::apache::poi::util::HexDump::toHex(_rawData)))->append(u"\n"_j);
+    npc(npc(npc(sb)->append(u"  rawData="_j))->append(::poi::util::HexDump::toHex(_rawData)))->append(u"\n"_j);
     npc(npc(npc(sb)->append(u"[/"_j))->append(u"HEADERFOOTER"_j))->append(u"]\n"_j);
     return npc(sb)->toString();
 }
 
-org::apache::poi::hssf::record::HeaderFooterRecord* org::apache::poi::hssf::record::HeaderFooterRecord::clone()
+poi::hssf::record::HeaderFooterRecord* poi::hssf::record::HeaderFooterRecord::clone()
 {
     return java_cast< HeaderFooterRecord* >(cloneViaReserialise());
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::HeaderFooterRecord::class_()
+java::lang::Class* poi::hssf::record::HeaderFooterRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.HeaderFooterRecord", 45);
     return c;
 }
 
-void org::apache::poi::hssf::record::HeaderFooterRecord::clinit()
+void poi::hssf::record::HeaderFooterRecord::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -137,17 +137,17 @@ struct clinit_ {
     }
 }
 
-int32_t org::apache::poi::hssf::record::HeaderFooterRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::HeaderFooterRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::HeaderFooterRecord::serialize()
+int8_tArray* poi::hssf::record::HeaderFooterRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::HeaderFooterRecord::getClass0()
+java::lang::Class* poi::hssf::record::HeaderFooterRecord::getClass0()
 {
     return class_();
 }

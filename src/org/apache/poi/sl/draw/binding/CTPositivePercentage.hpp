@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::binding::CTPositivePercentage
+class poi::sl::draw::binding::CTPositivePercentage
     : public virtual ::java::lang::Object
 {
 

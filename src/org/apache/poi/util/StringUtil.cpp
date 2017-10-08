@@ -39,73 +39,73 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::util::StringUtil::StringUtil(const ::default_init_tag&)
+poi::util::StringUtil::StringUtil(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::util::StringUtil::StringUtil() 
+poi::util::StringUtil::StringUtil() 
     : StringUtil(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::util::POILogger*& org::apache::poi::util::StringUtil::logger()
+poi::util::POILogger*& poi::util::StringUtil::logger()
 {
     clinit();
     return logger_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::util::StringUtil::logger_;
+poi::util::POILogger* poi::util::StringUtil::logger_;
 
-java::nio::charset::Charset*& org::apache::poi::util::StringUtil::ISO_8859_1()
+java::nio::charset::Charset*& poi::util::StringUtil::ISO_8859_1()
 {
     clinit();
     return ISO_8859_1_;
 }
-java::nio::charset::Charset* org::apache::poi::util::StringUtil::ISO_8859_1_;
+java::nio::charset::Charset* poi::util::StringUtil::ISO_8859_1_;
 
-java::nio::charset::Charset*& org::apache::poi::util::StringUtil::UTF16LE()
+java::nio::charset::Charset*& poi::util::StringUtil::UTF16LE()
 {
     clinit();
     return UTF16LE_;
 }
-java::nio::charset::Charset* org::apache::poi::util::StringUtil::UTF16LE_;
+java::nio::charset::Charset* poi::util::StringUtil::UTF16LE_;
 
-java::nio::charset::Charset*& org::apache::poi::util::StringUtil::UTF8()
+java::nio::charset::Charset*& poi::util::StringUtil::UTF8()
 {
     clinit();
     return UTF8_;
 }
-java::nio::charset::Charset* org::apache::poi::util::StringUtil::UTF8_;
+java::nio::charset::Charset* poi::util::StringUtil::UTF8_;
 
-java::nio::charset::Charset*& org::apache::poi::util::StringUtil::WIN_1252()
+java::nio::charset::Charset*& poi::util::StringUtil::WIN_1252()
 {
     clinit();
     return WIN_1252_;
 }
-java::nio::charset::Charset* org::apache::poi::util::StringUtil::WIN_1252_;
+java::nio::charset::Charset* poi::util::StringUtil::WIN_1252_;
 
-java::nio::charset::Charset*& org::apache::poi::util::StringUtil::BIG5()
+java::nio::charset::Charset*& poi::util::StringUtil::BIG5()
 {
     clinit();
     return BIG5_;
 }
-java::nio::charset::Charset* org::apache::poi::util::StringUtil::BIG5_;
+java::nio::charset::Charset* poi::util::StringUtil::BIG5_;
 
-java::util::Map*& org::apache::poi::util::StringUtil::msCodepointToUnicode()
+java::util::Map*& poi::util::StringUtil::msCodepointToUnicode()
 {
     clinit();
     return msCodepointToUnicode_;
 }
-java::util::Map* org::apache::poi::util::StringUtil::msCodepointToUnicode_;
+java::util::Map* poi::util::StringUtil::msCodepointToUnicode_;
 
-void org::apache::poi::util::StringUtil::ctor()
+void poi::util::StringUtil::ctor()
 {
     super::ctor();
 }
 
-java::lang::String* org::apache::poi::util::StringUtil::getFromUnicodeLE(::int8_tArray* string, int32_t offset, int32_t len) /* throws(ArrayIndexOutOfBoundsException, IllegalArgumentException) */
+java::lang::String* poi::util::StringUtil::getFromUnicodeLE(::int8_tArray* string, int32_t offset, int32_t len) /* throws(ArrayIndexOutOfBoundsException, IllegalArgumentException) */
 {
     clinit();
     if((offset < 0) || (offset >= npc(string)->length)) {
@@ -120,7 +120,7 @@ java::lang::String* org::apache::poi::util::StringUtil::getFromUnicodeLE(::int8_
     return new ::java::lang::String(string, offset, len * int32_t(2), UTF16LE_);
 }
 
-java::lang::String* org::apache::poi::util::StringUtil::getFromUnicodeLE(::int8_tArray* string)
+java::lang::String* poi::util::StringUtil::getFromUnicodeLE(::int8_tArray* string)
 {
     clinit();
     if(npc(string)->length == 0) {
@@ -129,20 +129,20 @@ java::lang::String* org::apache::poi::util::StringUtil::getFromUnicodeLE(::int8_
     return getFromUnicodeLE(string, 0, npc(string)->length / int32_t(2));
 }
 
-int8_tArray* org::apache::poi::util::StringUtil::getToUnicodeLE(::java::lang::String* string)
+int8_tArray* poi::util::StringUtil::getToUnicodeLE(::java::lang::String* string)
 {
     clinit();
     return npc(string)->getBytes(UTF16LE_);
 }
 
-java::lang::String* org::apache::poi::util::StringUtil::getFromCompressedUnicode(::int8_tArray* string, int32_t offset, int32_t len)
+java::lang::String* poi::util::StringUtil::getFromCompressedUnicode(::int8_tArray* string, int32_t offset, int32_t len)
 {
     clinit();
     auto len_to_use = ::java::lang::Math::min(len, npc(string)->length - offset);
     return new ::java::lang::String(string, offset, len_to_use, ISO_8859_1_);
 }
 
-java::lang::String* org::apache::poi::util::StringUtil::readCompressedUnicode(LittleEndianInput* in, int32_t nChars)
+java::lang::String* poi::util::StringUtil::readCompressedUnicode(LittleEndianInput* in, int32_t nChars)
 {
     clinit();
     auto buf = new ::int8_tArray(nChars);
@@ -150,7 +150,7 @@ java::lang::String* org::apache::poi::util::StringUtil::readCompressedUnicode(Li
     return new ::java::lang::String(buf, ISO_8859_1_);
 }
 
-java::lang::String* org::apache::poi::util::StringUtil::readUnicodeString(LittleEndianInput* in)
+java::lang::String* poi::util::StringUtil::readUnicodeString(LittleEndianInput* in)
 {
     clinit();
     auto nChars = npc(in)->readUShort();
@@ -161,7 +161,7 @@ java::lang::String* org::apache::poi::util::StringUtil::readUnicodeString(Little
     return readUnicodeLE(in, nChars);
 }
 
-java::lang::String* org::apache::poi::util::StringUtil::readUnicodeString(LittleEndianInput* in, int32_t nChars)
+java::lang::String* poi::util::StringUtil::readUnicodeString(LittleEndianInput* in, int32_t nChars)
 {
     clinit();
     auto is16Bit = npc(in)->readByte();
@@ -171,7 +171,7 @@ java::lang::String* org::apache::poi::util::StringUtil::readUnicodeString(Little
     return readUnicodeLE(in, nChars);
 }
 
-void org::apache::poi::util::StringUtil::writeUnicodeString(LittleEndianOutput* out, ::java::lang::String* value)
+void poi::util::StringUtil::writeUnicodeString(LittleEndianOutput* out, ::java::lang::String* value)
 {
     clinit();
     auto nChars = npc(value)->length();
@@ -185,7 +185,7 @@ void org::apache::poi::util::StringUtil::writeUnicodeString(LittleEndianOutput* 
     }
 }
 
-void org::apache::poi::util::StringUtil::writeUnicodeStringFlagAndData(LittleEndianOutput* out, ::java::lang::String* value)
+void poi::util::StringUtil::writeUnicodeStringFlagAndData(LittleEndianOutput* out, ::java::lang::String* value)
 {
     clinit();
     auto is16Bit = hasMultibyte(value);
@@ -197,7 +197,7 @@ void org::apache::poi::util::StringUtil::writeUnicodeStringFlagAndData(LittleEnd
     }
 }
 
-int32_t org::apache::poi::util::StringUtil::getEncodedSize(::java::lang::String* value)
+int32_t poi::util::StringUtil::getEncodedSize(::java::lang::String* value)
 {
     clinit();
     auto result = int32_t(2) + int32_t(1);
@@ -205,35 +205,35 @@ int32_t org::apache::poi::util::StringUtil::getEncodedSize(::java::lang::String*
     return result;
 }
 
-void org::apache::poi::util::StringUtil::putCompressedUnicode(::java::lang::String* input, ::int8_tArray* output, int32_t offset)
+void poi::util::StringUtil::putCompressedUnicode(::java::lang::String* input, ::int8_tArray* output, int32_t offset)
 {
     clinit();
     auto bytes = npc(input)->getBytes(ISO_8859_1_);
     ::java::lang::System::arraycopy(bytes, 0, output, offset, npc(bytes)->length);
 }
 
-void org::apache::poi::util::StringUtil::putCompressedUnicode(::java::lang::String* input, LittleEndianOutput* out)
+void poi::util::StringUtil::putCompressedUnicode(::java::lang::String* input, LittleEndianOutput* out)
 {
     clinit();
     auto bytes = npc(input)->getBytes(ISO_8859_1_);
     npc(out)->write(bytes);
 }
 
-void org::apache::poi::util::StringUtil::putUnicodeLE(::java::lang::String* input, ::int8_tArray* output, int32_t offset)
+void poi::util::StringUtil::putUnicodeLE(::java::lang::String* input, ::int8_tArray* output, int32_t offset)
 {
     clinit();
     auto bytes = npc(input)->getBytes(UTF16LE_);
     ::java::lang::System::arraycopy(bytes, 0, output, offset, npc(bytes)->length);
 }
 
-void org::apache::poi::util::StringUtil::putUnicodeLE(::java::lang::String* input, LittleEndianOutput* out)
+void poi::util::StringUtil::putUnicodeLE(::java::lang::String* input, LittleEndianOutput* out)
 {
     clinit();
     auto bytes = npc(input)->getBytes(UTF16LE_);
     npc(out)->write(bytes);
 }
 
-java::lang::String* org::apache::poi::util::StringUtil::readUnicodeLE(LittleEndianInput* in, int32_t nChars)
+java::lang::String* poi::util::StringUtil::readUnicodeLE(LittleEndianInput* in, int32_t nChars)
 {
     clinit();
     auto bytes = new ::int8_tArray(nChars * int32_t(2));
@@ -241,13 +241,13 @@ java::lang::String* org::apache::poi::util::StringUtil::readUnicodeLE(LittleEndi
     return new ::java::lang::String(bytes, UTF16LE_);
 }
 
-java::lang::String* org::apache::poi::util::StringUtil::getPreferredEncoding()
+java::lang::String* poi::util::StringUtil::getPreferredEncoding()
 {
     clinit();
     return npc(ISO_8859_1_)->name();
 }
 
-bool org::apache::poi::util::StringUtil::hasMultibyte(::java::lang::String* value)
+bool poi::util::StringUtil::hasMultibyte(::java::lang::String* value)
 {
     clinit();
     if(value == nullptr)
@@ -261,19 +261,19 @@ bool org::apache::poi::util::StringUtil::hasMultibyte(::java::lang::String* valu
     return false;
 }
 
-bool org::apache::poi::util::StringUtil::isUnicodeString(::java::lang::String* value)
+bool poi::util::StringUtil::isUnicodeString(::java::lang::String* value)
 {
     clinit();
     return !npc(value)->equals(static_cast< ::java::lang::Object* >(new ::java::lang::String(npc(value)->getBytes(ISO_8859_1_), ISO_8859_1_)));
 }
 
-bool org::apache::poi::util::StringUtil::startsWithIgnoreCase(::java::lang::String* haystack, ::java::lang::String* prefix)
+bool poi::util::StringUtil::startsWithIgnoreCase(::java::lang::String* haystack, ::java::lang::String* prefix)
 {
     clinit();
     return npc(haystack)->regionMatches(true, 0, prefix, 0, npc(prefix)->length());
 }
 
-bool org::apache::poi::util::StringUtil::endsWithIgnoreCase(::java::lang::String* haystack, ::java::lang::String* suffix)
+bool poi::util::StringUtil::endsWithIgnoreCase(::java::lang::String* haystack, ::java::lang::String* suffix)
 {
     clinit();
     auto length = npc(suffix)->length();
@@ -281,7 +281,7 @@ bool org::apache::poi::util::StringUtil::endsWithIgnoreCase(::java::lang::String
     return npc(haystack)->regionMatches(true, start, suffix, 0, length);
 }
 
-java::lang::String* org::apache::poi::util::StringUtil::mapMsCodepointString(::java::lang::String* string)
+java::lang::String* poi::util::StringUtil::mapMsCodepointString(::java::lang::String* string)
 {
     clinit();
     if(string == nullptr || npc(u""_j)->equals(static_cast< ::java::lang::Object* >(string)))
@@ -299,14 +299,14 @@ java::lang::String* org::apache::poi::util::StringUtil::mapMsCodepointString(::j
     return npc(sb)->toString();
 }
 
-void org::apache::poi::util::StringUtil::mapMsCodepoint(int32_t msCodepoint, int32_t unicodeCodepoint)
+void poi::util::StringUtil::mapMsCodepoint(int32_t msCodepoint, int32_t unicodeCodepoint)
 {
     clinit();
     initMsCodepointMap();
     npc(msCodepointToUnicode_)->put(::java::lang::Integer::valueOf(msCodepoint), ::java::lang::Integer::valueOf(unicodeCodepoint));
 }
 
-void org::apache::poi::util::StringUtil::initMsCodepointMap()
+void poi::util::StringUtil::initMsCodepointMap()
 {
     clinit();
     if(msCodepointToUnicode_ != nullptr)
@@ -323,21 +323,21 @@ void org::apache::poi::util::StringUtil::initMsCodepointMap()
     }
 }
 
-int32_tArray*& org::apache::poi::util::StringUtil::symbolMap_f020()
+int32_tArray*& poi::util::StringUtil::symbolMap_f020()
 {
     clinit();
     return symbolMap_f020_;
 }
-int32_tArray* org::apache::poi::util::StringUtil::symbolMap_f020_;
+int32_tArray* poi::util::StringUtil::symbolMap_f020_;
 
-int32_tArray*& org::apache::poi::util::StringUtil::symbolMap_f0a0()
+int32_tArray*& poi::util::StringUtil::symbolMap_f0a0()
 {
     clinit();
     return symbolMap_f0a0_;
 }
-int32_tArray* org::apache::poi::util::StringUtil::symbolMap_f0a0_;
+int32_tArray* poi::util::StringUtil::symbolMap_f0a0_;
 
-java::lang::String* org::apache::poi::util::StringUtil::join(::java::lang::ObjectArray* array, ::java::lang::String* separator)
+java::lang::String* poi::util::StringUtil::join(::java::lang::ObjectArray* array, ::java::lang::String* separator)
 {
     clinit();
     if(array == nullptr || npc(array)->length == 0)
@@ -351,7 +351,7 @@ java::lang::String* org::apache::poi::util::StringUtil::join(::java::lang::Objec
     return npc(sb)->toString();
 }
 
-java::lang::String* org::apache::poi::util::StringUtil::join(::java::lang::ObjectArray* array)
+java::lang::String* poi::util::StringUtil::join(::java::lang::ObjectArray* array)
 {
     clinit();
     if(array == nullptr)
@@ -364,13 +364,13 @@ java::lang::String* org::apache::poi::util::StringUtil::join(::java::lang::Objec
     return npc(sb)->toString();
 }
 
-java::lang::String* org::apache::poi::util::StringUtil::join(::java::lang::String* separator, ::java::lang::ObjectArray*/*...*/ array)
+java::lang::String* poi::util::StringUtil::join(::java::lang::String* separator, ::java::lang::ObjectArray*/*...*/ array)
 {
     clinit();
     return join(array, separator);
 }
 
-int32_t org::apache::poi::util::StringUtil::countMatches(::java::lang::CharSequence* haystack, char16_t needle)
+int32_t poi::util::StringUtil::countMatches(::java::lang::CharSequence* haystack, char16_t needle)
 {
     clinit();
     if(haystack == nullptr)
@@ -388,13 +388,13 @@ int32_t org::apache::poi::util::StringUtil::countMatches(::java::lang::CharSeque
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::util::StringUtil::class_()
+java::lang::Class* poi::util::StringUtil::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.util.StringUtil", 30);
     return c;
 }
 
-void org::apache::poi::util::StringUtil::clinit()
+void poi::util::StringUtil::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -611,7 +611,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::util::StringUtil::getClass0()
+java::lang::Class* poi::util::StringUtil::getClass0()
 {
     return class_();
 }

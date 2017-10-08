@@ -13,29 +13,23 @@
 #include <java/lang/Cloneable.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace util
         {
-            namespace ss
-            {
-                namespace util
-                {
-typedef ::SubArray< ::org::apache::poi::ss::util::CellRangeAddressBase, ::java::lang::ObjectArray > CellRangeAddressBaseArray;
-typedef ::SubArray< ::org::apache::poi::ss::util::CellRangeAddress, CellRangeAddressBaseArray > CellRangeAddressArray;
-                } // util
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::util::CellRangeAddressBase, ::java::lang::ObjectArray > CellRangeAddressBaseArray;
+typedef ::SubArray< ::poi::ss::util::CellRangeAddress, CellRangeAddressBaseArray > CellRangeAddressArray;
+        } // util
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::CFHeader12Record final
+class poi::hssf::record::CFHeader12Record final
     : public CFHeaderBase
-    , public ::org::apache::poi::hssf::record::common::FutureRecord
+    , public ::poi::hssf::record::common::FutureRecord
     , public virtual ::java::lang::Cloneable
 {
 
@@ -44,10 +38,10 @@ public:
     static constexpr int16_t sid { int16_t(2169) };
 
 private:
-    ::org::apache::poi::hssf::record::common::FtrHeader* futureHeader {  };
+    ::poi::hssf::record::common::FtrHeader* futureHeader {  };
 protected:
     void ctor();
-    void ctor(::org::apache::poi::ss::util::CellRangeAddressArray* regions, int32_t nRules);
+    void ctor(::poi::ss::util::CellRangeAddressArray* regions, int32_t nRules);
     void ctor(RecordInputStream* in);
 
 public: /* protected */
@@ -55,16 +49,16 @@ public: /* protected */
     int32_t getDataSize() override;
 
 public:
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
     int16_t getSid() override;
     int16_t getFutureRecordType() override;
-    ::org::apache::poi::hssf::record::common::FtrHeader* getFutureHeader() override;
-    ::org::apache::poi::ss::util::CellRangeAddress* getAssociatedRange() override;
+    ::poi::hssf::record::common::FtrHeader* getFutureHeader() override;
+    ::poi::ss::util::CellRangeAddress* getAssociatedRange() override;
     CFHeader12Record* clone() override;
 
     // Generated
     CFHeader12Record();
-    CFHeader12Record(::org::apache::poi::ss::util::CellRangeAddressArray* regions, int32_t nRules);
+    CFHeader12Record(::poi::ss::util::CellRangeAddressArray* regions, int32_t nRules);
     CFHeader12Record(RecordInputStream* in);
 protected:
     CFHeader12Record(const ::default_init_tag&);

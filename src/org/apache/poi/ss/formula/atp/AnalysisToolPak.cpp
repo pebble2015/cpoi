@@ -61,46 +61,46 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::atp::AnalysisToolPak::AnalysisToolPak(const ::default_init_tag&)
+poi::ss::formula::atp::AnalysisToolPak::AnalysisToolPak(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::atp::AnalysisToolPak::AnalysisToolPak() 
+poi::ss::formula::atp::AnalysisToolPak::AnalysisToolPak() 
     : AnalysisToolPak(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::ss::formula::atp::AnalysisToolPak::init()
+void poi::ss::formula::atp::AnalysisToolPak::init()
 {
     _functionsByName = createFunctionsMap();
 }
 
-org::apache::poi::ss::formula::udf::UDFFinder*& org::apache::poi::ss::formula::atp::AnalysisToolPak::instance()
+poi::ss::formula::udf::UDFFinder*& poi::ss::formula::atp::AnalysisToolPak::instance()
 {
     clinit();
     return instance_;
 }
-org::apache::poi::ss::formula::udf::UDFFinder* org::apache::poi::ss::formula::atp::AnalysisToolPak::instance_;
+poi::ss::formula::udf::UDFFinder* poi::ss::formula::atp::AnalysisToolPak::instance_;
 
-void org::apache::poi::ss::formula::atp::AnalysisToolPak::ctor()
+void poi::ss::formula::atp::AnalysisToolPak::ctor()
 {
     super::ctor();
     init();
 }
 
-org::apache::poi::ss::formula::functions::FreeRefFunction* org::apache::poi::ss::formula::atp::AnalysisToolPak::findFunction(::java::lang::String* name)
+poi::ss::formula::functions::FreeRefFunction* poi::ss::formula::atp::AnalysisToolPak::findFunction(::java::lang::String* name)
 {
     auto const prefix = u"_xlfn."_j;
     if(npc(name)->startsWith(prefix))
         name = npc(name)->substring(npc(prefix)->length());
 
-    return java_cast< ::org::apache::poi::ss::formula::functions::FreeRefFunction* >(npc(_functionsByName)->get(npc(name)->toUpperCase(::java::util::Locale::ROOT())));
+    return java_cast< ::poi::ss::formula::functions::FreeRefFunction* >(npc(_functionsByName)->get(npc(name)->toUpperCase(::java::util::Locale::ROOT())));
 }
 
-java::util::Map* org::apache::poi::ss::formula::atp::AnalysisToolPak::createFunctionsMap()
+java::util::Map* poi::ss::formula::atp::AnalysisToolPak::createFunctionsMap()
 {
     ::java::util::Map* m = new ::java::util::HashMap(int32_t(108));
     r(m, u"ACCRINT"_j, nullptr);
@@ -114,12 +114,12 @@ java::util::Map* org::apache::poi::ss::formula::atp::AnalysisToolPak::createFunc
     r(m, u"BESSELJ"_j, nullptr);
     r(m, u"BESSELK"_j, nullptr);
     r(m, u"BESSELY"_j, nullptr);
-    r(m, u"BIN2DEC"_j, ::org::apache::poi::ss::formula::functions::Bin2Dec::instance());
+    r(m, u"BIN2DEC"_j, ::poi::ss::formula::functions::Bin2Dec::instance());
     r(m, u"BIN2HEX"_j, nullptr);
     r(m, u"BIN2OCT"_j, nullptr);
-    r(m, u"COMPLEX"_j, ::org::apache::poi::ss::formula::functions::Complex::instance());
+    r(m, u"COMPLEX"_j, ::poi::ss::formula::functions::Complex::instance());
     r(m, u"CONVERT"_j, nullptr);
-    r(m, u"COUNTIFS"_j, ::org::apache::poi::ss::formula::functions::Countifs::instance());
+    r(m, u"COUNTIFS"_j, ::poi::ss::formula::functions::Countifs::instance());
     r(m, u"COUPDAYBS"_j, nullptr);
     r(m, u"COUPDAYS"_j, nullptr);
     r(m, u"COUPDAYSNC"_j, nullptr);
@@ -135,29 +135,29 @@ java::util::Map* org::apache::poi::ss::formula::atp::AnalysisToolPak::createFunc
     r(m, u"CUBEVALUE"_j, nullptr);
     r(m, u"CUMIPMT"_j, nullptr);
     r(m, u"CUMPRINC"_j, nullptr);
-    r(m, u"DEC2BIN"_j, ::org::apache::poi::ss::formula::functions::Dec2Bin::instance());
-    r(m, u"DEC2HEX"_j, ::org::apache::poi::ss::formula::functions::Dec2Hex::instance());
+    r(m, u"DEC2BIN"_j, ::poi::ss::formula::functions::Dec2Bin::instance());
+    r(m, u"DEC2HEX"_j, ::poi::ss::formula::functions::Dec2Hex::instance());
     r(m, u"DEC2OCT"_j, nullptr);
-    r(m, u"DELTA"_j, ::org::apache::poi::ss::formula::functions::Delta::instance());
+    r(m, u"DELTA"_j, ::poi::ss::formula::functions::Delta::instance());
     r(m, u"DISC"_j, nullptr);
     r(m, u"DOLLARDE"_j, nullptr);
     r(m, u"DOLLARFR"_j, nullptr);
     r(m, u"DURATION"_j, nullptr);
-    r(m, u"EDATE"_j, ::org::apache::poi::ss::formula::functions::EDate::instance());
+    r(m, u"EDATE"_j, ::poi::ss::formula::functions::EDate::instance());
     r(m, u"EFFECT"_j, nullptr);
-    r(m, u"EOMONTH"_j, ::org::apache::poi::ss::formula::functions::EOMonth::instance());
+    r(m, u"EOMONTH"_j, ::poi::ss::formula::functions::EOMonth::instance());
     r(m, u"ERF"_j, nullptr);
     r(m, u"ERFC"_j, nullptr);
-    r(m, u"FACTDOUBLE"_j, ::org::apache::poi::ss::formula::functions::FactDouble::instance());
+    r(m, u"FACTDOUBLE"_j, ::poi::ss::formula::functions::FactDouble::instance());
     r(m, u"FVSCHEDULE"_j, nullptr);
     r(m, u"GCD"_j, nullptr);
     r(m, u"GESTEP"_j, nullptr);
     r(m, u"HEX2BIN"_j, nullptr);
-    r(m, u"HEX2DEC"_j, ::org::apache::poi::ss::formula::functions::Hex2Dec::instance());
+    r(m, u"HEX2DEC"_j, ::poi::ss::formula::functions::Hex2Dec::instance());
     r(m, u"HEX2OCT"_j, nullptr);
     r(m, u"IFERROR"_j, IfError::instance());
     r(m, u"IMABS"_j, nullptr);
-    r(m, u"IMAGINARY"_j, ::org::apache::poi::ss::formula::functions::Imaginary::instance());
+    r(m, u"IMAGINARY"_j, ::poi::ss::formula::functions::Imaginary::instance());
     r(m, u"IMARGUMENT"_j, nullptr);
     r(m, u"IMCONJUGATE"_j, nullptr);
     r(m, u"IMCOS"_j, nullptr);
@@ -168,7 +168,7 @@ java::util::Map* org::apache::poi::ss::formula::atp::AnalysisToolPak::createFunc
     r(m, u"IMLOG2"_j, nullptr);
     r(m, u"IMPOWER"_j, nullptr);
     r(m, u"IMPRODUCT"_j, nullptr);
-    r(m, u"IMREAL"_j, ::org::apache::poi::ss::formula::functions::ImReal::instance());
+    r(m, u"IMREAL"_j, ::poi::ss::formula::functions::ImReal::instance());
     r(m, u"IMSIN"_j, nullptr);
     r(m, u"IMSQRT"_j, nullptr);
     r(m, u"IMSUB"_j, nullptr);
@@ -184,7 +184,7 @@ java::util::Map* org::apache::poi::ss::formula::atp::AnalysisToolPak::createFunc
     r(m, u"NETWORKDAYS"_j, NetworkdaysFunction::instance());
     r(m, u"NOMINAL"_j, nullptr);
     r(m, u"OCT2BIN"_j, nullptr);
-    r(m, u"OCT2DEC"_j, ::org::apache::poi::ss::formula::functions::Oct2Dec::instance());
+    r(m, u"OCT2DEC"_j, ::poi::ss::formula::functions::Oct2Dec::instance());
     r(m, u"OCT2HEX"_j, nullptr);
     r(m, u"ODDFPRICE"_j, nullptr);
     r(m, u"ODDFYIELD"_j, nullptr);
@@ -193,17 +193,17 @@ java::util::Map* org::apache::poi::ss::formula::atp::AnalysisToolPak::createFunc
     r(m, u"PRICE"_j, nullptr);
     r(m, u"PRICEDISC"_j, nullptr);
     r(m, u"PRICEMAT"_j, nullptr);
-    r(m, u"QUOTIENT"_j, ::org::apache::poi::ss::formula::functions::Quotient::instance());
+    r(m, u"QUOTIENT"_j, ::poi::ss::formula::functions::Quotient::instance());
     r(m, u"RANDBETWEEN"_j, RandBetween::instance());
     r(m, u"RECEIVED"_j, nullptr);
     r(m, u"RTD"_j, nullptr);
     r(m, u"SERIESSUM"_j, nullptr);
     r(m, u"SQRTPI"_j, nullptr);
-    r(m, u"SUMIFS"_j, ::org::apache::poi::ss::formula::functions::Sumifs::instance());
+    r(m, u"SUMIFS"_j, ::poi::ss::formula::functions::Sumifs::instance());
     r(m, u"TBILLEQ"_j, nullptr);
     r(m, u"TBILLPRICE"_j, nullptr);
     r(m, u"TBILLYIELD"_j, nullptr);
-    r(m, u"WEEKNUM"_j, ::org::apache::poi::ss::formula::functions::WeekNum::instance());
+    r(m, u"WEEKNUM"_j, ::poi::ss::formula::functions::WeekNum::instance());
     r(m, u"WORKDAY"_j, WorkdayFunction::instance());
     r(m, u"XIRR"_j, nullptr);
     r(m, u"XNPV"_j, nullptr);
@@ -214,21 +214,21 @@ java::util::Map* org::apache::poi::ss::formula::atp::AnalysisToolPak::createFunc
     return m;
 }
 
-void org::apache::poi::ss::formula::atp::AnalysisToolPak::r(::java::util::Map* m, ::java::lang::String* functionName, ::org::apache::poi::ss::formula::functions::FreeRefFunction* pFunc)
+void poi::ss::formula::atp::AnalysisToolPak::r(::java::util::Map* m, ::java::lang::String* functionName, ::poi::ss::formula::functions::FreeRefFunction* pFunc)
 {
     clinit();
-    auto func = pFunc == nullptr ? static_cast< ::org::apache::poi::ss::formula::functions::FreeRefFunction* >(new AnalysisToolPak_NotImplemented(functionName)) : pFunc;
+    auto func = pFunc == nullptr ? static_cast< ::poi::ss::formula::functions::FreeRefFunction* >(new AnalysisToolPak_NotImplemented(functionName)) : pFunc;
     npc(m)->put(functionName, func);
 }
 
-bool org::apache::poi::ss::formula::atp::AnalysisToolPak::isATPFunction(::java::lang::String* name)
+bool poi::ss::formula::atp::AnalysisToolPak::isATPFunction(::java::lang::String* name)
 {
     clinit();
     auto inst = java_cast< AnalysisToolPak* >(instance_);
     return npc(npc(inst)->_functionsByName)->containsKey(name);
 }
 
-java::util::Collection* org::apache::poi::ss::formula::atp::AnalysisToolPak::getSupportedFunctionNames()
+java::util::Collection* poi::ss::formula::atp::AnalysisToolPak::getSupportedFunctionNames()
 {
     clinit();
     auto inst = java_cast< AnalysisToolPak* >(instance_);
@@ -236,7 +236,7 @@ java::util::Collection* org::apache::poi::ss::formula::atp::AnalysisToolPak::get
     for (auto _i = npc(npc(npc(inst)->_functionsByName)->entrySet())->iterator(); _i->hasNext(); ) {
         ::java::util::Map_Entry* me = java_cast< ::java::util::Map_Entry* >(_i->next());
         {
-            auto func = java_cast< ::org::apache::poi::ss::formula::functions::FreeRefFunction* >(npc(me)->getValue());
+            auto func = java_cast< ::poi::ss::formula::functions::FreeRefFunction* >(npc(me)->getValue());
             if(func != nullptr && !(dynamic_cast< AnalysisToolPak_NotImplemented* >(func) != nullptr)) {
                 npc(lst)->add(java_cast< ::java::lang::String* >(npc(me)->getKey()));
             }
@@ -245,7 +245,7 @@ java::util::Collection* org::apache::poi::ss::formula::atp::AnalysisToolPak::get
     return ::java::util::Collections::unmodifiableCollection(lst);
 }
 
-java::util::Collection* org::apache::poi::ss::formula::atp::AnalysisToolPak::getNotSupportedFunctionNames()
+java::util::Collection* poi::ss::formula::atp::AnalysisToolPak::getNotSupportedFunctionNames()
 {
     clinit();
     auto inst = java_cast< AnalysisToolPak* >(instance_);
@@ -253,7 +253,7 @@ java::util::Collection* org::apache::poi::ss::formula::atp::AnalysisToolPak::get
     for (auto _i = npc(npc(npc(inst)->_functionsByName)->entrySet())->iterator(); _i->hasNext(); ) {
         ::java::util::Map_Entry* me = java_cast< ::java::util::Map_Entry* >(_i->next());
         {
-            auto func = java_cast< ::org::apache::poi::ss::formula::functions::FreeRefFunction* >(npc(me)->getValue());
+            auto func = java_cast< ::poi::ss::formula::functions::FreeRefFunction* >(npc(me)->getValue());
             if(dynamic_cast< AnalysisToolPak_NotImplemented* >(func) != nullptr) {
                 npc(lst)->add(java_cast< ::java::lang::String* >(npc(me)->getKey()));
             }
@@ -262,12 +262,12 @@ java::util::Collection* org::apache::poi::ss::formula::atp::AnalysisToolPak::get
     return ::java::util::Collections::unmodifiableCollection(lst);
 }
 
-void org::apache::poi::ss::formula::atp::AnalysisToolPak::registerFunction(::java::lang::String* name, ::org::apache::poi::ss::formula::functions::FreeRefFunction* func)
+void poi::ss::formula::atp::AnalysisToolPak::registerFunction(::java::lang::String* name, ::poi::ss::formula::functions::FreeRefFunction* func)
 {
     clinit();
     auto inst = java_cast< AnalysisToolPak* >(instance_);
     if(!isATPFunction(name)) {
-        auto metaData = ::org::apache::poi::ss::formula::function::FunctionMetadataRegistry::getFunctionByName(name);
+        auto metaData = ::poi::ss::formula::function::FunctionMetadataRegistry::getFunctionByName(name);
         if(metaData != nullptr) {
             throw new ::java::lang::IllegalArgumentException(::java::lang::StringBuilder().append(name)->append(u" is a built-in Excel function. "_j)
                 ->append(u"Use FunctoinEval.registerFunction(String name, Function func) instead."_j)->toString());
@@ -284,13 +284,13 @@ void org::apache::poi::ss::formula::atp::AnalysisToolPak::registerFunction(::jav
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::atp::AnalysisToolPak::class_()
+java::lang::Class* poi::ss::formula::atp::AnalysisToolPak::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.atp.AnalysisToolPak", 45);
     return c;
 }
 
-void org::apache::poi::ss::formula::atp::AnalysisToolPak::clinit()
+void poi::ss::formula::atp::AnalysisToolPak::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -306,7 +306,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::formula::atp::AnalysisToolPak::getClass0()
+java::lang::Class* poi::ss::formula::atp::AnalysisToolPak::getClass0()
 {
     return class_();
 }

@@ -67,35 +67,35 @@ namespace
 
     template<typename F> finally_<F> finally(F f) { return finally_<F>(f); }
 }
-org::apache::poi::ss::util::ImageUtils::ImageUtils(const ::default_init_tag&)
+poi::ss::util::ImageUtils::ImageUtils(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::util::ImageUtils::ImageUtils()
+poi::ss::util::ImageUtils::ImageUtils()
     : ImageUtils(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::util::POILogger*& org::apache::poi::ss::util::ImageUtils::logger()
+poi::util::POILogger*& poi::ss::util::ImageUtils::logger()
 {
     clinit();
     return logger_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::ss::util::ImageUtils::logger_;
+poi::util::POILogger* poi::ss::util::ImageUtils::logger_;
 
-constexpr int32_t org::apache::poi::ss::util::ImageUtils::PIXEL_DPI;
+constexpr int32_t poi::ss::util::ImageUtils::PIXEL_DPI;
 
-java::awt::Dimension* org::apache::poi::ss::util::ImageUtils::getImageDimension(::java::io::InputStream* is, int32_t type)
+java::awt::Dimension* poi::ss::util::ImageUtils::getImageDimension(::java::io::InputStream* is, int32_t type)
 {
     clinit();
     auto size = new ::java::awt::Dimension();
     switch (type) {
-    case ::org::apache::poi::ss::usermodel::Workbook::PICTURE_TYPE_JPEG:
-    case ::org::apache::poi::ss::usermodel::Workbook::PICTURE_TYPE_PNG:
-    case ::org::apache::poi::ss::usermodel::Workbook::PICTURE_TYPE_DIB:
+    case ::poi::ss::usermodel::Workbook::PICTURE_TYPE_JPEG:
+    case ::poi::ss::usermodel::Workbook::PICTURE_TYPE_PNG:
+    case ::poi::ss::usermodel::Workbook::PICTURE_TYPE_DIB:
         try {
             auto iis = ::javax::imageio::ImageIO::createImageInputStream(is);
             {
@@ -128,17 +128,17 @@ java::awt::Dimension* org::apache::poi::ss::util::ImageUtils::getImageDimension(
             }
 
         } catch (::java::io::IOException* e) {
-            npc(logger_)->log(::org::apache::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(e)}));
+            npc(logger_)->log(::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(e)}));
         }
         break;
     default:
-        npc(logger_)->log(::org::apache::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"Only JPEG, PNG and DIB pictures can be automatically sized"_j)}));
+        npc(logger_)->log(::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"Only JPEG, PNG and DIB pictures can be automatically sized"_j)}));
     }
 
     return size;
 }
 
-int32_tArray* org::apache::poi::ss::util::ImageUtils::getResolution(::javax::imageio::ImageReader* r) /* throws(IOException) */
+int32_tArray* poi::ss::util::ImageUtils::getResolution(::javax::imageio::ImageReader* r) /* throws(IOException) */
 {
     clinit();
     int32_t hdpi = int32_t(96), vdpi = int32_t(96);
@@ -159,17 +159,17 @@ int32_tArray* org::apache::poi::ss::util::ImageUtils::getResolution(::javax::ima
     });
 }
 
-java::awt::Dimension* org::apache::poi::ss::util::ImageUtils::setPreferredSize(::org::apache::poi::ss::usermodel::Picture* picture, double scaleX, double scaleY)
+java::awt::Dimension* poi::ss::util::ImageUtils::setPreferredSize(::poi::ss::usermodel::Picture* picture, double scaleX, double scaleY)
 {
     clinit();
     auto anchor = npc(picture)->getClientAnchor();
-    auto isHSSF = (dynamic_cast< ::org::apache::poi::hssf::usermodel::HSSFClientAnchor* >(anchor) != nullptr);
+    auto isHSSF = (dynamic_cast< ::poi::hssf::usermodel::HSSFClientAnchor* >(anchor) != nullptr);
     auto data = npc(picture)->getPictureData();
     auto sheet = npc(picture)->getSheet();
     auto imgSize = getImageDimension(new ::java::io::ByteArrayInputStream(npc(data)->getData()), npc(data)->getPictureType());
     auto anchorSize = ImageUtils::getDimensionFromAnchor(picture);
-    auto const scaledWidth = (scaleX == ::java::lang::Double::MAX_VALUE) ? npc(imgSize)->getWidth() : npc(anchorSize)->getWidth() / ::org::apache::poi::util::Units::EMU_PER_PIXEL * scaleX;
-    auto const scaledHeight = (scaleY == ::java::lang::Double::MAX_VALUE) ? npc(imgSize)->getHeight() : npc(anchorSize)->getHeight() / ::org::apache::poi::util::Units::EMU_PER_PIXEL * scaleY;
+    auto const scaledWidth = (scaleX == ::java::lang::Double::MAX_VALUE) ? npc(imgSize)->getWidth() : npc(anchorSize)->getWidth() / ::poi::util::Units::EMU_PER_PIXEL * scaleX;
+    auto const scaledHeight = (scaleY == ::java::lang::Double::MAX_VALUE) ? npc(imgSize)->getHeight() : npc(anchorSize)->getHeight() / ::poi::util::Units::EMU_PER_PIXEL * scaleY;
     double w = int32_t(0);
     int32_t col2 = npc(anchor)->getCol1();
     auto dx2 = int32_t(0);
@@ -177,7 +177,7 @@ java::awt::Dimension* org::apache::poi::ss::util::ImageUtils::setPreferredSize(:
     if(isHSSF) {
         w *= 1.0 - npc(anchor)->getDx1() / 1024.0;
     } else {
-        w -= npc(anchor)->getDx1() / static_cast< double >(::org::apache::poi::util::Units::EMU_PER_PIXEL);
+        w -= npc(anchor)->getDx1() / static_cast< double >(::poi::util::Units::EMU_PER_PIXEL);
     }
     while (w < scaledWidth) {
         w += npc(sheet)->getColumnWidthInPixels(col2++);
@@ -188,7 +188,7 @@ java::awt::Dimension* org::apache::poi::ss::util::ImageUtils::setPreferredSize(:
         if(isHSSF) {
             dx2 = static_cast< int32_t >(((cw - delta) / cw * int32_t(1024)));
         } else {
-            dx2 = static_cast< int32_t >(((cw - delta) * ::org::apache::poi::util::Units::EMU_PER_PIXEL));
+            dx2 = static_cast< int32_t >(((cw - delta) * ::poi::util::Units::EMU_PER_PIXEL));
         }
         if(dx2 < 0)
             dx2 = 0;
@@ -203,7 +203,7 @@ java::awt::Dimension* org::apache::poi::ss::util::ImageUtils::setPreferredSize(:
     if(isHSSF) {
         h *= int32_t(1) - npc(anchor)->getDy1() / 256.0;
     } else {
-        h -= npc(anchor)->getDy1() / static_cast< double >(::org::apache::poi::util::Units::EMU_PER_PIXEL);
+        h -= npc(anchor)->getDy1() / static_cast< double >(::poi::util::Units::EMU_PER_PIXEL);
     }
     while (h < scaledHeight) {
         h += getRowHeightInPixels(sheet, row2++);
@@ -214,7 +214,7 @@ java::awt::Dimension* org::apache::poi::ss::util::ImageUtils::setPreferredSize(:
         if(isHSSF) {
             dy2 = static_cast< int32_t >(((ch - delta) / ch * int32_t(256)));
         } else {
-            dy2 = static_cast< int32_t >(((ch - delta) * ::org::apache::poi::util::Units::EMU_PER_PIXEL));
+            dy2 = static_cast< int32_t >(((ch - delta) * ::poi::util::Units::EMU_PER_PIXEL));
         }
         if(dy2 < 0)
             dy2 = 0;
@@ -222,15 +222,15 @@ java::awt::Dimension* org::apache::poi::ss::util::ImageUtils::setPreferredSize(:
     }
     npc(anchor)->setRow2(row2);
     npc(anchor)->setDy2(dy2);
-    auto dim = new ::java::awt::Dimension(static_cast< int32_t >(::java::lang::Math::round(scaledWidth * ::org::apache::poi::util::Units::EMU_PER_PIXEL)), static_cast< int32_t >(::java::lang::Math::round(scaledHeight * ::org::apache::poi::util::Units::EMU_PER_PIXEL)));
+    auto dim = new ::java::awt::Dimension(static_cast< int32_t >(::java::lang::Math::round(scaledWidth * ::poi::util::Units::EMU_PER_PIXEL)), static_cast< int32_t >(::java::lang::Math::round(scaledHeight * ::poi::util::Units::EMU_PER_PIXEL)));
     return dim;
 }
 
-java::awt::Dimension* org::apache::poi::ss::util::ImageUtils::getDimensionFromAnchor(::org::apache::poi::ss::usermodel::Picture* picture)
+java::awt::Dimension* poi::ss::util::ImageUtils::getDimensionFromAnchor(::poi::ss::usermodel::Picture* picture)
 {
     clinit();
     auto anchor = npc(picture)->getClientAnchor();
-    auto isHSSF = (dynamic_cast< ::org::apache::poi::hssf::usermodel::HSSFClientAnchor* >(anchor) != nullptr);
+    auto isHSSF = (dynamic_cast< ::poi::hssf::usermodel::HSSFClientAnchor* >(anchor) != nullptr);
     auto sheet = npc(picture)->getSheet();
     double w = int32_t(0);
     int32_t col2 = npc(anchor)->getCol1();
@@ -238,7 +238,7 @@ java::awt::Dimension* org::apache::poi::ss::util::ImageUtils::getDimensionFromAn
     if(isHSSF) {
         w *= int32_t(1) - npc(anchor)->getDx1() / 1024.0;
     } else {
-        w -= npc(anchor)->getDx1() / static_cast< double >(::org::apache::poi::util::Units::EMU_PER_PIXEL);
+        w -= npc(anchor)->getDx1() / static_cast< double >(::poi::util::Units::EMU_PER_PIXEL);
     }
     while (col2 < npc(anchor)->getCol2()) {
         w += npc(sheet)->getColumnWidthInPixels(col2++);
@@ -246,7 +246,7 @@ java::awt::Dimension* org::apache::poi::ss::util::ImageUtils::getDimensionFromAn
     if(isHSSF) {
         w += npc(sheet)->getColumnWidthInPixels(col2) * npc(anchor)->getDx2() / 1024.0;
     } else {
-        w += npc(anchor)->getDx2() / static_cast< double >(::org::apache::poi::util::Units::EMU_PER_PIXEL);
+        w += npc(anchor)->getDx2() / static_cast< double >(::poi::util::Units::EMU_PER_PIXEL);
     }
     double h = int32_t(0);
     auto row2 = npc(anchor)->getRow1();
@@ -254,7 +254,7 @@ java::awt::Dimension* org::apache::poi::ss::util::ImageUtils::getDimensionFromAn
     if(isHSSF) {
         h *= int32_t(1) - npc(anchor)->getDy1() / 256.0;
     } else {
-        h -= npc(anchor)->getDy1() / static_cast< double >(::org::apache::poi::util::Units::EMU_PER_PIXEL);
+        h -= npc(anchor)->getDy1() / static_cast< double >(::poi::util::Units::EMU_PER_PIXEL);
     }
     while (row2 < npc(anchor)->getRow2()) {
         h += getRowHeightInPixels(sheet, row2++);
@@ -262,37 +262,37 @@ java::awt::Dimension* org::apache::poi::ss::util::ImageUtils::getDimensionFromAn
     if(isHSSF) {
         h += getRowHeightInPixels(sheet, row2) * npc(anchor)->getDy2() / int32_t(256);
     } else {
-        h += npc(anchor)->getDy2() / static_cast< double >(::org::apache::poi::util::Units::EMU_PER_PIXEL);
+        h += npc(anchor)->getDy2() / static_cast< double >(::poi::util::Units::EMU_PER_PIXEL);
     }
-    w *= ::org::apache::poi::util::Units::EMU_PER_PIXEL;
-    h *= ::org::apache::poi::util::Units::EMU_PER_PIXEL;
+    w *= ::poi::util::Units::EMU_PER_PIXEL;
+    h *= ::poi::util::Units::EMU_PER_PIXEL;
     return new ::java::awt::Dimension(static_cast< int32_t >(::java::lang::Math::rint(w)), static_cast< int32_t >(::java::lang::Math::rint(h)));
 }
 
-double org::apache::poi::ss::util::ImageUtils::getRowHeightInPixels(::org::apache::poi::ss::usermodel::Sheet* sheet, int32_t rowNum)
+double poi::ss::util::ImageUtils::getRowHeightInPixels(::poi::ss::usermodel::Sheet* sheet, int32_t rowNum)
 {
     clinit();
     auto r = npc(sheet)->getRow(rowNum);
     double points = (r == nullptr) ? npc(sheet)->getDefaultRowHeightInPoints() : npc(r)->getHeightInPoints();
-    return ::org::apache::poi::util::Units::toEMU(points) / static_cast< double >(::org::apache::poi::util::Units::EMU_PER_PIXEL);
+    return ::poi::util::Units::toEMU(points) / static_cast< double >(::poi::util::Units::EMU_PER_PIXEL);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::util::ImageUtils::class_()
+java::lang::Class* poi::ss::util::ImageUtils::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.util.ImageUtils", 33);
     return c;
 }
 
-void org::apache::poi::ss::util::ImageUtils::clinit()
+void poi::ss::util::ImageUtils::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        logger_ = ::org::apache::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(ImageUtils::class_()));
+        logger_ = ::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(ImageUtils::class_()));
     }
 };
 
@@ -301,7 +301,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::util::ImageUtils::getClass0()
+java::lang::Class* poi::ss::util::ImageUtils::getClass0()
 {
     return class_();
 }

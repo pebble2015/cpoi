@@ -13,19 +13,19 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::extractor::EventBasedExcelExtractor_TextListener
+class poi::hssf::extractor::EventBasedExcelExtractor_TextListener
     : public virtual ::java::lang::Object
-    , public virtual ::org::apache::poi::hssf::eventusermodel::HSSFListener
+    , public virtual ::poi::hssf::eventusermodel::HSSFListener
 {
 
 public:
     typedef ::java::lang::Object super;
 
 public: /* package */
-    ::org::apache::poi::hssf::eventusermodel::FormatTrackingHSSFListener* _ft {  };
+    ::poi::hssf::eventusermodel::FormatTrackingHSSFListener* _ft {  };
 
 private:
-    ::org::apache::poi::hssf::record::SSTRecord* sstRecord {  };
+    ::poi::hssf::record::SSTRecord* sstRecord {  };
     ::java::util::List* sheetNames {  };
 
 public: /* package */
@@ -40,7 +40,7 @@ protected:
     void ctor();
 
 public:
-    void processRecord(::org::apache::poi::hssf::record::Record* record) override;
+    void processRecord(::poi::hssf::record::Record* record) override;
 
     // Generated
     EventBasedExcelExtractor_TextListener(EventBasedExcelExtractor *EventBasedExcelExtractor_this);

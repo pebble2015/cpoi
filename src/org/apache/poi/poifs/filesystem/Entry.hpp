@@ -7,7 +7,7 @@
 #include <org/apache/poi/poifs/filesystem/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::poifs::filesystem::Entry
+struct poi::poifs::filesystem::Entry
     : public virtual ::java::lang::Object
 {
     virtual ::java::lang::String* getName() = 0;

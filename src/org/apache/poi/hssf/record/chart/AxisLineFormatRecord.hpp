@@ -12,13 +12,13 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::chart::AxisLineFormatRecord final
-    : public ::org::apache::poi::hssf::record::StandardRecord
+class poi::hssf::record::chart::AxisLineFormatRecord final
+    : public ::poi::hssf::record::StandardRecord
     , public ::java::lang::Cloneable
 {
 
 public:
-    typedef ::org::apache::poi::hssf::record::StandardRecord super;
+    typedef ::poi::hssf::record::StandardRecord super;
     static constexpr int16_t sid { int16_t(4129) };
 
 private:
@@ -31,11 +31,11 @@ public:
     static constexpr int16_t AXIS_TYPE_WALLS_OR_FLOOR { int16_t(3) };
 protected:
     void ctor();
-    void ctor(::org::apache::poi::hssf::record::RecordInputStream* in);
+    void ctor(::poi::hssf::record::RecordInputStream* in);
 
 public:
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;
@@ -48,7 +48,7 @@ public:
 
     // Generated
     AxisLineFormatRecord();
-    AxisLineFormatRecord(::org::apache::poi::hssf::record::RecordInputStream* in);
+    AxisLineFormatRecord(::poi::hssf::record::RecordInputStream* in);
 protected:
     AxisLineFormatRecord(const ::default_init_tag&);
 

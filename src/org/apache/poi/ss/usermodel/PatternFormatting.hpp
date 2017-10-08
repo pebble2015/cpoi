@@ -6,7 +6,7 @@
 #include <org/apache/poi/ss/usermodel/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::usermodel::PatternFormatting
+struct poi::ss::usermodel::PatternFormatting
     : public virtual ::java::lang::Object
 {
     static constexpr int16_t NO_FILL { int16_t(0) };

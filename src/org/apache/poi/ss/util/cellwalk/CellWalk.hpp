@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::util::cellwalk::CellWalk
+class poi::ss::util::cellwalk::CellWalk
     : public virtual ::java::lang::Object
 {
 
@@ -18,11 +18,11 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    ::org::apache::poi::ss::usermodel::Sheet* sheet {  };
-    ::org::apache::poi::ss::util::CellRangeAddress* range {  };
+    ::poi::ss::usermodel::Sheet* sheet {  };
+    ::poi::ss::util::CellRangeAddress* range {  };
     bool traverseEmptyCells {  };
 protected:
-    void ctor(::org::apache::poi::ss::usermodel::Sheet* sheet, ::org::apache::poi::ss::util::CellRangeAddress* range);
+    void ctor(::poi::ss::usermodel::Sheet* sheet, ::poi::ss::util::CellRangeAddress* range);
 
 public:
     virtual bool isTraverseEmptyCells();
@@ -30,12 +30,12 @@ public:
     virtual void traverse(CellHandler* handler);
 
 private:
-    bool isEmpty(::org::apache::poi::ss::usermodel::Cell* cell);
+    bool isEmpty(::poi::ss::usermodel::Cell* cell);
 
     // Generated
 
 public:
-    CellWalk(::org::apache::poi::ss::usermodel::Sheet* sheet, ::org::apache::poi::ss::util::CellRangeAddress* range);
+    CellWalk(::poi::ss::usermodel::Sheet* sheet, ::poi::ss::util::CellRangeAddress* range);
 protected:
     CellWalk(const ::default_init_tag&);
 

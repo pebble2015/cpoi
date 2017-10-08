@@ -10,14 +10,14 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::cont::ContinuableRecordOutput_1
+class poi::hssf::record::cont::ContinuableRecordOutput_1
     : public virtual ::java::lang::Object
-    , public virtual ::org::apache::poi::util::DelayableLittleEndianOutput
+    , public virtual ::poi::util::DelayableLittleEndianOutput
 {
 
 public:
     typedef ::java::lang::Object super;
-    ::org::apache::poi::util::LittleEndianOutput* createDelayedOutput(int32_t size) override;
+    ::poi::util::LittleEndianOutput* createDelayedOutput(int32_t size) override;
     void write(::int8_tArray* b) override;
     void write(::int8_tArray* b, int32_t offset, int32_t len) override;
     void writeByte(int32_t v) override;

@@ -19,32 +19,32 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::BoolErrRecord::BoolErrRecord(const ::default_init_tag&)
+poi::hssf::record::BoolErrRecord::BoolErrRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::BoolErrRecord::BoolErrRecord() 
+poi::hssf::record::BoolErrRecord::BoolErrRecord() 
     : BoolErrRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::BoolErrRecord::BoolErrRecord(RecordInputStream* in) 
+poi::hssf::record::BoolErrRecord::BoolErrRecord(RecordInputStream* in) 
     : BoolErrRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::BoolErrRecord::sid;
+constexpr int16_t poi::hssf::record::BoolErrRecord::sid;
 
-void org::apache::poi::hssf::record::BoolErrRecord::ctor()
+void poi::hssf::record::BoolErrRecord::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hssf::record::BoolErrRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::BoolErrRecord::ctor(RecordInputStream* in)
 {
     super::ctor(in);
     switch (npc(in)->remaining()) {
@@ -55,7 +55,7 @@ void org::apache::poi::hssf::record::BoolErrRecord::ctor(RecordInputStream* in)
         _value = npc(in)->readUShort();
         break;
     default:
-        throw new ::org::apache::poi::util::RecordFormatException(::java::lang::StringBuilder().append(u"Unexpected size ("_j)->append(npc(in)->remaining())
+        throw new ::poi::util::RecordFormatException(::java::lang::StringBuilder().append(u"Unexpected size ("_j)->append(npc(in)->remaining())
             ->append(u") for BOOLERR record."_j)->toString());
     }
 
@@ -68,33 +68,33 @@ void org::apache::poi::hssf::record::BoolErrRecord::ctor(RecordInputStream* in)
         _isError = true;
         break;
     default:
-        throw new ::org::apache::poi::util::RecordFormatException(::java::lang::StringBuilder().append(u"Unexpected isError flag ("_j)->append(flag)
+        throw new ::poi::util::RecordFormatException(::java::lang::StringBuilder().append(u"Unexpected isError flag ("_j)->append(flag)
             ->append(u") for BOOLERR record."_j)->toString());
     }
 
 }
 
-void org::apache::poi::hssf::record::BoolErrRecord::setValue(bool value)
+void poi::hssf::record::BoolErrRecord::setValue(bool value)
 {
     _value = value ? int32_t(1) : int32_t(0);
     _isError = false;
 }
 
-void org::apache::poi::hssf::record::BoolErrRecord::setValue(int8_t value)
+void poi::hssf::record::BoolErrRecord::setValue(int8_t value)
 {
-    setValue(::org::apache::poi::ss::usermodel::FormulaError::forInt(value));
+    setValue(::poi::ss::usermodel::FormulaError::forInt(value));
 }
 
-void org::apache::poi::hssf::record::BoolErrRecord::setValue(::org::apache::poi::ss::usermodel::FormulaError* value)
+void poi::hssf::record::BoolErrRecord::setValue(::poi::ss::usermodel::FormulaError* value)
 {
     {
         auto v = value;
-        if((v == ::org::apache::poi::ss::usermodel::FormulaError::NULL_) || (v == ::org::apache::poi::ss::usermodel::FormulaError::DIV0) || (v == ::org::apache::poi::ss::usermodel::FormulaError::VALUE) || (v == ::org::apache::poi::ss::usermodel::FormulaError::REF) || (v == ::org::apache::poi::ss::usermodel::FormulaError::NAME) || (v == ::org::apache::poi::ss::usermodel::FormulaError::NUM) || (v == ::org::apache::poi::ss::usermodel::FormulaError::NA)) {
+        if((v == ::poi::ss::usermodel::FormulaError::NULL_) || (v == ::poi::ss::usermodel::FormulaError::DIV0) || (v == ::poi::ss::usermodel::FormulaError::VALUE) || (v == ::poi::ss::usermodel::FormulaError::REF) || (v == ::poi::ss::usermodel::FormulaError::NAME) || (v == ::poi::ss::usermodel::FormulaError::NUM) || (v == ::poi::ss::usermodel::FormulaError::NA)) {
             _value = npc(value)->getCode();
             _isError = true;
             return;
         }
-        if((((v != ::org::apache::poi::ss::usermodel::FormulaError::NULL_) && (v != ::org::apache::poi::ss::usermodel::FormulaError::DIV0) && (v != ::org::apache::poi::ss::usermodel::FormulaError::VALUE) && (v != ::org::apache::poi::ss::usermodel::FormulaError::REF) && (v != ::org::apache::poi::ss::usermodel::FormulaError::NAME) && (v != ::org::apache::poi::ss::usermodel::FormulaError::NUM) && (v != ::org::apache::poi::ss::usermodel::FormulaError::NA)))) {
+        if((((v != ::poi::ss::usermodel::FormulaError::NULL_) && (v != ::poi::ss::usermodel::FormulaError::DIV0) && (v != ::poi::ss::usermodel::FormulaError::VALUE) && (v != ::poi::ss::usermodel::FormulaError::REF) && (v != ::poi::ss::usermodel::FormulaError::NAME) && (v != ::poi::ss::usermodel::FormulaError::NUM) && (v != ::poi::ss::usermodel::FormulaError::NA)))) {
             throw new ::java::lang::IllegalArgumentException(::java::lang::StringBuilder().append(u"Error Value can only be 0,7,15,23,29,36 or 42. It cannot be "_j)->append(npc(value)->getCode())
                 ->append(u" ("_j)
                 ->append(static_cast< ::java::lang::Object* >(value))
@@ -105,60 +105,60 @@ end_switch0:;
 
 }
 
-bool org::apache::poi::hssf::record::BoolErrRecord::getBooleanValue()
+bool poi::hssf::record::BoolErrRecord::getBooleanValue()
 {
     return _value != 0;
 }
 
-int8_t org::apache::poi::hssf::record::BoolErrRecord::getErrorValue()
+int8_t poi::hssf::record::BoolErrRecord::getErrorValue()
 {
     return static_cast< int8_t >(_value);
 }
 
-bool org::apache::poi::hssf::record::BoolErrRecord::isBoolean()
+bool poi::hssf::record::BoolErrRecord::isBoolean()
 {
     return !_isError;
 }
 
-bool org::apache::poi::hssf::record::BoolErrRecord::isError()
+bool poi::hssf::record::BoolErrRecord::isError()
 {
     return _isError;
 }
 
-java::lang::String* org::apache::poi::hssf::record::BoolErrRecord::getRecordName()
+java::lang::String* poi::hssf::record::BoolErrRecord::getRecordName()
 {
     return u"BOOLERR"_j;
 }
 
-void org::apache::poi::hssf::record::BoolErrRecord::appendValueText(::java::lang::StringBuilder* sb)
+void poi::hssf::record::BoolErrRecord::appendValueText(::java::lang::StringBuilder* sb)
 {
     if(isBoolean()) {
         npc(sb)->append(u"  .boolVal = "_j);
         npc(sb)->append(getBooleanValue());
     } else {
         npc(sb)->append(u"  .errCode = "_j);
-        npc(sb)->append(npc(::org::apache::poi::ss::usermodel::FormulaError::forInt(getErrorValue()))->getString());
-        npc(npc(npc(sb)->append(u" ("_j))->append(::org::apache::poi::util::HexDump::byteToHex(getErrorValue())))->append(u")"_j);
+        npc(sb)->append(npc(::poi::ss::usermodel::FormulaError::forInt(getErrorValue()))->getString());
+        npc(npc(npc(sb)->append(u" ("_j))->append(::poi::util::HexDump::byteToHex(getErrorValue())))->append(u")"_j);
     }
 }
 
-void org::apache::poi::hssf::record::BoolErrRecord::serializeValue(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::BoolErrRecord::serializeValue(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeByte(_value);
     npc(out)->writeByte(_isError ? int32_t(1) : int32_t(0));
 }
 
-int32_t org::apache::poi::hssf::record::BoolErrRecord::getValueDataSize()
+int32_t poi::hssf::record::BoolErrRecord::getValueDataSize()
 {
     return 2;
 }
 
-int16_t org::apache::poi::hssf::record::BoolErrRecord::getSid()
+int16_t poi::hssf::record::BoolErrRecord::getSid()
 {
     return sid;
 }
 
-org::apache::poi::hssf::record::BoolErrRecord* org::apache::poi::hssf::record::BoolErrRecord::clone()
+poi::hssf::record::BoolErrRecord* poi::hssf::record::BoolErrRecord::clone()
 {
     auto rec = new BoolErrRecord();
     copyBaseFields(rec);
@@ -169,13 +169,13 @@ org::apache::poi::hssf::record::BoolErrRecord* org::apache::poi::hssf::record::B
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::BoolErrRecord::class_()
+java::lang::Class* poi::hssf::record::BoolErrRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.BoolErrRecord", 40);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::record::BoolErrRecord::getClass0()
+java::lang::Class* poi::hssf::record::BoolErrRecord::getClass0()
 {
     return class_();
 }

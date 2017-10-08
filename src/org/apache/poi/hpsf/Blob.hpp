@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hpsf::Blob
+class poi::hpsf::Blob
     : public virtual ::java::lang::Object
 {
 
@@ -22,7 +22,7 @@ protected:
     void ctor();
 
 public: /* package */
-    virtual void read(::org::apache::poi::util::LittleEndianInput* lei);
+    virtual void read(::poi::util::LittleEndianInput* lei);
 
     // Generated
     Blob();

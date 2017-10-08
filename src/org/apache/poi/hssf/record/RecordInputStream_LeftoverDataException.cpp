@@ -16,19 +16,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::RecordInputStream_LeftoverDataException::RecordInputStream_LeftoverDataException(const ::default_init_tag&)
+poi::hssf::record::RecordInputStream_LeftoverDataException::RecordInputStream_LeftoverDataException(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::RecordInputStream_LeftoverDataException::RecordInputStream_LeftoverDataException(int32_t sid, int32_t remainingByteCount) 
+poi::hssf::record::RecordInputStream_LeftoverDataException::RecordInputStream_LeftoverDataException(int32_t sid, int32_t remainingByteCount) 
     : RecordInputStream_LeftoverDataException(*static_cast< ::default_init_tag* >(0))
 {
     ctor(sid,remainingByteCount);
 }
 
-void org::apache::poi::hssf::record::RecordInputStream_LeftoverDataException::ctor(int32_t sid, int32_t remainingByteCount)
+void poi::hssf::record::RecordInputStream_LeftoverDataException::ctor(int32_t sid, int32_t remainingByteCount)
 {
     super::ctor(::java::lang::StringBuilder().append(u"Initialisation of record 0x"_j)->append(npc(::java::lang::Integer::toHexString(sid))->toUpperCase(::java::util::Locale::ROOT()))
         ->append(u"("_j)
@@ -38,7 +38,7 @@ void org::apache::poi::hssf::record::RecordInputStream_LeftoverDataException::ct
         ->append(u" bytes remaining still to be read."_j)->toString());
 }
 
-java::lang::String* org::apache::poi::hssf::record::RecordInputStream_LeftoverDataException::getRecordName(int32_t sid)
+java::lang::String* poi::hssf::record::RecordInputStream_LeftoverDataException::getRecordName(int32_t sid)
 {
     clinit();
     auto recordClass = RecordFactory::getRecordClass(sid);
@@ -50,13 +50,13 @@ java::lang::String* org::apache::poi::hssf::record::RecordInputStream_LeftoverDa
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::RecordInputStream_LeftoverDataException::class_()
+java::lang::Class* poi::hssf::record::RecordInputStream_LeftoverDataException::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.RecordInputStream.LeftoverDataException", 66);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::record::RecordInputStream_LeftoverDataException::getClass0()
+java::lang::Class* poi::hssf::record::RecordInputStream_LeftoverDataException::getClass0()
 {
     return class_();
 }

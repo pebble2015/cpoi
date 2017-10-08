@@ -65,19 +65,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::dev::POIFSHeaderDumper::POIFSHeaderDumper(const ::default_init_tag&)
+poi::poifs::dev::POIFSHeaderDumper::POIFSHeaderDumper(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::dev::POIFSHeaderDumper::POIFSHeaderDumper()
+poi::poifs::dev::POIFSHeaderDumper::POIFSHeaderDumper()
     : POIFSHeaderDumper(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::poifs::dev::POIFSHeaderDumper::main(::java::lang::StringArray* args) /* throws(Exception) */
+void poi::poifs::dev::POIFSHeaderDumper::main(::java::lang::StringArray* args) /* throws(Exception) */
 {
     clinit();
     if(npc(args)->length == 0) {
@@ -89,25 +89,25 @@ void org::apache::poi::poifs::dev::POIFSHeaderDumper::main(::java::lang::StringA
     }
 }
 
-void org::apache::poi::poifs::dev::POIFSHeaderDumper::viewFile(::java::lang::String* filename) /* throws(Exception) */
+void poi::poifs::dev::POIFSHeaderDumper::viewFile(::java::lang::String* filename) /* throws(Exception) */
 {
     clinit();
     npc(::java::lang::System::out())->println(::java::lang::StringBuilder().append(u"Dumping headers from: "_j)->append(filename)->toString());
     ::java::io::InputStream* inp = new ::java::io::FileInputStream(filename);
-    auto header_block = new ::org::apache::poi::poifs::storage::HeaderBlock(inp);
+    auto header_block = new ::poi::poifs::storage::HeaderBlock(inp);
     displayHeader(header_block);
     auto bigBlockSize = npc(header_block)->getBigBlockSize();
-    auto data_blocks = new ::org::apache::poi::poifs::storage::RawDataBlockList(inp, bigBlockSize);
+    auto data_blocks = new ::poi::poifs::storage::RawDataBlockList(inp, bigBlockSize);
     displayRawBlocksSummary(data_blocks);
-    auto batReader = new ::org::apache::poi::poifs::storage::BlockAllocationTableReader(npc(header_block)->getBigBlockSize(), npc(header_block)->getBATCount(), npc(header_block)->getBATArray_(), npc(header_block)->getXBATCount(), npc(header_block)->getXBATIndex(), data_blocks);
+    auto batReader = new ::poi::poifs::storage::BlockAllocationTableReader(npc(header_block)->getBigBlockSize(), npc(header_block)->getBATCount(), npc(header_block)->getBATArray_(), npc(header_block)->getXBATCount(), npc(header_block)->getXBATIndex(), data_blocks);
     displayBATReader(u"Big Blocks"_j, batReader);
-    auto properties = new ::org::apache::poi::poifs::property::PropertyTable(header_block, data_blocks);
-    auto sbatReader = ::org::apache::poi::poifs::storage::SmallBlockTableReader::_getSmallDocumentBlockReader(bigBlockSize, data_blocks, npc(properties)->getRoot(), npc(header_block)->getSBATStart());
+    auto properties = new ::poi::poifs::property::PropertyTable(header_block, data_blocks);
+    auto sbatReader = ::poi::poifs::storage::SmallBlockTableReader::_getSmallDocumentBlockReader(bigBlockSize, data_blocks, npc(properties)->getRoot(), npc(header_block)->getSBATStart());
     displayBATReader(u"Small Blocks"_j, sbatReader);
     displayPropertiesSummary(properties);
 }
 
-void org::apache::poi::poifs::dev::POIFSHeaderDumper::displayHeader(::org::apache::poi::poifs::storage::HeaderBlock* header_block) /* throws(Exception) */
+void poi::poifs::dev::POIFSHeaderDumper::displayHeader(::poi::poifs::storage::HeaderBlock* header_block) /* throws(Exception) */
 {
     clinit();
     npc(::java::lang::System::out())->println(u"Header Details:"_j);
@@ -125,7 +125,7 @@ void org::apache::poi::poifs::dev::POIFSHeaderDumper::displayHeader(::org::apach
     npc(::java::lang::System::out())->println(u""_j);
 }
 
-void org::apache::poi::poifs::dev::POIFSHeaderDumper::displayRawBlocksSummary(::org::apache::poi::poifs::storage::RawDataBlockList* data_blocks) /* throws(Exception) */
+void poi::poifs::dev::POIFSHeaderDumper::displayRawBlocksSummary(::poi::poifs::storage::RawDataBlockList* data_blocks) /* throws(Exception) */
 {
     clinit();
     npc(::java::lang::System::out())->println(u"Raw Blocks Details:"_j);
@@ -136,12 +136,12 @@ void org::apache::poi::poifs::dev::POIFSHeaderDumper::displayRawBlocksSummary(::
         ::java::lang::System::arraycopy(npc(block)->getData(), 0, data, 0, npc(data)->length);
         npc(::java::lang::System::out())->println(::java::lang::StringBuilder().append(u" Block #"_j)->append(i)
             ->append(u":"_j)->toString());
-        npc(::java::lang::System::out())->println(::org::apache::poi::util::HexDump::dump(data, 0, 0));
+        npc(::java::lang::System::out())->println(::poi::util::HexDump::dump(data, 0, 0));
     }
     npc(::java::lang::System::out())->println(u""_j);
 }
 
-void org::apache::poi::poifs::dev::POIFSHeaderDumper::displayBATReader(::java::lang::String* type, ::org::apache::poi::poifs::storage::BlockAllocationTableReader* batReader) /* throws(Exception) */
+void poi::poifs::dev::POIFSHeaderDumper::displayBATReader(::java::lang::String* type, ::poi::poifs::storage::BlockAllocationTableReader* batReader) /* throws(Exception) */
 {
     clinit();
     npc(::java::lang::System::out())->println(::java::lang::StringBuilder().append(u"Sectors, as referenced from the "_j)->append(type)
@@ -150,13 +150,13 @@ void org::apache::poi::poifs::dev::POIFSHeaderDumper::displayBATReader(::java::l
     for (auto i = int32_t(0); i < npc(entries)->size(); i++) {
         auto bn = npc(entries)->get(i);
         auto bnS = ::java::lang::Integer::toString(bn);
-        if(bn == ::org::apache::poi::poifs::common::POIFSConstants::END_OF_CHAIN) {
+        if(bn == ::poi::poifs::common::POIFSConstants::END_OF_CHAIN) {
             bnS = u"End Of Chain"_j;
-        } else if(bn == ::org::apache::poi::poifs::common::POIFSConstants::DIFAT_SECTOR_BLOCK) {
+        } else if(bn == ::poi::poifs::common::POIFSConstants::DIFAT_SECTOR_BLOCK) {
             bnS = u"DI Fat Block"_j;
-        } else if(bn == ::org::apache::poi::poifs::common::POIFSConstants::FAT_SECTOR_BLOCK) {
+        } else if(bn == ::poi::poifs::common::POIFSConstants::FAT_SECTOR_BLOCK) {
             bnS = u"Normal Fat Block"_j;
-        } else if(bn == ::org::apache::poi::poifs::common::POIFSConstants::UNUSED_BLOCK) {
+        } else if(bn == ::poi::poifs::common::POIFSConstants::UNUSED_BLOCK) {
             bnS = u"Block Not Used (Free)"_j;
         }
         npc(::java::lang::System::out())->println(::java::lang::StringBuilder().append(u"  Block  # "_j)->append(i)
@@ -166,7 +166,7 @@ void org::apache::poi::poifs::dev::POIFSHeaderDumper::displayBATReader(::java::l
     npc(::java::lang::System::out())->println(u""_j);
 }
 
-void org::apache::poi::poifs::dev::POIFSHeaderDumper::displayPropertiesSummary(::org::apache::poi::poifs::property::PropertyTable* properties)
+void poi::poifs::dev::POIFSHeaderDumper::displayPropertiesSummary(::poi::poifs::property::PropertyTable* properties)
 {
     clinit();
     npc(::java::lang::System::out())->println(::java::lang::StringBuilder().append(u"Mini Stream starts at "_j)->append(npc(npc(properties)->getRoot())->getStartBlock())->toString());
@@ -177,17 +177,17 @@ void org::apache::poi::poifs::dev::POIFSHeaderDumper::displayPropertiesSummary(:
     npc(::java::lang::System::out())->println(u""_j);
 }
 
-void org::apache::poi::poifs::dev::POIFSHeaderDumper::displayProperties(::org::apache::poi::poifs::property::DirectoryProperty* prop, ::java::lang::String* indent)
+void poi::poifs::dev::POIFSHeaderDumper::displayProperties(::poi::poifs::property::DirectoryProperty* prop, ::java::lang::String* indent)
 {
     clinit();
     auto nextIndent = ::java::lang::StringBuilder().append(indent)->append(u"  "_j)->toString();
     npc(::java::lang::System::out())->println(::java::lang::StringBuilder().append(indent)->append(u"-> "_j)
         ->append(npc(prop)->getName())->toString());
     for (auto _i = npc(prop)->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::poifs::property::Property* cp = java_cast< ::org::apache::poi::poifs::property::Property* >(_i->next());
+        ::poi::poifs::property::Property* cp = java_cast< ::poi::poifs::property::Property* >(_i->next());
         {
-            if(dynamic_cast< ::org::apache::poi::poifs::property::DirectoryProperty* >(cp) != nullptr) {
-                displayProperties(java_cast< ::org::apache::poi::poifs::property::DirectoryProperty* >(cp), nextIndent);
+            if(dynamic_cast< ::poi::poifs::property::DirectoryProperty* >(cp) != nullptr) {
+                displayProperties(java_cast< ::poi::poifs::property::DirectoryProperty* >(cp), nextIndent);
             } else {
                 npc(::java::lang::System::out())->println(::java::lang::StringBuilder().append(nextIndent)->append(u"=> "_j)
                     ->append(npc(cp)->getName())->toString());
@@ -207,13 +207,13 @@ void org::apache::poi::poifs::dev::POIFSHeaderDumper::displayProperties(::org::a
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::dev::POIFSHeaderDumper::class_()
+java::lang::Class* poi::poifs::dev::POIFSHeaderDumper::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.dev.POIFSHeaderDumper", 42);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::dev::POIFSHeaderDumper::getClass0()
+java::lang::Class* poi::poifs::dev::POIFSHeaderDumper::getClass0()
 {
     return class_();
 }

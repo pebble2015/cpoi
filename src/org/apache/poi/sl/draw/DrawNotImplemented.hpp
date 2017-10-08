@@ -5,7 +5,7 @@
 #include <org/apache/poi/sl/draw/fwd-POI.hpp>
 #include <java/lang/annotation/Annotation.hpp>
 
-struct org::apache::poi::sl::draw::DrawNotImplemented
+struct poi::sl::draw::DrawNotImplemented
     : public virtual ::java::lang::annotation::Annotation
 {
 

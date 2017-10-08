@@ -25,7 +25,7 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::macros::VBAMacroExtractor
+class poi::poifs::macros::VBAMacroExtractor
     : public virtual ::java::lang::Object
 {
 

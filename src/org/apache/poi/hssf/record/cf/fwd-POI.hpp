@@ -2,31 +2,25 @@
 #pragma once
 
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
+            namespace cf
             {
-                namespace record
-                {
-                    namespace cf
-                    {
-                        class BorderFormatting;
-                        class ColorGradientFormatting;
-                        class ColorGradientThreshold;
-                        class DataBarFormatting;
-                        class DataBarThreshold;
-                        class FontFormatting;
-                        class IconMultiStateFormatting;
-                        class IconMultiStateThreshold;
-                        class PatternFormatting;
-                        class Threshold;
-                    } // cf
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+                class BorderFormatting;
+                class ColorGradientFormatting;
+                class ColorGradientThreshold;
+                class DataBarFormatting;
+                class DataBarThreshold;
+                class FontFormatting;
+                class IconMultiStateFormatting;
+                class IconMultiStateThreshold;
+                class PatternFormatting;
+                class Threshold;
+            } // cf
+        } // record
+    } // hssf
+} // poi

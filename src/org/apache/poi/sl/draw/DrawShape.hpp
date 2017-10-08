@@ -12,7 +12,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::DrawShape
+class poi::sl::draw::DrawShape
     : public virtual ::java::lang::Object
     , public virtual Drawable
 {
@@ -21,12 +21,12 @@ public:
     typedef ::java::lang::Object super;
 
 public: /* protected */
-    ::org::apache::poi::sl::usermodel::Shape* shape {  };
+    ::poi::sl::usermodel::Shape* shape {  };
 protected:
-    void ctor(::org::apache::poi::sl::usermodel::Shape* shape);
+    void ctor(::poi::sl::usermodel::Shape* shape);
 
 public: /* protected */
-    static bool isHSLF(::org::apache::poi::sl::usermodel::Shape* shape);
+    static bool isHSLF(::poi::sl::usermodel::Shape* shape);
 
 public:
     void applyTransform(::java::awt::Graphics2D* graphics) override;
@@ -37,17 +37,17 @@ private:
 public:
     void draw(::java::awt::Graphics2D* graphics) override;
     void drawContent(::java::awt::Graphics2D* graphics) override;
-    static ::java::awt::geom::Rectangle2D* getAnchor(::java::awt::Graphics2D* graphics, ::org::apache::poi::sl::usermodel::PlaceableShape* shape);
+    static ::java::awt::geom::Rectangle2D* getAnchor(::java::awt::Graphics2D* graphics, ::poi::sl::usermodel::PlaceableShape* shape);
     static ::java::awt::geom::Rectangle2D* getAnchor(::java::awt::Graphics2D* graphics, ::java::awt::geom::Rectangle2D* anchor);
 
 public: /* protected */
-    virtual ::org::apache::poi::sl::usermodel::Shape* getShape();
-    static ::java::awt::BasicStroke* getStroke(::org::apache::poi::sl::usermodel::StrokeStyle* strokeStyle);
+    virtual ::poi::sl::usermodel::Shape* getShape();
+    static ::java::awt::BasicStroke* getStroke(::poi::sl::usermodel::StrokeStyle* strokeStyle);
 
     // Generated
 
 public:
-    DrawShape(::org::apache::poi::sl::usermodel::Shape* shape);
+    DrawShape(::poi::sl::usermodel::Shape* shape);
 protected:
     DrawShape(const ::default_init_tag&);
 

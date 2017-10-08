@@ -9,14 +9,14 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::dev::EFBiffViewer_run_1
+class poi::hssf::dev::EFBiffViewer_run_1
     : public virtual ::java::lang::Object
-    , public virtual ::org::apache::poi::hssf::eventusermodel::HSSFListener
+    , public virtual ::poi::hssf::eventusermodel::HSSFListener
 {
 
 public:
     typedef ::java::lang::Object super;
-    void processRecord(::org::apache::poi::hssf::record::Record* rec) override;
+    void processRecord(::poi::hssf::record::Record* rec) override;
 
     // Generated
     EFBiffViewer_run_1(EFBiffViewer *EFBiffViewer_this);

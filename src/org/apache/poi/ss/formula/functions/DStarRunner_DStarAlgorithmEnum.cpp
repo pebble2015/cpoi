@@ -25,49 +25,43 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace functions
             {
-                namespace formula
-                {
-                    namespace functions
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::functions::DStarRunner_DStarAlgorithmEnum, ::java::lang::EnumArray > DStarRunner_DStarAlgorithmEnumArray;
-                    } // functions
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::functions::DStarRunner_DStarAlgorithmEnum, ::java::lang::EnumArray > DStarRunner_DStarAlgorithmEnumArray;
+            } // functions
+        } // formula
+    } // ss
+} // poi
 
-org::apache::poi::ss::formula::functions::DStarRunner_DStarAlgorithmEnum::DStarRunner_DStarAlgorithmEnum(const ::default_init_tag&)
+poi::ss::formula::functions::DStarRunner_DStarAlgorithmEnum::DStarRunner_DStarAlgorithmEnum(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::DStarRunner_DStarAlgorithmEnum::DStarRunner_DStarAlgorithmEnum(::java::lang::String* name, int ordinal)
+poi::ss::formula::functions::DStarRunner_DStarAlgorithmEnum::DStarRunner_DStarAlgorithmEnum(::java::lang::String* name, int ordinal)
     : DStarRunner_DStarAlgorithmEnum(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal);
 }
 
-org::apache::poi::ss::formula::functions::DStarRunner_DStarAlgorithmEnum* org::apache::poi::ss::formula::functions::DStarRunner_DStarAlgorithmEnum::DGET = new ::org::apache::poi::ss::formula::functions::DStarRunner_DStarAlgorithmEnum(u"DGET"_j, 0);
-org::apache::poi::ss::formula::functions::DStarRunner_DStarAlgorithmEnum* org::apache::poi::ss::formula::functions::DStarRunner_DStarAlgorithmEnum::DMIN = new ::org::apache::poi::ss::formula::functions::DStarRunner_DStarAlgorithmEnum(u"DMIN"_j, 1);
+poi::ss::formula::functions::DStarRunner_DStarAlgorithmEnum* poi::ss::formula::functions::DStarRunner_DStarAlgorithmEnum::DGET = new ::poi::ss::formula::functions::DStarRunner_DStarAlgorithmEnum(u"DGET"_j, 0);
+poi::ss::formula::functions::DStarRunner_DStarAlgorithmEnum* poi::ss::formula::functions::DStarRunner_DStarAlgorithmEnum::DMIN = new ::poi::ss::formula::functions::DStarRunner_DStarAlgorithmEnum(u"DMIN"_j, 1);
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::DStarRunner_DStarAlgorithmEnum::class_()
+java::lang::Class* poi::ss::formula::functions::DStarRunner_DStarAlgorithmEnum::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.DStarRunner.DStarAlgorithmEnum", 66);
     return c;
 }
 
-org::apache::poi::ss::formula::functions::DStarRunner_DStarAlgorithmEnum* org::apache::poi::ss::formula::functions::DStarRunner_DStarAlgorithmEnum::valueOf(::java::lang::String* a0)
+poi::ss::formula::functions::DStarRunner_DStarAlgorithmEnum* poi::ss::formula::functions::DStarRunner_DStarAlgorithmEnum::valueOf(::java::lang::String* a0)
 {
     if(DGET->toString()->equals(a0))
         return DGET;
@@ -76,15 +70,15 @@ org::apache::poi::ss::formula::functions::DStarRunner_DStarAlgorithmEnum* org::a
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::ss::formula::functions::DStarRunner_DStarAlgorithmEnumArray* org::apache::poi::ss::formula::functions::DStarRunner_DStarAlgorithmEnum::values()
+poi::ss::formula::functions::DStarRunner_DStarAlgorithmEnumArray* poi::ss::formula::functions::DStarRunner_DStarAlgorithmEnum::values()
 {
-    return new org::apache::poi::ss::formula::functions::DStarRunner_DStarAlgorithmEnumArray({
+    return new poi::ss::formula::functions::DStarRunner_DStarAlgorithmEnumArray({
         DGET,
         DMIN,
     });
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::DStarRunner_DStarAlgorithmEnum::getClass0()
+java::lang::Class* poi::ss::formula::functions::DStarRunner_DStarAlgorithmEnum::getClass0()
 {
     return class_();
 }

@@ -18,25 +18,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -45,96 +39,96 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::cf::Threshold::Threshold(const ::default_init_tag&)
+poi::hssf::record::cf::Threshold::Threshold(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::cf::Threshold::Threshold() 
+poi::hssf::record::cf::Threshold::Threshold() 
     : Threshold(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::cf::Threshold::Threshold(::org::apache::poi::util::LittleEndianInput* in) 
+poi::hssf::record::cf::Threshold::Threshold(::poi::util::LittleEndianInput* in) 
     : Threshold(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-void org::apache::poi::hssf::record::cf::Threshold::ctor()
+void poi::hssf::record::cf::Threshold::ctor()
 {
     super::ctor();
-    type = static_cast< int8_t >(npc(::org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::NUMBER)->id);
-    formula = ::org::apache::poi::ss::formula::Formula::create(nullptr);
+    type = static_cast< int8_t >(npc(::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::NUMBER)->id);
+    formula = ::poi::ss::formula::Formula::create(nullptr);
     value = ::java::lang::Double::valueOf(0.0);
 }
 
-void org::apache::poi::hssf::record::cf::Threshold::ctor(::org::apache::poi::util::LittleEndianInput* in)
+void poi::hssf::record::cf::Threshold::ctor(::poi::util::LittleEndianInput* in)
 {
     super::ctor();
     type = npc(in)->readByte();
     auto formulaLen = npc(in)->readShort();
     if(formulaLen > 0) {
-        formula = ::org::apache::poi::ss::formula::Formula::read(formulaLen, in);
+        formula = ::poi::ss::formula::Formula::read(formulaLen, in);
     } else {
-        formula = ::org::apache::poi::ss::formula::Formula::create(nullptr);
+        formula = ::poi::ss::formula::Formula::create(nullptr);
     }
-    if(formulaLen == 0 && type != npc(::org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::MIN)->id && type != npc(::org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::MAX)->id) {
+    if(formulaLen == 0 && type != npc(::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::MIN)->id && type != npc(::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::MAX)->id) {
         value = ::java::lang::Double::valueOf(npc(in)->readDouble());
     }
 }
 
-int8_t org::apache::poi::hssf::record::cf::Threshold::getType()
+int8_t poi::hssf::record::cf::Threshold::getType()
 {
     return type;
 }
 
-void org::apache::poi::hssf::record::cf::Threshold::setType(int8_t type)
+void poi::hssf::record::cf::Threshold::setType(int8_t type)
 {
     this->type = type;
-    if(type == npc(::org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::MIN)->id || type == npc(::org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::MAX)->id || type == npc(::org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::FORMULA)->id) {
+    if(type == npc(::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::MIN)->id || type == npc(::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::MAX)->id || type == npc(::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::FORMULA)->id) {
         this->value = nullptr;
     } else if(value == nullptr) {
         this->value = ::java::lang::Double::valueOf(0.0);
     }
 }
 
-void org::apache::poi::hssf::record::cf::Threshold::setType(int32_t type)
+void poi::hssf::record::cf::Threshold::setType(int32_t type)
 {
     this->type = static_cast< int8_t >(type);
 }
 
-org::apache::poi::ss::formula::Formula* org::apache::poi::hssf::record::cf::Threshold::getFormula()
+poi::ss::formula::Formula* poi::hssf::record::cf::Threshold::getFormula()
 {
     return formula;
 }
 
-org::apache::poi::ss::formula::ptg::PtgArray* org::apache::poi::hssf::record::cf::Threshold::getParsedExpression()
+poi::ss::formula::ptg::PtgArray* poi::hssf::record::cf::Threshold::getParsedExpression()
 {
     return npc(formula)->getTokens();
 }
 
-void org::apache::poi::hssf::record::cf::Threshold::setParsedExpression(::org::apache::poi::ss::formula::ptg::PtgArray* ptgs)
+void poi::hssf::record::cf::Threshold::setParsedExpression(::poi::ss::formula::ptg::PtgArray* ptgs)
 {
-    formula = ::org::apache::poi::ss::formula::Formula::create(ptgs);
+    formula = ::poi::ss::formula::Formula::create(ptgs);
     if(npc(ptgs)->length > 0) {
         this->value = nullptr;
     }
 }
 
-java::lang::Double* org::apache::poi::hssf::record::cf::Threshold::getValue()
+java::lang::Double* poi::hssf::record::cf::Threshold::getValue()
 {
     return value;
 }
 
-void org::apache::poi::hssf::record::cf::Threshold::setValue(::java::lang::Double* value)
+void poi::hssf::record::cf::Threshold::setValue(::java::lang::Double* value)
 {
     this->value = value;
 }
 
-int32_t org::apache::poi::hssf::record::cf::Threshold::getDataLength()
+int32_t poi::hssf::record::cf::Threshold::getDataLength()
 {
     auto len = int32_t(1) + npc(formula)->getEncodedSize();
     if(value != nullptr) {
@@ -143,7 +137,7 @@ int32_t org::apache::poi::hssf::record::cf::Threshold::getDataLength()
     return len;
 }
 
-java::lang::String* org::apache::poi::hssf::record::cf::Threshold::toString()
+java::lang::String* poi::hssf::record::cf::Threshold::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"    [CF Threshold]\n"_j);
@@ -154,14 +148,14 @@ java::lang::String* org::apache::poi::hssf::record::cf::Threshold::toString()
     return npc(buffer)->toString();
 }
 
-void org::apache::poi::hssf::record::cf::Threshold::copyTo(Threshold* rec)
+void poi::hssf::record::cf::Threshold::copyTo(Threshold* rec)
 {
     npc(rec)->type = type;
     npc(rec)->formula = formula;
     npc(rec)->value = value;
 }
 
-void org::apache::poi::hssf::record::cf::Threshold::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::cf::Threshold::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeByte(type);
     if(npc(npc(formula)->getTokens())->length == 0) {
@@ -176,13 +170,13 @@ void org::apache::poi::hssf::record::cf::Threshold::serialize(::org::apache::poi
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::cf::Threshold::class_()
+java::lang::Class* poi::hssf::record::cf::Threshold::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.cf.Threshold", 39);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::record::cf::Threshold::getClass0()
+java::lang::Class* poi::hssf::record::cf::Threshold::getClass0()
 {
     return class_();
 }

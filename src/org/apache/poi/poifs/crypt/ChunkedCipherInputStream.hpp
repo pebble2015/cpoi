@@ -10,12 +10,12 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::crypt::ChunkedCipherInputStream
-    : public ::org::apache::poi::util::LittleEndianInputStream
+class poi::poifs::crypt::ChunkedCipherInputStream
+    : public ::poi::util::LittleEndianInputStream
 {
 
 public:
-    typedef ::org::apache::poi::util::LittleEndianInputStream super;
+    typedef ::poi::util::LittleEndianInputStream super;
 
 private:
     int32_t chunkSize {  };

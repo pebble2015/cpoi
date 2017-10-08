@@ -9,23 +9,17 @@
 #include <java/lang/Object.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hpsf
     {
-        namespace poi
-        {
-            namespace hpsf
-            {
-typedef ::SubArray< ::org::apache::poi::hpsf::Property, ::java::lang::ObjectArray > PropertyArray;
-            } // hpsf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hpsf::Property, ::java::lang::ObjectArray > PropertyArray;
+    } // hpsf
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hpsf::TypeWriter
+class poi::hpsf::TypeWriter
     : public virtual ::java::lang::Object
 {
 

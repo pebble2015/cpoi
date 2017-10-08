@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::constant::ConstantValueParser final
+class poi::ss::formula::constant::ConstantValueParser final
     : public ::java::lang::Object
 {
 
@@ -30,11 +30,11 @@ protected:
     void ctor();
 
 public:
-    static ::java::lang::ObjectArray* parse(::org::apache::poi::util::LittleEndianInput* in, int32_t nValues);
+    static ::java::lang::ObjectArray* parse(::poi::util::LittleEndianInput* in, int32_t nValues);
 
 private:
-    static ::java::lang::Object* readAConstantValue(::org::apache::poi::util::LittleEndianInput* in);
-    static ::java::lang::Object* readBoolean(::org::apache::poi::util::LittleEndianInput* in);
+    static ::java::lang::Object* readAConstantValue(::poi::util::LittleEndianInput* in);
+    static ::java::lang::Object* readBoolean(::poi::util::LittleEndianInput* in);
 
 public:
     static int32_t getEncodedSize(::java::lang::ObjectArray* values);
@@ -43,10 +43,10 @@ private:
     static int32_t getEncodedSize(::java::lang::Object* object);
 
 public:
-    static void encode(::org::apache::poi::util::LittleEndianOutput* out, ::java::lang::ObjectArray* values);
+    static void encode(::poi::util::LittleEndianOutput* out, ::java::lang::ObjectArray* values);
 
 private:
-    static void encodeSingleValue(::org::apache::poi::util::LittleEndianOutput* out, ::java::lang::Object* value);
+    static void encodeSingleValue(::poi::util::LittleEndianOutput* out, ::java::lang::Object* value);
 
     // Generated
     ConstantValueParser();

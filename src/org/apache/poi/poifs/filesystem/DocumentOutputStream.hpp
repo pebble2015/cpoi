@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::filesystem::DocumentOutputStream final
+class poi::poifs::filesystem::DocumentOutputStream final
     : public ::java::io::OutputStream
 {
 

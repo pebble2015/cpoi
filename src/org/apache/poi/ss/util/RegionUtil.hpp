@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::util::RegionUtil final
+class poi::ss::util::RegionUtil final
     : public ::java::lang::Object
 {
 
@@ -19,18 +19,18 @@ protected:
     void ctor();
 
 public:
-    static void setBorderLeft(int32_t border, CellRangeAddress* region, ::org::apache::poi::ss::usermodel::Sheet* sheet);
-    static void setBorderLeft(::org::apache::poi::ss::usermodel::BorderStyle* border, CellRangeAddress* region, ::org::apache::poi::ss::usermodel::Sheet* sheet);
-    static void setLeftBorderColor(int32_t color, CellRangeAddress* region, ::org::apache::poi::ss::usermodel::Sheet* sheet);
-    static void setBorderRight(int32_t border, CellRangeAddress* region, ::org::apache::poi::ss::usermodel::Sheet* sheet);
-    static void setBorderRight(::org::apache::poi::ss::usermodel::BorderStyle* border, CellRangeAddress* region, ::org::apache::poi::ss::usermodel::Sheet* sheet);
-    static void setRightBorderColor(int32_t color, CellRangeAddress* region, ::org::apache::poi::ss::usermodel::Sheet* sheet);
-    static void setBorderBottom(int32_t border, CellRangeAddress* region, ::org::apache::poi::ss::usermodel::Sheet* sheet);
-    static void setBorderBottom(::org::apache::poi::ss::usermodel::BorderStyle* border, CellRangeAddress* region, ::org::apache::poi::ss::usermodel::Sheet* sheet);
-    static void setBottomBorderColor(int32_t color, CellRangeAddress* region, ::org::apache::poi::ss::usermodel::Sheet* sheet);
-    static void setBorderTop(int32_t border, CellRangeAddress* region, ::org::apache::poi::ss::usermodel::Sheet* sheet);
-    static void setBorderTop(::org::apache::poi::ss::usermodel::BorderStyle* border, CellRangeAddress* region, ::org::apache::poi::ss::usermodel::Sheet* sheet);
-    static void setTopBorderColor(int32_t color, CellRangeAddress* region, ::org::apache::poi::ss::usermodel::Sheet* sheet);
+    static void setBorderLeft(int32_t border, CellRangeAddress* region, ::poi::ss::usermodel::Sheet* sheet);
+    static void setBorderLeft(::poi::ss::usermodel::BorderStyle* border, CellRangeAddress* region, ::poi::ss::usermodel::Sheet* sheet);
+    static void setLeftBorderColor(int32_t color, CellRangeAddress* region, ::poi::ss::usermodel::Sheet* sheet);
+    static void setBorderRight(int32_t border, CellRangeAddress* region, ::poi::ss::usermodel::Sheet* sheet);
+    static void setBorderRight(::poi::ss::usermodel::BorderStyle* border, CellRangeAddress* region, ::poi::ss::usermodel::Sheet* sheet);
+    static void setRightBorderColor(int32_t color, CellRangeAddress* region, ::poi::ss::usermodel::Sheet* sheet);
+    static void setBorderBottom(int32_t border, CellRangeAddress* region, ::poi::ss::usermodel::Sheet* sheet);
+    static void setBorderBottom(::poi::ss::usermodel::BorderStyle* border, CellRangeAddress* region, ::poi::ss::usermodel::Sheet* sheet);
+    static void setBottomBorderColor(int32_t color, CellRangeAddress* region, ::poi::ss::usermodel::Sheet* sheet);
+    static void setBorderTop(int32_t border, CellRangeAddress* region, ::poi::ss::usermodel::Sheet* sheet);
+    static void setBorderTop(::poi::ss::usermodel::BorderStyle* border, CellRangeAddress* region, ::poi::ss::usermodel::Sheet* sheet);
+    static void setTopBorderColor(int32_t color, CellRangeAddress* region, ::poi::ss::usermodel::Sheet* sheet);
 
     // Generated
 

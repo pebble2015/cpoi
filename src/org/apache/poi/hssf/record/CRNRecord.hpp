@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::CRNRecord final
+class poi::hssf::record::CRNRecord final
     : public StandardRecord
 {
 
@@ -38,7 +38,7 @@ public: /* protected */
     int32_t getDataSize() override;
 
 public:
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
     int16_t getSid() override;
 
     // Generated

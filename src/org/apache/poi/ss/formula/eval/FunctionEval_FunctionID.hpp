@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::eval::FunctionEval_FunctionID final
+class poi::ss::formula::eval::FunctionEval_FunctionID final
     : public ::java::lang::Object
 {
 

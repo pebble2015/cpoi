@@ -2,41 +2,35 @@
 #pragma once
 
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace poifs
     {
-        namespace poi
+        namespace crypt
         {
-            namespace poifs
-            {
-                namespace crypt
-                {
-                    class ChainingMode;
-                    class ChunkedCipherInputStream;
-                    class ChunkedCipherOutputStream;
-                    class ChunkedCipherOutputStream_EncryptedPackageWriter;
-                    class CipherAlgorithm;
-                    class CipherProvider;
-                    class CryptoFunctions;
-                    class DataSpaceMapUtils;
-                    class DataSpaceMapUtils_DataSpaceDefinition;
-                    class DataSpaceMapUtils_DataSpaceMap;
-                    class DataSpaceMapUtils_DataSpaceMapEntry;
-                    class DataSpaceMapUtils_DataSpaceVersionInfo;
-                    class DataSpaceMapUtils_IRMDSTransformInfo;
-                    class DataSpaceMapUtils_TransformInfoHeader;
-                    class DataSpaceMapUtils_createEncryptionEntry_1;
-                    class Decryptor;
-                    class EncryptionHeader;
-                    class EncryptionInfo;
-                    struct EncryptionInfoBuilder;
-                    class EncryptionMode;
-                    class EncryptionVerifier;
-                    class Encryptor;
-                    class HashAlgorithm;
-                } // crypt
-            } // poifs
-        } // poi
-    } // apache
-} // org
+            class ChainingMode;
+            class ChunkedCipherInputStream;
+            class ChunkedCipherOutputStream;
+            class ChunkedCipherOutputStream_EncryptedPackageWriter;
+            class CipherAlgorithm;
+            class CipherProvider;
+            class CryptoFunctions;
+            class DataSpaceMapUtils;
+            class DataSpaceMapUtils_DataSpaceDefinition;
+            class DataSpaceMapUtils_DataSpaceMap;
+            class DataSpaceMapUtils_DataSpaceMapEntry;
+            class DataSpaceMapUtils_DataSpaceVersionInfo;
+            class DataSpaceMapUtils_IRMDSTransformInfo;
+            class DataSpaceMapUtils_TransformInfoHeader;
+            class DataSpaceMapUtils_createEncryptionEntry_1;
+            class Decryptor;
+            class EncryptionHeader;
+            class EncryptionInfo;
+            struct EncryptionInfoBuilder;
+            class EncryptionMode;
+            class EncryptionVerifier;
+            class Encryptor;
+            class HashAlgorithm;
+        } // crypt
+    } // poifs
+} // poi

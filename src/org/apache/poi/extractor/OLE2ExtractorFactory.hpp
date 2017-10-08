@@ -25,20 +25,14 @@ typedef ::SubArray< ::java::io::Closeable, ::java::lang::ObjectArray, ::java::la
     } // io
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
-    {
-        namespace poi
-        {
-typedef ::SubArray< ::org::apache::poi::POITextExtractor, ::java::lang::ObjectArray, ::java::io::CloseableArray > POITextExtractorArray;
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::POITextExtractor, ::java::lang::ObjectArray, ::java::io::CloseableArray > POITextExtractorArray;
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::extractor::OLE2ExtractorFactory
+class poi::extractor::OLE2ExtractorFactory
     : public virtual ::java::lang::Object
 {
 
@@ -46,7 +40,7 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    static ::org::apache::poi::util::POILogger* LOGGER_;
+    static ::poi::util::POILogger* LOGGER_;
     static ::java::lang::ThreadLocal* threadPreferEventExtractors_;
     static ::java::lang::Boolean* allPreferEventExtractors_;
 
@@ -60,21 +54,21 @@ public: /* protected */
     static bool getPreferEventExtractor();
 
 public:
-    static ::org::apache::poi::POIOLE2TextExtractor* createExtractor(::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs) /* throws(IOException) */;
-    static ::org::apache::poi::POIOLE2TextExtractor* createExtractor(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs) /* throws(IOException) */;
-    static ::org::apache::poi::POIOLE2TextExtractor* createExtractor(::org::apache::poi::poifs::filesystem::OPOIFSFileSystem* fs) /* throws(IOException) */;
-    static ::org::apache::poi::POITextExtractor* createExtractor(::java::io::InputStream* input) /* throws(IOException) */;
+    static ::poi::POIOLE2TextExtractor* createExtractor(::poi::poifs::filesystem::POIFSFileSystem* fs) /* throws(IOException) */;
+    static ::poi::POIOLE2TextExtractor* createExtractor(::poi::poifs::filesystem::NPOIFSFileSystem* fs) /* throws(IOException) */;
+    static ::poi::POIOLE2TextExtractor* createExtractor(::poi::poifs::filesystem::OPOIFSFileSystem* fs) /* throws(IOException) */;
+    static ::poi::POITextExtractor* createExtractor(::java::io::InputStream* input) /* throws(IOException) */;
 
 private:
     static ::java::lang::Class* getOOXMLClass();
     static ::java::lang::Class* getScratchpadClass();
 
 public:
-    static ::org::apache::poi::POITextExtractor* createExtractor(::org::apache::poi::poifs::filesystem::DirectoryNode* poifsDir) /* throws(IOException) */;
-    static ::org::apache::poi::POITextExtractorArray* getEmbededDocsTextExtractors(::org::apache::poi::POIOLE2TextExtractor* ext) /* throws(IOException) */;
+    static ::poi::POITextExtractor* createExtractor(::poi::poifs::filesystem::DirectoryNode* poifsDir) /* throws(IOException) */;
+    static ::poi::POITextExtractorArray* getEmbededDocsTextExtractors(::poi::POIOLE2TextExtractor* ext) /* throws(IOException) */;
 
 private:
-    static ::org::apache::poi::POITextExtractor* createEncyptedOOXMLExtractor(::org::apache::poi::poifs::filesystem::DirectoryNode* poifsDir) /* throws(IOException) */;
+    static ::poi::POITextExtractor* createEncyptedOOXMLExtractor(::poi::poifs::filesystem::DirectoryNode* poifsDir) /* throws(IOException) */;
 
     // Generated
 
@@ -89,7 +83,7 @@ public:
     static void clinit();
 
 private:
-    static ::org::apache::poi::util::POILogger*& LOGGER();
+    static ::poi::util::POILogger*& LOGGER();
     static ::java::lang::ThreadLocal*& threadPreferEventExtractors();
     static ::java::lang::Boolean*& allPreferEventExtractors();
     virtual ::java::lang::Class* getClass0();

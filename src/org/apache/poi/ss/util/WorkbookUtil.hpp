@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::util::WorkbookUtil
+class poi::ss::util::WorkbookUtil
     : public virtual ::java::lang::Object
 {
 

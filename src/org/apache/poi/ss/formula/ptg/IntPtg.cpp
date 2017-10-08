@@ -15,44 +15,44 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::ptg::IntPtg::IntPtg(const ::default_init_tag&)
+poi::ss::formula::ptg::IntPtg::IntPtg(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::ptg::IntPtg::IntPtg(::org::apache::poi::util::LittleEndianInput* in) 
+poi::ss::formula::ptg::IntPtg::IntPtg(::poi::util::LittleEndianInput* in) 
     : IntPtg(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-org::apache::poi::ss::formula::ptg::IntPtg::IntPtg(int32_t value) 
+poi::ss::formula::ptg::IntPtg::IntPtg(int32_t value) 
     : IntPtg(*static_cast< ::default_init_tag* >(0))
 {
     ctor(value);
 }
 
-constexpr int32_t org::apache::poi::ss::formula::ptg::IntPtg::MIN_VALUE;
+constexpr int32_t poi::ss::formula::ptg::IntPtg::MIN_VALUE;
 
-constexpr int32_t org::apache::poi::ss::formula::ptg::IntPtg::MAX_VALUE;
+constexpr int32_t poi::ss::formula::ptg::IntPtg::MAX_VALUE;
 
-bool org::apache::poi::ss::formula::ptg::IntPtg::isInRange(int32_t i)
+bool poi::ss::formula::ptg::IntPtg::isInRange(int32_t i)
 {
     clinit();
     return i >= MIN_VALUE && i <= MAX_VALUE;
 }
 
-constexpr int32_t org::apache::poi::ss::formula::ptg::IntPtg::SIZE;
+constexpr int32_t poi::ss::formula::ptg::IntPtg::SIZE;
 
-constexpr int8_t org::apache::poi::ss::formula::ptg::IntPtg::sid;
+constexpr int8_t poi::ss::formula::ptg::IntPtg::sid;
 
-void org::apache::poi::ss::formula::ptg::IntPtg::ctor(::org::apache::poi::util::LittleEndianInput* in)
+void poi::ss::formula::ptg::IntPtg::ctor(::poi::util::LittleEndianInput* in)
 {
     ctor(npc(in)->readUShort());
 }
 
-void org::apache::poi::ss::formula::ptg::IntPtg::ctor(int32_t value)
+void poi::ss::formula::ptg::IntPtg::ctor(int32_t value)
 {
     super::ctor();
     if(!isInRange(value)) {
@@ -61,36 +61,36 @@ void org::apache::poi::ss::formula::ptg::IntPtg::ctor(int32_t value)
     field_1_value = value;
 }
 
-int32_t org::apache::poi::ss::formula::ptg::IntPtg::getValue()
+int32_t poi::ss::formula::ptg::IntPtg::getValue()
 {
     return field_1_value;
 }
 
-void org::apache::poi::ss::formula::ptg::IntPtg::write(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::ss::formula::ptg::IntPtg::write(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeByte(sid + getPtgClass());
     npc(out)->writeShort(getValue());
 }
 
-int32_t org::apache::poi::ss::formula::ptg::IntPtg::getSize()
+int32_t poi::ss::formula::ptg::IntPtg::getSize()
 {
     return SIZE;
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::IntPtg::toFormulaString()
+java::lang::String* poi::ss::formula::ptg::IntPtg::toFormulaString()
 {
     return ::java::lang::String::valueOf(getValue());
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::IntPtg::class_()
+java::lang::Class* poi::ss::formula::ptg::IntPtg::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.ptg.IntPtg", 36);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::IntPtg::getClass0()
+java::lang::Class* poi::ss::formula::ptg::IntPtg::getClass0()
 {
     return class_();
 }

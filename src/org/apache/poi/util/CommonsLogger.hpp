@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::util::CommonsLogger
+class poi::util::CommonsLogger
     : public POILogger
 {
 

@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::StyleRecord final
+class poi::hssf::record::StyleRecord final
     : public StandardRecord
 {
 
@@ -19,8 +19,8 @@ public:
     static constexpr int16_t sid { int16_t(659) };
 
 private:
-    static ::org::apache::poi::util::BitField* styleIndexMask_;
-    static ::org::apache::poi::util::BitField* isBuiltinFlag_;
+    static ::poi::util::BitField* styleIndexMask_;
+    static ::poi::util::BitField* isBuiltinFlag_;
     int32_t field_1_xf_index {  };
     int32_t field_2_builtin_style {  };
     int32_t field_3_outline_style_level {  };
@@ -44,7 +44,7 @@ public: /* protected */
     int32_t getDataSize() override;
 
 public:
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
     int16_t getSid() override;
 
     // Generated
@@ -61,7 +61,7 @@ public:
     ::int8_tArray* serialize();
 
 private:
-    static ::org::apache::poi::util::BitField*& styleIndexMask();
-    static ::org::apache::poi::util::BitField*& isBuiltinFlag();
+    static ::poi::util::BitField*& styleIndexMask();
+    static ::poi::util::BitField*& isBuiltinFlag();
     virtual ::java::lang::Class* getClass0();
 };

@@ -16,71 +16,71 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::DrawingRecord::DrawingRecord(const ::default_init_tag&)
+poi::hssf::record::DrawingRecord::DrawingRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::DrawingRecord::DrawingRecord() 
+poi::hssf::record::DrawingRecord::DrawingRecord() 
     : DrawingRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::DrawingRecord::DrawingRecord(RecordInputStream* in) 
+poi::hssf::record::DrawingRecord::DrawingRecord(RecordInputStream* in) 
     : DrawingRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::DrawingRecord::sid;
+constexpr int16_t poi::hssf::record::DrawingRecord::sid;
 
-int8_tArray*& org::apache::poi::hssf::record::DrawingRecord::EMPTY_BYTE_ARRAY()
+int8_tArray*& poi::hssf::record::DrawingRecord::EMPTY_BYTE_ARRAY()
 {
     clinit();
     return EMPTY_BYTE_ARRAY_;
 }
-int8_tArray* org::apache::poi::hssf::record::DrawingRecord::EMPTY_BYTE_ARRAY_;
+int8_tArray* poi::hssf::record::DrawingRecord::EMPTY_BYTE_ARRAY_;
 
-void org::apache::poi::hssf::record::DrawingRecord::ctor()
+void poi::hssf::record::DrawingRecord::ctor()
 {
     super::ctor();
     recordData = EMPTY_BYTE_ARRAY_;
 }
 
-void org::apache::poi::hssf::record::DrawingRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::DrawingRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     recordData = npc(in)->readRemainder();
 }
 
-void org::apache::poi::hssf::record::DrawingRecord::processContinueRecord(::int8_tArray* record)
+void poi::hssf::record::DrawingRecord::processContinueRecord(::int8_tArray* record)
 {
     contd = record;
 }
 
-void org::apache::poi::hssf::record::DrawingRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::DrawingRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->write(recordData);
 }
 
-int32_t org::apache::poi::hssf::record::DrawingRecord::getDataSize()
+int32_t poi::hssf::record::DrawingRecord::getDataSize()
 {
     return npc(recordData)->length;
 }
 
-int16_t org::apache::poi::hssf::record::DrawingRecord::getSid()
+int16_t poi::hssf::record::DrawingRecord::getSid()
 {
     return sid;
 }
 
-int8_tArray* org::apache::poi::hssf::record::DrawingRecord::getRecordData()
+int8_tArray* poi::hssf::record::DrawingRecord::getRecordData()
 {
     return recordData;
 }
 
-void org::apache::poi::hssf::record::DrawingRecord::setData(::int8_tArray* thedata)
+void poi::hssf::record::DrawingRecord::setData(::int8_tArray* thedata)
 {
     if(thedata == nullptr) {
         throw new ::java::lang::IllegalArgumentException(u"data must not be null"_j);
@@ -88,7 +88,7 @@ void org::apache::poi::hssf::record::DrawingRecord::setData(::int8_tArray* theda
     recordData = thedata;
 }
 
-org::apache::poi::hssf::record::DrawingRecord* org::apache::poi::hssf::record::DrawingRecord::clone()
+poi::hssf::record::DrawingRecord* poi::hssf::record::DrawingRecord::clone()
 {
     auto rec = new DrawingRecord();
     npc(rec)->recordData = npc(recordData)->clone();
@@ -98,7 +98,7 @@ org::apache::poi::hssf::record::DrawingRecord* org::apache::poi::hssf::record::D
     return rec;
 }
 
-java::lang::String* org::apache::poi::hssf::record::DrawingRecord::toString()
+java::lang::String* poi::hssf::record::DrawingRecord::toString()
 {
     return ::java::lang::StringBuilder().append(u"DrawingRecord["_j)->append(npc(recordData)->length)
         ->append(u"]"_j)->toString();
@@ -106,13 +106,13 @@ java::lang::String* org::apache::poi::hssf::record::DrawingRecord::toString()
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::DrawingRecord::class_()
+java::lang::Class* poi::hssf::record::DrawingRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.DrawingRecord", 40);
     return c;
 }
 
-void org::apache::poi::hssf::record::DrawingRecord::clinit()
+void poi::hssf::record::DrawingRecord::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -128,17 +128,17 @@ struct clinit_ {
     }
 }
 
-int32_t org::apache::poi::hssf::record::DrawingRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::DrawingRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::DrawingRecord::serialize()
+int8_tArray* poi::hssf::record::DrawingRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::DrawingRecord::getClass0()
+java::lang::Class* poi::hssf::record::DrawingRecord::getClass0()
 {
     return class_();
 }

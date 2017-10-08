@@ -9,25 +9,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -36,35 +30,35 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::Fixed2ArgFunction::Fixed2ArgFunction(const ::default_init_tag&)
+poi::ss::formula::functions::Fixed2ArgFunction::Fixed2ArgFunction(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::Fixed2ArgFunction::Fixed2ArgFunction()
+poi::ss::formula::functions::Fixed2ArgFunction::Fixed2ArgFunction()
     : Fixed2ArgFunction(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Fixed2ArgFunction::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Fixed2ArgFunction::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
 {
     if(npc(args)->length != 2) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
     return evaluate(srcRowIndex, srcColumnIndex, (*args)[int32_t(0)], (*args)[int32_t(1)]);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Fixed2ArgFunction::class_()
+java::lang::Class* poi::ss::formula::functions::Fixed2ArgFunction::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.Fixed2ArgFunction", 53);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Fixed2ArgFunction::getClass0()
+java::lang::Class* poi::ss::formula::functions::Fixed2ArgFunction::getClass0()
 {
     return class_();
 }

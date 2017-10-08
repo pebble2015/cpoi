@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::WindowTwoRecord final
+class poi::hssf::record::WindowTwoRecord final
     : public StandardRecord
 {
 
@@ -19,18 +19,18 @@ public:
     static constexpr int16_t sid { int16_t(574) };
 
 private:
-    static ::org::apache::poi::util::BitField* displayFormulas_;
-    static ::org::apache::poi::util::BitField* displayGridlines_;
-    static ::org::apache::poi::util::BitField* displayRowColHeadings_;
-    static ::org::apache::poi::util::BitField* freezePanes_;
-    static ::org::apache::poi::util::BitField* displayZeros_;
-    static ::org::apache::poi::util::BitField* defaultHeader_;
-    static ::org::apache::poi::util::BitField* arabic_;
-    static ::org::apache::poi::util::BitField* displayGuts_;
-    static ::org::apache::poi::util::BitField* freezePanesNoSplit_;
-    static ::org::apache::poi::util::BitField* selected_;
-    static ::org::apache::poi::util::BitField* active_;
-    static ::org::apache::poi::util::BitField* savedInPageBreakPreview_;
+    static ::poi::util::BitField* displayFormulas_;
+    static ::poi::util::BitField* displayGridlines_;
+    static ::poi::util::BitField* displayRowColHeadings_;
+    static ::poi::util::BitField* freezePanes_;
+    static ::poi::util::BitField* displayZeros_;
+    static ::poi::util::BitField* defaultHeader_;
+    static ::poi::util::BitField* arabic_;
+    static ::poi::util::BitField* displayGuts_;
+    static ::poi::util::BitField* freezePanesNoSplit_;
+    static ::poi::util::BitField* selected_;
+    static ::poi::util::BitField* active_;
+    static ::poi::util::BitField* savedInPageBreakPreview_;
     int16_t field_1_options {  };
     int16_t field_2_top_row {  };
     int16_t field_3_left_col {  };
@@ -82,7 +82,7 @@ public:
     int16_t getNormalZoom();
     int32_t getReserved();
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;
@@ -105,17 +105,17 @@ public:
     ::int8_tArray* serialize();
 
 private:
-    static ::org::apache::poi::util::BitField*& displayFormulas();
-    static ::org::apache::poi::util::BitField*& displayGridlines();
-    static ::org::apache::poi::util::BitField*& displayRowColHeadings();
-    static ::org::apache::poi::util::BitField*& freezePanes();
-    static ::org::apache::poi::util::BitField*& displayZeros();
-    static ::org::apache::poi::util::BitField*& defaultHeader();
-    static ::org::apache::poi::util::BitField*& arabic();
-    static ::org::apache::poi::util::BitField*& displayGuts();
-    static ::org::apache::poi::util::BitField*& freezePanesNoSplit();
-    static ::org::apache::poi::util::BitField*& selected();
-    static ::org::apache::poi::util::BitField*& active();
-    static ::org::apache::poi::util::BitField*& savedInPageBreakPreview();
+    static ::poi::util::BitField*& displayFormulas();
+    static ::poi::util::BitField*& displayGridlines();
+    static ::poi::util::BitField*& displayRowColHeadings();
+    static ::poi::util::BitField*& freezePanes();
+    static ::poi::util::BitField*& displayZeros();
+    static ::poi::util::BitField*& defaultHeader();
+    static ::poi::util::BitField*& arabic();
+    static ::poi::util::BitField*& displayGuts();
+    static ::poi::util::BitField*& freezePanesNoSplit();
+    static ::poi::util::BitField*& selected();
+    static ::poi::util::BitField*& active();
+    static ::poi::util::BitField*& savedInPageBreakPreview();
     virtual ::java::lang::Class* getClass0();
 };

@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ddf::EscherProperty
+class poi::ddf::EscherProperty
     : public virtual ::java::lang::Object
 {
 

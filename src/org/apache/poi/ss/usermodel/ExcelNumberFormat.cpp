@@ -28,19 +28,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::usermodel::ExcelNumberFormat::ExcelNumberFormat(const ::default_init_tag&)
+poi::ss::usermodel::ExcelNumberFormat::ExcelNumberFormat(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::usermodel::ExcelNumberFormat::ExcelNumberFormat(int32_t idx, ::java::lang::String* format) 
+poi::ss::usermodel::ExcelNumberFormat::ExcelNumberFormat(int32_t idx, ::java::lang::String* format) 
     : ExcelNumberFormat(*static_cast< ::default_init_tag* >(0))
 {
     ctor(idx,format);
 }
 
-org::apache::poi::ss::usermodel::ExcelNumberFormat* org::apache::poi::ss::usermodel::ExcelNumberFormat::from(CellStyle* style)
+poi::ss::usermodel::ExcelNumberFormat* poi::ss::usermodel::ExcelNumberFormat::from(CellStyle* style)
 {
     clinit();
     if(style == nullptr)
@@ -49,7 +49,7 @@ org::apache::poi::ss::usermodel::ExcelNumberFormat* org::apache::poi::ss::usermo
     return new ExcelNumberFormat(npc(style)->getDataFormat(), npc(style)->getDataFormatString());
 }
 
-org::apache::poi::ss::usermodel::ExcelNumberFormat* org::apache::poi::ss::usermodel::ExcelNumberFormat::from(Cell* cell, ::org::apache::poi::ss::formula::ConditionalFormattingEvaluator* cfEvaluator)
+poi::ss::usermodel::ExcelNumberFormat* poi::ss::usermodel::ExcelNumberFormat::from(Cell* cell, ::poi::ss::formula::ConditionalFormattingEvaluator* cfEvaluator)
 {
     clinit();
     if(cell == nullptr)
@@ -59,7 +59,7 @@ org::apache::poi::ss::usermodel::ExcelNumberFormat* org::apache::poi::ss::usermo
     if(cfEvaluator != nullptr) {
         auto rules = npc(cfEvaluator)->getConditionalFormattingForCell(cell);
         for (auto _i = npc(rules)->iterator(); _i->hasNext(); ) {
-            ::org::apache::poi::ss::formula::EvaluationConditionalFormatRule* rule = java_cast< ::org::apache::poi::ss::formula::EvaluationConditionalFormatRule* >(_i->next());
+            ::poi::ss::formula::EvaluationConditionalFormatRule* rule = java_cast< ::poi::ss::formula::EvaluationConditionalFormatRule* >(_i->next());
             {
                 nf = npc(rule)->getNumberFormat();
                 if(nf != nullptr)
@@ -75,32 +75,32 @@ org::apache::poi::ss::usermodel::ExcelNumberFormat* org::apache::poi::ss::usermo
     return nf;
 }
 
-void org::apache::poi::ss::usermodel::ExcelNumberFormat::ctor(int32_t idx, ::java::lang::String* format)
+void poi::ss::usermodel::ExcelNumberFormat::ctor(int32_t idx, ::java::lang::String* format)
 {
     super::ctor();
     this->idx = idx;
     this->format = format;
 }
 
-int32_t org::apache::poi::ss::usermodel::ExcelNumberFormat::getIdx()
+int32_t poi::ss::usermodel::ExcelNumberFormat::getIdx()
 {
     return idx;
 }
 
-java::lang::String* org::apache::poi::ss::usermodel::ExcelNumberFormat::getFormat()
+java::lang::String* poi::ss::usermodel::ExcelNumberFormat::getFormat()
 {
     return format;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::usermodel::ExcelNumberFormat::class_()
+java::lang::Class* poi::ss::usermodel::ExcelNumberFormat::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.usermodel.ExcelNumberFormat", 45);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::usermodel::ExcelNumberFormat::getClass0()
+java::lang::Class* poi::ss::usermodel::ExcelNumberFormat::getClass0()
 {
     return class_();
 }

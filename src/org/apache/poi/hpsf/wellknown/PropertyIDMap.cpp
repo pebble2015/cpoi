@@ -54,153 +54,153 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hpsf::wellknown::PropertyIDMap::PropertyIDMap(const ::default_init_tag&)
+poi::hpsf::wellknown::PropertyIDMap::PropertyIDMap(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hpsf::wellknown::PropertyIDMap::PropertyIDMap(::java::lang::ObjectArrayArray* idValues) 
+poi::hpsf::wellknown::PropertyIDMap::PropertyIDMap(::java::lang::ObjectArrayArray* idValues) 
     : PropertyIDMap(*static_cast< ::default_init_tag* >(0))
 {
     ctor(idValues);
 }
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_TITLE;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_TITLE;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_SUBJECT;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_SUBJECT;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_AUTHOR;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_AUTHOR;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_KEYWORDS;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_KEYWORDS;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_COMMENTS;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_COMMENTS;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_TEMPLATE;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_TEMPLATE;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_LASTAUTHOR;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_LASTAUTHOR;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_REVNUMBER;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_REVNUMBER;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_EDITTIME;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_EDITTIME;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_LASTPRINTED;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_LASTPRINTED;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_CREATE_DTM;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_CREATE_DTM;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_LASTSAVE_DTM;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_LASTSAVE_DTM;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_PAGECOUNT;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_PAGECOUNT;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_WORDCOUNT;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_WORDCOUNT;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_CHARCOUNT;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_CHARCOUNT;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_THUMBNAIL;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_THUMBNAIL;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_APPNAME;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_APPNAME;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_SECURITY;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_SECURITY;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_DICTIONARY;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_DICTIONARY;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_CODEPAGE;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_CODEPAGE;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_CATEGORY;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_CATEGORY;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_PRESFORMAT;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_PRESFORMAT;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_BYTECOUNT;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_BYTECOUNT;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_LINECOUNT;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_LINECOUNT;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_PARCOUNT;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_PARCOUNT;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_SLIDECOUNT;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_SLIDECOUNT;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_NOTECOUNT;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_NOTECOUNT;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_HIDDENCOUNT;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_HIDDENCOUNT;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_MMCLIPCOUNT;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_MMCLIPCOUNT;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_SCALE;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_SCALE;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_HEADINGPAIR;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_HEADINGPAIR;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_DOCPARTS;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_DOCPARTS;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_MANAGER;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_MANAGER;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_COMPANY;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_COMPANY;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_LINKSDIRTY;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_LINKSDIRTY;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_CCHWITHSPACES;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_CCHWITHSPACES;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_HYPERLINKSCHANGED;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_HYPERLINKSCHANGED;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_VERSION;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_VERSION;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_DIGSIG;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_DIGSIG;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_CONTENTTYPE;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_CONTENTTYPE;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_CONTENTSTATUS;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_CONTENTSTATUS;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_LANGUAGE;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_LANGUAGE;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_DOCVERSION;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_DOCVERSION;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_MAX;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_MAX;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_LOCALE;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_LOCALE;
 
-constexpr int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_BEHAVIOUR;
+constexpr int32_t poi::hpsf::wellknown::PropertyIDMap::PID_BEHAVIOUR;
 
-org::apache::poi::hpsf::wellknown::PropertyIDMap*& org::apache::poi::hpsf::wellknown::PropertyIDMap::summaryInformationProperties()
+poi::hpsf::wellknown::PropertyIDMap*& poi::hpsf::wellknown::PropertyIDMap::summaryInformationProperties()
 {
     clinit();
     return summaryInformationProperties_;
 }
-org::apache::poi::hpsf::wellknown::PropertyIDMap* org::apache::poi::hpsf::wellknown::PropertyIDMap::summaryInformationProperties_;
+poi::hpsf::wellknown::PropertyIDMap* poi::hpsf::wellknown::PropertyIDMap::summaryInformationProperties_;
 
-java::lang::ObjectArrayArray*& org::apache::poi::hpsf::wellknown::PropertyIDMap::summaryInformationIdValues()
+java::lang::ObjectArrayArray*& poi::hpsf::wellknown::PropertyIDMap::summaryInformationIdValues()
 {
     clinit();
     return summaryInformationIdValues_;
 }
-java::lang::ObjectArrayArray* org::apache::poi::hpsf::wellknown::PropertyIDMap::summaryInformationIdValues_;
+java::lang::ObjectArrayArray* poi::hpsf::wellknown::PropertyIDMap::summaryInformationIdValues_;
 
-org::apache::poi::hpsf::wellknown::PropertyIDMap*& org::apache::poi::hpsf::wellknown::PropertyIDMap::documentSummaryInformationProperties()
+poi::hpsf::wellknown::PropertyIDMap*& poi::hpsf::wellknown::PropertyIDMap::documentSummaryInformationProperties()
 {
     clinit();
     return documentSummaryInformationProperties_;
 }
-org::apache::poi::hpsf::wellknown::PropertyIDMap* org::apache::poi::hpsf::wellknown::PropertyIDMap::documentSummaryInformationProperties_;
+poi::hpsf::wellknown::PropertyIDMap* poi::hpsf::wellknown::PropertyIDMap::documentSummaryInformationProperties_;
 
-java::lang::ObjectArrayArray*& org::apache::poi::hpsf::wellknown::PropertyIDMap::documentSummaryInformationIdValues()
+java::lang::ObjectArrayArray*& poi::hpsf::wellknown::PropertyIDMap::documentSummaryInformationIdValues()
 {
     clinit();
     return documentSummaryInformationIdValues_;
 }
-java::lang::ObjectArrayArray* org::apache::poi::hpsf::wellknown::PropertyIDMap::documentSummaryInformationIdValues_;
+java::lang::ObjectArrayArray* poi::hpsf::wellknown::PropertyIDMap::documentSummaryInformationIdValues_;
 
-org::apache::poi::hpsf::wellknown::PropertyIDMap*& org::apache::poi::hpsf::wellknown::PropertyIDMap::fallbackProperties()
+poi::hpsf::wellknown::PropertyIDMap*& poi::hpsf::wellknown::PropertyIDMap::fallbackProperties()
 {
     clinit();
     return fallbackProperties_;
 }
-org::apache::poi::hpsf::wellknown::PropertyIDMap* org::apache::poi::hpsf::wellknown::PropertyIDMap::fallbackProperties_;
+poi::hpsf::wellknown::PropertyIDMap* poi::hpsf::wellknown::PropertyIDMap::fallbackProperties_;
 
-java::lang::ObjectArrayArray*& org::apache::poi::hpsf::wellknown::PropertyIDMap::fallbackIdValues()
+java::lang::ObjectArrayArray*& poi::hpsf::wellknown::PropertyIDMap::fallbackIdValues()
 {
     clinit();
     return fallbackIdValues_;
 }
-java::lang::ObjectArrayArray* org::apache::poi::hpsf::wellknown::PropertyIDMap::fallbackIdValues_;
+java::lang::ObjectArrayArray* poi::hpsf::wellknown::PropertyIDMap::fallbackIdValues_;
 
-void org::apache::poi::hpsf::wellknown::PropertyIDMap::ctor(::java::lang::ObjectArrayArray* idValues)
+void poi::hpsf::wellknown::PropertyIDMap::ctor(::java::lang::ObjectArrayArray* idValues)
 {
     super::ctor();
     ::java::util::Map* m = new ::java::util::HashMap(npc(idValues)->length);
@@ -210,7 +210,7 @@ void org::apache::poi::hpsf::wellknown::PropertyIDMap::ctor(::java::lang::Object
     idMap = ::java::util::Collections::unmodifiableMap(m);
 }
 
-org::apache::poi::hpsf::wellknown::PropertyIDMap* org::apache::poi::hpsf::wellknown::PropertyIDMap::getSummaryInformationProperties()
+poi::hpsf::wellknown::PropertyIDMap* poi::hpsf::wellknown::PropertyIDMap::getSummaryInformationProperties()
 {
     clinit();
     if(summaryInformationProperties_ == nullptr) {
@@ -219,7 +219,7 @@ org::apache::poi::hpsf::wellknown::PropertyIDMap* org::apache::poi::hpsf::wellkn
     return summaryInformationProperties_;
 }
 
-org::apache::poi::hpsf::wellknown::PropertyIDMap* org::apache::poi::hpsf::wellknown::PropertyIDMap::getDocumentSummaryInformationProperties()
+poi::hpsf::wellknown::PropertyIDMap* poi::hpsf::wellknown::PropertyIDMap::getDocumentSummaryInformationProperties()
 {
     clinit();
     if(documentSummaryInformationProperties_ == nullptr) {
@@ -228,7 +228,7 @@ org::apache::poi::hpsf::wellknown::PropertyIDMap* org::apache::poi::hpsf::wellkn
     return documentSummaryInformationProperties_;
 }
 
-org::apache::poi::hpsf::wellknown::PropertyIDMap* org::apache::poi::hpsf::wellknown::PropertyIDMap::getFallbackProperties()
+poi::hpsf::wellknown::PropertyIDMap* poi::hpsf::wellknown::PropertyIDMap::getFallbackProperties()
 {
     clinit();
     if(fallbackProperties_ == nullptr) {
@@ -237,72 +237,72 @@ org::apache::poi::hpsf::wellknown::PropertyIDMap* org::apache::poi::hpsf::wellkn
     return fallbackProperties_;
 }
 
-int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::size()
+int32_t poi::hpsf::wellknown::PropertyIDMap::size()
 {
     return npc(idMap)->size();
 }
 
-bool org::apache::poi::hpsf::wellknown::PropertyIDMap::isEmpty()
+bool poi::hpsf::wellknown::PropertyIDMap::isEmpty()
 {
     return npc(idMap)->isEmpty();
 }
 
-bool org::apache::poi::hpsf::wellknown::PropertyIDMap::containsKey(::java::lang::Object* key)
+bool poi::hpsf::wellknown::PropertyIDMap::containsKey(::java::lang::Object* key)
 {
     return npc(idMap)->containsKey(key);
 }
 
-bool org::apache::poi::hpsf::wellknown::PropertyIDMap::containsValue(::java::lang::Object* value)
+bool poi::hpsf::wellknown::PropertyIDMap::containsValue(::java::lang::Object* value)
 {
     return npc(idMap)->containsValue(value);
 }
 
-java::lang::String* org::apache::poi::hpsf::wellknown::PropertyIDMap::get(::java::lang::Object* key)
+java::lang::String* poi::hpsf::wellknown::PropertyIDMap::get(::java::lang::Object* key)
 {
     return java_cast< ::java::lang::String* >(npc(idMap)->get(key));
 }
 
-java::lang::String* org::apache::poi::hpsf::wellknown::PropertyIDMap::put(::java::lang::Long* key, ::java::lang::String* value)
+java::lang::String* poi::hpsf::wellknown::PropertyIDMap::put(::java::lang::Long* key, ::java::lang::String* value)
 {
     return java_cast< ::java::lang::String* >(npc(idMap)->put(key, value));
 }
 
-java::lang::Object* org::apache::poi::hpsf::wellknown::PropertyIDMap::put(::java::lang::Object* key, ::java::lang::Object* value)
+java::lang::Object* poi::hpsf::wellknown::PropertyIDMap::put(::java::lang::Object* key, ::java::lang::Object* value)
 { 
     return put(dynamic_cast< ::java::lang::Long* >(key), dynamic_cast< ::java::lang::String* >(value));
 }
 
-java::lang::String* org::apache::poi::hpsf::wellknown::PropertyIDMap::remove(::java::lang::Object* key)
+java::lang::String* poi::hpsf::wellknown::PropertyIDMap::remove(::java::lang::Object* key)
 {
     return java_cast< ::java::lang::String* >(npc(idMap)->remove(key));
 }
 
-void org::apache::poi::hpsf::wellknown::PropertyIDMap::putAll(::java::util::Map* m)
+void poi::hpsf::wellknown::PropertyIDMap::putAll(::java::util::Map* m)
 {
     npc(idMap)->putAll(m);
 }
 
-void org::apache::poi::hpsf::wellknown::PropertyIDMap::clear()
+void poi::hpsf::wellknown::PropertyIDMap::clear()
 {
     npc(idMap)->clear();
 }
 
-java::util::Set* org::apache::poi::hpsf::wellknown::PropertyIDMap::keySet()
+java::util::Set* poi::hpsf::wellknown::PropertyIDMap::keySet()
 {
     return npc(idMap)->keySet();
 }
 
-java::util::Collection* org::apache::poi::hpsf::wellknown::PropertyIDMap::values()
+java::util::Collection* poi::hpsf::wellknown::PropertyIDMap::values()
 {
     return npc(idMap)->values();
 }
 
-java::util::Set* org::apache::poi::hpsf::wellknown::PropertyIDMap::entrySet()
+java::util::Set* poi::hpsf::wellknown::PropertyIDMap::entrySet()
 {
     return npc(idMap)->entrySet();
 }
 
-void org::apache::poi::hpsf::wellknown::PropertyIDMap::main(::java::lang::StringArray* args)
+void poi::hpsf::wellknown::PropertyIDMap::main(::java::lang::StringArray* args)
 {
     clinit();
     auto s1 = getSummaryInformationProperties();
@@ -313,13 +313,13 @@ void org::apache::poi::hpsf::wellknown::PropertyIDMap::main(::java::lang::String
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hpsf::wellknown::PropertyIDMap::class_()
+java::lang::Class* poi::hpsf::wellknown::PropertyIDMap::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hpsf.wellknown.PropertyIDMap", 43);
     return c;
 }
 
-void org::apache::poi::hpsf::wellknown::PropertyIDMap::clinit()
+void poi::hpsf::wellknown::PropertyIDMap::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -592,22 +592,22 @@ struct clinit_ {
     }
 }
 
-bool org::apache::poi::hpsf::wellknown::PropertyIDMap::equals(::java::lang::Object* o)
+bool poi::hpsf::wellknown::PropertyIDMap::equals(::java::lang::Object* o)
 {
     return Object::equals(o);
 }
 
-int32_t org::apache::poi::hpsf::wellknown::PropertyIDMap::hashCode()
+int32_t poi::hpsf::wellknown::PropertyIDMap::hashCode()
 {
     return Object::hashCode();
 }
 
-bool org::apache::poi::hpsf::wellknown::PropertyIDMap::remove(::java::lang::Object* key, ::java::lang::Object* value)
+bool poi::hpsf::wellknown::PropertyIDMap::remove(::java::lang::Object* key, ::java::lang::Object* value)
 {
     return remove(key, value);
 }
 
-java::lang::Class* org::apache::poi::hpsf::wellknown::PropertyIDMap::getClass0()
+java::lang::Class* poi::hpsf::wellknown::PropertyIDMap::getClass0()
 {
     return class_();
 }

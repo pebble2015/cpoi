@@ -6,7 +6,7 @@
 #include <org/apache/poi/ss/usermodel/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::usermodel::DataBarFormatting
+struct poi::ss::usermodel::DataBarFormatting
     : public virtual ::java::lang::Object
 {
     virtual bool isLeftToRight() = 0;

@@ -15,38 +15,38 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::HCenterRecord::HCenterRecord(const ::default_init_tag&)
+poi::hssf::record::HCenterRecord::HCenterRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::HCenterRecord::HCenterRecord() 
+poi::hssf::record::HCenterRecord::HCenterRecord() 
     : HCenterRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::HCenterRecord::HCenterRecord(RecordInputStream* in) 
+poi::hssf::record::HCenterRecord::HCenterRecord(RecordInputStream* in) 
     : HCenterRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::HCenterRecord::sid;
+constexpr int16_t poi::hssf::record::HCenterRecord::sid;
 
-void org::apache::poi::hssf::record::HCenterRecord::ctor()
+void poi::hssf::record::HCenterRecord::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hssf::record::HCenterRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::HCenterRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     field_1_hcenter = npc(in)->readShort();
 }
 
-void org::apache::poi::hssf::record::HCenterRecord::setHCenter(bool hc)
+void poi::hssf::record::HCenterRecord::setHCenter(bool hc)
 {
     if(hc == true) {
         field_1_hcenter = 1;
@@ -55,12 +55,12 @@ void org::apache::poi::hssf::record::HCenterRecord::setHCenter(bool hc)
     }
 }
 
-bool org::apache::poi::hssf::record::HCenterRecord::getHCenter()
+bool poi::hssf::record::HCenterRecord::getHCenter()
 {
     return (field_1_hcenter == 1);
 }
 
-java::lang::String* org::apache::poi::hssf::record::HCenterRecord::toString()
+java::lang::String* poi::hssf::record::HCenterRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[HCENTER]\n"_j);
@@ -69,22 +69,22 @@ java::lang::String* org::apache::poi::hssf::record::HCenterRecord::toString()
     return npc(buffer)->toString();
 }
 
-void org::apache::poi::hssf::record::HCenterRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::HCenterRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(field_1_hcenter);
 }
 
-int32_t org::apache::poi::hssf::record::HCenterRecord::getDataSize()
+int32_t poi::hssf::record::HCenterRecord::getDataSize()
 {
     return 2;
 }
 
-int16_t org::apache::poi::hssf::record::HCenterRecord::getSid()
+int16_t poi::hssf::record::HCenterRecord::getSid()
 {
     return sid;
 }
 
-org::apache::poi::hssf::record::HCenterRecord* org::apache::poi::hssf::record::HCenterRecord::clone()
+poi::hssf::record::HCenterRecord* poi::hssf::record::HCenterRecord::clone()
 {
     auto rec = new HCenterRecord();
     npc(rec)->field_1_hcenter = field_1_hcenter;
@@ -93,23 +93,23 @@ org::apache::poi::hssf::record::HCenterRecord* org::apache::poi::hssf::record::H
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::HCenterRecord::class_()
+java::lang::Class* poi::hssf::record::HCenterRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.HCenterRecord", 40);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::HCenterRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::HCenterRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::HCenterRecord::serialize()
+int8_tArray* poi::hssf::record::HCenterRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::HCenterRecord::getClass0()
+java::lang::Class* poi::hssf::record::HCenterRecord::getClass0()
 {
     return class_();
 }

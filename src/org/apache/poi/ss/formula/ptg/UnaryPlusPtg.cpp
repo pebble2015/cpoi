@@ -34,50 +34,50 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::ptg::UnaryPlusPtg::UnaryPlusPtg(const ::default_init_tag&)
+poi::ss::formula::ptg::UnaryPlusPtg::UnaryPlusPtg(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::ptg::UnaryPlusPtg::UnaryPlusPtg() 
+poi::ss::formula::ptg::UnaryPlusPtg::UnaryPlusPtg() 
     : UnaryPlusPtg(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-constexpr int8_t org::apache::poi::ss::formula::ptg::UnaryPlusPtg::sid;
+constexpr int8_t poi::ss::formula::ptg::UnaryPlusPtg::sid;
 
-java::lang::String*& org::apache::poi::ss::formula::ptg::UnaryPlusPtg::ADD()
+java::lang::String*& poi::ss::formula::ptg::UnaryPlusPtg::ADD()
 {
     clinit();
     return ADD_;
 }
-java::lang::String* org::apache::poi::ss::formula::ptg::UnaryPlusPtg::ADD_;
+java::lang::String* poi::ss::formula::ptg::UnaryPlusPtg::ADD_;
 
-org::apache::poi::ss::formula::ptg::ValueOperatorPtg*& org::apache::poi::ss::formula::ptg::UnaryPlusPtg::instance()
+poi::ss::formula::ptg::ValueOperatorPtg*& poi::ss::formula::ptg::UnaryPlusPtg::instance()
 {
     clinit();
     return instance_;
 }
-org::apache::poi::ss::formula::ptg::ValueOperatorPtg* org::apache::poi::ss::formula::ptg::UnaryPlusPtg::instance_;
+poi::ss::formula::ptg::ValueOperatorPtg* poi::ss::formula::ptg::UnaryPlusPtg::instance_;
 
-void org::apache::poi::ss::formula::ptg::UnaryPlusPtg::ctor()
+void poi::ss::formula::ptg::UnaryPlusPtg::ctor()
 {
     super::ctor();
 }
 
-int8_t org::apache::poi::ss::formula::ptg::UnaryPlusPtg::getSid()
+int8_t poi::ss::formula::ptg::UnaryPlusPtg::getSid()
 {
     return sid;
 }
 
-int32_t org::apache::poi::ss::formula::ptg::UnaryPlusPtg::getNumberOfOperands()
+int32_t poi::ss::formula::ptg::UnaryPlusPtg::getNumberOfOperands()
 {
     return 1;
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::UnaryPlusPtg::toFormulaString(::java::lang::StringArray* operands)
+java::lang::String* poi::ss::formula::ptg::UnaryPlusPtg::toFormulaString(::java::lang::StringArray* operands)
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(ADD_);
@@ -87,13 +87,13 @@ java::lang::String* org::apache::poi::ss::formula::ptg::UnaryPlusPtg::toFormulaS
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::UnaryPlusPtg::class_()
+java::lang::Class* poi::ss::formula::ptg::UnaryPlusPtg::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.ptg.UnaryPlusPtg", 42);
     return c;
 }
 
-void org::apache::poi::ss::formula::ptg::UnaryPlusPtg::clinit()
+void poi::ss::formula::ptg::UnaryPlusPtg::clinit()
 {
 struct string_init_ {
     string_init_() {
@@ -117,12 +117,12 @@ struct clinit_ {
     }
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::UnaryPlusPtg::toFormulaString()
+java::lang::String* poi::ss::formula::ptg::UnaryPlusPtg::toFormulaString()
 {
     return super::toFormulaString();
 }
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::UnaryPlusPtg::getClass0()
+java::lang::Class* poi::ss::formula::ptg::UnaryPlusPtg::getClass0()
 {
     return class_();
 }

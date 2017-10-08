@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::EvaluationWorkbook_ExternalSheetRange
+class poi::ss::formula::EvaluationWorkbook_ExternalSheetRange
     : public EvaluationWorkbook_ExternalSheet
 {
 

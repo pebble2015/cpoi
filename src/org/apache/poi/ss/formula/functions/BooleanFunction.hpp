@@ -10,39 +10,33 @@
 #include <org/apache/poi/ss/formula/functions/Function.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::BooleanFunction
+class poi::ss::formula::functions::BooleanFunction
     : public virtual ::java::lang::Object
     , public virtual Function
 {
 
 public:
     typedef ::java::lang::Object super;
-    ::org::apache::poi::ss::formula::eval::ValueEval* evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRow, int32_t srcCol) override;
+    ::poi::ss::formula::eval::ValueEval* evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRow, int32_t srcCol) override;
 
 private:
-    bool calculate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args) /* throws(EvaluationException) */;
+    bool calculate(::poi::ss::formula::eval::ValueEvalArray* args) /* throws(EvaluationException) */;
 
 public: /* protected */
     virtual bool getInitialResultValue() = 0;

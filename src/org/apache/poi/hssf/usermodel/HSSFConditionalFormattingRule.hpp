@@ -18,31 +18,25 @@
 #include <org/apache/poi/hssf/usermodel/HSSFPatternFormatting.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFConditionalFormattingRule final
+class poi::hssf::usermodel::HSSFConditionalFormattingRule final
     : public virtual ::java::lang::Object
-    , public ::org::apache::poi::ss::usermodel::ConditionalFormattingRule
+    , public ::poi::ss::usermodel::ConditionalFormattingRule
 {
 
 public:
@@ -50,24 +44,24 @@ public:
 
 private:
     static constexpr int8_t CELL_COMPARISON { int8_t(1) };
-    ::org::apache::poi::hssf::record::CFRuleBase* cfRuleRecord {  };
+    ::poi::hssf::record::CFRuleBase* cfRuleRecord {  };
     HSSFWorkbook* workbook {  };
     HSSFSheet* sheet {  };
 protected:
-    void ctor(HSSFSheet* pSheet, ::org::apache::poi::hssf::record::CFRuleBase* pRuleRecord);
+    void ctor(HSSFSheet* pSheet, ::poi::hssf::record::CFRuleBase* pRuleRecord);
 
 public:
     int32_t getPriority() override;
     bool getStopIfTrue() override;
 
 public: /* package */
-    ::org::apache::poi::hssf::record::CFRuleBase* getCfRuleRecord();
+    ::poi::hssf::record::CFRuleBase* getCfRuleRecord();
 
 private:
-    ::org::apache::poi::hssf::record::CFRule12Record* getCFRule12Record(bool create);
+    ::poi::hssf::record::CFRule12Record* getCFRule12Record(bool create);
 
 public:
-    ::org::apache::poi::ss::usermodel::ExcelNumberFormat* getNumberFormat() override;
+    ::poi::ss::usermodel::ExcelNumberFormat* getNumberFormat() override;
 
 private:
     HSSFFontFormatting* getFontFormatting(bool create);
@@ -110,16 +104,16 @@ private:
 public:
     HSSFColorScaleFormatting* getColorScaleFormatting() override;
     HSSFColorScaleFormatting* createColorScaleFormatting();
-    ::org::apache::poi::ss::usermodel::ConditionType* getConditionType() override;
-    ::org::apache::poi::ss::usermodel::ConditionFilterType* getConditionFilterType() override;
-    ::org::apache::poi::ss::usermodel::ConditionFilterData* getFilterConfiguration() override;
+    ::poi::ss::usermodel::ConditionType* getConditionType() override;
+    ::poi::ss::usermodel::ConditionFilterType* getConditionFilterType() override;
+    ::poi::ss::usermodel::ConditionFilterData* getFilterConfiguration() override;
     int8_t getComparisonOperation() override;
     ::java::lang::String* getFormula1() override;
     ::java::lang::String* getFormula2() override;
 
 public: /* protected */
-    ::java::lang::String* toFormulaString(::org::apache::poi::ss::formula::ptg::PtgArray* parsedExpression);
-    static ::java::lang::String* toFormulaString(::org::apache::poi::ss::formula::ptg::PtgArray* parsedExpression, HSSFWorkbook* workbook);
+    ::java::lang::String* toFormulaString(::poi::ss::formula::ptg::PtgArray* parsedExpression);
+    static ::java::lang::String* toFormulaString(::poi::ss::formula::ptg::PtgArray* parsedExpression, HSSFWorkbook* workbook);
 
 public:
     int32_t getStripeSize() override;
@@ -127,7 +121,7 @@ public:
     // Generated
 
 public: /* package */
-    HSSFConditionalFormattingRule(HSSFSheet* pSheet, ::org::apache::poi::hssf::record::CFRuleBase* pRuleRecord);
+    HSSFConditionalFormattingRule(HSSFSheet* pSheet, ::poi::hssf::record::CFRuleBase* pRuleRecord);
 protected:
     HSSFConditionalFormattingRule(const ::default_init_tag&);
 

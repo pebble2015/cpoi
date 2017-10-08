@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::ObjectProtectRecord final
+class poi::hssf::record::ObjectProtectRecord final
     : public StandardRecord
     , public ::java::lang::Cloneable
 {
@@ -30,7 +30,7 @@ public:
     void setProtect(bool protect);
     bool getProtect();
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;

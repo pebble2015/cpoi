@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::ptg::ArrayPtg_Initial final
+class poi::ss::formula::ptg::ArrayPtg_Initial final
     : public Ptg
 {
 
@@ -22,7 +22,7 @@ private:
     int32_t _reserved1 {  };
     int32_t _reserved2 {  };
 protected:
-    void ctor(::org::apache::poi::util::LittleEndianInput* in);
+    void ctor(::poi::util::LittleEndianInput* in);
 
 private:
     static ::java::lang::RuntimeException* invalid();
@@ -32,11 +32,11 @@ public:
     int32_t getSize() override;
     bool isBaseToken() override;
     ::java::lang::String* toFormulaString() override;
-    void write(::org::apache::poi::util::LittleEndianOutput* out) override;
-    ArrayPtg* finishReading(::org::apache::poi::util::LittleEndianInput* in);
+    void write(::poi::util::LittleEndianOutput* out) override;
+    ArrayPtg* finishReading(::poi::util::LittleEndianInput* in);
 
     // Generated
-    ArrayPtg_Initial(::org::apache::poi::util::LittleEndianInput* in);
+    ArrayPtg_Initial(::poi::util::LittleEndianInput* in);
 protected:
     ArrayPtg_Initial(const ::default_init_tag&);
 

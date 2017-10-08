@@ -12,7 +12,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::common::FeatProtection final
+class poi::hssf::record::common::FeatProtection final
     : public virtual ::java::lang::Object
     , public SharedFeature
 {
@@ -29,11 +29,11 @@ private:
     ::int8_tArray* securityDescriptor {  };
 protected:
     void ctor();
-    void ctor(::org::apache::poi::hssf::record::RecordInputStream* in);
+    void ctor(::poi::hssf::record::RecordInputStream* in);
 
 public:
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
     int32_t getDataSize() override;
     int32_t getPasswordVerifier();
     void setPasswordVerifier(int32_t passwordVerifier);
@@ -43,7 +43,7 @@ public:
 
     // Generated
     FeatProtection();
-    FeatProtection(::org::apache::poi::hssf::record::RecordInputStream* in);
+    FeatProtection(::poi::hssf::record::RecordInputStream* in);
 protected:
     FeatProtection(const ::default_init_tag&);
 

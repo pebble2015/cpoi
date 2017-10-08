@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::PrintSetupRecord final
+class poi::hssf::record::PrintSetupRecord final
     : public StandardRecord
 {
 
@@ -25,14 +25,14 @@ private:
     int16_t field_4_fit_width {  };
     int16_t field_5_fit_height {  };
     int16_t field_6_options {  };
-    static ::org::apache::poi::util::BitField* lefttoright_;
-    static ::org::apache::poi::util::BitField* landscape_;
-    static ::org::apache::poi::util::BitField* validsettings_;
-    static ::org::apache::poi::util::BitField* nocolor_;
-    static ::org::apache::poi::util::BitField* draft_;
-    static ::org::apache::poi::util::BitField* notes_;
-    static ::org::apache::poi::util::BitField* noOrientation_;
-    static ::org::apache::poi::util::BitField* usepage_;
+    static ::poi::util::BitField* lefttoright_;
+    static ::poi::util::BitField* landscape_;
+    static ::poi::util::BitField* validsettings_;
+    static ::poi::util::BitField* nocolor_;
+    static ::poi::util::BitField* draft_;
+    static ::poi::util::BitField* notes_;
+    static ::poi::util::BitField* noOrientation_;
+    static ::poi::util::BitField* usepage_;
     int16_t field_7_hresolution {  };
     int16_t field_8_vresolution {  };
     double field_9_headermargin {  };
@@ -82,7 +82,7 @@ public:
     double getFooterMargin();
     int16_t getCopies();
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;
@@ -105,13 +105,13 @@ public:
     ::int8_tArray* serialize();
 
 private:
-    static ::org::apache::poi::util::BitField*& lefttoright();
-    static ::org::apache::poi::util::BitField*& landscape();
-    static ::org::apache::poi::util::BitField*& validsettings();
-    static ::org::apache::poi::util::BitField*& nocolor();
-    static ::org::apache::poi::util::BitField*& draft();
-    static ::org::apache::poi::util::BitField*& notes();
-    static ::org::apache::poi::util::BitField*& noOrientation();
-    static ::org::apache::poi::util::BitField*& usepage();
+    static ::poi::util::BitField*& lefttoright();
+    static ::poi::util::BitField*& landscape();
+    static ::poi::util::BitField*& validsettings();
+    static ::poi::util::BitField*& nocolor();
+    static ::poi::util::BitField*& draft();
+    static ::poi::util::BitField*& notes();
+    static ::poi::util::BitField*& noOrientation();
+    static ::poi::util::BitField*& usepage();
     virtual ::java::lang::Class* getClass0();
 };

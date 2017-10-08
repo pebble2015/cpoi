@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::FtPioGrbitSubRecord final
+class poi::hssf::record::FtPioGrbitSubRecord final
     : public SubRecord
     , public ::java::lang::Cloneable
 {
@@ -34,13 +34,13 @@ private:
     int16_t flags {  };
 protected:
     void ctor();
-    void ctor(::org::apache::poi::util::LittleEndianInput* in, int32_t size);
+    void ctor(::poi::util::LittleEndianInput* in, int32_t size);
 
 public:
     void setFlagByBit(int32_t bitmask, bool enabled);
     bool getFlagByBit(int32_t bitmask);
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;
@@ -53,7 +53,7 @@ public:
 
     // Generated
     FtPioGrbitSubRecord();
-    FtPioGrbitSubRecord(::org::apache::poi::util::LittleEndianInput* in, int32_t size);
+    FtPioGrbitSubRecord(::poi::util::LittleEndianInput* in, int32_t size);
 protected:
     FtPioGrbitSubRecord(const ::default_init_tag&);
 

@@ -3,24 +3,24 @@
 
 #include <java/lang/Double.hpp>
 
-org::apache::poi::hssf::util::RKUtil::RKUtil(const ::default_init_tag&)
+poi::hssf::util::RKUtil::RKUtil(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::util::RKUtil::RKUtil() 
+poi::hssf::util::RKUtil::RKUtil() 
     : RKUtil(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::hssf::util::RKUtil::ctor()
+void poi::hssf::util::RKUtil::ctor()
 {
     super::ctor();
 }
 
-double org::apache::poi::hssf::util::RKUtil::decodeNumber(int32_t number)
+double poi::hssf::util::RKUtil::decodeNumber(int32_t number)
 {
     clinit();
     int64_t raw_number = number;
@@ -39,13 +39,13 @@ double org::apache::poi::hssf::util::RKUtil::decodeNumber(int32_t number)
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::util::RKUtil::class_()
+java::lang::Class* poi::hssf::util::RKUtil::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.util.RKUtil", 31);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::util::RKUtil::getClass0()
+java::lang::Class* poi::hssf::util::RKUtil::getClass0()
 {
     return class_();
 }

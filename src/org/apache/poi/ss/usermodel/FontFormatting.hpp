@@ -6,7 +6,7 @@
 #include <org/apache/poi/ss/usermodel/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::usermodel::FontFormatting
+struct poi::ss::usermodel::FontFormatting
     : public virtual ::java::lang::Object
 {
     static constexpr int16_t SS_NONE { int16_t(0) };

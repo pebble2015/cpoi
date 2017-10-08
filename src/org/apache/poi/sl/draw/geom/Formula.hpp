@@ -6,7 +6,7 @@
 #include <org/apache/poi/sl/draw/geom/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::sl::draw::geom::Formula
+struct poi::sl::draw::geom::Formula
     : public virtual ::java::lang::Object
 {
     static constexpr double OOXML_DEGREE { 60000.0 };

@@ -12,7 +12,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::util::DateFormatConverter
+class poi::ss::util::DateFormatConverter
     : public virtual ::java::lang::Object
 {
 
@@ -20,7 +20,7 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    static ::org::apache::poi::util::POILogger* logger_;
+    static ::poi::util::POILogger* logger_;
     static ::java::util::Map* tokenConversions_;
     static ::java::util::Map* localePrefixes_;
     static ::java::util::Map* prepareTokenConversions();
@@ -45,7 +45,7 @@ public:
     static void clinit();
 
 private:
-    static ::org::apache::poi::util::POILogger*& logger();
+    static ::poi::util::POILogger*& logger();
     static ::java::util::Map*& tokenConversions();
     static ::java::util::Map*& localePrefixes();
     virtual ::java::lang::Class* getClass0();

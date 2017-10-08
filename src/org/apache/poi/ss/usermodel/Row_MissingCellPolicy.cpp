@@ -25,47 +25,41 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace ss
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::Row_MissingCellPolicy, ::java::lang::EnumArray > Row_MissingCellPolicyArray;
-                } // usermodel
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::usermodel::Row_MissingCellPolicy, ::java::lang::EnumArray > Row_MissingCellPolicyArray;
+        } // usermodel
+    } // ss
+} // poi
 
-org::apache::poi::ss::usermodel::Row_MissingCellPolicy::Row_MissingCellPolicy(const ::default_init_tag&)
+poi::ss::usermodel::Row_MissingCellPolicy::Row_MissingCellPolicy(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::usermodel::Row_MissingCellPolicy::Row_MissingCellPolicy(::java::lang::String* name, int ordinal)
+poi::ss::usermodel::Row_MissingCellPolicy::Row_MissingCellPolicy(::java::lang::String* name, int ordinal)
     : Row_MissingCellPolicy(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal);
 }
 
-org::apache::poi::ss::usermodel::Row_MissingCellPolicy* org::apache::poi::ss::usermodel::Row_MissingCellPolicy::RETURN_NULL_AND_BLANK = new ::org::apache::poi::ss::usermodel::Row_MissingCellPolicy(u"RETURN_NULL_AND_BLANK"_j, 0);
-org::apache::poi::ss::usermodel::Row_MissingCellPolicy* org::apache::poi::ss::usermodel::Row_MissingCellPolicy::RETURN_BLANK_AS_NULL = new ::org::apache::poi::ss::usermodel::Row_MissingCellPolicy(u"RETURN_BLANK_AS_NULL"_j, 1);
-org::apache::poi::ss::usermodel::Row_MissingCellPolicy* org::apache::poi::ss::usermodel::Row_MissingCellPolicy::CREATE_NULL_AS_BLANK = new ::org::apache::poi::ss::usermodel::Row_MissingCellPolicy(u"CREATE_NULL_AS_BLANK"_j, 2);
+poi::ss::usermodel::Row_MissingCellPolicy* poi::ss::usermodel::Row_MissingCellPolicy::RETURN_NULL_AND_BLANK = new ::poi::ss::usermodel::Row_MissingCellPolicy(u"RETURN_NULL_AND_BLANK"_j, 0);
+poi::ss::usermodel::Row_MissingCellPolicy* poi::ss::usermodel::Row_MissingCellPolicy::RETURN_BLANK_AS_NULL = new ::poi::ss::usermodel::Row_MissingCellPolicy(u"RETURN_BLANK_AS_NULL"_j, 1);
+poi::ss::usermodel::Row_MissingCellPolicy* poi::ss::usermodel::Row_MissingCellPolicy::CREATE_NULL_AS_BLANK = new ::poi::ss::usermodel::Row_MissingCellPolicy(u"CREATE_NULL_AS_BLANK"_j, 2);
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::usermodel::Row_MissingCellPolicy::class_()
+java::lang::Class* poi::ss::usermodel::Row_MissingCellPolicy::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.usermodel.Row.MissingCellPolicy", 49);
     return c;
 }
 
-org::apache::poi::ss::usermodel::Row_MissingCellPolicy* org::apache::poi::ss::usermodel::Row_MissingCellPolicy::valueOf(::java::lang::String* a0)
+poi::ss::usermodel::Row_MissingCellPolicy* poi::ss::usermodel::Row_MissingCellPolicy::valueOf(::java::lang::String* a0)
 {
     if(CREATE_NULL_AS_BLANK->toString()->equals(a0))
         return CREATE_NULL_AS_BLANK;
@@ -76,16 +70,16 @@ org::apache::poi::ss::usermodel::Row_MissingCellPolicy* org::apache::poi::ss::us
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::ss::usermodel::Row_MissingCellPolicyArray* org::apache::poi::ss::usermodel::Row_MissingCellPolicy::values()
+poi::ss::usermodel::Row_MissingCellPolicyArray* poi::ss::usermodel::Row_MissingCellPolicy::values()
 {
-    return new org::apache::poi::ss::usermodel::Row_MissingCellPolicyArray({
+    return new poi::ss::usermodel::Row_MissingCellPolicyArray({
         CREATE_NULL_AS_BLANK,
         RETURN_BLANK_AS_NULL,
         RETURN_NULL_AND_BLANK,
     });
 }
 
-java::lang::Class* org::apache::poi::ss::usermodel::Row_MissingCellPolicy::getClass0()
+java::lang::Class* poi::ss::usermodel::Row_MissingCellPolicy::getClass0()
 {
     return class_();
 }

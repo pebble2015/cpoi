@@ -11,9 +11,9 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::crypt::DataSpaceMapUtils_IRMDSTransformInfo
+class poi::poifs::crypt::DataSpaceMapUtils_IRMDSTransformInfo
     : public virtual ::java::lang::Object
-    , public virtual ::org::apache::poi::poifs::crypt::standard::EncryptionRecord
+    , public virtual ::poi::poifs::crypt::standard::EncryptionRecord
 {
 
 public:
@@ -25,14 +25,14 @@ public: /* package */
     ::java::lang::String* xrMLLicense {  };
 protected:
     void ctor(DataSpaceMapUtils_TransformInfoHeader* transformInfoHeader, int32_t extensibilityHeader, ::java::lang::String* xrMLLicense);
-    void ctor(::org::apache::poi::util::LittleEndianInput* is);
+    void ctor(::poi::util::LittleEndianInput* is);
 
 public:
-    void write(::org::apache::poi::util::LittleEndianByteArrayOutputStream* bos) override;
+    void write(::poi::util::LittleEndianByteArrayOutputStream* bos) override;
 
     // Generated
     DataSpaceMapUtils_IRMDSTransformInfo(DataSpaceMapUtils_TransformInfoHeader* transformInfoHeader, int32_t extensibilityHeader, ::java::lang::String* xrMLLicense);
-    DataSpaceMapUtils_IRMDSTransformInfo(::org::apache::poi::util::LittleEndianInput* is);
+    DataSpaceMapUtils_IRMDSTransformInfo(::poi::util::LittleEndianInput* is);
 protected:
     DataSpaceMapUtils_IRMDSTransformInfo(const ::default_init_tag&);
 

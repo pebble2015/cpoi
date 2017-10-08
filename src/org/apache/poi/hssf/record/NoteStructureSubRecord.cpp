@@ -19,39 +19,39 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::NoteStructureSubRecord::NoteStructureSubRecord(const ::default_init_tag&)
+poi::hssf::record::NoteStructureSubRecord::NoteStructureSubRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::NoteStructureSubRecord::NoteStructureSubRecord() 
+poi::hssf::record::NoteStructureSubRecord::NoteStructureSubRecord() 
     : NoteStructureSubRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::NoteStructureSubRecord::NoteStructureSubRecord(::org::apache::poi::util::LittleEndianInput* in, int32_t size) 
+poi::hssf::record::NoteStructureSubRecord::NoteStructureSubRecord(::poi::util::LittleEndianInput* in, int32_t size) 
     : NoteStructureSubRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in,size);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::NoteStructureSubRecord::sid;
+constexpr int16_t poi::hssf::record::NoteStructureSubRecord::sid;
 
-constexpr int32_t org::apache::poi::hssf::record::NoteStructureSubRecord::ENCODED_SIZE;
+constexpr int32_t poi::hssf::record::NoteStructureSubRecord::ENCODED_SIZE;
 
-void org::apache::poi::hssf::record::NoteStructureSubRecord::ctor()
+void poi::hssf::record::NoteStructureSubRecord::ctor()
 {
     super::ctor();
     reserved = new ::int8_tArray(ENCODED_SIZE);
 }
 
-void org::apache::poi::hssf::record::NoteStructureSubRecord::ctor(::org::apache::poi::util::LittleEndianInput* in, int32_t size)
+void poi::hssf::record::NoteStructureSubRecord::ctor(::poi::util::LittleEndianInput* in, int32_t size)
 {
     super::ctor();
     if(size != ENCODED_SIZE) {
-        throw new ::org::apache::poi::util::RecordFormatException(::java::lang::StringBuilder().append(u"Unexpected size ("_j)->append(size)
+        throw new ::poi::util::RecordFormatException(::java::lang::StringBuilder().append(u"Unexpected size ("_j)->append(size)
             ->append(u")"_j)->toString());
     }
     auto buf = new ::int8_tArray(size);
@@ -59,34 +59,34 @@ void org::apache::poi::hssf::record::NoteStructureSubRecord::ctor(::org::apache:
     reserved = buf;
 }
 
-java::lang::String* org::apache::poi::hssf::record::NoteStructureSubRecord::toString()
+java::lang::String* poi::hssf::record::NoteStructureSubRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(npc(buffer)->append(u"[ftNts ]"_j))->append(u"\n"_j);
     npc(npc(npc(buffer)->append(u"  size     = "_j))->append(getDataSize()))->append(u"\n"_j);
-    npc(npc(npc(buffer)->append(u"  reserved = "_j))->append(::org::apache::poi::util::HexDump::toHex(reserved)))->append(u"\n"_j);
+    npc(npc(npc(buffer)->append(u"  reserved = "_j))->append(::poi::util::HexDump::toHex(reserved)))->append(u"\n"_j);
     npc(npc(buffer)->append(u"[/ftNts ]"_j))->append(u"\n"_j);
     return npc(buffer)->toString();
 }
 
-void org::apache::poi::hssf::record::NoteStructureSubRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::NoteStructureSubRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(sid);
     npc(out)->writeShort(npc(reserved)->length);
     npc(out)->write(reserved);
 }
 
-int32_t org::apache::poi::hssf::record::NoteStructureSubRecord::getDataSize()
+int32_t poi::hssf::record::NoteStructureSubRecord::getDataSize()
 {
     return npc(reserved)->length;
 }
 
-int16_t org::apache::poi::hssf::record::NoteStructureSubRecord::getSid()
+int16_t poi::hssf::record::NoteStructureSubRecord::getSid()
 {
     return sid;
 }
 
-org::apache::poi::hssf::record::NoteStructureSubRecord* org::apache::poi::hssf::record::NoteStructureSubRecord::clone()
+poi::hssf::record::NoteStructureSubRecord* poi::hssf::record::NoteStructureSubRecord::clone()
 {
     auto rec = new NoteStructureSubRecord();
     auto recdata = new ::int8_tArray(npc(reserved)->length);
@@ -97,18 +97,18 @@ org::apache::poi::hssf::record::NoteStructureSubRecord* org::apache::poi::hssf::
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::NoteStructureSubRecord::class_()
+java::lang::Class* poi::hssf::record::NoteStructureSubRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.NoteStructureSubRecord", 49);
     return c;
 }
 
-int8_tArray* org::apache::poi::hssf::record::NoteStructureSubRecord::serialize()
+int8_tArray* poi::hssf::record::NoteStructureSubRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::NoteStructureSubRecord::getClass0()
+java::lang::Class* poi::hssf::record::NoteStructureSubRecord::getClass0()
 {
     return class_();
 }

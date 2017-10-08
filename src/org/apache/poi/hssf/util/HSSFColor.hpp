@@ -13,9 +13,9 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::util::HSSFColor
+class poi::hssf::util::HSSFColor
     : public virtual ::java::lang::Object
-    , public virtual ::org::apache::poi::ss::usermodel::Color
+    , public virtual ::poi::ss::usermodel::Color
 {
 
 public:
@@ -50,7 +50,7 @@ public:
     virtual int16_t getIndex2();
     virtual ::int16_tArray* getTriplet();
     virtual ::java::lang::String* getHexString();
-    static HSSFColor* toHSSFColor(::org::apache::poi::ss::usermodel::Color* color);
+    static HSSFColor* toHSSFColor(::poi::ss::usermodel::Color* color);
 
     // Generated
     HSSFColor();

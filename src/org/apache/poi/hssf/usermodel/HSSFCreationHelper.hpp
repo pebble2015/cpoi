@@ -17,9 +17,9 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFCreationHelper
+class poi::hssf::usermodel::HSSFCreationHelper
     : public virtual ::java::lang::Object
-    , public virtual ::org::apache::poi::ss::usermodel::CreationHelper
+    , public virtual ::poi::ss::usermodel::CreationHelper
 {
 
 public:
@@ -33,12 +33,12 @@ protected:
 public:
     HSSFRichTextString* createRichTextString(::java::lang::String* text) override;
     HSSFDataFormat* createDataFormat() override;
-    HSSFHyperlink* createHyperlink(::org::apache::poi::common::usermodel::HyperlinkType* type) override;
+    HSSFHyperlink* createHyperlink(::poi::common::usermodel::HyperlinkType* type) override;
     HSSFExtendedColor* createExtendedColor() override;
-    ::org::apache::poi::ss::usermodel::FormulaEvaluator* createFormulaEvaluator() override;
+    ::poi::ss::usermodel::FormulaEvaluator* createFormulaEvaluator() override;
     HSSFClientAnchor* createClientAnchor() override;
-    ::org::apache::poi::ss::util::AreaReference* createAreaReference(::java::lang::String* reference) override;
-    ::org::apache::poi::ss::util::AreaReference* createAreaReference(::org::apache::poi::ss::util::CellReference* topLeft, ::org::apache::poi::ss::util::CellReference* bottomRight) override;
+    ::poi::ss::util::AreaReference* createAreaReference(::java::lang::String* reference) override;
+    ::poi::ss::util::AreaReference* createAreaReference(::poi::ss::util::CellReference* topLeft, ::poi::ss::util::CellReference* bottomRight) override;
 
     // Generated
 

@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::eval::NotImplementedException
+class poi::ss::formula::eval::NotImplementedException
     : public ::java::lang::RuntimeException
 {
 

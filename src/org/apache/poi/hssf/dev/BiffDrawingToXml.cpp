@@ -67,40 +67,40 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::dev::BiffDrawingToXml::BiffDrawingToXml(const ::default_init_tag&)
+poi::hssf::dev::BiffDrawingToXml::BiffDrawingToXml(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::dev::BiffDrawingToXml::BiffDrawingToXml()
+poi::hssf::dev::BiffDrawingToXml::BiffDrawingToXml()
     : BiffDrawingToXml(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-java::lang::String*& org::apache::poi::hssf::dev::BiffDrawingToXml::SHEET_NAME_PARAM()
+java::lang::String*& poi::hssf::dev::BiffDrawingToXml::SHEET_NAME_PARAM()
 {
     clinit();
     return SHEET_NAME_PARAM_;
 }
-java::lang::String* org::apache::poi::hssf::dev::BiffDrawingToXml::SHEET_NAME_PARAM_;
+java::lang::String* poi::hssf::dev::BiffDrawingToXml::SHEET_NAME_PARAM_;
 
-java::lang::String*& org::apache::poi::hssf::dev::BiffDrawingToXml::SHEET_INDEXES_PARAM()
+java::lang::String*& poi::hssf::dev::BiffDrawingToXml::SHEET_INDEXES_PARAM()
 {
     clinit();
     return SHEET_INDEXES_PARAM_;
 }
-java::lang::String* org::apache::poi::hssf::dev::BiffDrawingToXml::SHEET_INDEXES_PARAM_;
+java::lang::String* poi::hssf::dev::BiffDrawingToXml::SHEET_INDEXES_PARAM_;
 
-java::lang::String*& org::apache::poi::hssf::dev::BiffDrawingToXml::EXCLUDE_WORKBOOK_RECORDS()
+java::lang::String*& poi::hssf::dev::BiffDrawingToXml::EXCLUDE_WORKBOOK_RECORDS()
 {
     clinit();
     return EXCLUDE_WORKBOOK_RECORDS_;
 }
-java::lang::String* org::apache::poi::hssf::dev::BiffDrawingToXml::EXCLUDE_WORKBOOK_RECORDS_;
+java::lang::String* poi::hssf::dev::BiffDrawingToXml::EXCLUDE_WORKBOOK_RECORDS_;
 
-int32_t org::apache::poi::hssf::dev::BiffDrawingToXml::getAttributeIndex(::java::lang::String* attribute, ::java::lang::StringArray* params)
+int32_t poi::hssf::dev::BiffDrawingToXml::getAttributeIndex(::java::lang::String* attribute, ::java::lang::StringArray* params)
 {
     clinit();
     for (auto i = int32_t(0); i < npc(params)->length; i++) {
@@ -112,13 +112,13 @@ int32_t org::apache::poi::hssf::dev::BiffDrawingToXml::getAttributeIndex(::java:
     return -int32_t(1);
 }
 
-bool org::apache::poi::hssf::dev::BiffDrawingToXml::isExcludeWorkbookRecords(::java::lang::StringArray* params)
+bool poi::hssf::dev::BiffDrawingToXml::isExcludeWorkbookRecords(::java::lang::StringArray* params)
 {
     clinit();
     return -int32_t(1) != getAttributeIndex(EXCLUDE_WORKBOOK_RECORDS_, params);
 }
 
-java::util::List* org::apache::poi::hssf::dev::BiffDrawingToXml::getIndexesByName(::java::lang::StringArray* params, ::org::apache::poi::hssf::usermodel::HSSFWorkbook* workbook)
+java::util::List* poi::hssf::dev::BiffDrawingToXml::getIndexesByName(::java::lang::StringArray* params, ::poi::hssf::usermodel::HSSFWorkbook* workbook)
 {
     clinit();
     ::java::util::List* list = new ::java::util::ArrayList();
@@ -137,7 +137,7 @@ java::util::List* org::apache::poi::hssf::dev::BiffDrawingToXml::getIndexesByNam
     return list;
 }
 
-java::util::List* org::apache::poi::hssf::dev::BiffDrawingToXml::getIndexesByIdArray_(::java::lang::StringArray* params)
+java::util::List* poi::hssf::dev::BiffDrawingToXml::getIndexesByIdArray_(::java::lang::StringArray* params)
 {
     clinit();
     ::java::util::List* list = new ::java::util::ArrayList();
@@ -155,7 +155,7 @@ java::util::List* org::apache::poi::hssf::dev::BiffDrawingToXml::getIndexesByIdA
     return list;
 }
 
-java::util::List* org::apache::poi::hssf::dev::BiffDrawingToXml::getSheetsIndexes(::java::lang::StringArray* params, ::org::apache::poi::hssf::usermodel::HSSFWorkbook* workbook)
+java::util::List* poi::hssf::dev::BiffDrawingToXml::getSheetsIndexes(::java::lang::StringArray* params, ::poi::hssf::usermodel::HSSFWorkbook* workbook)
 {
     clinit();
     ::java::util::List* list = new ::java::util::ArrayList();
@@ -170,13 +170,13 @@ java::util::List* org::apache::poi::hssf::dev::BiffDrawingToXml::getSheetsIndexe
     return list;
 }
 
-java::lang::String* org::apache::poi::hssf::dev::BiffDrawingToXml::getInputFileName(::java::lang::StringArray* params)
+java::lang::String* poi::hssf::dev::BiffDrawingToXml::getInputFileName(::java::lang::StringArray* params)
 {
     clinit();
     return (*params)[npc(params)->length - int32_t(1)];
 }
 
-java::lang::String* org::apache::poi::hssf::dev::BiffDrawingToXml::getOutputFileName(::java::lang::String* input)
+java::lang::String* poi::hssf::dev::BiffDrawingToXml::getOutputFileName(::java::lang::String* input)
 {
     clinit();
     if(npc(input)->contains(u"xls"_j)) {
@@ -185,7 +185,7 @@ java::lang::String* org::apache::poi::hssf::dev::BiffDrawingToXml::getOutputFile
     return ::java::lang::StringBuilder().append(input)->append(u".xml"_j)->toString();
 }
 
-void org::apache::poi::hssf::dev::BiffDrawingToXml::main(::java::lang::StringArray* params) /* throws(IOException) */
+void poi::hssf::dev::BiffDrawingToXml::main(::java::lang::StringArray* params) /* throws(IOException) */
 {
     clinit();
     if(0 == npc(params)->length) {
@@ -205,12 +205,12 @@ void org::apache::poi::hssf::dev::BiffDrawingToXml::main(::java::lang::StringArr
     npc(outputStream)->close();
 }
 
-void org::apache::poi::hssf::dev::BiffDrawingToXml::writeToFile(::java::io::OutputStream* fos, ::java::io::InputStream* xlsWorkbook, bool excludeWorkbookRecords, ::java::lang::StringArray* params) /* throws(IOException) */
+void poi::hssf::dev::BiffDrawingToXml::writeToFile(::java::io::OutputStream* fos, ::java::io::InputStream* xlsWorkbook, bool excludeWorkbookRecords, ::java::lang::StringArray* params) /* throws(IOException) */
 {
     clinit();
-    auto workbook = new ::org::apache::poi::hssf::usermodel::HSSFWorkbook(xlsWorkbook);
+    auto workbook = new ::poi::hssf::usermodel::HSSFWorkbook(xlsWorkbook);
     auto internalWorkbook = npc(workbook)->getInternalWorkbook();
-    auto r = java_cast< ::org::apache::poi::hssf::record::DrawingGroupRecord* >(npc(internalWorkbook)->findFirstRecordBySid(::org::apache::poi::hssf::record::DrawingGroupRecord::sid));
+    auto r = java_cast< ::poi::hssf::record::DrawingGroupRecord* >(npc(internalWorkbook)->findFirstRecordBySid(::poi::hssf::record::DrawingGroupRecord::sid));
     auto builder = new ::java::lang::StringBuilder();
     npc(builder)->append(u"<workbook>\n"_j);
     auto tab = u"\t"_j;
@@ -218,7 +218,7 @@ void org::apache::poi::hssf::dev::BiffDrawingToXml::writeToFile(::java::io::Outp
         npc(r)->decode();
         auto escherRecords = npc(r)->getEscherRecords();
         for (auto _i = npc(escherRecords)->iterator(); _i->hasNext(); ) {
-            ::org::apache::poi::ddf::EscherRecord* record = java_cast< ::org::apache::poi::ddf::EscherRecord* >(_i->next());
+            ::poi::ddf::EscherRecord* record = java_cast< ::poi::ddf::EscherRecord* >(_i->next());
             {
                 npc(builder)->append(npc(record)->toXml(tab));
             }
@@ -228,7 +228,7 @@ void org::apache::poi::hssf::dev::BiffDrawingToXml::writeToFile(::java::io::Outp
     for (auto _i = npc(sheets)->iterator(); _i->hasNext(); ) {
         ::java::lang::Integer* i = java_cast< ::java::lang::Integer* >(_i->next());
         {
-            auto p = java_cast< ::org::apache::poi::hssf::usermodel::HSSFPatriarch* >(npc(java_cast< ::org::apache::poi::hssf::usermodel::HSSFSheet* >(npc(workbook)->getSheetAt((npc(i))->intValue())))->getDrawingPatriarch());
+            auto p = java_cast< ::poi::hssf::usermodel::HSSFPatriarch* >(npc(java_cast< ::poi::hssf::usermodel::HSSFSheet* >(npc(workbook)->getSheetAt((npc(i))->intValue())))->getDrawingPatriarch());
             if(p != nullptr) {
                 npc(npc(npc(npc(builder)->append(tab))->append(u"<sheet"_j))->append(static_cast< ::java::lang::Object* >(i)))->append(u">\n"_j);
                 npc(builder)->append(npc(npc(p)->getBoundAggregate())->toXml(::java::lang::StringBuilder().append(tab)->append(u"\t"_j)->toString()));
@@ -237,20 +237,20 @@ void org::apache::poi::hssf::dev::BiffDrawingToXml::writeToFile(::java::io::Outp
         }
     }
     npc(builder)->append(u"</workbook>\n"_j);
-    npc(fos)->write(npc(npc(builder)->toString())->getBytes(::org::apache::poi::util::StringUtil::UTF8()));
+    npc(fos)->write(npc(npc(builder)->toString())->getBytes(::poi::util::StringUtil::UTF8()));
     npc(fos)->close();
     npc(workbook)->close();
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::dev::BiffDrawingToXml::class_()
+java::lang::Class* poi::hssf::dev::BiffDrawingToXml::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.dev.BiffDrawingToXml", 40);
     return c;
 }
 
-void org::apache::poi::hssf::dev::BiffDrawingToXml::clinit()
+void poi::hssf::dev::BiffDrawingToXml::clinit()
 {
 struct string_init_ {
     string_init_() {
@@ -265,7 +265,7 @@ struct string_init_ {
     super::clinit();
 }
 
-java::lang::Class* org::apache::poi::hssf::dev::BiffDrawingToXml::getClass0()
+java::lang::Class* poi::hssf::dev::BiffDrawingToXml::getClass0()
 {
     return class_();
 }

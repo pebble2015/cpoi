@@ -24,7 +24,7 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
     } // lang
 } // java
 
-struct org::apache::poi::ss::usermodel::DataValidationConstraint
+struct poi::ss::usermodel::DataValidationConstraint
     : public virtual ::java::lang::Object
 {
     virtual int32_t getValidationType() = 0;

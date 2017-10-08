@@ -9,25 +9,19 @@
 #include <org/apache/poi/ss/formula/functions/TextFunction.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -36,29 +30,29 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::TextFunction_SingleArgTextFunc::TextFunction_SingleArgTextFunc(const ::default_init_tag&)
+poi::ss::formula::functions::TextFunction_SingleArgTextFunc::TextFunction_SingleArgTextFunc(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::TextFunction_SingleArgTextFunc::TextFunction_SingleArgTextFunc() 
+poi::ss::formula::functions::TextFunction_SingleArgTextFunc::TextFunction_SingleArgTextFunc() 
     : TextFunction_SingleArgTextFunc(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::ss::formula::functions::TextFunction_SingleArgTextFunc::ctor()
+void poi::ss::formula::functions::TextFunction_SingleArgTextFunc::ctor()
 {
     super::ctor();
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::TextFunction_SingleArgTextFunc::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* arg0)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::TextFunction_SingleArgTextFunc::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::poi::ss::formula::eval::ValueEval* arg0)
 {
     ::java::lang::String* arg;
     try {
         arg = TextFunction::evaluateStringArg(arg0, srcRowIndex, srcColumnIndex);
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
         return npc(e)->getErrorEval();
     }
     return evaluate(arg);
@@ -66,18 +60,18 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::f
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::TextFunction_SingleArgTextFunc::class_()
+java::lang::Class* poi::ss::formula::functions::TextFunction_SingleArgTextFunc::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.TextFunction.SingleArgTextFunc", 66);
     return c;
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::TextFunction_SingleArgTextFunc::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::TextFunction_SingleArgTextFunc::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
 {
     return super::evaluate(args, srcRowIndex, srcColumnIndex);
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::TextFunction_SingleArgTextFunc::getClass0()
+java::lang::Class* poi::ss::formula::functions::TextFunction_SingleArgTextFunc::getClass0()
 {
     return class_();
 }

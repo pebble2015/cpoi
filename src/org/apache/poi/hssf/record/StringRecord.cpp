@@ -16,32 +16,32 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::StringRecord::StringRecord(const ::default_init_tag&)
+poi::hssf::record::StringRecord::StringRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::StringRecord::StringRecord() 
+poi::hssf::record::StringRecord::StringRecord() 
     : StringRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::StringRecord::StringRecord(RecordInputStream* in) 
+poi::hssf::record::StringRecord::StringRecord(RecordInputStream* in) 
     : StringRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::StringRecord::sid;
+constexpr int16_t poi::hssf::record::StringRecord::sid;
 
-void org::apache::poi::hssf::record::StringRecord::ctor()
+void poi::hssf::record::StringRecord::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hssf::record::StringRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::StringRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     auto field_1_string_length = npc(in)->readUShort();
@@ -53,29 +53,29 @@ void org::apache::poi::hssf::record::StringRecord::ctor(RecordInputStream* in)
     }
 }
 
-void org::apache::poi::hssf::record::StringRecord::serialize(::org::apache::poi::hssf::record::cont::ContinuableRecordOutput* out)
+void poi::hssf::record::StringRecord::serialize(::poi::hssf::record::cont::ContinuableRecordOutput* out)
 {
     npc(out)->writeShort(npc(_text)->length());
     npc(out)->writeStringData(_text);
 }
 
-int16_t org::apache::poi::hssf::record::StringRecord::getSid()
+int16_t poi::hssf::record::StringRecord::getSid()
 {
     return sid;
 }
 
-java::lang::String* org::apache::poi::hssf::record::StringRecord::getString()
+java::lang::String* poi::hssf::record::StringRecord::getString()
 {
     return _text;
 }
 
-void org::apache::poi::hssf::record::StringRecord::setString(::java::lang::String* string)
+void poi::hssf::record::StringRecord::setString(::java::lang::String* string)
 {
     _text = string;
-    _is16bitUnicode = ::org::apache::poi::util::StringUtil::hasMultibyte(string);
+    _is16bitUnicode = ::poi::util::StringUtil::hasMultibyte(string);
 }
 
-java::lang::String* org::apache::poi::hssf::record::StringRecord::toString()
+java::lang::String* poi::hssf::record::StringRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[STRING]\n"_j);
@@ -84,7 +84,7 @@ java::lang::String* org::apache::poi::hssf::record::StringRecord::toString()
     return npc(buffer)->toString();
 }
 
-java::lang::Object* org::apache::poi::hssf::record::StringRecord::clone()
+java::lang::Object* poi::hssf::record::StringRecord::clone()
 {
     auto rec = new StringRecord();
     npc(rec)->_is16bitUnicode = _is16bitUnicode;
@@ -94,23 +94,23 @@ java::lang::Object* org::apache::poi::hssf::record::StringRecord::clone()
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::StringRecord::class_()
+java::lang::Class* poi::hssf::record::StringRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.StringRecord", 39);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::StringRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::StringRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::StringRecord::serialize()
+int8_tArray* poi::hssf::record::StringRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::StringRecord::getClass0()
+java::lang::Class* poi::hssf::record::StringRecord::getClass0()
 {
     return class_();
 }

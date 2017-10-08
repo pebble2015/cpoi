@@ -16,7 +16,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::usermodel::DataFormatter
+class poi::ss::usermodel::DataFormatter
     : public virtual ::java::lang::Object
     , public virtual ::java::util::Observer
 {
@@ -47,7 +47,7 @@ private:
     ::java::util::Locale* locale {  };
     bool localeIsAdapting {  };
     DataFormatter_LocaleChangeObservable* localeChangedObservable {  };
-    static ::org::apache::poi::util::POILogger* logger_;
+    static ::poi::util::POILogger* logger_;
 protected:
     void ctor();
     void ctor(bool emulateCSV);
@@ -56,7 +56,7 @@ protected:
     void ctor(::java::util::Locale* locale, bool localeIsAdapting, bool emulateCSV);
 
 private:
-    ::java::text::Format* getFormat(Cell* cell, ::org::apache::poi::ss::formula::ConditionalFormattingEvaluator* cfEvaluator);
+    ::java::text::Format* getFormat(Cell* cell, ::poi::ss::formula::ConditionalFormattingEvaluator* cfEvaluator);
     ::java::text::Format* getFormat(double cellValue, int32_t formatIndex, ::java::lang::String* formatStrIn);
 
 public:
@@ -74,15 +74,15 @@ public:
 private:
     ::java::text::Format* getDefaultFormat(double cellValue);
     ::java::lang::String* performDateFormatting(::java::util::Date* d, ::java::text::Format* dateFormat);
-    ::java::lang::String* getFormattedDateString(Cell* cell, ::org::apache::poi::ss::formula::ConditionalFormattingEvaluator* cfEvaluator);
-    ::java::lang::String* getFormattedNumberString(Cell* cell, ::org::apache::poi::ss::formula::ConditionalFormattingEvaluator* cfEvaluator);
+    ::java::lang::String* getFormattedDateString(Cell* cell, ::poi::ss::formula::ConditionalFormattingEvaluator* cfEvaluator);
+    ::java::lang::String* getFormattedNumberString(Cell* cell, ::poi::ss::formula::ConditionalFormattingEvaluator* cfEvaluator);
 
 public:
     virtual ::java::lang::String* formatRawCellContents(double value, int32_t formatIndex, ::java::lang::String* formatString);
     virtual ::java::lang::String* formatRawCellContents(double value, int32_t formatIndex, ::java::lang::String* formatString, bool use1904Windowing);
     virtual ::java::lang::String* formatCellValue(Cell* cell);
     virtual ::java::lang::String* formatCellValue(Cell* cell, FormulaEvaluator* evaluator);
-    virtual ::java::lang::String* formatCellValue(Cell* cell, FormulaEvaluator* evaluator, ::org::apache::poi::ss::formula::ConditionalFormattingEvaluator* cfEvaluator);
+    virtual ::java::lang::String* formatCellValue(Cell* cell, FormulaEvaluator* evaluator, ::poi::ss::formula::ConditionalFormattingEvaluator* cfEvaluator);
     virtual void setDefaultNumberFormat(::java::text::Format* format);
     virtual void addFormat(::java::lang::String* excelFormatStr, ::java::text::Format* format);
 
@@ -125,7 +125,7 @@ private:
     static ::java::util::regex::Pattern*& fractionStripper();
     static ::java::util::regex::Pattern*& alternateGrouping();
     static ::java::lang::String*& invalidDateTimeString();
-    static ::org::apache::poi::util::POILogger*& logger();
+    static ::poi::util::POILogger*& logger();
     virtual ::java::lang::Class* getClass0();
     friend class DataFormatter_LocaleChangeObservable;
     friend class DataFormatter_InternalDecimalFormatWithScale;

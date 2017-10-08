@@ -41,44 +41,44 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::property::NPropertyTable::NPropertyTable(const ::default_init_tag&)
+poi::poifs::property::NPropertyTable::NPropertyTable(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::property::NPropertyTable::NPropertyTable(::org::apache::poi::poifs::storage::HeaderBlock* headerBlock) 
+poi::poifs::property::NPropertyTable::NPropertyTable(::poi::poifs::storage::HeaderBlock* headerBlock) 
     : NPropertyTable(*static_cast< ::default_init_tag* >(0))
 {
     ctor(headerBlock);
 }
 
-org::apache::poi::poifs::property::NPropertyTable::NPropertyTable(::org::apache::poi::poifs::storage::HeaderBlock* headerBlock, ::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* filesystem)  /* throws(IOException) */
+poi::poifs::property::NPropertyTable::NPropertyTable(::poi::poifs::storage::HeaderBlock* headerBlock, ::poi::poifs::filesystem::NPOIFSFileSystem* filesystem)  /* throws(IOException) */
     : NPropertyTable(*static_cast< ::default_init_tag* >(0))
 {
     ctor(headerBlock,filesystem);
 }
 
-org::apache::poi::util::POILogger*& org::apache::poi::poifs::property::NPropertyTable::_logger()
+poi::util::POILogger*& poi::poifs::property::NPropertyTable::_logger()
 {
     clinit();
     return _logger_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::poifs::property::NPropertyTable::_logger_;
+poi::util::POILogger* poi::poifs::property::NPropertyTable::_logger_;
 
-void org::apache::poi::poifs::property::NPropertyTable::ctor(::org::apache::poi::poifs::storage::HeaderBlock* headerBlock)
+void poi::poifs::property::NPropertyTable::ctor(::poi::poifs::storage::HeaderBlock* headerBlock)
 {
     super::ctor(headerBlock);
     _bigBigBlockSize = npc(headerBlock)->getBigBlockSize();
 }
 
-void org::apache::poi::poifs::property::NPropertyTable::ctor(::org::apache::poi::poifs::storage::HeaderBlock* headerBlock, ::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* filesystem) /* throws(IOException) */
+void poi::poifs::property::NPropertyTable::ctor(::poi::poifs::storage::HeaderBlock* headerBlock, ::poi::poifs::filesystem::NPOIFSFileSystem* filesystem) /* throws(IOException) */
 {
-    super::ctor(headerBlock, buildProperties((new ::org::apache::poi::poifs::filesystem::NPOIFSStream(filesystem, npc(headerBlock)->getPropertyStart()))->iterator(), npc(headerBlock)->getBigBlockSize()));
+    super::ctor(headerBlock, buildProperties((new ::poi::poifs::filesystem::NPOIFSStream(filesystem, npc(headerBlock)->getPropertyStart()))->iterator(), npc(headerBlock)->getBigBlockSize()));
     _bigBigBlockSize = npc(headerBlock)->getBigBlockSize();
 }
 
-java::util::List* org::apache::poi::poifs::property::NPropertyTable::buildProperties(::java::util::Iterator* dataSource, ::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize) /* throws(IOException) */
+java::util::List* poi::poifs::property::NPropertyTable::buildProperties(::java::util::Iterator* dataSource, ::poi::poifs::common::POIFSBigBlockSize* bigBlockSize) /* throws(IOException) */
 {
     clinit();
     ::java::util::List* properties = new ::java::util::ArrayList();
@@ -91,7 +91,7 @@ java::util::List* org::apache::poi::poifs::property::NPropertyTable::buildProper
             data = new ::int8_tArray(npc(bigBlockSize)->getBigBlockSize());
             auto toRead = npc(data)->length;
             if(npc(bb)->remaining() < npc(bigBlockSize)->getBigBlockSize()) {
-                npc(_logger_)->log(::org::apache::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"Short Property Block, "_j), static_cast< ::java::lang::Object* >(::java::lang::Integer::valueOf(npc(bb)->remaining())), static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u" bytes instead of the expected "_j)->append(npc(bigBlockSize)->getBigBlockSize())->toString())}));
+                npc(_logger_)->log(::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"Short Property Block, "_j), static_cast< ::java::lang::Object* >(::java::lang::Integer::valueOf(npc(bb)->remaining())), static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u" bytes instead of the expected "_j)->append(npc(bigBlockSize)->getBigBlockSize())->toString())}));
                 toRead = npc(bb)->remaining();
             }
             npc(bb)->get(data, 0, toRead);
@@ -101,9 +101,9 @@ java::util::List* org::apache::poi::poifs::property::NPropertyTable::buildProper
     return properties;
 }
 
-int32_t org::apache::poi::poifs::property::NPropertyTable::countBlocks()
+int32_t poi::poifs::property::NPropertyTable::countBlocks()
 {
-    auto rawSize = npc(_properties)->size() * static_cast< int64_t >(::org::apache::poi::poifs::common::POIFSConstants::PROPERTY_SIZE);
+    auto rawSize = npc(_properties)->size() * static_cast< int64_t >(::poi::poifs::common::POIFSConstants::PROPERTY_SIZE);
     auto blkSize = npc(_bigBigBlockSize)->getBigBlockSize();
     auto numBlocks = static_cast< int32_t >((rawSize / blkSize));
     if((rawSize % blkSize) != 0) {
@@ -112,7 +112,7 @@ int32_t org::apache::poi::poifs::property::NPropertyTable::countBlocks()
     return numBlocks;
 }
 
-void org::apache::poi::poifs::property::NPropertyTable::preWrite()
+void poi::poifs::property::NPropertyTable::preWrite()
 {
     ::java::util::List* pList = new ::java::util::ArrayList();
     auto i = int32_t(0);
@@ -134,7 +134,7 @@ void org::apache::poi::poifs::property::NPropertyTable::preWrite()
     }
 }
 
-void org::apache::poi::poifs::property::NPropertyTable::write(::org::apache::poi::poifs::filesystem::NPOIFSStream* stream) /* throws(IOException) */
+void poi::poifs::property::NPropertyTable::write(::poi::poifs::filesystem::NPOIFSStream* stream) /* throws(IOException) */
 {
     auto os = npc(stream)->getOutputStream();
     for (auto _i = npc(_properties)->iterator(); _i->hasNext(); ) {
@@ -153,20 +153,20 @@ void org::apache::poi::poifs::property::NPropertyTable::write(::org::apache::poi
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::property::NPropertyTable::class_()
+java::lang::Class* poi::poifs::property::NPropertyTable::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.property.NPropertyTable", 44);
     return c;
 }
 
-void org::apache::poi::poifs::property::NPropertyTable::clinit()
+void poi::poifs::property::NPropertyTable::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        _logger_ = ::org::apache::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(NPropertyTable::class_()));
+        _logger_ = ::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(NPropertyTable::class_()));
     }
 };
 
@@ -175,7 +175,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::poifs::property::NPropertyTable::getClass0()
+java::lang::Class* poi::poifs::property::NPropertyTable::getClass0()
 {
     return class_();
 }

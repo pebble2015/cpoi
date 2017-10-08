@@ -28,35 +28,35 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::util::LazilyConcatenatedByteArray_::LazilyConcatenatedByteArray_(const ::default_init_tag&)
+poi::hssf::util::LazilyConcatenatedByteArray_::LazilyConcatenatedByteArray_(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::util::LazilyConcatenatedByteArray_::LazilyConcatenatedByteArray_()
+poi::hssf::util::LazilyConcatenatedByteArray_::LazilyConcatenatedByteArray_()
     : LazilyConcatenatedByteArray_(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::hssf::util::LazilyConcatenatedByteArray_::ctor()
+void poi::hssf::util::LazilyConcatenatedByteArray_::ctor()
 {
     super::ctor();
     init();
 }
 
-void org::apache::poi::hssf::util::LazilyConcatenatedByteArray_::init()
+void poi::hssf::util::LazilyConcatenatedByteArray_::init()
 {
     arrays = new ::java::util::ArrayList(int32_t(1));
 }
 
-void org::apache::poi::hssf::util::LazilyConcatenatedByteArray_::clear()
+void poi::hssf::util::LazilyConcatenatedByteArray_::clear()
 {
     npc(arrays)->clear();
 }
 
-void org::apache::poi::hssf::util::LazilyConcatenatedByteArray_::concatenate(::int8_tArray* array)
+void poi::hssf::util::LazilyConcatenatedByteArray_::concatenate(::int8_tArray* array)
 {
     if(array == nullptr) {
         throw new ::java::lang::IllegalArgumentException(u"array cannot be null"_j);
@@ -64,7 +64,7 @@ void org::apache::poi::hssf::util::LazilyConcatenatedByteArray_::concatenate(::i
     npc(arrays)->add(static_cast< ::java::lang::Object* >(array));
 }
 
-int8_tArray* org::apache::poi::hssf::util::LazilyConcatenatedByteArray_::toArray_()
+int8_tArray* poi::hssf::util::LazilyConcatenatedByteArray_::toArray_()
 {
     if(npc(arrays)->isEmpty()) {
         return nullptr;
@@ -93,13 +93,13 @@ int8_tArray* org::apache::poi::hssf::util::LazilyConcatenatedByteArray_::toArray
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::util::LazilyConcatenatedByteArray_::class_()
+java::lang::Class* poi::hssf::util::LazilyConcatenatedByteArray_::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.util.LazilyConcatenatedByteArray", 52);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::util::LazilyConcatenatedByteArray_::getClass0()
+java::lang::Class* poi::hssf::util::LazilyConcatenatedByteArray_::getClass0()
 {
     return class_();
 }

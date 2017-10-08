@@ -25,27 +25,21 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace util
         {
-            namespace ss
-            {
-                namespace util
-                {
-typedef ::SubArray< ::org::apache::poi::ss::util::AreaReference, ::java::lang::ObjectArray > AreaReferenceArray;
-typedef ::SubArray< ::org::apache::poi::ss::util::CellReference, ::java::lang::ObjectArray > CellReferenceArray;
-                } // util
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::util::AreaReference, ::java::lang::ObjectArray > AreaReferenceArray;
+typedef ::SubArray< ::poi::ss::util::CellReference, ::java::lang::ObjectArray > CellReferenceArray;
+        } // util
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::util::AreaReference
+class poi::ss::util::AreaReference
     : public virtual ::java::lang::Object
 {
 
@@ -56,28 +50,28 @@ private:
     static constexpr char16_t SHEET_NAME_DELIMITER { u'!' };
     static constexpr char16_t CELL_DELIMITER { u':' };
     static constexpr char16_t SPECIAL_NAME_DELIMITER { u'\'' };
-    static ::org::apache::poi::ss::SpreadsheetVersion* DEFAULT_SPREADSHEET_VERSION_;
+    static ::poi::ss::SpreadsheetVersion* DEFAULT_SPREADSHEET_VERSION_;
     CellReference* _firstCell {  };
     CellReference* _lastCell {  };
     bool _isSingleCell {  };
-    ::org::apache::poi::ss::SpreadsheetVersion* _version {  };
+    ::poi::ss::SpreadsheetVersion* _version {  };
 protected:
-    void ctor(::java::lang::String* reference, ::org::apache::poi::ss::SpreadsheetVersion* version);
+    void ctor(::java::lang::String* reference, ::poi::ss::SpreadsheetVersion* version);
 
 private:
     static bool isPlainColumn(::java::lang::String* refPart);
 protected:
     void ctor(CellReference* topLeft, CellReference* botRight);
-    void ctor(CellReference* topLeft, CellReference* botRight, ::org::apache::poi::ss::SpreadsheetVersion* version);
+    void ctor(CellReference* topLeft, CellReference* botRight, ::poi::ss::SpreadsheetVersion* version);
 
 public:
     static bool isContiguous(::java::lang::String* reference);
-    static AreaReference* getWholeRow(::org::apache::poi::ss::SpreadsheetVersion* version, ::java::lang::String* start, ::java::lang::String* end);
-    static AreaReference* getWholeColumn(::org::apache::poi::ss::SpreadsheetVersion* version, ::java::lang::String* start, ::java::lang::String* end);
-    static bool isWholeColumnReference(::org::apache::poi::ss::SpreadsheetVersion* version, CellReference* topLeft, CellReference* botRight);
+    static AreaReference* getWholeRow(::poi::ss::SpreadsheetVersion* version, ::java::lang::String* start, ::java::lang::String* end);
+    static AreaReference* getWholeColumn(::poi::ss::SpreadsheetVersion* version, ::java::lang::String* start, ::java::lang::String* end);
+    static bool isWholeColumnReference(::poi::ss::SpreadsheetVersion* version, CellReference* topLeft, CellReference* botRight);
     virtual bool isWholeColumnReference();
     static AreaReferenceArray* generateContiguous(::java::lang::String* reference);
-    static AreaReferenceArray* generateContiguous(::org::apache::poi::ss::SpreadsheetVersion* version, ::java::lang::String* reference);
+    static AreaReferenceArray* generateContiguous(::poi::ss::SpreadsheetVersion* version, ::java::lang::String* reference);
     virtual bool isSingleCell();
     virtual CellReference* getFirstCell();
     virtual CellReference* getLastCell();
@@ -91,9 +85,9 @@ private:
     // Generated
 
 public:
-    AreaReference(::java::lang::String* reference, ::org::apache::poi::ss::SpreadsheetVersion* version);
+    AreaReference(::java::lang::String* reference, ::poi::ss::SpreadsheetVersion* version);
     AreaReference(CellReference* topLeft, CellReference* botRight);
-    AreaReference(CellReference* topLeft, CellReference* botRight, ::org::apache::poi::ss::SpreadsheetVersion* version);
+    AreaReference(CellReference* topLeft, CellReference* botRight, ::poi::ss::SpreadsheetVersion* version);
 protected:
     AreaReference(const ::default_init_tag&);
 
@@ -103,6 +97,6 @@ public:
     static void clinit();
 
 private:
-    static ::org::apache::poi::ss::SpreadsheetVersion*& DEFAULT_SPREADSHEET_VERSION();
+    static ::poi::ss::SpreadsheetVersion*& DEFAULT_SPREADSHEET_VERSION();
     virtual ::java::lang::Class* getClass0();
 };

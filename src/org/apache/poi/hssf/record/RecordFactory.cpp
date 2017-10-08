@@ -205,28 +205,22 @@ typedef ::SubArray< ::java::lang::Cloneable, ObjectArray > CloneableArray;
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
-            {
-                namespace record
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::Record, RecordBaseArray > RecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::StandardRecord, RecordArray > StandardRecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::CellValueRecordInterface, ::java::lang::ObjectArray > CellValueRecordInterfaceArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::BlankRecord, StandardRecordArray, CellValueRecordInterfaceArray, ::java::lang::CloneableArray > BlankRecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::CellRecord, StandardRecordArray, CellValueRecordInterfaceArray > CellRecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::NumberRecord, CellRecordArray, ::java::lang::CloneableArray > NumberRecordArray;
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
+typedef ::SubArray< ::poi::hssf::record::Record, RecordBaseArray > RecordArray;
+typedef ::SubArray< ::poi::hssf::record::StandardRecord, RecordArray > StandardRecordArray;
+typedef ::SubArray< ::poi::hssf::record::CellValueRecordInterface, ::java::lang::ObjectArray > CellValueRecordInterfaceArray;
+typedef ::SubArray< ::poi::hssf::record::BlankRecord, StandardRecordArray, CellValueRecordInterfaceArray, ::java::lang::CloneableArray > BlankRecordArray;
+typedef ::SubArray< ::poi::hssf::record::CellRecord, StandardRecordArray, CellValueRecordInterfaceArray > CellRecordArray;
+typedef ::SubArray< ::poi::hssf::record::NumberRecord, CellRecordArray, ::java::lang::CloneableArray > NumberRecordArray;
+        } // record
+    } // hssf
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -244,49 +238,49 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::RecordFactory::RecordFactory(const ::default_init_tag&)
+poi::hssf::record::RecordFactory::RecordFactory(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::RecordFactory::RecordFactory()
+poi::hssf::record::RecordFactory::RecordFactory()
     : RecordFactory(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-constexpr int32_t org::apache::poi::hssf::record::RecordFactory::NUM_RECORDS;
+constexpr int32_t poi::hssf::record::RecordFactory::NUM_RECORDS;
 
-java::lang::ClassArray*& org::apache::poi::hssf::record::RecordFactory::CONSTRUCTOR_ARGS()
+java::lang::ClassArray*& poi::hssf::record::RecordFactory::CONSTRUCTOR_ARGS()
 {
     clinit();
     return CONSTRUCTOR_ARGS_;
 }
-java::lang::ClassArray* org::apache::poi::hssf::record::RecordFactory::CONSTRUCTOR_ARGS_;
+java::lang::ClassArray* poi::hssf::record::RecordFactory::CONSTRUCTOR_ARGS_;
 
-java::lang::ClassArray*& org::apache::poi::hssf::record::RecordFactory::recordClasses()
+java::lang::ClassArray*& poi::hssf::record::RecordFactory::recordClasses()
 {
     clinit();
     return recordClasses_;
 }
-java::lang::ClassArray* org::apache::poi::hssf::record::RecordFactory::recordClasses_;
+java::lang::ClassArray* poi::hssf::record::RecordFactory::recordClasses_;
 
-java::util::Map*& org::apache::poi::hssf::record::RecordFactory::_recordCreatorsById()
+java::util::Map*& poi::hssf::record::RecordFactory::_recordCreatorsById()
 {
     clinit();
     return _recordCreatorsById_;
 }
-java::util::Map* org::apache::poi::hssf::record::RecordFactory::_recordCreatorsById_;
+java::util::Map* poi::hssf::record::RecordFactory::_recordCreatorsById_;
 
-int16_tArray*& org::apache::poi::hssf::record::RecordFactory::_allKnownRecordSIDs()
+int16_tArray*& poi::hssf::record::RecordFactory::_allKnownRecordSIDs()
 {
     clinit();
     return _allKnownRecordSIDs_;
 }
-int16_tArray* org::apache::poi::hssf::record::RecordFactory::_allKnownRecordSIDs_;
+int16_tArray* poi::hssf::record::RecordFactory::_allKnownRecordSIDs_;
 
-java::lang::Class* org::apache::poi::hssf::record::RecordFactory::getRecordClass(int32_t sid)
+java::lang::Class* poi::hssf::record::RecordFactory::getRecordClass(int32_t sid)
 {
     clinit();
     auto rc = java_cast< RecordFactory_I_RecordCreator* >(npc(_recordCreatorsById_)->get(::java::lang::Integer::valueOf(sid)));
@@ -296,7 +290,7 @@ java::lang::Class* org::apache::poi::hssf::record::RecordFactory::getRecordClass
     return npc(rc)->getRecordClass();
 }
 
-org::apache::poi::hssf::record::RecordArray* org::apache::poi::hssf::record::RecordFactory::createRecord(RecordInputStream* in)
+poi::hssf::record::RecordArray* poi::hssf::record::RecordFactory::createRecord(RecordInputStream* in)
 {
     clinit();
     auto record = createSingleRecord(in);
@@ -312,7 +306,7 @@ org::apache::poi::hssf::record::RecordArray* org::apache::poi::hssf::record::Rec
     return new RecordArray({record});
 }
 
-org::apache::poi::hssf::record::Record* org::apache::poi::hssf::record::RecordFactory::createSingleRecord(RecordInputStream* in)
+poi::hssf::record::Record* poi::hssf::record::RecordFactory::createSingleRecord(RecordInputStream* in)
 {
     clinit();
     auto constructor = java_cast< RecordFactory_I_RecordCreator* >(npc(_recordCreatorsById_)->get(::java::lang::Integer::valueOf(static_cast< int32_t >(npc(in)->getSid()))));
@@ -322,7 +316,7 @@ org::apache::poi::hssf::record::Record* org::apache::poi::hssf::record::RecordFa
     return npc(constructor)->create(in);
 }
 
-org::apache::poi::hssf::record::NumberRecord* org::apache::poi::hssf::record::RecordFactory::convertToNumberRecord(RKRecord* rk)
+poi::hssf::record::NumberRecord* poi::hssf::record::RecordFactory::convertToNumberRecord(RKRecord* rk)
 {
     clinit();
     auto num = new NumberRecord();
@@ -333,7 +327,7 @@ org::apache::poi::hssf::record::NumberRecord* org::apache::poi::hssf::record::Re
     return num;
 }
 
-org::apache::poi::hssf::record::NumberRecordArray* org::apache::poi::hssf::record::RecordFactory::convertRKRecords(MulRKRecord* mrk)
+poi::hssf::record::NumberRecordArray* poi::hssf::record::RecordFactory::convertRKRecords(MulRKRecord* mrk)
 {
     clinit();
     auto mulRecs = new NumberRecordArray(npc(mrk)->getNumColumns());
@@ -348,7 +342,7 @@ org::apache::poi::hssf::record::NumberRecordArray* org::apache::poi::hssf::recor
     return mulRecs;
 }
 
-org::apache::poi::hssf::record::BlankRecordArray* org::apache::poi::hssf::record::RecordFactory::convertBlankRecords(MulBlankRecord* mbk)
+poi::hssf::record::BlankRecordArray* poi::hssf::record::RecordFactory::convertBlankRecords(MulBlankRecord* mbk)
 {
     clinit();
     auto mulRecs = new BlankRecordArray(npc(mbk)->getNumColumns());
@@ -362,7 +356,7 @@ org::apache::poi::hssf::record::BlankRecordArray* org::apache::poi::hssf::record
     return mulRecs;
 }
 
-int16_tArray* org::apache::poi::hssf::record::RecordFactory::getAllKnownRecordSIDs()
+int16_tArray* poi::hssf::record::RecordFactory::getAllKnownRecordSIDs()
 {
     clinit();
     if(_allKnownRecordSIDs_ == nullptr) {
@@ -380,7 +374,7 @@ int16_tArray* org::apache::poi::hssf::record::RecordFactory::getAllKnownRecordSI
     return npc(_allKnownRecordSIDs_)->clone();
 }
 
-java::util::Map* org::apache::poi::hssf::record::RecordFactory::recordsToMap(::java::lang::ClassArray* records)
+java::util::Map* poi::hssf::record::RecordFactory::recordsToMap(::java::lang::ClassArray* records)
 {
     clinit();
     ::java::util::Map* result = new ::java::util::HashMap();
@@ -402,7 +396,7 @@ java::util::Map* org::apache::poi::hssf::record::RecordFactory::recordsToMap(::j
         try {
             sid = npc(npc(recClass)->getField(u"sid"_j))->getShort(nullptr);
         } catch (::java::lang::Exception* illegalArgumentException) {
-            throw new ::org::apache::poi::util::RecordFormatException(u"Unable to determine record types"_j);
+            throw new ::poi::util::RecordFormatException(u"Unable to determine record types"_j);
         }
         auto key = ::java::lang::Integer::valueOf(sid);
         if(npc(result)->containsKey(key)) {
@@ -419,7 +413,7 @@ java::util::Map* org::apache::poi::hssf::record::RecordFactory::recordsToMap(::j
     return result;
 }
 
-org::apache::poi::hssf::record::RecordFactory_I_RecordCreator* org::apache::poi::hssf::record::RecordFactory::getRecordCreator(::java::lang::Class* recClass)
+poi::hssf::record::RecordFactory_I_RecordCreator* poi::hssf::record::RecordFactory::getRecordCreator(::java::lang::Class* recClass)
 {
     clinit();
     try {
@@ -437,7 +431,7 @@ org::apache::poi::hssf::record::RecordFactory_I_RecordCreator* org::apache::poi:
     }
 }
 
-java::util::List* org::apache::poi::hssf::record::RecordFactory::createRecords(::java::io::InputStream* in) /* throws(org.apache.poi.util.RecordFormatException) */
+java::util::List* poi::hssf::record::RecordFactory::createRecords(::java::io::InputStream* in) /* throws(org.apache.poi.util.RecordFormatException) */
 {
     clinit();
     ::java::util::List* records = new ::java::util::ArrayList(NUM_RECORDS);
@@ -451,13 +445,13 @@ java::util::List* org::apache::poi::hssf::record::RecordFactory::createRecords(:
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::RecordFactory::class_()
+java::lang::Class* poi::hssf::record::RecordFactory::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.RecordFactory", 40);
     return c;
 }
 
-void org::apache::poi::hssf::record::RecordFactory::clinit()
+void poi::hssf::record::RecordFactory::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -481,8 +475,8 @@ struct clinit_ {
             , static_cast< ::java::lang::Class* >(CFHeader12Record::class_())
             , static_cast< ::java::lang::Class* >(CFRuleRecord::class_())
             , static_cast< ::java::lang::Class* >(CFRule12Record::class_())
-            , static_cast< ::java::lang::Class* >(::org::apache::poi::hssf::record::chart::ChartRecord::class_())
-            , static_cast< ::java::lang::Class* >(::org::apache::poi::hssf::record::chart::ChartTitleFormatRecord::class_())
+            , static_cast< ::java::lang::Class* >(::poi::hssf::record::chart::ChartRecord::class_())
+            , static_cast< ::java::lang::Class* >(::poi::hssf::record::chart::ChartTitleFormatRecord::class_())
             , static_cast< ::java::lang::Class* >(CodepageRecord::class_())
             , static_cast< ::java::lang::Class* >(ColumnInfoRecord::class_())
             , static_cast< ::java::lang::Class* >(ContinueRecord::class_())
@@ -531,7 +525,7 @@ struct clinit_ {
             , static_cast< ::java::lang::Class* >(LabelRecord::class_())
             , static_cast< ::java::lang::Class* >(LabelSSTRecord::class_())
             , static_cast< ::java::lang::Class* >(LeftMarginRecord::class_())
-            , static_cast< ::java::lang::Class* >(::org::apache::poi::hssf::record::chart::LegendRecord::class_())
+            , static_cast< ::java::lang::Class* >(::poi::hssf::record::chart::LegendRecord::class_())
             , static_cast< ::java::lang::Class* >(MergeCellsRecord::class_())
             , static_cast< ::java::lang::Class* >(MMSRecord::class_())
             , static_cast< ::java::lang::Class* >(MulBlankRecord::class_())
@@ -561,8 +555,8 @@ struct clinit_ {
             , static_cast< ::java::lang::Class* >(SaveRecalcRecord::class_())
             , static_cast< ::java::lang::Class* >(ScenarioProtectRecord::class_())
             , static_cast< ::java::lang::Class* >(SelectionRecord::class_())
-            , static_cast< ::java::lang::Class* >(::org::apache::poi::hssf::record::chart::SeriesRecord::class_())
-            , static_cast< ::java::lang::Class* >(::org::apache::poi::hssf::record::chart::SeriesTextRecord::class_())
+            , static_cast< ::java::lang::Class* >(::poi::hssf::record::chart::SeriesRecord::class_())
+            , static_cast< ::java::lang::Class* >(::poi::hssf::record::chart::SeriesTextRecord::class_())
             , static_cast< ::java::lang::Class* >(SharedFormulaRecord::class_())
             , static_cast< ::java::lang::Class* >(SSTRecord::class_())
             , static_cast< ::java::lang::Class* >(StringRecord::class_())
@@ -577,7 +571,7 @@ struct clinit_ {
             , static_cast< ::java::lang::Class* >(UseSelFSRecord::class_())
             , static_cast< ::java::lang::Class* >(UserSViewBegin::class_())
             , static_cast< ::java::lang::Class* >(UserSViewEnd::class_())
-            , static_cast< ::java::lang::Class* >(::org::apache::poi::hssf::record::chart::ValueRangeRecord::class_())
+            , static_cast< ::java::lang::Class* >(::poi::hssf::record::chart::ValueRangeRecord::class_())
             , static_cast< ::java::lang::Class* >(VCenterRecord::class_())
             , static_cast< ::java::lang::Class* >(VerticalPageBreakRecord::class_())
             , static_cast< ::java::lang::Class* >(WindowOneRecord::class_())
@@ -586,24 +580,24 @@ struct clinit_ {
             , static_cast< ::java::lang::Class* >(WriteAccessRecord::class_())
             , static_cast< ::java::lang::Class* >(WriteProtectRecord::class_())
             , static_cast< ::java::lang::Class* >(WSBoolRecord::class_())
-            , static_cast< ::java::lang::Class* >(::org::apache::poi::hssf::record::chart::BeginRecord::class_())
-            , static_cast< ::java::lang::Class* >(::org::apache::poi::hssf::record::chart::ChartFRTInfoRecord::class_())
-            , static_cast< ::java::lang::Class* >(::org::apache::poi::hssf::record::chart::ChartStartBlockRecord::class_())
-            , static_cast< ::java::lang::Class* >(::org::apache::poi::hssf::record::chart::ChartEndBlockRecord::class_())
-            , static_cast< ::java::lang::Class* >(::org::apache::poi::hssf::record::chart::ChartStartObjectRecord::class_())
-            , static_cast< ::java::lang::Class* >(::org::apache::poi::hssf::record::chart::ChartEndObjectRecord::class_())
-            , static_cast< ::java::lang::Class* >(::org::apache::poi::hssf::record::chart::CatLabRecord::class_())
-            , static_cast< ::java::lang::Class* >(::org::apache::poi::hssf::record::chart::DataFormatRecord::class_())
-            , static_cast< ::java::lang::Class* >(::org::apache::poi::hssf::record::chart::EndRecord::class_())
-            , static_cast< ::java::lang::Class* >(::org::apache::poi::hssf::record::chart::LinkedDataRecord::class_())
-            , static_cast< ::java::lang::Class* >(::org::apache::poi::hssf::record::chart::SeriesToChartGroupRecord::class_())
-            , static_cast< ::java::lang::Class* >(::org::apache::poi::hssf::record::pivottable::DataItemRecord::class_())
-            , static_cast< ::java::lang::Class* >(::org::apache::poi::hssf::record::pivottable::ExtendedPivotTableViewFieldsRecord::class_())
-            , static_cast< ::java::lang::Class* >(::org::apache::poi::hssf::record::pivottable::PageItemRecord::class_())
-            , static_cast< ::java::lang::Class* >(::org::apache::poi::hssf::record::pivottable::StreamIDRecord::class_())
-            , static_cast< ::java::lang::Class* >(::org::apache::poi::hssf::record::pivottable::ViewDefinitionRecord::class_())
-            , static_cast< ::java::lang::Class* >(::org::apache::poi::hssf::record::pivottable::ViewFieldsRecord::class_())
-            , static_cast< ::java::lang::Class* >(::org::apache::poi::hssf::record::pivottable::ViewSourceRecord::class_())
+            , static_cast< ::java::lang::Class* >(::poi::hssf::record::chart::BeginRecord::class_())
+            , static_cast< ::java::lang::Class* >(::poi::hssf::record::chart::ChartFRTInfoRecord::class_())
+            , static_cast< ::java::lang::Class* >(::poi::hssf::record::chart::ChartStartBlockRecord::class_())
+            , static_cast< ::java::lang::Class* >(::poi::hssf::record::chart::ChartEndBlockRecord::class_())
+            , static_cast< ::java::lang::Class* >(::poi::hssf::record::chart::ChartStartObjectRecord::class_())
+            , static_cast< ::java::lang::Class* >(::poi::hssf::record::chart::ChartEndObjectRecord::class_())
+            , static_cast< ::java::lang::Class* >(::poi::hssf::record::chart::CatLabRecord::class_())
+            , static_cast< ::java::lang::Class* >(::poi::hssf::record::chart::DataFormatRecord::class_())
+            , static_cast< ::java::lang::Class* >(::poi::hssf::record::chart::EndRecord::class_())
+            , static_cast< ::java::lang::Class* >(::poi::hssf::record::chart::LinkedDataRecord::class_())
+            , static_cast< ::java::lang::Class* >(::poi::hssf::record::chart::SeriesToChartGroupRecord::class_())
+            , static_cast< ::java::lang::Class* >(::poi::hssf::record::pivottable::DataItemRecord::class_())
+            , static_cast< ::java::lang::Class* >(::poi::hssf::record::pivottable::ExtendedPivotTableViewFieldsRecord::class_())
+            , static_cast< ::java::lang::Class* >(::poi::hssf::record::pivottable::PageItemRecord::class_())
+            , static_cast< ::java::lang::Class* >(::poi::hssf::record::pivottable::StreamIDRecord::class_())
+            , static_cast< ::java::lang::Class* >(::poi::hssf::record::pivottable::ViewDefinitionRecord::class_())
+            , static_cast< ::java::lang::Class* >(::poi::hssf::record::pivottable::ViewFieldsRecord::class_())
+            , static_cast< ::java::lang::Class* >(::poi::hssf::record::pivottable::ViewSourceRecord::class_())
         });
         _recordCreatorsById_ = recordsToMap(recordClasses_);
     }
@@ -614,7 +608,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::hssf::record::RecordFactory::getClass0()
+java::lang::Class* poi::hssf::record::RecordFactory::getClass0()
 {
     return class_();
 }

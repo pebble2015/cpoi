@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::util::PaneInformation
+class poi::ss::util::PaneInformation
     : public virtual ::java::lang::Object
 {
 

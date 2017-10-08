@@ -48,100 +48,100 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::format::CellFormatPart::CellFormatPart(const ::default_init_tag&)
+poi::ss::format::CellFormatPart::CellFormatPart(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::format::CellFormatPart::CellFormatPart(::java::lang::String* desc) 
+poi::ss::format::CellFormatPart::CellFormatPart(::java::lang::String* desc) 
     : CellFormatPart(*static_cast< ::default_init_tag* >(0))
 {
     ctor(desc);
 }
 
-org::apache::poi::ss::format::CellFormatPart::CellFormatPart(::java::util::Locale* locale, ::java::lang::String* desc) 
+poi::ss::format::CellFormatPart::CellFormatPart(::java::util::Locale* locale, ::java::lang::String* desc) 
     : CellFormatPart(*static_cast< ::default_init_tag* >(0))
 {
     ctor(locale,desc);
 }
 
-java::util::Map*& org::apache::poi::ss::format::CellFormatPart::NAMED_COLORS()
+java::util::Map*& poi::ss::format::CellFormatPart::NAMED_COLORS()
 {
     clinit();
     return NAMED_COLORS_;
 }
-java::util::Map* org::apache::poi::ss::format::CellFormatPart::NAMED_COLORS_;
+java::util::Map* poi::ss::format::CellFormatPart::NAMED_COLORS_;
 
-java::util::regex::Pattern*& org::apache::poi::ss::format::CellFormatPart::COLOR_PAT()
+java::util::regex::Pattern*& poi::ss::format::CellFormatPart::COLOR_PAT()
 {
     clinit();
     return COLOR_PAT_;
 }
-java::util::regex::Pattern* org::apache::poi::ss::format::CellFormatPart::COLOR_PAT_;
+java::util::regex::Pattern* poi::ss::format::CellFormatPart::COLOR_PAT_;
 
-java::util::regex::Pattern*& org::apache::poi::ss::format::CellFormatPart::CONDITION_PAT()
+java::util::regex::Pattern*& poi::ss::format::CellFormatPart::CONDITION_PAT()
 {
     clinit();
     return CONDITION_PAT_;
 }
-java::util::regex::Pattern* org::apache::poi::ss::format::CellFormatPart::CONDITION_PAT_;
+java::util::regex::Pattern* poi::ss::format::CellFormatPart::CONDITION_PAT_;
 
-java::util::regex::Pattern*& org::apache::poi::ss::format::CellFormatPart::SPECIFICATION_PAT()
+java::util::regex::Pattern*& poi::ss::format::CellFormatPart::SPECIFICATION_PAT()
 {
     clinit();
     return SPECIFICATION_PAT_;
 }
-java::util::regex::Pattern* org::apache::poi::ss::format::CellFormatPart::SPECIFICATION_PAT_;
+java::util::regex::Pattern* poi::ss::format::CellFormatPart::SPECIFICATION_PAT_;
 
-java::util::regex::Pattern*& org::apache::poi::ss::format::CellFormatPart::CURRENCY_PAT()
+java::util::regex::Pattern*& poi::ss::format::CellFormatPart::CURRENCY_PAT()
 {
     clinit();
     return CURRENCY_PAT_;
 }
-java::util::regex::Pattern* org::apache::poi::ss::format::CellFormatPart::CURRENCY_PAT_;
+java::util::regex::Pattern* poi::ss::format::CellFormatPart::CURRENCY_PAT_;
 
-java::util::regex::Pattern*& org::apache::poi::ss::format::CellFormatPart::FORMAT_PAT()
+java::util::regex::Pattern*& poi::ss::format::CellFormatPart::FORMAT_PAT()
 {
     clinit();
     return FORMAT_PAT_;
 }
-java::util::regex::Pattern* org::apache::poi::ss::format::CellFormatPart::FORMAT_PAT_;
+java::util::regex::Pattern* poi::ss::format::CellFormatPart::FORMAT_PAT_;
 
-int32_t& org::apache::poi::ss::format::CellFormatPart::COLOR_GROUP()
+int32_t& poi::ss::format::CellFormatPart::COLOR_GROUP()
 {
     clinit();
     return COLOR_GROUP_;
 }
-int32_t org::apache::poi::ss::format::CellFormatPart::COLOR_GROUP_;
+int32_t poi::ss::format::CellFormatPart::COLOR_GROUP_;
 
-int32_t& org::apache::poi::ss::format::CellFormatPart::CONDITION_OPERATOR_GROUP()
+int32_t& poi::ss::format::CellFormatPart::CONDITION_OPERATOR_GROUP()
 {
     clinit();
     return CONDITION_OPERATOR_GROUP_;
 }
-int32_t org::apache::poi::ss::format::CellFormatPart::CONDITION_OPERATOR_GROUP_;
+int32_t poi::ss::format::CellFormatPart::CONDITION_OPERATOR_GROUP_;
 
-int32_t& org::apache::poi::ss::format::CellFormatPart::CONDITION_VALUE_GROUP()
+int32_t& poi::ss::format::CellFormatPart::CONDITION_VALUE_GROUP()
 {
     clinit();
     return CONDITION_VALUE_GROUP_;
 }
-int32_t org::apache::poi::ss::format::CellFormatPart::CONDITION_VALUE_GROUP_;
+int32_t poi::ss::format::CellFormatPart::CONDITION_VALUE_GROUP_;
 
-int32_t& org::apache::poi::ss::format::CellFormatPart::SPECIFICATION_GROUP()
+int32_t& poi::ss::format::CellFormatPart::SPECIFICATION_GROUP()
 {
     clinit();
     return SPECIFICATION_GROUP_;
 }
-int32_t org::apache::poi::ss::format::CellFormatPart::SPECIFICATION_GROUP_;
+int32_t poi::ss::format::CellFormatPart::SPECIFICATION_GROUP_;
 
-void org::apache::poi::ss::format::CellFormatPart::ctor(::java::lang::String* desc)
+void poi::ss::format::CellFormatPart::ctor(::java::lang::String* desc)
 {
-    ctor(::org::apache::poi::util::LocaleUtil::getUserLocale(), desc);
+    ctor(::poi::util::LocaleUtil::getUserLocale(), desc);
 }
 
-void org::apache::poi::ss::format::CellFormatPart::ctor(::java::util::Locale* locale, ::java::lang::String* desc)
+void poi::ss::format::CellFormatPart::ctor(::java::util::Locale* locale, ::java::lang::String* desc)
 {
     super::ctor();
     auto m = npc(FORMAT_PAT_)->matcher(desc);
@@ -154,7 +154,7 @@ void org::apache::poi::ss::format::CellFormatPart::ctor(::java::util::Locale* lo
     format = getFormatter(locale, m);
 }
 
-bool org::apache::poi::ss::format::CellFormatPart::applies(::java::lang::Object* valueObject)
+bool poi::ss::format::CellFormatPart::applies(::java::lang::Object* valueObject)
 {
     if(condition == nullptr || !(dynamic_cast< ::java::lang::Number* >(valueObject) != nullptr)) {
         if(valueObject == nullptr)
@@ -167,7 +167,7 @@ bool org::apache::poi::ss::format::CellFormatPart::applies(::java::lang::Object*
     }
 }
 
-int32_t org::apache::poi::ss::format::CellFormatPart::findGroup(::java::util::regex::Pattern* pat, ::java::lang::String* str, ::java::lang::String* marker)
+int32_t poi::ss::format::CellFormatPart::findGroup(::java::util::regex::Pattern* pat, ::java::lang::String* str, ::java::lang::String* marker)
 {
     clinit();
     auto m = npc(pat)->matcher(str);
@@ -189,7 +189,7 @@ int32_t org::apache::poi::ss::format::CellFormatPart::findGroup(::java::util::re
         ->append(u"\""_j)->toString());
 }
 
-java::awt::Color* org::apache::poi::ss::format::CellFormatPart::getColor(::java::util::regex::Matcher* m)
+java::awt::Color* poi::ss::format::CellFormatPart::getColor(::java::util::regex::Matcher* m)
 {
     clinit();
     auto cdesc = npc(m)->group(COLOR_GROUP_);
@@ -203,7 +203,7 @@ java::awt::Color* org::apache::poi::ss::format::CellFormatPart::getColor(::java:
     return c;
 }
 
-org::apache::poi::ss::format::CellFormatCondition* org::apache::poi::ss::format::CellFormatPart::getCondition(::java::util::regex::Matcher* m)
+poi::ss::format::CellFormatCondition* poi::ss::format::CellFormatPart::getCondition(::java::util::regex::Matcher* m)
 {
     auto mdesc = npc(m)->group(CONDITION_OPERATOR_GROUP_);
     if(mdesc == nullptr || npc(mdesc)->length() == 0)
@@ -212,13 +212,13 @@ org::apache::poi::ss::format::CellFormatCondition* org::apache::poi::ss::format:
     return CellFormatCondition::getInstance(npc(m)->group(CONDITION_OPERATOR_GROUP_), npc(m)->group(CONDITION_VALUE_GROUP_));
 }
 
-org::apache::poi::ss::format::CellFormatType* org::apache::poi::ss::format::CellFormatPart::getCellFormatType(::java::util::regex::Matcher* matcher)
+poi::ss::format::CellFormatType* poi::ss::format::CellFormatPart::getCellFormatType(::java::util::regex::Matcher* matcher)
 {
     auto fdesc = npc(matcher)->group(SPECIFICATION_GROUP_);
     return formatType(fdesc);
 }
 
-org::apache::poi::ss::format::CellFormatter* org::apache::poi::ss::format::CellFormatPart::getFormatter(::java::util::Locale* locale, ::java::util::regex::Matcher* matcher)
+poi::ss::format::CellFormatter* poi::ss::format::CellFormatPart::getFormatter(::java::util::Locale* locale, ::java::util::regex::Matcher* matcher)
 {
     auto fdesc = npc(matcher)->group(SPECIFICATION_GROUP_);
     auto currencyM = npc(CURRENCY_PAT_)->matcher(fdesc);
@@ -235,7 +235,7 @@ org::apache::poi::ss::format::CellFormatter* org::apache::poi::ss::format::CellF
     return npc(type)->formatter(locale, fdesc);
 }
 
-org::apache::poi::ss::format::CellFormatType* org::apache::poi::ss::format::CellFormatPart::formatType(::java::lang::String* fdesc)
+poi::ss::format::CellFormatType* poi::ss::format::CellFormatPart::formatType(::java::lang::String* fdesc)
 {
     fdesc = npc(fdesc)->trim();
     if(npc(fdesc)->equals(static_cast< ::java::lang::Object* >(u""_j)) || npc(fdesc)->equalsIgnoreCase(u"General"_j))
@@ -299,7 +299,7 @@ org::apache::poi::ss::format::CellFormatType* org::apache::poi::ss::format::Cell
     return CellFormatType::TEXT;
 }
 
-java::lang::String* org::apache::poi::ss::format::CellFormatPart::quoteSpecial(::java::lang::String* repl, CellFormatType* type)
+java::lang::String* poi::ss::format::CellFormatPart::quoteSpecial(::java::lang::String* repl, CellFormatType* type)
 {
     clinit();
     auto sb = new ::java::lang::StringBuilder();
@@ -321,7 +321,7 @@ java::lang::String* org::apache::poi::ss::format::CellFormatPart::quoteSpecial(:
     return npc(sb)->toString();
 }
 
-org::apache::poi::ss::format::CellFormatResult* org::apache::poi::ss::format::CellFormatPart::apply(::java::lang::Object* value)
+poi::ss::format::CellFormatResult* poi::ss::format::CellFormatPart::apply(::java::lang::Object* value)
 {
     auto applies = this->applies(value);
     ::java::lang::String* text;
@@ -336,7 +336,7 @@ org::apache::poi::ss::format::CellFormatResult* org::apache::poi::ss::format::Ce
     return new CellFormatResult(applies, text, textColor);
 }
 
-org::apache::poi::ss::format::CellFormatResult* org::apache::poi::ss::format::CellFormatPart::apply(::javax::swing::JLabel* label, ::java::lang::Object* value)
+poi::ss::format::CellFormatResult* poi::ss::format::CellFormatPart::apply(::javax::swing::JLabel* label, ::java::lang::Object* value)
 {
     auto result = apply(value);
     npc(label)->setText(npc(result)->text);
@@ -346,17 +346,17 @@ org::apache::poi::ss::format::CellFormatResult* org::apache::poi::ss::format::Ce
     return result;
 }
 
-org::apache::poi::ss::format::CellFormatType* org::apache::poi::ss::format::CellFormatPart::getCellFormatType()
+poi::ss::format::CellFormatType* poi::ss::format::CellFormatPart::getCellFormatType()
 {
     return type;
 }
 
-bool org::apache::poi::ss::format::CellFormatPart::hasCondition()
+bool poi::ss::format::CellFormatPart::hasCondition()
 {
     return condition != nullptr;
 }
 
-java::lang::StringBuffer* org::apache::poi::ss::format::CellFormatPart::parseFormat(::java::lang::String* fdesc, CellFormatType* type, CellFormatPart_PartHandler* partHandler)
+java::lang::StringBuffer* poi::ss::format::CellFormatPart::parseFormat(::java::lang::String* fdesc, CellFormatType* type, CellFormatPart_PartHandler* partHandler)
 {
     clinit();
     auto m = npc(SPECIFICATION_PAT_)->matcher(fdesc);
@@ -402,7 +402,7 @@ java::lang::StringBuffer* org::apache::poi::ss::format::CellFormatPart::parseFor
     return fmt;
 }
 
-java::lang::String* org::apache::poi::ss::format::CellFormatPart::expandChar(::java::lang::String* part)
+java::lang::String* poi::ss::format::CellFormatPart::expandChar(::java::lang::String* part)
 {
     clinit();
     ::java::lang::String* repl;
@@ -413,27 +413,27 @@ java::lang::String* org::apache::poi::ss::format::CellFormatPart::expandChar(::j
     return repl;
 }
 
-java::lang::String* org::apache::poi::ss::format::CellFormatPart::group(::java::util::regex::Matcher* m, int32_t g)
+java::lang::String* poi::ss::format::CellFormatPart::group(::java::util::regex::Matcher* m, int32_t g)
 {
     clinit();
     auto str = npc(m)->group(g);
     return (str == nullptr ? u""_j : str);
 }
 
-java::lang::String* org::apache::poi::ss::format::CellFormatPart::toString()
+java::lang::String* poi::ss::format::CellFormatPart::toString()
 {
     return npc(format)->format_;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::format::CellFormatPart::class_()
+java::lang::Class* poi::ss::format::CellFormatPart::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.format.CellFormatPart", 39);
     return c;
 }
 
-void org::apache::poi::ss::format::CellFormatPart::clinit()
+void poi::ss::format::CellFormatPart::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -442,9 +442,9 @@ struct clinit_ {
         in_cl_init = true;
         {
             NAMED_COLORS_ = new ::java::util::TreeMap(static_cast< ::java::util::Comparator* >(::java::lang::String::CASE_INSENSITIVE_ORDER()));
-            auto colors = ::org::apache::poi::hssf::util::HSSFColor::getIndexHash();
+            auto colors = ::poi::hssf::util::HSSFColor::getIndexHash();
             for (auto _i = npc(npc(colors)->values())->iterator(); _i->hasNext(); ) {
-                ::org::apache::poi::hssf::util::HSSFColor* color = java_cast< ::org::apache::poi::hssf::util::HSSFColor* >(_i->next());
+                ::poi::hssf::util::HSSFColor* color = java_cast< ::poi::hssf::util::HSSFColor* >(_i->next());
                 {
                     auto type = npc(color)->getClass();
                     auto name = npc(type)->getSimpleName();
@@ -513,7 +513,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::format::CellFormatPart::getClass0()
+java::lang::Class* poi::ss::format::CellFormatPart::getClass0()
 {
     return class_();
 }

@@ -13,9 +13,9 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::RecordInputStream final
+class poi::hssf::record::RecordInputStream final
     : public virtual ::java::lang::Object
-    , public ::org::apache::poi::util::LittleEndianInput
+    , public ::poi::util::LittleEndianInput
 {
 
 public:
@@ -27,7 +27,7 @@ private:
     static constexpr int32_t DATA_LEN_NEEDS_TO_BE_READ { int32_t(-1) };
     static ::int8_tArray* EMPTY_BYTE_ARRAY_;
     BiffHeaderInput* _bhi {  };
-    ::org::apache::poi::util::LittleEndianInput* _dataInput {  };
+    ::poi::util::LittleEndianInput* _dataInput {  };
     int32_t _currentSid {  };
     int32_t _currentDataLength {  };
     int32_t _nextSid {  };
@@ -35,10 +35,10 @@ private:
     int32_t _markedDataOffset {  };
 protected:
     void ctor(::java::io::InputStream* in) /* throws(RecordFormatException) */;
-    void ctor(::java::io::InputStream* in, ::org::apache::poi::poifs::crypt::EncryptionInfo* key, int32_t initialOffset) /* throws(RecordFormatException) */;
+    void ctor(::java::io::InputStream* in, ::poi::poifs::crypt::EncryptionInfo* key, int32_t initialOffset) /* throws(RecordFormatException) */;
 
 public: /* package */
-    static ::org::apache::poi::util::LittleEndianInput* getLEI(::java::io::InputStream* is);
+    static ::poi::util::LittleEndianInput* getLEI(::java::io::InputStream* is);
 
 public:
     int32_t available() override;
@@ -93,7 +93,7 @@ public:
 
     // Generated
     RecordInputStream(::java::io::InputStream* in);
-    RecordInputStream(::java::io::InputStream* in, ::org::apache::poi::poifs::crypt::EncryptionInfo* key, int32_t initialOffset);
+    RecordInputStream(::java::io::InputStream* in, ::poi::poifs::crypt::EncryptionInfo* key, int32_t initialOffset);
 protected:
     RecordInputStream(const ::default_init_tag&);
 

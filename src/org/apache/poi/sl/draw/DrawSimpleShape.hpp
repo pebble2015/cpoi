@@ -14,7 +14,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::DrawSimpleShape
+class poi::sl::draw::DrawSimpleShape
     : public DrawShape
 {
 
@@ -24,30 +24,30 @@ public:
 private:
     static constexpr double DECO_SIZE_POW { 1.5 };
 protected:
-    void ctor(::org::apache::poi::sl::usermodel::SimpleShape* shape);
+    void ctor(::poi::sl::usermodel::SimpleShape* shape);
 
 public:
     void draw(::java::awt::Graphics2D* graphics) override;
 
 public: /* protected */
     virtual void drawDecoration(::java::awt::Graphics2D* graphics, ::java::awt::Paint* line, ::java::awt::BasicStroke* stroke);
-    virtual ::org::apache::poi::sl::draw::geom::Outline* getTailDecoration(::java::awt::Graphics2D* graphics, ::org::apache::poi::sl::usermodel::LineDecoration* deco, ::java::awt::BasicStroke* stroke);
-    virtual ::org::apache::poi::sl::draw::geom::Outline* getHeadDecoration(::java::awt::Graphics2D* graphics, ::org::apache::poi::sl::usermodel::LineDecoration* deco, ::java::awt::BasicStroke* stroke);
+    virtual ::poi::sl::draw::geom::Outline* getTailDecoration(::java::awt::Graphics2D* graphics, ::poi::sl::usermodel::LineDecoration* deco, ::java::awt::BasicStroke* stroke);
+    virtual ::poi::sl::draw::geom::Outline* getHeadDecoration(::java::awt::Graphics2D* graphics, ::poi::sl::usermodel::LineDecoration* deco, ::java::awt::BasicStroke* stroke);
 
 public:
     virtual ::java::awt::BasicStroke* getStroke();
 
 public: /* protected */
     virtual void drawShadow(::java::awt::Graphics2D* graphics, ::java::util::Collection* outlines, ::java::awt::Paint* fill, ::java::awt::Paint* line);
-    static ::org::apache::poi::sl::draw::geom::CustomGeometry* getCustomGeometry(::java::lang::String* name);
-    static ::org::apache::poi::sl::draw::geom::CustomGeometry* getCustomGeometry(::java::lang::String* name, ::java::awt::Graphics2D* graphics);
+    static ::poi::sl::draw::geom::CustomGeometry* getCustomGeometry(::java::lang::String* name);
+    static ::poi::sl::draw::geom::CustomGeometry* getCustomGeometry(::java::lang::String* name, ::java::awt::Graphics2D* graphics);
     virtual ::java::util::Collection* computeOutlines(::java::awt::Graphics2D* graphics);
-    ::org::apache::poi::sl::usermodel::SimpleShape* getShape() override;
+    ::poi::sl::usermodel::SimpleShape* getShape() override;
 
     // Generated
 
 public:
-    DrawSimpleShape(::org::apache::poi::sl::usermodel::SimpleShape* shape);
+    DrawSimpleShape(::poi::sl::usermodel::SimpleShape* shape);
 protected:
     DrawSimpleShape(const ::default_init_tag&);
 
@@ -56,7 +56,7 @@ public:
     static ::java::lang::Class *class_();
 
 public: /* protected */
-    static ::java::awt::BasicStroke* getStroke(::org::apache::poi::sl::usermodel::StrokeStyle* strokeStyle);
+    static ::java::awt::BasicStroke* getStroke(::poi::sl::usermodel::StrokeStyle* strokeStyle);
 
 private:
     virtual ::java::lang::Class* getClass0();

@@ -9,35 +9,29 @@
 #include <java/lang/Object.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
-struct org::apache::poi::ss::formula::EvaluationName
+struct poi::ss::formula::EvaluationName
     : public virtual ::java::lang::Object
 {
     virtual ::java::lang::String* getNameText() = 0;
     virtual bool isFunctionName() = 0;
     virtual bool hasFormula() = 0;
-    virtual ::org::apache::poi::ss::formula::ptg::PtgArray* getNameDefinition() = 0;
+    virtual ::poi::ss::formula::ptg::PtgArray* getNameDefinition() = 0;
     virtual bool isRange() = 0;
-    virtual ::org::apache::poi::ss::formula::ptg::NamePtg* createPtg() = 0;
+    virtual ::poi::ss::formula::ptg::NamePtg* createPtg() = 0;
 
     // Generated
     static ::java::lang::Class *class_();

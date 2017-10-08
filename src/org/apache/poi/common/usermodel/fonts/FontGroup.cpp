@@ -37,25 +37,19 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace common
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace common
+            namespace fonts
             {
-                namespace usermodel
-                {
-                    namespace fonts
-                    {
-typedef ::SubArray< ::org::apache::poi::common::usermodel::fonts::FontGroup, ::java::lang::EnumArray > FontGroupArray;
-                    } // fonts
-                } // usermodel
-            } // common
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::common::usermodel::fonts::FontGroup, ::java::lang::EnumArray > FontGroupArray;
+            } // fonts
+        } // usermodel
+    } // common
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -73,30 +67,30 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::common::usermodel::fonts::FontGroup::FontGroup(const ::default_init_tag&)
+poi::common::usermodel::fonts::FontGroup::FontGroup(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::common::usermodel::fonts::FontGroup::FontGroup(::java::lang::String* name, int ordinal)
+poi::common::usermodel::fonts::FontGroup::FontGroup(::java::lang::String* name, int ordinal)
     : FontGroup(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal);
 }
 
-org::apache::poi::common::usermodel::fonts::FontGroup* org::apache::poi::common::usermodel::fonts::FontGroup::LATIN = new ::org::apache::poi::common::usermodel::fonts::FontGroup(u"LATIN"_j, 0);
-org::apache::poi::common::usermodel::fonts::FontGroup* org::apache::poi::common::usermodel::fonts::FontGroup::EAST_ASIAN = new ::org::apache::poi::common::usermodel::fonts::FontGroup(u"EAST_ASIAN"_j, 1);
-org::apache::poi::common::usermodel::fonts::FontGroup* org::apache::poi::common::usermodel::fonts::FontGroup::SYMBOL = new ::org::apache::poi::common::usermodel::fonts::FontGroup(u"SYMBOL"_j, 2);
-org::apache::poi::common::usermodel::fonts::FontGroup* org::apache::poi::common::usermodel::fonts::FontGroup::COMPLEX_SCRIPT = new ::org::apache::poi::common::usermodel::fonts::FontGroup(u"COMPLEX_SCRIPT"_j, 3);
-java::util::NavigableMap*& org::apache::poi::common::usermodel::fonts::FontGroup::UCS_RANGES()
+poi::common::usermodel::fonts::FontGroup* poi::common::usermodel::fonts::FontGroup::LATIN = new ::poi::common::usermodel::fonts::FontGroup(u"LATIN"_j, 0);
+poi::common::usermodel::fonts::FontGroup* poi::common::usermodel::fonts::FontGroup::EAST_ASIAN = new ::poi::common::usermodel::fonts::FontGroup(u"EAST_ASIAN"_j, 1);
+poi::common::usermodel::fonts::FontGroup* poi::common::usermodel::fonts::FontGroup::SYMBOL = new ::poi::common::usermodel::fonts::FontGroup(u"SYMBOL"_j, 2);
+poi::common::usermodel::fonts::FontGroup* poi::common::usermodel::fonts::FontGroup::COMPLEX_SCRIPT = new ::poi::common::usermodel::fonts::FontGroup(u"COMPLEX_SCRIPT"_j, 3);
+java::util::NavigableMap*& poi::common::usermodel::fonts::FontGroup::UCS_RANGES()
 {
     clinit();
     return UCS_RANGES_;
 }
-java::util::NavigableMap* org::apache::poi::common::usermodel::fonts::FontGroup::UCS_RANGES_;
+java::util::NavigableMap* poi::common::usermodel::fonts::FontGroup::UCS_RANGES_;
 
-java::util::List* org::apache::poi::common::usermodel::fonts::FontGroup::getFontGroupRanges(::java::lang::String* runText)
+java::util::List* poi::common::usermodel::fonts::FontGroup::getFontGroupRanges(::java::lang::String* runText)
 {
     clinit();
     ::java::util::List* ttrList = new ::java::util::ArrayList();
@@ -121,13 +115,13 @@ java::util::List* org::apache::poi::common::usermodel::fonts::FontGroup::getFont
     return ttrList;
 }
 
-org::apache::poi::common::usermodel::fonts::FontGroup* org::apache::poi::common::usermodel::fonts::FontGroup::getFontGroupFirst(::java::lang::String* runText)
+poi::common::usermodel::fonts::FontGroup* poi::common::usermodel::fonts::FontGroup::getFontGroupFirst(::java::lang::String* runText)
 {
     clinit();
     return (runText == nullptr || npc(runText)->isEmpty()) ? LATIN : lookup(npc(runText)->codePointAt(0));
 }
 
-org::apache::poi::common::usermodel::fonts::FontGroup* org::apache::poi::common::usermodel::fonts::FontGroup::lookup(int32_t codepoint)
+poi::common::usermodel::fonts::FontGroup* poi::common::usermodel::fonts::FontGroup::lookup(int32_t codepoint)
 {
     clinit();
     auto entry = npc(UCS_RANGES_)->floorEntry(::java::lang::Integer::valueOf(codepoint));
@@ -137,13 +131,13 @@ org::apache::poi::common::usermodel::fonts::FontGroup* org::apache::poi::common:
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::common::usermodel::fonts::FontGroup::class_()
+java::lang::Class* poi::common::usermodel::fonts::FontGroup::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.common.usermodel.fonts.FontGroup", 47);
     return c;
 }
 
-void org::apache::poi::common::usermodel::fonts::FontGroup::clinit()
+void poi::common::usermodel::fonts::FontGroup::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -191,7 +185,7 @@ struct clinit_ {
     }
 }
 
-org::apache::poi::common::usermodel::fonts::FontGroup* org::apache::poi::common::usermodel::fonts::FontGroup::valueOf(::java::lang::String* a0)
+poi::common::usermodel::fonts::FontGroup* poi::common::usermodel::fonts::FontGroup::valueOf(::java::lang::String* a0)
 {
     if(COMPLEX_SCRIPT->toString()->equals(a0))
         return COMPLEX_SCRIPT;
@@ -204,9 +198,9 @@ org::apache::poi::common::usermodel::fonts::FontGroup* org::apache::poi::common:
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::common::usermodel::fonts::FontGroupArray* org::apache::poi::common::usermodel::fonts::FontGroup::values()
+poi::common::usermodel::fonts::FontGroupArray* poi::common::usermodel::fonts::FontGroup::values()
 {
-    return new org::apache::poi::common::usermodel::fonts::FontGroupArray({
+    return new poi::common::usermodel::fonts::FontGroupArray({
         COMPLEX_SCRIPT,
         EAST_ASIAN,
         LATIN,
@@ -214,7 +208,7 @@ org::apache::poi::common::usermodel::fonts::FontGroupArray* org::apache::poi::co
     });
 }
 
-java::lang::Class* org::apache::poi::common::usermodel::fonts::FontGroup::getClass0()
+java::lang::Class* poi::common::usermodel::fonts::FontGroup::getClass0()
 {
     return class_();
 }

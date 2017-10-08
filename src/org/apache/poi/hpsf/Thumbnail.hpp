@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hpsf::Thumbnail final
+class poi::hpsf::Thumbnail final
     : public ::java::lang::Object
 {
 

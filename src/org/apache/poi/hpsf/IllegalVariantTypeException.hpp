@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hpsf::IllegalVariantTypeException
+class poi::hpsf::IllegalVariantTypeException
     : public VariantTypeException
 {
 

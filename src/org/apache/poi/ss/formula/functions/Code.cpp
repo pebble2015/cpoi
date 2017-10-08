@@ -10,25 +10,19 @@
 #include <org/apache/poi/ss/formula/eval/ValueEval.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -37,48 +31,48 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::Code::Code(const ::default_init_tag&)
+poi::ss::formula::functions::Code::Code(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::Code::Code()
+poi::ss::formula::functions::Code::Code()
     : Code(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Code::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* textArg)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Code::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::poi::ss::formula::eval::ValueEval* textArg)
 {
-    ::org::apache::poi::ss::formula::eval::ValueEval* veText1;
+    ::poi::ss::formula::eval::ValueEval* veText1;
     try {
-        veText1 = ::org::apache::poi::ss::formula::eval::OperandResolver::getSingleValue(textArg, srcRowIndex, srcColumnIndex);
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+        veText1 = ::poi::ss::formula::eval::OperandResolver::getSingleValue(textArg, srcRowIndex, srcColumnIndex);
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
         return npc(e)->getErrorEval();
     }
-    auto text = ::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToString(veText1);
+    auto text = ::poi::ss::formula::eval::OperandResolver::coerceValueToString(veText1);
     if(npc(text)->length() == 0) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
     int32_t code = npc(text)->charAt(int32_t(0));
-    return new ::org::apache::poi::ss::formula::eval::StringEval(::java::lang::String::valueOf(code));
+    return new ::poi::ss::formula::eval::StringEval(::java::lang::String::valueOf(code));
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Code::class_()
+java::lang::Class* poi::ss::formula::functions::Code::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.Code", 40);
     return c;
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Code::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Code::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
 {
     return super::evaluate(args, srcRowIndex, srcColumnIndex);
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Code::getClass0()
+java::lang::Class* poi::ss::formula::functions::Code::getClass0()
 {
     return class_();
 }

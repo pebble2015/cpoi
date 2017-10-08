@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::cf::PatternFormatting final
+class poi::hssf::record::cf::PatternFormatting final
     : public virtual ::java::lang::Object
     , public ::java::lang::Cloneable
 {
@@ -40,13 +40,13 @@ public:
 
 private:
     int32_t field_15_pattern_style {  };
-    static ::org::apache::poi::util::BitField* fillPatternStyle_;
+    static ::poi::util::BitField* fillPatternStyle_;
     int32_t field_16_pattern_color_indexes {  };
-    static ::org::apache::poi::util::BitField* patternColorIndex_;
-    static ::org::apache::poi::util::BitField* patternBackgroundColorIndex_;
+    static ::poi::util::BitField* patternColorIndex_;
+    static ::poi::util::BitField* patternBackgroundColorIndex_;
 protected:
     void ctor();
-    void ctor(::org::apache::poi::util::LittleEndianInput* in);
+    void ctor(::poi::util::LittleEndianInput* in);
 
 public:
     int32_t getDataLength();
@@ -58,11 +58,11 @@ public:
     int32_t getFillForegroundColor();
     ::java::lang::String* toString() override;
     ::java::lang::Object* clone() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out);
+    void serialize(::poi::util::LittleEndianOutput* out);
 
     // Generated
     PatternFormatting();
-    PatternFormatting(::org::apache::poi::util::LittleEndianInput* in);
+    PatternFormatting(::poi::util::LittleEndianInput* in);
 protected:
     PatternFormatting(const ::default_init_tag&);
 
@@ -72,8 +72,8 @@ public:
     static void clinit();
 
 private:
-    static ::org::apache::poi::util::BitField*& fillPatternStyle();
-    static ::org::apache::poi::util::BitField*& patternColorIndex();
-    static ::org::apache::poi::util::BitField*& patternBackgroundColorIndex();
+    static ::poi::util::BitField*& fillPatternStyle();
+    static ::poi::util::BitField*& patternColorIndex();
+    static ::poi::util::BitField*& patternBackgroundColorIndex();
     virtual ::java::lang::Class* getClass0();
 };

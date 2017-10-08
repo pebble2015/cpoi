@@ -12,7 +12,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::storage::RawDataBlock
+class poi::poifs::storage::RawDataBlock
     : public virtual ::java::lang::Object
     , public virtual ListManagedBlock
 {
@@ -24,7 +24,7 @@ private:
     ::int8_tArray* _data {  };
     bool _eof {  };
     bool _hasData {  };
-    static ::org::apache::poi::util::POILogger* log_;
+    static ::poi::util::POILogger* log_;
 protected:
     void ctor(::java::io::InputStream* stream) /* throws(IOException) */;
     void ctor(::java::io::InputStream* stream, int32_t blockSize) /* throws(IOException) */;
@@ -48,7 +48,7 @@ public:
     static void clinit();
 
 public: /* package */
-    static ::org::apache::poi::util::POILogger*& log();
+    static ::poi::util::POILogger*& log();
 
 private:
     virtual ::java::lang::Class* getClass0();

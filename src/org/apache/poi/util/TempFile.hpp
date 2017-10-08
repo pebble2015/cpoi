@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::util::TempFile final
+class poi::util::TempFile final
     : public ::java::lang::Object
 {
 

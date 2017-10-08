@@ -6,7 +6,7 @@
 #include <org/apache/poi/ss/formula/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::formula::IStabilityClassifier
+struct poi::ss::formula::IStabilityClassifier
     : public virtual ::java::lang::Object
 {
 

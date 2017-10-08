@@ -7,7 +7,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::binding::CTPath2DClose
+class poi::sl::draw::binding::CTPath2DClose
     : public virtual ::java::lang::Object
 {
 

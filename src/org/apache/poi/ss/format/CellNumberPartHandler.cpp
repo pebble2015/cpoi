@@ -28,31 +28,31 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::format::CellNumberPartHandler::CellNumberPartHandler(const ::default_init_tag&)
+poi::ss::format::CellNumberPartHandler::CellNumberPartHandler(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::format::CellNumberPartHandler::CellNumberPartHandler()
+poi::ss::format::CellNumberPartHandler::CellNumberPartHandler()
     : CellNumberPartHandler(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::ss::format::CellNumberPartHandler::ctor()
+void poi::ss::format::CellNumberPartHandler::ctor()
 {
     super::ctor();
     init();
 }
 
-void org::apache::poi::ss::format::CellNumberPartHandler::init()
+void poi::ss::format::CellNumberPartHandler::init()
 {
     scale = int32_t(1);
     specials = new ::java::util::LinkedList();
 }
 
-java::lang::String* org::apache::poi::ss::format::CellNumberPartHandler::handlePart(::java::util::regex::Matcher* m, ::java::lang::String* part, CellFormatType* type, ::java::lang::StringBuffer* descBuf)
+java::lang::String* poi::ss::format::CellNumberPartHandler::handlePart(::java::util::regex::Matcher* m, ::java::lang::String* part, CellFormatType* type, ::java::lang::StringBuffer* descBuf)
 {
     auto pos = npc(descBuf)->length();
     auto firstCh = npc(part)->charAt(int32_t(0));
@@ -104,42 +104,42 @@ java::lang::String* org::apache::poi::ss::format::CellNumberPartHandler::handleP
     return part;
 }
 
-double org::apache::poi::ss::format::CellNumberPartHandler::getScale()
+double poi::ss::format::CellNumberPartHandler::getScale()
 {
     return scale;
 }
 
-org::apache::poi::ss::format::CellNumberFormatter_Special* org::apache::poi::ss::format::CellNumberPartHandler::getDecimalPoint()
+poi::ss::format::CellNumberFormatter_Special* poi::ss::format::CellNumberPartHandler::getDecimalPoint()
 {
     return decimalPoint;
 }
 
-org::apache::poi::ss::format::CellNumberFormatter_Special* org::apache::poi::ss::format::CellNumberPartHandler::getSlash()
+poi::ss::format::CellNumberFormatter_Special* poi::ss::format::CellNumberPartHandler::getSlash()
 {
     return slash;
 }
 
-org::apache::poi::ss::format::CellNumberFormatter_Special* org::apache::poi::ss::format::CellNumberPartHandler::getExponent()
+poi::ss::format::CellNumberFormatter_Special* poi::ss::format::CellNumberPartHandler::getExponent()
 {
     return exponent;
 }
 
-org::apache::poi::ss::format::CellNumberFormatter_Special* org::apache::poi::ss::format::CellNumberPartHandler::getNumerator()
+poi::ss::format::CellNumberFormatter_Special* poi::ss::format::CellNumberPartHandler::getNumerator()
 {
     return numerator;
 }
 
-java::util::List* org::apache::poi::ss::format::CellNumberPartHandler::getSpecials()
+java::util::List* poi::ss::format::CellNumberPartHandler::getSpecials()
 {
     return specials;
 }
 
-bool org::apache::poi::ss::format::CellNumberPartHandler::isImproperFraction()
+bool poi::ss::format::CellNumberPartHandler::isImproperFraction()
 {
     return improperFraction;
 }
 
-org::apache::poi::ss::format::CellNumberFormatter_Special* org::apache::poi::ss::format::CellNumberPartHandler::previousNumber()
+poi::ss::format::CellNumberFormatter_Special* poi::ss::format::CellNumberPartHandler::previousNumber()
 {
     auto it = npc(specials)->listIterator(npc(specials)->size());
     while (npc(it)->hasPrevious()) {
@@ -159,13 +159,13 @@ org::apache::poi::ss::format::CellNumberFormatter_Special* org::apache::poi::ss:
     return nullptr;
 }
 
-bool org::apache::poi::ss::format::CellNumberPartHandler::isDigitFmt(CellNumberFormatter_Special* s)
+bool poi::ss::format::CellNumberPartHandler::isDigitFmt(CellNumberFormatter_Special* s)
 {
     clinit();
     return npc(s)->ch == u'0' || npc(s)->ch == u'?' || npc(s)->ch == u'#';
 }
 
-org::apache::poi::ss::format::CellNumberFormatter_Special* org::apache::poi::ss::format::CellNumberPartHandler::firstDigit(::java::util::List* specials)
+poi::ss::format::CellNumberFormatter_Special* poi::ss::format::CellNumberPartHandler::firstDigit(::java::util::List* specials)
 {
     clinit();
     for (auto _i = npc(specials)->iterator(); _i->hasNext(); ) {
@@ -181,13 +181,13 @@ org::apache::poi::ss::format::CellNumberFormatter_Special* org::apache::poi::ss:
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::format::CellNumberPartHandler::class_()
+java::lang::Class* poi::ss::format::CellNumberPartHandler::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.format.CellNumberPartHandler", 46);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::format::CellNumberPartHandler::getClass0()
+java::lang::Class* poi::ss::format::CellNumberPartHandler::getClass0()
 {
     return class_();
 }

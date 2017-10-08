@@ -24,19 +24,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::crypt::standard::StandardEncryptionInfoBuilder::StandardEncryptionInfoBuilder(const ::default_init_tag&)
+poi::poifs::crypt::standard::StandardEncryptionInfoBuilder::StandardEncryptionInfoBuilder(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::crypt::standard::StandardEncryptionInfoBuilder::StandardEncryptionInfoBuilder()
+poi::poifs::crypt::standard::StandardEncryptionInfoBuilder::StandardEncryptionInfoBuilder()
     : StandardEncryptionInfoBuilder(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::poifs::crypt::standard::StandardEncryptionInfoBuilder::initialize(::org::apache::poi::poifs::crypt::EncryptionInfo* info, ::org::apache::poi::util::LittleEndianInput* dis) /* throws(IOException) */
+void poi::poifs::crypt::standard::StandardEncryptionInfoBuilder::initialize(::poi::poifs::crypt::EncryptionInfo* info, ::poi::util::LittleEndianInput* dis) /* throws(IOException) */
 {
     npc(dis)->readInt();
     auto header = new StandardEncryptionHeader(dis);
@@ -49,25 +49,25 @@ void org::apache::poi::poifs::crypt::standard::StandardEncryptionInfoBuilder::in
     }
 }
 
-void org::apache::poi::poifs::crypt::standard::StandardEncryptionInfoBuilder::initialize(::org::apache::poi::poifs::crypt::EncryptionInfo* info, ::org::apache::poi::poifs::crypt::CipherAlgorithm* cipherAlgorithm, ::org::apache::poi::poifs::crypt::HashAlgorithm* hashAlgorithm, int32_t keyBits, int32_t blockSize, ::org::apache::poi::poifs::crypt::ChainingMode* chainingMode)
+void poi::poifs::crypt::standard::StandardEncryptionInfoBuilder::initialize(::poi::poifs::crypt::EncryptionInfo* info, ::poi::poifs::crypt::CipherAlgorithm* cipherAlgorithm, ::poi::poifs::crypt::HashAlgorithm* hashAlgorithm, int32_t keyBits, int32_t blockSize, ::poi::poifs::crypt::ChainingMode* chainingMode)
 {
     if(cipherAlgorithm == nullptr) {
-        cipherAlgorithm = ::org::apache::poi::poifs::crypt::CipherAlgorithm::aes128;
+        cipherAlgorithm = ::poi::poifs::crypt::CipherAlgorithm::aes128;
     }
-    if(cipherAlgorithm != ::org::apache::poi::poifs::crypt::CipherAlgorithm::aes128 && cipherAlgorithm != ::org::apache::poi::poifs::crypt::CipherAlgorithm::aes192 && cipherAlgorithm != ::org::apache::poi::poifs::crypt::CipherAlgorithm::aes256) {
-        throw new ::org::apache::poi::EncryptedDocumentException(u"Standard encryption only supports AES128/192/256."_j);
+    if(cipherAlgorithm != ::poi::poifs::crypt::CipherAlgorithm::aes128 && cipherAlgorithm != ::poi::poifs::crypt::CipherAlgorithm::aes192 && cipherAlgorithm != ::poi::poifs::crypt::CipherAlgorithm::aes256) {
+        throw new ::poi::EncryptedDocumentException(u"Standard encryption only supports AES128/192/256."_j);
     }
     if(hashAlgorithm == nullptr) {
-        hashAlgorithm = ::org::apache::poi::poifs::crypt::HashAlgorithm::sha1;
+        hashAlgorithm = ::poi::poifs::crypt::HashAlgorithm::sha1;
     }
-    if(hashAlgorithm != ::org::apache::poi::poifs::crypt::HashAlgorithm::sha1) {
-        throw new ::org::apache::poi::EncryptedDocumentException(u"Standard encryption only supports SHA-1."_j);
+    if(hashAlgorithm != ::poi::poifs::crypt::HashAlgorithm::sha1) {
+        throw new ::poi::EncryptedDocumentException(u"Standard encryption only supports SHA-1."_j);
     }
     if(chainingMode == nullptr) {
-        chainingMode = ::org::apache::poi::poifs::crypt::ChainingMode::ecb;
+        chainingMode = ::poi::poifs::crypt::ChainingMode::ecb;
     }
-    if(chainingMode != ::org::apache::poi::poifs::crypt::ChainingMode::ecb) {
-        throw new ::org::apache::poi::EncryptedDocumentException(u"Standard encryption only supports ECB chaining."_j);
+    if(chainingMode != ::poi::poifs::crypt::ChainingMode::ecb) {
+        throw new ::poi::EncryptedDocumentException(u"Standard encryption only supports ECB chaining."_j);
     }
     if(keyBits == -int32_t(1)) {
         keyBits = npc(cipherAlgorithm)->defaultKeySize;
@@ -80,7 +80,7 @@ void org::apache::poi::poifs::crypt::standard::StandardEncryptionInfoBuilder::in
         found |= (ks == keyBits);
     }
     if(!found) {
-        throw new ::org::apache::poi::EncryptedDocumentException(::java::lang::StringBuilder().append(u"KeySize "_j)->append(keyBits)
+        throw new ::poi::EncryptedDocumentException(::java::lang::StringBuilder().append(u"KeySize "_j)->append(keyBits)
             ->append(u" not allowed for Cipher "_j)
             ->append(static_cast< ::java::lang::Object* >(cipherAlgorithm))->toString());
     }
@@ -96,13 +96,13 @@ void org::apache::poi::poifs::crypt::standard::StandardEncryptionInfoBuilder::in
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::crypt::standard::StandardEncryptionInfoBuilder::class_()
+java::lang::Class* poi::poifs::crypt::standard::StandardEncryptionInfoBuilder::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.crypt.standard.StandardEncryptionInfoBuilder", 65);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::crypt::standard::StandardEncryptionInfoBuilder::getClass0()
+java::lang::Class* poi::poifs::crypt::standard::StandardEncryptionInfoBuilder::getClass0()
 {
     return class_();
 }

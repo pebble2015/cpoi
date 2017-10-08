@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::nio::FileBackedDataSource_unmap_1
+class poi::poifs::nio::FileBackedDataSource_unmap_1
     : public virtual ::java::lang::Object
     , public virtual ::java::security::PrivilegedAction
 {

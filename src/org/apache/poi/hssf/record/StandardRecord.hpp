@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::StandardRecord
+class poi::hssf::record::StandardRecord
     : public Record
 {
 
@@ -24,7 +24,7 @@ public:
     int32_t serialize(int32_t offset, ::int8_tArray* data) override;
 
 public: /* protected */
-    virtual void serialize(::org::apache::poi::util::LittleEndianOutput* out) = 0;
+    virtual void serialize(::poi::util::LittleEndianOutput* out) = 0;
 
     // Generated
 

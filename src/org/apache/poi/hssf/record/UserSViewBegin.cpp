@@ -21,94 +21,94 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::UserSViewBegin::UserSViewBegin(const ::default_init_tag&)
+poi::hssf::record::UserSViewBegin::UserSViewBegin(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::UserSViewBegin::UserSViewBegin(::int8_tArray* data) 
+poi::hssf::record::UserSViewBegin::UserSViewBegin(::int8_tArray* data) 
     : UserSViewBegin(*static_cast< ::default_init_tag* >(0))
 {
     ctor(data);
 }
 
-org::apache::poi::hssf::record::UserSViewBegin::UserSViewBegin(RecordInputStream* in) 
+poi::hssf::record::UserSViewBegin::UserSViewBegin(RecordInputStream* in) 
     : UserSViewBegin(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::UserSViewBegin::sid;
+constexpr int16_t poi::hssf::record::UserSViewBegin::sid;
 
-void org::apache::poi::hssf::record::UserSViewBegin::ctor(::int8_tArray* data)
+void poi::hssf::record::UserSViewBegin::ctor(::int8_tArray* data)
 {
     super::ctor();
     _rawData = data;
 }
 
-void org::apache::poi::hssf::record::UserSViewBegin::ctor(RecordInputStream* in)
+void poi::hssf::record::UserSViewBegin::ctor(RecordInputStream* in)
 {
     super::ctor();
     _rawData = npc(in)->readRemainder();
 }
 
-void org::apache::poi::hssf::record::UserSViewBegin::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::UserSViewBegin::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->write(_rawData);
 }
 
-int32_t org::apache::poi::hssf::record::UserSViewBegin::getDataSize()
+int32_t poi::hssf::record::UserSViewBegin::getDataSize()
 {
     return npc(_rawData)->length;
 }
 
-int16_t org::apache::poi::hssf::record::UserSViewBegin::getSid()
+int16_t poi::hssf::record::UserSViewBegin::getSid()
 {
     return sid;
 }
 
-int8_tArray* org::apache::poi::hssf::record::UserSViewBegin::getGuid()
+int8_tArray* poi::hssf::record::UserSViewBegin::getGuid()
 {
     auto guid = new ::int8_tArray(int32_t(16));
     ::java::lang::System::arraycopy(_rawData, 0, guid, 0, npc(guid)->length);
     return guid;
 }
 
-java::lang::String* org::apache::poi::hssf::record::UserSViewBegin::toString()
+java::lang::String* poi::hssf::record::UserSViewBegin::toString()
 {
     auto sb = new ::java::lang::StringBuffer();
     npc(npc(npc(sb)->append(u"["_j))->append(u"USERSVIEWBEGIN"_j))->append(u"] (0x"_j);
     npc(sb)->append(::java::lang::StringBuilder().append(npc(::java::lang::Integer::toHexString(sid))->toUpperCase(::java::util::Locale::ROOT()))->append(u")\n"_j)->toString());
-    npc(npc(npc(sb)->append(u"  rawData="_j))->append(::org::apache::poi::util::HexDump::toHex(_rawData)))->append(u"\n"_j);
+    npc(npc(npc(sb)->append(u"  rawData="_j))->append(::poi::util::HexDump::toHex(_rawData)))->append(u"\n"_j);
     npc(npc(npc(sb)->append(u"[/"_j))->append(u"USERSVIEWBEGIN"_j))->append(u"]\n"_j);
     return npc(sb)->toString();
 }
 
-java::lang::Object* org::apache::poi::hssf::record::UserSViewBegin::clone()
+java::lang::Object* poi::hssf::record::UserSViewBegin::clone()
 {
     return cloneViaReserialise();
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::UserSViewBegin::class_()
+java::lang::Class* poi::hssf::record::UserSViewBegin::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.UserSViewBegin", 41);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::UserSViewBegin::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::UserSViewBegin::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::UserSViewBegin::serialize()
+int8_tArray* poi::hssf::record::UserSViewBegin::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::UserSViewBegin::getClass0()
+java::lang::Class* poi::hssf::record::UserSViewBegin::getClass0()
 {
     return class_();
 }

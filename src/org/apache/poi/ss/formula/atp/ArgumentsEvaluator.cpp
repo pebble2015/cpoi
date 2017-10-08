@@ -33,55 +33,55 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::atp::ArgumentsEvaluator::ArgumentsEvaluator(const ::default_init_tag&)
+poi::ss::formula::atp::ArgumentsEvaluator::ArgumentsEvaluator(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::atp::ArgumentsEvaluator::ArgumentsEvaluator() 
+poi::ss::formula::atp::ArgumentsEvaluator::ArgumentsEvaluator() 
     : ArgumentsEvaluator(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::atp::ArgumentsEvaluator*& org::apache::poi::ss::formula::atp::ArgumentsEvaluator::instance()
+poi::ss::formula::atp::ArgumentsEvaluator*& poi::ss::formula::atp::ArgumentsEvaluator::instance()
 {
     clinit();
     return instance_;
 }
-org::apache::poi::ss::formula::atp::ArgumentsEvaluator* org::apache::poi::ss::formula::atp::ArgumentsEvaluator::instance_;
+poi::ss::formula::atp::ArgumentsEvaluator* poi::ss::formula::atp::ArgumentsEvaluator::instance_;
 
-void org::apache::poi::ss::formula::atp::ArgumentsEvaluator::ctor()
+void poi::ss::formula::atp::ArgumentsEvaluator::ctor()
 {
     super::ctor();
 }
 
-double org::apache::poi::ss::formula::atp::ArgumentsEvaluator::evaluateDateArg(::org::apache::poi::ss::formula::eval::ValueEval* arg, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */
+double poi::ss::formula::atp::ArgumentsEvaluator::evaluateDateArg(::poi::ss::formula::eval::ValueEval* arg, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */
 {
-    auto ve = ::org::apache::poi::ss::formula::eval::OperandResolver::getSingleValue(arg, srcCellRow, static_cast< int16_t >(srcCellCol));
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::StringEval* >(ve) != nullptr) {
-        auto strVal = npc((java_cast< ::org::apache::poi::ss::formula::eval::StringEval* >(ve)))->getStringValue();
-        auto dVal = ::org::apache::poi::ss::formula::eval::OperandResolver::parseDouble(strVal);
+    auto ve = ::poi::ss::formula::eval::OperandResolver::getSingleValue(arg, srcCellRow, static_cast< int16_t >(srcCellCol));
+    if(dynamic_cast< ::poi::ss::formula::eval::StringEval* >(ve) != nullptr) {
+        auto strVal = npc((java_cast< ::poi::ss::formula::eval::StringEval* >(ve)))->getStringValue();
+        auto dVal = ::poi::ss::formula::eval::OperandResolver::parseDouble(strVal);
         if(dVal != nullptr) {
             return npc(dVal)->doubleValue();
         }
         auto date = DateParser::parseDate(strVal);
-        return ::org::apache::poi::ss::usermodel::DateUtil::getExcelDate(date, false);
+        return ::poi::ss::usermodel::DateUtil::getExcelDate(date, false);
     }
-    return ::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToDouble(ve);
+    return ::poi::ss::formula::eval::OperandResolver::coerceValueToDouble(ve);
 }
 
-doubleArray* org::apache::poi::ss::formula::atp::ArgumentsEvaluator::evaluateDatesArg(::org::apache::poi::ss::formula::eval::ValueEval* arg, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */
+doubleArray* poi::ss::formula::atp::ArgumentsEvaluator::evaluateDatesArg(::poi::ss::formula::eval::ValueEval* arg, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */
 {
     if(arg == nullptr) {
         return new ::doubleArray(int32_t(0));
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::StringEval* >(arg) != nullptr) {
+    if(dynamic_cast< ::poi::ss::formula::eval::StringEval* >(arg) != nullptr) {
         return new ::doubleArray({evaluateDateArg(arg, srcCellRow, srcCellCol)});
-    } else if(dynamic_cast< ::org::apache::poi::ss::formula::eval::AreaEvalBase* >(arg) != nullptr) {
+    } else if(dynamic_cast< ::poi::ss::formula::eval::AreaEvalBase* >(arg) != nullptr) {
         ::java::util::List* valuesList = new ::java::util::ArrayList();
-        auto area = java_cast< ::org::apache::poi::ss::formula::eval::AreaEvalBase* >(arg);
+        auto area = java_cast< ::poi::ss::formula::eval::AreaEvalBase* >(arg);
         for (auto i = npc(area)->getFirstRow(); i <= npc(area)->getLastRow(); i++) {
             for (auto j = npc(area)->getFirstColumn(); j <= npc(area)->getLastColumn(); j++) {
                 npc(valuesList)->add(::java::lang::Double::valueOf(evaluateDateArg(npc(area)->getAbsoluteValue(i, j), i, j)));
@@ -93,26 +93,26 @@ doubleArray* org::apache::poi::ss::formula::atp::ArgumentsEvaluator::evaluateDat
         }
         return values;
     }
-    return new ::doubleArray({::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToDouble(arg)});
+    return new ::doubleArray({::poi::ss::formula::eval::OperandResolver::coerceValueToDouble(arg)});
 }
 
-double org::apache::poi::ss::formula::atp::ArgumentsEvaluator::evaluateNumberArg(::org::apache::poi::ss::formula::eval::ValueEval* arg, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */
+double poi::ss::formula::atp::ArgumentsEvaluator::evaluateNumberArg(::poi::ss::formula::eval::ValueEval* arg, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */
 {
     if(arg == nullptr) {
         return 0.0f;
     }
-    return ::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToDouble(arg);
+    return ::poi::ss::formula::eval::OperandResolver::coerceValueToDouble(arg);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::atp::ArgumentsEvaluator::class_()
+java::lang::Class* poi::ss::formula::atp::ArgumentsEvaluator::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.atp.ArgumentsEvaluator", 48);
     return c;
 }
 
-void org::apache::poi::ss::formula::atp::ArgumentsEvaluator::clinit()
+void poi::ss::formula::atp::ArgumentsEvaluator::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -128,7 +128,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::formula::atp::ArgumentsEvaluator::getClass0()
+java::lang::Class* poi::ss::formula::atp::ArgumentsEvaluator::getClass0()
 {
     return class_();
 }

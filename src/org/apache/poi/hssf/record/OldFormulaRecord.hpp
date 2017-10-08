@@ -10,29 +10,23 @@
 #include <org/apache/poi/hssf/record/OldCellRecord.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::OldFormulaRecord final
+class poi::hssf::record::OldFormulaRecord final
     : public OldCellRecord
 {
 
@@ -47,7 +41,7 @@ private:
     FormulaRecord_SpecialCachedValue* specialCachedValue {  };
     double field_4_value {  };
     int16_t field_5_options {  };
-    ::org::apache::poi::ss::formula::Formula* field_6_parsed_expr {  };
+    ::poi::ss::formula::Formula* field_6_parsed_expr {  };
 protected:
     void ctor(RecordInputStream* ris);
 
@@ -57,8 +51,8 @@ public:
     int32_t getCachedErrorValue();
     double getValue();
     int16_t getOptions();
-    ::org::apache::poi::ss::formula::ptg::PtgArray* getParsedExpression();
-    ::org::apache::poi::ss::formula::Formula* getFormula();
+    ::poi::ss::formula::ptg::PtgArray* getParsedExpression();
+    ::poi::ss::formula::Formula* getFormula();
 
 public: /* protected */
     void appendValueText(::java::lang::StringBuilder* sb) override;

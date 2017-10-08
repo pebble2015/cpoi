@@ -63,46 +63,46 @@ namespace
 
     template<typename F> finally_<F> finally(F f) { return finally_<F>(f); }
 }
-org::apache::poi::util::IOUtils::IOUtils(const ::default_init_tag&)
+poi::util::IOUtils::IOUtils(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::util::IOUtils::IOUtils() 
+poi::util::IOUtils::IOUtils() 
     : IOUtils(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::util::POILogger*& org::apache::poi::util::IOUtils::logger()
+poi::util::POILogger*& poi::util::IOUtils::logger()
 {
     clinit();
     return logger_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::util::IOUtils::logger_;
+poi::util::POILogger* poi::util::IOUtils::logger_;
 
-constexpr int32_t org::apache::poi::util::IOUtils::SKIP_BUFFER_SIZE;
+constexpr int32_t poi::util::IOUtils::SKIP_BUFFER_SIZE;
 
-int8_tArray*& org::apache::poi::util::IOUtils::SKIP_BYTE_BUFFER()
+int8_tArray*& poi::util::IOUtils::SKIP_BYTE_BUFFER()
 {
     clinit();
     return SKIP_BYTE_BUFFER_;
 }
-int8_tArray* org::apache::poi::util::IOUtils::SKIP_BYTE_BUFFER_;
+int8_tArray* poi::util::IOUtils::SKIP_BYTE_BUFFER_;
 
-void org::apache::poi::util::IOUtils::ctor()
+void poi::util::IOUtils::ctor()
 {
     super::ctor();
 }
 
-int8_tArray* org::apache::poi::util::IOUtils::peekFirst8Bytes(::java::io::InputStream* stream) /* throws(IOException, EmptyFileException) */
+int8_tArray* poi::util::IOUtils::peekFirst8Bytes(::java::io::InputStream* stream) /* throws(IOException, EmptyFileException) */
 {
     clinit();
     return peekFirstNBytes(stream, 8);
 }
 
-int8_tArray* org::apache::poi::util::IOUtils::peekFirstNBytes(::java::io::InputStream* stream, int32_t limit) /* throws(IOException, EmptyFileException) */
+int8_tArray* poi::util::IOUtils::peekFirstNBytes(::java::io::InputStream* stream, int32_t limit) /* throws(IOException, EmptyFileException) */
 {
     clinit();
     npc(stream)->mark(limit);
@@ -110,7 +110,7 @@ int8_tArray* org::apache::poi::util::IOUtils::peekFirstNBytes(::java::io::InputS
     copy(new BoundedInputStream(stream, limit), bos);
     auto readBytes = npc(bos)->size();
     if(readBytes == 0) {
-        throw new ::org::apache::poi::EmptyFileException();
+        throw new ::poi::EmptyFileException();
     }
     if(readBytes < limit) {
         npc(bos)->write(new ::int8_tArray(limit - readBytes));
@@ -125,13 +125,13 @@ int8_tArray* org::apache::poi::util::IOUtils::peekFirstNBytes(::java::io::InputS
     return peekedBytes;
 }
 
-int8_tArray* org::apache::poi::util::IOUtils::toByteArray_(::java::io::InputStream* stream) /* throws(IOException) */
+int8_tArray* poi::util::IOUtils::toByteArray_(::java::io::InputStream* stream) /* throws(IOException) */
 {
     clinit();
     return toByteArray_(stream, ::java::lang::Integer::MAX_VALUE);
 }
 
-int8_tArray* org::apache::poi::util::IOUtils::toByteArray_(::java::io::InputStream* stream, int32_t length) /* throws(IOException) */
+int8_tArray* poi::util::IOUtils::toByteArray_(::java::io::InputStream* stream, int32_t length) /* throws(IOException) */
 {
     clinit();
     auto baos = new ::java::io::ByteArrayOutputStream(length == ::java::lang::Integer::MAX_VALUE ? int32_t(4096) : length);
@@ -150,7 +150,7 @@ int8_tArray* org::apache::poi::util::IOUtils::toByteArray_(::java::io::InputStre
     return npc(baos)->toByteArray_();
 }
 
-int8_tArray* org::apache::poi::util::IOUtils::toByteArray_(::java::nio::ByteBuffer* buffer, int32_t length)
+int8_tArray* poi::util::IOUtils::toByteArray_(::java::nio::ByteBuffer* buffer, int32_t length)
 {
     clinit();
     if(npc(buffer)->hasArray_() && npc(buffer)->arrayOffset() == 0) {
@@ -161,13 +161,13 @@ int8_tArray* org::apache::poi::util::IOUtils::toByteArray_(::java::nio::ByteBuff
     return data;
 }
 
-int32_t org::apache::poi::util::IOUtils::readFully(::java::io::InputStream* in, ::int8_tArray* b) /* throws(IOException) */
+int32_t poi::util::IOUtils::readFully(::java::io::InputStream* in, ::int8_tArray* b) /* throws(IOException) */
 {
     clinit();
     return readFully(in, b, 0, npc(b)->length);
 }
 
-int32_t org::apache::poi::util::IOUtils::readFully(::java::io::InputStream* in, ::int8_tArray* b, int32_t off, int32_t len) /* throws(IOException) */
+int32_t poi::util::IOUtils::readFully(::java::io::InputStream* in, ::int8_tArray* b, int32_t off, int32_t len) /* throws(IOException) */
 {
     clinit();
     auto total = int32_t(0);
@@ -183,7 +183,7 @@ int32_t org::apache::poi::util::IOUtils::readFully(::java::io::InputStream* in, 
     }
 }
 
-int32_t org::apache::poi::util::IOUtils::readFully(::java::nio::channels::ReadableByteChannel* channel, ::java::nio::ByteBuffer* b) /* throws(IOException) */
+int32_t poi::util::IOUtils::readFully(::java::nio::channels::ReadableByteChannel* channel, ::java::nio::ByteBuffer* b) /* throws(IOException) */
 {
     clinit();
     auto total = int32_t(0);
@@ -199,7 +199,7 @@ int32_t org::apache::poi::util::IOUtils::readFully(::java::nio::channels::Readab
     }
 }
 
-void org::apache::poi::util::IOUtils::write(::org::apache::poi::POIDocument* doc, ::java::io::OutputStream* out) /* throws(IOException) */
+void poi::util::IOUtils::write(::poi::POIDocument* doc, ::java::io::OutputStream* out) /* throws(IOException) */
 {
     clinit();
     {
@@ -213,7 +213,7 @@ void org::apache::poi::util::IOUtils::write(::org::apache::poi::POIDocument* doc
 
 }
 
-void org::apache::poi::util::IOUtils::write(::org::apache::poi::ss::usermodel::Workbook* doc, ::java::io::OutputStream* out) /* throws(IOException) */
+void poi::util::IOUtils::write(::poi::ss::usermodel::Workbook* doc, ::java::io::OutputStream* out) /* throws(IOException) */
 {
     clinit();
     {
@@ -227,7 +227,7 @@ void org::apache::poi::util::IOUtils::write(::org::apache::poi::ss::usermodel::W
 
 }
 
-void org::apache::poi::util::IOUtils::writeAndClose(::org::apache::poi::POIDocument* doc, ::java::io::OutputStream* out) /* throws(IOException) */
+void poi::util::IOUtils::writeAndClose(::poi::POIDocument* doc, ::java::io::OutputStream* out) /* throws(IOException) */
 {
     clinit();
     {
@@ -241,7 +241,7 @@ void org::apache::poi::util::IOUtils::writeAndClose(::org::apache::poi::POIDocum
 
 }
 
-void org::apache::poi::util::IOUtils::writeAndClose(::org::apache::poi::POIDocument* doc, ::java::io::File* out) /* throws(IOException) */
+void poi::util::IOUtils::writeAndClose(::poi::POIDocument* doc, ::java::io::File* out) /* throws(IOException) */
 {
     clinit();
     {
@@ -255,7 +255,7 @@ void org::apache::poi::util::IOUtils::writeAndClose(::org::apache::poi::POIDocum
 
 }
 
-void org::apache::poi::util::IOUtils::writeAndClose(::org::apache::poi::POIDocument* doc) /* throws(IOException) */
+void poi::util::IOUtils::writeAndClose(::poi::POIDocument* doc) /* throws(IOException) */
 {
     clinit();
     {
@@ -269,7 +269,7 @@ void org::apache::poi::util::IOUtils::writeAndClose(::org::apache::poi::POIDocum
 
 }
 
-void org::apache::poi::util::IOUtils::writeAndClose(::org::apache::poi::ss::usermodel::Workbook* doc, ::java::io::OutputStream* out) /* throws(IOException) */
+void poi::util::IOUtils::writeAndClose(::poi::ss::usermodel::Workbook* doc, ::java::io::OutputStream* out) /* throws(IOException) */
 {
     clinit();
     {
@@ -283,7 +283,7 @@ void org::apache::poi::util::IOUtils::writeAndClose(::org::apache::poi::ss::user
 
 }
 
-void org::apache::poi::util::IOUtils::copy(::java::io::InputStream* inp, ::java::io::OutputStream* out) /* throws(IOException) */
+void poi::util::IOUtils::copy(::java::io::InputStream* inp, ::java::io::OutputStream* out) /* throws(IOException) */
 {
     clinit();
     auto buff = new ::int8_tArray(int32_t(4096));
@@ -298,7 +298,7 @@ void org::apache::poi::util::IOUtils::copy(::java::io::InputStream* inp, ::java:
     }
 }
 
-int64_t org::apache::poi::util::IOUtils::calculateChecksum(::int8_tArray* data)
+int64_t poi::util::IOUtils::calculateChecksum(::int8_tArray* data)
 {
     clinit();
     ::java::util::zip::Checksum* sum = new ::java::util::zip::CRC32();
@@ -306,7 +306,7 @@ int64_t org::apache::poi::util::IOUtils::calculateChecksum(::int8_tArray* data)
     return npc(sum)->getValue();
 }
 
-int64_t org::apache::poi::util::IOUtils::calculateChecksum(::java::io::InputStream* stream) /* throws(IOException) */
+int64_t poi::util::IOUtils::calculateChecksum(::java::io::InputStream* stream) /* throws(IOException) */
 {
     clinit();
     ::java::util::zip::Checksum* sum = new ::java::util::zip::CRC32();
@@ -320,7 +320,7 @@ int64_t org::apache::poi::util::IOUtils::calculateChecksum(::java::io::InputStre
     return npc(sum)->getValue();
 }
 
-void org::apache::poi::util::IOUtils::closeQuietly(::java::io::Closeable* closeable)
+void poi::util::IOUtils::closeQuietly(::java::io::Closeable* closeable)
 {
     clinit();
     if(closeable == nullptr) {
@@ -333,7 +333,7 @@ void org::apache::poi::util::IOUtils::closeQuietly(::java::io::Closeable* closea
     }
 }
 
-int64_t org::apache::poi::util::IOUtils::skipFully(::java::io::InputStream* input, int64_t toSkip) /* throws(IOException) */
+int64_t poi::util::IOUtils::skipFully(::java::io::InputStream* input, int64_t toSkip) /* throws(IOException) */
 {
     clinit();
     if(toSkip < 0) {
@@ -359,7 +359,7 @@ int64_t org::apache::poi::util::IOUtils::skipFully(::java::io::InputStream* inpu
     return toSkip - remain;
 }
 
-int8_tArray* org::apache::poi::util::IOUtils::safelyAllocate(int64_t length, int32_t maxLength)
+int8_tArray* poi::util::IOUtils::safelyAllocate(int64_t length, int32_t maxLength)
 {
     clinit();
     if(length < 0LL) {
@@ -379,13 +379,13 @@ int8_tArray* org::apache::poi::util::IOUtils::safelyAllocate(int64_t length, int
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::util::IOUtils::class_()
+java::lang::Class* poi::util::IOUtils::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.util.IOUtils", 27);
     return c;
 }
 
-void org::apache::poi::util::IOUtils::clinit()
+void poi::util::IOUtils::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -401,7 +401,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::util::IOUtils::getClass0()
+java::lang::Class* poi::util::IOUtils::getClass0()
 {
     return class_();
 }

@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::OldStringRecord final
+class poi::hssf::record::OldStringRecord final
     : public ::java::lang::Object
 {
 

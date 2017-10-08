@@ -27,7 +27,7 @@ typedef ::SubArray< ::java::util::List, ::java::lang::ObjectArray, CollectionArr
 
 struct default_init_tag;
 
-class org::apache::poi::ss::format::CellNumberFormatter
+class poi::ss::format::CellNumberFormatter
     : public CellFormatter
 {
 
@@ -35,7 +35,7 @@ public:
     typedef CellFormatter super;
 
 private:
-    static ::org::apache::poi::util::POILogger* LOG_;
+    static ::poi::util::POILogger* LOG_;
     ::java::lang::String* desc {  };
     ::java::lang::String* printfFmt {  };
     double scale {  };
@@ -114,7 +114,7 @@ public:
 
 private:
     void init();
-    static ::org::apache::poi::util::POILogger*& LOG();
+    static ::poi::util::POILogger*& LOG();
     virtual ::java::lang::Class* getClass0();
     friend class CellNumberFormatter_GeneralNumberFormatter;
     friend class CellNumberFormatter_Special;

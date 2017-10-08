@@ -11,29 +11,23 @@
 #include <org/apache/poi/ss/formula/functions/Function.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::TextFunction
+class poi::ss::formula::functions::TextFunction
     : public virtual ::java::lang::Object
     , public virtual Function
 {
@@ -42,18 +36,18 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    static ::org::apache::poi::ss::usermodel::DataFormatter* formatter_;
+    static ::poi::ss::usermodel::DataFormatter* formatter_;
 
 public: /* protected */
-    static ::java::lang::String* evaluateStringArg(::org::apache::poi::ss::formula::eval::ValueEval* eval, int32_t srcRow, int32_t srcCol) /* throws(EvaluationException) */;
-    static int32_t evaluateIntArg(::org::apache::poi::ss::formula::eval::ValueEval* arg, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */;
-    static double evaluateDoubleArg(::org::apache::poi::ss::formula::eval::ValueEval* arg, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */;
+    static ::java::lang::String* evaluateStringArg(::poi::ss::formula::eval::ValueEval* eval, int32_t srcRow, int32_t srcCol) /* throws(EvaluationException) */;
+    static int32_t evaluateIntArg(::poi::ss::formula::eval::ValueEval* arg, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */;
+    static double evaluateDoubleArg(::poi::ss::formula::eval::ValueEval* arg, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */;
 
 public:
-    ::org::apache::poi::ss::formula::eval::ValueEval* evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcCellRow, int32_t srcCellCol) override;
+    ::poi::ss::formula::eval::ValueEval* evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcCellRow, int32_t srcCellCol) override;
 
 public: /* protected */
-    virtual ::org::apache::poi::ss::formula::eval::ValueEval* evaluateFunc(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */ = 0;
+    virtual ::poi::ss::formula::eval::ValueEval* evaluateFunc(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */ = 0;
 
 private:
     static Function* CHAR_;
@@ -85,7 +79,7 @@ public:
     static void clinit();
 
 public: /* protected */
-    static ::org::apache::poi::ss::usermodel::DataFormatter*& formatter();
+    static ::poi::ss::usermodel::DataFormatter*& formatter();
 
 public:
     static Function*& CHAR();

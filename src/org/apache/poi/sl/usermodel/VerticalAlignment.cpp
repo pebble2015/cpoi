@@ -25,49 +25,43 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace sl
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace sl
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::sl::usermodel::VerticalAlignment, ::java::lang::EnumArray > VerticalAlignmentArray;
-                } // usermodel
-            } // sl
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::sl::usermodel::VerticalAlignment, ::java::lang::EnumArray > VerticalAlignmentArray;
+        } // usermodel
+    } // sl
+} // poi
 
-org::apache::poi::sl::usermodel::VerticalAlignment::VerticalAlignment(const ::default_init_tag&)
+poi::sl::usermodel::VerticalAlignment::VerticalAlignment(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::usermodel::VerticalAlignment::VerticalAlignment(::java::lang::String* name, int ordinal)
+poi::sl::usermodel::VerticalAlignment::VerticalAlignment(::java::lang::String* name, int ordinal)
     : VerticalAlignment(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal);
 }
 
-org::apache::poi::sl::usermodel::VerticalAlignment* org::apache::poi::sl::usermodel::VerticalAlignment::TOP = new ::org::apache::poi::sl::usermodel::VerticalAlignment(u"TOP"_j, 0);
-org::apache::poi::sl::usermodel::VerticalAlignment* org::apache::poi::sl::usermodel::VerticalAlignment::MIDDLE = new ::org::apache::poi::sl::usermodel::VerticalAlignment(u"MIDDLE"_j, 1);
-org::apache::poi::sl::usermodel::VerticalAlignment* org::apache::poi::sl::usermodel::VerticalAlignment::BOTTOM = new ::org::apache::poi::sl::usermodel::VerticalAlignment(u"BOTTOM"_j, 2);
-org::apache::poi::sl::usermodel::VerticalAlignment* org::apache::poi::sl::usermodel::VerticalAlignment::JUSTIFIED = new ::org::apache::poi::sl::usermodel::VerticalAlignment(u"JUSTIFIED"_j, 3);
-org::apache::poi::sl::usermodel::VerticalAlignment* org::apache::poi::sl::usermodel::VerticalAlignment::DISTRIBUTED = new ::org::apache::poi::sl::usermodel::VerticalAlignment(u"DISTRIBUTED"_j, 4);
+poi::sl::usermodel::VerticalAlignment* poi::sl::usermodel::VerticalAlignment::TOP = new ::poi::sl::usermodel::VerticalAlignment(u"TOP"_j, 0);
+poi::sl::usermodel::VerticalAlignment* poi::sl::usermodel::VerticalAlignment::MIDDLE = new ::poi::sl::usermodel::VerticalAlignment(u"MIDDLE"_j, 1);
+poi::sl::usermodel::VerticalAlignment* poi::sl::usermodel::VerticalAlignment::BOTTOM = new ::poi::sl::usermodel::VerticalAlignment(u"BOTTOM"_j, 2);
+poi::sl::usermodel::VerticalAlignment* poi::sl::usermodel::VerticalAlignment::JUSTIFIED = new ::poi::sl::usermodel::VerticalAlignment(u"JUSTIFIED"_j, 3);
+poi::sl::usermodel::VerticalAlignment* poi::sl::usermodel::VerticalAlignment::DISTRIBUTED = new ::poi::sl::usermodel::VerticalAlignment(u"DISTRIBUTED"_j, 4);
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::usermodel::VerticalAlignment::class_()
+java::lang::Class* poi::sl::usermodel::VerticalAlignment::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.usermodel.VerticalAlignment", 45);
     return c;
 }
 
-org::apache::poi::sl::usermodel::VerticalAlignment* org::apache::poi::sl::usermodel::VerticalAlignment::valueOf(::java::lang::String* a0)
+poi::sl::usermodel::VerticalAlignment* poi::sl::usermodel::VerticalAlignment::valueOf(::java::lang::String* a0)
 {
     if(BOTTOM->toString()->equals(a0))
         return BOTTOM;
@@ -82,9 +76,9 @@ org::apache::poi::sl::usermodel::VerticalAlignment* org::apache::poi::sl::usermo
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::sl::usermodel::VerticalAlignmentArray* org::apache::poi::sl::usermodel::VerticalAlignment::values()
+poi::sl::usermodel::VerticalAlignmentArray* poi::sl::usermodel::VerticalAlignment::values()
 {
-    return new org::apache::poi::sl::usermodel::VerticalAlignmentArray({
+    return new poi::sl::usermodel::VerticalAlignmentArray({
         BOTTOM,
         DISTRIBUTED,
         JUSTIFIED,
@@ -93,7 +87,7 @@ org::apache::poi::sl::usermodel::VerticalAlignmentArray* org::apache::poi::sl::u
     });
 }
 
-java::lang::Class* org::apache::poi::sl::usermodel::VerticalAlignment::getClass0()
+java::lang::Class* poi::sl::usermodel::VerticalAlignment::getClass0()
 {
     return class_();
 }

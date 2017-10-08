@@ -9,25 +9,19 @@
 #include <Array.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -36,35 +30,35 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::AggregateFunction_12::AggregateFunction_12()
+poi::ss::formula::functions::AggregateFunction_12::AggregateFunction_12()
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
     ctor();
 }
 
-double org::apache::poi::ss::formula::functions::AggregateFunction_12::evaluate(::doubleArray* values) /* throws(EvaluationException) */
+double poi::ss::formula::functions::AggregateFunction_12::evaluate(::doubleArray* values) /* throws(EvaluationException) */
 {
     if(npc(values)->length < 1) {
-        throw new ::org::apache::poi::ss::formula::eval::EvaluationException(::org::apache::poi::ss::formula::eval::ErrorEval::DIV_ZERO());
+        throw new ::poi::ss::formula::eval::EvaluationException(::poi::ss::formula::eval::ErrorEval::DIV_ZERO());
     }
     return StatsLib::varp(values);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::AggregateFunction_12::class_()
+java::lang::Class* poi::ss::formula::functions::AggregateFunction_12::class_()
 {
     static ::java::lang::Class* c = ::class_(u"", 0);
     return c;
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::AggregateFunction_12::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcCellRow, int32_t srcCellCol)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::AggregateFunction_12::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcCellRow, int32_t srcCellCol)
 {
     return super::evaluate(args, srcCellRow, srcCellCol);
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::AggregateFunction_12::getClass0()
+java::lang::Class* poi::ss::formula::functions::AggregateFunction_12::getClass0()
 {
     return class_();
 }

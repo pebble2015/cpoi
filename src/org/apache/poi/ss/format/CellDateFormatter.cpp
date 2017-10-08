@@ -72,42 +72,42 @@ namespace
         ::java::lang::Object *o;
     };
 }
-org::apache::poi::ss::format::CellDateFormatter::CellDateFormatter(const ::default_init_tag&)
+poi::ss::format::CellDateFormatter::CellDateFormatter(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::format::CellDateFormatter::CellDateFormatter(::java::lang::String* format) 
+poi::ss::format::CellDateFormatter::CellDateFormatter(::java::lang::String* format) 
     : CellDateFormatter(*static_cast< ::default_init_tag* >(0))
 {
     ctor(format);
 }
 
-org::apache::poi::ss::format::CellDateFormatter::CellDateFormatter(::java::util::Locale* locale, ::java::lang::String* format) 
+poi::ss::format::CellDateFormatter::CellDateFormatter(::java::util::Locale* locale, ::java::lang::String* format) 
     : CellDateFormatter(*static_cast< ::default_init_tag* >(0))
 {
     ctor(locale,format);
 }
 
-void org::apache::poi::ss::format::CellDateFormatter::init()
+void poi::ss::format::CellDateFormatter::init()
 {
-    EXCEL_EPOCH_CAL = ::org::apache::poi::util::LocaleUtil::getLocaleCalendar(1904, 0, 1);
+    EXCEL_EPOCH_CAL = ::poi::util::LocaleUtil::getLocaleCalendar(1904, 0, 1);
 }
 
-org::apache::poi::ss::format::CellDateFormatter*& org::apache::poi::ss::format::CellDateFormatter::SIMPLE_DATE()
+poi::ss::format::CellDateFormatter*& poi::ss::format::CellDateFormatter::SIMPLE_DATE()
 {
     clinit();
     return SIMPLE_DATE_;
 }
-org::apache::poi::ss::format::CellDateFormatter* org::apache::poi::ss::format::CellDateFormatter::SIMPLE_DATE_;
+poi::ss::format::CellDateFormatter* poi::ss::format::CellDateFormatter::SIMPLE_DATE_;
 
-void org::apache::poi::ss::format::CellDateFormatter::ctor(::java::lang::String* format)
+void poi::ss::format::CellDateFormatter::ctor(::java::lang::String* format)
 {
-    ctor(::org::apache::poi::util::LocaleUtil::getUserLocale(), format);
+    ctor(::poi::util::LocaleUtil::getUserLocale(), format);
 }
 
-void org::apache::poi::ss::format::CellDateFormatter::ctor(::java::util::Locale* locale, ::java::lang::String* format)
+void poi::ss::format::CellDateFormatter::ctor(::java::util::Locale* locale, ::java::lang::String* format)
 {
     super::ctor(format);
     init();
@@ -116,10 +116,10 @@ void org::apache::poi::ss::format::CellDateFormatter::ctor(::java::util::Locale*
     npc(partHandler)->finish(descBuf);
     auto ptrn = npc(npc(descBuf)->toString())->replaceAll(u"((y)(?!y))(?<!yy)"_j, u"yy"_j);
     dateFmt = new ::java::text::SimpleDateFormat(ptrn, locale);
-    npc(dateFmt)->setTimeZone(::org::apache::poi::util::LocaleUtil::getUserTimeZone());
+    npc(dateFmt)->setTimeZone(::poi::util::LocaleUtil::getUserTimeZone());
 }
 
-void org::apache::poi::ss::format::CellDateFormatter::formatValue(::java::lang::StringBuffer* toAppendTo, ::java::lang::Object* value)
+void poi::ss::format::CellDateFormatter::formatValue(::java::lang::StringBuffer* toAppendTo, ::java::lang::Object* value)
 {
     if(value == nullptr)
         value = ::java::lang::Double::valueOf(0.0);
@@ -182,7 +182,7 @@ void org::apache::poi::ss::format::CellDateFormatter::formatValue(::java::lang::
     }
 }
 
-void org::apache::poi::ss::format::CellDateFormatter::simpleValue(::java::lang::StringBuffer* toAppendTo, ::java::lang::Object* value)
+void poi::ss::format::CellDateFormatter::simpleValue(::java::lang::StringBuffer* toAppendTo, ::java::lang::Object* value)
 {
     {
         synchronized synchronized_0(CellDateFormatter::class_());
@@ -197,13 +197,13 @@ void org::apache::poi::ss::format::CellDateFormatter::simpleValue(::java::lang::
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::format::CellDateFormatter::class_()
+java::lang::Class* poi::ss::format::CellDateFormatter::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.format.CellDateFormatter", 42);
     return c;
 }
 
-void org::apache::poi::ss::format::CellDateFormatter::clinit()
+void poi::ss::format::CellDateFormatter::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -219,7 +219,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::format::CellDateFormatter::getClass0()
+java::lang::Class* poi::ss::format::CellDateFormatter::getClass0()
 {
     return class_();
 }

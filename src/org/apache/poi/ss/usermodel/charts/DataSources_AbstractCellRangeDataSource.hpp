@@ -12,7 +12,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::usermodel::charts::DataSources_AbstractCellRangeDataSource
+class poi::ss::usermodel::charts::DataSources_AbstractCellRangeDataSource
     : public virtual ::java::lang::Object
     , public virtual ChartDataSource
 {
@@ -21,12 +21,12 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    ::org::apache::poi::ss::usermodel::Sheet* sheet {  };
-    ::org::apache::poi::ss::util::CellRangeAddress* cellRangeAddress {  };
+    ::poi::ss::usermodel::Sheet* sheet {  };
+    ::poi::ss::util::CellRangeAddress* cellRangeAddress {  };
     int32_t numOfCells {  };
-    ::org::apache::poi::ss::usermodel::FormulaEvaluator* evaluator {  };
+    ::poi::ss::usermodel::FormulaEvaluator* evaluator {  };
 protected:
-    void ctor(::org::apache::poi::ss::usermodel::Sheet* sheet, ::org::apache::poi::ss::util::CellRangeAddress* cellRangeAddress);
+    void ctor(::poi::ss::usermodel::Sheet* sheet, ::poi::ss::util::CellRangeAddress* cellRangeAddress);
 
 public:
     int32_t getPointCount() override;
@@ -34,10 +34,10 @@ public:
     ::java::lang::String* getFormulaString() override;
 
 public: /* protected */
-    virtual ::org::apache::poi::ss::usermodel::CellValue* getCellValueAt(int32_t index);
+    virtual ::poi::ss::usermodel::CellValue* getCellValueAt(int32_t index);
 
     // Generated
-    DataSources_AbstractCellRangeDataSource(::org::apache::poi::ss::usermodel::Sheet* sheet, ::org::apache::poi::ss::util::CellRangeAddress* cellRangeAddress);
+    DataSources_AbstractCellRangeDataSource(::poi::ss::usermodel::Sheet* sheet, ::poi::ss::util::CellRangeAddress* cellRangeAddress);
 protected:
     DataSources_AbstractCellRangeDataSource(const ::default_init_tag&);
 

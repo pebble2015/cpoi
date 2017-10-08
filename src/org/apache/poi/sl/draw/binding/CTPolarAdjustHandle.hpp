@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::binding::CTPolarAdjustHandle
+class poi::sl::draw::binding::CTPolarAdjustHandle
     : public virtual ::java::lang::Object
 {
 

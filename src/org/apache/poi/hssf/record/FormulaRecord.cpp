@@ -20,25 +20,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -47,61 +41,61 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::FormulaRecord::FormulaRecord(const ::default_init_tag&)
+poi::hssf::record::FormulaRecord::FormulaRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::FormulaRecord::FormulaRecord() 
+poi::hssf::record::FormulaRecord::FormulaRecord() 
     : FormulaRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::FormulaRecord::FormulaRecord(RecordInputStream* ris) 
+poi::hssf::record::FormulaRecord::FormulaRecord(RecordInputStream* ris) 
     : FormulaRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(ris);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::FormulaRecord::sid;
+constexpr int16_t poi::hssf::record::FormulaRecord::sid;
 
-int32_t& org::apache::poi::hssf::record::FormulaRecord::FIXED_SIZE()
+int32_t& poi::hssf::record::FormulaRecord::FIXED_SIZE()
 {
     clinit();
     return FIXED_SIZE_;
 }
-int32_t org::apache::poi::hssf::record::FormulaRecord::FIXED_SIZE_;
+int32_t poi::hssf::record::FormulaRecord::FIXED_SIZE_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::FormulaRecord::alwaysCalc()
+poi::util::BitField*& poi::hssf::record::FormulaRecord::alwaysCalc()
 {
     clinit();
     return alwaysCalc_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::FormulaRecord::alwaysCalc_;
+poi::util::BitField* poi::hssf::record::FormulaRecord::alwaysCalc_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::FormulaRecord::calcOnLoad()
+poi::util::BitField*& poi::hssf::record::FormulaRecord::calcOnLoad()
 {
     clinit();
     return calcOnLoad_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::FormulaRecord::calcOnLoad_;
+poi::util::BitField* poi::hssf::record::FormulaRecord::calcOnLoad_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::FormulaRecord::sharedFormula()
+poi::util::BitField*& poi::hssf::record::FormulaRecord::sharedFormula()
 {
     clinit();
     return sharedFormula_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::FormulaRecord::sharedFormula_;
+poi::util::BitField* poi::hssf::record::FormulaRecord::sharedFormula_;
 
-void org::apache::poi::hssf::record::FormulaRecord::ctor()
+void poi::hssf::record::FormulaRecord::ctor()
 {
     super::ctor();
-    field_8_parsed_expr = ::org::apache::poi::ss::formula::Formula::create(::org::apache::poi::ss::formula::ptg::Ptg::EMPTY_PTG_ARRAY());
+    field_8_parsed_expr = ::poi::ss::formula::Formula::create(::poi::ss::formula::ptg::Ptg::EMPTY_PTG_ARRAY());
 }
 
-void org::apache::poi::hssf::record::FormulaRecord::ctor(RecordInputStream* ris)
+void poi::hssf::record::FormulaRecord::ctor(RecordInputStream* ris)
 {
     super::ctor(ris);
     auto valueLongBits = npc(ris)->readLong();
@@ -113,129 +107,129 @@ void org::apache::poi::hssf::record::FormulaRecord::ctor(RecordInputStream* ris)
     field_6_zero = npc(ris)->readInt();
     int32_t field_7_expression_len = npc(ris)->readShort();
     auto nBytesAvailable = npc(ris)->available();
-    field_8_parsed_expr = ::org::apache::poi::ss::formula::Formula::read(field_7_expression_len, ris, nBytesAvailable);
+    field_8_parsed_expr = ::poi::ss::formula::Formula::read(field_7_expression_len, ris, nBytesAvailable);
 }
 
-void org::apache::poi::hssf::record::FormulaRecord::setValue(double value)
+void poi::hssf::record::FormulaRecord::setValue(double value)
 {
     field_4_value = value;
     specialCachedValue = nullptr;
 }
 
-void org::apache::poi::hssf::record::FormulaRecord::setCachedResultTypeEmptyString()
+void poi::hssf::record::FormulaRecord::setCachedResultTypeEmptyString()
 {
     specialCachedValue = FormulaRecord_SpecialCachedValue::createCachedEmptyValue();
 }
 
-void org::apache::poi::hssf::record::FormulaRecord::setCachedResultTypeString()
+void poi::hssf::record::FormulaRecord::setCachedResultTypeString()
 {
     specialCachedValue = FormulaRecord_SpecialCachedValue::createForString();
 }
 
-void org::apache::poi::hssf::record::FormulaRecord::setCachedResultErrorCode(int32_t errorCode)
+void poi::hssf::record::FormulaRecord::setCachedResultErrorCode(int32_t errorCode)
 {
     specialCachedValue = FormulaRecord_SpecialCachedValue::createCachedErrorCode(errorCode);
 }
 
-void org::apache::poi::hssf::record::FormulaRecord::setCachedResultBoolean(bool value)
+void poi::hssf::record::FormulaRecord::setCachedResultBoolean(bool value)
 {
     specialCachedValue = FormulaRecord_SpecialCachedValue::createCachedBoolean(value);
 }
 
-bool org::apache::poi::hssf::record::FormulaRecord::hasCachedResultString()
+bool poi::hssf::record::FormulaRecord::hasCachedResultString()
 {
     return specialCachedValue != nullptr && npc(specialCachedValue)->getTypeCode() == FormulaRecord_SpecialCachedValue::STRING;
 }
 
-int32_t org::apache::poi::hssf::record::FormulaRecord::getCachedResultType()
+int32_t poi::hssf::record::FormulaRecord::getCachedResultType()
 {
     if(specialCachedValue == nullptr) {
-        return npc(::org::apache::poi::ss::usermodel::CellType::NUMERIC)->getCode();
+        return npc(::poi::ss::usermodel::CellType::NUMERIC)->getCode();
     }
     return npc(specialCachedValue)->getValueType();
 }
 
-bool org::apache::poi::hssf::record::FormulaRecord::getCachedBooleanValue()
+bool poi::hssf::record::FormulaRecord::getCachedBooleanValue()
 {
     return npc(specialCachedValue)->getBooleanValue();
 }
 
-int32_t org::apache::poi::hssf::record::FormulaRecord::getCachedErrorValue()
+int32_t poi::hssf::record::FormulaRecord::getCachedErrorValue()
 {
     return npc(specialCachedValue)->getErrorValue();
 }
 
-void org::apache::poi::hssf::record::FormulaRecord::setOptions(int16_t options)
+void poi::hssf::record::FormulaRecord::setOptions(int16_t options)
 {
     field_5_options = options;
 }
 
-double org::apache::poi::hssf::record::FormulaRecord::getValue()
+double poi::hssf::record::FormulaRecord::getValue()
 {
     return field_4_value;
 }
 
-int16_t org::apache::poi::hssf::record::FormulaRecord::getOptions()
+int16_t poi::hssf::record::FormulaRecord::getOptions()
 {
     return field_5_options;
 }
 
-bool org::apache::poi::hssf::record::FormulaRecord::isSharedFormula()
+bool poi::hssf::record::FormulaRecord::isSharedFormula()
 {
     return npc(sharedFormula_)->isSet(field_5_options);
 }
 
-void org::apache::poi::hssf::record::FormulaRecord::setSharedFormula(bool flag)
+void poi::hssf::record::FormulaRecord::setSharedFormula(bool flag)
 {
     field_5_options = npc(sharedFormula_)->setShortBoolean(field_5_options, flag);
 }
 
-bool org::apache::poi::hssf::record::FormulaRecord::isAlwaysCalc()
+bool poi::hssf::record::FormulaRecord::isAlwaysCalc()
 {
     return npc(alwaysCalc_)->isSet(field_5_options);
 }
 
-void org::apache::poi::hssf::record::FormulaRecord::setAlwaysCalc(bool flag)
+void poi::hssf::record::FormulaRecord::setAlwaysCalc(bool flag)
 {
     field_5_options = npc(alwaysCalc_)->setShortBoolean(field_5_options, flag);
 }
 
-bool org::apache::poi::hssf::record::FormulaRecord::isCalcOnLoad()
+bool poi::hssf::record::FormulaRecord::isCalcOnLoad()
 {
     return npc(calcOnLoad_)->isSet(field_5_options);
 }
 
-void org::apache::poi::hssf::record::FormulaRecord::setCalcOnLoad(bool flag)
+void poi::hssf::record::FormulaRecord::setCalcOnLoad(bool flag)
 {
     field_5_options = npc(calcOnLoad_)->setShortBoolean(field_5_options, flag);
 }
 
-org::apache::poi::ss::formula::ptg::PtgArray* org::apache::poi::hssf::record::FormulaRecord::getParsedExpression()
+poi::ss::formula::ptg::PtgArray* poi::hssf::record::FormulaRecord::getParsedExpression()
 {
     return npc(field_8_parsed_expr)->getTokens();
 }
 
-org::apache::poi::ss::formula::Formula* org::apache::poi::hssf::record::FormulaRecord::getFormula()
+poi::ss::formula::Formula* poi::hssf::record::FormulaRecord::getFormula()
 {
     return field_8_parsed_expr;
 }
 
-void org::apache::poi::hssf::record::FormulaRecord::setParsedExpression(::org::apache::poi::ss::formula::ptg::PtgArray* ptgs)
+void poi::hssf::record::FormulaRecord::setParsedExpression(::poi::ss::formula::ptg::PtgArray* ptgs)
 {
-    field_8_parsed_expr = ::org::apache::poi::ss::formula::Formula::create(ptgs);
+    field_8_parsed_expr = ::poi::ss::formula::Formula::create(ptgs);
 }
 
-int16_t org::apache::poi::hssf::record::FormulaRecord::getSid()
+int16_t poi::hssf::record::FormulaRecord::getSid()
 {
     return sid;
 }
 
-int32_t org::apache::poi::hssf::record::FormulaRecord::getValueDataSize()
+int32_t poi::hssf::record::FormulaRecord::getValueDataSize()
 {
     return FIXED_SIZE_ + npc(field_8_parsed_expr)->getEncodedSize();
 }
 
-void org::apache::poi::hssf::record::FormulaRecord::serializeValue(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::FormulaRecord::serializeValue(::poi::util::LittleEndianOutput* out)
 {
     if(specialCachedValue == nullptr) {
         npc(out)->writeDouble(field_4_value);
@@ -247,12 +241,12 @@ void org::apache::poi::hssf::record::FormulaRecord::serializeValue(::org::apache
     npc(field_8_parsed_expr)->serialize(out);
 }
 
-java::lang::String* org::apache::poi::hssf::record::FormulaRecord::getRecordName()
+java::lang::String* poi::hssf::record::FormulaRecord::getRecordName()
 {
     return u"FORMULA"_j;
 }
 
-void org::apache::poi::hssf::record::FormulaRecord::appendValueText(::java::lang::StringBuilder* sb)
+void poi::hssf::record::FormulaRecord::appendValueText(::java::lang::StringBuilder* sb)
 {
     npc(sb)->append(u"  .value	 = "_j);
     if(specialCachedValue == nullptr) {
@@ -260,11 +254,11 @@ void org::apache::poi::hssf::record::FormulaRecord::appendValueText(::java::lang
     } else {
         npc(npc(sb)->append(npc(specialCachedValue)->formatDebugString()))->append(u"\n"_j);
     }
-    npc(npc(npc(sb)->append(u"  .options   = "_j))->append(::org::apache::poi::util::HexDump::shortToHex(getOptions())))->append(u"\n"_j);
+    npc(npc(npc(sb)->append(u"  .options   = "_j))->append(::poi::util::HexDump::shortToHex(getOptions())))->append(u"\n"_j);
     npc(npc(npc(sb)->append(u"    .alwaysCalc= "_j))->append(isAlwaysCalc()))->append(u"\n"_j);
     npc(npc(npc(sb)->append(u"    .calcOnLoad= "_j))->append(isCalcOnLoad()))->append(u"\n"_j);
     npc(npc(npc(sb)->append(u"    .shared    = "_j))->append(isSharedFormula()))->append(u"\n"_j);
-    npc(npc(npc(sb)->append(u"  .zero      = "_j))->append(::org::apache::poi::util::HexDump::intToHex(field_6_zero)))->append(u"\n"_j);
+    npc(npc(npc(sb)->append(u"  .zero      = "_j))->append(::poi::util::HexDump::intToHex(field_6_zero)))->append(u"\n"_j);
     auto ptgs = npc(field_8_parsed_expr)->getTokens();
     for (auto k = int32_t(0); k < npc(ptgs)->length; k++) {
         if(k > 0) {
@@ -276,7 +270,7 @@ void org::apache::poi::hssf::record::FormulaRecord::appendValueText(::java::lang
     }
 }
 
-org::apache::poi::hssf::record::FormulaRecord* org::apache::poi::hssf::record::FormulaRecord::clone()
+poi::hssf::record::FormulaRecord* poi::hssf::record::FormulaRecord::clone()
 {
     auto rec = new FormulaRecord();
     copyBaseFields(rec);
@@ -290,13 +284,13 @@ org::apache::poi::hssf::record::FormulaRecord* org::apache::poi::hssf::record::F
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::FormulaRecord::class_()
+java::lang::Class* poi::hssf::record::FormulaRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.FormulaRecord", 40);
     return c;
 }
 
-void org::apache::poi::hssf::record::FormulaRecord::clinit()
+void poi::hssf::record::FormulaRecord::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -304,9 +298,9 @@ struct clinit_ {
     clinit_() {
         in_cl_init = true;
         FIXED_SIZE_ = int32_t(14);
-        alwaysCalc_ = ::org::apache::poi::util::BitFieldFactory::getInstance(1);
-        calcOnLoad_ = ::org::apache::poi::util::BitFieldFactory::getInstance(2);
-        sharedFormula_ = ::org::apache::poi::util::BitFieldFactory::getInstance(8);
+        alwaysCalc_ = ::poi::util::BitFieldFactory::getInstance(1);
+        calcOnLoad_ = ::poi::util::BitFieldFactory::getInstance(2);
+        sharedFormula_ = ::poi::util::BitFieldFactory::getInstance(8);
     }
 };
 
@@ -315,7 +309,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::hssf::record::FormulaRecord::getClass0()
+java::lang::Class* poi::hssf::record::FormulaRecord::getClass0()
 {
     return class_();
 }

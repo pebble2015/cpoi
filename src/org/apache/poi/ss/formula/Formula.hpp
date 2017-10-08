@@ -11,29 +11,23 @@
 #include <java/lang/Object.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::Formula
+class poi::ss::formula::Formula
     : public virtual ::java::lang::Object
 {
 
@@ -48,18 +42,18 @@ protected:
     void ctor(::int8_tArray* byteEncoding, int32_t encodedTokenLen);
 
 public:
-    static Formula* read(int32_t encodedTokenLen, ::org::apache::poi::util::LittleEndianInput* in);
-    static Formula* read(int32_t encodedTokenLen, ::org::apache::poi::util::LittleEndianInput* in, int32_t totalEncodedLen);
-    virtual ::org::apache::poi::ss::formula::ptg::PtgArray* getTokens();
-    virtual void serialize(::org::apache::poi::util::LittleEndianOutput* out);
-    virtual void serializeTokens(::org::apache::poi::util::LittleEndianOutput* out);
-    virtual void serializeArrayConstantData(::org::apache::poi::util::LittleEndianOutput* out);
+    static Formula* read(int32_t encodedTokenLen, ::poi::util::LittleEndianInput* in);
+    static Formula* read(int32_t encodedTokenLen, ::poi::util::LittleEndianInput* in, int32_t totalEncodedLen);
+    virtual ::poi::ss::formula::ptg::PtgArray* getTokens();
+    virtual void serialize(::poi::util::LittleEndianOutput* out);
+    virtual void serializeTokens(::poi::util::LittleEndianOutput* out);
+    virtual void serializeArrayConstantData(::poi::util::LittleEndianOutput* out);
     virtual int32_t getEncodedSize();
     virtual int32_t getEncodedTokenSize();
-    static Formula* create(::org::apache::poi::ss::formula::ptg::PtgArray* ptgs);
-    static ::org::apache::poi::ss::formula::ptg::PtgArray* getTokens(Formula* formula);
+    static Formula* create(::poi::ss::formula::ptg::PtgArray* ptgs);
+    static ::poi::ss::formula::ptg::PtgArray* getTokens(Formula* formula);
     virtual Formula* copy();
-    virtual ::org::apache::poi::ss::util::CellReference* getExpReference();
+    virtual ::poi::ss::util::CellReference* getExpReference();
     virtual bool isSame(Formula* other);
 
     // Generated

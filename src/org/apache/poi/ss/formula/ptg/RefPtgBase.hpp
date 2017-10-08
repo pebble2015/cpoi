@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::ptg::RefPtgBase
+class poi::ss::formula::ptg::RefPtgBase
     : public OperandPtg
 {
 
@@ -21,16 +21,16 @@ public:
 private:
     int32_t field_1_row {  };
     int32_t field_2_col {  };
-    static ::org::apache::poi::util::BitField* rowRelative_;
-    static ::org::apache::poi::util::BitField* colRelative_;
-    static ::org::apache::poi::util::BitField* column_;
+    static ::poi::util::BitField* rowRelative_;
+    static ::poi::util::BitField* colRelative_;
+    static ::poi::util::BitField* column_;
 protected:
     void ctor();
-    void ctor(::org::apache::poi::ss::util::CellReference* c);
+    void ctor(::poi::ss::util::CellReference* c);
 
 public: /* protected */
-    void readCoordinates(::org::apache::poi::util::LittleEndianInput* in);
-    void writeCoordinates(::org::apache::poi::util::LittleEndianOutput* out);
+    void readCoordinates(::poi::util::LittleEndianInput* in);
+    void writeCoordinates(::poi::util::LittleEndianOutput* out);
 
 public:
     void setRow(int32_t rowIndex);
@@ -52,7 +52,7 @@ public:
 
 public: /* protected */
     RefPtgBase();
-    RefPtgBase(::org::apache::poi::ss::util::CellReference* c);
+    RefPtgBase(::poi::ss::util::CellReference* c);
 protected:
     RefPtgBase(const ::default_init_tag&);
 
@@ -62,8 +62,8 @@ public:
     static void clinit();
 
 private:
-    static ::org::apache::poi::util::BitField*& rowRelative();
-    static ::org::apache::poi::util::BitField*& colRelative();
-    static ::org::apache::poi::util::BitField*& column();
+    static ::poi::util::BitField*& rowRelative();
+    static ::poi::util::BitField*& colRelative();
+    static ::poi::util::BitField*& column();
     virtual ::java::lang::Class* getClass0();
 };

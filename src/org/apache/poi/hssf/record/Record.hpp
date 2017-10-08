@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::Record
+class poi::hssf::record::Record
     : public RecordBase
 {
 

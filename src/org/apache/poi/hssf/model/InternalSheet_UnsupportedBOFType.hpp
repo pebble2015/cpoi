@@ -8,12 +8,12 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::model::InternalSheet_UnsupportedBOFType
-    : public ::org::apache::poi::util::RecordFormatException
+class poi::hssf::model::InternalSheet_UnsupportedBOFType
+    : public ::poi::util::RecordFormatException
 {
 
 public:
-    typedef ::org::apache::poi::util::RecordFormatException super;
+    typedef ::poi::util::RecordFormatException super;
 
 private:
     int32_t type {  };

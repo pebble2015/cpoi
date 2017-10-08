@@ -36,9 +36,9 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::filesystem::NPOIFSFileSystem
+class poi::poifs::filesystem::NPOIFSFileSystem
     : public BlockStore
-    , public virtual ::org::apache::poi::poifs::dev::POIFSViewable
+    , public virtual ::poi::poifs::dev::POIFSViewable
     , public virtual ::java::io::Closeable
 {
 
@@ -46,20 +46,20 @@ public:
     typedef BlockStore super;
 
 private:
-    static ::org::apache::poi::util::POILogger* LOG_;
+    static ::poi::util::POILogger* LOG_;
 
 public:
     static ::java::io::InputStream* createNonClosingInputStream(::java::io::InputStream* is);
 
 private:
     NPOIFSMiniStore* _mini_store {  };
-    ::org::apache::poi::poifs::property::NPropertyTable* _property_table {  };
+    ::poi::poifs::property::NPropertyTable* _property_table {  };
     ::java::util::List* _xbat_blocks {  };
     ::java::util::List* _bat_blocks {  };
-    ::org::apache::poi::poifs::storage::HeaderBlock* _header {  };
+    ::poi::poifs::storage::HeaderBlock* _header {  };
     DirectoryNode* _root {  };
-    ::org::apache::poi::poifs::nio::DataSource* _data {  };
-    ::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize {  };
+    ::poi::poifs::nio::DataSource* _data {  };
+    ::poi::poifs::common::POIFSBigBlockSize* bigBlockSize {  };
 protected:
     void ctor(bool newFS);
     void ctor();
@@ -80,12 +80,12 @@ public:
 private:
     void readCoreContents() /* throws(IOException) */;
     void readBAT(int32_t batAt, BlockStore_ChainLoopDetector* loopDetector) /* throws(IOException) */;
-    ::org::apache::poi::poifs::storage::BATBlock* createBAT(int32_t offset, bool isBAT) /* throws(IOException) */;
+    ::poi::poifs::storage::BATBlock* createBAT(int32_t offset, bool isBAT) /* throws(IOException) */;
 
 public: /* protected */
     ::java::nio::ByteBuffer* getBlockAt(int32_t offset) /* throws(IOException) */ override;
     ::java::nio::ByteBuffer* createBlockIfNeeded(int32_t offset) /* throws(IOException) */ override;
-    ::org::apache::poi::poifs::storage::BATBlock_BATBlockAndIndex* getBATBlockAndIndex(int32_t offset) override;
+    ::poi::poifs::storage::BATBlock_BATBlockAndIndex* getBATBlockAndIndex(int32_t offset) override;
     int32_t getNextBlock(int32_t offset) override;
     void setNextBlock(int32_t offset, int32_t nextBlock) override;
     int32_t getFreeBlock() /* throws(IOException) */ override;
@@ -93,14 +93,14 @@ public: /* protected */
     BlockStore_ChainLoopDetector* getChainLoopDetector() /* throws(IOException) */ override;
 
 public: /* package */
-    virtual ::org::apache::poi::poifs::property::NPropertyTable* _get_property_table();
+    virtual ::poi::poifs::property::NPropertyTable* _get_property_table();
 
 public:
     virtual NPOIFSMiniStore* getMiniStore();
 
 public: /* package */
     virtual void addDocument(NPOIFSDocument* document);
-    virtual void addDirectory(::org::apache::poi::poifs::property::DirectoryProperty* directory);
+    virtual void addDirectory(::poi::poifs::property::DirectoryProperty* directory);
 
 public:
     virtual DocumentEntry* createDocument(::java::io::InputStream* stream, ::java::lang::String* name) /* throws(IOException) */;
@@ -129,14 +129,14 @@ public:
     bool preferArray_() override;
     ::java::lang::String* getShortDescription() override;
     virtual int32_t getBigBlockSize();
-    virtual ::org::apache::poi::poifs::common::POIFSBigBlockSize* getBigBlockSizeDetails();
+    virtual ::poi::poifs::common::POIFSBigBlockSize* getBigBlockSizeDetails();
 
 public: /* protected */
     int32_t getBlockStoreBlockSize() override;
 
 public:
-    virtual ::org::apache::poi::poifs::property::NPropertyTable* getPropertyTable();
-    virtual ::org::apache::poi::poifs::storage::HeaderBlock* getHeaderBlock();
+    virtual ::poi::poifs::property::NPropertyTable* getPropertyTable();
+    virtual ::poi::poifs::storage::HeaderBlock* getHeaderBlock();
 
     // Generated
 
@@ -165,6 +165,6 @@ public:
 
 private:
     void init();
-    static ::org::apache::poi::util::POILogger*& LOG();
+    static ::poi::util::POILogger*& LOG();
     virtual ::java::lang::Class* getClass0();
 };

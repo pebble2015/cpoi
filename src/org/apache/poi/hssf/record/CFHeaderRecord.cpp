@@ -4,78 +4,72 @@
 #include <java/lang/String.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace util
         {
-            namespace ss
-            {
-                namespace util
-                {
-typedef ::SubArray< ::org::apache::poi::ss::util::CellRangeAddressBase, ::java::lang::ObjectArray > CellRangeAddressBaseArray;
-typedef ::SubArray< ::org::apache::poi::ss::util::CellRangeAddress, CellRangeAddressBaseArray > CellRangeAddressArray;
-                } // util
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::util::CellRangeAddressBase, ::java::lang::ObjectArray > CellRangeAddressBaseArray;
+typedef ::SubArray< ::poi::ss::util::CellRangeAddress, CellRangeAddressBaseArray > CellRangeAddressArray;
+        } // util
+    } // ss
+} // poi
 
-org::apache::poi::hssf::record::CFHeaderRecord::CFHeaderRecord(const ::default_init_tag&)
+poi::hssf::record::CFHeaderRecord::CFHeaderRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::CFHeaderRecord::CFHeaderRecord() 
+poi::hssf::record::CFHeaderRecord::CFHeaderRecord() 
     : CFHeaderRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::CFHeaderRecord::CFHeaderRecord(::org::apache::poi::ss::util::CellRangeAddressArray* regions, int32_t nRules) 
+poi::hssf::record::CFHeaderRecord::CFHeaderRecord(::poi::ss::util::CellRangeAddressArray* regions, int32_t nRules) 
     : CFHeaderRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(regions,nRules);
 }
 
-org::apache::poi::hssf::record::CFHeaderRecord::CFHeaderRecord(RecordInputStream* in) 
+poi::hssf::record::CFHeaderRecord::CFHeaderRecord(RecordInputStream* in) 
     : CFHeaderRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::CFHeaderRecord::sid;
+constexpr int16_t poi::hssf::record::CFHeaderRecord::sid;
 
-void org::apache::poi::hssf::record::CFHeaderRecord::ctor()
+void poi::hssf::record::CFHeaderRecord::ctor()
 {
     super::ctor();
     createEmpty();
 }
 
-void org::apache::poi::hssf::record::CFHeaderRecord::ctor(::org::apache::poi::ss::util::CellRangeAddressArray* regions, int32_t nRules)
+void poi::hssf::record::CFHeaderRecord::ctor(::poi::ss::util::CellRangeAddressArray* regions, int32_t nRules)
 {
     super::ctor(regions, nRules);
 }
 
-void org::apache::poi::hssf::record::CFHeaderRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::CFHeaderRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     read(in);
 }
 
-java::lang::String* org::apache::poi::hssf::record::CFHeaderRecord::getRecordName()
+java::lang::String* poi::hssf::record::CFHeaderRecord::getRecordName()
 {
     return u"CFHEADER"_j;
 }
 
-int16_t org::apache::poi::hssf::record::CFHeaderRecord::getSid()
+int16_t poi::hssf::record::CFHeaderRecord::getSid()
 {
     return sid;
 }
 
-org::apache::poi::hssf::record::CFHeaderRecord* org::apache::poi::hssf::record::CFHeaderRecord::clone()
+poi::hssf::record::CFHeaderRecord* poi::hssf::record::CFHeaderRecord::clone()
 {
     auto result = new CFHeaderRecord();
     super::copyTo(result);
@@ -84,13 +78,13 @@ org::apache::poi::hssf::record::CFHeaderRecord* org::apache::poi::hssf::record::
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::CFHeaderRecord::class_()
+java::lang::Class* poi::hssf::record::CFHeaderRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.CFHeaderRecord", 41);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::record::CFHeaderRecord::getClass0()
+java::lang::Class* poi::hssf::record::CFHeaderRecord::getClass0()
 {
     return class_();
 }

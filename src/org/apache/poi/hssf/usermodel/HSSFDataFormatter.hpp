@@ -8,12 +8,12 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFDataFormatter final
-    : public ::org::apache::poi::ss::usermodel::DataFormatter
+class poi::hssf::usermodel::HSSFDataFormatter final
+    : public ::poi::ss::usermodel::DataFormatter
 {
 
 public:
-    typedef ::org::apache::poi::ss::usermodel::DataFormatter super;
+    typedef ::poi::ss::usermodel::DataFormatter super;
 protected:
     void ctor(::java::util::Locale* locale);
     void ctor();

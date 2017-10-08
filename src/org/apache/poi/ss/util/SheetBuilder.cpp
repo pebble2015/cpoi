@@ -49,25 +49,25 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::util::SheetBuilder::SheetBuilder(const ::default_init_tag&)
+poi::ss::util::SheetBuilder::SheetBuilder(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::util::SheetBuilder::SheetBuilder(::org::apache::poi::ss::usermodel::Workbook* workbook, ::java::lang::ObjectArrayArray* cells) 
+poi::ss::util::SheetBuilder::SheetBuilder(::poi::ss::usermodel::Workbook* workbook, ::java::lang::ObjectArrayArray* cells) 
     : SheetBuilder(*static_cast< ::default_init_tag* >(0))
 {
     ctor(workbook,cells);
 }
 
-void org::apache::poi::ss::util::SheetBuilder::init()
+void poi::ss::util::SheetBuilder::init()
 {
     shouldCreateEmptyCells = false;
     sheetName = nullptr;
 }
 
-void org::apache::poi::ss::util::SheetBuilder::ctor(::org::apache::poi::ss::usermodel::Workbook* workbook, ::java::lang::ObjectArrayArray* cells)
+void poi::ss::util::SheetBuilder::ctor(::poi::ss::usermodel::Workbook* workbook, ::java::lang::ObjectArrayArray* cells)
 {
     super::ctor();
     init();
@@ -75,28 +75,28 @@ void org::apache::poi::ss::util::SheetBuilder::ctor(::org::apache::poi::ss::user
     this->cells = npc(cells)->clone();
 }
 
-bool org::apache::poi::ss::util::SheetBuilder::getCreateEmptyCells()
+bool poi::ss::util::SheetBuilder::getCreateEmptyCells()
 {
     return shouldCreateEmptyCells;
 }
 
-org::apache::poi::ss::util::SheetBuilder* org::apache::poi::ss::util::SheetBuilder::setCreateEmptyCells(bool shouldCreateEmptyCells)
+poi::ss::util::SheetBuilder* poi::ss::util::SheetBuilder::setCreateEmptyCells(bool shouldCreateEmptyCells)
 {
     this->shouldCreateEmptyCells = shouldCreateEmptyCells;
     return this;
 }
 
-org::apache::poi::ss::util::SheetBuilder* org::apache::poi::ss::util::SheetBuilder::setSheetName(::java::lang::String* sheetName)
+poi::ss::util::SheetBuilder* poi::ss::util::SheetBuilder::setSheetName(::java::lang::String* sheetName)
 {
     this->sheetName = sheetName;
     return this;
 }
 
-org::apache::poi::ss::usermodel::Sheet* org::apache::poi::ss::util::SheetBuilder::build()
+poi::ss::usermodel::Sheet* poi::ss::util::SheetBuilder::build()
 {
     auto sheet = (sheetName == nullptr) ? npc(workbook)->createSheet() : npc(workbook)->createSheet(sheetName);
-    ::org::apache::poi::ss::usermodel::Row* currentRow = nullptr;
-    ::org::apache::poi::ss::usermodel::Cell* currentCell = nullptr;
+    ::poi::ss::usermodel::Row* currentRow = nullptr;
+    ::poi::ss::usermodel::Cell* currentCell = nullptr;
     for (auto rowIndex = int32_t(0); rowIndex < npc(cells)->length; ++rowIndex) {
         auto rowArray_ = (*cells)[rowIndex];
         currentRow = npc(sheet)->createRow(rowIndex);
@@ -111,7 +111,7 @@ org::apache::poi::ss::usermodel::Sheet* org::apache::poi::ss::util::SheetBuilder
     return sheet;
 }
 
-void org::apache::poi::ss::util::SheetBuilder::setCellValue(::org::apache::poi::ss::usermodel::Cell* cell, ::java::lang::Object* value)
+void poi::ss::util::SheetBuilder::setCellValue(::poi::ss::usermodel::Cell* cell, ::java::lang::Object* value)
 {
     if(value == nullptr || cell == nullptr) {
         return;
@@ -129,7 +129,7 @@ void org::apache::poi::ss::util::SheetBuilder::setCellValue(::org::apache::poi::
     }
 }
 
-bool org::apache::poi::ss::util::SheetBuilder::isFormulaDefinition(::java::lang::Object* obj)
+bool poi::ss::util::SheetBuilder::isFormulaDefinition(::java::lang::Object* obj)
 {
     if(dynamic_cast< ::java::lang::String* >(obj) != nullptr) {
         auto str = java_cast< ::java::lang::String* >(obj);
@@ -143,20 +143,20 @@ bool org::apache::poi::ss::util::SheetBuilder::isFormulaDefinition(::java::lang:
     }
 }
 
-java::lang::String* org::apache::poi::ss::util::SheetBuilder::getFormula(::java::lang::Object* obj)
+java::lang::String* poi::ss::util::SheetBuilder::getFormula(::java::lang::Object* obj)
 {
     return npc((java_cast< ::java::lang::String* >(obj)))->substring(1);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::util::SheetBuilder::class_()
+java::lang::Class* poi::ss::util::SheetBuilder::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.util.SheetBuilder", 35);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::util::SheetBuilder::getClass0()
+java::lang::Class* poi::ss::util::SheetBuilder::getClass0()
 {
     return class_();
 }

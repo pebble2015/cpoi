@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::LookupUtils_BooleanLookupComparer final
+class poi::ss::formula::functions::LookupUtils_BooleanLookupComparer final
     : public LookupUtils_LookupValueComparerBase
 {
 
@@ -20,14 +20,14 @@ public:
 private:
     bool _value {  };
 protected:
-    void ctor(::org::apache::poi::ss::formula::eval::BoolEval* be);
+    void ctor(::poi::ss::formula::eval::BoolEval* be);
 
 public: /* protected */
-    LookupUtils_CompareResult* compareSameType(::org::apache::poi::ss::formula::eval::ValueEval* other) override;
+    LookupUtils_CompareResult* compareSameType(::poi::ss::formula::eval::ValueEval* other) override;
     ::java::lang::String* getValueAsString() override;
 
     // Generated
-    LookupUtils_BooleanLookupComparer(::org::apache::poi::ss::formula::eval::BoolEval* be);
+    LookupUtils_BooleanLookupComparer(::poi::ss::formula::eval::BoolEval* be);
 protected:
     LookupUtils_BooleanLookupComparer(const ::default_init_tag&);
 

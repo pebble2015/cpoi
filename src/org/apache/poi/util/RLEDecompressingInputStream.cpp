@@ -24,26 +24,26 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::util::RLEDecompressingInputStream::RLEDecompressingInputStream(const ::default_init_tag&)
+poi::util::RLEDecompressingInputStream::RLEDecompressingInputStream(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::util::RLEDecompressingInputStream::RLEDecompressingInputStream(::java::io::InputStream* in)  /* throws(IOException) */
+poi::util::RLEDecompressingInputStream::RLEDecompressingInputStream(::java::io::InputStream* in)  /* throws(IOException) */
     : RLEDecompressingInputStream(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-int32_tArray*& org::apache::poi::util::RLEDecompressingInputStream::POWER2()
+int32_tArray*& poi::util::RLEDecompressingInputStream::POWER2()
 {
     clinit();
     return POWER2_;
 }
-int32_tArray* org::apache::poi::util::RLEDecompressingInputStream::POWER2_;
+int32_tArray* poi::util::RLEDecompressingInputStream::POWER2_;
 
-void org::apache::poi::util::RLEDecompressingInputStream::ctor(::java::io::InputStream* in) /* throws(IOException) */
+void poi::util::RLEDecompressingInputStream::ctor(::java::io::InputStream* in) /* throws(IOException) */
 {
     super::ctor();
     this->in = in;
@@ -56,7 +56,7 @@ void org::apache::poi::util::RLEDecompressingInputStream::ctor(::java::io::Input
     len = readChunk();
 }
 
-int32_t org::apache::poi::util::RLEDecompressingInputStream::read() /* throws(IOException) */
+int32_t poi::util::RLEDecompressingInputStream::read() /* throws(IOException) */
 {
     if(len == -int32_t(1)) {
         return -int32_t(1);
@@ -69,12 +69,12 @@ int32_t org::apache::poi::util::RLEDecompressingInputStream::read() /* throws(IO
     return (*buf)[pos++] & int32_t(255);
 }
 
-int32_t org::apache::poi::util::RLEDecompressingInputStream::read(::int8_tArray* b) /* throws(IOException) */
+int32_t poi::util::RLEDecompressingInputStream::read(::int8_tArray* b) /* throws(IOException) */
 {
     return read(b, int32_t(0), npc(b)->length);
 }
 
-int32_t org::apache::poi::util::RLEDecompressingInputStream::read(::int8_tArray* b, int32_t off, int32_t l) /* throws(IOException) */
+int32_t poi::util::RLEDecompressingInputStream::read(::int8_tArray* b, int32_t off, int32_t l) /* throws(IOException) */
 {
     if(len == -int32_t(1)) {
         return -int32_t(1);
@@ -96,7 +96,7 @@ int32_t org::apache::poi::util::RLEDecompressingInputStream::read(::int8_tArray*
     return l;
 }
 
-int64_t org::apache::poi::util::RLEDecompressingInputStream::skip(int64_t n) /* throws(IOException) */
+int64_t poi::util::RLEDecompressingInputStream::skip(int64_t n) /* throws(IOException) */
 {
     auto length = n;
     while (length > 0) {
@@ -112,17 +112,17 @@ int64_t org::apache::poi::util::RLEDecompressingInputStream::skip(int64_t n) /* 
     return n;
 }
 
-int32_t org::apache::poi::util::RLEDecompressingInputStream::available()
+int32_t poi::util::RLEDecompressingInputStream::available()
 {
     return (len > 0 ? len - pos : int32_t(0));
 }
 
-void org::apache::poi::util::RLEDecompressingInputStream::close() /* throws(IOException) */
+void poi::util::RLEDecompressingInputStream::close() /* throws(IOException) */
 {
     npc(in)->close();
 }
 
-int32_t org::apache::poi::util::RLEDecompressingInputStream::readChunk() /* throws(IOException) */
+int32_t poi::util::RLEDecompressingInputStream::readChunk() /* throws(IOException) */
 {
     pos = 0;
     auto w = readShort(in);
@@ -180,7 +180,7 @@ int32_t org::apache::poi::util::RLEDecompressingInputStream::readChunk() /* thro
     }
 }
 
-int32_t org::apache::poi::util::RLEDecompressingInputStream::getCopyLenBits(int32_t offset)
+int32_t poi::util::RLEDecompressingInputStream::getCopyLenBits(int32_t offset)
 {
     clinit();
     for (auto n = int32_t(11); n >= 4; n--) {
@@ -191,17 +191,17 @@ int32_t org::apache::poi::util::RLEDecompressingInputStream::getCopyLenBits(int3
     return 12;
 }
 
-int32_t org::apache::poi::util::RLEDecompressingInputStream::readShort() /* throws(IOException) */
+int32_t poi::util::RLEDecompressingInputStream::readShort() /* throws(IOException) */
 {
     return readShort(this);
 }
 
-int32_t org::apache::poi::util::RLEDecompressingInputStream::readInt() /* throws(IOException) */
+int32_t poi::util::RLEDecompressingInputStream::readInt() /* throws(IOException) */
 {
     return readInt(this);
 }
 
-int32_t org::apache::poi::util::RLEDecompressingInputStream::readShort(::java::io::InputStream* stream) /* throws(IOException) */
+int32_t poi::util::RLEDecompressingInputStream::readShort(::java::io::InputStream* stream) /* throws(IOException) */
 {
     int32_t b0, b1;
     if((b0 = npc(stream)->read()) == -int32_t(1)) {
@@ -213,7 +213,7 @@ int32_t org::apache::poi::util::RLEDecompressingInputStream::readShort(::java::i
     return (b0 & int32_t(255)) | ((b1 & int32_t(255)) << int32_t(8));
 }
 
-int32_t org::apache::poi::util::RLEDecompressingInputStream::readInt(::java::io::InputStream* stream) /* throws(IOException) */
+int32_t poi::util::RLEDecompressingInputStream::readInt(::java::io::InputStream* stream) /* throws(IOException) */
 {
     int32_t b0, b1, b2, b3;
     if((b0 = npc(stream)->read()) == -int32_t(1)) {
@@ -231,13 +231,13 @@ int32_t org::apache::poi::util::RLEDecompressingInputStream::readInt(::java::io:
     return (b0 & int32_t(255)) | ((b1 & int32_t(255)) << int32_t(8)) | ((b2 & int32_t(255)) << int32_t(16))| ((b3 & int32_t(255)) << int32_t(24));
 }
 
-int8_tArray* org::apache::poi::util::RLEDecompressingInputStream::decompress(::int8_tArray* compressed) /* throws(IOException) */
+int8_tArray* poi::util::RLEDecompressingInputStream::decompress(::int8_tArray* compressed) /* throws(IOException) */
 {
     clinit();
     return decompress(compressed, 0, npc(compressed)->length);
 }
 
-int8_tArray* org::apache::poi::util::RLEDecompressingInputStream::decompress(::int8_tArray* compressed, int32_t offset, int32_t length) /* throws(IOException) */
+int8_tArray* poi::util::RLEDecompressingInputStream::decompress(::int8_tArray* compressed, int32_t offset, int32_t length) /* throws(IOException) */
 {
     clinit();
     auto out = new ::java::io::ByteArrayOutputStream();
@@ -251,13 +251,13 @@ int8_tArray* org::apache::poi::util::RLEDecompressingInputStream::decompress(::i
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::util::RLEDecompressingInputStream::class_()
+java::lang::Class* poi::util::RLEDecompressingInputStream::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.util.RLEDecompressingInputStream", 47);
     return c;
 }
 
-void org::apache::poi::util::RLEDecompressingInputStream::clinit()
+void poi::util::RLEDecompressingInputStream::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -290,7 +290,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::util::RLEDecompressingInputStream::getClass0()
+java::lang::Class* poi::util::RLEDecompressingInputStream::getClass0()
 {
     return class_();
 }

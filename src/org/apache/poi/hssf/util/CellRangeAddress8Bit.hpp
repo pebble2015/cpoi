@@ -9,28 +9,28 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::util::CellRangeAddress8Bit final
-    : public ::org::apache::poi::ss::util::CellRangeAddressBase
+class poi::hssf::util::CellRangeAddress8Bit final
+    : public ::poi::ss::util::CellRangeAddressBase
 {
 
 public:
-    typedef ::org::apache::poi::ss::util::CellRangeAddressBase super;
+    typedef ::poi::ss::util::CellRangeAddressBase super;
     static constexpr int32_t ENCODED_SIZE { int32_t(6) };
 protected:
     void ctor(int32_t firstRow, int32_t lastRow, int32_t firstCol, int32_t lastCol);
-    void ctor(::org::apache::poi::util::LittleEndianInput* in);
+    void ctor(::poi::util::LittleEndianInput* in);
 
 private:
-    static int32_t readUShortAndCheck(::org::apache::poi::util::LittleEndianInput* in);
+    static int32_t readUShortAndCheck(::poi::util::LittleEndianInput* in);
 
 public:
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out);
+    void serialize(::poi::util::LittleEndianOutput* out);
     CellRangeAddress8Bit* copy();
     static int32_t getEncodedSize(int32_t numberOfItems);
 
     // Generated
     CellRangeAddress8Bit(int32_t firstRow, int32_t lastRow, int32_t firstCol, int32_t lastCol);
-    CellRangeAddress8Bit(::org::apache::poi::util::LittleEndianInput* in);
+    CellRangeAddress8Bit(::poi::util::LittleEndianInput* in);
 protected:
     CellRangeAddress8Bit(const ::default_init_tag&);
 

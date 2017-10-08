@@ -8,12 +8,12 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::util::AreaReference final
-    : public ::org::apache::poi::ss::util::AreaReference
+class poi::hssf::util::AreaReference final
+    : public ::poi::ss::util::AreaReference
 {
 
 public:
-    typedef ::org::apache::poi::ss::util::AreaReference super;
+    typedef ::poi::ss::util::AreaReference super;
 protected:
     void ctor(::java::lang::String* reference);
     void ctor(CellReference* topLeft, CellReference* botRight);

@@ -10,20 +10,20 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::LookupUtils final
+class poi::ss::formula::functions::LookupUtils final
     : public ::java::lang::Object
 {
 
 public:
     typedef ::java::lang::Object super;
-    static LookupUtils_ValueVector* createRowVector(::org::apache::poi::ss::formula::TwoDEval* tableArray_, int32_t relativeRowIndex);
-    static LookupUtils_ValueVector* createColumnVector(::org::apache::poi::ss::formula::TwoDEval* tableArray_, int32_t relativeColumnIndex);
-    static LookupUtils_ValueVector* createVector(::org::apache::poi::ss::formula::TwoDEval* ae);
-    static LookupUtils_ValueVector* createVector(::org::apache::poi::ss::formula::eval::RefEval* re);
-    static int32_t resolveRowOrColIndexArg(::org::apache::poi::ss::formula::eval::ValueEval* rowColIndexArg, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */;
-    static ::org::apache::poi::ss::formula::TwoDEval* resolveTableArrayArg(::org::apache::poi::ss::formula::eval::ValueEval* eval) /* throws(EvaluationException) */;
-    static bool resolveRangeLookupArg(::org::apache::poi::ss::formula::eval::ValueEval* rangeLookupArg, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */;
-    static int32_t lookupIndexOfValue(::org::apache::poi::ss::formula::eval::ValueEval* lookupValue, LookupUtils_ValueVector* vector, bool isRangeLookup) /* throws(EvaluationException) */;
+    static LookupUtils_ValueVector* createRowVector(::poi::ss::formula::TwoDEval* tableArray_, int32_t relativeRowIndex);
+    static LookupUtils_ValueVector* createColumnVector(::poi::ss::formula::TwoDEval* tableArray_, int32_t relativeColumnIndex);
+    static LookupUtils_ValueVector* createVector(::poi::ss::formula::TwoDEval* ae);
+    static LookupUtils_ValueVector* createVector(::poi::ss::formula::eval::RefEval* re);
+    static int32_t resolveRowOrColIndexArg(::poi::ss::formula::eval::ValueEval* rowColIndexArg, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */;
+    static ::poi::ss::formula::TwoDEval* resolveTableArrayArg(::poi::ss::formula::eval::ValueEval* eval) /* throws(EvaluationException) */;
+    static bool resolveRangeLookupArg(::poi::ss::formula::eval::ValueEval* rangeLookupArg, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */;
+    static int32_t lookupIndexOfValue(::poi::ss::formula::eval::ValueEval* lookupValue, LookupUtils_ValueVector* vector, bool isRangeLookup) /* throws(EvaluationException) */;
 
 private:
     static int32_t lookupIndexOfExactValue(LookupUtils_LookupValueComparer* lookupComparer, LookupUtils_ValueVector* vector);
@@ -32,7 +32,7 @@ private:
     static int32_t findLastIndexInRunOfEqualValues(LookupUtils_LookupValueComparer* lookupComparer, LookupUtils_ValueVector* vector, int32_t firstFoundIndex, int32_t maxIx);
 
 public:
-    static LookupUtils_LookupValueComparer* createLookupComparer(::org::apache::poi::ss::formula::eval::ValueEval* lookupValue, bool matchExact, bool isMatchFunction);
+    static LookupUtils_LookupValueComparer* createLookupComparer(::poi::ss::formula::eval::ValueEval* lookupValue, bool matchExact, bool isMatchFunction);
 
     // Generated
     LookupUtils();

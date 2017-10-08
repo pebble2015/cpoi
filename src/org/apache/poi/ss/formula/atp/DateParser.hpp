@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::atp::DateParser
+class poi::ss::formula::atp::DateParser
     : public virtual ::java::lang::Object
 {
 

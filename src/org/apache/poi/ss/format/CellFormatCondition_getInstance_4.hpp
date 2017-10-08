@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::format::CellFormatCondition_getInstance_4
+class poi::ss::format::CellFormatCondition_getInstance_4
     : public CellFormatCondition
 {
 

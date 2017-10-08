@@ -33,28 +33,28 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::usermodel::ExcelGeneralNumberFormat::ExcelGeneralNumberFormat(const ::default_init_tag&)
+poi::ss::usermodel::ExcelGeneralNumberFormat::ExcelGeneralNumberFormat(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::usermodel::ExcelGeneralNumberFormat::ExcelGeneralNumberFormat(::java::util::Locale* locale) 
+poi::ss::usermodel::ExcelGeneralNumberFormat::ExcelGeneralNumberFormat(::java::util::Locale* locale) 
     : ExcelGeneralNumberFormat(*static_cast< ::default_init_tag* >(0))
 {
     ctor(locale);
 }
 
-constexpr int64_t org::apache::poi::ss::usermodel::ExcelGeneralNumberFormat::serialVersionUID;
+constexpr int64_t poi::ss::usermodel::ExcelGeneralNumberFormat::serialVersionUID;
 
-java::math::MathContext*& org::apache::poi::ss::usermodel::ExcelGeneralNumberFormat::TO_10_SF()
+java::math::MathContext*& poi::ss::usermodel::ExcelGeneralNumberFormat::TO_10_SF()
 {
     clinit();
     return TO_10_SF_;
 }
-java::math::MathContext* org::apache::poi::ss::usermodel::ExcelGeneralNumberFormat::TO_10_SF_;
+java::math::MathContext* poi::ss::usermodel::ExcelGeneralNumberFormat::TO_10_SF_;
 
-void org::apache::poi::ss::usermodel::ExcelGeneralNumberFormat::ctor(::java::util::Locale* locale)
+void poi::ss::usermodel::ExcelGeneralNumberFormat::ctor(::java::util::Locale* locale)
 {
     super::ctor();
     decimalSymbols = ::java::text::DecimalFormatSymbols::getInstance(locale);
@@ -66,7 +66,7 @@ void org::apache::poi::ss::usermodel::ExcelGeneralNumberFormat::ctor(::java::uti
     DataFormatter::setExcelStyleRoundingMode(decimalFormat);
 }
 
-java::lang::StringBuffer* org::apache::poi::ss::usermodel::ExcelGeneralNumberFormat::format(::java::lang::Object* number, ::java::lang::StringBuffer* toAppendTo, ::java::text::FieldPosition* pos)
+java::lang::StringBuffer* poi::ss::usermodel::ExcelGeneralNumberFormat::format(::java::lang::Object* number, ::java::lang::StringBuffer* toAppendTo, ::java::text::FieldPosition* pos)
 {
     double value;
     if(dynamic_cast< ::java::lang::Number* >(number) != nullptr) {
@@ -87,20 +87,20 @@ java::lang::StringBuffer* org::apache::poi::ss::usermodel::ExcelGeneralNumberFor
     return npc(decimalFormat)->format(rounded, toAppendTo, pos);
 }
 
-java::lang::Object* org::apache::poi::ss::usermodel::ExcelGeneralNumberFormat::parseObject(::java::lang::String* source, ::java::text::ParsePosition* pos)
+java::lang::Object* poi::ss::usermodel::ExcelGeneralNumberFormat::parseObject(::java::lang::String* source, ::java::text::ParsePosition* pos)
 {
     throw new ::java::lang::UnsupportedOperationException();
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::usermodel::ExcelGeneralNumberFormat::class_()
+java::lang::Class* poi::ss::usermodel::ExcelGeneralNumberFormat::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.usermodel.ExcelGeneralNumberFormat", 52);
     return c;
 }
 
-void org::apache::poi::ss::usermodel::ExcelGeneralNumberFormat::clinit()
+void poi::ss::usermodel::ExcelGeneralNumberFormat::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -116,17 +116,17 @@ struct clinit_ {
     }
 }
 
-java::lang::String* org::apache::poi::ss::usermodel::ExcelGeneralNumberFormat::format(::java::lang::Object* obj)
+java::lang::String* poi::ss::usermodel::ExcelGeneralNumberFormat::format(::java::lang::Object* obj)
 {
     return super::format(obj);
 }
 
-java::lang::Object* org::apache::poi::ss::usermodel::ExcelGeneralNumberFormat::parseObject(::java::lang::String* source)
+java::lang::Object* poi::ss::usermodel::ExcelGeneralNumberFormat::parseObject(::java::lang::String* source)
 {
     return super::parseObject(source);
 }
 
-java::lang::Class* org::apache::poi::ss::usermodel::ExcelGeneralNumberFormat::getClass0()
+java::lang::Class* poi::ss::usermodel::ExcelGeneralNumberFormat::getClass0()
 {
     return class_();
 }

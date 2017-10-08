@@ -13,35 +13,35 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::macros::VBAMacroReader_Module::VBAMacroReader_Module(const ::default_init_tag&)
+poi::poifs::macros::VBAMacroReader_Module::VBAMacroReader_Module(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::macros::VBAMacroReader_Module::VBAMacroReader_Module()
+poi::poifs::macros::VBAMacroReader_Module::VBAMacroReader_Module()
     : VBAMacroReader_Module(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::poifs::macros::VBAMacroReader_Module::read(::java::io::InputStream* in) /* throws(IOException) */
+void poi::poifs::macros::VBAMacroReader_Module::read(::java::io::InputStream* in) /* throws(IOException) */
 {
     auto const out = new ::java::io::ByteArrayOutputStream();
-    ::org::apache::poi::util::IOUtils::copy(in, out);
+    ::poi::util::IOUtils::copy(in, out);
     npc(out)->close();
     buf = npc(out)->toByteArray_();
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::macros::VBAMacroReader_Module::class_()
+java::lang::Class* poi::poifs::macros::VBAMacroReader_Module::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.macros.VBAMacroReader.Module", 49);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::macros::VBAMacroReader_Module::getClass0()
+java::lang::Class* poi::poifs::macros::VBAMacroReader_Module::getClass0()
 {
     return class_();
 }

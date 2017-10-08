@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::FtCfSubRecord final
+class poi::hssf::record::FtCfSubRecord final
     : public SubRecord
     , public ::java::lang::Cloneable
 {
@@ -28,11 +28,11 @@ private:
     int16_t flags {  };
 protected:
     void ctor();
-    void ctor(::org::apache::poi::util::LittleEndianInput* in, int32_t size);
+    void ctor(::poi::util::LittleEndianInput* in, int32_t size);
 
 public:
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;
@@ -45,7 +45,7 @@ public:
 
     // Generated
     FtCfSubRecord();
-    FtCfSubRecord(::org::apache::poi::util::LittleEndianInput* in, int32_t size);
+    FtCfSubRecord(::poi::util::LittleEndianInput* in, int32_t size);
 protected:
     FtCfSubRecord(const ::default_init_tag&);
 

@@ -12,7 +12,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::HyperlinkRecord final
+class poi::hssf::record::HyperlinkRecord final
     : public StandardRecord
     , public ::java::lang::Cloneable
 {
@@ -22,7 +22,7 @@ public:
     static constexpr int16_t sid { int16_t(440) };
 
 private:
-    static ::org::apache::poi::util::POILogger* logger_;
+    static ::poi::util::POILogger* logger_;
 
 public: /* package */
     static constexpr int32_t HLINK_URL { int32_t(1) };
@@ -39,7 +39,7 @@ private:
     static ::int8_tArray* URL_TAIL_;
     static ::int8_tArray* FILE_TAIL_;
     static int32_t TAIL_SIZE_;
-    ::org::apache::poi::ss::util::CellRangeAddress* _range {  };
+    ::poi::ss::util::CellRangeAddress* _range {  };
     HyperlinkRecord_GUID* _guid {  };
     int32_t _fileOpts {  };
     int32_t _linkOpts {  };
@@ -92,14 +92,14 @@ protected:
     void ctor(RecordInputStream* in);
 
 public:
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;
 
 private:
-    static ::int8_tArray* readTail(::int8_tArray* expectedTail, ::org::apache::poi::util::LittleEndianInput* in);
-    static void writeTail(::int8_tArray* tail, ::org::apache::poi::util::LittleEndianOutput* out);
+    static ::int8_tArray* readTail(::int8_tArray* expectedTail, ::poi::util::LittleEndianInput* in);
+    static void writeTail(::int8_tArray* tail, ::poi::util::LittleEndianOutput* out);
 
 public:
     int16_t getSid() override;
@@ -126,7 +126,7 @@ public:
     ::int8_tArray* serialize();
 
 private:
-    static ::org::apache::poi::util::POILogger*& logger();
+    static ::poi::util::POILogger*& logger();
 
 public: /* package */
     static HyperlinkRecord_GUID*& STD_MONIKER();

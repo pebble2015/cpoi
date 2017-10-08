@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::RefreshAllRecord final
+class poi::hssf::record::RefreshAllRecord final
     : public StandardRecord
 {
 
@@ -19,7 +19,7 @@ public:
     static constexpr int16_t sid { int16_t(439) };
 
 private:
-    static ::org::apache::poi::util::BitField* refreshFlag_;
+    static ::poi::util::BitField* refreshFlag_;
     int32_t _options {  };
 protected:
     void ctor(int32_t options);
@@ -30,7 +30,7 @@ public:
     void setRefreshAll(bool refreshAll);
     bool getRefreshAll();
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;
@@ -58,6 +58,6 @@ public:
     ::int8_tArray* serialize();
 
 private:
-    static ::org::apache::poi::util::BitField*& refreshFlag();
+    static ::poi::util::BitField*& refreshFlag();
     virtual ::java::lang::Class* getClass0();
 };

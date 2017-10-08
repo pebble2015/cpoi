@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::binding::CTAngle
+class poi::sl::draw::binding::CTAngle
     : public virtual ::java::lang::Object
 {
 

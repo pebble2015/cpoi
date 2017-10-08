@@ -31,7 +31,7 @@ typedef ::SubArray< ::java::lang::ObjectArray, CloneableArray, ::java::io::Seria
 
 struct default_init_tag;
 
-class org::apache::poi::hpsf::wellknown::PropertyIDMap
+class poi::hpsf::wellknown::PropertyIDMap
     : public virtual ::java::lang::Object
     , public virtual ::java::util::Map
 {

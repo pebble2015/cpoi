@@ -11,14 +11,14 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::usermodel::SlideShowFactory
+class poi::sl::usermodel::SlideShowFactory
     : public virtual ::java::lang::Object
 {
 
 public:
     typedef ::java::lang::Object super;
-    static SlideShow* create(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs) /* throws(IOException) */;
-    static SlideShow* create(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs, ::java::lang::String* password) /* throws(IOException) */;
+    static SlideShow* create(::poi::poifs::filesystem::NPOIFSFileSystem* fs) /* throws(IOException) */;
+    static SlideShow* create(::poi::poifs::filesystem::NPOIFSFileSystem* fs, ::java::lang::String* password) /* throws(IOException) */;
     static SlideShow* create(::java::io::InputStream* inp) /* throws(IOException, EncryptedDocumentException) */;
     static SlideShow* create(::java::io::InputStream* inp, ::java::lang::String* password) /* throws(IOException, EncryptedDocumentException) */;
     static SlideShow* create(::java::io::File* file) /* throws(IOException, EncryptedDocumentException) */;

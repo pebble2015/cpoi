@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::filesystem::EntryNode
+class poi::poifs::filesystem::EntryNode
     : public virtual ::java::lang::Object
     , public virtual Entry
 {
@@ -20,13 +20,13 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    ::org::apache::poi::poifs::property::Property* _property {  };
+    ::poi::poifs::property::Property* _property {  };
     DirectoryNode* _parent {  };
 protected:
-    void ctor(::org::apache::poi::poifs::property::Property* property, DirectoryNode* parent);
+    void ctor(::poi::poifs::property::Property* property, DirectoryNode* parent);
 
 public: /* protected */
-    virtual ::org::apache::poi::poifs::property::Property* getProperty();
+    virtual ::poi::poifs::property::Property* getProperty();
     virtual bool isRoot();
     virtual bool isDeleteOK() = 0;
 
@@ -41,7 +41,7 @@ public:
     // Generated
 
 public: /* protected */
-    EntryNode(::org::apache::poi::poifs::property::Property* property, DirectoryNode* parent);
+    EntryNode(::poi::poifs::property::Property* property, DirectoryNode* parent);
 protected:
     EntryNode(const ::default_init_tag&);
 

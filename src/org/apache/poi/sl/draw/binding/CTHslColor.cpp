@@ -22,19 +22,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::sl::draw::binding::CTHslColor::CTHslColor(const ::default_init_tag&)
+poi::sl::draw::binding::CTHslColor::CTHslColor(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::draw::binding::CTHslColor::CTHslColor()
+poi::sl::draw::binding::CTHslColor::CTHslColor()
     : CTHslColor(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-java::util::List* org::apache::poi::sl::draw::binding::CTHslColor::getEGColorTransform()
+java::util::List* poi::sl::draw::binding::CTHslColor::getEGColorTransform()
 {
     if(egColorTransform == nullptr) {
         egColorTransform = new ::java::util::ArrayList();
@@ -42,70 +42,70 @@ java::util::List* org::apache::poi::sl::draw::binding::CTHslColor::getEGColorTra
     return java_cast< ::java::util::List* >(this->egColorTransform);
 }
 
-bool org::apache::poi::sl::draw::binding::CTHslColor::isSetEGColorTransform()
+bool poi::sl::draw::binding::CTHslColor::isSetEGColorTransform()
 {
     return ((java_cast< ::java::util::List* >(this->egColorTransform) != nullptr) && (!npc(java_cast< ::java::util::List* >(this->egColorTransform))->isEmpty()));
 }
 
-void org::apache::poi::sl::draw::binding::CTHslColor::unsetEGColorTransform()
+void poi::sl::draw::binding::CTHslColor::unsetEGColorTransform()
 {
     this->egColorTransform = nullptr;
 }
 
-int32_t org::apache::poi::sl::draw::binding::CTHslColor::getHue()
+int32_t poi::sl::draw::binding::CTHslColor::getHue()
 {
     return hue;
 }
 
-void org::apache::poi::sl::draw::binding::CTHslColor::setHue(int32_t value)
+void poi::sl::draw::binding::CTHslColor::setHue(int32_t value)
 {
     this->hue = value;
 }
 
-bool org::apache::poi::sl::draw::binding::CTHslColor::isSetHue()
+bool poi::sl::draw::binding::CTHslColor::isSetHue()
 {
     return true;
 }
 
-int32_t org::apache::poi::sl::draw::binding::CTHslColor::getSat()
+int32_t poi::sl::draw::binding::CTHslColor::getSat()
 {
     return sat;
 }
 
-void org::apache::poi::sl::draw::binding::CTHslColor::setSat(int32_t value)
+void poi::sl::draw::binding::CTHslColor::setSat(int32_t value)
 {
     this->sat = value;
 }
 
-bool org::apache::poi::sl::draw::binding::CTHslColor::isSetSat()
+bool poi::sl::draw::binding::CTHslColor::isSetSat()
 {
     return true;
 }
 
-int32_t org::apache::poi::sl::draw::binding::CTHslColor::getLum()
+int32_t poi::sl::draw::binding::CTHslColor::getLum()
 {
     return lum;
 }
 
-void org::apache::poi::sl::draw::binding::CTHslColor::setLum(int32_t value)
+void poi::sl::draw::binding::CTHslColor::setLum(int32_t value)
 {
     this->lum = value;
 }
 
-bool org::apache::poi::sl::draw::binding::CTHslColor::isSetLum()
+bool poi::sl::draw::binding::CTHslColor::isSetLum()
 {
     return true;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::draw::binding::CTHslColor::class_()
+java::lang::Class* poi::sl::draw::binding::CTHslColor::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.draw.binding.CTHslColor", 41);
     return c;
 }
 
-java::lang::Class* org::apache::poi::sl::draw::binding::CTHslColor::getClass0()
+java::lang::Class* poi::sl::draw::binding::CTHslColor::getClass0()
 {
     return class_();
 }

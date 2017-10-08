@@ -13,22 +13,22 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::filesystem::NPOIFSDocument final
+class poi::poifs::filesystem::NPOIFSDocument final
     : public virtual ::java::lang::Object
-    , public ::org::apache::poi::poifs::dev::POIFSViewable
+    , public ::poi::poifs::dev::POIFSViewable
 {
 
 public:
     typedef ::java::lang::Object super;
 
 private:
-    ::org::apache::poi::poifs::property::DocumentProperty* _property {  };
+    ::poi::poifs::property::DocumentProperty* _property {  };
     NPOIFSFileSystem* _filesystem {  };
     NPOIFSStream* _stream {  };
     int32_t _block_size {  };
 protected:
     void ctor(DocumentNode* document) /* throws(IOException) */;
-    void ctor(::org::apache::poi::poifs::property::DocumentProperty* property, NPOIFSFileSystem* filesystem) /* throws(IOException) */;
+    void ctor(::poi::poifs::property::DocumentProperty* property, NPOIFSFileSystem* filesystem) /* throws(IOException) */;
     void ctor(::java::lang::String* name, NPOIFSFileSystem* filesystem, ::java::io::InputStream* stream) /* throws(IOException) */;
     void ctor(::java::lang::String* name, int32_t size, NPOIFSFileSystem* filesystem, POIFSWriterListener* writer) /* throws(IOException) */;
 
@@ -46,7 +46,7 @@ public:
     void replaceContents(::java::io::InputStream* stream) /* throws(IOException) */;
 
 public: /* package */
-    ::org::apache::poi::poifs::property::DocumentProperty* getDocumentProperty();
+    ::poi::poifs::property::DocumentProperty* getDocumentProperty();
 
 public:
     ::java::lang::ObjectArray* getViewableArray_() override;
@@ -56,7 +56,7 @@ public:
 
     // Generated
     NPOIFSDocument(DocumentNode* document);
-    NPOIFSDocument(::org::apache::poi::poifs::property::DocumentProperty* property, NPOIFSFileSystem* filesystem);
+    NPOIFSDocument(::poi::poifs::property::DocumentProperty* property, NPOIFSFileSystem* filesystem);
     NPOIFSDocument(::java::lang::String* name, NPOIFSFileSystem* filesystem, ::java::io::InputStream* stream);
     NPOIFSDocument(::java::lang::String* name, int32_t size, NPOIFSFileSystem* filesystem, POIFSWriterListener* writer);
 protected:

@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::filesystem::ODocumentInputStream final
+class poi::poifs::filesystem::ODocumentInputStream final
     : public DocumentInputStream
 {
 
@@ -22,7 +22,7 @@ private:
     int32_t _document_size {  };
     bool _closed {  };
     OPOIFSDocument* _document {  };
-    ::org::apache::poi::poifs::storage::DataInputBlock* _currentBlock {  };
+    ::poi::poifs::storage::DataInputBlock* _currentBlock {  };
 protected:
     void ctor(DocumentEntry* document) /* throws(IOException) */;
     void ctor(OPOIFSDocument* document);
@@ -33,7 +33,7 @@ public:
     void mark(int32_t ignoredReadlimit) override;
 
 private:
-    ::org::apache::poi::poifs::storage::DataInputBlock* getDataInputBlock(int32_t offset);
+    ::poi::poifs::storage::DataInputBlock* getDataInputBlock(int32_t offset);
 
 public:
     int32_t read() /* throws(IOException) */ override;

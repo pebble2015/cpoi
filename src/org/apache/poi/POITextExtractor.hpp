@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::POITextExtractor
+class poi::POITextExtractor
     : public virtual ::java::lang::Object
     , public virtual ::java::io::Closeable
 {

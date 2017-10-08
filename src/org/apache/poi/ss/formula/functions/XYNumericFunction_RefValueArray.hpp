@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::XYNumericFunction_RefValueArray final
+class poi::ss::formula::functions::XYNumericFunction_RefValueArray final
     : public XYNumericFunction_ValueArray
 {
 
@@ -17,18 +17,18 @@ public:
     typedef XYNumericFunction_ValueArray super;
 
 private:
-    ::org::apache::poi::ss::formula::eval::RefEval* _ref {  };
+    ::poi::ss::formula::eval::RefEval* _ref {  };
     int32_t _width {  };
 protected:
-    void ctor(::org::apache::poi::ss::formula::eval::RefEval* ref);
+    void ctor(::poi::ss::formula::eval::RefEval* ref);
 
 public: /* protected */
-    ::org::apache::poi::ss::formula::eval::ValueEval* getItemInternal(int32_t index) override;
+    ::poi::ss::formula::eval::ValueEval* getItemInternal(int32_t index) override;
 
     // Generated
 
 public:
-    XYNumericFunction_RefValueArray(::org::apache::poi::ss::formula::eval::RefEval* ref);
+    XYNumericFunction_RefValueArray(::poi::ss::formula::eval::RefEval* ref);
 protected:
     XYNumericFunction_RefValueArray(const ::default_init_tag&);
 

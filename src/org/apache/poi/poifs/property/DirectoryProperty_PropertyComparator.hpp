@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::property::DirectoryProperty_PropertyComparator
+class poi::poifs::property::DirectoryProperty_PropertyComparator
     : public virtual ::java::lang::Object
     , public virtual ::java::util::Comparator
     , public virtual ::java::io::Serializable

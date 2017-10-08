@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::macros::VBAMacroReader_ModuleMap
+class poi::poifs::macros::VBAMacroReader_ModuleMap
     : public ::java::util::HashMap
 {
 

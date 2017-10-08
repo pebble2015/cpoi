@@ -25,51 +25,45 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace ss
+            namespace charts
             {
-                namespace usermodel
-                {
-                    namespace charts
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::charts::AxisTickMark, ::java::lang::EnumArray > AxisTickMarkArray;
-                    } // charts
-                } // usermodel
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::usermodel::charts::AxisTickMark, ::java::lang::EnumArray > AxisTickMarkArray;
+            } // charts
+        } // usermodel
+    } // ss
+} // poi
 
-org::apache::poi::ss::usermodel::charts::AxisTickMark::AxisTickMark(const ::default_init_tag&)
+poi::ss::usermodel::charts::AxisTickMark::AxisTickMark(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::usermodel::charts::AxisTickMark::AxisTickMark(::java::lang::String* name, int ordinal)
+poi::ss::usermodel::charts::AxisTickMark::AxisTickMark(::java::lang::String* name, int ordinal)
     : AxisTickMark(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal);
 }
 
-org::apache::poi::ss::usermodel::charts::AxisTickMark* org::apache::poi::ss::usermodel::charts::AxisTickMark::NONE = new ::org::apache::poi::ss::usermodel::charts::AxisTickMark(u"NONE"_j, 0);
-org::apache::poi::ss::usermodel::charts::AxisTickMark* org::apache::poi::ss::usermodel::charts::AxisTickMark::CROSS = new ::org::apache::poi::ss::usermodel::charts::AxisTickMark(u"CROSS"_j, 1);
-org::apache::poi::ss::usermodel::charts::AxisTickMark* org::apache::poi::ss::usermodel::charts::AxisTickMark::IN = new ::org::apache::poi::ss::usermodel::charts::AxisTickMark(u"IN"_j, 2);
-org::apache::poi::ss::usermodel::charts::AxisTickMark* org::apache::poi::ss::usermodel::charts::AxisTickMark::OUT = new ::org::apache::poi::ss::usermodel::charts::AxisTickMark(u"OUT"_j, 3);
+poi::ss::usermodel::charts::AxisTickMark* poi::ss::usermodel::charts::AxisTickMark::NONE = new ::poi::ss::usermodel::charts::AxisTickMark(u"NONE"_j, 0);
+poi::ss::usermodel::charts::AxisTickMark* poi::ss::usermodel::charts::AxisTickMark::CROSS = new ::poi::ss::usermodel::charts::AxisTickMark(u"CROSS"_j, 1);
+poi::ss::usermodel::charts::AxisTickMark* poi::ss::usermodel::charts::AxisTickMark::IN = new ::poi::ss::usermodel::charts::AxisTickMark(u"IN"_j, 2);
+poi::ss::usermodel::charts::AxisTickMark* poi::ss::usermodel::charts::AxisTickMark::OUT = new ::poi::ss::usermodel::charts::AxisTickMark(u"OUT"_j, 3);
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::usermodel::charts::AxisTickMark::class_()
+java::lang::Class* poi::ss::usermodel::charts::AxisTickMark::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.usermodel.charts.AxisTickMark", 47);
     return c;
 }
 
-org::apache::poi::ss::usermodel::charts::AxisTickMark* org::apache::poi::ss::usermodel::charts::AxisTickMark::valueOf(::java::lang::String* a0)
+poi::ss::usermodel::charts::AxisTickMark* poi::ss::usermodel::charts::AxisTickMark::valueOf(::java::lang::String* a0)
 {
     if(CROSS->toString()->equals(a0))
         return CROSS;
@@ -82,9 +76,9 @@ org::apache::poi::ss::usermodel::charts::AxisTickMark* org::apache::poi::ss::use
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::ss::usermodel::charts::AxisTickMarkArray* org::apache::poi::ss::usermodel::charts::AxisTickMark::values()
+poi::ss::usermodel::charts::AxisTickMarkArray* poi::ss::usermodel::charts::AxisTickMark::values()
 {
-    return new org::apache::poi::ss::usermodel::charts::AxisTickMarkArray({
+    return new poi::ss::usermodel::charts::AxisTickMarkArray({
         CROSS,
         IN,
         NONE,
@@ -92,7 +86,7 @@ org::apache::poi::ss::usermodel::charts::AxisTickMarkArray* org::apache::poi::ss
     });
 }
 
-java::lang::Class* org::apache::poi::ss::usermodel::charts::AxisTickMark::getClass0()
+java::lang::Class* poi::ss::usermodel::charts::AxisTickMark::getClass0()
 {
     return class_();
 }

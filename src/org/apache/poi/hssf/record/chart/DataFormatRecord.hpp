@@ -12,28 +12,28 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::chart::DataFormatRecord final
-    : public ::org::apache::poi::hssf::record::StandardRecord
+class poi::hssf::record::chart::DataFormatRecord final
+    : public ::poi::hssf::record::StandardRecord
     , public ::java::lang::Cloneable
 {
 
 public:
-    typedef ::org::apache::poi::hssf::record::StandardRecord super;
+    typedef ::poi::hssf::record::StandardRecord super;
     static constexpr int16_t sid { int16_t(4102) };
 
 private:
-    static ::org::apache::poi::util::BitField* useExcel4Colors_;
+    static ::poi::util::BitField* useExcel4Colors_;
     int16_t field_1_pointNumber {  };
     int16_t field_2_seriesIndex {  };
     int16_t field_3_seriesNumber {  };
     int16_t field_4_formatFlags {  };
 protected:
     void ctor();
-    void ctor(::org::apache::poi::hssf::record::RecordInputStream* in);
+    void ctor(::poi::hssf::record::RecordInputStream* in);
 
 public:
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;
@@ -54,7 +54,7 @@ public:
 
     // Generated
     DataFormatRecord();
-    DataFormatRecord(::org::apache::poi::hssf::record::RecordInputStream* in);
+    DataFormatRecord(::poi::hssf::record::RecordInputStream* in);
 protected:
     DataFormatRecord(const ::default_init_tag&);
 
@@ -66,6 +66,6 @@ public:
     ::int8_tArray* serialize();
 
 private:
-    static ::org::apache::poi::util::BitField*& useExcel4Colors();
+    static ::poi::util::BitField*& useExcel4Colors();
     virtual ::java::lang::Class* getClass0();
 };

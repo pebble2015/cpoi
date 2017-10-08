@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::format::CellTextFormatter_CellTextFormatter_1
+class poi::ss::format::CellTextFormatter_CellTextFormatter_1
     : public virtual ::java::lang::Object
     , public virtual CellFormatPart_PartHandler
 {

@@ -19,25 +19,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -46,34 +40,34 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::ImReal::ImReal(const ::default_init_tag&)
+poi::ss::formula::functions::ImReal::ImReal(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::ImReal::ImReal()
+poi::ss::formula::functions::ImReal::ImReal()
     : ImReal(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::functions::FreeRefFunction*& org::apache::poi::ss::formula::functions::ImReal::instance()
+poi::ss::formula::functions::FreeRefFunction*& poi::ss::formula::functions::ImReal::instance()
 {
     clinit();
     return instance_;
 }
-org::apache::poi::ss::formula::functions::FreeRefFunction* org::apache::poi::ss::formula::functions::ImReal::instance_;
+poi::ss::formula::functions::FreeRefFunction* poi::ss::formula::functions::ImReal::instance_;
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::ImReal::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* inumberVE)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::ImReal::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::poi::ss::formula::eval::ValueEval* inumberVE)
 {
-    ::org::apache::poi::ss::formula::eval::ValueEval* veText1;
+    ::poi::ss::formula::eval::ValueEval* veText1;
     try {
-        veText1 = ::org::apache::poi::ss::formula::eval::OperandResolver::getSingleValue(inumberVE, srcRowIndex, srcColumnIndex);
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+        veText1 = ::poi::ss::formula::eval::OperandResolver::getSingleValue(inumberVE, srcRowIndex, srcColumnIndex);
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
         return npc(e)->getErrorEval();
     }
-    auto iNumber = ::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToString(veText1);
+    auto iNumber = ::poi::ss::formula::eval::OperandResolver::coerceValueToString(veText1);
     auto m = npc(Imaginary::COMPLEX_NUMBER_PATTERN())->matcher(iNumber);
     auto result = npc(m)->matches();
     auto real = u""_j;
@@ -81,7 +75,7 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::f
         auto realGroup = npc(m)->group(int32_t(2));
         auto hasRealPart = npc(realGroup)->length() != 0;
         if(npc(realGroup)->length() == 0) {
-            return new ::org::apache::poi::ss::formula::eval::StringEval(::java::lang::String::valueOf(int32_t(0)));
+            return new ::poi::ss::formula::eval::StringEval(::java::lang::String::valueOf(int32_t(0)));
         }
         if(hasRealPart) {
             auto sign = u""_j;
@@ -97,28 +91,28 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::f
             }
         }
     } else {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::NUM_ERROR();
+        return ::poi::ss::formula::eval::ErrorEval::NUM_ERROR();
     }
-    return new ::org::apache::poi::ss::formula::eval::StringEval(real);
+    return new ::poi::ss::formula::eval::StringEval(real);
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::ImReal::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, ::org::apache::poi::ss::formula::OperationEvaluationContext* ec)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::ImReal::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, ::poi::ss::formula::OperationEvaluationContext* ec)
 {
     if(npc(args)->length != 1) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
     return evaluate(npc(ec)->getRowIndex(), npc(ec)->getColumnIndex(), (*args)[int32_t(0)]);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::ImReal::class_()
+java::lang::Class* poi::ss::formula::functions::ImReal::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.ImReal", 42);
     return c;
 }
 
-void org::apache::poi::ss::formula::functions::ImReal::clinit()
+void poi::ss::formula::functions::ImReal::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -134,12 +128,12 @@ struct clinit_ {
     }
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::ImReal::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::ImReal::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
 {
     return super::evaluate(args, srcRowIndex, srcColumnIndex);
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::ImReal::getClass0()
+java::lang::Class* poi::ss::formula::functions::ImReal::getClass0()
 {
     return class_();
 }

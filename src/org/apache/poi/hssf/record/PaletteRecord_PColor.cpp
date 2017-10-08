@@ -15,27 +15,27 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::PaletteRecord_PColor::PaletteRecord_PColor(const ::default_init_tag&)
+poi::hssf::record::PaletteRecord_PColor::PaletteRecord_PColor(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::PaletteRecord_PColor::PaletteRecord_PColor(int32_t red, int32_t green, int32_t blue) 
+poi::hssf::record::PaletteRecord_PColor::PaletteRecord_PColor(int32_t red, int32_t green, int32_t blue) 
     : PaletteRecord_PColor(*static_cast< ::default_init_tag* >(0))
 {
     ctor(red,green,blue);
 }
 
-org::apache::poi::hssf::record::PaletteRecord_PColor::PaletteRecord_PColor(RecordInputStream* in) 
+poi::hssf::record::PaletteRecord_PColor::PaletteRecord_PColor(RecordInputStream* in) 
     : PaletteRecord_PColor(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::PaletteRecord_PColor::ENCODED_SIZE;
+constexpr int16_t poi::hssf::record::PaletteRecord_PColor::ENCODED_SIZE;
 
-void org::apache::poi::hssf::record::PaletteRecord_PColor::ctor(int32_t red, int32_t green, int32_t blue)
+void poi::hssf::record::PaletteRecord_PColor::ctor(int32_t red, int32_t green, int32_t blue)
 {
     super::ctor();
     _red = red;
@@ -43,7 +43,7 @@ void org::apache::poi::hssf::record::PaletteRecord_PColor::ctor(int32_t red, int
     _blue = blue;
 }
 
-int8_tArray* org::apache::poi::hssf::record::PaletteRecord_PColor::getTriplet()
+int8_tArray* poi::hssf::record::PaletteRecord_PColor::getTriplet()
 {
     return new ::int8_tArray({
         static_cast< int8_t >(_red)
@@ -52,7 +52,7 @@ int8_tArray* org::apache::poi::hssf::record::PaletteRecord_PColor::getTriplet()
     });
 }
 
-void org::apache::poi::hssf::record::PaletteRecord_PColor::ctor(RecordInputStream* in)
+void poi::hssf::record::PaletteRecord_PColor::ctor(RecordInputStream* in)
 {
     super::ctor();
     _red = npc(in)->readByte();
@@ -61,7 +61,7 @@ void org::apache::poi::hssf::record::PaletteRecord_PColor::ctor(RecordInputStrea
     npc(in)->readByte();
 }
 
-void org::apache::poi::hssf::record::PaletteRecord_PColor::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::PaletteRecord_PColor::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeByte(_red);
     npc(out)->writeByte(_green);
@@ -69,7 +69,7 @@ void org::apache::poi::hssf::record::PaletteRecord_PColor::serialize(::org::apac
     npc(out)->writeByte(0);
 }
 
-java::lang::String* org::apache::poi::hssf::record::PaletteRecord_PColor::toString()
+java::lang::String* poi::hssf::record::PaletteRecord_PColor::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(npc(npc(buffer)->append(u"  red   = "_j))->append(_red & int32_t(255)))->append(u'\u000a');
@@ -80,13 +80,13 @@ java::lang::String* org::apache::poi::hssf::record::PaletteRecord_PColor::toStri
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::PaletteRecord_PColor::class_()
+java::lang::Class* poi::hssf::record::PaletteRecord_PColor::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.PaletteRecord.PColor", 47);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::record::PaletteRecord_PColor::getClass0()
+java::lang::Class* poi::hssf::record::PaletteRecord_PColor::getClass0()
 {
     return class_();
 }

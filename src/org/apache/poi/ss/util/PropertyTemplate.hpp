@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::util::PropertyTemplate final
+class poi::ss::util::PropertyTemplate final
     : public ::java::lang::Object
 {
 
@@ -29,31 +29,31 @@ private:
     static ::java::util::Map* cloneCellProperties(::java::util::Map* properties);
 
 public:
-    void drawBorders(CellRangeAddress* range, ::org::apache::poi::ss::usermodel::BorderStyle* borderType, ::org::apache::poi::ss::usermodel::BorderExtent* extent);
-    void drawBorders(CellRangeAddress* range, ::org::apache::poi::ss::usermodel::BorderStyle* borderType, int16_t color, ::org::apache::poi::ss::usermodel::BorderExtent* extent);
+    void drawBorders(CellRangeAddress* range, ::poi::ss::usermodel::BorderStyle* borderType, ::poi::ss::usermodel::BorderExtent* extent);
+    void drawBorders(CellRangeAddress* range, ::poi::ss::usermodel::BorderStyle* borderType, int16_t color, ::poi::ss::usermodel::BorderExtent* extent);
 
 private:
-    void drawTopBorder(CellRangeAddress* range, ::org::apache::poi::ss::usermodel::BorderStyle* borderType);
-    void drawBottomBorder(CellRangeAddress* range, ::org::apache::poi::ss::usermodel::BorderStyle* borderType);
-    void drawLeftBorder(CellRangeAddress* range, ::org::apache::poi::ss::usermodel::BorderStyle* borderType);
-    void drawRightBorder(CellRangeAddress* range, ::org::apache::poi::ss::usermodel::BorderStyle* borderType);
-    void drawOutsideBorders(CellRangeAddress* range, ::org::apache::poi::ss::usermodel::BorderStyle* borderType, ::org::apache::poi::ss::usermodel::BorderExtent* extent);
-    void drawHorizontalBorders(CellRangeAddress* range, ::org::apache::poi::ss::usermodel::BorderStyle* borderType, ::org::apache::poi::ss::usermodel::BorderExtent* extent);
-    void drawVerticalBorders(CellRangeAddress* range, ::org::apache::poi::ss::usermodel::BorderStyle* borderType, ::org::apache::poi::ss::usermodel::BorderExtent* extent);
+    void drawTopBorder(CellRangeAddress* range, ::poi::ss::usermodel::BorderStyle* borderType);
+    void drawBottomBorder(CellRangeAddress* range, ::poi::ss::usermodel::BorderStyle* borderType);
+    void drawLeftBorder(CellRangeAddress* range, ::poi::ss::usermodel::BorderStyle* borderType);
+    void drawRightBorder(CellRangeAddress* range, ::poi::ss::usermodel::BorderStyle* borderType);
+    void drawOutsideBorders(CellRangeAddress* range, ::poi::ss::usermodel::BorderStyle* borderType, ::poi::ss::usermodel::BorderExtent* extent);
+    void drawHorizontalBorders(CellRangeAddress* range, ::poi::ss::usermodel::BorderStyle* borderType, ::poi::ss::usermodel::BorderExtent* extent);
+    void drawVerticalBorders(CellRangeAddress* range, ::poi::ss::usermodel::BorderStyle* borderType, ::poi::ss::usermodel::BorderExtent* extent);
     void removeBorders(CellRangeAddress* range);
 
 public:
-    void applyBorders(::org::apache::poi::ss::usermodel::Sheet* sheet);
-    void drawBorderColors(CellRangeAddress* range, int16_t color, ::org::apache::poi::ss::usermodel::BorderExtent* extent);
+    void applyBorders(::poi::ss::usermodel::Sheet* sheet);
+    void drawBorderColors(CellRangeAddress* range, int16_t color, ::poi::ss::usermodel::BorderExtent* extent);
 
 private:
     void drawTopBorderColor(CellRangeAddress* range, int16_t color);
     void drawBottomBorderColor(CellRangeAddress* range, int16_t color);
     void drawLeftBorderColor(CellRangeAddress* range, int16_t color);
     void drawRightBorderColor(CellRangeAddress* range, int16_t color);
-    void drawOutsideBorderColors(CellRangeAddress* range, int16_t color, ::org::apache::poi::ss::usermodel::BorderExtent* extent);
-    void drawHorizontalBorderColors(CellRangeAddress* range, int16_t color, ::org::apache::poi::ss::usermodel::BorderExtent* extent);
-    void drawVerticalBorderColors(CellRangeAddress* range, int16_t color, ::org::apache::poi::ss::usermodel::BorderExtent* extent);
+    void drawOutsideBorderColors(CellRangeAddress* range, int16_t color, ::poi::ss::usermodel::BorderExtent* extent);
+    void drawHorizontalBorderColors(CellRangeAddress* range, int16_t color, ::poi::ss::usermodel::BorderExtent* extent);
+    void drawVerticalBorderColors(CellRangeAddress* range, int16_t color, ::poi::ss::usermodel::BorderExtent* extent);
     void removeBorderColors(CellRangeAddress* range);
     void addProperty(int32_t row, int32_t col, ::java::lang::String* property, int16_t value);
     void addProperty(int32_t row, int32_t col, ::java::lang::String* property, ::java::lang::Object* value);
@@ -64,8 +64,8 @@ public:
     int32_t getNumBorders(int32_t row, int32_t col);
     int32_t getNumBorderColors(CellAddress* cell);
     int32_t getNumBorderColors(int32_t row, int32_t col);
-    ::org::apache::poi::ss::usermodel::BorderStyle* getBorderStyle(CellAddress* cell, ::java::lang::String* property);
-    ::org::apache::poi::ss::usermodel::BorderStyle* getBorderStyle(int32_t row, int32_t col, ::java::lang::String* property);
+    ::poi::ss::usermodel::BorderStyle* getBorderStyle(CellAddress* cell, ::java::lang::String* property);
+    ::poi::ss::usermodel::BorderStyle* getBorderStyle(int32_t row, int32_t col, ::java::lang::String* property);
     int16_t getTemplateProperty(CellAddress* cell, ::java::lang::String* property);
     int16_t getTemplateProperty(int32_t row, int32_t col, ::java::lang::String* property);
 

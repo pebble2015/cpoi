@@ -8,24 +8,18 @@
 #include <java/lang/Object.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace ss
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::ConditionalFormattingThreshold, ::java::lang::ObjectArray > ConditionalFormattingThresholdArray;
-                } // usermodel
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::usermodel::ConditionalFormattingThreshold, ::java::lang::ObjectArray > ConditionalFormattingThresholdArray;
+        } // usermodel
+    } // ss
+} // poi
 
-struct org::apache::poi::ss::usermodel::IconMultiStateFormatting
+struct poi::ss::usermodel::IconMultiStateFormatting
     : public virtual ::java::lang::Object
 {
     virtual IconMultiStateFormatting_IconSet* getIconSet() = 0;

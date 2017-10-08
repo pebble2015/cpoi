@@ -16,34 +16,34 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::DVALRecord::DVALRecord(const ::default_init_tag&)
+poi::hssf::record::DVALRecord::DVALRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::DVALRecord::DVALRecord() 
+poi::hssf::record::DVALRecord::DVALRecord() 
     : DVALRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::DVALRecord::DVALRecord(RecordInputStream* in) 
+poi::hssf::record::DVALRecord::DVALRecord(RecordInputStream* in) 
     : DVALRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::DVALRecord::sid;
+constexpr int16_t poi::hssf::record::DVALRecord::sid;
 
-void org::apache::poi::hssf::record::DVALRecord::ctor()
+void poi::hssf::record::DVALRecord::ctor()
 {
     super::ctor();
     field_cbo_id = -1;
     field_5_dv_no = 0;
 }
 
-void org::apache::poi::hssf::record::DVALRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::DVALRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     field_1_options = npc(in)->readShort();
@@ -53,57 +53,57 @@ void org::apache::poi::hssf::record::DVALRecord::ctor(RecordInputStream* in)
     field_5_dv_no = npc(in)->readInt();
 }
 
-void org::apache::poi::hssf::record::DVALRecord::setOptions(int16_t options)
+void poi::hssf::record::DVALRecord::setOptions(int16_t options)
 {
     field_1_options = options;
 }
 
-void org::apache::poi::hssf::record::DVALRecord::setHorizontalPos(int32_t horiz_pos)
+void poi::hssf::record::DVALRecord::setHorizontalPos(int32_t horiz_pos)
 {
     field_2_horiz_pos = horiz_pos;
 }
 
-void org::apache::poi::hssf::record::DVALRecord::setVerticalPos(int32_t vert_pos)
+void poi::hssf::record::DVALRecord::setVerticalPos(int32_t vert_pos)
 {
     field_3_vert_pos = vert_pos;
 }
 
-void org::apache::poi::hssf::record::DVALRecord::setObjectID(int32_t cboID)
+void poi::hssf::record::DVALRecord::setObjectID(int32_t cboID)
 {
     field_cbo_id = cboID;
 }
 
-void org::apache::poi::hssf::record::DVALRecord::setDVRecNo(int32_t dvNo)
+void poi::hssf::record::DVALRecord::setDVRecNo(int32_t dvNo)
 {
     field_5_dv_no = dvNo;
 }
 
-int16_t org::apache::poi::hssf::record::DVALRecord::getOptions()
+int16_t poi::hssf::record::DVALRecord::getOptions()
 {
     return field_1_options;
 }
 
-int32_t org::apache::poi::hssf::record::DVALRecord::getHorizontalPos()
+int32_t poi::hssf::record::DVALRecord::getHorizontalPos()
 {
     return field_2_horiz_pos;
 }
 
-int32_t org::apache::poi::hssf::record::DVALRecord::getVerticalPos()
+int32_t poi::hssf::record::DVALRecord::getVerticalPos()
 {
     return field_3_vert_pos;
 }
 
-int32_t org::apache::poi::hssf::record::DVALRecord::getObjectID()
+int32_t poi::hssf::record::DVALRecord::getObjectID()
 {
     return field_cbo_id;
 }
 
-int32_t org::apache::poi::hssf::record::DVALRecord::getDVRecNo()
+int32_t poi::hssf::record::DVALRecord::getDVRecNo()
 {
     return field_5_dv_no;
 }
 
-java::lang::String* org::apache::poi::hssf::record::DVALRecord::toString()
+java::lang::String* poi::hssf::record::DVALRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[DVAL]\n"_j);
@@ -116,7 +116,7 @@ java::lang::String* org::apache::poi::hssf::record::DVALRecord::toString()
     return npc(buffer)->toString();
 }
 
-void org::apache::poi::hssf::record::DVALRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::DVALRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(getOptions());
     npc(out)->writeInt(getHorizontalPos());
@@ -125,17 +125,17 @@ void org::apache::poi::hssf::record::DVALRecord::serialize(::org::apache::poi::u
     npc(out)->writeInt(getDVRecNo());
 }
 
-int32_t org::apache::poi::hssf::record::DVALRecord::getDataSize()
+int32_t poi::hssf::record::DVALRecord::getDataSize()
 {
     return 18;
 }
 
-int16_t org::apache::poi::hssf::record::DVALRecord::getSid()
+int16_t poi::hssf::record::DVALRecord::getSid()
 {
     return sid;
 }
 
-org::apache::poi::hssf::record::DVALRecord* org::apache::poi::hssf::record::DVALRecord::clone()
+poi::hssf::record::DVALRecord* poi::hssf::record::DVALRecord::clone()
 {
     auto rec = new DVALRecord();
     npc(rec)->field_1_options = field_1_options;
@@ -148,23 +148,23 @@ org::apache::poi::hssf::record::DVALRecord* org::apache::poi::hssf::record::DVAL
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::DVALRecord::class_()
+java::lang::Class* poi::hssf::record::DVALRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.DVALRecord", 37);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::DVALRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::DVALRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::DVALRecord::serialize()
+int8_tArray* poi::hssf::record::DVALRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::DVALRecord::getClass0()
+java::lang::Class* poi::hssf::record::DVALRecord::getClass0()
 {
     return class_();
 }

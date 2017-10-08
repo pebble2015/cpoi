@@ -7,7 +7,7 @@
 #include <org/apache/poi/ss/formula/ptg/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::formula::ptg::Pxg
+struct poi::ss::formula::ptg::Pxg
     : public virtual ::java::lang::Object
 {
     virtual int32_t getExternalWorkbookNumber() = 0;

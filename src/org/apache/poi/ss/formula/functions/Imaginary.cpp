@@ -18,25 +18,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -45,84 +39,84 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::Imaginary::Imaginary(const ::default_init_tag&)
+poi::ss::formula::functions::Imaginary::Imaginary(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::Imaginary::Imaginary()
+poi::ss::formula::functions::Imaginary::Imaginary()
     : Imaginary(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::functions::FreeRefFunction*& org::apache::poi::ss::formula::functions::Imaginary::instance()
+poi::ss::formula::functions::FreeRefFunction*& poi::ss::formula::functions::Imaginary::instance()
 {
     clinit();
     return instance_;
 }
-org::apache::poi::ss::formula::functions::FreeRefFunction* org::apache::poi::ss::formula::functions::Imaginary::instance_;
+poi::ss::formula::functions::FreeRefFunction* poi::ss::formula::functions::Imaginary::instance_;
 
-java::lang::String*& org::apache::poi::ss::formula::functions::Imaginary::GROUP1_REAL_SIGN_REGEX()
+java::lang::String*& poi::ss::formula::functions::Imaginary::GROUP1_REAL_SIGN_REGEX()
 {
     clinit();
     return GROUP1_REAL_SIGN_REGEX_;
 }
-java::lang::String* org::apache::poi::ss::formula::functions::Imaginary::GROUP1_REAL_SIGN_REGEX_;
+java::lang::String* poi::ss::formula::functions::Imaginary::GROUP1_REAL_SIGN_REGEX_;
 
-java::lang::String*& org::apache::poi::ss::formula::functions::Imaginary::GROUP2_REAL_INTEGER_OR_DOUBLE_REGEX()
+java::lang::String*& poi::ss::formula::functions::Imaginary::GROUP2_REAL_INTEGER_OR_DOUBLE_REGEX()
 {
     clinit();
     return GROUP2_REAL_INTEGER_OR_DOUBLE_REGEX_;
 }
-java::lang::String* org::apache::poi::ss::formula::functions::Imaginary::GROUP2_REAL_INTEGER_OR_DOUBLE_REGEX_;
+java::lang::String* poi::ss::formula::functions::Imaginary::GROUP2_REAL_INTEGER_OR_DOUBLE_REGEX_;
 
-java::lang::String*& org::apache::poi::ss::formula::functions::Imaginary::GROUP3_IMAGINARY_SIGN_REGEX()
+java::lang::String*& poi::ss::formula::functions::Imaginary::GROUP3_IMAGINARY_SIGN_REGEX()
 {
     clinit();
     return GROUP3_IMAGINARY_SIGN_REGEX_;
 }
-java::lang::String* org::apache::poi::ss::formula::functions::Imaginary::GROUP3_IMAGINARY_SIGN_REGEX_;
+java::lang::String* poi::ss::formula::functions::Imaginary::GROUP3_IMAGINARY_SIGN_REGEX_;
 
-java::lang::String*& org::apache::poi::ss::formula::functions::Imaginary::GROUP4_IMAGINARY_INTEGER_OR_DOUBLE_REGEX()
+java::lang::String*& poi::ss::formula::functions::Imaginary::GROUP4_IMAGINARY_INTEGER_OR_DOUBLE_REGEX()
 {
     clinit();
     return GROUP4_IMAGINARY_INTEGER_OR_DOUBLE_REGEX_;
 }
-java::lang::String* org::apache::poi::ss::formula::functions::Imaginary::GROUP4_IMAGINARY_INTEGER_OR_DOUBLE_REGEX_;
+java::lang::String* poi::ss::formula::functions::Imaginary::GROUP4_IMAGINARY_INTEGER_OR_DOUBLE_REGEX_;
 
-java::lang::String*& org::apache::poi::ss::formula::functions::Imaginary::GROUP5_IMAGINARY_GROUP_REGEX()
+java::lang::String*& poi::ss::formula::functions::Imaginary::GROUP5_IMAGINARY_GROUP_REGEX()
 {
     clinit();
     return GROUP5_IMAGINARY_GROUP_REGEX_;
 }
-java::lang::String* org::apache::poi::ss::formula::functions::Imaginary::GROUP5_IMAGINARY_GROUP_REGEX_;
+java::lang::String* poi::ss::formula::functions::Imaginary::GROUP5_IMAGINARY_GROUP_REGEX_;
 
-java::util::regex::Pattern*& org::apache::poi::ss::formula::functions::Imaginary::COMPLEX_NUMBER_PATTERN()
+java::util::regex::Pattern*& poi::ss::formula::functions::Imaginary::COMPLEX_NUMBER_PATTERN()
 {
     clinit();
     return COMPLEX_NUMBER_PATTERN_;
 }
-java::util::regex::Pattern* org::apache::poi::ss::formula::functions::Imaginary::COMPLEX_NUMBER_PATTERN_;
+java::util::regex::Pattern* poi::ss::formula::functions::Imaginary::COMPLEX_NUMBER_PATTERN_;
 
-constexpr int32_t org::apache::poi::ss::formula::functions::Imaginary::GROUP1_REAL_SIGN;
+constexpr int32_t poi::ss::formula::functions::Imaginary::GROUP1_REAL_SIGN;
 
-constexpr int32_t org::apache::poi::ss::formula::functions::Imaginary::GROUP2_IMAGINARY_INTEGER_OR_DOUBLE;
+constexpr int32_t poi::ss::formula::functions::Imaginary::GROUP2_IMAGINARY_INTEGER_OR_DOUBLE;
 
-constexpr int32_t org::apache::poi::ss::formula::functions::Imaginary::GROUP3_IMAGINARY_SIGN;
+constexpr int32_t poi::ss::formula::functions::Imaginary::GROUP3_IMAGINARY_SIGN;
 
-constexpr int32_t org::apache::poi::ss::formula::functions::Imaginary::GROUP4_IMAGINARY_INTEGER_OR_DOUBLE;
+constexpr int32_t poi::ss::formula::functions::Imaginary::GROUP4_IMAGINARY_INTEGER_OR_DOUBLE;
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Imaginary::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* inumberVE)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Imaginary::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::poi::ss::formula::eval::ValueEval* inumberVE)
 {
-    ::org::apache::poi::ss::formula::eval::ValueEval* veText1;
+    ::poi::ss::formula::eval::ValueEval* veText1;
     try {
-        veText1 = ::org::apache::poi::ss::formula::eval::OperandResolver::getSingleValue(inumberVE, srcRowIndex, srcColumnIndex);
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+        veText1 = ::poi::ss::formula::eval::OperandResolver::getSingleValue(inumberVE, srcRowIndex, srcColumnIndex);
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
         return npc(e)->getErrorEval();
     }
-    auto iNumber = ::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToString(veText1);
+    auto iNumber = ::poi::ss::formula::eval::OperandResolver::coerceValueToString(veText1);
     auto m = npc(COMPLEX_NUMBER_PATTERN_)->matcher(iNumber);
     auto result = npc(m)->matches();
     auto imaginary = u""_j;
@@ -130,7 +124,7 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::f
         auto imaginaryGroup = npc(m)->group(int32_t(5));
         auto hasImaginaryPart = npc(imaginaryGroup)->equals(static_cast< ::java::lang::Object* >(u"i"_j)) || npc(imaginaryGroup)->equals(static_cast< ::java::lang::Object* >(u"j"_j));
         if(npc(imaginaryGroup)->length() == 0) {
-            return new ::org::apache::poi::ss::formula::eval::StringEval(::java::lang::String::valueOf(int32_t(0)));
+            return new ::poi::ss::formula::eval::StringEval(::java::lang::String::valueOf(int32_t(0)));
         }
         if(hasImaginaryPart) {
             auto sign = u""_j;
@@ -146,28 +140,28 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::f
             }
         }
     } else {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::NUM_ERROR();
+        return ::poi::ss::formula::eval::ErrorEval::NUM_ERROR();
     }
-    return new ::org::apache::poi::ss::formula::eval::StringEval(imaginary);
+    return new ::poi::ss::formula::eval::StringEval(imaginary);
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Imaginary::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, ::org::apache::poi::ss::formula::OperationEvaluationContext* ec)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Imaginary::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, ::poi::ss::formula::OperationEvaluationContext* ec)
 {
     if(npc(args)->length != 1) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
     return evaluate(npc(ec)->getRowIndex(), npc(ec)->getColumnIndex(), (*args)[int32_t(0)]);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Imaginary::class_()
+java::lang::Class* poi::ss::formula::functions::Imaginary::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.Imaginary", 45);
     return c;
 }
 
-void org::apache::poi::ss::formula::functions::Imaginary::clinit()
+void poi::ss::formula::functions::Imaginary::clinit()
 {
 struct string_init_ {
     string_init_() {
@@ -199,12 +193,12 @@ struct clinit_ {
     }
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Imaginary::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Imaginary::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
 {
     return super::evaluate(args, srcRowIndex, srcColumnIndex);
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Imaginary::getClass0()
+java::lang::Class* poi::ss::formula::functions::Imaginary::getClass0()
 {
     return class_();
 }

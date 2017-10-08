@@ -14,7 +14,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::common::UnicodeString
+class poi::hssf::record::common::UnicodeString
     : public virtual ::java::lang::Object
     , public virtual ::java::lang::Comparable
 {
@@ -23,15 +23,15 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    static ::org::apache::poi::util::POILogger* _logger_;
+    static ::poi::util::POILogger* _logger_;
     int16_t field_1_charCount {  };
     int8_t field_2_optionflags {  };
     ::java::lang::String* field_3_string {  };
     ::java::util::List* field_4_format_runs {  };
     UnicodeString_ExtRst* field_5_ext_rst {  };
-    static ::org::apache::poi::util::BitField* highByte_;
-    static ::org::apache::poi::util::BitField* extBit_;
-    static ::org::apache::poi::util::BitField* richText_;
+    static ::poi::util::BitField* highByte_;
+    static ::poi::util::BitField* extBit_;
+    static ::poi::util::BitField* richText_;
 protected:
     void ctor();
     void ctor(::java::lang::String* str);
@@ -40,7 +40,7 @@ public:
     int32_t hashCode() override;
     bool equals(::java::lang::Object* o) override;
 protected:
-    void ctor(::org::apache::poi::hssf::record::RecordInputStream* in);
+    void ctor(::poi::hssf::record::RecordInputStream* in);
 
 public:
     virtual int32_t getCharCount();
@@ -70,7 +70,7 @@ public:
     virtual void swapFontUse(int16_t oldFontIndex, int16_t newFontIndex);
     ::java::lang::String* toString() override;
     virtual ::java::lang::String* getDebugInfo();
-    virtual void serialize(::org::apache::poi::hssf::record::cont::ContinuableRecordOutput* out);
+    virtual void serialize(::poi::hssf::record::cont::ContinuableRecordOutput* out);
     virtual int32_t compareTo(UnicodeString* str);
 
 private:
@@ -87,7 +87,7 @@ private:
 
 public:
     UnicodeString(::java::lang::String* str);
-    UnicodeString(::org::apache::poi::hssf::record::RecordInputStream* in);
+    UnicodeString(::poi::hssf::record::RecordInputStream* in);
 protected:
     UnicodeString(const ::default_init_tag&);
 
@@ -98,10 +98,10 @@ public:
     virtual int32_t compareTo(::java::lang::Object* o) override;
 
 private:
-    static ::org::apache::poi::util::POILogger*& _logger();
-    static ::org::apache::poi::util::BitField*& highByte();
-    static ::org::apache::poi::util::BitField*& extBit();
-    static ::org::apache::poi::util::BitField*& richText();
+    static ::poi::util::POILogger*& _logger();
+    static ::poi::util::BitField*& highByte();
+    static ::poi::util::BitField*& extBit();
+    static ::poi::util::BitField*& richText();
     virtual ::java::lang::Class* getClass0();
     friend class UnicodeString_FormatRun;
     friend class UnicodeString_ExtRst;

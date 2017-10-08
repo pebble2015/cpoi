@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::Offset_LinearOffsetRange final
+class poi::ss::formula::functions::Offset_LinearOffsetRange final
     : public ::java::lang::Object
 {
 

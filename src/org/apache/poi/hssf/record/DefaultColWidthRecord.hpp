@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::DefaultColWidthRecord final
+class poi::hssf::record::DefaultColWidthRecord final
     : public StandardRecord
     , public ::java::lang::Cloneable
 {
@@ -33,7 +33,7 @@ public:
     void setColWidth(int32_t width);
     int32_t getColWidth();
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;

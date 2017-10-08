@@ -25,25 +25,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -61,62 +55,62 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::NameRecord::NameRecord(const ::default_init_tag&)
+poi::hssf::record::NameRecord::NameRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::NameRecord::NameRecord() 
+poi::hssf::record::NameRecord::NameRecord() 
     : NameRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::NameRecord::NameRecord(int8_t builtin, int32_t sheetNumber) 
+poi::hssf::record::NameRecord::NameRecord(int8_t builtin, int32_t sheetNumber) 
     : NameRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(builtin,sheetNumber);
 }
 
-org::apache::poi::hssf::record::NameRecord::NameRecord(RecordInputStream* ris) 
+poi::hssf::record::NameRecord::NameRecord(RecordInputStream* ris) 
     : NameRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(ris);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::NameRecord::sid;
+constexpr int16_t poi::hssf::record::NameRecord::sid;
 
-constexpr int8_t org::apache::poi::hssf::record::NameRecord::BUILTIN_CONSOLIDATE_AREA;
+constexpr int8_t poi::hssf::record::NameRecord::BUILTIN_CONSOLIDATE_AREA;
 
-constexpr int8_t org::apache::poi::hssf::record::NameRecord::BUILTIN_AUTO_OPEN;
+constexpr int8_t poi::hssf::record::NameRecord::BUILTIN_AUTO_OPEN;
 
-constexpr int8_t org::apache::poi::hssf::record::NameRecord::BUILTIN_AUTO_CLOSE;
+constexpr int8_t poi::hssf::record::NameRecord::BUILTIN_AUTO_CLOSE;
 
-constexpr int8_t org::apache::poi::hssf::record::NameRecord::BUILTIN_DATABASE;
+constexpr int8_t poi::hssf::record::NameRecord::BUILTIN_DATABASE;
 
-constexpr int8_t org::apache::poi::hssf::record::NameRecord::BUILTIN_CRITERIA;
+constexpr int8_t poi::hssf::record::NameRecord::BUILTIN_CRITERIA;
 
-constexpr int8_t org::apache::poi::hssf::record::NameRecord::BUILTIN_PRINT_AREA;
+constexpr int8_t poi::hssf::record::NameRecord::BUILTIN_PRINT_AREA;
 
-constexpr int8_t org::apache::poi::hssf::record::NameRecord::BUILTIN_PRINT_TITLE;
+constexpr int8_t poi::hssf::record::NameRecord::BUILTIN_PRINT_TITLE;
 
-constexpr int8_t org::apache::poi::hssf::record::NameRecord::BUILTIN_RECORDER;
+constexpr int8_t poi::hssf::record::NameRecord::BUILTIN_RECORDER;
 
-constexpr int8_t org::apache::poi::hssf::record::NameRecord::BUILTIN_DATA_FORM;
+constexpr int8_t poi::hssf::record::NameRecord::BUILTIN_DATA_FORM;
 
-constexpr int8_t org::apache::poi::hssf::record::NameRecord::BUILTIN_AUTO_ACTIVATE;
+constexpr int8_t poi::hssf::record::NameRecord::BUILTIN_AUTO_ACTIVATE;
 
-constexpr int8_t org::apache::poi::hssf::record::NameRecord::BUILTIN_AUTO_DEACTIVATE;
+constexpr int8_t poi::hssf::record::NameRecord::BUILTIN_AUTO_DEACTIVATE;
 
-constexpr int8_t org::apache::poi::hssf::record::NameRecord::BUILTIN_SHEET_TITLE;
+constexpr int8_t poi::hssf::record::NameRecord::BUILTIN_SHEET_TITLE;
 
-constexpr int8_t org::apache::poi::hssf::record::NameRecord::BUILTIN_FILTER_DB;
+constexpr int8_t poi::hssf::record::NameRecord::BUILTIN_FILTER_DB;
 
-void org::apache::poi::hssf::record::NameRecord::ctor()
+void poi::hssf::record::NameRecord::ctor()
 {
     super::ctor();
-    field_13_name_definition = ::org::apache::poi::ss::formula::Formula::create(::org::apache::poi::ss::formula::ptg::Ptg::EMPTY_PTG_ARRAY());
+    field_13_name_definition = ::poi::ss::formula::Formula::create(::poi::ss::formula::ptg::Ptg::EMPTY_PTG_ARRAY());
     field_12_name_text = u""_j;
     field_14_custom_menu_text = u""_j;
     field_15_description_text = u""_j;
@@ -124,7 +118,7 @@ void org::apache::poi::hssf::record::NameRecord::ctor()
     field_17_status_bar_text = u""_j;
 }
 
-void org::apache::poi::hssf::record::NameRecord::ctor(int8_t builtin, int32_t sheetNumber)
+void poi::hssf::record::NameRecord::ctor(int8_t builtin, int32_t sheetNumber)
 {
     ctor();
     field_12_built_in_code = builtin;
@@ -132,69 +126,69 @@ void org::apache::poi::hssf::record::NameRecord::ctor(int8_t builtin, int32_t sh
     field_6_sheetNumber = sheetNumber;
 }
 
-void org::apache::poi::hssf::record::NameRecord::setOptionFlag(int16_t flag)
+void poi::hssf::record::NameRecord::setOptionFlag(int16_t flag)
 {
     field_1_option_flag = flag;
 }
 
-void org::apache::poi::hssf::record::NameRecord::setKeyboardShortcut(int8_t shortcut)
+void poi::hssf::record::NameRecord::setKeyboardShortcut(int8_t shortcut)
 {
     field_2_keyboard_shortcut = shortcut;
 }
 
-int32_t org::apache::poi::hssf::record::NameRecord::getSheetNumber()
+int32_t poi::hssf::record::NameRecord::getSheetNumber()
 {
     return field_6_sheetNumber;
 }
 
-int8_t org::apache::poi::hssf::record::NameRecord::getFnGroup()
+int8_t poi::hssf::record::NameRecord::getFnGroup()
 {
     auto masked = field_1_option_flag & int32_t(4032);
     return static_cast< int8_t >((masked >> int32_t(4)));
 }
 
-void org::apache::poi::hssf::record::NameRecord::setSheetNumber(int32_t value)
+void poi::hssf::record::NameRecord::setSheetNumber(int32_t value)
 {
     field_6_sheetNumber = value;
 }
 
-void org::apache::poi::hssf::record::NameRecord::setNameText(::java::lang::String* name)
+void poi::hssf::record::NameRecord::setNameText(::java::lang::String* name)
 {
     field_12_name_text = name;
-    field_11_nameIsMultibyte = ::org::apache::poi::util::StringUtil::hasMultibyte(name);
+    field_11_nameIsMultibyte = ::poi::util::StringUtil::hasMultibyte(name);
 }
 
-void org::apache::poi::hssf::record::NameRecord::setCustomMenuText(::java::lang::String* text)
+void poi::hssf::record::NameRecord::setCustomMenuText(::java::lang::String* text)
 {
     field_14_custom_menu_text = text;
 }
 
-void org::apache::poi::hssf::record::NameRecord::setDescriptionText(::java::lang::String* text)
+void poi::hssf::record::NameRecord::setDescriptionText(::java::lang::String* text)
 {
     field_15_description_text = text;
 }
 
-void org::apache::poi::hssf::record::NameRecord::setHelpTopicText(::java::lang::String* text)
+void poi::hssf::record::NameRecord::setHelpTopicText(::java::lang::String* text)
 {
     field_16_help_topic_text = text;
 }
 
-void org::apache::poi::hssf::record::NameRecord::setStatusBarText(::java::lang::String* text)
+void poi::hssf::record::NameRecord::setStatusBarText(::java::lang::String* text)
 {
     field_17_status_bar_text = text;
 }
 
-int16_t org::apache::poi::hssf::record::NameRecord::getOptionFlag()
+int16_t poi::hssf::record::NameRecord::getOptionFlag()
 {
     return field_1_option_flag;
 }
 
-int8_t org::apache::poi::hssf::record::NameRecord::getKeyboardShortcut()
+int8_t poi::hssf::record::NameRecord::getKeyboardShortcut()
 {
     return field_2_keyboard_shortcut;
 }
 
-int32_t org::apache::poi::hssf::record::NameRecord::getNameTextLength()
+int32_t poi::hssf::record::NameRecord::getNameTextLength()
 {
     if(isBuiltInName()) {
         return 1;
@@ -202,12 +196,12 @@ int32_t org::apache::poi::hssf::record::NameRecord::getNameTextLength()
     return npc(field_12_name_text)->length();
 }
 
-bool org::apache::poi::hssf::record::NameRecord::isHiddenName()
+bool poi::hssf::record::NameRecord::isHiddenName()
 {
     return (field_1_option_flag & NameRecord_Option::OPT_HIDDEN_NAME) != 0;
 }
 
-void org::apache::poi::hssf::record::NameRecord::setHidden(bool b)
+void poi::hssf::record::NameRecord::setHidden(bool b)
 {
     if(b) {
         field_1_option_flag |= NameRecord_Option::OPT_HIDDEN_NAME;
@@ -216,12 +210,12 @@ void org::apache::poi::hssf::record::NameRecord::setHidden(bool b)
     }
 }
 
-bool org::apache::poi::hssf::record::NameRecord::isFunctionName()
+bool poi::hssf::record::NameRecord::isFunctionName()
 {
     return (field_1_option_flag & NameRecord_Option::OPT_FUNCTION_NAME) != 0;
 }
 
-void org::apache::poi::hssf::record::NameRecord::setFunction(bool function)
+void poi::hssf::record::NameRecord::setFunction(bool function)
 {
     if(function) {
         field_1_option_flag |= NameRecord_Option::OPT_FUNCTION_NAME;
@@ -230,72 +224,72 @@ void org::apache::poi::hssf::record::NameRecord::setFunction(bool function)
     }
 }
 
-bool org::apache::poi::hssf::record::NameRecord::hasFormula()
+bool poi::hssf::record::NameRecord::hasFormula()
 {
     return NameRecord_Option::isFormula(field_1_option_flag) && npc(field_13_name_definition)->getEncodedTokenSize() > 0;
 }
 
-bool org::apache::poi::hssf::record::NameRecord::isCommandName()
+bool poi::hssf::record::NameRecord::isCommandName()
 {
     return (field_1_option_flag & NameRecord_Option::OPT_COMMAND_NAME) != 0;
 }
 
-bool org::apache::poi::hssf::record::NameRecord::isMacro()
+bool poi::hssf::record::NameRecord::isMacro()
 {
     return (field_1_option_flag & NameRecord_Option::OPT_MACRO) != 0;
 }
 
-bool org::apache::poi::hssf::record::NameRecord::isComplexFunction()
+bool poi::hssf::record::NameRecord::isComplexFunction()
 {
     return (field_1_option_flag & NameRecord_Option::OPT_COMPLEX) != 0;
 }
 
-bool org::apache::poi::hssf::record::NameRecord::isBuiltInName()
+bool poi::hssf::record::NameRecord::isBuiltInName()
 {
     return ((field_1_option_flag & NameRecord_Option::OPT_BUILTIN) != 0);
 }
 
-java::lang::String* org::apache::poi::hssf::record::NameRecord::getNameText()
+java::lang::String* poi::hssf::record::NameRecord::getNameText()
 {
     return isBuiltInName() ? translateBuiltInName(getBuiltInName()) : field_12_name_text;
 }
 
-int8_t org::apache::poi::hssf::record::NameRecord::getBuiltInName()
+int8_t poi::hssf::record::NameRecord::getBuiltInName()
 {
     return field_12_built_in_code;
 }
 
-org::apache::poi::ss::formula::ptg::PtgArray* org::apache::poi::hssf::record::NameRecord::getNameDefinition()
+poi::ss::formula::ptg::PtgArray* poi::hssf::record::NameRecord::getNameDefinition()
 {
     return npc(field_13_name_definition)->getTokens();
 }
 
-void org::apache::poi::hssf::record::NameRecord::setNameDefinition(::org::apache::poi::ss::formula::ptg::PtgArray* ptgs)
+void poi::hssf::record::NameRecord::setNameDefinition(::poi::ss::formula::ptg::PtgArray* ptgs)
 {
-    field_13_name_definition = ::org::apache::poi::ss::formula::Formula::create(ptgs);
+    field_13_name_definition = ::poi::ss::formula::Formula::create(ptgs);
 }
 
-java::lang::String* org::apache::poi::hssf::record::NameRecord::getCustomMenuText()
+java::lang::String* poi::hssf::record::NameRecord::getCustomMenuText()
 {
     return field_14_custom_menu_text;
 }
 
-java::lang::String* org::apache::poi::hssf::record::NameRecord::getDescriptionText()
+java::lang::String* poi::hssf::record::NameRecord::getDescriptionText()
 {
     return field_15_description_text;
 }
 
-java::lang::String* org::apache::poi::hssf::record::NameRecord::getHelpTopicText()
+java::lang::String* poi::hssf::record::NameRecord::getHelpTopicText()
 {
     return field_16_help_topic_text;
 }
 
-java::lang::String* org::apache::poi::hssf::record::NameRecord::getStatusBarText()
+java::lang::String* poi::hssf::record::NameRecord::getStatusBarText()
 {
     return field_17_status_bar_text;
 }
 
-void org::apache::poi::hssf::record::NameRecord::serialize(::org::apache::poi::hssf::record::cont::ContinuableRecordOutput* out)
+void poi::hssf::record::NameRecord::serialize(::poi::hssf::record::cont::ContinuableRecordOutput* out)
 {
     auto field_7_length_custom_menu = npc(field_14_custom_menu_text)->length();
     auto field_8_length_description_text = npc(field_15_description_text)->length();
@@ -317,20 +311,20 @@ void org::apache::poi::hssf::record::NameRecord::serialize(::org::apache::poi::h
     } else {
         auto nameText = field_12_name_text;
         if(field_11_nameIsMultibyte) {
-            ::org::apache::poi::util::StringUtil::putUnicodeLE(nameText, out);
+            ::poi::util::StringUtil::putUnicodeLE(nameText, out);
         } else {
-            ::org::apache::poi::util::StringUtil::putCompressedUnicode(nameText, out);
+            ::poi::util::StringUtil::putCompressedUnicode(nameText, out);
         }
     }
     npc(field_13_name_definition)->serializeTokens(out);
     npc(field_13_name_definition)->serializeArrayConstantData(out);
-    ::org::apache::poi::util::StringUtil::putCompressedUnicode(getCustomMenuText(), out);
-    ::org::apache::poi::util::StringUtil::putCompressedUnicode(getDescriptionText(), out);
-    ::org::apache::poi::util::StringUtil::putCompressedUnicode(getHelpTopicText(), out);
-    ::org::apache::poi::util::StringUtil::putCompressedUnicode(getStatusBarText(), out);
+    ::poi::util::StringUtil::putCompressedUnicode(getCustomMenuText(), out);
+    ::poi::util::StringUtil::putCompressedUnicode(getDescriptionText(), out);
+    ::poi::util::StringUtil::putCompressedUnicode(getHelpTopicText(), out);
+    ::poi::util::StringUtil::putCompressedUnicode(getStatusBarText(), out);
 }
 
-int32_t org::apache::poi::hssf::record::NameRecord::getNameRawSize()
+int32_t poi::hssf::record::NameRecord::getNameRawSize()
 {
     if(isBuiltInName()) {
         return 1;
@@ -342,32 +336,32 @@ int32_t org::apache::poi::hssf::record::NameRecord::getNameRawSize()
     return nChars;
 }
 
-int32_t org::apache::poi::hssf::record::NameRecord::getDataSize()
+int32_t poi::hssf::record::NameRecord::getDataSize()
 {
     return int32_t(13) + getNameRawSize() + npc(field_14_custom_menu_text)->length()+ npc(field_15_description_text)->length()+ npc(field_16_help_topic_text)->length()+ npc(field_17_status_bar_text)->length()+ npc(field_13_name_definition)->getEncodedSize();
 }
 
-int32_t org::apache::poi::hssf::record::NameRecord::getExternSheetNumber()
+int32_t poi::hssf::record::NameRecord::getExternSheetNumber()
 {
     auto tokens = npc(field_13_name_definition)->getTokens();
     if(npc(tokens)->length == 0) {
         return 0;
     }
     auto ptg = (*tokens)[int32_t(0)];
-    if(static_cast< ::java::lang::Object* >(npc(ptg)->getClass()) == static_cast< ::java::lang::Object* >(::org::apache::poi::ss::formula::ptg::Area3DPtg::class_())) {
-        return npc((java_cast< ::org::apache::poi::ss::formula::ptg::Area3DPtg* >(ptg)))->getExternSheetIndex();
+    if(static_cast< ::java::lang::Object* >(npc(ptg)->getClass()) == static_cast< ::java::lang::Object* >(::poi::ss::formula::ptg::Area3DPtg::class_())) {
+        return npc((java_cast< ::poi::ss::formula::ptg::Area3DPtg* >(ptg)))->getExternSheetIndex();
     }
-    if(static_cast< ::java::lang::Object* >(npc(ptg)->getClass()) == static_cast< ::java::lang::Object* >(::org::apache::poi::ss::formula::ptg::Ref3DPtg::class_())) {
-        return npc((java_cast< ::org::apache::poi::ss::formula::ptg::Ref3DPtg* >(ptg)))->getExternSheetIndex();
+    if(static_cast< ::java::lang::Object* >(npc(ptg)->getClass()) == static_cast< ::java::lang::Object* >(::poi::ss::formula::ptg::Ref3DPtg::class_())) {
+        return npc((java_cast< ::poi::ss::formula::ptg::Ref3DPtg* >(ptg)))->getExternSheetIndex();
     }
     return 0;
 }
 
-void org::apache::poi::hssf::record::NameRecord::ctor(RecordInputStream* ris)
+void poi::hssf::record::NameRecord::ctor(RecordInputStream* ris)
 {
     super::ctor();
     auto remainder = npc(ris)->readAllContinuedRemainder();
-    ::org::apache::poi::util::LittleEndianInput* in = new ::org::apache::poi::util::LittleEndianByteArrayInputStream(remainder);
+    ::poi::util::LittleEndianInput* in = new ::poi::util::LittleEndianByteArrayInputStream(remainder);
     field_1_option_flag = npc(in)->readShort();
     field_2_keyboard_shortcut = npc(in)->readByte();
     auto field_3_length_name_text = npc(in)->readUByte();
@@ -383,30 +377,30 @@ void org::apache::poi::hssf::record::NameRecord::ctor(RecordInputStream* ris)
         field_12_built_in_code = npc(in)->readByte();
     } else {
         if(field_11_nameIsMultibyte) {
-            field_12_name_text = ::org::apache::poi::util::StringUtil::readUnicodeLE(in, field_3_length_name_text);
+            field_12_name_text = ::poi::util::StringUtil::readUnicodeLE(in, field_3_length_name_text);
         } else {
-            field_12_name_text = ::org::apache::poi::util::StringUtil::readCompressedUnicode(in, field_3_length_name_text);
+            field_12_name_text = ::poi::util::StringUtil::readCompressedUnicode(in, field_3_length_name_text);
         }
     }
     auto nBytesAvailable = npc(in)->available() - (f7_customMenuLen + f8_descriptionTextLen + f9_helpTopicTextLen+ f10_statusBarTextLen);
-    field_13_name_definition = ::org::apache::poi::ss::formula::Formula::read(field_4_length_name_definition, in, nBytesAvailable);
-    field_14_custom_menu_text = ::org::apache::poi::util::StringUtil::readCompressedUnicode(in, f7_customMenuLen);
-    field_15_description_text = ::org::apache::poi::util::StringUtil::readCompressedUnicode(in, f8_descriptionTextLen);
-    field_16_help_topic_text = ::org::apache::poi::util::StringUtil::readCompressedUnicode(in, f9_helpTopicTextLen);
-    field_17_status_bar_text = ::org::apache::poi::util::StringUtil::readCompressedUnicode(in, f10_statusBarTextLen);
+    field_13_name_definition = ::poi::ss::formula::Formula::read(field_4_length_name_definition, in, nBytesAvailable);
+    field_14_custom_menu_text = ::poi::util::StringUtil::readCompressedUnicode(in, f7_customMenuLen);
+    field_15_description_text = ::poi::util::StringUtil::readCompressedUnicode(in, f8_descriptionTextLen);
+    field_16_help_topic_text = ::poi::util::StringUtil::readCompressedUnicode(in, f9_helpTopicTextLen);
+    field_17_status_bar_text = ::poi::util::StringUtil::readCompressedUnicode(in, f10_statusBarTextLen);
 }
 
-int16_t org::apache::poi::hssf::record::NameRecord::getSid()
+int16_t poi::hssf::record::NameRecord::getSid()
 {
     return sid;
 }
 
-java::lang::String* org::apache::poi::hssf::record::NameRecord::toString()
+java::lang::String* poi::hssf::record::NameRecord::toString()
 {
     auto sb = new ::java::lang::StringBuffer();
     npc(sb)->append(u"[NAME]\n"_j);
-    npc(npc(npc(sb)->append(u"    .option flags           = "_j))->append(::org::apache::poi::util::HexDump::shortToHex(field_1_option_flag)))->append(u"\n"_j);
-    npc(npc(npc(sb)->append(u"    .keyboard shortcut      = "_j))->append(::org::apache::poi::util::HexDump::byteToHex(field_2_keyboard_shortcut)))->append(u"\n"_j);
+    npc(npc(npc(sb)->append(u"    .option flags           = "_j))->append(::poi::util::HexDump::shortToHex(field_1_option_flag)))->append(u"\n"_j);
+    npc(npc(npc(sb)->append(u"    .keyboard shortcut      = "_j))->append(::poi::util::HexDump::byteToHex(field_2_keyboard_shortcut)))->append(u"\n"_j);
     npc(npc(npc(sb)->append(u"    .length of the name     = "_j))->append(getNameTextLength()))->append(u"\n"_j);
     npc(npc(npc(sb)->append(u"    .extSheetIx(1-based, 0=Global)= "_j))->append(static_cast< int32_t >(field_5_externSheetIndex_plus1)))->append(u"\n"_j);
     npc(npc(npc(sb)->append(u"    .sheetTabIx             = "_j))->append(field_6_sheetNumber))->append(u"\n"_j);
@@ -429,7 +423,7 @@ java::lang::String* org::apache::poi::hssf::record::NameRecord::toString()
     return npc(sb)->toString();
 }
 
-java::lang::String* org::apache::poi::hssf::record::NameRecord::translateBuiltInName(int8_t name)
+java::lang::String* poi::hssf::record::NameRecord::translateBuiltInName(int8_t name)
 {
     clinit();
     switch (name) {
@@ -466,23 +460,23 @@ java::lang::String* org::apache::poi::hssf::record::NameRecord::translateBuiltIn
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::NameRecord::class_()
+java::lang::Class* poi::hssf::record::NameRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.NameRecord", 37);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::NameRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::NameRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::NameRecord::serialize()
+int8_tArray* poi::hssf::record::NameRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::NameRecord::getClass0()
+java::lang::Class* poi::hssf::record::NameRecord::getClass0()
 {
     return class_();
 }

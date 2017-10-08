@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::usermodel::TableStyleType_9 final
+class poi::ss::usermodel::TableStyleType_9 final
     : public TableStyleType
 {
 
@@ -17,7 +17,7 @@ public:
     typedef TableStyleType super;
 
 public: /* package */
-    ::org::apache::poi::ss::util::CellRangeAddressBase* getRange(Table* table, Cell* cell) override;
+    ::poi::ss::util::CellRangeAddressBase* getRange(Table* table, Cell* cell) override;
 
     // Generated
 

@@ -26,7 +26,7 @@ typedef ::SubArray< ::java::lang::ObjectArray, CloneableArray, ::java::io::Seria
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::ptg::ArrayPtg final
+class poi::ss::formula::ptg::ArrayPtg final
     : public Ptg
 {
 
@@ -60,8 +60,8 @@ public: /* package */
     int32_t getValueIndex(int32_t colIx, int32_t rowIx);
 
 public:
-    void write(::org::apache::poi::util::LittleEndianOutput* out) override;
-    int32_t writeTokenValueBytes(::org::apache::poi::util::LittleEndianOutput* out);
+    void write(::poi::util::LittleEndianOutput* out) override;
+    int32_t writeTokenValueBytes(::poi::util::LittleEndianOutput* out);
     int32_t getRowCount();
     int32_t getColumnCount();
     int32_t getSize() override;

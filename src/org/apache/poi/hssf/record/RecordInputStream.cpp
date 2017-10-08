@@ -41,71 +41,71 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::RecordInputStream::RecordInputStream(const ::default_init_tag&)
+poi::hssf::record::RecordInputStream::RecordInputStream(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::RecordInputStream::RecordInputStream(::java::io::InputStream* in)  /* throws(RecordFormatException) */
+poi::hssf::record::RecordInputStream::RecordInputStream(::java::io::InputStream* in)  /* throws(RecordFormatException) */
     : RecordInputStream(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-org::apache::poi::hssf::record::RecordInputStream::RecordInputStream(::java::io::InputStream* in, ::org::apache::poi::poifs::crypt::EncryptionInfo* key, int32_t initialOffset)  /* throws(RecordFormatException) */
+poi::hssf::record::RecordInputStream::RecordInputStream(::java::io::InputStream* in, ::poi::poifs::crypt::EncryptionInfo* key, int32_t initialOffset)  /* throws(RecordFormatException) */
     : RecordInputStream(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in,key,initialOffset);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::RecordInputStream::MAX_RECORD_DATA_SIZE;
+constexpr int16_t poi::hssf::record::RecordInputStream::MAX_RECORD_DATA_SIZE;
 
-constexpr int32_t org::apache::poi::hssf::record::RecordInputStream::INVALID_SID_VALUE;
+constexpr int32_t poi::hssf::record::RecordInputStream::INVALID_SID_VALUE;
 
-constexpr int32_t org::apache::poi::hssf::record::RecordInputStream::DATA_LEN_NEEDS_TO_BE_READ;
+constexpr int32_t poi::hssf::record::RecordInputStream::DATA_LEN_NEEDS_TO_BE_READ;
 
-int8_tArray*& org::apache::poi::hssf::record::RecordInputStream::EMPTY_BYTE_ARRAY()
+int8_tArray*& poi::hssf::record::RecordInputStream::EMPTY_BYTE_ARRAY()
 {
     clinit();
     return EMPTY_BYTE_ARRAY_;
 }
-int8_tArray* org::apache::poi::hssf::record::RecordInputStream::EMPTY_BYTE_ARRAY_;
+int8_tArray* poi::hssf::record::RecordInputStream::EMPTY_BYTE_ARRAY_;
 
-void org::apache::poi::hssf::record::RecordInputStream::ctor(::java::io::InputStream* in) /* throws(RecordFormatException) */
+void poi::hssf::record::RecordInputStream::ctor(::java::io::InputStream* in) /* throws(RecordFormatException) */
 {
     ctor(in, nullptr, int32_t(0));
 }
 
-void org::apache::poi::hssf::record::RecordInputStream::ctor(::java::io::InputStream* in, ::org::apache::poi::poifs::crypt::EncryptionInfo* key, int32_t initialOffset) /* throws(RecordFormatException) */
+void poi::hssf::record::RecordInputStream::ctor(::java::io::InputStream* in, ::poi::poifs::crypt::EncryptionInfo* key, int32_t initialOffset) /* throws(RecordFormatException) */
 {
     super::ctor();
     if(key == nullptr) {
         _dataInput = getLEI(in);
         _bhi = new RecordInputStream_SimpleHeaderInput(in);
     } else {
-        auto bds = new ::org::apache::poi::hssf::record::crypto::Biff8DecryptingStream(in, initialOffset, key);
+        auto bds = new ::poi::hssf::record::crypto::Biff8DecryptingStream(in, initialOffset, key);
         _dataInput = bds;
         _bhi = bds;
     }
     _nextSid = readNextSid();
 }
 
-org::apache::poi::util::LittleEndianInput* org::apache::poi::hssf::record::RecordInputStream::getLEI(::java::io::InputStream* is)
+poi::util::LittleEndianInput* poi::hssf::record::RecordInputStream::getLEI(::java::io::InputStream* is)
 {
     clinit();
-    if(dynamic_cast< ::org::apache::poi::util::LittleEndianInput* >(is) != nullptr) {
-        return java_cast< ::org::apache::poi::util::LittleEndianInput* >(is);
+    if(dynamic_cast< ::poi::util::LittleEndianInput* >(is) != nullptr) {
+        return java_cast< ::poi::util::LittleEndianInput* >(is);
     }
-    return new ::org::apache::poi::util::LittleEndianInputStream(is);
+    return new ::poi::util::LittleEndianInputStream(is);
 }
 
-int32_t org::apache::poi::hssf::record::RecordInputStream::available()
+int32_t poi::hssf::record::RecordInputStream::available()
 {
     return remaining();
 }
 
-int32_t org::apache::poi::hssf::record::RecordInputStream::read(::int8_tArray* b, int32_t off, int32_t len)
+int32_t poi::hssf::record::RecordInputStream::read(::int8_tArray* b, int32_t off, int32_t len)
 {
     auto limit = ::java::lang::Math::min(len, remaining());
     if(limit == 0) {
@@ -115,12 +115,12 @@ int32_t org::apache::poi::hssf::record::RecordInputStream::read(::int8_tArray* b
     return limit;
 }
 
-int16_t org::apache::poi::hssf::record::RecordInputStream::getSid()
+int16_t poi::hssf::record::RecordInputStream::getSid()
 {
     return static_cast< int16_t >(_currentSid);
 }
 
-bool org::apache::poi::hssf::record::RecordInputStream::hasNextRecord() /* throws(LeftoverDataException) */
+bool poi::hssf::record::RecordInputStream::hasNextRecord() /* throws(LeftoverDataException) */
 {
     if(_currentDataLength != -int32_t(1) && _currentDataLength != _currentDataOffset) {
         throw new RecordInputStream_LeftoverDataException(_currentSid, remaining());
@@ -131,7 +131,7 @@ bool org::apache::poi::hssf::record::RecordInputStream::hasNextRecord() /* throw
     return _nextSid != INVALID_SID_VALUE;
 }
 
-int32_t org::apache::poi::hssf::record::RecordInputStream::readNextSid()
+int32_t poi::hssf::record::RecordInputStream::readNextSid()
 {
     auto nAvailable = npc(_bhi)->available();
     if(nAvailable < EOFRecord::ENCODED_SIZE) {
@@ -141,14 +141,14 @@ int32_t org::apache::poi::hssf::record::RecordInputStream::readNextSid()
     }
     auto result = npc(_bhi)->readRecordSID();
     if(result == INVALID_SID_VALUE) {
-        throw new ::org::apache::poi::util::RecordFormatException(::java::lang::StringBuilder().append(u"Found invalid sid ("_j)->append(result)
+        throw new ::poi::util::RecordFormatException(::java::lang::StringBuilder().append(u"Found invalid sid ("_j)->append(result)
             ->append(u")"_j)->toString());
     }
     _currentDataLength = DATA_LEN_NEEDS_TO_BE_READ;
     return result;
 }
 
-void org::apache::poi::hssf::record::RecordInputStream::nextRecord() /* throws(RecordFormatException) */
+void poi::hssf::record::RecordInputStream::nextRecord() /* throws(RecordFormatException) */
 {
     if(_nextSid == INVALID_SID_VALUE) {
         throw new ::java::lang::IllegalStateException(u"EOF - next record not available"_j);
@@ -160,12 +160,12 @@ void org::apache::poi::hssf::record::RecordInputStream::nextRecord() /* throws(R
     _currentDataOffset = 0;
     _currentDataLength = npc(_bhi)->readDataSize();
     if(_currentDataLength > MAX_RECORD_DATA_SIZE) {
-        throw new ::org::apache::poi::util::RecordFormatException(::java::lang::StringBuilder().append(u"The content of an excel record cannot exceed "_j)->append(MAX_RECORD_DATA_SIZE)
+        throw new ::poi::util::RecordFormatException(::java::lang::StringBuilder().append(u"The content of an excel record cannot exceed "_j)->append(MAX_RECORD_DATA_SIZE)
             ->append(u" bytes"_j)->toString());
     }
 }
 
-void org::apache::poi::hssf::record::RecordInputStream::checkRecordPosition(int32_t requiredByteCount)
+void poi::hssf::record::RecordInputStream::checkRecordPosition(int32_t requiredByteCount)
 {
     auto nAvailable = remaining();
     if(nAvailable >= requiredByteCount) {
@@ -175,53 +175,53 @@ void org::apache::poi::hssf::record::RecordInputStream::checkRecordPosition(int3
         nextRecord();
         return;
     }
-    throw new ::org::apache::poi::util::RecordFormatException(::java::lang::StringBuilder().append(u"Not enough data ("_j)->append(nAvailable)
+    throw new ::poi::util::RecordFormatException(::java::lang::StringBuilder().append(u"Not enough data ("_j)->append(nAvailable)
         ->append(u") to read requested ("_j)
         ->append(requiredByteCount)
         ->append(u") bytes"_j)->toString());
 }
 
-int8_t org::apache::poi::hssf::record::RecordInputStream::readByte()
+int8_t poi::hssf::record::RecordInputStream::readByte()
 {
-    checkRecordPosition(::org::apache::poi::util::LittleEndianConsts::BYTE_SIZE);
-    _currentDataOffset += ::org::apache::poi::util::LittleEndianConsts::BYTE_SIZE;
+    checkRecordPosition(::poi::util::LittleEndianConsts::BYTE_SIZE);
+    _currentDataOffset += ::poi::util::LittleEndianConsts::BYTE_SIZE;
     return npc(_dataInput)->readByte();
 }
 
-int16_t org::apache::poi::hssf::record::RecordInputStream::readShort()
+int16_t poi::hssf::record::RecordInputStream::readShort()
 {
-    checkRecordPosition(::org::apache::poi::util::LittleEndianConsts::SHORT_SIZE);
-    _currentDataOffset += ::org::apache::poi::util::LittleEndianConsts::SHORT_SIZE;
+    checkRecordPosition(::poi::util::LittleEndianConsts::SHORT_SIZE);
+    _currentDataOffset += ::poi::util::LittleEndianConsts::SHORT_SIZE;
     return npc(_dataInput)->readShort();
 }
 
-int32_t org::apache::poi::hssf::record::RecordInputStream::readInt()
+int32_t poi::hssf::record::RecordInputStream::readInt()
 {
-    checkRecordPosition(::org::apache::poi::util::LittleEndianConsts::INT_SIZE);
-    _currentDataOffset += ::org::apache::poi::util::LittleEndianConsts::INT_SIZE;
+    checkRecordPosition(::poi::util::LittleEndianConsts::INT_SIZE);
+    _currentDataOffset += ::poi::util::LittleEndianConsts::INT_SIZE;
     return npc(_dataInput)->readInt();
 }
 
-int64_t org::apache::poi::hssf::record::RecordInputStream::readLong()
+int64_t poi::hssf::record::RecordInputStream::readLong()
 {
-    checkRecordPosition(::org::apache::poi::util::LittleEndianConsts::LONG_SIZE);
-    _currentDataOffset += ::org::apache::poi::util::LittleEndianConsts::LONG_SIZE;
+    checkRecordPosition(::poi::util::LittleEndianConsts::LONG_SIZE);
+    _currentDataOffset += ::poi::util::LittleEndianConsts::LONG_SIZE;
     return npc(_dataInput)->readLong();
 }
 
-int32_t org::apache::poi::hssf::record::RecordInputStream::readUByte()
+int32_t poi::hssf::record::RecordInputStream::readUByte()
 {
     return readByte() & int32_t(255);
 }
 
-int32_t org::apache::poi::hssf::record::RecordInputStream::readUShort()
+int32_t poi::hssf::record::RecordInputStream::readUShort()
 {
-    checkRecordPosition(::org::apache::poi::util::LittleEndianConsts::SHORT_SIZE);
-    _currentDataOffset += ::org::apache::poi::util::LittleEndianConsts::SHORT_SIZE;
+    checkRecordPosition(::poi::util::LittleEndianConsts::SHORT_SIZE);
+    _currentDataOffset += ::poi::util::LittleEndianConsts::SHORT_SIZE;
     return npc(_dataInput)->readUShort();
 }
 
-double org::apache::poi::hssf::record::RecordInputStream::readDouble()
+double poi::hssf::record::RecordInputStream::readDouble()
 {
     auto valueLongBits = readLong();
     auto result = ::java::lang::Double::longBitsToDouble(valueLongBits);
@@ -230,22 +230,22 @@ double org::apache::poi::hssf::record::RecordInputStream::readDouble()
     return result;
 }
 
-void org::apache::poi::hssf::record::RecordInputStream::readPlain(::int8_tArray* buf, int32_t off, int32_t len)
+void poi::hssf::record::RecordInputStream::readPlain(::int8_tArray* buf, int32_t off, int32_t len)
 {
     readFully(buf, 0, npc(buf)->length, true);
 }
 
-void org::apache::poi::hssf::record::RecordInputStream::readFully(::int8_tArray* buf)
+void poi::hssf::record::RecordInputStream::readFully(::int8_tArray* buf)
 {
     readFully(buf, 0, npc(buf)->length, false);
 }
 
-void org::apache::poi::hssf::record::RecordInputStream::readFully(::int8_tArray* buf, int32_t off, int32_t len)
+void poi::hssf::record::RecordInputStream::readFully(::int8_tArray* buf, int32_t off, int32_t len)
 {
     readFully(buf, off, len, false);
 }
 
-void org::apache::poi::hssf::record::RecordInputStream::readFully(::int8_tArray* buf, int32_t off, int32_t len, bool isPlain)
+void poi::hssf::record::RecordInputStream::readFully(::int8_tArray* buf, int32_t off, int32_t len, bool isPlain)
 {
     auto origLen = len;
     if(buf == nullptr) {
@@ -257,7 +257,7 @@ void org::apache::poi::hssf::record::RecordInputStream::readFully(::int8_tArray*
         auto nextChunk = ::java::lang::Math::min(available(), len);
         if(nextChunk == 0) {
             if(!hasNextRecord()) {
-                throw new ::org::apache::poi::util::RecordFormatException(::java::lang::StringBuilder().append(u"Can't read the remaining "_j)->append(len)
+                throw new ::poi::util::RecordFormatException(::java::lang::StringBuilder().append(u"Can't read the remaining "_j)->append(len)
                     ->append(u" bytes of the requested "_j)
                     ->append(origLen)
                     ->append(u" bytes. No further record exists."_j)->toString());
@@ -279,24 +279,24 @@ void org::apache::poi::hssf::record::RecordInputStream::readFully(::int8_tArray*
     }
 }
 
-java::lang::String* org::apache::poi::hssf::record::RecordInputStream::readString()
+java::lang::String* poi::hssf::record::RecordInputStream::readString()
 {
     auto requestedLength = readUShort();
     auto compressFlag = readByte();
     return readStringCommon(requestedLength, compressFlag == 0);
 }
 
-java::lang::String* org::apache::poi::hssf::record::RecordInputStream::readUnicodeLEString(int32_t requestedLength)
+java::lang::String* poi::hssf::record::RecordInputStream::readUnicodeLEString(int32_t requestedLength)
 {
     return readStringCommon(requestedLength, false);
 }
 
-java::lang::String* org::apache::poi::hssf::record::RecordInputStream::readCompressedUnicode(int32_t requestedLength)
+java::lang::String* poi::hssf::record::RecordInputStream::readCompressedUnicode(int32_t requestedLength)
 {
     return readStringCommon(requestedLength, true);
 }
 
-java::lang::String* org::apache::poi::hssf::record::RecordInputStream::readStringCommon(int32_t requestedLength, bool pIsCompressedEncoding)
+java::lang::String* poi::hssf::record::RecordInputStream::readStringCommon(int32_t requestedLength, bool pIsCompressedEncoding)
 {
     if(requestedLength < 0 || requestedLength > 1048576) {
         throw new ::java::lang::IllegalArgumentException(::java::lang::StringBuilder().append(u"Bad requested string length ("_j)->append(requestedLength)
@@ -306,7 +306,7 @@ java::lang::String* org::apache::poi::hssf::record::RecordInputStream::readStrin
     auto isCompressedEncoding = pIsCompressedEncoding;
     auto curLen = int32_t(0);
     while (true) {
-        auto availableChars = isCompressedEncoding ? remaining() : remaining() / ::org::apache::poi::util::LittleEndianConsts::SHORT_SIZE;
+        auto availableChars = isCompressedEncoding ? remaining() : remaining() / ::poi::util::LittleEndianConsts::SHORT_SIZE;
         if(requestedLength - curLen <= availableChars) {
             while (curLen < requestedLength) {
                 char16_t ch;
@@ -332,13 +332,13 @@ java::lang::String* org::apache::poi::hssf::record::RecordInputStream::readStrin
             availableChars--;
         }
         if(!isContinueNext()) {
-            throw new ::org::apache::poi::util::RecordFormatException(::java::lang::StringBuilder().append(u"Expected to find a ContinueRecord in order to read remaining "_j)->append((requestedLength - curLen))
+            throw new ::poi::util::RecordFormatException(::java::lang::StringBuilder().append(u"Expected to find a ContinueRecord in order to read remaining "_j)->append((requestedLength - curLen))
                 ->append(u" of "_j)
                 ->append(requestedLength)
                 ->append(u" chars"_j)->toString());
         }
         if(remaining() != 0) {
-            throw new ::org::apache::poi::util::RecordFormatException(::java::lang::StringBuilder().append(u"Odd number of bytes("_j)->append(remaining())
+            throw new ::poi::util::RecordFormatException(::java::lang::StringBuilder().append(u"Odd number of bytes("_j)->append(remaining())
                 ->append(u") left behind"_j)->toString());
         }
         nextRecord();
@@ -348,7 +348,7 @@ java::lang::String* org::apache::poi::hssf::record::RecordInputStream::readStrin
     }
 }
 
-int8_tArray* org::apache::poi::hssf::record::RecordInputStream::readRemainder()
+int8_tArray* poi::hssf::record::RecordInputStream::readRemainder()
 {
     auto size = remaining();
     if(size == 0) {
@@ -359,7 +359,7 @@ int8_tArray* org::apache::poi::hssf::record::RecordInputStream::readRemainder()
     return result;
 }
 
-int8_tArray* org::apache::poi::hssf::record::RecordInputStream::readAllContinuedRemainder()
+int8_tArray* poi::hssf::record::RecordInputStream::readAllContinuedRemainder()
 {
     auto out = new ::java::io::ByteArrayOutputStream(int32_t(2) * MAX_RECORD_DATA_SIZE);
     while (true) {
@@ -373,7 +373,7 @@ int8_tArray* org::apache::poi::hssf::record::RecordInputStream::readAllContinued
     return npc(out)->toByteArray_();
 }
 
-int32_t org::apache::poi::hssf::record::RecordInputStream::remaining()
+int32_t poi::hssf::record::RecordInputStream::remaining()
 {
     if(_currentDataLength == DATA_LEN_NEEDS_TO_BE_READ) {
         return 0;
@@ -381,7 +381,7 @@ int32_t org::apache::poi::hssf::record::RecordInputStream::remaining()
     return _currentDataLength - _currentDataOffset;
 }
 
-bool org::apache::poi::hssf::record::RecordInputStream::isContinueNext()
+bool poi::hssf::record::RecordInputStream::isContinueNext()
 {
     if(_currentDataLength != DATA_LEN_NEEDS_TO_BE_READ && _currentDataOffset != _currentDataLength) {
         throw new ::java::lang::IllegalStateException(u"Should never be called before end of current record"_j);
@@ -392,18 +392,18 @@ bool org::apache::poi::hssf::record::RecordInputStream::isContinueNext()
     return _nextSid == ContinueRecord::sid;
 }
 
-int32_t org::apache::poi::hssf::record::RecordInputStream::getNextSid()
+int32_t poi::hssf::record::RecordInputStream::getNextSid()
 {
     return _nextSid;
 }
 
-void org::apache::poi::hssf::record::RecordInputStream::mark(int32_t readlimit)
+void poi::hssf::record::RecordInputStream::mark(int32_t readlimit)
 {
     npc((java_cast< ::java::io::InputStream* >(_dataInput)))->mark(readlimit);
     _markedDataOffset = _currentDataOffset;
 }
 
-void org::apache::poi::hssf::record::RecordInputStream::reset() /* throws(IOException) */
+void poi::hssf::record::RecordInputStream::reset() /* throws(IOException) */
 {
     npc((java_cast< ::java::io::InputStream* >(_dataInput)))->reset();
     _currentDataOffset = _markedDataOffset;
@@ -411,13 +411,13 @@ void org::apache::poi::hssf::record::RecordInputStream::reset() /* throws(IOExce
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::RecordInputStream::class_()
+java::lang::Class* poi::hssf::record::RecordInputStream::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.RecordInputStream", 44);
     return c;
 }
 
-void org::apache::poi::hssf::record::RecordInputStream::clinit()
+void poi::hssf::record::RecordInputStream::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -433,7 +433,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::hssf::record::RecordInputStream::getClass0()
+java::lang::Class* poi::hssf::record::RecordInputStream::getClass0()
 {
     return class_();
 }

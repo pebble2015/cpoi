@@ -17,21 +17,21 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::OldSheetRecord::OldSheetRecord(const ::default_init_tag&)
+poi::hssf::record::OldSheetRecord::OldSheetRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::OldSheetRecord::OldSheetRecord(RecordInputStream* in) 
+poi::hssf::record::OldSheetRecord::OldSheetRecord(RecordInputStream* in) 
     : OldSheetRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::OldSheetRecord::sid;
+constexpr int16_t poi::hssf::record::OldSheetRecord::sid;
 
-void org::apache::poi::hssf::record::OldSheetRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::OldSheetRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     field_1_position_of_BOF = npc(in)->readInt();
@@ -42,33 +42,33 @@ void org::apache::poi::hssf::record::OldSheetRecord::ctor(RecordInputStream* in)
     npc(in)->read(field_5_sheetname, 0, field_4_sheetname_length);
 }
 
-void org::apache::poi::hssf::record::OldSheetRecord::setCodePage(CodepageRecord* codepage)
+void poi::hssf::record::OldSheetRecord::setCodePage(CodepageRecord* codepage)
 {
     this->codepage = codepage;
 }
 
-int16_t org::apache::poi::hssf::record::OldSheetRecord::getSid()
+int16_t poi::hssf::record::OldSheetRecord::getSid()
 {
     return sid;
 }
 
-int32_t org::apache::poi::hssf::record::OldSheetRecord::getPositionOfBof()
+int32_t poi::hssf::record::OldSheetRecord::getPositionOfBof()
 {
     return field_1_position_of_BOF;
 }
 
-java::lang::String* org::apache::poi::hssf::record::OldSheetRecord::getSheetname()
+java::lang::String* poi::hssf::record::OldSheetRecord::getSheetname()
 {
     return OldStringRecord::getString(field_5_sheetname, codepage);
 }
 
-java::lang::String* org::apache::poi::hssf::record::OldSheetRecord::toString()
+java::lang::String* poi::hssf::record::OldSheetRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[BOUNDSHEET]\n"_j);
-    npc(npc(npc(buffer)->append(u"    .bof        = "_j))->append(::org::apache::poi::util::HexDump::intToHex(getPositionOfBof())))->append(u"\n"_j);
-    npc(npc(npc(buffer)->append(u"    .visibility = "_j))->append(::org::apache::poi::util::HexDump::shortToHex(field_2_visibility)))->append(u"\n"_j);
-    npc(npc(npc(buffer)->append(u"    .type       = "_j))->append(::org::apache::poi::util::HexDump::byteToHex(field_3_type)))->append(u"\n"_j);
+    npc(npc(npc(buffer)->append(u"    .bof        = "_j))->append(::poi::util::HexDump::intToHex(getPositionOfBof())))->append(u"\n"_j);
+    npc(npc(npc(buffer)->append(u"    .visibility = "_j))->append(::poi::util::HexDump::shortToHex(field_2_visibility)))->append(u"\n"_j);
+    npc(npc(npc(buffer)->append(u"    .type       = "_j))->append(::poi::util::HexDump::byteToHex(field_3_type)))->append(u"\n"_j);
     npc(npc(npc(buffer)->append(u"    .sheetname  = "_j))->append(getSheetname()))->append(u"\n"_j);
     npc(buffer)->append(u"[/BOUNDSHEET]\n"_j);
     return npc(buffer)->toString();
@@ -76,13 +76,13 @@ java::lang::String* org::apache::poi::hssf::record::OldSheetRecord::toString()
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::OldSheetRecord::class_()
+java::lang::Class* poi::hssf::record::OldSheetRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.OldSheetRecord", 41);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::record::OldSheetRecord::getClass0()
+java::lang::Class* poi::hssf::record::OldSheetRecord::getClass0()
 {
     return class_();
 }

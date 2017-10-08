@@ -26,22 +26,16 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace sl
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace sl
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::sl::usermodel::PictureData_PictureType, ::java::lang::EnumArray > PictureData_PictureTypeArray;
-                } // usermodel
-            } // sl
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::sl::usermodel::PictureData_PictureType, ::java::lang::EnumArray > PictureData_PictureTypeArray;
+        } // usermodel
+    } // sl
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -50,31 +44,31 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::sl::usermodel::PictureData_PictureType::PictureData_PictureType(const ::default_init_tag&)
+poi::sl::usermodel::PictureData_PictureType::PictureData_PictureType(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::usermodel::PictureData_PictureType::PictureData_PictureType(::java::lang::String* name, int ordinal, int32_t nativeId, int32_t ooxmlId, ::java::lang::String* contentType, ::java::lang::String* extension) 
+poi::sl::usermodel::PictureData_PictureType::PictureData_PictureType(::java::lang::String* name, int ordinal, int32_t nativeId, int32_t ooxmlId, ::java::lang::String* contentType, ::java::lang::String* extension) 
     : PictureData_PictureType(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal, nativeId,ooxmlId,contentType,extension);
 }
 
-org::apache::poi::sl::usermodel::PictureData_PictureType* org::apache::poi::sl::usermodel::PictureData_PictureType::EMF = new ::org::apache::poi::sl::usermodel::PictureData_PictureType(u"EMF"_j, 0, int32_t(2), int32_t(2), u"image/x-emf"_j, u".emf"_j);
-org::apache::poi::sl::usermodel::PictureData_PictureType* org::apache::poi::sl::usermodel::PictureData_PictureType::WMF = new ::org::apache::poi::sl::usermodel::PictureData_PictureType(u"WMF"_j, 1, int32_t(3), int32_t(3), u"image/x-wmf"_j, u".wmf"_j);
-org::apache::poi::sl::usermodel::PictureData_PictureType* org::apache::poi::sl::usermodel::PictureData_PictureType::PICT = new ::org::apache::poi::sl::usermodel::PictureData_PictureType(u"PICT"_j, 2, int32_t(4), int32_t(4), u"image/pict"_j, u".pict"_j);
-org::apache::poi::sl::usermodel::PictureData_PictureType* org::apache::poi::sl::usermodel::PictureData_PictureType::JPEG = new ::org::apache::poi::sl::usermodel::PictureData_PictureType(u"JPEG"_j, 3, int32_t(5), int32_t(5), u"image/jpeg"_j, u".jpg"_j);
-org::apache::poi::sl::usermodel::PictureData_PictureType* org::apache::poi::sl::usermodel::PictureData_PictureType::PNG = new ::org::apache::poi::sl::usermodel::PictureData_PictureType(u"PNG"_j, 4, int32_t(6), int32_t(6), u"image/png"_j, u".png"_j);
-org::apache::poi::sl::usermodel::PictureData_PictureType* org::apache::poi::sl::usermodel::PictureData_PictureType::DIB = new ::org::apache::poi::sl::usermodel::PictureData_PictureType(u"DIB"_j, 5, int32_t(7), int32_t(7), u"image/dib"_j, u".dib"_j);
-org::apache::poi::sl::usermodel::PictureData_PictureType* org::apache::poi::sl::usermodel::PictureData_PictureType::GIF = new ::org::apache::poi::sl::usermodel::PictureData_PictureType(u"GIF"_j, 6, -int32_t(1), int32_t(8), u"image/gif"_j, u".gif"_j);
-org::apache::poi::sl::usermodel::PictureData_PictureType* org::apache::poi::sl::usermodel::PictureData_PictureType::TIFF = new ::org::apache::poi::sl::usermodel::PictureData_PictureType(u"TIFF"_j, 7, -int32_t(1), int32_t(9), u"image/tiff"_j, u".tif"_j);
-org::apache::poi::sl::usermodel::PictureData_PictureType* org::apache::poi::sl::usermodel::PictureData_PictureType::EPS = new ::org::apache::poi::sl::usermodel::PictureData_PictureType(u"EPS"_j, 8, -int32_t(1), int32_t(10), u"image/x-eps"_j, u".eps"_j);
-org::apache::poi::sl::usermodel::PictureData_PictureType* org::apache::poi::sl::usermodel::PictureData_PictureType::BMP = new ::org::apache::poi::sl::usermodel::PictureData_PictureType(u"BMP"_j, 9, -int32_t(1), int32_t(11), u"image/x-ms-bmp"_j, u".bmp"_j);
-org::apache::poi::sl::usermodel::PictureData_PictureType* org::apache::poi::sl::usermodel::PictureData_PictureType::WPG = new ::org::apache::poi::sl::usermodel::PictureData_PictureType(u"WPG"_j, 10, -int32_t(1), int32_t(12), u"image/x-wpg"_j, u".wpg"_j);
-org::apache::poi::sl::usermodel::PictureData_PictureType* org::apache::poi::sl::usermodel::PictureData_PictureType::WDP = new ::org::apache::poi::sl::usermodel::PictureData_PictureType(u"WDP"_j, 11, -int32_t(1), int32_t(13), u"image/vnd.ms-photo"_j, u".wdp"_j);
-void org::apache::poi::sl::usermodel::PictureData_PictureType::ctor(::java::lang::String* name, int ordinal, int32_t nativeId, int32_t ooxmlId, ::java::lang::String* contentType, ::java::lang::String* extension)
+poi::sl::usermodel::PictureData_PictureType* poi::sl::usermodel::PictureData_PictureType::EMF = new ::poi::sl::usermodel::PictureData_PictureType(u"EMF"_j, 0, int32_t(2), int32_t(2), u"image/x-emf"_j, u".emf"_j);
+poi::sl::usermodel::PictureData_PictureType* poi::sl::usermodel::PictureData_PictureType::WMF = new ::poi::sl::usermodel::PictureData_PictureType(u"WMF"_j, 1, int32_t(3), int32_t(3), u"image/x-wmf"_j, u".wmf"_j);
+poi::sl::usermodel::PictureData_PictureType* poi::sl::usermodel::PictureData_PictureType::PICT = new ::poi::sl::usermodel::PictureData_PictureType(u"PICT"_j, 2, int32_t(4), int32_t(4), u"image/pict"_j, u".pict"_j);
+poi::sl::usermodel::PictureData_PictureType* poi::sl::usermodel::PictureData_PictureType::JPEG = new ::poi::sl::usermodel::PictureData_PictureType(u"JPEG"_j, 3, int32_t(5), int32_t(5), u"image/jpeg"_j, u".jpg"_j);
+poi::sl::usermodel::PictureData_PictureType* poi::sl::usermodel::PictureData_PictureType::PNG = new ::poi::sl::usermodel::PictureData_PictureType(u"PNG"_j, 4, int32_t(6), int32_t(6), u"image/png"_j, u".png"_j);
+poi::sl::usermodel::PictureData_PictureType* poi::sl::usermodel::PictureData_PictureType::DIB = new ::poi::sl::usermodel::PictureData_PictureType(u"DIB"_j, 5, int32_t(7), int32_t(7), u"image/dib"_j, u".dib"_j);
+poi::sl::usermodel::PictureData_PictureType* poi::sl::usermodel::PictureData_PictureType::GIF = new ::poi::sl::usermodel::PictureData_PictureType(u"GIF"_j, 6, -int32_t(1), int32_t(8), u"image/gif"_j, u".gif"_j);
+poi::sl::usermodel::PictureData_PictureType* poi::sl::usermodel::PictureData_PictureType::TIFF = new ::poi::sl::usermodel::PictureData_PictureType(u"TIFF"_j, 7, -int32_t(1), int32_t(9), u"image/tiff"_j, u".tif"_j);
+poi::sl::usermodel::PictureData_PictureType* poi::sl::usermodel::PictureData_PictureType::EPS = new ::poi::sl::usermodel::PictureData_PictureType(u"EPS"_j, 8, -int32_t(1), int32_t(10), u"image/x-eps"_j, u".eps"_j);
+poi::sl::usermodel::PictureData_PictureType* poi::sl::usermodel::PictureData_PictureType::BMP = new ::poi::sl::usermodel::PictureData_PictureType(u"BMP"_j, 9, -int32_t(1), int32_t(11), u"image/x-ms-bmp"_j, u".bmp"_j);
+poi::sl::usermodel::PictureData_PictureType* poi::sl::usermodel::PictureData_PictureType::WPG = new ::poi::sl::usermodel::PictureData_PictureType(u"WPG"_j, 10, -int32_t(1), int32_t(12), u"image/x-wpg"_j, u".wpg"_j);
+poi::sl::usermodel::PictureData_PictureType* poi::sl::usermodel::PictureData_PictureType::WDP = new ::poi::sl::usermodel::PictureData_PictureType(u"WDP"_j, 11, -int32_t(1), int32_t(13), u"image/vnd.ms-photo"_j, u".wdp"_j);
+void poi::sl::usermodel::PictureData_PictureType::ctor(::java::lang::String* name, int ordinal, int32_t nativeId, int32_t ooxmlId, ::java::lang::String* contentType, ::java::lang::String* extension)
 {
     super::ctor(name, ordinal);
     this->nativeId = nativeId;
@@ -83,7 +77,7 @@ void org::apache::poi::sl::usermodel::PictureData_PictureType::ctor(::java::lang
     this->extension = extension;
 }
 
-org::apache::poi::sl::usermodel::PictureData_PictureType* org::apache::poi::sl::usermodel::PictureData_PictureType::forNativeID(int32_t nativeId)
+poi::sl::usermodel::PictureData_PictureType* poi::sl::usermodel::PictureData_PictureType::forNativeID(int32_t nativeId)
 {
     clinit();
     for(auto ans : *npc(values())) {
@@ -94,7 +88,7 @@ org::apache::poi::sl::usermodel::PictureData_PictureType* org::apache::poi::sl::
     return nullptr;
 }
 
-org::apache::poi::sl::usermodel::PictureData_PictureType* org::apache::poi::sl::usermodel::PictureData_PictureType::forOoxmlID(int32_t ooxmlId)
+poi::sl::usermodel::PictureData_PictureType* poi::sl::usermodel::PictureData_PictureType::forOoxmlID(int32_t ooxmlId)
 {
     clinit();
     for(auto ans : *npc(values())) {
@@ -107,13 +101,13 @@ org::apache::poi::sl::usermodel::PictureData_PictureType* org::apache::poi::sl::
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::usermodel::PictureData_PictureType::class_()
+java::lang::Class* poi::sl::usermodel::PictureData_PictureType::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.usermodel.PictureData.PictureType", 51);
     return c;
 }
 
-org::apache::poi::sl::usermodel::PictureData_PictureType* org::apache::poi::sl::usermodel::PictureData_PictureType::valueOf(::java::lang::String* a0)
+poi::sl::usermodel::PictureData_PictureType* poi::sl::usermodel::PictureData_PictureType::valueOf(::java::lang::String* a0)
 {
     if(BMP->toString()->equals(a0))
         return BMP;
@@ -142,9 +136,9 @@ org::apache::poi::sl::usermodel::PictureData_PictureType* org::apache::poi::sl::
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::sl::usermodel::PictureData_PictureTypeArray* org::apache::poi::sl::usermodel::PictureData_PictureType::values()
+poi::sl::usermodel::PictureData_PictureTypeArray* poi::sl::usermodel::PictureData_PictureType::values()
 {
-    return new org::apache::poi::sl::usermodel::PictureData_PictureTypeArray({
+    return new poi::sl::usermodel::PictureData_PictureTypeArray({
         BMP,
         DIB,
         EMF,
@@ -160,7 +154,7 @@ org::apache::poi::sl::usermodel::PictureData_PictureTypeArray* org::apache::poi:
     });
 }
 
-java::lang::Class* org::apache::poi::sl::usermodel::PictureData_PictureType::getClass0()
+java::lang::Class* poi::sl::usermodel::PictureData_PictureType::getClass0()
 {
     return class_();
 }

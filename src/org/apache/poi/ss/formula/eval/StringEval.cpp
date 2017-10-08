@@ -26,37 +26,37 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::eval::StringEval::StringEval(const ::default_init_tag&)
+poi::ss::formula::eval::StringEval::StringEval(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::eval::StringEval::StringEval(::org::apache::poi::ss::formula::ptg::Ptg* ptg) 
+poi::ss::formula::eval::StringEval::StringEval(::poi::ss::formula::ptg::Ptg* ptg) 
     : StringEval(*static_cast< ::default_init_tag* >(0))
 {
     ctor(ptg);
 }
 
-org::apache::poi::ss::formula::eval::StringEval::StringEval(::java::lang::String* value) 
+poi::ss::formula::eval::StringEval::StringEval(::java::lang::String* value) 
     : StringEval(*static_cast< ::default_init_tag* >(0))
 {
     ctor(value);
 }
 
-org::apache::poi::ss::formula::eval::StringEval*& org::apache::poi::ss::formula::eval::StringEval::EMPTY_INSTANCE()
+poi::ss::formula::eval::StringEval*& poi::ss::formula::eval::StringEval::EMPTY_INSTANCE()
 {
     clinit();
     return EMPTY_INSTANCE_;
 }
-org::apache::poi::ss::formula::eval::StringEval* org::apache::poi::ss::formula::eval::StringEval::EMPTY_INSTANCE_;
+poi::ss::formula::eval::StringEval* poi::ss::formula::eval::StringEval::EMPTY_INSTANCE_;
 
-void org::apache::poi::ss::formula::eval::StringEval::ctor(::org::apache::poi::ss::formula::ptg::Ptg* ptg)
+void poi::ss::formula::eval::StringEval::ctor(::poi::ss::formula::ptg::Ptg* ptg)
 {
-    ctor(npc((java_cast< ::org::apache::poi::ss::formula::ptg::StringPtg* >(ptg)))->getValue());
+    ctor(npc((java_cast< ::poi::ss::formula::ptg::StringPtg* >(ptg)))->getValue());
 }
 
-void org::apache::poi::ss::formula::eval::StringEval::ctor(::java::lang::String* value)
+void poi::ss::formula::eval::StringEval::ctor(::java::lang::String* value)
 {
     super::ctor();
     if(value == nullptr) {
@@ -65,12 +65,12 @@ void org::apache::poi::ss::formula::eval::StringEval::ctor(::java::lang::String*
     _value = value;
 }
 
-java::lang::String* org::apache::poi::ss::formula::eval::StringEval::getStringValue()
+java::lang::String* poi::ss::formula::eval::StringEval::getStringValue()
 {
     return _value;
 }
 
-java::lang::String* org::apache::poi::ss::formula::eval::StringEval::toString()
+java::lang::String* poi::ss::formula::eval::StringEval::toString()
 {
     return ::java::lang::StringBuilder().append(npc(getClass())->getName())->append(u" ["_j)
         ->append(_value)
@@ -79,13 +79,13 @@ java::lang::String* org::apache::poi::ss::formula::eval::StringEval::toString()
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::eval::StringEval::class_()
+java::lang::Class* poi::ss::formula::eval::StringEval::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.eval.StringEval", 41);
     return c;
 }
 
-void org::apache::poi::ss::formula::eval::StringEval::clinit()
+void poi::ss::formula::eval::StringEval::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -101,7 +101,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::formula::eval::StringEval::getClass0()
+java::lang::Class* poi::ss::formula::eval::StringEval::getClass0()
 {
     return class_();
 }

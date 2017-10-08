@@ -8,12 +8,12 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::filesystem::OfficeXmlFileException
-    : public ::org::apache::poi::UnsupportedFileFormatException
+class poi::poifs::filesystem::OfficeXmlFileException
+    : public ::poi::UnsupportedFileFormatException
 {
 
 public:
-    typedef ::org::apache::poi::UnsupportedFileFormatException super;
+    typedef ::poi::UnsupportedFileFormatException super;
 protected:
     void ctor(::java::lang::String* s);
 

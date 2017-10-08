@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::util::IEEEDouble final
+class poi::ss::util::IEEEDouble final
     : public ::java::lang::Object
 {
 

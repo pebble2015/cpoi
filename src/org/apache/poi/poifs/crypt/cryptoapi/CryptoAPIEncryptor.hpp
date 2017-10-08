@@ -16,13 +16,13 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIEncryptor
-    : public ::org::apache::poi::poifs::crypt::Encryptor
+class poi::poifs::crypt::cryptoapi::CryptoAPIEncryptor
+    : public ::poi::poifs::crypt::Encryptor
     , public virtual ::java::lang::Cloneable
 {
 
 public:
-    typedef ::org::apache::poi::poifs::crypt::Encryptor super;
+    typedef ::poi::poifs::crypt::Encryptor super;
 
 private:
     int32_t chunkSize {  };
@@ -33,9 +33,9 @@ public:
     void confirmPassword(::java::lang::String* password) override;
     void confirmPassword(::java::lang::String* password, ::int8_tArray* keySpec, ::int8_tArray* keySalt, ::int8_tArray* verifier, ::int8_tArray* verifierSalt, ::int8_tArray* integritySalt) override;
     virtual ::javax::crypto::Cipher* initCipherForBlock(::javax::crypto::Cipher* cipher, int32_t block) /* throws(GeneralSecurityException) */;
-    ::org::apache::poi::poifs::crypt::ChunkedCipherOutputStream* getDataStream(::org::apache::poi::poifs::filesystem::DirectoryNode* dir) /* throws(IOException, GeneralSecurityException) */ override;
+    ::poi::poifs::crypt::ChunkedCipherOutputStream* getDataStream(::poi::poifs::filesystem::DirectoryNode* dir) /* throws(IOException, GeneralSecurityException) */ override;
     CryptoAPIEncryptor_CryptoAPICipherOutputStream* getDataStream(::java::io::OutputStream* stream, int32_t initialOffset) /* throws(IOException, GeneralSecurityException) */ override;
-    virtual void setSummaryEntries(::org::apache::poi::poifs::filesystem::DirectoryNode* dir, ::java::lang::String* encryptedStream, ::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* entries) /* throws(IOException, GeneralSecurityException) */;
+    virtual void setSummaryEntries(::poi::poifs::filesystem::DirectoryNode* dir, ::java::lang::String* encryptedStream, ::poi::poifs::filesystem::NPOIFSFileSystem* entries) /* throws(IOException, GeneralSecurityException) */;
 
 public: /* protected */
     virtual int32_t getKeySizeInBytes();
@@ -44,7 +44,7 @@ public:
     void setChunkSize(int32_t chunkSize) override;
 
 public: /* protected */
-    virtual void createEncryptionInfoEntry(::org::apache::poi::poifs::filesystem::DirectoryNode* dir) /* throws(IOException) */;
+    virtual void createEncryptionInfoEntry(::poi::poifs::filesystem::DirectoryNode* dir) /* throws(IOException) */;
 
 public:
     CryptoAPIEncryptor* clone() /* throws(CloneNotSupportedException) */ override;
@@ -64,9 +64,9 @@ private:
     void init();
 
 public:
-    virtual ::java::io::OutputStream* getDataStream(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs);
-    virtual ::java::io::OutputStream* getDataStream(::org::apache::poi::poifs::filesystem::OPOIFSFileSystem* fs);
-    virtual ::java::io::OutputStream* getDataStream(::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs);
+    virtual ::java::io::OutputStream* getDataStream(::poi::poifs::filesystem::NPOIFSFileSystem* fs);
+    virtual ::java::io::OutputStream* getDataStream(::poi::poifs::filesystem::OPOIFSFileSystem* fs);
+    virtual ::java::io::OutputStream* getDataStream(::poi::poifs::filesystem::POIFSFileSystem* fs);
 
 private:
     virtual ::java::lang::Class* getClass0();

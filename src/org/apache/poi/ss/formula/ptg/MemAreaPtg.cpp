@@ -16,70 +16,70 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::ptg::MemAreaPtg::MemAreaPtg(const ::default_init_tag&)
+poi::ss::formula::ptg::MemAreaPtg::MemAreaPtg(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::ptg::MemAreaPtg::MemAreaPtg(int32_t subexLen) 
+poi::ss::formula::ptg::MemAreaPtg::MemAreaPtg(int32_t subexLen) 
     : MemAreaPtg(*static_cast< ::default_init_tag* >(0))
 {
     ctor(subexLen);
 }
 
-org::apache::poi::ss::formula::ptg::MemAreaPtg::MemAreaPtg(::org::apache::poi::util::LittleEndianInput* in) 
+poi::ss::formula::ptg::MemAreaPtg::MemAreaPtg(::poi::util::LittleEndianInput* in) 
     : MemAreaPtg(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::ss::formula::ptg::MemAreaPtg::sid;
+constexpr int16_t poi::ss::formula::ptg::MemAreaPtg::sid;
 
-constexpr int32_t org::apache::poi::ss::formula::ptg::MemAreaPtg::SIZE;
+constexpr int32_t poi::ss::formula::ptg::MemAreaPtg::SIZE;
 
-void org::apache::poi::ss::formula::ptg::MemAreaPtg::ctor(int32_t subexLen)
+void poi::ss::formula::ptg::MemAreaPtg::ctor(int32_t subexLen)
 {
     super::ctor();
     field_1_reserved = 0;
     field_2_subex_len = subexLen;
 }
 
-void org::apache::poi::ss::formula::ptg::MemAreaPtg::ctor(::org::apache::poi::util::LittleEndianInput* in)
+void poi::ss::formula::ptg::MemAreaPtg::ctor(::poi::util::LittleEndianInput* in)
 {
     super::ctor();
     field_1_reserved = npc(in)->readInt();
     field_2_subex_len = npc(in)->readShort();
 }
 
-int32_t org::apache::poi::ss::formula::ptg::MemAreaPtg::getLenRefSubexpression()
+int32_t poi::ss::formula::ptg::MemAreaPtg::getLenRefSubexpression()
 {
     return field_2_subex_len;
 }
 
-void org::apache::poi::ss::formula::ptg::MemAreaPtg::write(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::ss::formula::ptg::MemAreaPtg::write(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeByte(sid + getPtgClass());
     npc(out)->writeInt(field_1_reserved);
     npc(out)->writeShort(field_2_subex_len);
 }
 
-int32_t org::apache::poi::ss::formula::ptg::MemAreaPtg::getSize()
+int32_t poi::ss::formula::ptg::MemAreaPtg::getSize()
 {
     return SIZE;
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::MemAreaPtg::toFormulaString()
+java::lang::String* poi::ss::formula::ptg::MemAreaPtg::toFormulaString()
 {
     return u""_j;
 }
 
-int8_t org::apache::poi::ss::formula::ptg::MemAreaPtg::getDefaultOperandClass()
+int8_t poi::ss::formula::ptg::MemAreaPtg::getDefaultOperandClass()
 {
     return Ptg::CLASS_VALUE;
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::MemAreaPtg::toString()
+java::lang::String* poi::ss::formula::ptg::MemAreaPtg::toString()
 {
     auto sb = new ::java::lang::StringBuffer(int32_t(64));
     npc(npc(sb)->append(npc(getClass())->getName()))->append(u" [len="_j);
@@ -90,13 +90,13 @@ java::lang::String* org::apache::poi::ss::formula::ptg::MemAreaPtg::toString()
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::MemAreaPtg::class_()
+java::lang::Class* poi::ss::formula::ptg::MemAreaPtg::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.ptg.MemAreaPtg", 40);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::MemAreaPtg::getClass0()
+java::lang::Class* poi::ss::formula::ptg::MemAreaPtg::getClass0()
 {
     return class_();
 }

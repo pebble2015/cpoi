@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::EvaluationConditionalFormatRule_ValueAndFormat
+class poi::ss::formula::EvaluationConditionalFormatRule_ValueAndFormat
     : public virtual ::java::lang::Object
     , public virtual ::java::lang::Comparable
 {

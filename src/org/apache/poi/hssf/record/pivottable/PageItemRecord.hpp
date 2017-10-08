@@ -10,43 +10,37 @@
 #include <org/apache/poi/hssf/record/StandardRecord.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
+            namespace pivottable
             {
-                namespace record
-                {
-                    namespace pivottable
-                    {
-typedef ::SubArray< ::org::apache::poi::hssf::record::pivottable::PageItemRecord_FieldInfo, ::java::lang::ObjectArray > PageItemRecord_FieldInfoArray;
-                    } // pivottable
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hssf::record::pivottable::PageItemRecord_FieldInfo, ::java::lang::ObjectArray > PageItemRecord_FieldInfoArray;
+            } // pivottable
+        } // record
+    } // hssf
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::pivottable::PageItemRecord final
-    : public ::org::apache::poi::hssf::record::StandardRecord
+class poi::hssf::record::pivottable::PageItemRecord final
+    : public ::poi::hssf::record::StandardRecord
 {
 
 public:
-    typedef ::org::apache::poi::hssf::record::StandardRecord super;
+    typedef ::poi::hssf::record::StandardRecord super;
     static constexpr int16_t sid { int16_t(182) };
 
 private:
     PageItemRecord_FieldInfoArray* _fieldInfos {  };
 protected:
-    void ctor(::org::apache::poi::hssf::record::RecordInputStream* in);
+    void ctor(::poi::hssf::record::RecordInputStream* in);
 
 public: /* protected */
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
     int32_t getDataSize() override;
 
 public:
@@ -54,7 +48,7 @@ public:
     ::java::lang::String* toString() override;
 
     // Generated
-    PageItemRecord(::org::apache::poi::hssf::record::RecordInputStream* in);
+    PageItemRecord(::poi::hssf::record::RecordInputStream* in);
 protected:
     PageItemRecord(const ::default_init_tag&);
 

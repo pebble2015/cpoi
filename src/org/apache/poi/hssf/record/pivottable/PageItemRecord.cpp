@@ -14,25 +14,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
+            namespace pivottable
             {
-                namespace record
-                {
-                    namespace pivottable
-                    {
-typedef ::SubArray< ::org::apache::poi::hssf::record::pivottable::PageItemRecord_FieldInfo, ::java::lang::ObjectArray > PageItemRecord_FieldInfoArray;
-                    } // pivottable
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hssf::record::pivottable::PageItemRecord_FieldInfo, ::java::lang::ObjectArray > PageItemRecord_FieldInfoArray;
+            } // pivottable
+        } // record
+    } // hssf
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -41,26 +35,26 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::pivottable::PageItemRecord::PageItemRecord(const ::default_init_tag&)
+poi::hssf::record::pivottable::PageItemRecord::PageItemRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::pivottable::PageItemRecord::PageItemRecord(::org::apache::poi::hssf::record::RecordInputStream* in) 
+poi::hssf::record::pivottable::PageItemRecord::PageItemRecord(::poi::hssf::record::RecordInputStream* in) 
     : PageItemRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::pivottable::PageItemRecord::sid;
+constexpr int16_t poi::hssf::record::pivottable::PageItemRecord::sid;
 
-void org::apache::poi::hssf::record::pivottable::PageItemRecord::ctor(::org::apache::poi::hssf::record::RecordInputStream* in)
+void poi::hssf::record::pivottable::PageItemRecord::ctor(::poi::hssf::record::RecordInputStream* in)
 {
     super::ctor();
     auto dataSize = npc(in)->remaining();
     if(dataSize % PageItemRecord_FieldInfo::ENCODED_SIZE != 0) {
-        throw new ::org::apache::poi::util::RecordFormatException(::java::lang::StringBuilder().append(u"Bad data size "_j)->append(dataSize)->toString());
+        throw new ::poi::util::RecordFormatException(::java::lang::StringBuilder().append(u"Bad data size "_j)->append(dataSize)->toString());
     }
     auto nItems = dataSize / PageItemRecord_FieldInfo::ENCODED_SIZE;
     auto fis = new PageItemRecord_FieldInfoArray(nItems);
@@ -70,24 +64,24 @@ void org::apache::poi::hssf::record::pivottable::PageItemRecord::ctor(::org::apa
     _fieldInfos = fis;
 }
 
-void org::apache::poi::hssf::record::pivottable::PageItemRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::pivottable::PageItemRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     for (auto i = int32_t(0); i < npc(_fieldInfos)->length; i++) {
         npc((*_fieldInfos)[i])->serialize(out);
     }
 }
 
-int32_t org::apache::poi::hssf::record::pivottable::PageItemRecord::getDataSize()
+int32_t poi::hssf::record::pivottable::PageItemRecord::getDataSize()
 {
     return npc(_fieldInfos)->length * PageItemRecord_FieldInfo::ENCODED_SIZE;
 }
 
-int16_t org::apache::poi::hssf::record::pivottable::PageItemRecord::getSid()
+int16_t poi::hssf::record::pivottable::PageItemRecord::getSid()
 {
     return sid;
 }
 
-java::lang::String* org::apache::poi::hssf::record::pivottable::PageItemRecord::toString()
+java::lang::String* poi::hssf::record::pivottable::PageItemRecord::toString()
 {
     auto sb = new ::java::lang::StringBuffer();
     npc(sb)->append(u"[SXPI]\n"_j);
@@ -102,23 +96,23 @@ java::lang::String* org::apache::poi::hssf::record::pivottable::PageItemRecord::
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::pivottable::PageItemRecord::class_()
+java::lang::Class* poi::hssf::record::pivottable::PageItemRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.pivottable.PageItemRecord", 52);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::pivottable::PageItemRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::pivottable::PageItemRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::pivottable::PageItemRecord::serialize()
+int8_tArray* poi::hssf::record::pivottable::PageItemRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::pivottable::PageItemRecord::getClass0()
+java::lang::Class* poi::hssf::record::pivottable::PageItemRecord::getClass0()
 {
     return class_();
 }

@@ -12,9 +12,9 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFClientAnchor final
+class poi::hssf::usermodel::HSSFClientAnchor final
     : public HSSFAnchor
-    , public ::org::apache::poi::ss::usermodel::ClientAnchor
+    , public ::poi::ss::usermodel::ClientAnchor
 {
 
 public:
@@ -23,9 +23,9 @@ public:
 private:
     static int32_t MAX_COL_;
     static int32_t MAX_ROW_;
-    ::org::apache::poi::ddf::EscherClientAnchorRecord* _escherClientAnchor {  };
+    ::poi::ddf::EscherClientAnchorRecord* _escherClientAnchor {  };
 protected:
-    void ctor(::org::apache::poi::ddf::EscherClientAnchorRecord* escherClientAnchorRecord);
+    void ctor(::poi::ddf::EscherClientAnchorRecord* escherClientAnchorRecord);
     void ctor();
     void ctor(int32_t dx1, int32_t dy1, int32_t dx2, int32_t dy2, int16_t col1, int32_t row1, int16_t col2, int32_t row2);
 
@@ -51,12 +51,12 @@ public:
     bool isVerticallyFlipped() override;
 
 public: /* protected */
-    ::org::apache::poi::ddf::EscherRecord* getEscherAnchor() override;
+    ::poi::ddf::EscherRecord* getEscherAnchor() override;
     void createEscherAnchor() override;
 
 public:
-    ::org::apache::poi::ss::usermodel::ClientAnchor_AnchorType* getAnchorType() override;
-    void setAnchorType(::org::apache::poi::ss::usermodel::ClientAnchor_AnchorType* anchorType) override;
+    ::poi::ss::usermodel::ClientAnchor_AnchorType* getAnchorType() override;
+    void setAnchorType(::poi::ss::usermodel::ClientAnchor_AnchorType* anchorType) override;
 
 private:
     void checkRange(int32_t value, int32_t minRange, int32_t maxRange, ::java::lang::String* varName);
@@ -75,7 +75,7 @@ public:
     void setDx2(int32_t dx2) override;
 
     // Generated
-    HSSFClientAnchor(::org::apache::poi::ddf::EscherClientAnchorRecord* escherClientAnchorRecord);
+    HSSFClientAnchor(::poi::ddf::EscherClientAnchorRecord* escherClientAnchorRecord);
     HSSFClientAnchor();
     HSSFClientAnchor(int32_t dx1, int32_t dy1, int32_t dx2, int32_t dy2, int16_t col1, int32_t row1, int16_t col2, int32_t row2);
 protected:

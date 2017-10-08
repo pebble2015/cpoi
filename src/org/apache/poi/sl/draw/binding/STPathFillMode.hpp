@@ -22,29 +22,23 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace sl
     {
-        namespace poi
+        namespace draw
         {
-            namespace sl
+            namespace binding
             {
-                namespace draw
-                {
-                    namespace binding
-                    {
-typedef ::SubArray< ::org::apache::poi::sl::draw::binding::STPathFillMode, ::java::lang::EnumArray > STPathFillModeArray;
-                    } // binding
-                } // draw
-            } // sl
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::sl::draw::binding::STPathFillMode, ::java::lang::EnumArray > STPathFillModeArray;
+            } // binding
+        } // draw
+    } // sl
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::binding::STPathFillMode final
+class poi::sl::draw::binding::STPathFillMode final
     : public ::java::lang::Enum
 {
 

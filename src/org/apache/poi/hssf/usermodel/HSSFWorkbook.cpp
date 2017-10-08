@@ -156,53 +156,47 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
+            namespace aggregates
             {
-                namespace record
-                {
-                    namespace aggregates
-                    {
-typedef ::SubArray< ::org::apache::poi::hssf::record::aggregates::RecordAggregate_RecordVisitor, ::java::lang::ObjectArray > RecordAggregate_RecordVisitorArray;
-                    } // aggregates
-                } // record
-            } // hssf
+typedef ::SubArray< ::poi::hssf::record::aggregates::RecordAggregate_RecordVisitor, ::java::lang::ObjectArray > RecordAggregate_RecordVisitorArray;
+            } // aggregates
+        } // record
+    } // hssf
 
-            namespace ss
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::Sheet, ::java::lang::ObjectArray, ::java::lang::IterableArray > SheetArray;
-                } // usermodel
-            } // ss
+    namespace ss
+    {
+        namespace usermodel
+        {
+typedef ::SubArray< ::poi::ss::usermodel::Sheet, ::java::lang::ObjectArray, ::java::lang::IterableArray > SheetArray;
+        } // usermodel
+    } // ss
 
-            namespace hssf
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::usermodel::HSSFSheet, ::java::lang::ObjectArray, ::org::apache::poi::ss::usermodel::SheetArray > HSSFSheetArray;
-typedef ::SubArray< ::org::apache::poi::hssf::usermodel::HSSFWorkbook_SheetRecordCollector, ::java::lang::ObjectArray, ::org::apache::poi::hssf::record::aggregates::RecordAggregate_RecordVisitorArray > HSSFWorkbook_SheetRecordCollectorArray;
-                } // usermodel
-            } // hssf
+    namespace hssf
+    {
+        namespace usermodel
+        {
+typedef ::SubArray< ::poi::hssf::usermodel::HSSFSheet, ::java::lang::ObjectArray, ::poi::ss::usermodel::SheetArray > HSSFSheetArray;
+typedef ::SubArray< ::poi::hssf::usermodel::HSSFWorkbook_SheetRecordCollector, ::java::lang::ObjectArray, ::poi::hssf::record::aggregates::RecordAggregate_RecordVisitorArray > HSSFWorkbook_SheetRecordCollectorArray;
+        } // usermodel
+    } // hssf
 
-            namespace ss
+    namespace ss
+    {
+        namespace formula
+        {
+            namespace udf
             {
-                namespace formula
-                {
-                    namespace udf
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::udf::UDFFinder, ::java::lang::ObjectArray > UDFFinderArray;
-                    } // udf
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::udf::UDFFinder, ::java::lang::ObjectArray > UDFFinderArray;
+            } // udf
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -236,136 +230,136 @@ namespace
 
     template<typename F> finally_<F> finally(F f) { return finally_<F>(f); }
 }
-org::apache::poi::hssf::usermodel::HSSFWorkbook::HSSFWorkbook(const ::default_init_tag&)
+poi::hssf::usermodel::HSSFWorkbook::HSSFWorkbook(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::usermodel::HSSFWorkbook::HSSFWorkbook() 
+poi::hssf::usermodel::HSSFWorkbook::HSSFWorkbook() 
     : HSSFWorkbook(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::usermodel::HSSFWorkbook::HSSFWorkbook(::org::apache::poi::hssf::model::InternalWorkbook* book) 
+poi::hssf::usermodel::HSSFWorkbook::HSSFWorkbook(::poi::hssf::model::InternalWorkbook* book) 
     : HSSFWorkbook(*static_cast< ::default_init_tag* >(0))
 {
     ctor(book);
 }
 
-org::apache::poi::hssf::usermodel::HSSFWorkbook::HSSFWorkbook(::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs)  /* throws(IOException) */
+poi::hssf::usermodel::HSSFWorkbook::HSSFWorkbook(::poi::poifs::filesystem::POIFSFileSystem* fs)  /* throws(IOException) */
     : HSSFWorkbook(*static_cast< ::default_init_tag* >(0))
 {
     ctor(fs);
 }
 
-org::apache::poi::hssf::usermodel::HSSFWorkbook::HSSFWorkbook(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs)  /* throws(IOException) */
+poi::hssf::usermodel::HSSFWorkbook::HSSFWorkbook(::poi::poifs::filesystem::NPOIFSFileSystem* fs)  /* throws(IOException) */
     : HSSFWorkbook(*static_cast< ::default_init_tag* >(0))
 {
     ctor(fs);
 }
 
-org::apache::poi::hssf::usermodel::HSSFWorkbook::HSSFWorkbook(::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs, bool preserveNodes)  /* throws(IOException) */
+poi::hssf::usermodel::HSSFWorkbook::HSSFWorkbook(::poi::poifs::filesystem::POIFSFileSystem* fs, bool preserveNodes)  /* throws(IOException) */
     : HSSFWorkbook(*static_cast< ::default_init_tag* >(0))
 {
     ctor(fs,preserveNodes);
 }
 
-org::apache::poi::hssf::usermodel::HSSFWorkbook::HSSFWorkbook(::org::apache::poi::poifs::filesystem::DirectoryNode* directory, ::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs, bool preserveNodes)  /* throws(IOException) */
+poi::hssf::usermodel::HSSFWorkbook::HSSFWorkbook(::poi::poifs::filesystem::DirectoryNode* directory, ::poi::poifs::filesystem::POIFSFileSystem* fs, bool preserveNodes)  /* throws(IOException) */
     : HSSFWorkbook(*static_cast< ::default_init_tag* >(0))
 {
     ctor(directory,fs,preserveNodes);
 }
 
-org::apache::poi::hssf::usermodel::HSSFWorkbook::HSSFWorkbook(::org::apache::poi::poifs::filesystem::DirectoryNode* directory, bool preserveNodes)  /* throws(IOException) */
+poi::hssf::usermodel::HSSFWorkbook::HSSFWorkbook(::poi::poifs::filesystem::DirectoryNode* directory, bool preserveNodes)  /* throws(IOException) */
     : HSSFWorkbook(*static_cast< ::default_init_tag* >(0))
 {
     ctor(directory,preserveNodes);
 }
 
-org::apache::poi::hssf::usermodel::HSSFWorkbook::HSSFWorkbook(::java::io::InputStream* s)  /* throws(IOException) */
+poi::hssf::usermodel::HSSFWorkbook::HSSFWorkbook(::java::io::InputStream* s)  /* throws(IOException) */
     : HSSFWorkbook(*static_cast< ::default_init_tag* >(0))
 {
     ctor(s);
 }
 
-org::apache::poi::hssf::usermodel::HSSFWorkbook::HSSFWorkbook(::java::io::InputStream* s, bool preserveNodes)  /* throws(IOException) */
+poi::hssf::usermodel::HSSFWorkbook::HSSFWorkbook(::java::io::InputStream* s, bool preserveNodes)  /* throws(IOException) */
     : HSSFWorkbook(*static_cast< ::default_init_tag* >(0))
 {
     ctor(s,preserveNodes);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::init()
+void poi::hssf::usermodel::HSSFWorkbook::init()
 {
-    missingCellPolicy = ::org::apache::poi::ss::usermodel::Row_MissingCellPolicy::RETURN_NULL_AND_BLANK;
-    _udfFinder = new ::org::apache::poi::ss::formula::udf::IndexedUDFFinder(new ::org::apache::poi::ss::formula::udf::UDFFinderArray({::org::apache::poi::ss::formula::udf::AggregatingUDFFinder::DEFAULT()}));
+    missingCellPolicy = ::poi::ss::usermodel::Row_MissingCellPolicy::RETURN_NULL_AND_BLANK;
+    _udfFinder = new ::poi::ss::formula::udf::IndexedUDFFinder(new ::poi::ss::formula::udf::UDFFinderArray({::poi::ss::formula::udf::AggregatingUDFFinder::DEFAULT()}));
 }
 
-java::util::regex::Pattern*& org::apache::poi::hssf::usermodel::HSSFWorkbook::COMMA_PATTERN()
+java::util::regex::Pattern*& poi::hssf::usermodel::HSSFWorkbook::COMMA_PATTERN()
 {
     clinit();
     return COMMA_PATTERN_;
 }
-java::util::regex::Pattern* org::apache::poi::hssf::usermodel::HSSFWorkbook::COMMA_PATTERN_;
+java::util::regex::Pattern* poi::hssf::usermodel::HSSFWorkbook::COMMA_PATTERN_;
 
-constexpr int32_t org::apache::poi::hssf::usermodel::HSSFWorkbook::MAX_STYLES;
+constexpr int32_t poi::hssf::usermodel::HSSFWorkbook::MAX_STYLES;
 
-constexpr int32_t org::apache::poi::hssf::usermodel::HSSFWorkbook::DEBUG;
+constexpr int32_t poi::hssf::usermodel::HSSFWorkbook::DEBUG;
 
-int32_t& org::apache::poi::hssf::usermodel::HSSFWorkbook::INITIAL_CAPACITY()
+int32_t& poi::hssf::usermodel::HSSFWorkbook::INITIAL_CAPACITY()
 {
     clinit();
     return INITIAL_CAPACITY_;
 }
-int32_t org::apache::poi::hssf::usermodel::HSSFWorkbook::INITIAL_CAPACITY_;
+int32_t poi::hssf::usermodel::HSSFWorkbook::INITIAL_CAPACITY_;
 
-org::apache::poi::util::POILogger*& org::apache::poi::hssf::usermodel::HSSFWorkbook::log()
+poi::util::POILogger*& poi::hssf::usermodel::HSSFWorkbook::log()
 {
     clinit();
     return log_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::hssf::usermodel::HSSFWorkbook::log_;
+poi::util::POILogger* poi::hssf::usermodel::HSSFWorkbook::log_;
 
-org::apache::poi::hssf::usermodel::HSSFWorkbook* org::apache::poi::hssf::usermodel::HSSFWorkbook::create(::org::apache::poi::hssf::model::InternalWorkbook* book)
+poi::hssf::usermodel::HSSFWorkbook* poi::hssf::usermodel::HSSFWorkbook::create(::poi::hssf::model::InternalWorkbook* book)
 {
     clinit();
     return new HSSFWorkbook(book);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::ctor()
+void poi::hssf::usermodel::HSSFWorkbook::ctor()
 {
-    ctor(::org::apache::poi::hssf::model::InternalWorkbook::createWorkbook());
+    ctor(::poi::hssf::model::InternalWorkbook::createWorkbook());
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::ctor(::org::apache::poi::hssf::model::InternalWorkbook* book)
+void poi::hssf::usermodel::HSSFWorkbook::ctor(::poi::hssf::model::InternalWorkbook* book)
 {
-    super::ctor(static_cast< ::org::apache::poi::poifs::filesystem::DirectoryNode* >(nullptr));
+    super::ctor(static_cast< ::poi::poifs::filesystem::DirectoryNode* >(nullptr));
     init();
     workbook = book;
     _sheets = new ::java::util::ArrayList(INITIAL_CAPACITY_);
     names = new ::java::util::ArrayList(INITIAL_CAPACITY_);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::ctor(::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs) /* throws(IOException) */
+void poi::hssf::usermodel::HSSFWorkbook::ctor(::poi::poifs::filesystem::POIFSFileSystem* fs) /* throws(IOException) */
 {
     ctor(fs, true);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::ctor(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs) /* throws(IOException) */
+void poi::hssf::usermodel::HSSFWorkbook::ctor(::poi::poifs::filesystem::NPOIFSFileSystem* fs) /* throws(IOException) */
 {
     ctor(npc(fs)->getRoot(), true);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::ctor(::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs, bool preserveNodes) /* throws(IOException) */
+void poi::hssf::usermodel::HSSFWorkbook::ctor(::poi::poifs::filesystem::POIFSFileSystem* fs, bool preserveNodes) /* throws(IOException) */
 {
     ctor(npc(fs)->getRoot(), fs, preserveNodes);
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HSSFWorkbook::getWorkbookDirEntryName(::org::apache::poi::poifs::filesystem::DirectoryNode* directory)
+java::lang::String* poi::hssf::usermodel::HSSFWorkbook::getWorkbookDirEntryName(::poi::poifs::filesystem::DirectoryNode* directory)
 {
     clinit();
-    for(auto wbName : *npc(::org::apache::poi::hssf::model::InternalWorkbook::WORKBOOK_DIR_ENTRY_NAMES())) {
+    for(auto wbName : *npc(::poi::hssf::model::InternalWorkbook::WORKBOOK_DIR_ENTRY_NAMES())) {
         try {
             npc(directory)->getEntry(wbName);
             return wbName;
@@ -373,25 +367,25 @@ java::lang::String* org::apache::poi::hssf::usermodel::HSSFWorkbook::getWorkbook
         }
     }
     try {
-        npc(directory)->getEntry(::org::apache::poi::poifs::crypt::Decryptor::DEFAULT_POIFS_ENTRY());
-        throw new ::org::apache::poi::EncryptedDocumentException(::java::lang::StringBuilder().append(u"The supplied spreadsheet seems to be an Encrypted .xlsx file. "_j)->append(u"It must be decrypted before use by XSSF, it cannot be used by HSSF"_j)->toString());
+        npc(directory)->getEntry(::poi::poifs::crypt::Decryptor::DEFAULT_POIFS_ENTRY());
+        throw new ::poi::EncryptedDocumentException(::java::lang::StringBuilder().append(u"The supplied spreadsheet seems to be an Encrypted .xlsx file. "_j)->append(u"It must be decrypted before use by XSSF, it cannot be used by HSSF"_j)->toString());
     } catch (::java::io::FileNotFoundException* e) {
     }
     try {
-        npc(directory)->getEntry(::org::apache::poi::hssf::model::InternalWorkbook::OLD_WORKBOOK_DIR_ENTRY_NAME());
-        throw new ::org::apache::poi::hssf::OldExcelFormatException(::java::lang::StringBuilder().append(u"The supplied spreadsheet seems to be Excel 5.0/7.0 (BIFF5) format. "_j)->append(u"POI only supports BIFF8 format (from Excel versions 97/2000/XP/2003)"_j)->toString());
+        npc(directory)->getEntry(::poi::hssf::model::InternalWorkbook::OLD_WORKBOOK_DIR_ENTRY_NAME());
+        throw new ::poi::hssf::OldExcelFormatException(::java::lang::StringBuilder().append(u"The supplied spreadsheet seems to be Excel 5.0/7.0 (BIFF5) format. "_j)->append(u"POI only supports BIFF8 format (from Excel versions 97/2000/XP/2003)"_j)->toString());
     } catch (::java::io::FileNotFoundException* e) {
     }
     throw new ::java::lang::IllegalArgumentException(::java::lang::StringBuilder().append(u"The supplied POIFSFileSystem does not contain a BIFF8 'Workbook' entry. "_j)->append(u"Is it really an excel file? Had: "_j)
         ->append(static_cast< ::java::lang::Object* >(npc(directory)->getEntryNames()))->toString());
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::ctor(::org::apache::poi::poifs::filesystem::DirectoryNode* directory, ::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs, bool preserveNodes) /* throws(IOException) */
+void poi::hssf::usermodel::HSSFWorkbook::ctor(::poi::poifs::filesystem::DirectoryNode* directory, ::poi::poifs::filesystem::POIFSFileSystem* fs, bool preserveNodes) /* throws(IOException) */
 {
     ctor(directory, preserveNodes);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::ctor(::org::apache::poi::poifs::filesystem::DirectoryNode* directory, bool preserveNodes) /* throws(IOException) */
+void poi::hssf::usermodel::HSSFWorkbook::ctor(::poi::poifs::filesystem::DirectoryNode* directory, bool preserveNodes) /* throws(IOException) */
 {
     super::ctor(directory);
     init();
@@ -403,18 +397,18 @@ void org::apache::poi::hssf::usermodel::HSSFWorkbook::ctor(::org::apache::poi::p
     _sheets = new ::java::util::ArrayList(INITIAL_CAPACITY_);
     names = new ::java::util::ArrayList(INITIAL_CAPACITY_);
     ::java::io::InputStream* stream = npc(directory)->createDocumentInputStream(workbookName);
-    auto records = ::org::apache::poi::hssf::record::RecordFactory::createRecords(stream);
-    workbook = ::org::apache::poi::hssf::model::InternalWorkbook::createWorkbook(records);
+    auto records = ::poi::hssf::record::RecordFactory::createRecords(stream);
+    workbook = ::poi::hssf::model::InternalWorkbook::createWorkbook(records);
     setPropertiesFromWorkbook(workbook);
     auto recOffset = npc(workbook)->getNumRecords();
     convertLabelRecords(records, recOffset);
-    auto rs = new ::org::apache::poi::hssf::model::RecordStream(records, recOffset);
+    auto rs = new ::poi::hssf::model::RecordStream(records, recOffset);
     while (npc(rs)->hasNext()) {
         try {
-            auto sheet = ::org::apache::poi::hssf::model::InternalSheet::createSheet(rs);
+            auto sheet = ::poi::hssf::model::InternalSheet::createSheet(rs);
             npc(_sheets)->add(static_cast< ::java::lang::Object* >(new HSSFSheet(this, sheet)));
-        } catch (::org::apache::poi::hssf::model::InternalSheet_UnsupportedBOFType* eb) {
-            npc(log_)->log(::org::apache::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Unsupported BOF found of type "_j)->append(npc(eb)->getType())->toString())}));
+        } catch (::poi::hssf::model::InternalSheet_UnsupportedBOFType* eb) {
+            npc(log_)->log(::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Unsupported BOF found of type "_j)->append(npc(eb)->getType())->toString())}));
         }
     }
     for (auto i = int32_t(0); i < npc(workbook)->getNumNames(); ++i) {
@@ -424,33 +418,33 @@ void org::apache::poi::hssf::usermodel::HSSFWorkbook::ctor(::org::apache::poi::p
     }
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::ctor(::java::io::InputStream* s) /* throws(IOException) */
+void poi::hssf::usermodel::HSSFWorkbook::ctor(::java::io::InputStream* s) /* throws(IOException) */
 {
     ctor(s, true);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::ctor(::java::io::InputStream* s, bool preserveNodes) /* throws(IOException) */
+void poi::hssf::usermodel::HSSFWorkbook::ctor(::java::io::InputStream* s, bool preserveNodes) /* throws(IOException) */
 {
-    ctor((new ::org::apache::poi::poifs::filesystem::NPOIFSFileSystem(s))->getRoot(), preserveNodes);
+    ctor((new ::poi::poifs::filesystem::NPOIFSFileSystem(s))->getRoot(), preserveNodes);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::setPropertiesFromWorkbook(::org::apache::poi::hssf::model::InternalWorkbook* book)
+void poi::hssf::usermodel::HSSFWorkbook::setPropertiesFromWorkbook(::poi::hssf::model::InternalWorkbook* book)
 {
     this->workbook = book;
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::convertLabelRecords(::java::util::List* records, int32_t offset)
+void poi::hssf::usermodel::HSSFWorkbook::convertLabelRecords(::java::util::List* records, int32_t offset)
 {
-    if(npc(log_)->check(::org::apache::poi::util::POILogger::DEBUG)) {
-        npc(log_)->log(::org::apache::poi::util::POILogger::DEBUG, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"convertLabelRecords called"_j)}));
+    if(npc(log_)->check(::poi::util::POILogger::DEBUG)) {
+        npc(log_)->log(::poi::util::POILogger::DEBUG, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"convertLabelRecords called"_j)}));
     }
     for (auto k = offset; k < npc(records)->size(); k++) {
-        auto rec = java_cast< ::org::apache::poi::hssf::record::Record* >(npc(records)->get(k));
-        if(npc(rec)->getSid() == ::org::apache::poi::hssf::record::LabelRecord::sid) {
-            auto oldrec = java_cast< ::org::apache::poi::hssf::record::LabelRecord* >(rec);
+        auto rec = java_cast< ::poi::hssf::record::Record* >(npc(records)->get(k));
+        if(npc(rec)->getSid() == ::poi::hssf::record::LabelRecord::sid) {
+            auto oldrec = java_cast< ::poi::hssf::record::LabelRecord* >(rec);
             npc(records)->remove(k);
-            auto newrec = new ::org::apache::poi::hssf::record::LabelSSTRecord();
-            auto stringid = npc(workbook)->addSSTString(new ::org::apache::poi::hssf::record::common::UnicodeString(npc(oldrec)->getValue()));
+            auto newrec = new ::poi::hssf::record::LabelSSTRecord();
+            auto stringid = npc(workbook)->addSSTString(new ::poi::hssf::record::common::UnicodeString(npc(oldrec)->getValue()));
             npc(newrec)->setRow(npc(oldrec)->getRow());
             npc(newrec)->setColumn(npc(oldrec)->getColumn());
             npc(newrec)->setXFIndex(npc(oldrec)->getXFIndex());
@@ -458,27 +452,27 @@ void org::apache::poi::hssf::usermodel::HSSFWorkbook::convertLabelRecords(::java
             npc(records)->add(k, newrec);
         }
     }
-    if(npc(log_)->check(::org::apache::poi::util::POILogger::DEBUG)) {
-        npc(log_)->log(::org::apache::poi::util::POILogger::DEBUG, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"convertLabelRecords exit"_j)}));
+    if(npc(log_)->check(::poi::util::POILogger::DEBUG)) {
+        npc(log_)->log(::poi::util::POILogger::DEBUG, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"convertLabelRecords exit"_j)}));
     }
 }
 
-org::apache::poi::ss::usermodel::Row_MissingCellPolicy* org::apache::poi::hssf::usermodel::HSSFWorkbook::getMissingCellPolicy()
+poi::ss::usermodel::Row_MissingCellPolicy* poi::hssf::usermodel::HSSFWorkbook::getMissingCellPolicy()
 {
     return missingCellPolicy;
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::setMissingCellPolicy(::org::apache::poi::ss::usermodel::Row_MissingCellPolicy* missingCellPolicy)
+void poi::hssf::usermodel::HSSFWorkbook::setMissingCellPolicy(::poi::ss::usermodel::Row_MissingCellPolicy* missingCellPolicy)
 {
     this->missingCellPolicy = missingCellPolicy;
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::setSheetOrder(::java::lang::String* sheetname, int32_t pos)
+void poi::hssf::usermodel::HSSFWorkbook::setSheetOrder(::java::lang::String* sheetname, int32_t pos)
 {
     auto oldSheetIndex = getSheetIndex(sheetname);
     npc(_sheets)->add(pos, java_cast< HSSFSheet* >(npc(_sheets)->remove(oldSheetIndex)));
     npc(workbook)->setSheetOrder(sheetname, pos);
-    auto shifter = ::org::apache::poi::ss::formula::FormulaShifter::createForSheetShift(oldSheetIndex, pos);
+    auto shifter = ::poi::ss::formula::FormulaShifter::createForSheetShift(oldSheetIndex, pos);
     for (auto _i = npc(_sheets)->iterator(); _i->hasNext(); ) {
         HSSFSheet* sheet = java_cast< HSSFSheet* >(_i->next());
         {
@@ -490,7 +484,7 @@ void org::apache::poi::hssf::usermodel::HSSFWorkbook::setSheetOrder(::java::lang
     updateActiveSheetAfterSheetReorder(oldSheetIndex, pos);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::updateNamedRangesAfterSheetReorder(int32_t oldIndex, int32_t newIndex)
+void poi::hssf::usermodel::HSSFWorkbook::updateNamedRangesAfterSheetReorder(int32_t oldIndex, int32_t newIndex)
 {
     for (auto _i = npc(names)->iterator(); _i->hasNext(); ) {
         HSSFName* name = java_cast< HSSFName* >(_i->next());
@@ -509,7 +503,7 @@ void org::apache::poi::hssf::usermodel::HSSFWorkbook::updateNamedRangesAfterShee
     }
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::updateActiveSheetAfterSheetReorder(int32_t oldIndex, int32_t newIndex)
+void poi::hssf::usermodel::HSSFWorkbook::updateActiveSheetAfterSheetReorder(int32_t oldIndex, int32_t newIndex)
 {
     auto active = getActiveSheetIndex();
     if(active == oldIndex) {
@@ -522,7 +516,7 @@ void org::apache::poi::hssf::usermodel::HSSFWorkbook::updateActiveSheetAfterShee
     }
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::validateSheetIndex(int32_t index)
+void poi::hssf::usermodel::HSSFWorkbook::validateSheetIndex(int32_t index)
 {
     auto lastSheetIx = npc(_sheets)->size() - int32_t(1);
     if(index < 0 || index > lastSheetIx) {
@@ -537,7 +531,7 @@ void org::apache::poi::hssf::usermodel::HSSFWorkbook::validateSheetIndex(int32_t
     }
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::setSelectedTab(int32_t index)
+void poi::hssf::usermodel::HSSFWorkbook::setSelectedTab(int32_t index)
 {
     validateSheetIndex(index);
     auto nSheets = npc(_sheets)->size();
@@ -547,7 +541,7 @@ void org::apache::poi::hssf::usermodel::HSSFWorkbook::setSelectedTab(int32_t ind
     npc(npc(workbook)->getWindowOne())->setNumSelectedTabs(static_cast< int16_t >(int32_t(1)));
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::setSelectedTabs(::int32_tArray* indexes)
+void poi::hssf::usermodel::HSSFWorkbook::setSelectedTabs(::int32_tArray* indexes)
 {
     ::java::util::Collection* list = new ::java::util::ArrayList(npc(indexes)->length);
     for(auto index : *npc(indexes)) {
@@ -556,7 +550,7 @@ void org::apache::poi::hssf::usermodel::HSSFWorkbook::setSelectedTabs(::int32_tA
     setSelectedTabs(list);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::setSelectedTabs(::java::util::Collection* indexes)
+void poi::hssf::usermodel::HSSFWorkbook::setSelectedTabs(::java::util::Collection* indexes)
 {
     for (auto _i = npc(indexes)->iterator(); _i->hasNext(); ) {
         int32_t index = npc(java_cast< ::java::lang::Integer* >(_i->next()))->intValue();
@@ -574,7 +568,7 @@ void org::apache::poi::hssf::usermodel::HSSFWorkbook::setSelectedTabs(::java::ut
     npc(npc(workbook)->getWindowOne())->setNumSelectedTabs(nSelected);
 }
 
-java::util::Collection* org::apache::poi::hssf::usermodel::HSSFWorkbook::getSelectedTabs()
+java::util::Collection* poi::hssf::usermodel::HSSFWorkbook::getSelectedTabs()
 {
     ::java::util::Collection* indexes = new ::java::util::ArrayList();
     auto nSheets = npc(_sheets)->size();
@@ -587,7 +581,7 @@ java::util::Collection* org::apache::poi::hssf::usermodel::HSSFWorkbook::getSele
     return ::java::util::Collections::unmodifiableCollection(indexes);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::setActiveSheet(int32_t index)
+void poi::hssf::usermodel::HSSFWorkbook::setActiveSheet(int32_t index)
 {
     validateSheetIndex(index);
     auto nSheets = npc(_sheets)->size();
@@ -597,22 +591,22 @@ void org::apache::poi::hssf::usermodel::HSSFWorkbook::setActiveSheet(int32_t ind
     npc(npc(workbook)->getWindowOne())->setActiveSheetIndex(index);
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFWorkbook::getActiveSheetIndex()
+int32_t poi::hssf::usermodel::HSSFWorkbook::getActiveSheetIndex()
 {
     return npc(npc(workbook)->getWindowOne())->getActiveSheetIndex();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::setFirstVisibleTab(int32_t index)
+void poi::hssf::usermodel::HSSFWorkbook::setFirstVisibleTab(int32_t index)
 {
     npc(npc(workbook)->getWindowOne())->setFirstVisibleTab(index);
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFWorkbook::getFirstVisibleTab()
+int32_t poi::hssf::usermodel::HSSFWorkbook::getFirstVisibleTab()
 {
     return npc(npc(workbook)->getWindowOne())->getFirstVisibleTab();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::setSheetName(int32_t sheetIx, ::java::lang::String* name)
+void poi::hssf::usermodel::HSSFWorkbook::setSheetName(int32_t sheetIx, ::java::lang::String* name)
 {
     if(name == nullptr) {
         throw new ::java::lang::IllegalArgumentException(u"sheetName must not be null"_j);
@@ -625,55 +619,55 @@ void org::apache::poi::hssf::usermodel::HSSFWorkbook::setSheetName(int32_t sheet
     npc(workbook)->setSheetName(sheetIx, name);
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HSSFWorkbook::getSheetName(int32_t sheetIndex)
+java::lang::String* poi::hssf::usermodel::HSSFWorkbook::getSheetName(int32_t sheetIndex)
 {
     validateSheetIndex(sheetIndex);
     return npc(workbook)->getSheetName(sheetIndex);
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFWorkbook::isHidden()
+bool poi::hssf::usermodel::HSSFWorkbook::isHidden()
 {
     return npc(npc(workbook)->getWindowOne())->getHidden();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::setHidden(bool hiddenFlag)
+void poi::hssf::usermodel::HSSFWorkbook::setHidden(bool hiddenFlag)
 {
     npc(npc(workbook)->getWindowOne())->setHidden(hiddenFlag);
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFWorkbook::isSheetHidden(int32_t sheetIx)
+bool poi::hssf::usermodel::HSSFWorkbook::isSheetHidden(int32_t sheetIx)
 {
     validateSheetIndex(sheetIx);
     return npc(workbook)->isSheetHidden(sheetIx);
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFWorkbook::isSheetVeryHidden(int32_t sheetIx)
+bool poi::hssf::usermodel::HSSFWorkbook::isSheetVeryHidden(int32_t sheetIx)
 {
     validateSheetIndex(sheetIx);
     return npc(workbook)->isSheetVeryHidden(sheetIx);
 }
 
-org::apache::poi::ss::usermodel::SheetVisibility* org::apache::poi::hssf::usermodel::HSSFWorkbook::getSheetVisibility(int32_t sheetIx)
+poi::ss::usermodel::SheetVisibility* poi::hssf::usermodel::HSSFWorkbook::getSheetVisibility(int32_t sheetIx)
 {
     return npc(workbook)->getSheetVisibility(sheetIx);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::setSheetHidden(int32_t sheetIx, bool hidden)
+void poi::hssf::usermodel::HSSFWorkbook::setSheetHidden(int32_t sheetIx, bool hidden)
 {
-    setSheetVisibility(sheetIx, hidden ? ::org::apache::poi::ss::usermodel::SheetVisibility::HIDDEN : ::org::apache::poi::ss::usermodel::SheetVisibility::VISIBLE);
+    setSheetVisibility(sheetIx, hidden ? ::poi::ss::usermodel::SheetVisibility::HIDDEN : ::poi::ss::usermodel::SheetVisibility::VISIBLE);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::setSheetHidden(int32_t sheetIx, int32_t hidden)
+void poi::hssf::usermodel::HSSFWorkbook::setSheetHidden(int32_t sheetIx, int32_t hidden)
 {
     switch (hidden) {
-    case ::org::apache::poi::ss::usermodel::Workbook::SHEET_STATE_VISIBLE:
-        setSheetVisibility(sheetIx, ::org::apache::poi::ss::usermodel::SheetVisibility::VISIBLE);
+    case ::poi::ss::usermodel::Workbook::SHEET_STATE_VISIBLE:
+        setSheetVisibility(sheetIx, ::poi::ss::usermodel::SheetVisibility::VISIBLE);
         break;
-    case ::org::apache::poi::ss::usermodel::Workbook::SHEET_STATE_HIDDEN:
-        setSheetVisibility(sheetIx, ::org::apache::poi::ss::usermodel::SheetVisibility::HIDDEN);
+    case ::poi::ss::usermodel::Workbook::SHEET_STATE_HIDDEN:
+        setSheetVisibility(sheetIx, ::poi::ss::usermodel::SheetVisibility::HIDDEN);
         break;
-    case ::org::apache::poi::ss::usermodel::Workbook::SHEET_STATE_VERY_HIDDEN:
-        setSheetVisibility(sheetIx, ::org::apache::poi::ss::usermodel::SheetVisibility::VERY_HIDDEN);
+    case ::poi::ss::usermodel::Workbook::SHEET_STATE_VERY_HIDDEN:
+        setSheetVisibility(sheetIx, ::poi::ss::usermodel::SheetVisibility::VERY_HIDDEN);
         break;
     default:
         throw new ::java::lang::IllegalArgumentException(::java::lang::StringBuilder().append(u"Invalid sheet state : "_j)->append(hidden)
@@ -683,23 +677,23 @@ void org::apache::poi::hssf::usermodel::HSSFWorkbook::setSheetHidden(int32_t she
 
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::setSheetVisibility(int32_t sheetIx, ::org::apache::poi::ss::usermodel::SheetVisibility* visibility)
+void poi::hssf::usermodel::HSSFWorkbook::setSheetVisibility(int32_t sheetIx, ::poi::ss::usermodel::SheetVisibility* visibility)
 {
     validateSheetIndex(sheetIx);
     npc(workbook)->setSheetHidden(sheetIx, visibility);
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFWorkbook::getSheetIndex(::java::lang::String* name)
+int32_t poi::hssf::usermodel::HSSFWorkbook::getSheetIndex(::java::lang::String* name)
 {
     return npc(workbook)->getSheetIndex(name);
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFWorkbook::getSheetIndex(::org::apache::poi::ss::usermodel::Sheet* sheet)
+int32_t poi::hssf::usermodel::HSSFWorkbook::getSheetIndex(::poi::ss::usermodel::Sheet* sheet)
 {
     return npc(_sheets)->indexOf(sheet);
 }
 
-org::apache::poi::ss::usermodel::Sheet* org::apache::poi::hssf::usermodel::HSSFWorkbook::createSheet()
+poi::ss::usermodel::Sheet* poi::hssf::usermodel::HSSFWorkbook::createSheet()
 {
     auto sheet = new HSSFSheet(this);
     npc(_sheets)->add(static_cast< ::java::lang::Object* >(sheet));
@@ -710,7 +704,7 @@ org::apache::poi::ss::usermodel::Sheet* org::apache::poi::hssf::usermodel::HSSFW
     return sheet;
 }
 
-org::apache::poi::ss::usermodel::Sheet* org::apache::poi::hssf::usermodel::HSSFWorkbook::cloneSheet(int32_t sheetIndex)
+poi::ss::usermodel::Sheet* poi::hssf::usermodel::HSSFWorkbook::cloneSheet(int32_t sheetIndex)
 {
     validateSheetIndex(sheetIndex);
     auto srcSheet = java_cast< HSSFSheet* >(npc(_sheets)->get(sheetIndex));
@@ -722,7 +716,7 @@ org::apache::poi::ss::usermodel::Sheet* org::apache::poi::hssf::usermodel::HSSFW
     auto newSheetIndex = npc(_sheets)->size();
     npc(_sheets)->add(static_cast< ::java::lang::Object* >(clonedSheet));
     npc(workbook)->setSheetName(newSheetIndex, name);
-    auto filterDbNameIndex = findExistingBuiltinNameRecordIdx(sheetIndex, ::org::apache::poi::hssf::record::NameRecord::BUILTIN_FILTER_DB);
+    auto filterDbNameIndex = findExistingBuiltinNameRecordIdx(sheetIndex, ::poi::hssf::record::NameRecord::BUILTIN_FILTER_DB);
     if(filterDbNameIndex != -int32_t(1)) {
         auto newNameRecord = npc(workbook)->cloneFilter(filterDbNameIndex, newSheetIndex);
         auto newName = new HSSFName(this, newNameRecord);
@@ -731,7 +725,7 @@ org::apache::poi::ss::usermodel::Sheet* org::apache::poi::hssf::usermodel::HSSFW
     return clonedSheet;
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HSSFWorkbook::getUniqueSheetName(::java::lang::String* srcName)
+java::lang::String* poi::hssf::usermodel::HSSFWorkbook::getUniqueSheetName(::java::lang::String* srcName)
 {
     auto uniqueIndex = int32_t(2);
     auto baseName = srcName;
@@ -763,7 +757,7 @@ java::lang::String* org::apache::poi::hssf::usermodel::HSSFWorkbook::getUniqueSh
     }
 }
 
-org::apache::poi::ss::usermodel::Sheet* org::apache::poi::hssf::usermodel::HSSFWorkbook::createSheet(::java::lang::String* sheetname)
+poi::ss::usermodel::Sheet* poi::hssf::usermodel::HSSFWorkbook::createSheet(::java::lang::String* sheetname)
 {
     if(sheetname == nullptr) {
         throw new ::java::lang::IllegalArgumentException(u"sheetName must not be null"_j);
@@ -781,35 +775,35 @@ org::apache::poi::ss::usermodel::Sheet* org::apache::poi::hssf::usermodel::HSSFW
     return sheet;
 }
 
-java::util::Iterator* org::apache::poi::hssf::usermodel::HSSFWorkbook::sheetIterator()
+java::util::Iterator* poi::hssf::usermodel::HSSFWorkbook::sheetIterator()
 {
     return new HSSFWorkbook_SheetIterator(this);
 }
 
-java::util::Iterator* org::apache::poi::hssf::usermodel::HSSFWorkbook::iterator()
+java::util::Iterator* poi::hssf::usermodel::HSSFWorkbook::iterator()
 {
     return sheetIterator();
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFWorkbook::getNumberOfSheets()
+int32_t poi::hssf::usermodel::HSSFWorkbook::getNumberOfSheets()
 {
     return npc(_sheets)->size();
 }
 
-org::apache::poi::hssf::usermodel::HSSFSheetArray* org::apache::poi::hssf::usermodel::HSSFWorkbook::getSheets()
+poi::hssf::usermodel::HSSFSheetArray* poi::hssf::usermodel::HSSFWorkbook::getSheets()
 {
     auto result = new HSSFSheetArray(npc(_sheets)->size());
     npc(_sheets)->toArray_(static_cast< ::java::lang::ObjectArray* >(result));
     return result;
 }
 
-org::apache::poi::ss::usermodel::Sheet* org::apache::poi::hssf::usermodel::HSSFWorkbook::getSheetAt(int32_t index)
+poi::ss::usermodel::Sheet* poi::hssf::usermodel::HSSFWorkbook::getSheetAt(int32_t index)
 {
     validateSheetIndex(index);
     return java_cast< HSSFSheet* >(npc(_sheets)->get(index));
 }
 
-org::apache::poi::ss::usermodel::Sheet* org::apache::poi::hssf::usermodel::HSSFWorkbook::getSheet(::java::lang::String* name)
+poi::ss::usermodel::Sheet* poi::hssf::usermodel::HSSFWorkbook::getSheet(::java::lang::String* name)
 {
     HSSFSheet* retval = nullptr;
     for (auto k = int32_t(0); k < npc(_sheets)->size(); k++) {
@@ -821,7 +815,7 @@ org::apache::poi::ss::usermodel::Sheet* org::apache::poi::hssf::usermodel::HSSFW
     return retval;
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::removeSheetAt(int32_t index)
+void poi::hssf::usermodel::HSSFWorkbook::removeSheetAt(int32_t index)
 {
     validateSheetIndex(index);
     auto wasSelected = npc(java_cast< HSSFSheet* >(getSheetAt(index)))->isSelected();
@@ -855,19 +849,19 @@ void org::apache::poi::hssf::usermodel::HSSFWorkbook::removeSheetAt(int32_t inde
     }
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::setBackupFlag(bool backupValue)
+void poi::hssf::usermodel::HSSFWorkbook::setBackupFlag(bool backupValue)
 {
     auto backupRecord = npc(workbook)->getBackupRecord();
     npc(backupRecord)->setBackup(backupValue ? static_cast< int16_t >(int32_t(1)) : static_cast< int16_t >(int32_t(0)));
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFWorkbook::getBackupFlag()
+bool poi::hssf::usermodel::HSSFWorkbook::getBackupFlag()
 {
     auto backupRecord = npc(workbook)->getBackupRecord();
     return npc(backupRecord)->getBackup() != 0;
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFWorkbook::findExistingBuiltinNameRecordIdx(int32_t sheetIndex, int8_t builtinCode)
+int32_t poi::hssf::usermodel::HSSFWorkbook::findExistingBuiltinNameRecordIdx(int32_t sheetIndex, int8_t builtinCode)
 {
     for (auto defNameIndex = int32_t(0); defNameIndex < npc(names)->size(); defNameIndex++) {
         auto r = npc(workbook)->getNameRecord(defNameIndex);
@@ -884,7 +878,7 @@ int32_t org::apache::poi::hssf::usermodel::HSSFWorkbook::findExistingBuiltinName
     return -int32_t(1);
 }
 
-org::apache::poi::hssf::usermodel::HSSFName* org::apache::poi::hssf::usermodel::HSSFWorkbook::createBuiltInName(int8_t builtinCode, int32_t sheetIndex)
+poi::hssf::usermodel::HSSFName* poi::hssf::usermodel::HSSFWorkbook::createBuiltInName(int8_t builtinCode, int32_t sheetIndex)
 {
     auto nameRecord = npc(workbook)->createBuiltInName(builtinCode, sheetIndex + int32_t(1));
     auto newName = new HSSFName(this, nameRecord, nullptr);
@@ -892,7 +886,7 @@ org::apache::poi::hssf::usermodel::HSSFName* org::apache::poi::hssf::usermodel::
     return newName;
 }
 
-org::apache::poi::hssf::usermodel::HSSFName* org::apache::poi::hssf::usermodel::HSSFWorkbook::getBuiltInName(int8_t builtinCode, int32_t sheetIndex)
+poi::hssf::usermodel::HSSFName* poi::hssf::usermodel::HSSFWorkbook::getBuiltInName(int8_t builtinCode, int32_t sheetIndex)
 {
     auto index = findExistingBuiltinNameRecordIdx(sheetIndex, builtinCode);
     if(index < 0) {
@@ -902,7 +896,7 @@ org::apache::poi::hssf::usermodel::HSSFName* org::apache::poi::hssf::usermodel::
     }
 }
 
-org::apache::poi::hssf::usermodel::HSSFFont* org::apache::poi::hssf::usermodel::HSSFWorkbook::createFont()
+poi::hssf::usermodel::HSSFFont* poi::hssf::usermodel::HSSFWorkbook::createFont()
 {
     npc(workbook)->createNewFont();
     auto fontindex = static_cast< int16_t >((getNumberOfFonts() - int32_t(1)));
@@ -915,7 +909,7 @@ org::apache::poi::hssf::usermodel::HSSFFont* org::apache::poi::hssf::usermodel::
     return getFontAt(fontindex);
 }
 
-org::apache::poi::hssf::usermodel::HSSFFont* org::apache::poi::hssf::usermodel::HSSFWorkbook::findFont(bool bold, int16_t color, int16_t fontHeight, ::java::lang::String* name, bool italic, bool strikeout, int16_t typeOffset, int8_t underline)
+poi::hssf::usermodel::HSSFFont* poi::hssf::usermodel::HSSFWorkbook::findFont(bool bold, int16_t color, int16_t fontHeight, ::java::lang::String* name, bool italic, bool strikeout, int16_t typeOffset, int8_t underline)
 {
     auto numberOfFonts = getNumberOfFonts();
     for (int16_t i = int32_t(0); i <= numberOfFonts; i++) {
@@ -930,12 +924,12 @@ org::apache::poi::hssf::usermodel::HSSFFont* org::apache::poi::hssf::usermodel::
     return nullptr;
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFWorkbook::getNumberOfFonts()
+int16_t poi::hssf::usermodel::HSSFWorkbook::getNumberOfFonts()
 {
     return static_cast< int16_t >(npc(workbook)->getNumberOfFontRecords());
 }
 
-org::apache::poi::hssf::usermodel::HSSFFont* org::apache::poi::hssf::usermodel::HSSFWorkbook::getFontAt(int16_t idx)
+poi::hssf::usermodel::HSSFFont* poi::hssf::usermodel::HSSFWorkbook::getFontAt(int16_t idx)
 {
     if(fonts == nullptr) {
         fonts = new ::java::util::HashMap();
@@ -950,12 +944,12 @@ org::apache::poi::hssf::usermodel::HSSFFont* org::apache::poi::hssf::usermodel::
     return retval;
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::resetFontCache()
+void poi::hssf::usermodel::HSSFWorkbook::resetFontCache()
 {
     fonts = new ::java::util::HashMap();
 }
 
-org::apache::poi::hssf::usermodel::HSSFCellStyle* org::apache::poi::hssf::usermodel::HSSFWorkbook::createCellStyle()
+poi::hssf::usermodel::HSSFCellStyle* poi::hssf::usermodel::HSSFWorkbook::createCellStyle()
 {
     if(npc(workbook)->getNumExFormats() == MAX_STYLES) {
         throw new ::java::lang::IllegalStateException(::java::lang::StringBuilder().append(u"The maximum number of cell styles was exceeded. "_j)->append(u"You can define up to 4000 styles in a .xls workbook"_j)->toString());
@@ -965,51 +959,51 @@ org::apache::poi::hssf::usermodel::HSSFCellStyle* org::apache::poi::hssf::usermo
     return new HSSFCellStyle(index, xfr, this);
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFWorkbook::getNumCellStyles()
+int32_t poi::hssf::usermodel::HSSFWorkbook::getNumCellStyles()
 {
     return npc(workbook)->getNumExFormats();
 }
 
-org::apache::poi::hssf::usermodel::HSSFCellStyle* org::apache::poi::hssf::usermodel::HSSFWorkbook::getCellStyleAt(int32_t idx)
+poi::hssf::usermodel::HSSFCellStyle* poi::hssf::usermodel::HSSFWorkbook::getCellStyleAt(int32_t idx)
 {
     auto xfr = npc(workbook)->getExFormatAt(idx);
     return new HSSFCellStyle(static_cast< int16_t >(idx), xfr, this);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::close() /* throws(IOException) */
+void poi::hssf::usermodel::HSSFWorkbook::close() /* throws(IOException) */
 {
     super::close();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::write() /* throws(IOException) */
+void poi::hssf::usermodel::HSSFWorkbook::write() /* throws(IOException) */
 {
     validateInPlaceWritePossible();
     auto const dir = getDirectory();
-    auto workbookNode = java_cast< ::org::apache::poi::poifs::filesystem::DocumentNode* >(npc(dir)->getEntry(getWorkbookDirEntryName(dir)));
-    auto workbookDoc = new ::org::apache::poi::poifs::filesystem::NPOIFSDocument(workbookNode);
+    auto workbookNode = java_cast< ::poi::poifs::filesystem::DocumentNode* >(npc(dir)->getEntry(getWorkbookDirEntryName(dir)));
+    auto workbookDoc = new ::poi::poifs::filesystem::NPOIFSDocument(workbookNode);
     npc(workbookDoc)->replaceContents(new ::java::io::ByteArrayInputStream(getBytes()));
     writeProperties();
     npc(npc(dir)->getFileSystem())->writeFilesystem();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::write(::java::io::File* newFile) /* throws(IOException) */
+void poi::hssf::usermodel::HSSFWorkbook::write(::java::io::File* newFile) /* throws(IOException) */
 {
-    auto fs = ::org::apache::poi::poifs::filesystem::POIFSFileSystem::create(newFile);
+    auto fs = ::poi::poifs::filesystem::POIFSFileSystem::create(newFile);
     {
         auto finally0 = finally([&] {
             npc(fs)->close();
         });
         {
-            write(static_cast< ::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* >(fs));
+            write(static_cast< ::poi::poifs::filesystem::NPOIFSFileSystem* >(fs));
             npc(fs)->writeFilesystem();
         }
     }
 
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::write(::java::io::OutputStream* stream) /* throws(IOException) */
+void poi::hssf::usermodel::HSSFWorkbook::write(::java::io::OutputStream* stream) /* throws(IOException) */
 {
-    auto fs = new ::org::apache::poi::poifs::filesystem::NPOIFSFileSystem();
+    auto fs = new ::poi::poifs::filesystem::NPOIFSFileSystem();
     {
         auto finally1 = finally([&] {
             npc(fs)->close();
@@ -1022,22 +1016,22 @@ void org::apache::poi::hssf::usermodel::HSSFWorkbook::write(::java::io::OutputSt
 
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::write(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs) /* throws(IOException) */
+void poi::hssf::usermodel::HSSFWorkbook::write(::poi::poifs::filesystem::NPOIFSFileSystem* fs) /* throws(IOException) */
 {
     ::java::util::List* excepts = new ::java::util::ArrayList(int32_t(1));
     npc(fs)->createDocument(new ::java::io::ByteArrayInputStream(getBytes()), u"Workbook"_j);
     writeProperties(fs, excepts);
     if(preserveNodes) {
-        npc(excepts)->addAll(static_cast< ::java::util::Collection* >(::java::util::Arrays::asList(::org::apache::poi::hssf::model::InternalWorkbook::WORKBOOK_DIR_ENTRY_NAMES())));
-        npc(excepts)->addAll(static_cast< ::java::util::Collection* >(::java::util::Arrays::asList(new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::org::apache::poi::hpsf::DocumentSummaryInformation::DEFAULT_STREAM_NAME()), static_cast< ::java::lang::Object* >(::org::apache::poi::hpsf::SummaryInformation::DEFAULT_STREAM_NAME()), static_cast< ::java::lang::Object* >(getEncryptedPropertyStreamName())}))));
-        ::org::apache::poi::poifs::filesystem::EntryUtils::copyNodes(new ::org::apache::poi::poifs::filesystem::FilteringDirectoryNode(getDirectory(), excepts), new ::org::apache::poi::poifs::filesystem::FilteringDirectoryNode(npc(fs)->getRoot(), excepts));
+        npc(excepts)->addAll(static_cast< ::java::util::Collection* >(::java::util::Arrays::asList(::poi::hssf::model::InternalWorkbook::WORKBOOK_DIR_ENTRY_NAMES())));
+        npc(excepts)->addAll(static_cast< ::java::util::Collection* >(::java::util::Arrays::asList(new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::poi::hpsf::DocumentSummaryInformation::DEFAULT_STREAM_NAME()), static_cast< ::java::lang::Object* >(::poi::hpsf::SummaryInformation::DEFAULT_STREAM_NAME()), static_cast< ::java::lang::Object* >(getEncryptedPropertyStreamName())}))));
+        ::poi::poifs::filesystem::EntryUtils::copyNodes(new ::poi::poifs::filesystem::FilteringDirectoryNode(getDirectory(), excepts), new ::poi::poifs::filesystem::FilteringDirectoryNode(npc(fs)->getRoot(), excepts));
         npc(npc(fs)->getRoot())->setStorageClsid(npc(getDirectory())->getStorageClsid());
     }
 }
 
-int8_tArray* org::apache::poi::hssf::usermodel::HSSFWorkbook::getBytes()
+int8_tArray* poi::hssf::usermodel::HSSFWorkbook::getBytes()
 {
-    if(npc(log_)->check(::org::apache::poi::util::POILogger::DEBUG)) {
+    if(npc(log_)->check(::poi::util::POILogger::DEBUG)) {
         npc(log_)->log(DEBUG, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"HSSFWorkbook.getBytes()"_j)}));
     }
     auto sheets = getSheets();
@@ -1076,7 +1070,7 @@ int8_tArray* org::apache::poi::hssf::usermodel::HSSFWorkbook::getBytes()
     return retval;
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::encryptBytes(::int8_tArray* buf)
+void poi::hssf::usermodel::HSSFWorkbook::encryptBytes(::int8_tArray* buf)
 {
     auto ei = getEncryptionInfo();
     if(ei == nullptr) {
@@ -1084,21 +1078,21 @@ void org::apache::poi::hssf::usermodel::HSSFWorkbook::encryptBytes(::int8_tArray
     }
     auto enc = npc(ei)->getEncryptor();
     auto initialOffset = int32_t(0);
-    auto plain = new ::org::apache::poi::util::LittleEndianByteArrayInputStream(buf, int32_t(0));
-    auto leos = new ::org::apache::poi::util::LittleEndianByteArrayOutputStream(buf, int32_t(0));
-    npc(enc)->setChunkSize(::org::apache::poi::hssf::record::crypto::Biff8DecryptingStream::RC4_REKEYING_INTERVAL);
+    auto plain = new ::poi::util::LittleEndianByteArrayInputStream(buf, int32_t(0));
+    auto leos = new ::poi::util::LittleEndianByteArrayOutputStream(buf, int32_t(0));
+    npc(enc)->setChunkSize(::poi::hssf::record::crypto::Biff8DecryptingStream::RC4_REKEYING_INTERVAL);
     auto tmp = new ::int8_tArray(int32_t(1024));
     try {
         auto os = npc(enc)->getDataStream(leos, initialOffset);
         auto totalBytes = int32_t(0);
         while (totalBytes < npc(buf)->length) {
             npc(plain)->read(tmp, int32_t(0), int32_t(4));
-            auto const sid = ::org::apache::poi::util::LittleEndian::getUShort(tmp, 0);
-            auto const len = ::org::apache::poi::util::LittleEndian::getUShort(tmp, 2);
-            auto isPlain = ::org::apache::poi::hssf::record::crypto::Biff8DecryptingStream::isNeverEncryptedRecord(sid);
+            auto const sid = ::poi::util::LittleEndian::getUShort(tmp, 0);
+            auto const len = ::poi::util::LittleEndian::getUShort(tmp, 2);
+            auto isPlain = ::poi::hssf::record::crypto::Biff8DecryptingStream::isNeverEncryptedRecord(sid);
             npc(os)->setNextRecordSize(len, isPlain);
             npc(os)->writePlain(tmp, 0, 4);
-            if(sid == ::org::apache::poi::hssf::record::BoundSheetRecord::sid) {
+            if(sid == ::poi::hssf::record::BoundSheetRecord::sid) {
                 auto bsrBuf = new ::int8_tArray(len);
                 npc(plain)->readFully(bsrBuf);
                 npc(os)->writePlain(bsrBuf, 0, 4);
@@ -1120,21 +1114,21 @@ void org::apache::poi::hssf::usermodel::HSSFWorkbook::encryptBytes(::int8_tArray
         }
         npc(os)->close();
     } catch (::java::lang::Exception* e) {
-        throw new ::org::apache::poi::EncryptedDocumentException(static_cast< ::java::lang::Throwable* >(e));
+        throw new ::poi::EncryptedDocumentException(static_cast< ::java::lang::Throwable* >(e));
     }
 }
 
-org::apache::poi::hssf::model::InternalWorkbook* org::apache::poi::hssf::usermodel::HSSFWorkbook::getWorkbook()
+poi::hssf::model::InternalWorkbook* poi::hssf::usermodel::HSSFWorkbook::getWorkbook()
 {
     return workbook;
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFWorkbook::getNumberOfNames()
+int32_t poi::hssf::usermodel::HSSFWorkbook::getNumberOfNames()
 {
     return npc(names)->size();
 }
 
-org::apache::poi::hssf::usermodel::HSSFName* org::apache::poi::hssf::usermodel::HSSFWorkbook::getName(::java::lang::String* name)
+poi::hssf::usermodel::HSSFName* poi::hssf::usermodel::HSSFWorkbook::getName(::java::lang::String* name)
 {
     auto nameIndex = getNameIndex(name);
     if(nameIndex < 0) {
@@ -1143,7 +1137,7 @@ org::apache::poi::hssf::usermodel::HSSFName* org::apache::poi::hssf::usermodel::
     return java_cast< HSSFName* >(npc(names)->get(nameIndex));
 }
 
-java::util::List* org::apache::poi::hssf::usermodel::HSSFWorkbook::getNames(::java::lang::String* name)
+java::util::List* poi::hssf::usermodel::HSSFWorkbook::getNames(::java::lang::String* name)
 {
     ::java::util::List* nameList = new ::java::util::ArrayList();
     for (auto _i = npc(names)->iterator(); _i->hasNext(); ) {
@@ -1157,7 +1151,7 @@ java::util::List* org::apache::poi::hssf::usermodel::HSSFWorkbook::getNames(::ja
     return ::java::util::Collections::unmodifiableList(nameList);
 }
 
-org::apache::poi::hssf::usermodel::HSSFName* org::apache::poi::hssf::usermodel::HSSFWorkbook::getNameAt(int32_t nameIndex)
+poi::hssf::usermodel::HSSFName* poi::hssf::usermodel::HSSFWorkbook::getNameAt(int32_t nameIndex)
 {
     auto nNames = npc(names)->size();
     if(nNames < 1) {
@@ -1172,26 +1166,26 @@ org::apache::poi::hssf::usermodel::HSSFName* org::apache::poi::hssf::usermodel::
     return java_cast< HSSFName* >(npc(names)->get(nameIndex));
 }
 
-java::util::List* org::apache::poi::hssf::usermodel::HSSFWorkbook::getAllNames()
+java::util::List* poi::hssf::usermodel::HSSFWorkbook::getAllNames()
 {
     return ::java::util::Collections::unmodifiableList(names);
 }
 
-org::apache::poi::hssf::record::NameRecord* org::apache::poi::hssf::usermodel::HSSFWorkbook::getNameRecord(int32_t nameIndex)
+poi::hssf::record::NameRecord* poi::hssf::usermodel::HSSFWorkbook::getNameRecord(int32_t nameIndex)
 {
     return npc(getWorkbook())->getNameRecord(nameIndex);
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HSSFWorkbook::getNameName(int32_t index)
+java::lang::String* poi::hssf::usermodel::HSSFWorkbook::getNameName(int32_t index)
 {
     return npc(getNameAt(index))->getNameName();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::setPrintArea(int32_t sheetIndex, ::java::lang::String* reference)
+void poi::hssf::usermodel::HSSFWorkbook::setPrintArea(int32_t sheetIndex, ::java::lang::String* reference)
 {
-    auto name = npc(workbook)->getSpecificBuiltinRecord(::org::apache::poi::hssf::record::NameRecord::BUILTIN_PRINT_AREA, sheetIndex + int32_t(1));
+    auto name = npc(workbook)->getSpecificBuiltinRecord(::poi::hssf::record::NameRecord::BUILTIN_PRINT_AREA, sheetIndex + int32_t(1));
     if(name == nullptr) {
-        name = npc(workbook)->createBuiltInName(::org::apache::poi::hssf::record::NameRecord::BUILTIN_PRINT_AREA, sheetIndex + int32_t(1));
+        name = npc(workbook)->createBuiltInName(::poi::hssf::record::NameRecord::BUILTIN_PRINT_AREA, sheetIndex + int32_t(1));
     }
     auto parts = npc(COMMA_PATTERN_)->split(reference);
     auto sb = new ::java::lang::StringBuffer(int32_t(32));
@@ -1199,38 +1193,38 @@ void org::apache::poi::hssf::usermodel::HSSFWorkbook::setPrintArea(int32_t sheet
         if(i > 0) {
             npc(sb)->append(u","_j);
         }
-        ::org::apache::poi::ss::formula::SheetNameFormatter::appendFormat(sb, getSheetName(sheetIndex));
+        ::poi::ss::formula::SheetNameFormatter::appendFormat(sb, getSheetName(sheetIndex));
         npc(sb)->append(u"!"_j);
         npc(sb)->append((*parts)[i]);
     }
-    npc(name)->setNameDefinition(::org::apache::poi::hssf::model::HSSFFormulaParser::parse(npc(sb)->toString(), this, ::org::apache::poi::ss::formula::FormulaType::NAMEDRANGE, sheetIndex));
+    npc(name)->setNameDefinition(::poi::hssf::model::HSSFFormulaParser::parse(npc(sb)->toString(), this, ::poi::ss::formula::FormulaType::NAMEDRANGE, sheetIndex));
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::setPrintArea(int32_t sheetIndex, int32_t startColumn, int32_t endColumn, int32_t startRow, int32_t endRow)
+void poi::hssf::usermodel::HSSFWorkbook::setPrintArea(int32_t sheetIndex, int32_t startColumn, int32_t endColumn, int32_t startRow, int32_t endRow)
 {
-    auto cell = new ::org::apache::poi::hssf::util::CellReference(startRow, startColumn, true, true);
+    auto cell = new ::poi::hssf::util::CellReference(startRow, startColumn, true, true);
     auto reference = npc(cell)->formatAsString();
-    cell = new ::org::apache::poi::hssf::util::CellReference(endRow, endColumn, true, true);
+    cell = new ::poi::hssf::util::CellReference(endRow, endColumn, true, true);
     reference = ::java::lang::StringBuilder().append(reference)->append(u":"_j)
         ->append(npc(cell)->formatAsString())->toString();
     setPrintArea(sheetIndex, reference);
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HSSFWorkbook::getPrintArea(int32_t sheetIndex)
+java::lang::String* poi::hssf::usermodel::HSSFWorkbook::getPrintArea(int32_t sheetIndex)
 {
-    auto name = npc(workbook)->getSpecificBuiltinRecord(::org::apache::poi::hssf::record::NameRecord::BUILTIN_PRINT_AREA, sheetIndex + int32_t(1));
+    auto name = npc(workbook)->getSpecificBuiltinRecord(::poi::hssf::record::NameRecord::BUILTIN_PRINT_AREA, sheetIndex + int32_t(1));
     if(name == nullptr) {
         return nullptr;
     }
-    return ::org::apache::poi::hssf::model::HSSFFormulaParser::toFormulaString(this, npc(name)->getNameDefinition());
+    return ::poi::hssf::model::HSSFFormulaParser::toFormulaString(this, npc(name)->getNameDefinition());
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::removePrintArea(int32_t sheetIndex)
+void poi::hssf::usermodel::HSSFWorkbook::removePrintArea(int32_t sheetIndex)
 {
-    npc(getWorkbook())->removeBuiltinRecord(::org::apache::poi::hssf::record::NameRecord::BUILTIN_PRINT_AREA, sheetIndex + int32_t(1));
+    npc(getWorkbook())->removeBuiltinRecord(::poi::hssf::record::NameRecord::BUILTIN_PRINT_AREA, sheetIndex + int32_t(1));
 }
 
-org::apache::poi::hssf::usermodel::HSSFName* org::apache::poi::hssf::usermodel::HSSFWorkbook::createName()
+poi::hssf::usermodel::HSSFName* poi::hssf::usermodel::HSSFWorkbook::createName()
 {
     auto nameRecord = npc(workbook)->createName();
     auto newName = new HSSFName(this, nameRecord);
@@ -1238,7 +1232,7 @@ org::apache::poi::hssf::usermodel::HSSFName* org::apache::poi::hssf::usermodel::
     return newName;
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFWorkbook::getNameIndex(::java::lang::String* name)
+int32_t poi::hssf::usermodel::HSSFWorkbook::getNameIndex(::java::lang::String* name)
 {
     for (auto k = int32_t(0); k < npc(names)->size(); k++) {
         auto nameName = getNameName(k);
@@ -1249,7 +1243,7 @@ int32_t org::apache::poi::hssf::usermodel::HSSFWorkbook::getNameIndex(::java::la
     return -int32_t(1);
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFWorkbook::getNameIndex(HSSFName* name)
+int32_t poi::hssf::usermodel::HSSFWorkbook::getNameIndex(HSSFName* name)
 {
     for (auto k = int32_t(0); k < npc(names)->size(); k++) {
         if(name == java_cast< HSSFName* >(npc(names)->get(k))) {
@@ -1259,13 +1253,13 @@ int32_t org::apache::poi::hssf::usermodel::HSSFWorkbook::getNameIndex(HSSFName* 
     return -int32_t(1);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::removeName(int32_t index)
+void poi::hssf::usermodel::HSSFWorkbook::removeName(int32_t index)
 {
     npc(names)->remove(index);
     npc(workbook)->removeName(index);
 }
 
-org::apache::poi::hssf::usermodel::HSSFDataFormat* org::apache::poi::hssf::usermodel::HSSFWorkbook::createDataFormat()
+poi::hssf::usermodel::HSSFDataFormat* poi::hssf::usermodel::HSSFWorkbook::createDataFormat()
 {
     if(formatter == nullptr) {
         formatter = new HSSFDataFormat(workbook);
@@ -1273,26 +1267,26 @@ org::apache::poi::hssf::usermodel::HSSFDataFormat* org::apache::poi::hssf::userm
     return formatter;
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::removeName(::java::lang::String* name)
+void poi::hssf::usermodel::HSSFWorkbook::removeName(::java::lang::String* name)
 {
     auto index = getNameIndex(name);
     removeName(index);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::removeName(::org::apache::poi::ss::usermodel::Name* name)
+void poi::hssf::usermodel::HSSFWorkbook::removeName(::poi::ss::usermodel::Name* name)
 {
     auto index = getNameIndex(java_cast< HSSFName* >(name));
     removeName(index);
 }
 
-org::apache::poi::hssf::usermodel::HSSFPalette* org::apache::poi::hssf::usermodel::HSSFWorkbook::getCustomPalette()
+poi::hssf::usermodel::HSSFPalette* poi::hssf::usermodel::HSSFWorkbook::getCustomPalette()
 {
     return new HSSFPalette(npc(workbook)->getCustomPalette());
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::insertChartRecord()
+void poi::hssf::usermodel::HSSFWorkbook::insertChartRecord()
 {
-    auto loc = npc(workbook)->findFirstRecordLocBySid(::org::apache::poi::hssf::record::SSTRecord::sid);
+    auto loc = npc(workbook)->findFirstRecordLocBySid(::poi::hssf::record::SSTRecord::sid);
     auto data = (new ::int8_tArray({
         static_cast< int8_t >(int32_t(15))
         , static_cast< int8_t >(int32_t(0))
@@ -1385,18 +1379,18 @@ void org::apache::poi::hssf::usermodel::HSSFWorkbook::insertChartRecord()
         , static_cast< int8_t >(int32_t(0))
         , static_cast< int8_t >(int32_t(16))
     }));
-    auto r = new ::org::apache::poi::hssf::record::UnknownRecord(static_cast< int16_t >(int32_t(235)), data);
+    auto r = new ::poi::hssf::record::UnknownRecord(static_cast< int16_t >(int32_t(235)), data);
     npc(npc(workbook)->getRecords())->add(loc, r);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::dumpDrawingGroupRecords(bool fat)
+void poi::hssf::usermodel::HSSFWorkbook::dumpDrawingGroupRecords(bool fat)
 {
-    auto r = java_cast< ::org::apache::poi::hssf::record::DrawingGroupRecord* >(npc(workbook)->findFirstRecordBySid(::org::apache::poi::hssf::record::DrawingGroupRecord::sid));
+    auto r = java_cast< ::poi::hssf::record::DrawingGroupRecord* >(npc(workbook)->findFirstRecordBySid(::poi::hssf::record::DrawingGroupRecord::sid));
     npc(r)->decode();
     auto escherRecords = npc(r)->getEscherRecords();
     auto w = new ::java::io::PrintWriter(static_cast< ::java::io::Writer* >(new ::java::io::OutputStreamWriter(static_cast< ::java::io::OutputStream* >(::java::lang::System::out()), ::java::nio::charset::Charset::defaultCharset())));
     for (auto _i = npc(escherRecords)->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::ddf::EscherRecord* escherRecord = java_cast< ::org::apache::poi::ddf::EscherRecord* >(_i->next());
+        ::poi::ddf::EscherRecord* escherRecord = java_cast< ::poi::ddf::EscherRecord* >(_i->next());
         {
             if(fat) {
                 npc(::java::lang::System::out())->println(static_cast< ::java::lang::Object* >(escherRecord));
@@ -1408,7 +1402,7 @@ void org::apache::poi::hssf::usermodel::HSSFWorkbook::dumpDrawingGroupRecords(bo
     npc(w)->flush();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::initDrawings()
+void poi::hssf::usermodel::HSSFWorkbook::initDrawings()
 {
     auto mgr = npc(workbook)->findDrawingGroup();
     if(mgr != nullptr) {
@@ -1423,25 +1417,25 @@ void org::apache::poi::hssf::usermodel::HSSFWorkbook::initDrawings()
     }
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFWorkbook::addPicture(::int8_tArray* pictureData, int32_t format)
+int32_t poi::hssf::usermodel::HSSFWorkbook::addPicture(::int8_tArray* pictureData, int32_t format)
 {
     initDrawings();
     auto uid = ::org::apache::commons::codec::digest::DigestUtils::md5(pictureData);
-    ::org::apache::poi::ddf::EscherBlipRecord* blipRecord;
+    ::poi::ddf::EscherBlipRecord* blipRecord;
     int32_t blipSize;
     int16_t escherTag;
     {
-        ::org::apache::poi::ddf::EscherMetafileBlip* blipRecordMeta;
-        ::org::apache::poi::ddf::EscherBitmapBlip* blipRecordBitmap;
+        ::poi::ddf::EscherMetafileBlip* blipRecordMeta;
+        ::poi::ddf::EscherBitmapBlip* blipRecordBitmap;
         switch (format) {
         case PICTURE_TYPE_WMF:
-            if(::org::apache::poi::util::LittleEndian::getInt(pictureData) == -1698247209) {
+            if(::poi::util::LittleEndian::getInt(pictureData) == -1698247209) {
                 auto picDataNoHeader = new ::int8_tArray(npc(pictureData)->length - int32_t(22));
                 ::java::lang::System::arraycopy(pictureData, 22, picDataNoHeader, 0, npc(pictureData)->length - int32_t(22));
                 pictureData = picDataNoHeader;
             }
         case PICTURE_TYPE_EMF:
-            blipRecordMeta = new ::org::apache::poi::ddf::EscherMetafileBlip();
+            blipRecordMeta = new ::poi::ddf::EscherMetafileBlip();
             blipRecord = blipRecordMeta;
             npc(blipRecordMeta)->setUID(uid);
             npc(blipRecordMeta)->setPictureData(pictureData);
@@ -1450,7 +1444,7 @@ int32_t org::apache::poi::hssf::usermodel::HSSFWorkbook::addPicture(::int8_tArra
             escherTag = 0;
             break;
         default:
-            blipRecordBitmap = new ::org::apache::poi::ddf::EscherBitmapBlip();
+            blipRecordBitmap = new ::poi::ddf::EscherBitmapBlip();
             blipRecord = blipRecordBitmap;
             npc(blipRecordBitmap)->setUID(uid);
             npc(blipRecordBitmap)->setMarker(static_cast< int8_t >(int32_t(255)));
@@ -1461,7 +1455,7 @@ int32_t org::apache::poi::hssf::usermodel::HSSFWorkbook::addPicture(::int8_tArra
         }
     }
 
-    npc(blipRecord)->setRecordId(static_cast< int16_t >((::org::apache::poi::ddf::EscherBlipRecord::RECORD_ID_START + format)));
+    npc(blipRecord)->setRecordId(static_cast< int16_t >((::poi::ddf::EscherBlipRecord::RECORD_ID_START + format)));
     switch (format) {
     case PICTURE_TYPE_EMF:
         npc(blipRecord)->setOptions(HSSFPictureData::MSOBI_EMF);
@@ -1485,8 +1479,8 @@ int32_t org::apache::poi::hssf::usermodel::HSSFWorkbook::addPicture(::int8_tArra
         throw new ::java::lang::IllegalStateException(::java::lang::StringBuilder().append(u"Unexpected picture format: "_j)->append(format)->toString());
     }
 
-    auto r = new ::org::apache::poi::ddf::EscherBSERecord();
-    npc(r)->setRecordId(::org::apache::poi::ddf::EscherBSERecord::RECORD_ID);
+    auto r = new ::poi::ddf::EscherBSERecord();
+    npc(r)->setRecordId(::poi::ddf::EscherBSERecord::RECORD_ID);
     npc(r)->setOptions(static_cast< int16_t >((int32_t(2) | (format << int32_t(4)))));
     npc(r)->setBlipTypeMacOS(static_cast< int8_t >(format));
     npc(r)->setBlipTypeWin32(static_cast< int8_t >(format));
@@ -1499,15 +1493,15 @@ int32_t org::apache::poi::hssf::usermodel::HSSFWorkbook::addPicture(::int8_tArra
     return npc(workbook)->addBSERecord(r);
 }
 
-java::util::List* org::apache::poi::hssf::usermodel::HSSFWorkbook::getAllPictures()
+java::util::List* poi::hssf::usermodel::HSSFWorkbook::getAllPictures()
 {
     ::java::util::List* pictures = new ::java::util::ArrayList();
     for (auto _i = npc(npc(workbook)->getRecords())->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::hssf::record::Record* r = java_cast< ::org::apache::poi::hssf::record::Record* >(_i->next());
+        ::poi::hssf::record::Record* r = java_cast< ::poi::hssf::record::Record* >(_i->next());
         {
-            if(dynamic_cast< ::org::apache::poi::hssf::record::AbstractEscherHolderRecord* >(r) != nullptr) {
-                npc((java_cast< ::org::apache::poi::hssf::record::AbstractEscherHolderRecord* >(r)))->decode();
-                auto escherRecords = npc((java_cast< ::org::apache::poi::hssf::record::AbstractEscherHolderRecord* >(r)))->getEscherRecords();
+            if(dynamic_cast< ::poi::hssf::record::AbstractEscherHolderRecord* >(r) != nullptr) {
+                npc((java_cast< ::poi::hssf::record::AbstractEscherHolderRecord* >(r)))->decode();
+                auto escherRecords = npc((java_cast< ::poi::hssf::record::AbstractEscherHolderRecord* >(r)))->getEscherRecords();
                 searchForPictures(escherRecords, pictures);
             }
         }
@@ -1515,13 +1509,13 @@ java::util::List* org::apache::poi::hssf::usermodel::HSSFWorkbook::getAllPicture
     return ::java::util::Collections::unmodifiableList(pictures);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::searchForPictures(::java::util::List* escherRecords, ::java::util::List* pictures)
+void poi::hssf::usermodel::HSSFWorkbook::searchForPictures(::java::util::List* escherRecords, ::java::util::List* pictures)
 {
     for (auto _i = npc(escherRecords)->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::ddf::EscherRecord* escherRecord = java_cast< ::org::apache::poi::ddf::EscherRecord* >(_i->next());
+        ::poi::ddf::EscherRecord* escherRecord = java_cast< ::poi::ddf::EscherRecord* >(_i->next());
         {
-            if(dynamic_cast< ::org::apache::poi::ddf::EscherBSERecord* >(escherRecord) != nullptr) {
-                auto blip = npc((java_cast< ::org::apache::poi::ddf::EscherBSERecord* >(escherRecord)))->getBlipRecord();
+            if(dynamic_cast< ::poi::ddf::EscherBSERecord* >(escherRecord) != nullptr) {
+                auto blip = npc((java_cast< ::poi::ddf::EscherBSERecord* >(escherRecord)))->getBlipRecord();
                 if(blip != nullptr) {
                     auto picture = new HSSFPictureData(blip);
                     npc(pictures)->add(static_cast< ::java::lang::Object* >(picture));
@@ -1532,18 +1526,18 @@ void org::apache::poi::hssf::usermodel::HSSFWorkbook::searchForPictures(::java::
     }
 }
 
-java::util::Map* org::apache::poi::hssf::usermodel::HSSFWorkbook::getOleMap()
+java::util::Map* poi::hssf::usermodel::HSSFWorkbook::getOleMap()
 {
     clinit();
     ::java::util::Map* olemap = new ::java::util::HashMap();
-    npc(olemap)->put(u"PowerPoint Document"_j, ::org::apache::poi::hpsf::ClassID::PPT_SHOW());
-    for(auto str : *npc(::org::apache::poi::hssf::model::InternalWorkbook::WORKBOOK_DIR_ENTRY_NAMES())) {
-        npc(olemap)->put(str, ::org::apache::poi::hpsf::ClassID::XLS_WORKBOOK());
+    npc(olemap)->put(u"PowerPoint Document"_j, ::poi::hpsf::ClassID::PPT_SHOW());
+    for(auto str : *npc(::poi::hssf::model::InternalWorkbook::WORKBOOK_DIR_ENTRY_NAMES())) {
+        npc(olemap)->put(str, ::poi::hpsf::ClassID::XLS_WORKBOOK());
     }
     return olemap;
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFWorkbook::addOlePackage(::org::apache::poi::poifs::filesystem::POIFSFileSystem* poiData, ::java::lang::String* label, ::java::lang::String* fileName, ::java::lang::String* command) /* throws(IOException) */
+int32_t poi::hssf::usermodel::HSSFWorkbook::addOlePackage(::poi::poifs::filesystem::POIFSFileSystem* poiData, ::java::lang::String* label, ::java::lang::String* fileName, ::java::lang::String* command) /* throws(IOException) */
 {
     auto root = npc(poiData)->getRoot();
     auto olemap = getOleMap();
@@ -1551,7 +1545,7 @@ int32_t org::apache::poi::hssf::usermodel::HSSFWorkbook::addOlePackage(::org::ap
         ::java::util::Map_Entry* entry = java_cast< ::java::util::Map_Entry* >(_i->next());
         {
             if(npc(root)->hasEntry(java_cast< ::java::lang::String* >(npc(entry)->getKey()))) {
-                npc(root)->setStorageClsid(java_cast< ::org::apache::poi::hpsf::ClassID* >(npc(entry)->getValue()));
+                npc(root)->setStorageClsid(java_cast< ::poi::hpsf::ClassID* >(npc(entry)->getValue()));
                 break;
             }
         }
@@ -1561,18 +1555,18 @@ int32_t org::apache::poi::hssf::usermodel::HSSFWorkbook::addOlePackage(::org::ap
     return addOlePackage(npc(bos)->toByteArray_(), label, fileName, command);
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFWorkbook::addOlePackage(::int8_tArray* oleData, ::java::lang::String* label, ::java::lang::String* fileName, ::java::lang::String* command) /* throws(IOException) */
+int32_t poi::hssf::usermodel::HSSFWorkbook::addOlePackage(::int8_tArray* oleData, ::java::lang::String* label, ::java::lang::String* fileName, ::java::lang::String* command) /* throws(IOException) */
 {
     if(initDirectory()) {
         preserveNodes = true;
     }
     auto storageId = int32_t(0);
-    ::org::apache::poi::poifs::filesystem::DirectoryEntry* oleDir = nullptr;
+    ::poi::poifs::filesystem::DirectoryEntry* oleDir = nullptr;
     do {
-        auto storageStr = ::java::lang::StringBuilder().append(u"MBD"_j)->append(::org::apache::poi::util::HexDump::toHex(++storageId))->toString();
+        auto storageStr = ::java::lang::StringBuilder().append(u"MBD"_j)->append(::poi::util::HexDump::toHex(++storageId))->toString();
         if(!npc(getDirectory())->hasEntry(storageStr)) {
             oleDir = npc(getDirectory())->createDirectory(storageStr);
-            npc(oleDir)->setStorageClsid(::org::apache::poi::hpsf::ClassID::OLE10_PACKAGE());
+            npc(oleDir)->setStorageClsid(::poi::hpsf::ClassID::OLE10_PACKAGE());
         }
     } while (oleDir == nullptr);
     auto oleBytes = (new ::int8_tArray({
@@ -1598,34 +1592,34 @@ int32_t org::apache::poi::hssf::usermodel::HSSFWorkbook::addOlePackage(::int8_tA
         , static_cast< int8_t >(int32_t(0))
     }));
     npc(oleDir)->createDocument(u"\u0001Ole"_j, new ::java::io::ByteArrayInputStream(oleBytes));
-    auto oleNative = new ::org::apache::poi::poifs::filesystem::Ole10Native(label, fileName, command, oleData);
+    auto oleNative = new ::poi::poifs::filesystem::Ole10Native(label, fileName, command, oleData);
     auto bos = new ::java::io::ByteArrayOutputStream();
     npc(oleNative)->writeOut(bos);
-    npc(oleDir)->createDocument(::org::apache::poi::poifs::filesystem::Ole10Native::OLE10_NATIVE(), new ::java::io::ByteArrayInputStream(npc(bos)->toByteArray_()));
+    npc(oleDir)->createDocument(::poi::poifs::filesystem::Ole10Native::OLE10_NATIVE(), new ::java::io::ByteArrayInputStream(npc(bos)->toByteArray_()));
     return storageId;
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFWorkbook::linkExternalWorkbook(::java::lang::String* name, ::org::apache::poi::ss::usermodel::Workbook* workbook)
+int32_t poi::hssf::usermodel::HSSFWorkbook::linkExternalWorkbook(::java::lang::String* name, ::poi::ss::usermodel::Workbook* workbook)
 {
     return npc(this->workbook)->linkExternalWorkbook(name, workbook);
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFWorkbook::isWriteProtected()
+bool poi::hssf::usermodel::HSSFWorkbook::isWriteProtected()
 {
     return npc(this->workbook)->isWriteProtected();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::writeProtectWorkbook(::java::lang::String* password, ::java::lang::String* username)
+void poi::hssf::usermodel::HSSFWorkbook::writeProtectWorkbook(::java::lang::String* password, ::java::lang::String* username)
 {
     npc(this->workbook)->writeProtectWorkbook(password, username);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::unwriteProtectWorkbook()
+void poi::hssf::usermodel::HSSFWorkbook::unwriteProtectWorkbook()
 {
     npc(this->workbook)->unwriteProtectWorkbook();
 }
 
-java::util::List* org::apache::poi::hssf::usermodel::HSSFWorkbook::getAllEmbeddedObjects()
+java::util::List* poi::hssf::usermodel::HSSFWorkbook::getAllEmbeddedObjects()
 {
     ::java::util::List* objects = new ::java::util::ArrayList();
     for (auto _i = npc(_sheets)->iterator(); _i->hasNext(); ) {
@@ -1637,7 +1631,7 @@ java::util::List* org::apache::poi::hssf::usermodel::HSSFWorkbook::getAllEmbedde
     return ::java::util::Collections::unmodifiableList(objects);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::getAllEmbeddedObjects(HSSFSheet* sheet, ::java::util::List* objects)
+void poi::hssf::usermodel::HSSFWorkbook::getAllEmbeddedObjects(HSSFSheet* sheet, ::java::util::List* objects)
 {
     auto patriarch = java_cast< HSSFPatriarch* >(npc(sheet)->getDrawingPatriarch());
     if(nullptr == patriarch) {
@@ -1646,7 +1640,7 @@ void org::apache::poi::hssf::usermodel::HSSFWorkbook::getAllEmbeddedObjects(HSSF
     getAllEmbeddedObjects(static_cast< HSSFShapeContainer* >(patriarch), objects);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::getAllEmbeddedObjects(HSSFShapeContainer* parent, ::java::util::List* objects)
+void poi::hssf::usermodel::HSSFWorkbook::getAllEmbeddedObjects(HSSFShapeContainer* parent, ::java::util::List* objects)
 {
     for (auto _i = npc(npc(parent)->getChildren())->iterator(); _i->hasNext(); ) {
         HSSFShape* shape = java_cast< HSSFShape* >(_i->next());
@@ -1660,67 +1654,67 @@ void org::apache::poi::hssf::usermodel::HSSFWorkbook::getAllEmbeddedObjects(HSSF
     }
 }
 
-org::apache::poi::ss::usermodel::CreationHelper* org::apache::poi::hssf::usermodel::HSSFWorkbook::getCreationHelper()
+poi::ss::usermodel::CreationHelper* poi::hssf::usermodel::HSSFWorkbook::getCreationHelper()
 {
     return new HSSFCreationHelper(this);
 }
 
-org::apache::poi::ss::formula::udf::UDFFinder* org::apache::poi::hssf::usermodel::HSSFWorkbook::getUDFFinder()
+poi::ss::formula::udf::UDFFinder* poi::hssf::usermodel::HSSFWorkbook::getUDFFinder()
 {
     return _udfFinder;
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::addToolPack(::org::apache::poi::ss::formula::udf::UDFFinder* toopack)
+void poi::hssf::usermodel::HSSFWorkbook::addToolPack(::poi::ss::formula::udf::UDFFinder* toopack)
 {
-    auto udfs = java_cast< ::org::apache::poi::ss::formula::udf::AggregatingUDFFinder* >(_udfFinder);
+    auto udfs = java_cast< ::poi::ss::formula::udf::AggregatingUDFFinder* >(_udfFinder);
     npc(udfs)->add(toopack);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::setForceFormulaRecalculation(bool value)
+void poi::hssf::usermodel::HSSFWorkbook::setForceFormulaRecalculation(bool value)
 {
     auto iwb = getWorkbook();
     auto recalc = npc(iwb)->getRecalcId();
     npc(recalc)->setEngineId(0);
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFWorkbook::getForceFormulaRecalculation()
+bool poi::hssf::usermodel::HSSFWorkbook::getForceFormulaRecalculation()
 {
     auto iwb = getWorkbook();
-    auto recalc = java_cast< ::org::apache::poi::hssf::record::RecalcIdRecord* >(npc(iwb)->findFirstRecordBySid(::org::apache::poi::hssf::record::RecalcIdRecord::sid));
+    auto recalc = java_cast< ::poi::hssf::record::RecalcIdRecord* >(npc(iwb)->findFirstRecordBySid(::poi::hssf::record::RecalcIdRecord::sid));
     return recalc != nullptr && npc(recalc)->getEngineId() != 0;
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFWorkbook::changeExternalReference(::java::lang::String* oldUrl, ::java::lang::String* newUrl)
+bool poi::hssf::usermodel::HSSFWorkbook::changeExternalReference(::java::lang::String* oldUrl, ::java::lang::String* newUrl)
 {
     return npc(workbook)->changeExternalReference(oldUrl, newUrl);
 }
 
-org::apache::poi::poifs::filesystem::DirectoryNode* org::apache::poi::hssf::usermodel::HSSFWorkbook::getRootDirectory()
+poi::poifs::filesystem::DirectoryNode* poi::hssf::usermodel::HSSFWorkbook::getRootDirectory()
 {
     return getDirectory();
 }
 
-org::apache::poi::hssf::model::InternalWorkbook* org::apache::poi::hssf::usermodel::HSSFWorkbook::getInternalWorkbook()
+poi::hssf::model::InternalWorkbook* poi::hssf::usermodel::HSSFWorkbook::getInternalWorkbook()
 {
     return workbook;
 }
 
-org::apache::poi::ss::SpreadsheetVersion* org::apache::poi::hssf::usermodel::HSSFWorkbook::getSpreadsheetVersion()
+poi::ss::SpreadsheetVersion* poi::hssf::usermodel::HSSFWorkbook::getSpreadsheetVersion()
 {
-    return ::org::apache::poi::ss::SpreadsheetVersion::EXCEL97;
+    return ::poi::ss::SpreadsheetVersion::EXCEL97;
 }
 
-org::apache::poi::poifs::crypt::EncryptionInfo* org::apache::poi::hssf::usermodel::HSSFWorkbook::getEncryptionInfo()
+poi::poifs::crypt::EncryptionInfo* poi::hssf::usermodel::HSSFWorkbook::getEncryptionInfo()
 {
-    auto fpr = java_cast< ::org::apache::poi::hssf::record::FilePassRecord* >(npc(workbook)->findFirstRecordBySid(::org::apache::poi::hssf::record::FilePassRecord::sid));
-    return (fpr != nullptr) ? npc(fpr)->getEncryptionInfo() : static_cast< ::org::apache::poi::poifs::crypt::EncryptionInfo* >(nullptr);
+    auto fpr = java_cast< ::poi::hssf::record::FilePassRecord* >(npc(workbook)->findFirstRecordBySid(::poi::hssf::record::FilePassRecord::sid));
+    return (fpr != nullptr) ? npc(fpr)->getEncryptionInfo() : static_cast< ::poi::poifs::crypt::EncryptionInfo* >(nullptr);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::updateEncryptionInfo()
+void poi::hssf::usermodel::HSSFWorkbook::updateEncryptionInfo()
 {
     readProperties();
-    auto fpr = java_cast< ::org::apache::poi::hssf::record::FilePassRecord* >(npc(workbook)->findFirstRecordBySid(::org::apache::poi::hssf::record::FilePassRecord::sid));
-    auto password = ::org::apache::poi::hssf::record::crypto::Biff8EncryptionKey::getCurrentUserPassword();
+    auto fpr = java_cast< ::poi::hssf::record::FilePassRecord* >(npc(workbook)->findFirstRecordBySid(::poi::hssf::record::FilePassRecord::sid));
+    auto password = ::poi::hssf::record::crypto::Biff8EncryptionKey::getCurrentUserPassword();
     auto wrl = npc(workbook)->getWorkbookRecordList();
     if(password == nullptr) {
         if(fpr != nullptr) {
@@ -1728,7 +1722,7 @@ void org::apache::poi::hssf::usermodel::HSSFWorkbook::updateEncryptionInfo()
         }
     } else {
         if(fpr == nullptr) {
-            fpr = new ::org::apache::poi::hssf::record::FilePassRecord(::org::apache::poi::poifs::crypt::EncryptionMode::cryptoAPI);
+            fpr = new ::poi::hssf::record::FilePassRecord(::poi::poifs::crypt::EncryptionMode::cryptoAPI);
             npc(wrl)->add(1, fpr);
         }
         auto ei = npc(fpr)->getEncryptionInfo();
@@ -1745,20 +1739,20 @@ void org::apache::poi::hssf::usermodel::HSSFWorkbook::updateEncryptionInfo()
                 npc(enc)->confirmPassword(password, nullptr, nullptr, verifier, salt, nullptr);
             }
         } catch (::java::security::GeneralSecurityException* e) {
-            throw new ::org::apache::poi::EncryptedDocumentException(u"can't validate/update encryption setting"_j, e);
+            throw new ::poi::EncryptedDocumentException(u"can't validate/update encryption setting"_j, e);
         }
     }
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFWorkbook::class_()
+java::lang::Class* poi::hssf::usermodel::HSSFWorkbook::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.usermodel.HSSFWorkbook", 42);
     return c;
 }
 
-void org::apache::poi::hssf::usermodel::HSSFWorkbook::clinit()
+void poi::hssf::usermodel::HSSFWorkbook::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -1766,8 +1760,8 @@ struct clinit_ {
     clinit_() {
         in_cl_init = true;
         COMMA_PATTERN_ = ::java::util::regex::Pattern::compile(u","_j);
-        INITIAL_CAPACITY_ = ::org::apache::poi::util::Configurator::getIntValue(u"HSSFWorkbook.SheetInitialCapacity"_j, 3);
-        log_ = ::org::apache::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(HSSFWorkbook::class_()));
+        INITIAL_CAPACITY_ = ::poi::util::Configurator::getIntValue(u"HSSFWorkbook.SheetInitialCapacity"_j, 3);
+        log_ = ::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(HSSFWorkbook::class_()));
     }
 };
 
@@ -1776,7 +1770,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFWorkbook::getClass0()
+java::lang::Class* poi::hssf::usermodel::HSSFWorkbook::getClass0()
 {
     return class_();
 }

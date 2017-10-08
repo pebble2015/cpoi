@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::ptg::RefPtg final
+class poi::ss::formula::ptg::RefPtg final
     : public Ref2DPtgBase
 {
 
@@ -21,8 +21,8 @@ public:
 protected:
     void ctor(::java::lang::String* cellref);
     void ctor(int32_t row, int32_t column, bool isRowRelative, bool isColumnRelative);
-    void ctor(::org::apache::poi::util::LittleEndianInput* in);
-    void ctor(::org::apache::poi::ss::util::CellReference* cr);
+    void ctor(::poi::util::LittleEndianInput* in);
+    void ctor(::poi::ss::util::CellReference* cr);
 
 public: /* protected */
     int8_t getSid() override;
@@ -32,8 +32,8 @@ public: /* protected */
 public:
     RefPtg(::java::lang::String* cellref);
     RefPtg(int32_t row, int32_t column, bool isRowRelative, bool isColumnRelative);
-    RefPtg(::org::apache::poi::util::LittleEndianInput* in);
-    RefPtg(::org::apache::poi::ss::util::CellReference* cr);
+    RefPtg(::poi::util::LittleEndianInput* in);
+    RefPtg(::poi::ss::util::CellReference* cr);
 protected:
     RefPtg(const ::default_init_tag&);
 

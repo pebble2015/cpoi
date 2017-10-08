@@ -12,25 +12,25 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::Offset_BaseRef::Offset_BaseRef(const ::default_init_tag&)
+poi::ss::formula::functions::Offset_BaseRef::Offset_BaseRef(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::Offset_BaseRef::Offset_BaseRef(::org::apache::poi::ss::formula::eval::RefEval* re) 
+poi::ss::formula::functions::Offset_BaseRef::Offset_BaseRef(::poi::ss::formula::eval::RefEval* re) 
     : Offset_BaseRef(*static_cast< ::default_init_tag* >(0))
 {
     ctor(re);
 }
 
-org::apache::poi::ss::formula::functions::Offset_BaseRef::Offset_BaseRef(::org::apache::poi::ss::formula::eval::AreaEval* ae) 
+poi::ss::formula::functions::Offset_BaseRef::Offset_BaseRef(::poi::ss::formula::eval::AreaEval* ae) 
     : Offset_BaseRef(*static_cast< ::default_init_tag* >(0))
 {
     ctor(ae);
 }
 
-void org::apache::poi::ss::formula::functions::Offset_BaseRef::ctor(::org::apache::poi::ss::formula::eval::RefEval* re)
+void poi::ss::formula::functions::Offset_BaseRef::ctor(::poi::ss::formula::eval::RefEval* re)
 {
     super::ctor();
     _refEval = re;
@@ -41,7 +41,7 @@ void org::apache::poi::ss::formula::functions::Offset_BaseRef::ctor(::org::apach
     _width = 1;
 }
 
-void org::apache::poi::ss::formula::functions::Offset_BaseRef::ctor(::org::apache::poi::ss::formula::eval::AreaEval* ae)
+void poi::ss::formula::functions::Offset_BaseRef::ctor(::poi::ss::formula::eval::AreaEval* ae)
 {
     super::ctor();
     _refEval = nullptr;
@@ -52,27 +52,27 @@ void org::apache::poi::ss::formula::functions::Offset_BaseRef::ctor(::org::apach
     _width = npc(ae)->getLastColumn() - npc(ae)->getFirstColumn() + int32_t(1);
 }
 
-int32_t org::apache::poi::ss::formula::functions::Offset_BaseRef::getWidth()
+int32_t poi::ss::formula::functions::Offset_BaseRef::getWidth()
 {
     return _width;
 }
 
-int32_t org::apache::poi::ss::formula::functions::Offset_BaseRef::getHeight()
+int32_t poi::ss::formula::functions::Offset_BaseRef::getHeight()
 {
     return _height;
 }
 
-int32_t org::apache::poi::ss::formula::functions::Offset_BaseRef::getFirstRowIndex()
+int32_t poi::ss::formula::functions::Offset_BaseRef::getFirstRowIndex()
 {
     return _firstRowIndex;
 }
 
-int32_t org::apache::poi::ss::formula::functions::Offset_BaseRef::getFirstColumnIndex()
+int32_t poi::ss::formula::functions::Offset_BaseRef::getFirstColumnIndex()
 {
     return _firstColumnIndex;
 }
 
-org::apache::poi::ss::formula::eval::AreaEval* org::apache::poi::ss::formula::functions::Offset_BaseRef::offset(int32_t relFirstRowIx, int32_t relLastRowIx, int32_t relFirstColIx, int32_t relLastColIx)
+poi::ss::formula::eval::AreaEval* poi::ss::formula::functions::Offset_BaseRef::offset(int32_t relFirstRowIx, int32_t relLastRowIx, int32_t relFirstColIx, int32_t relLastColIx)
 {
     if(_refEval == nullptr) {
         return npc(_areaEval)->offset(relFirstRowIx, relLastRowIx, relFirstColIx, relLastColIx);
@@ -82,13 +82,13 @@ org::apache::poi::ss::formula::eval::AreaEval* org::apache::poi::ss::formula::fu
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Offset_BaseRef::class_()
+java::lang::Class* poi::ss::formula::functions::Offset_BaseRef::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.Offset.BaseRef", 50);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Offset_BaseRef::getClass0()
+java::lang::Class* poi::ss::formula::functions::Offset_BaseRef::getClass0()
 {
     return class_();
 }

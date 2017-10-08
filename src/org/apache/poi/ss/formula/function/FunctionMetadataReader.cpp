@@ -73,68 +73,68 @@ namespace
 
     template<typename F> finally_<F> finally(F f) { return finally_<F>(f); }
 }
-org::apache::poi::ss::formula::function::FunctionMetadataReader::FunctionMetadataReader(const ::default_init_tag&)
+poi::ss::formula::function::FunctionMetadataReader::FunctionMetadataReader(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::function::FunctionMetadataReader::FunctionMetadataReader()
+poi::ss::formula::function::FunctionMetadataReader::FunctionMetadataReader()
     : FunctionMetadataReader(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-java::lang::String*& org::apache::poi::ss::formula::function::FunctionMetadataReader::METADATA_FILE_NAME()
+java::lang::String*& poi::ss::formula::function::FunctionMetadataReader::METADATA_FILE_NAME()
 {
     clinit();
     return METADATA_FILE_NAME_;
 }
-java::lang::String* org::apache::poi::ss::formula::function::FunctionMetadataReader::METADATA_FILE_NAME_;
+java::lang::String* poi::ss::formula::function::FunctionMetadataReader::METADATA_FILE_NAME_;
 
-java::lang::String*& org::apache::poi::ss::formula::function::FunctionMetadataReader::ELLIPSIS()
+java::lang::String*& poi::ss::formula::function::FunctionMetadataReader::ELLIPSIS()
 {
     clinit();
     return ELLIPSIS_;
 }
-java::lang::String* org::apache::poi::ss::formula::function::FunctionMetadataReader::ELLIPSIS_;
+java::lang::String* poi::ss::formula::function::FunctionMetadataReader::ELLIPSIS_;
 
-java::util::regex::Pattern*& org::apache::poi::ss::formula::function::FunctionMetadataReader::TAB_DELIM_PATTERN()
+java::util::regex::Pattern*& poi::ss::formula::function::FunctionMetadataReader::TAB_DELIM_PATTERN()
 {
     clinit();
     return TAB_DELIM_PATTERN_;
 }
-java::util::regex::Pattern* org::apache::poi::ss::formula::function::FunctionMetadataReader::TAB_DELIM_PATTERN_;
+java::util::regex::Pattern* poi::ss::formula::function::FunctionMetadataReader::TAB_DELIM_PATTERN_;
 
-java::util::regex::Pattern*& org::apache::poi::ss::formula::function::FunctionMetadataReader::SPACE_DELIM_PATTERN()
+java::util::regex::Pattern*& poi::ss::formula::function::FunctionMetadataReader::SPACE_DELIM_PATTERN()
 {
     clinit();
     return SPACE_DELIM_PATTERN_;
 }
-java::util::regex::Pattern* org::apache::poi::ss::formula::function::FunctionMetadataReader::SPACE_DELIM_PATTERN_;
+java::util::regex::Pattern* poi::ss::formula::function::FunctionMetadataReader::SPACE_DELIM_PATTERN_;
 
-int8_tArray*& org::apache::poi::ss::formula::function::FunctionMetadataReader::EMPTY_BYTE_ARRAY()
+int8_tArray*& poi::ss::formula::function::FunctionMetadataReader::EMPTY_BYTE_ARRAY()
 {
     clinit();
     return EMPTY_BYTE_ARRAY_;
 }
-int8_tArray* org::apache::poi::ss::formula::function::FunctionMetadataReader::EMPTY_BYTE_ARRAY_;
+int8_tArray* poi::ss::formula::function::FunctionMetadataReader::EMPTY_BYTE_ARRAY_;
 
-java::lang::StringArray*& org::apache::poi::ss::formula::function::FunctionMetadataReader::DIGIT_ENDING_FUNCTION_NAMES()
+java::lang::StringArray*& poi::ss::formula::function::FunctionMetadataReader::DIGIT_ENDING_FUNCTION_NAMES()
 {
     clinit();
     return DIGIT_ENDING_FUNCTION_NAMES_;
 }
-java::lang::StringArray* org::apache::poi::ss::formula::function::FunctionMetadataReader::DIGIT_ENDING_FUNCTION_NAMES_;
+java::lang::StringArray* poi::ss::formula::function::FunctionMetadataReader::DIGIT_ENDING_FUNCTION_NAMES_;
 
-java::util::Set*& org::apache::poi::ss::formula::function::FunctionMetadataReader::DIGIT_ENDING_FUNCTION_NAMES_SET()
+java::util::Set*& poi::ss::formula::function::FunctionMetadataReader::DIGIT_ENDING_FUNCTION_NAMES_SET()
 {
     clinit();
     return DIGIT_ENDING_FUNCTION_NAMES_SET_;
 }
-java::util::Set* org::apache::poi::ss::formula::function::FunctionMetadataReader::DIGIT_ENDING_FUNCTION_NAMES_SET_;
+java::util::Set* poi::ss::formula::function::FunctionMetadataReader::DIGIT_ENDING_FUNCTION_NAMES_SET_;
 
-org::apache::poi::ss::formula::function::FunctionMetadataRegistry* org::apache::poi::ss::formula::function::FunctionMetadataReader::createRegistry()
+poi::ss::formula::function::FunctionMetadataRegistry* poi::ss::formula::function::FunctionMetadataReader::createRegistry()
 {
     clinit();
     try {
@@ -186,7 +186,7 @@ org::apache::poi::ss::formula::function::FunctionMetadataRegistry* org::apache::
     }
 }
 
-void org::apache::poi::ss::formula::function::FunctionMetadataReader::processLine(FunctionDataBuilder* fdb, ::java::lang::String* line)
+void poi::ss::formula::function::FunctionMetadataReader::processLine(FunctionDataBuilder* fdb, ::java::lang::String* line)
 {
     clinit();
     auto parts = npc(TAB_DELIM_PATTERN_)->split(line, -int32_t(2));
@@ -205,16 +205,16 @@ void org::apache::poi::ss::formula::function::FunctionMetadataReader::processLin
     npc(fdb)->add(functionIndex, functionName, minParams, maxParams, returnClassCode, parameterClassCodes, hasNote);
 }
 
-int8_t org::apache::poi::ss::formula::function::FunctionMetadataReader::parseReturnTypeCode(::java::lang::String* code)
+int8_t poi::ss::formula::function::FunctionMetadataReader::parseReturnTypeCode(::java::lang::String* code)
 {
     clinit();
     if(npc(code)->length() == 0) {
-        return ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_REF;
+        return ::poi::ss::formula::ptg::Ptg::CLASS_REF;
     }
     return parseOperandTypeCode(code);
 }
 
-int8_tArray* org::apache::poi::ss::formula::function::FunctionMetadataReader::parseOperandTypeCodes(::java::lang::String* codes)
+int8_tArray* poi::ss::formula::function::FunctionMetadataReader::parseOperandTypeCodes(::java::lang::String* codes)
 {
     clinit();
     if(npc(codes)->length() < 1) {
@@ -235,7 +235,7 @@ int8_tArray* org::apache::poi::ss::formula::function::FunctionMetadataReader::pa
     return result;
 }
 
-bool org::apache::poi::ss::formula::function::FunctionMetadataReader::isDash(::java::lang::String* codes)
+bool poi::ss::formula::function::FunctionMetadataReader::isDash(::java::lang::String* codes)
 {
     clinit();
     if(npc(codes)->length() == 1) {
@@ -248,7 +248,7 @@ bool org::apache::poi::ss::formula::function::FunctionMetadataReader::isDash(::j
     return false;
 }
 
-int8_t org::apache::poi::ss::formula::function::FunctionMetadataReader::parseOperandTypeCode(::java::lang::String* code)
+int8_t poi::ss::formula::function::FunctionMetadataReader::parseOperandTypeCode(::java::lang::String* code)
 {
     clinit();
     if(npc(code)->length() != 1) {
@@ -257,11 +257,11 @@ int8_t org::apache::poi::ss::formula::function::FunctionMetadataReader::parseOpe
     }
     switch (npc(code)->charAt(int32_t(0))) {
     case u'V':
-        return ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_VALUE;
+        return ::poi::ss::formula::ptg::Ptg::CLASS_VALUE;
     case u'R':
-        return ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_REF;
+        return ::poi::ss::formula::ptg::Ptg::CLASS_REF;
     case u'A':
-        return ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_ARRAY;
+        return ::poi::ss::formula::ptg::Ptg::CLASS_ARRAY;
     }
 
     throw new ::java::lang::IllegalArgumentException(::java::lang::StringBuilder().append(u"Unexpected operand type code '"_j)->append(code)
@@ -270,7 +270,7 @@ int8_t org::apache::poi::ss::formula::function::FunctionMetadataReader::parseOpe
         ->append(u")"_j)->toString());
 }
 
-void org::apache::poi::ss::formula::function::FunctionMetadataReader::validateFunctionName(::java::lang::String* functionName)
+void poi::ss::formula::function::FunctionMetadataReader::validateFunctionName(::java::lang::String* functionName)
 {
     clinit();
     auto len = npc(functionName)->length();
@@ -291,7 +291,7 @@ void org::apache::poi::ss::formula::function::FunctionMetadataReader::validateFu
         ->append(u"' (is footnote number incorrectly appended)"_j)->toString());
 }
 
-int32_t org::apache::poi::ss::formula::function::FunctionMetadataReader::parseInt(::java::lang::String* valStr)
+int32_t poi::ss::formula::function::FunctionMetadataReader::parseInt(::java::lang::String* valStr)
 {
     clinit();
     try {
@@ -304,13 +304,13 @@ int32_t org::apache::poi::ss::formula::function::FunctionMetadataReader::parseIn
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::function::FunctionMetadataReader::class_()
+java::lang::Class* poi::ss::formula::function::FunctionMetadataReader::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.function.FunctionMetadataReader", 57);
     return c;
 }
 
-void org::apache::poi::ss::formula::function::FunctionMetadataReader::clinit()
+void poi::ss::formula::function::FunctionMetadataReader::clinit()
 {
 struct string_init_ {
     string_init_() {
@@ -346,7 +346,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::formula::function::FunctionMetadataReader::getClass0()
+java::lang::Class* poi::ss::formula::function::FunctionMetadataReader::getClass0()
 {
     return class_();
 }

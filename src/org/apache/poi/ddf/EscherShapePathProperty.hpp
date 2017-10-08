@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ddf::EscherShapePathProperty
+class poi::ddf::EscherShapePathProperty
     : public EscherSimpleProperty
 {
 

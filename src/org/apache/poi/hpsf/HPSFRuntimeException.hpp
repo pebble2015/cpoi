@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hpsf::HPSFRuntimeException
+class poi::hpsf::HPSFRuntimeException
     : public ::java::lang::RuntimeException
 {
 

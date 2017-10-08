@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::LookupUtils_RowVector final
+class poi::ss::formula::functions::LookupUtils_RowVector final
     : public virtual ::java::lang::Object
     , public LookupUtils_ValueVector
 {
@@ -20,18 +20,18 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    ::org::apache::poi::ss::formula::TwoDEval* _tableArray_ {  };
+    ::poi::ss::formula::TwoDEval* _tableArray_ {  };
     int32_t _size {  };
     int32_t _rowIndex {  };
 protected:
-    void ctor(::org::apache::poi::ss::formula::TwoDEval* tableArray_, int32_t rowIndex);
+    void ctor(::poi::ss::formula::TwoDEval* tableArray_, int32_t rowIndex);
 
 public:
-    ::org::apache::poi::ss::formula::eval::ValueEval* getItem(int32_t index) override;
+    ::poi::ss::formula::eval::ValueEval* getItem(int32_t index) override;
     int32_t getSize() override;
 
     // Generated
-    LookupUtils_RowVector(::org::apache::poi::ss::formula::TwoDEval* tableArray_, int32_t rowIndex);
+    LookupUtils_RowVector(::poi::ss::formula::TwoDEval* tableArray_, int32_t rowIndex);
 protected:
     LookupUtils_RowVector(const ::default_init_tag&);
 

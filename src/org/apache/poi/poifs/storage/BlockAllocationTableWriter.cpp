@@ -14,24 +14,18 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace poifs
     {
-        namespace poi
+        namespace storage
         {
-            namespace poifs
-            {
-                namespace storage
-                {
-typedef ::SubArray< ::org::apache::poi::poifs::storage::BlockWritable, ::java::lang::ObjectArray > BlockWritableArray;
-typedef ::SubArray< ::org::apache::poi::poifs::storage::BigBlock, ::java::lang::ObjectArray, BlockWritableArray > BigBlockArray;
-typedef ::SubArray< ::org::apache::poi::poifs::storage::BATBlock, BigBlockArray > BATBlockArray;
-                } // storage
-            } // poifs
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::poifs::storage::BlockWritable, ::java::lang::ObjectArray > BlockWritableArray;
+typedef ::SubArray< ::poi::poifs::storage::BigBlock, ::java::lang::ObjectArray, BlockWritableArray > BigBlockArray;
+typedef ::SubArray< ::poi::poifs::storage::BATBlock, BigBlockArray > BATBlockArray;
+        } // storage
+    } // poifs
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -40,28 +34,28 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::storage::BlockAllocationTableWriter::BlockAllocationTableWriter(const ::default_init_tag&)
+poi::poifs::storage::BlockAllocationTableWriter::BlockAllocationTableWriter(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::storage::BlockAllocationTableWriter::BlockAllocationTableWriter(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize) 
+poi::poifs::storage::BlockAllocationTableWriter::BlockAllocationTableWriter(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize) 
     : BlockAllocationTableWriter(*static_cast< ::default_init_tag* >(0))
 {
     ctor(bigBlockSize);
 }
 
-void org::apache::poi::poifs::storage::BlockAllocationTableWriter::ctor(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize)
+void poi::poifs::storage::BlockAllocationTableWriter::ctor(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize)
 {
     super::ctor();
     _bigBlockSize = bigBlockSize;
-    _start_block = ::org::apache::poi::poifs::common::POIFSConstants::END_OF_CHAIN;
-    _entries = new ::org::apache::poi::util::IntList();
+    _start_block = ::poi::poifs::common::POIFSConstants::END_OF_CHAIN;
+    _entries = new ::poi::util::IntList();
     _blocks = new BATBlockArray(int32_t(0));
 }
 
-int32_t org::apache::poi::poifs::storage::BlockAllocationTableWriter::createBlocks()
+int32_t poi::poifs::storage::BlockAllocationTableWriter::createBlocks()
 {
     auto xbat_blocks = int32_t(0);
     auto bat_blocks = int32_t(0);
@@ -80,7 +74,7 @@ int32_t org::apache::poi::poifs::storage::BlockAllocationTableWriter::createBloc
     return startBlock;
 }
 
-int32_t org::apache::poi::poifs::storage::BlockAllocationTableWriter::allocateSpace(int32_t blockCount)
+int32_t poi::poifs::storage::BlockAllocationTableWriter::allocateSpace(int32_t blockCount)
 {
     auto startBlock = npc(_entries)->size();
     if(blockCount > 0) {
@@ -89,53 +83,53 @@ int32_t org::apache::poi::poifs::storage::BlockAllocationTableWriter::allocateSp
         for (auto k = int32_t(0); k < limit; k++) {
             npc(_entries)->add(index++);
         }
-        npc(_entries)->add(::org::apache::poi::poifs::common::POIFSConstants::END_OF_CHAIN);
+        npc(_entries)->add(::poi::poifs::common::POIFSConstants::END_OF_CHAIN);
     }
     return startBlock;
 }
 
-int32_t org::apache::poi::poifs::storage::BlockAllocationTableWriter::getStartBlock()
+int32_t poi::poifs::storage::BlockAllocationTableWriter::getStartBlock()
 {
     return _start_block;
 }
 
-void org::apache::poi::poifs::storage::BlockAllocationTableWriter::simpleCreateBlocks()
+void poi::poifs::storage::BlockAllocationTableWriter::simpleCreateBlocks()
 {
     _blocks = BATBlock::createBATBlocks(_bigBlockSize, npc(_entries)->toArray_());
 }
 
-void org::apache::poi::poifs::storage::BlockAllocationTableWriter::writeBlocks(::java::io::OutputStream* stream) /* throws(IOException) */
+void poi::poifs::storage::BlockAllocationTableWriter::writeBlocks(::java::io::OutputStream* stream) /* throws(IOException) */
 {
     for (auto j = int32_t(0); j < npc(_blocks)->length; j++) {
         npc((*_blocks)[j])->writeBlocks(stream);
     }
 }
 
-void org::apache::poi::poifs::storage::BlockAllocationTableWriter::writeBlock(BATBlock* bat, ::java::nio::ByteBuffer* block) /* throws(IOException) */
+void poi::poifs::storage::BlockAllocationTableWriter::writeBlock(BATBlock* bat, ::java::nio::ByteBuffer* block) /* throws(IOException) */
 {
     clinit();
     npc(bat)->writeData(block);
 }
 
-int32_t org::apache::poi::poifs::storage::BlockAllocationTableWriter::countBlocks()
+int32_t poi::poifs::storage::BlockAllocationTableWriter::countBlocks()
 {
     return npc(_blocks)->length;
 }
 
-void org::apache::poi::poifs::storage::BlockAllocationTableWriter::setStartBlock(int32_t start_block)
+void poi::poifs::storage::BlockAllocationTableWriter::setStartBlock(int32_t start_block)
 {
     _start_block = start_block;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::storage::BlockAllocationTableWriter::class_()
+java::lang::Class* poi::poifs::storage::BlockAllocationTableWriter::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.storage.BlockAllocationTableWriter", 55);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::storage::BlockAllocationTableWriter::getClass0()
+java::lang::Class* poi::poifs::storage::BlockAllocationTableWriter::getClass0()
 {
     return class_();
 }

@@ -12,29 +12,23 @@
 #include <org/apache/poi/hssf/record/SharedValueRecordBase.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::SharedFormulaRecord final
+class poi::hssf::record::SharedFormulaRecord final
     : public SharedValueRecordBase
 {
 
@@ -44,20 +38,20 @@ public:
 
 private:
     int32_t field_5_reserved {  };
-    ::org::apache::poi::ss::formula::Formula* field_7_parsed_expr {  };
+    ::poi::ss::formula::Formula* field_7_parsed_expr {  };
 protected:
     void ctor();
-    void ctor(::org::apache::poi::hssf::util::CellRangeAddress8Bit* range);
+    void ctor(::poi::hssf::util::CellRangeAddress8Bit* range);
     void ctor(RecordInputStream* in);
 
 public: /* protected */
-    void serializeExtraData(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serializeExtraData(::poi::util::LittleEndianOutput* out) override;
     int32_t getExtraDataSize() override;
 
 public:
     ::java::lang::String* toString() override;
     int16_t getSid() override;
-    ::org::apache::poi::ss::formula::ptg::PtgArray* getFormulaTokens(FormulaRecord* formula);
+    ::poi::ss::formula::ptg::PtgArray* getFormulaTokens(FormulaRecord* formula);
     ::java::lang::Object* clone() override;
     bool isFormulaSame(SharedFormulaRecord* other);
 
@@ -65,7 +59,7 @@ public:
     SharedFormulaRecord();
 
 private:
-    SharedFormulaRecord(::org::apache::poi::hssf::util::CellRangeAddress8Bit* range);
+    SharedFormulaRecord(::poi::hssf::util::CellRangeAddress8Bit* range);
 
 public:
     SharedFormulaRecord(RecordInputStream* in);

@@ -9,13 +9,13 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::model::ConvertAnchor
+class poi::hssf::model::ConvertAnchor
     : public virtual ::java::lang::Object
 {
 
 public:
     typedef ::java::lang::Object super;
-    static ::org::apache::poi::ddf::EscherRecord* createAnchor(::org::apache::poi::hssf::usermodel::HSSFAnchor* userAnchor);
+    static ::poi::ddf::EscherRecord* createAnchor(::poi::hssf::usermodel::HSSFAnchor* userAnchor);
 
     // Generated
     ConvertAnchor();

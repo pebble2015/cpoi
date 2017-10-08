@@ -11,21 +11,21 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::pivottable::ViewSourceRecord final
-    : public ::org::apache::poi::hssf::record::StandardRecord
+class poi::hssf::record::pivottable::ViewSourceRecord final
+    : public ::poi::hssf::record::StandardRecord
 {
 
 public:
-    typedef ::org::apache::poi::hssf::record::StandardRecord super;
+    typedef ::poi::hssf::record::StandardRecord super;
     static constexpr int16_t sid { int16_t(227) };
 
 private:
     int32_t vs {  };
 protected:
-    void ctor(::org::apache::poi::hssf::record::RecordInputStream* in);
+    void ctor(::poi::hssf::record::RecordInputStream* in);
 
 public: /* protected */
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
     int32_t getDataSize() override;
 
 public:
@@ -33,7 +33,7 @@ public:
     ::java::lang::String* toString() override;
 
     // Generated
-    ViewSourceRecord(::org::apache::poi::hssf::record::RecordInputStream* in);
+    ViewSourceRecord(::poi::hssf::record::RecordInputStream* in);
 protected:
     ViewSourceRecord(const ::default_init_tag&);
 

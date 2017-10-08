@@ -27,22 +27,16 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace wp
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace wp
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::wp::usermodel::HeaderFooterType, ::java::lang::EnumArray > HeaderFooterTypeArray;
-                } // usermodel
-            } // wp
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::wp::usermodel::HeaderFooterType, ::java::lang::EnumArray > HeaderFooterTypeArray;
+        } // usermodel
+    } // wp
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -51,33 +45,33 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::wp::usermodel::HeaderFooterType::HeaderFooterType(const ::default_init_tag&)
+poi::wp::usermodel::HeaderFooterType::HeaderFooterType(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::wp::usermodel::HeaderFooterType::HeaderFooterType(::java::lang::String* name, int ordinal, int32_t i) 
+poi::wp::usermodel::HeaderFooterType::HeaderFooterType(::java::lang::String* name, int ordinal, int32_t i) 
     : HeaderFooterType(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal, i);
 }
 
-org::apache::poi::wp::usermodel::HeaderFooterType* org::apache::poi::wp::usermodel::HeaderFooterType::DEFAULT = new ::org::apache::poi::wp::usermodel::HeaderFooterType(u"DEFAULT"_j, 0, int32_t(2));
-org::apache::poi::wp::usermodel::HeaderFooterType* org::apache::poi::wp::usermodel::HeaderFooterType::EVEN = new ::org::apache::poi::wp::usermodel::HeaderFooterType(u"EVEN"_j, 1, int32_t(1));
-org::apache::poi::wp::usermodel::HeaderFooterType* org::apache::poi::wp::usermodel::HeaderFooterType::FIRST = new ::org::apache::poi::wp::usermodel::HeaderFooterType(u"FIRST"_j, 2, int32_t(3));
-void org::apache::poi::wp::usermodel::HeaderFooterType::ctor(::java::lang::String* name, int ordinal, int32_t i)
+poi::wp::usermodel::HeaderFooterType* poi::wp::usermodel::HeaderFooterType::DEFAULT = new ::poi::wp::usermodel::HeaderFooterType(u"DEFAULT"_j, 0, int32_t(2));
+poi::wp::usermodel::HeaderFooterType* poi::wp::usermodel::HeaderFooterType::EVEN = new ::poi::wp::usermodel::HeaderFooterType(u"EVEN"_j, 1, int32_t(1));
+poi::wp::usermodel::HeaderFooterType* poi::wp::usermodel::HeaderFooterType::FIRST = new ::poi::wp::usermodel::HeaderFooterType(u"FIRST"_j, 2, int32_t(3));
+void poi::wp::usermodel::HeaderFooterType::ctor(::java::lang::String* name, int ordinal, int32_t i)
 {
     super::ctor(name, ordinal);
     code = i;
 }
 
-int32_t org::apache::poi::wp::usermodel::HeaderFooterType::toInt()
+int32_t poi::wp::usermodel::HeaderFooterType::toInt()
 {
     return code;
 }
 
-org::apache::poi::wp::usermodel::HeaderFooterType* org::apache::poi::wp::usermodel::HeaderFooterType::forInt(int32_t i)
+poi::wp::usermodel::HeaderFooterType* poi::wp::usermodel::HeaderFooterType::forInt(int32_t i)
 {
     clinit();
     for(auto type : *npc(values())) {
@@ -90,13 +84,13 @@ org::apache::poi::wp::usermodel::HeaderFooterType* org::apache::poi::wp::usermod
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::wp::usermodel::HeaderFooterType::class_()
+java::lang::Class* poi::wp::usermodel::HeaderFooterType::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.wp.usermodel.HeaderFooterType", 44);
     return c;
 }
 
-org::apache::poi::wp::usermodel::HeaderFooterType* org::apache::poi::wp::usermodel::HeaderFooterType::valueOf(::java::lang::String* a0)
+poi::wp::usermodel::HeaderFooterType* poi::wp::usermodel::HeaderFooterType::valueOf(::java::lang::String* a0)
 {
     if(DEFAULT->toString()->equals(a0))
         return DEFAULT;
@@ -107,16 +101,16 @@ org::apache::poi::wp::usermodel::HeaderFooterType* org::apache::poi::wp::usermod
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::wp::usermodel::HeaderFooterTypeArray* org::apache::poi::wp::usermodel::HeaderFooterType::values()
+poi::wp::usermodel::HeaderFooterTypeArray* poi::wp::usermodel::HeaderFooterType::values()
 {
-    return new org::apache::poi::wp::usermodel::HeaderFooterTypeArray({
+    return new poi::wp::usermodel::HeaderFooterTypeArray({
         DEFAULT,
         EVEN,
         FIRST,
     });
 }
 
-java::lang::Class* org::apache::poi::wp::usermodel::HeaderFooterType::getClass0()
+java::lang::Class* poi::wp::usermodel::HeaderFooterType::getClass0()
 {
     return class_();
 }

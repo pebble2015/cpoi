@@ -13,7 +13,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::format::CellFormat
+class poi::ss::format::CellFormat
     : public virtual ::java::lang::Object
 {
 
@@ -48,21 +48,21 @@ private:
     CellFormatResult* apply(::java::util::Date* date, double numericValue);
 
 public:
-    virtual CellFormatResult* apply(::org::apache::poi::ss::usermodel::Cell* c);
+    virtual CellFormatResult* apply(::poi::ss::usermodel::Cell* c);
     virtual CellFormatResult* apply(::javax::swing::JLabel* label, ::java::lang::Object* value);
 
 private:
     CellFormatResult* apply(::javax::swing::JLabel* label, ::java::util::Date* date, double numericValue);
 
 public:
-    virtual CellFormatResult* apply(::javax::swing::JLabel* label, ::org::apache::poi::ss::usermodel::Cell* c);
+    virtual CellFormatResult* apply(::javax::swing::JLabel* label, ::poi::ss::usermodel::Cell* c);
 
 private:
     CellFormatPart* getApplicableFormatPart(::java::lang::Object* value);
 
 public:
-    static int32_t ultimateType(::org::apache::poi::ss::usermodel::Cell* cell);
-    static ::org::apache::poi::ss::usermodel::CellType* ultimateTypeEnum(::org::apache::poi::ss::usermodel::Cell* cell);
+    static int32_t ultimateType(::poi::ss::usermodel::Cell* cell);
+    static ::poi::ss::usermodel::CellType* ultimateTypeEnum(::poi::ss::usermodel::Cell* cell);
     bool equals(::java::lang::Object* obj) override;
     int32_t hashCode() override;
 

@@ -17,40 +17,40 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::CRNCountRecord::CRNCountRecord(const ::default_init_tag&)
+poi::hssf::record::CRNCountRecord::CRNCountRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::CRNCountRecord::CRNCountRecord() 
+poi::hssf::record::CRNCountRecord::CRNCountRecord() 
     : CRNCountRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::CRNCountRecord::CRNCountRecord(RecordInputStream* in) 
+poi::hssf::record::CRNCountRecord::CRNCountRecord(RecordInputStream* in) 
     : CRNCountRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::CRNCountRecord::sid;
+constexpr int16_t poi::hssf::record::CRNCountRecord::sid;
 
-constexpr int16_t org::apache::poi::hssf::record::CRNCountRecord::DATA_SIZE;
+constexpr int16_t poi::hssf::record::CRNCountRecord::DATA_SIZE;
 
-void org::apache::poi::hssf::record::CRNCountRecord::ctor()
+void poi::hssf::record::CRNCountRecord::ctor()
 {
     super::ctor();
     throw new ::java::lang::RuntimeException(u"incomplete code"_j);
 }
 
-int32_t org::apache::poi::hssf::record::CRNCountRecord::getNumberOfCRNs()
+int32_t poi::hssf::record::CRNCountRecord::getNumberOfCRNs()
 {
     return field_1_number_crn_records;
 }
 
-void org::apache::poi::hssf::record::CRNCountRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::CRNCountRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     field_1_number_crn_records = npc(in)->readShort();
@@ -60,7 +60,7 @@ void org::apache::poi::hssf::record::CRNCountRecord::ctor(RecordInputStream* in)
     field_2_sheet_table_index = npc(in)->readShort();
 }
 
-java::lang::String* org::apache::poi::hssf::record::CRNCountRecord::toString()
+java::lang::String* poi::hssf::record::CRNCountRecord::toString()
 {
     auto sb = new ::java::lang::StringBuffer();
     npc(npc(sb)->append(npc(getClass())->getName()))->append(u" [XCT"_j);
@@ -70,41 +70,41 @@ java::lang::String* org::apache::poi::hssf::record::CRNCountRecord::toString()
     return npc(sb)->toString();
 }
 
-void org::apache::poi::hssf::record::CRNCountRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::CRNCountRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(static_cast< int16_t >(field_1_number_crn_records));
     npc(out)->writeShort(static_cast< int16_t >(field_2_sheet_table_index));
 }
 
-int32_t org::apache::poi::hssf::record::CRNCountRecord::getDataSize()
+int32_t poi::hssf::record::CRNCountRecord::getDataSize()
 {
     return DATA_SIZE;
 }
 
-int16_t org::apache::poi::hssf::record::CRNCountRecord::getSid()
+int16_t poi::hssf::record::CRNCountRecord::getSid()
 {
     return sid;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::CRNCountRecord::class_()
+java::lang::Class* poi::hssf::record::CRNCountRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.CRNCountRecord", 41);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::CRNCountRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::CRNCountRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::CRNCountRecord::serialize()
+int8_tArray* poi::hssf::record::CRNCountRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::CRNCountRecord::getClass0()
+java::lang::Class* poi::hssf::record::CRNCountRecord::getClass0()
 {
     return class_();
 }

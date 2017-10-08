@@ -12,27 +12,27 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::crypt::standard::StandardEncryptionHeader
-    : public ::org::apache::poi::poifs::crypt::EncryptionHeader
+class poi::poifs::crypt::standard::StandardEncryptionHeader
+    : public ::poi::poifs::crypt::EncryptionHeader
     , public virtual EncryptionRecord
     , public virtual ::java::lang::Cloneable
 {
 
 public:
-    typedef ::org::apache::poi::poifs::crypt::EncryptionHeader super;
+    typedef ::poi::poifs::crypt::EncryptionHeader super;
 protected:
-    void ctor(::org::apache::poi::util::LittleEndianInput* is) /* throws(IOException) */;
-    void ctor(::org::apache::poi::poifs::crypt::CipherAlgorithm* cipherAlgorithm, ::org::apache::poi::poifs::crypt::HashAlgorithm* hashAlgorithm, int32_t keyBits, int32_t blockSize, ::org::apache::poi::poifs::crypt::ChainingMode* chainingMode);
+    void ctor(::poi::util::LittleEndianInput* is) /* throws(IOException) */;
+    void ctor(::poi::poifs::crypt::CipherAlgorithm* cipherAlgorithm, ::poi::poifs::crypt::HashAlgorithm* hashAlgorithm, int32_t keyBits, int32_t blockSize, ::poi::poifs::crypt::ChainingMode* chainingMode);
 
 public:
-    void write(::org::apache::poi::util::LittleEndianByteArrayOutputStream* bos) override;
+    void write(::poi::util::LittleEndianByteArrayOutputStream* bos) override;
     StandardEncryptionHeader* clone() /* throws(CloneNotSupportedException) */ override;
 
     // Generated
 
 public: /* protected */
-    StandardEncryptionHeader(::org::apache::poi::util::LittleEndianInput* is);
-    StandardEncryptionHeader(::org::apache::poi::poifs::crypt::CipherAlgorithm* cipherAlgorithm, ::org::apache::poi::poifs::crypt::HashAlgorithm* hashAlgorithm, int32_t keyBits, int32_t blockSize, ::org::apache::poi::poifs::crypt::ChainingMode* chainingMode);
+    StandardEncryptionHeader(::poi::util::LittleEndianInput* is);
+    StandardEncryptionHeader(::poi::poifs::crypt::CipherAlgorithm* cipherAlgorithm, ::poi::poifs::crypt::HashAlgorithm* hashAlgorithm, int32_t keyBits, int32_t blockSize, ::poi::poifs::crypt::ChainingMode* chainingMode);
 protected:
     StandardEncryptionHeader(const ::default_init_tag&);
 

@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::util::CellReference_CellRefParts final
+class poi::ss::util::CellReference_CellRefParts final
     : public ::java::lang::Object
 {
 

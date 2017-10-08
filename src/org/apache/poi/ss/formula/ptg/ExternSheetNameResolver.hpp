@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::ptg::ExternSheetNameResolver final
+class poi::ss::formula::ptg::ExternSheetNameResolver final
     : public ::java::lang::Object
 {
 
@@ -20,7 +20,7 @@ protected:
     void ctor();
 
 public:
-    static ::java::lang::String* prependSheetName(::org::apache::poi::ss::formula::FormulaRenderingWorkbook* book, int32_t field_1_index_extern_sheet, ::java::lang::String* cellRefText);
+    static ::java::lang::String* prependSheetName(::poi::ss::formula::FormulaRenderingWorkbook* book, int32_t field_1_index_extern_sheet, ::java::lang::String* cellRefText);
 
     // Generated
 

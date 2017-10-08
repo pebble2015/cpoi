@@ -36,31 +36,31 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::crypt::DataSpaceMapUtils_DataSpaceDefinition::DataSpaceMapUtils_DataSpaceDefinition(const ::default_init_tag&)
+poi::poifs::crypt::DataSpaceMapUtils_DataSpaceDefinition::DataSpaceMapUtils_DataSpaceDefinition(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::crypt::DataSpaceMapUtils_DataSpaceDefinition::DataSpaceMapUtils_DataSpaceDefinition(::java::lang::StringArray* transformer) 
+poi::poifs::crypt::DataSpaceMapUtils_DataSpaceDefinition::DataSpaceMapUtils_DataSpaceDefinition(::java::lang::StringArray* transformer) 
     : DataSpaceMapUtils_DataSpaceDefinition(*static_cast< ::default_init_tag* >(0))
 {
     ctor(transformer);
 }
 
-org::apache::poi::poifs::crypt::DataSpaceMapUtils_DataSpaceDefinition::DataSpaceMapUtils_DataSpaceDefinition(::org::apache::poi::util::LittleEndianInput* is) 
+poi::poifs::crypt::DataSpaceMapUtils_DataSpaceDefinition::DataSpaceMapUtils_DataSpaceDefinition(::poi::util::LittleEndianInput* is) 
     : DataSpaceMapUtils_DataSpaceDefinition(*static_cast< ::default_init_tag* >(0))
 {
     ctor(is);
 }
 
-void org::apache::poi::poifs::crypt::DataSpaceMapUtils_DataSpaceDefinition::ctor(::java::lang::StringArray* transformer)
+void poi::poifs::crypt::DataSpaceMapUtils_DataSpaceDefinition::ctor(::java::lang::StringArray* transformer)
 {
     super::ctor();
     this->transformer = npc(transformer)->clone();
 }
 
-void org::apache::poi::poifs::crypt::DataSpaceMapUtils_DataSpaceDefinition::ctor(::org::apache::poi::util::LittleEndianInput* is)
+void poi::poifs::crypt::DataSpaceMapUtils_DataSpaceDefinition::ctor(::poi::util::LittleEndianInput* is)
 {
     super::ctor();
     npc(is)->readInt();
@@ -71,7 +71,7 @@ void org::apache::poi::poifs::crypt::DataSpaceMapUtils_DataSpaceDefinition::ctor
     }
 }
 
-void org::apache::poi::poifs::crypt::DataSpaceMapUtils_DataSpaceDefinition::write(::org::apache::poi::util::LittleEndianByteArrayOutputStream* bos)
+void poi::poifs::crypt::DataSpaceMapUtils_DataSpaceDefinition::write(::poi::util::LittleEndianByteArrayOutputStream* bos)
 {
     npc(bos)->writeInt(int32_t(8));
     npc(bos)->writeInt(npc(transformer)->length);
@@ -82,13 +82,13 @@ void org::apache::poi::poifs::crypt::DataSpaceMapUtils_DataSpaceDefinition::writ
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::crypt::DataSpaceMapUtils_DataSpaceDefinition::class_()
+java::lang::Class* poi::poifs::crypt::DataSpaceMapUtils_DataSpaceDefinition::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.crypt.DataSpaceMapUtils.DataSpaceDefinition", 64);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::crypt::DataSpaceMapUtils_DataSpaceDefinition::getClass0()
+java::lang::Class* poi::poifs::crypt::DataSpaceMapUtils_DataSpaceDefinition::getClass0()
 {
     return class_();
 }

@@ -11,27 +11,27 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum_8::EvaluationConditionalFormatRule_OperatorEnum_8(::java::lang::String* name, int ordinal)
+poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum_8::EvaluationConditionalFormatRule_OperatorEnum_8(::java::lang::String* name, int ordinal)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
     ctor(name, ordinal);
 }
 
-/* <C extends Comparable<C>> */bool org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum_8::isValid(::java::lang::Comparable* cellValue, ::java::lang::Comparable* v1, ::java::lang::Comparable* v2)
+/* <C extends Comparable<C>> */bool poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum_8::isValid(::java::lang::Comparable* cellValue, ::java::lang::Comparable* v1, ::java::lang::Comparable* v2)
 {
     return npc(cellValue)->compareTo(v1) >= 0;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum_8::class_()
+java::lang::Class* poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum_8::class_()
 {
     static ::java::lang::Class* c = ::class_(u"", 0);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum_8::getClass0()
+java::lang::Class* poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum_8::getClass0()
 {
     return class_();
 }

@@ -72,65 +72,65 @@ namespace
 
     template<typename F> finally_<F> finally(F f) { return finally_<F>(f); }
 }
-org::apache::poi::POIDocument::POIDocument(const ::default_init_tag&)
+poi::POIDocument::POIDocument(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::POIDocument::POIDocument(::org::apache::poi::poifs::filesystem::DirectoryNode* dir) 
+poi::POIDocument::POIDocument(::poi::poifs::filesystem::DirectoryNode* dir) 
     : POIDocument(*static_cast< ::default_init_tag* >(0))
 {
     ctor(dir);
 }
 
-org::apache::poi::POIDocument::POIDocument(::org::apache::poi::poifs::filesystem::OPOIFSFileSystem* fs) 
+poi::POIDocument::POIDocument(::poi::poifs::filesystem::OPOIFSFileSystem* fs) 
     : POIDocument(*static_cast< ::default_init_tag* >(0))
 {
     ctor(fs);
 }
 
-org::apache::poi::POIDocument::POIDocument(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs) 
+poi::POIDocument::POIDocument(::poi::poifs::filesystem::NPOIFSFileSystem* fs) 
     : POIDocument(*static_cast< ::default_init_tag* >(0))
 {
     ctor(fs);
 }
 
-org::apache::poi::POIDocument::POIDocument(::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs) 
+poi::POIDocument::POIDocument(::poi::poifs::filesystem::POIFSFileSystem* fs) 
     : POIDocument(*static_cast< ::default_init_tag* >(0))
 {
     ctor(fs);
 }
 
-org::apache::poi::util::POILogger*& org::apache::poi::POIDocument::logger()
+poi::util::POILogger*& poi::POIDocument::logger()
 {
     clinit();
     return logger_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::POIDocument::logger_;
+poi::util::POILogger* poi::POIDocument::logger_;
 
-void org::apache::poi::POIDocument::ctor(::org::apache::poi::poifs::filesystem::DirectoryNode* dir)
+void poi::POIDocument::ctor(::poi::poifs::filesystem::DirectoryNode* dir)
 {
     super::ctor();
     this->directory = dir;
 }
 
-void org::apache::poi::POIDocument::ctor(::org::apache::poi::poifs::filesystem::OPOIFSFileSystem* fs)
+void poi::POIDocument::ctor(::poi::poifs::filesystem::OPOIFSFileSystem* fs)
 {
     ctor(npc(fs)->getRoot());
 }
 
-void org::apache::poi::POIDocument::ctor(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs)
+void poi::POIDocument::ctor(::poi::poifs::filesystem::NPOIFSFileSystem* fs)
 {
     ctor(npc(fs)->getRoot());
 }
 
-void org::apache::poi::POIDocument::ctor(::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs)
+void poi::POIDocument::ctor(::poi::poifs::filesystem::POIFSFileSystem* fs)
 {
     ctor(npc(fs)->getRoot());
 }
 
-org::apache::poi::hpsf::DocumentSummaryInformation* org::apache::poi::POIDocument::getDocumentSummaryInformation()
+poi::hpsf::DocumentSummaryInformation* poi::POIDocument::getDocumentSummaryInformation()
 {
     if(!initialized) {
         readProperties();
@@ -138,7 +138,7 @@ org::apache::poi::hpsf::DocumentSummaryInformation* org::apache::poi::POIDocumen
     return dsInf;
 }
 
-org::apache::poi::hpsf::SummaryInformation* org::apache::poi::POIDocument::getSummaryInformation()
+poi::hpsf::SummaryInformation* poi::POIDocument::getSummaryInformation()
 {
     if(!initialized) {
         readProperties();
@@ -146,36 +146,36 @@ org::apache::poi::hpsf::SummaryInformation* org::apache::poi::POIDocument::getSu
     return sInf;
 }
 
-void org::apache::poi::POIDocument::createInformationProperties()
+void poi::POIDocument::createInformationProperties()
 {
     if(!initialized) {
         readProperties();
     }
     if(sInf == nullptr) {
-        sInf = ::org::apache::poi::hpsf::PropertySetFactory::newSummaryInformation();
+        sInf = ::poi::hpsf::PropertySetFactory::newSummaryInformation();
     }
     if(dsInf == nullptr) {
-        dsInf = ::org::apache::poi::hpsf::PropertySetFactory::newDocumentSummaryInformation();
+        dsInf = ::poi::hpsf::PropertySetFactory::newDocumentSummaryInformation();
     }
 }
 
-void org::apache::poi::POIDocument::readProperties()
+void poi::POIDocument::readProperties()
 {
     if(initialized) {
         return;
     }
-    auto dsi = java_cast< ::org::apache::poi::hpsf::DocumentSummaryInformation* >(readPropertySet(::org::apache::poi::hpsf::DocumentSummaryInformation::class_(), ::org::apache::poi::hpsf::DocumentSummaryInformation::DEFAULT_STREAM_NAME()));
+    auto dsi = java_cast< ::poi::hpsf::DocumentSummaryInformation* >(readPropertySet(::poi::hpsf::DocumentSummaryInformation::class_(), ::poi::hpsf::DocumentSummaryInformation::DEFAULT_STREAM_NAME()));
     if(dsi != nullptr) {
         dsInf = dsi;
     }
-    auto si = java_cast< ::org::apache::poi::hpsf::SummaryInformation* >(readPropertySet(::org::apache::poi::hpsf::SummaryInformation::class_(), ::org::apache::poi::hpsf::SummaryInformation::DEFAULT_STREAM_NAME()));
+    auto si = java_cast< ::poi::hpsf::SummaryInformation* >(readPropertySet(::poi::hpsf::SummaryInformation::class_(), ::poi::hpsf::SummaryInformation::DEFAULT_STREAM_NAME()));
     if(si != nullptr) {
         sInf = si;
     }
     initialized = true;
 }
 
-/* <T> */java::lang::Object* org::apache::poi::POIDocument::readPropertySet(::java::lang::Class* clazz, ::java::lang::String* name)
+/* <T> */java::lang::Object* poi::POIDocument::readPropertySet(::java::lang::Class* clazz, ::java::lang::String* name)
 {
     auto localName = npc(npc(clazz)->getName())->substring(npc(npc(clazz)->getName())->lastIndexOf(static_cast< int32_t >(u'.')) + int32_t(1));
     try {
@@ -183,30 +183,30 @@ void org::apache::poi::POIDocument::readProperties()
         if(npc(clazz)->isInstance(ps)) {
             return java_cast< ::java::lang::Object* >(ps);
         } else if(ps != nullptr) {
-            npc(logger_)->log(::org::apache::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(localName)->append(u" property set came back with wrong class - "_j)
+            npc(logger_)->log(::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(localName)->append(u" property set came back with wrong class - "_j)
                 ->append(npc(npc(ps)->getClass())->getName())->toString())}));
         } else {
-            npc(logger_)->log(::org::apache::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(localName)->append(u" property set came back as null"_j)->toString())}));
+            npc(logger_)->log(::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(localName)->append(u" property set came back as null"_j)->toString())}));
         }
     } catch (::java::io::IOException* e) {
-        npc(logger_)->log(::org::apache::poi::util::POILogger::ERROR, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"can't retrieve property set"_j), static_cast< ::java::lang::Object* >(e)}));
+        npc(logger_)->log(::poi::util::POILogger::ERROR, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"can't retrieve property set"_j), static_cast< ::java::lang::Object* >(e)}));
     }
     return nullptr;
 }
 
-org::apache::poi::hpsf::PropertySet* org::apache::poi::POIDocument::getPropertySet(::java::lang::String* setName) /* throws(IOException) */
+poi::hpsf::PropertySet* poi::POIDocument::getPropertySet(::java::lang::String* setName) /* throws(IOException) */
 {
     return getPropertySet(setName, getEncryptionInfo());
 }
 
-org::apache::poi::hpsf::PropertySet* org::apache::poi::POIDocument::getPropertySet(::java::lang::String* setName, ::org::apache::poi::poifs::crypt::EncryptionInfo* encryptionInfo) /* throws(IOException) */
+poi::hpsf::PropertySet* poi::POIDocument::getPropertySet(::java::lang::String* setName, ::poi::poifs::crypt::EncryptionInfo* encryptionInfo) /* throws(IOException) */
 {
     auto dirNode = directory;
-    ::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* encPoifs = nullptr;
+    ::poi::poifs::filesystem::NPOIFSFileSystem* encPoifs = nullptr;
     auto step = u"getting"_j;
     {
         auto finally0 = finally([&] {
-            ::org::apache::poi::util::IOUtils::closeQuietly(encPoifs);
+            ::poi::util::IOUtils::closeQuietly(encPoifs);
         });
         try {
             if(encryptionInfo != nullptr && npc(encryptionInfo)->isDocPropsEncrypted()) {
@@ -216,7 +216,7 @@ org::apache::poi::hpsf::PropertySet* org::apache::poi::POIDocument::getPropertyS
                     throw new EncryptedDocumentException(::java::lang::StringBuilder().append(u"can't find encrypted property stream '"_j)->append(encryptedStream)
                         ->append(u"'"_j)->toString());
                 }
-                auto dec = java_cast< ::org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor* >(npc(encryptionInfo)->getDecryptor());
+                auto dec = java_cast< ::poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor* >(npc(encryptionInfo)->getDecryptor());
                 encPoifs = npc(dec)->getSummaryEntries(dirNode, encryptedStream);
                 dirNode = npc(encPoifs)->getRoot();
             }
@@ -231,7 +231,7 @@ org::apache::poi::hpsf::PropertySet* org::apache::poi::POIDocument::getPropertyS
                 });
                 {
                     step = u"creating"_j;
-                    return ::org::apache::poi::hpsf::PropertySetFactory::create(dis);
+                    return ::poi::hpsf::PropertySetFactory::create(dis);
                 }
             }
 
@@ -245,50 +245,50 @@ org::apache::poi::hpsf::PropertySet* org::apache::poi::POIDocument::getPropertyS
     }
 }
 
-void org::apache::poi::POIDocument::writeProperties() /* throws(IOException) */
+void poi::POIDocument::writeProperties() /* throws(IOException) */
 {
     validateInPlaceWritePossible();
     writeProperties(npc(directory)->getFileSystem(), nullptr);
 }
 
-void org::apache::poi::POIDocument::writeProperties(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* outFS) /* throws(IOException) */
+void poi::POIDocument::writeProperties(::poi::poifs::filesystem::NPOIFSFileSystem* outFS) /* throws(IOException) */
 {
     writeProperties(outFS, nullptr);
 }
 
-void org::apache::poi::POIDocument::writeProperties(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* outFS, ::java::util::List* writtenEntries) /* throws(IOException) */
+void poi::POIDocument::writeProperties(::poi::poifs::filesystem::NPOIFSFileSystem* outFS, ::java::util::List* writtenEntries) /* throws(IOException) */
 {
     auto ei = getEncryptionInfo();
     auto const encryptProps = (ei != nullptr && npc(ei)->isDocPropsEncrypted());
-    auto fs = (encryptProps) ? new ::org::apache::poi::poifs::filesystem::NPOIFSFileSystem() : outFS;
+    auto fs = (encryptProps) ? new ::poi::poifs::filesystem::NPOIFSFileSystem() : outFS;
     auto si = getSummaryInformation();
     if(si != nullptr) {
-        writePropertySet(::org::apache::poi::hpsf::SummaryInformation::DEFAULT_STREAM_NAME(), si, fs);
+        writePropertySet(::poi::hpsf::SummaryInformation::DEFAULT_STREAM_NAME(), si, fs);
         if(writtenEntries != nullptr) {
-            npc(writtenEntries)->add(static_cast< ::java::lang::Object* >(::org::apache::poi::hpsf::SummaryInformation::DEFAULT_STREAM_NAME()));
+            npc(writtenEntries)->add(static_cast< ::java::lang::Object* >(::poi::hpsf::SummaryInformation::DEFAULT_STREAM_NAME()));
         }
     }
     auto dsi = getDocumentSummaryInformation();
     if(dsi != nullptr) {
-        writePropertySet(::org::apache::poi::hpsf::DocumentSummaryInformation::DEFAULT_STREAM_NAME(), dsi, fs);
+        writePropertySet(::poi::hpsf::DocumentSummaryInformation::DEFAULT_STREAM_NAME(), dsi, fs);
         if(writtenEntries != nullptr) {
-            npc(writtenEntries)->add(static_cast< ::java::lang::Object* >(::org::apache::poi::hpsf::DocumentSummaryInformation::DEFAULT_STREAM_NAME()));
+            npc(writtenEntries)->add(static_cast< ::java::lang::Object* >(::poi::hpsf::DocumentSummaryInformation::DEFAULT_STREAM_NAME()));
         }
     }
     if(!encryptProps) {
         return;
     }
-    dsi = ::org::apache::poi::hpsf::PropertySetFactory::newDocumentSummaryInformation();
-    writePropertySet(::org::apache::poi::hpsf::DocumentSummaryInformation::DEFAULT_STREAM_NAME(), dsi, outFS);
-    if(npc(npc(outFS)->getRoot())->hasEntry(::org::apache::poi::hpsf::SummaryInformation::DEFAULT_STREAM_NAME())) {
-        npc(npc(npc(outFS)->getRoot())->getEntry(::org::apache::poi::hpsf::SummaryInformation::DEFAULT_STREAM_NAME()))->delete_();
+    dsi = ::poi::hpsf::PropertySetFactory::newDocumentSummaryInformation();
+    writePropertySet(::poi::hpsf::DocumentSummaryInformation::DEFAULT_STREAM_NAME(), dsi, outFS);
+    if(npc(npc(outFS)->getRoot())->hasEntry(::poi::hpsf::SummaryInformation::DEFAULT_STREAM_NAME())) {
+        npc(npc(npc(outFS)->getRoot())->getEntry(::poi::hpsf::SummaryInformation::DEFAULT_STREAM_NAME()))->delete_();
     }
     auto encGen = npc(ei)->getEncryptor();
-    if(!(dynamic_cast< ::org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIEncryptor* >(encGen) != nullptr)) {
+    if(!(dynamic_cast< ::poi::poifs::crypt::cryptoapi::CryptoAPIEncryptor* >(encGen) != nullptr)) {
         throw new EncryptedDocumentException(::java::lang::StringBuilder().append(u"Using "_j)->append(static_cast< ::java::lang::Object* >(npc(ei)->getEncryptionMode()))
             ->append(u" encryption. Only CryptoAPI encryption supports encrypted property sets!"_j)->toString());
     }
-    auto enc = java_cast< ::org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIEncryptor* >(encGen);
+    auto enc = java_cast< ::poi::poifs::crypt::cryptoapi::CryptoAPIEncryptor* >(encGen);
     {
         auto finally2 = finally([&] {
             npc(fs)->close();
@@ -301,25 +301,25 @@ void org::apache::poi::POIDocument::writeProperties(::org::apache::poi::poifs::f
     }
 }
 
-void org::apache::poi::POIDocument::writePropertySet(::java::lang::String* name, ::org::apache::poi::hpsf::PropertySet* set, ::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* outFS) /* throws(IOException) */
+void poi::POIDocument::writePropertySet(::java::lang::String* name, ::poi::hpsf::PropertySet* set, ::poi::poifs::filesystem::NPOIFSFileSystem* outFS) /* throws(IOException) */
 {
     try {
-        auto mSet = new ::org::apache::poi::hpsf::PropertySet(set);
+        auto mSet = new ::poi::hpsf::PropertySet(set);
         auto bOut = new ::java::io::ByteArrayOutputStream();
         npc(mSet)->write(bOut);
         auto data = npc(bOut)->toByteArray_();
         auto bIn = new ::java::io::ByteArrayInputStream(data);
         npc(outFS)->createOrUpdateDocument(bIn, name);
-        npc(logger_)->log(::org::apache::poi::util::POILogger::INFO, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Wrote property set "_j)->append(name)
+        npc(logger_)->log(::poi::util::POILogger::INFO, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Wrote property set "_j)->append(name)
             ->append(u" of size "_j)
             ->append(npc(data)->length)->toString())}));
-    } catch (::org::apache::poi::hpsf::WritingNotSupportedException* wnse) {
-        npc(logger_)->log(::org::apache::poi::util::POILogger::ERROR, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Couldn't write property set with name "_j)->append(name)
+    } catch (::poi::hpsf::WritingNotSupportedException* wnse) {
+        npc(logger_)->log(::poi::util::POILogger::ERROR, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Couldn't write property set with name "_j)->append(name)
             ->append(u" as not supported by HPSF yet"_j)->toString())}));
     }
 }
 
-void org::apache::poi::POIDocument::validateInPlaceWritePossible() /* throws(IllegalStateException) */
+void poi::POIDocument::validateInPlaceWritePossible() /* throws(IllegalStateException) */
 {
     if(directory == nullptr) {
         throw new ::java::lang::IllegalStateException(u"Newly created Document, cannot save in-place"_j);
@@ -332,7 +332,7 @@ void org::apache::poi::POIDocument::validateInPlaceWritePossible() /* throws(Ill
     }
 }
 
-void org::apache::poi::POIDocument::close() /* throws(IOException) */
+void poi::POIDocument::close() /* throws(IOException) */
 {
     if(directory != nullptr) {
         if(npc(directory)->getNFileSystem() != nullptr) {
@@ -342,58 +342,58 @@ void org::apache::poi::POIDocument::close() /* throws(IOException) */
     }
 }
 
-org::apache::poi::poifs::filesystem::DirectoryNode* org::apache::poi::POIDocument::getDirectory()
+poi::poifs::filesystem::DirectoryNode* poi::POIDocument::getDirectory()
 {
     return directory;
 }
 
-void org::apache::poi::POIDocument::clearDirectory()
+void poi::POIDocument::clearDirectory()
 {
     directory = nullptr;
 }
 
-bool org::apache::poi::POIDocument::initDirectory()
+bool poi::POIDocument::initDirectory()
 {
     if(directory == nullptr) {
-        directory = (new ::org::apache::poi::poifs::filesystem::NPOIFSFileSystem())->getRoot();
+        directory = (new ::poi::poifs::filesystem::NPOIFSFileSystem())->getRoot();
         return true;
     }
     return false;
 }
 
-org::apache::poi::poifs::filesystem::DirectoryNode* org::apache::poi::POIDocument::replaceDirectory(::org::apache::poi::poifs::filesystem::DirectoryNode* newDirectory)
+poi::poifs::filesystem::DirectoryNode* poi::POIDocument::replaceDirectory(::poi::poifs::filesystem::DirectoryNode* newDirectory)
 {
     auto dn = directory;
     directory = newDirectory;
     return dn;
 }
 
-java::lang::String* org::apache::poi::POIDocument::getEncryptedPropertyStreamName()
+java::lang::String* poi::POIDocument::getEncryptedPropertyStreamName()
 {
     return u"encryption"_j;
 }
 
-org::apache::poi::poifs::crypt::EncryptionInfo* org::apache::poi::POIDocument::getEncryptionInfo() /* throws(IOException) */
+poi::poifs::crypt::EncryptionInfo* poi::POIDocument::getEncryptionInfo() /* throws(IOException) */
 {
     return nullptr;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::POIDocument::class_()
+java::lang::Class* poi::POIDocument::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.POIDocument", 26);
     return c;
 }
 
-void org::apache::poi::POIDocument::clinit()
+void poi::POIDocument::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        logger_ = ::org::apache::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(POIDocument::class_()));
+        logger_ = ::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(POIDocument::class_()));
     }
 };
 
@@ -402,7 +402,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::POIDocument::getClass0()
+java::lang::Class* poi::POIDocument::getClass0()
 {
     return class_();
 }

@@ -2,30 +2,24 @@
 #pragma once
 
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace poifs
     {
-        namespace poi
+        namespace property
         {
-            namespace poifs
-            {
-                namespace property
-                {
-                    struct Child;
-                    class DirectoryProperty;
-                    class DirectoryProperty_PropertyComparator;
-                    class DocumentProperty;
-                    class NPropertyTable;
-                    struct Parent;
-                    class Property;
-                    struct PropertyConstants;
-                    class PropertyFactory;
-                    class PropertyTable;
-                    class PropertyTableBase;
-                    class RootProperty;
-                } // property
-            } // poifs
-        } // poi
-    } // apache
-} // org
+            struct Child;
+            class DirectoryProperty;
+            class DirectoryProperty_PropertyComparator;
+            class DocumentProperty;
+            class NPropertyTable;
+            struct Parent;
+            class Property;
+            struct PropertyConstants;
+            class PropertyFactory;
+            class PropertyTable;
+            class PropertyTableBase;
+            class RootProperty;
+        } // property
+    } // poifs
+} // poi

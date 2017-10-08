@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::Countif_BooleanMatcher final
+class poi::ss::formula::functions::Countif_BooleanMatcher final
     : public Countif_MatcherBase
 {
 
@@ -29,7 +29,7 @@ private:
     static int32_t boolToInt(bool value);
 
 public:
-    bool matches(::org::apache::poi::ss::formula::eval::ValueEval* x) override;
+    bool matches(::poi::ss::formula::eval::ValueEval* x) override;
 
     // Generated
     Countif_BooleanMatcher(bool value, Countif_CmpOp* operator_);

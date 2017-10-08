@@ -14,52 +14,52 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ddf::EscherOptRecord::EscherOptRecord(const ::default_init_tag&)
+poi::ddf::EscherOptRecord::EscherOptRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ddf::EscherOptRecord::EscherOptRecord()
+poi::ddf::EscherOptRecord::EscherOptRecord()
     : EscherOptRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-java::lang::String*& org::apache::poi::ddf::EscherOptRecord::RECORD_DESCRIPTION()
+java::lang::String*& poi::ddf::EscherOptRecord::RECORD_DESCRIPTION()
 {
     clinit();
     return RECORD_DESCRIPTION_;
 }
-java::lang::String* org::apache::poi::ddf::EscherOptRecord::RECORD_DESCRIPTION_;
+java::lang::String* poi::ddf::EscherOptRecord::RECORD_DESCRIPTION_;
 
-constexpr int16_t org::apache::poi::ddf::EscherOptRecord::RECORD_ID;
+constexpr int16_t poi::ddf::EscherOptRecord::RECORD_ID;
 
-int16_t org::apache::poi::ddf::EscherOptRecord::getInstance()
+int16_t poi::ddf::EscherOptRecord::getInstance()
 {
     setInstance(static_cast< int16_t >(npc(getEscherProperties())->size()));
     return super::getInstance();
 }
 
-int16_t org::apache::poi::ddf::EscherOptRecord::getOptions()
+int16_t poi::ddf::EscherOptRecord::getOptions()
 {
     getInstance();
     getVersion();
     return super::getOptions();
 }
 
-java::lang::String* org::apache::poi::ddf::EscherOptRecord::getRecordName()
+java::lang::String* poi::ddf::EscherOptRecord::getRecordName()
 {
     return u"Opt"_j;
 }
 
-int16_t org::apache::poi::ddf::EscherOptRecord::getVersion()
+int16_t poi::ddf::EscherOptRecord::getVersion()
 {
     setVersion(static_cast< int16_t >(int32_t(3)));
     return super::getVersion();
 }
 
-void org::apache::poi::ddf::EscherOptRecord::setVersion(int16_t value)
+void poi::ddf::EscherOptRecord::setVersion(int16_t value)
 {
     if(value != 3) {
         throw new ::java::lang::IllegalArgumentException(::java::lang::StringBuilder().append(RECORD_DESCRIPTION_)->append(u" can have only '0x3' version"_j)->toString());
@@ -69,13 +69,13 @@ void org::apache::poi::ddf::EscherOptRecord::setVersion(int16_t value)
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ddf::EscherOptRecord::class_()
+java::lang::Class* poi::ddf::EscherOptRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ddf.EscherOptRecord", 34);
     return c;
 }
 
-void org::apache::poi::ddf::EscherOptRecord::clinit()
+void poi::ddf::EscherOptRecord::clinit()
 {
 struct string_init_ {
     string_init_() {
@@ -88,7 +88,7 @@ struct string_init_ {
     super::clinit();
 }
 
-java::lang::Class* org::apache::poi::ddf::EscherOptRecord::getClass0()
+java::lang::Class* poi::ddf::EscherOptRecord::getClass0()
 {
     return class_();
 }

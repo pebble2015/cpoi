@@ -1,39 +1,39 @@
 // Generated from /POI/java/org/apache/poi/ss/formula/eval/MissingArgEval.java
 #include <org/apache/poi/ss/formula/eval/MissingArgEval.hpp>
 
-org::apache::poi::ss::formula::eval::MissingArgEval::MissingArgEval(const ::default_init_tag&)
+poi::ss::formula::eval::MissingArgEval::MissingArgEval(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::eval::MissingArgEval::MissingArgEval() 
+poi::ss::formula::eval::MissingArgEval::MissingArgEval() 
     : MissingArgEval(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::eval::MissingArgEval*& org::apache::poi::ss::formula::eval::MissingArgEval::instance()
+poi::ss::formula::eval::MissingArgEval*& poi::ss::formula::eval::MissingArgEval::instance()
 {
     clinit();
     return instance_;
 }
-org::apache::poi::ss::formula::eval::MissingArgEval* org::apache::poi::ss::formula::eval::MissingArgEval::instance_;
+poi::ss::formula::eval::MissingArgEval* poi::ss::formula::eval::MissingArgEval::instance_;
 
-void org::apache::poi::ss::formula::eval::MissingArgEval::ctor()
+void poi::ss::formula::eval::MissingArgEval::ctor()
 {
     super::ctor();
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::eval::MissingArgEval::class_()
+java::lang::Class* poi::ss::formula::eval::MissingArgEval::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.eval.MissingArgEval", 45);
     return c;
 }
 
-void org::apache::poi::ss::formula::eval::MissingArgEval::clinit()
+void poi::ss::formula::eval::MissingArgEval::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -49,7 +49,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::formula::eval::MissingArgEval::getClass0()
+java::lang::Class* poi::ss::formula::eval::MissingArgEval::getClass0()
 {
     return class_();
 }

@@ -15,25 +15,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -42,63 +36,63 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::atp::MRound::MRound(const ::default_init_tag&)
+poi::ss::formula::atp::MRound::MRound(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::atp::MRound::MRound() 
+poi::ss::formula::atp::MRound::MRound() 
     : MRound(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::functions::FreeRefFunction*& org::apache::poi::ss::formula::atp::MRound::instance()
+poi::ss::formula::functions::FreeRefFunction*& poi::ss::formula::atp::MRound::instance()
 {
     clinit();
     return instance_;
 }
-org::apache::poi::ss::formula::functions::FreeRefFunction* org::apache::poi::ss::formula::atp::MRound::instance_;
+poi::ss::formula::functions::FreeRefFunction* poi::ss::formula::atp::MRound::instance_;
 
-void org::apache::poi::ss::formula::atp::MRound::ctor()
+void poi::ss::formula::atp::MRound::ctor()
 {
     super::ctor();
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::atp::MRound::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, ::org::apache::poi::ss::formula::OperationEvaluationContext* ec)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::atp::MRound::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, ::poi::ss::formula::OperationEvaluationContext* ec)
 {
     double number, multiple, result;
     if(npc(args)->length != 2) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
     try {
-        number = ::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToDouble(::org::apache::poi::ss::formula::eval::OperandResolver::getSingleValue((*args)[int32_t(0)], npc(ec)->getRowIndex(), npc(ec)->getColumnIndex()));
-        multiple = ::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToDouble(::org::apache::poi::ss::formula::eval::OperandResolver::getSingleValue((*args)[int32_t(1)], npc(ec)->getRowIndex(), npc(ec)->getColumnIndex()));
+        number = ::poi::ss::formula::eval::OperandResolver::coerceValueToDouble(::poi::ss::formula::eval::OperandResolver::getSingleValue((*args)[int32_t(0)], npc(ec)->getRowIndex(), npc(ec)->getColumnIndex()));
+        multiple = ::poi::ss::formula::eval::OperandResolver::coerceValueToDouble(::poi::ss::formula::eval::OperandResolver::getSingleValue((*args)[int32_t(1)], npc(ec)->getRowIndex(), npc(ec)->getColumnIndex()));
         if(multiple == 0.0) {
             result = 0.0;
         } else {
             if(number * multiple < 0) {
-                throw new ::org::apache::poi::ss::formula::eval::EvaluationException(::org::apache::poi::ss::formula::eval::ErrorEval::NUM_ERROR());
+                throw new ::poi::ss::formula::eval::EvaluationException(::poi::ss::formula::eval::ErrorEval::NUM_ERROR());
             }
             result = multiple * ::java::lang::Math::round(number / multiple);
         }
-        ::org::apache::poi::ss::formula::functions::NumericFunction::checkValue(result);
-        return new ::org::apache::poi::ss::formula::eval::NumberEval(result);
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+        ::poi::ss::formula::functions::NumericFunction::checkValue(result);
+        return new ::poi::ss::formula::eval::NumberEval(result);
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
         return npc(e)->getErrorEval();
     }
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::atp::MRound::class_()
+java::lang::Class* poi::ss::formula::atp::MRound::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.atp.MRound", 36);
     return c;
 }
 
-void org::apache::poi::ss::formula::atp::MRound::clinit()
+void poi::ss::formula::atp::MRound::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -114,7 +108,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::formula::atp::MRound::getClass0()
+java::lang::Class* poi::ss::formula::atp::MRound::getClass0()
 {
     return class_();
 }

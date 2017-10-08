@@ -12,29 +12,29 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::eval::forked::ForkedEvaluationSheet final
+class poi::ss::formula::eval::forked::ForkedEvaluationSheet final
     : public virtual ::java::lang::Object
-    , public ::org::apache::poi::ss::formula::EvaluationSheet
+    , public ::poi::ss::formula::EvaluationSheet
 {
 
 public:
     typedef ::java::lang::Object super;
 
 private:
-    ::org::apache::poi::ss::formula::EvaluationSheet* _masterSheet {  };
+    ::poi::ss::formula::EvaluationSheet* _masterSheet {  };
     ::java::util::Map* _sharedCellsByRowCol {  };
 protected:
-    void ctor(::org::apache::poi::ss::formula::EvaluationSheet* masterSheet);
+    void ctor(::poi::ss::formula::EvaluationSheet* masterSheet);
 
 public:
-    ::org::apache::poi::ss::formula::EvaluationCell* getCell(int32_t rowIndex, int32_t columnIndex) override;
+    ::poi::ss::formula::EvaluationCell* getCell(int32_t rowIndex, int32_t columnIndex) override;
     ForkedEvaluationCell* getOrCreateUpdatableCell(int32_t rowIndex, int32_t columnIndex);
-    void copyUpdatedCells(::org::apache::poi::ss::usermodel::Sheet* sheet);
-    int32_t getSheetIndex(::org::apache::poi::ss::formula::EvaluationWorkbook* mewb);
+    void copyUpdatedCells(::poi::ss::usermodel::Sheet* sheet);
+    int32_t getSheetIndex(::poi::ss::formula::EvaluationWorkbook* mewb);
     void clearAllCachedResultValues() override;
 
     // Generated
-    ForkedEvaluationSheet(::org::apache::poi::ss::formula::EvaluationSheet* masterSheet);
+    ForkedEvaluationSheet(::poi::ss::formula::EvaluationSheet* masterSheet);
 protected:
     ForkedEvaluationSheet(const ::default_init_tag&);
 

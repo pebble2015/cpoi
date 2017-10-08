@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::image::ImageHeaderPICT
+class poi::sl::image::ImageHeaderPICT
     : public virtual ::java::lang::Object
 {
 

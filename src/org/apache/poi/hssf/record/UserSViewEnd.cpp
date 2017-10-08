@@ -20,87 +20,87 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::UserSViewEnd::UserSViewEnd(const ::default_init_tag&)
+poi::hssf::record::UserSViewEnd::UserSViewEnd(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::UserSViewEnd::UserSViewEnd(::int8_tArray* data) 
+poi::hssf::record::UserSViewEnd::UserSViewEnd(::int8_tArray* data) 
     : UserSViewEnd(*static_cast< ::default_init_tag* >(0))
 {
     ctor(data);
 }
 
-org::apache::poi::hssf::record::UserSViewEnd::UserSViewEnd(RecordInputStream* in) 
+poi::hssf::record::UserSViewEnd::UserSViewEnd(RecordInputStream* in) 
     : UserSViewEnd(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::UserSViewEnd::sid;
+constexpr int16_t poi::hssf::record::UserSViewEnd::sid;
 
-void org::apache::poi::hssf::record::UserSViewEnd::ctor(::int8_tArray* data)
+void poi::hssf::record::UserSViewEnd::ctor(::int8_tArray* data)
 {
     super::ctor();
     _rawData = data;
 }
 
-void org::apache::poi::hssf::record::UserSViewEnd::ctor(RecordInputStream* in)
+void poi::hssf::record::UserSViewEnd::ctor(RecordInputStream* in)
 {
     super::ctor();
     _rawData = npc(in)->readRemainder();
 }
 
-void org::apache::poi::hssf::record::UserSViewEnd::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::UserSViewEnd::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->write(_rawData);
 }
 
-int32_t org::apache::poi::hssf::record::UserSViewEnd::getDataSize()
+int32_t poi::hssf::record::UserSViewEnd::getDataSize()
 {
     return npc(_rawData)->length;
 }
 
-int16_t org::apache::poi::hssf::record::UserSViewEnd::getSid()
+int16_t poi::hssf::record::UserSViewEnd::getSid()
 {
     return sid;
 }
 
-java::lang::String* org::apache::poi::hssf::record::UserSViewEnd::toString()
+java::lang::String* poi::hssf::record::UserSViewEnd::toString()
 {
     auto sb = new ::java::lang::StringBuffer();
     npc(npc(npc(sb)->append(u"["_j))->append(u"USERSVIEWEND"_j))->append(u"] (0x"_j);
     npc(sb)->append(::java::lang::StringBuilder().append(npc(::java::lang::Integer::toHexString(sid))->toUpperCase(::java::util::Locale::ROOT()))->append(u")\n"_j)->toString());
-    npc(npc(npc(sb)->append(u"  rawData="_j))->append(::org::apache::poi::util::HexDump::toHex(_rawData)))->append(u"\n"_j);
+    npc(npc(npc(sb)->append(u"  rawData="_j))->append(::poi::util::HexDump::toHex(_rawData)))->append(u"\n"_j);
     npc(npc(npc(sb)->append(u"[/"_j))->append(u"USERSVIEWEND"_j))->append(u"]\n"_j);
     return npc(sb)->toString();
 }
 
-java::lang::Object* org::apache::poi::hssf::record::UserSViewEnd::clone()
+java::lang::Object* poi::hssf::record::UserSViewEnd::clone()
 {
     return cloneViaReserialise();
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::UserSViewEnd::class_()
+java::lang::Class* poi::hssf::record::UserSViewEnd::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.UserSViewEnd", 39);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::UserSViewEnd::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::UserSViewEnd::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::UserSViewEnd::serialize()
+int8_tArray* poi::hssf::record::UserSViewEnd::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::UserSViewEnd::getClass0()
+java::lang::Class* poi::hssf::record::UserSViewEnd::getClass0()
 {
     return class_();
 }

@@ -16,29 +16,29 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFObjectData final
+class poi::hssf::usermodel::HSSFObjectData final
     : public HSSFPicture
-    , public ::org::apache::poi::ss::usermodel::ObjectData
+    , public ::poi::ss::usermodel::ObjectData
 {
 
 public:
     typedef HSSFPicture super;
 
 private:
-    ::org::apache::poi::poifs::filesystem::DirectoryEntry* _root {  };
+    ::poi::poifs::filesystem::DirectoryEntry* _root {  };
 protected:
-    void ctor(::org::apache::poi::ddf::EscherContainerRecord* spContainer, ::org::apache::poi::hssf::record::ObjRecord* objRecord, ::org::apache::poi::poifs::filesystem::DirectoryEntry* _root);
+    void ctor(::poi::ddf::EscherContainerRecord* spContainer, ::poi::hssf::record::ObjRecord* objRecord, ::poi::poifs::filesystem::DirectoryEntry* _root);
 
 public:
     ::java::lang::String* getOLE2ClassName() override;
-    ::org::apache::poi::poifs::filesystem::DirectoryEntry* getDirectory() /* throws(IOException) */ override;
+    ::poi::poifs::filesystem::DirectoryEntry* getDirectory() /* throws(IOException) */ override;
     ::int8_tArray* getObjectData() override;
     bool hasDirectoryEntry() override;
 
 public: /* protected */
-    ::org::apache::poi::hssf::record::EmbeddedObjectRefSubRecord* findObjectRecord();
-    ::org::apache::poi::ddf::EscherContainerRecord* createSpContainer() override;
-    ::org::apache::poi::hssf::record::ObjRecord* createObjRecord() override;
+    ::poi::hssf::record::EmbeddedObjectRefSubRecord* findObjectRecord();
+    ::poi::ddf::EscherContainerRecord* createSpContainer() override;
+    ::poi::hssf::record::ObjRecord* createObjRecord() override;
     void afterRemove(HSSFPatriarch* patriarch) override;
 
 public: /* package */
@@ -50,7 +50,7 @@ public: /* protected */
     // Generated
 
 public:
-    HSSFObjectData(::org::apache::poi::ddf::EscherContainerRecord* spContainer, ::org::apache::poi::hssf::record::ObjRecord* objRecord, ::org::apache::poi::poifs::filesystem::DirectoryEntry* _root);
+    HSSFObjectData(::poi::ddf::EscherContainerRecord* spContainer, ::poi::hssf::record::ObjRecord* objRecord, ::poi::poifs::filesystem::DirectoryEntry* _root);
 protected:
     HSSFObjectData(const ::default_init_tag&);
 

@@ -20,26 +20,26 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::format::CellTextFormatter::CellTextFormatter(const ::default_init_tag&)
+poi::ss::format::CellTextFormatter::CellTextFormatter(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::format::CellTextFormatter::CellTextFormatter(::java::lang::String* format) 
+poi::ss::format::CellTextFormatter::CellTextFormatter(::java::lang::String* format) 
     : CellTextFormatter(*static_cast< ::default_init_tag* >(0))
 {
     ctor(format);
 }
 
-org::apache::poi::ss::format::CellFormatter*& org::apache::poi::ss::format::CellTextFormatter::SIMPLE_TEXT()
+poi::ss::format::CellFormatter*& poi::ss::format::CellTextFormatter::SIMPLE_TEXT()
 {
     clinit();
     return SIMPLE_TEXT_;
 }
-org::apache::poi::ss::format::CellFormatter* org::apache::poi::ss::format::CellTextFormatter::SIMPLE_TEXT_;
+poi::ss::format::CellFormatter* poi::ss::format::CellTextFormatter::SIMPLE_TEXT_;
 
-void org::apache::poi::ss::format::CellTextFormatter::ctor(::java::lang::String* format)
+void poi::ss::format::CellTextFormatter::ctor(::java::lang::String* format)
 {
     super::ctor(format);
     auto const numPlaces = new ::int32_tArray(int32_t(1));
@@ -52,7 +52,7 @@ void org::apache::poi::ss::format::CellTextFormatter::ctor(::java::lang::String*
     }
 }
 
-void org::apache::poi::ss::format::CellTextFormatter::formatValue(::java::lang::StringBuffer* toAppendTo, ::java::lang::Object* obj)
+void poi::ss::format::CellTextFormatter::formatValue(::java::lang::StringBuffer* toAppendTo, ::java::lang::Object* obj)
 {
     auto start = npc(toAppendTo)->length();
     auto text = npc(obj)->toString();
@@ -66,20 +66,20 @@ void org::apache::poi::ss::format::CellTextFormatter::formatValue(::java::lang::
     }
 }
 
-void org::apache::poi::ss::format::CellTextFormatter::simpleValue(::java::lang::StringBuffer* toAppendTo, ::java::lang::Object* value)
+void poi::ss::format::CellTextFormatter::simpleValue(::java::lang::StringBuffer* toAppendTo, ::java::lang::Object* value)
 {
     npc(SIMPLE_TEXT_)->formatValue(toAppendTo, value);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::format::CellTextFormatter::class_()
+java::lang::Class* poi::ss::format::CellTextFormatter::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.format.CellTextFormatter", 42);
     return c;
 }
 
-void org::apache::poi::ss::format::CellTextFormatter::clinit()
+void poi::ss::format::CellTextFormatter::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -95,7 +95,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::format::CellTextFormatter::getClass0()
+java::lang::Class* poi::ss::format::CellTextFormatter::getClass0()
 {
     return class_();
 }

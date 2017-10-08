@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::usermodel::DataValidationConstraint_ValidationType final
+class poi::ss::usermodel::DataValidationConstraint_ValidationType final
     : public ::java::lang::Object
 {
 

@@ -38,30 +38,30 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::filesystem::NDocumentOutputStream::NDocumentOutputStream(const ::default_init_tag&)
+poi::poifs::filesystem::NDocumentOutputStream::NDocumentOutputStream(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::filesystem::NDocumentOutputStream::NDocumentOutputStream(DocumentEntry* document)  /* throws(IOException) */
+poi::poifs::filesystem::NDocumentOutputStream::NDocumentOutputStream(DocumentEntry* document)  /* throws(IOException) */
     : NDocumentOutputStream(*static_cast< ::default_init_tag* >(0))
 {
     ctor(document);
 }
 
-org::apache::poi::poifs::filesystem::NDocumentOutputStream::NDocumentOutputStream(DirectoryEntry* parent, ::java::lang::String* name)  /* throws(IOException) */
+poi::poifs::filesystem::NDocumentOutputStream::NDocumentOutputStream(DirectoryEntry* parent, ::java::lang::String* name)  /* throws(IOException) */
     : NDocumentOutputStream(*static_cast< ::default_init_tag* >(0))
 {
     ctor(parent,name);
 }
 
-void org::apache::poi::poifs::filesystem::NDocumentOutputStream::init()
+void poi::poifs::filesystem::NDocumentOutputStream::init()
 {
-    _buffer = new ::java::io::ByteArrayOutputStream(::org::apache::poi::poifs::common::POIFSConstants::BIG_BLOCK_MINIMUM_DOCUMENT_SIZE);
+    _buffer = new ::java::io::ByteArrayOutputStream(::poi::poifs::common::POIFSConstants::BIG_BLOCK_MINIMUM_DOCUMENT_SIZE);
 }
 
-void org::apache::poi::poifs::filesystem::NDocumentOutputStream::ctor(DocumentEntry* document) /* throws(IOException) */
+void poi::poifs::filesystem::NDocumentOutputStream::ctor(DocumentEntry* document) /* throws(IOException) */
 {
     super::ctor();
     init();
@@ -71,12 +71,12 @@ void org::apache::poi::poifs::filesystem::NDocumentOutputStream::ctor(DocumentEn
     }
     _document_size = 0;
     _closed = false;
-    _property = java_cast< ::org::apache::poi::poifs::property::DocumentProperty* >(npc((java_cast< DocumentNode* >(document)))->getProperty());
+    _property = java_cast< ::poi::poifs::property::DocumentProperty* >(npc((java_cast< DocumentNode* >(document)))->getProperty());
     _document = new NPOIFSDocument(java_cast< DocumentNode* >(document));
     npc(_document)->free();
 }
 
-void org::apache::poi::poifs::filesystem::NDocumentOutputStream::ctor(DirectoryEntry* parent, ::java::lang::String* name) /* throws(IOException) */
+void poi::poifs::filesystem::NDocumentOutputStream::ctor(DirectoryEntry* parent, ::java::lang::String* name) /* throws(IOException) */
 {
     super::ctor();
     init();
@@ -87,20 +87,20 @@ void org::apache::poi::poifs::filesystem::NDocumentOutputStream::ctor(DirectoryE
     _document_size = 0;
     _closed = false;
     auto doc = npc(parent)->createDocument(name, new ::java::io::ByteArrayInputStream(new ::int8_tArray(int32_t(0))));
-    _property = java_cast< ::org::apache::poi::poifs::property::DocumentProperty* >(npc((java_cast< DocumentNode* >(doc)))->getProperty());
+    _property = java_cast< ::poi::poifs::property::DocumentProperty* >(npc((java_cast< DocumentNode* >(doc)))->getProperty());
     _document = new NPOIFSDocument(java_cast< DocumentNode* >(doc));
 }
 
-void org::apache::poi::poifs::filesystem::NDocumentOutputStream::dieIfClosed() /* throws(IOException) */
+void poi::poifs::filesystem::NDocumentOutputStream::dieIfClosed() /* throws(IOException) */
 {
     if(_closed) {
         throw new ::java::io::IOException(u"cannot perform requested operation on a closed stream"_j);
     }
 }
 
-void org::apache::poi::poifs::filesystem::NDocumentOutputStream::checkBufferSize() /* throws(IOException) */
+void poi::poifs::filesystem::NDocumentOutputStream::checkBufferSize() /* throws(IOException) */
 {
-    if(npc(_buffer)->size() > ::org::apache::poi::poifs::common::POIFSConstants::BIG_BLOCK_MINIMUM_DOCUMENT_SIZE) {
+    if(npc(_buffer)->size() > ::poi::poifs::common::POIFSConstants::BIG_BLOCK_MINIMUM_DOCUMENT_SIZE) {
         auto data = npc(_buffer)->toByteArray_();
         _buffer = nullptr;
         write(data, int32_t(0), npc(data)->length);
@@ -108,7 +108,7 @@ void org::apache::poi::poifs::filesystem::NDocumentOutputStream::checkBufferSize
     }
 }
 
-void org::apache::poi::poifs::filesystem::NDocumentOutputStream::write(int32_t b) /* throws(IOException) */
+void poi::poifs::filesystem::NDocumentOutputStream::write(int32_t b) /* throws(IOException) */
 {
     dieIfClosed();
     if(_buffer != nullptr) {
@@ -119,7 +119,7 @@ void org::apache::poi::poifs::filesystem::NDocumentOutputStream::write(int32_t b
     }
 }
 
-void org::apache::poi::poifs::filesystem::NDocumentOutputStream::write(::int8_tArray* b) /* throws(IOException) */
+void poi::poifs::filesystem::NDocumentOutputStream::write(::int8_tArray* b) /* throws(IOException) */
 {
     dieIfClosed();
     if(_buffer != nullptr) {
@@ -130,7 +130,7 @@ void org::apache::poi::poifs::filesystem::NDocumentOutputStream::write(::int8_tA
     }
 }
 
-void org::apache::poi::poifs::filesystem::NDocumentOutputStream::write(::int8_tArray* b, int32_t off, int32_t len) /* throws(IOException) */
+void poi::poifs::filesystem::NDocumentOutputStream::write(::int8_tArray* b, int32_t off, int32_t len) /* throws(IOException) */
 {
     dieIfClosed();
     if(_buffer != nullptr) {
@@ -146,7 +146,7 @@ void org::apache::poi::poifs::filesystem::NDocumentOutputStream::write(::int8_tA
     }
 }
 
-void org::apache::poi::poifs::filesystem::NDocumentOutputStream::close() /* throws(IOException) */
+void poi::poifs::filesystem::NDocumentOutputStream::close() /* throws(IOException) */
 {
     if(_buffer != nullptr) {
         npc(_document)->replaceContents(new ::java::io::ByteArrayInputStream(npc(_buffer)->toByteArray_()));
@@ -160,13 +160,13 @@ void org::apache::poi::poifs::filesystem::NDocumentOutputStream::close() /* thro
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::filesystem::NDocumentOutputStream::class_()
+java::lang::Class* poi::poifs::filesystem::NDocumentOutputStream::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.filesystem.NDocumentOutputStream", 53);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::filesystem::NDocumentOutputStream::getClass0()
+java::lang::Class* poi::poifs::filesystem::NDocumentOutputStream::getClass0()
 {
     return class_();
 }

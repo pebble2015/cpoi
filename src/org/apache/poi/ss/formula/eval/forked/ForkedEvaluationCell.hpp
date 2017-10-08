@@ -13,48 +13,48 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::eval::forked::ForkedEvaluationCell final
+class poi::ss::formula::eval::forked::ForkedEvaluationCell final
     : public virtual ::java::lang::Object
-    , public ::org::apache::poi::ss::formula::EvaluationCell
+    , public ::poi::ss::formula::EvaluationCell
 {
 
 public:
     typedef ::java::lang::Object super;
 
 private:
-    ::org::apache::poi::ss::formula::EvaluationSheet* _sheet {  };
-    ::org::apache::poi::ss::formula::EvaluationCell* _masterCell {  };
+    ::poi::ss::formula::EvaluationSheet* _sheet {  };
+    ::poi::ss::formula::EvaluationCell* _masterCell {  };
     bool _booleanValue {  };
-    ::org::apache::poi::ss::usermodel::CellType* _cellType {  };
+    ::poi::ss::usermodel::CellType* _cellType {  };
     int32_t _errorValue {  };
     double _numberValue {  };
     ::java::lang::String* _stringValue {  };
 protected:
-    void ctor(ForkedEvaluationSheet* sheet, ::org::apache::poi::ss::formula::EvaluationCell* masterCell);
+    void ctor(ForkedEvaluationSheet* sheet, ::poi::ss::formula::EvaluationCell* masterCell);
 
 public:
     ::java::lang::Object* getIdentityKey() override;
-    void setValue(::org::apache::poi::ss::formula::eval::ValueEval* value);
-    void copyValue(::org::apache::poi::ss::usermodel::Cell* destCell);
+    void setValue(::poi::ss::formula::eval::ValueEval* value);
+    void copyValue(::poi::ss::usermodel::Cell* destCell);
 
 private:
-    void checkCellType(::org::apache::poi::ss::usermodel::CellType* expectedCellType);
+    void checkCellType(::poi::ss::usermodel::CellType* expectedCellType);
 
 public:
     int32_t getCellType() override;
-    ::org::apache::poi::ss::usermodel::CellType* getCellTypeEnum() override;
+    ::poi::ss::usermodel::CellType* getCellTypeEnum() override;
     bool getBooleanCellValue() override;
     int32_t getErrorCellValue() override;
     double getNumericCellValue() override;
     ::java::lang::String* getStringCellValue() override;
-    ::org::apache::poi::ss::formula::EvaluationSheet* getSheet() override;
+    ::poi::ss::formula::EvaluationSheet* getSheet() override;
     int32_t getRowIndex() override;
     int32_t getColumnIndex() override;
     int32_t getCachedFormulaResultType() override;
-    ::org::apache::poi::ss::usermodel::CellType* getCachedFormulaResultTypeEnum() override;
+    ::poi::ss::usermodel::CellType* getCachedFormulaResultTypeEnum() override;
 
     // Generated
-    ForkedEvaluationCell(ForkedEvaluationSheet* sheet, ::org::apache::poi::ss::formula::EvaluationCell* masterCell);
+    ForkedEvaluationCell(ForkedEvaluationSheet* sheet, ::poi::ss::formula::EvaluationCell* masterCell);
 protected:
     ForkedEvaluationCell(const ::default_init_tag&);
 

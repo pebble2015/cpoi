@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ddf::EscherArrayProperty final
+class poi::ddf::EscherArrayProperty final
     : public EscherComplexProperty
     , public ::java::lang::Iterable
 {

@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::usermodel::DateUtil_1
+class poi::ss::usermodel::DateUtil_1
     : public ::java::lang::ThreadLocal
 {
 

@@ -23,19 +23,13 @@ typedef ::SubArray< ::java::lang::Cloneable, ObjectArray > CloneableArray;
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ddf
     {
-        namespace poi
-        {
-            namespace ddf
-            {
-typedef ::SubArray< ::org::apache::poi::ddf::EscherDggRecord_FileIdCluster, ::java::lang::ObjectArray > EscherDggRecord_FileIdClusterArray;
-            } // ddf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ddf::EscherDggRecord_FileIdCluster, ::java::lang::ObjectArray > EscherDggRecord_FileIdClusterArray;
+    } // ddf
+} // poi
 
 namespace java
 {
@@ -47,7 +41,7 @@ typedef ::SubArray< ::java::lang::ObjectArray, CloneableArray, ::java::io::Seria
 
 struct default_init_tag;
 
-class org::apache::poi::ddf::EscherDggRecord final
+class poi::ddf::EscherDggRecord final
     : public EscherRecord
 {
 

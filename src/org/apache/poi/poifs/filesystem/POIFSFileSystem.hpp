@@ -28,9 +28,9 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::filesystem::POIFSFileSystem
+class poi::poifs::filesystem::POIFSFileSystem
     : public NPOIFSFileSystem
-    , public virtual ::org::apache::poi::poifs::dev::POIFSViewable
+    , public virtual ::poi::poifs::dev::POIFSViewable
 {
 
 public:

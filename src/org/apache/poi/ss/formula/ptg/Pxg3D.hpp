@@ -6,7 +6,7 @@
 #include <org/apache/poi/ss/formula/ptg/fwd-POI.hpp>
 #include <org/apache/poi/ss/formula/ptg/Pxg.hpp>
 
-struct org::apache::poi::ss::formula::ptg::Pxg3D
+struct poi::ss::formula::ptg::Pxg3D
     : public virtual Pxg
 {
     virtual ::java::lang::String* getLastSheetName() = 0;

@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::OldCellRecord
+class poi::hssf::record::OldCellRecord
     : public virtual ::java::lang::Object
 {
 

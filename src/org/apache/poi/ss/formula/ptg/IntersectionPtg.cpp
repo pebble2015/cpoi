@@ -35,53 +35,53 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::ptg::IntersectionPtg::IntersectionPtg(const ::default_init_tag&)
+poi::ss::formula::ptg::IntersectionPtg::IntersectionPtg(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::ptg::IntersectionPtg::IntersectionPtg() 
+poi::ss::formula::ptg::IntersectionPtg::IntersectionPtg() 
     : IntersectionPtg(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-constexpr int8_t org::apache::poi::ss::formula::ptg::IntersectionPtg::sid;
+constexpr int8_t poi::ss::formula::ptg::IntersectionPtg::sid;
 
-org::apache::poi::ss::formula::ptg::OperationPtg*& org::apache::poi::ss::formula::ptg::IntersectionPtg::instance()
+poi::ss::formula::ptg::OperationPtg*& poi::ss::formula::ptg::IntersectionPtg::instance()
 {
     clinit();
     return instance_;
 }
-org::apache::poi::ss::formula::ptg::OperationPtg* org::apache::poi::ss::formula::ptg::IntersectionPtg::instance_;
+poi::ss::formula::ptg::OperationPtg* poi::ss::formula::ptg::IntersectionPtg::instance_;
 
-void org::apache::poi::ss::formula::ptg::IntersectionPtg::ctor()
+void poi::ss::formula::ptg::IntersectionPtg::ctor()
 {
     super::ctor();
 }
 
-bool org::apache::poi::ss::formula::ptg::IntersectionPtg::isBaseToken()
+bool poi::ss::formula::ptg::IntersectionPtg::isBaseToken()
 {
     return true;
 }
 
-int32_t org::apache::poi::ss::formula::ptg::IntersectionPtg::getSize()
+int32_t poi::ss::formula::ptg::IntersectionPtg::getSize()
 {
     return 1;
 }
 
-void org::apache::poi::ss::formula::ptg::IntersectionPtg::write(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::ss::formula::ptg::IntersectionPtg::write(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeByte(sid + getPtgClass());
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::IntersectionPtg::toFormulaString()
+java::lang::String* poi::ss::formula::ptg::IntersectionPtg::toFormulaString()
 {
     return u" "_j;
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::IntersectionPtg::toFormulaString(::java::lang::StringArray* operands)
+java::lang::String* poi::ss::formula::ptg::IntersectionPtg::toFormulaString(::java::lang::StringArray* operands)
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append((*operands)[int32_t(0)]);
@@ -90,20 +90,20 @@ java::lang::String* org::apache::poi::ss::formula::ptg::IntersectionPtg::toFormu
     return npc(buffer)->toString();
 }
 
-int32_t org::apache::poi::ss::formula::ptg::IntersectionPtg::getNumberOfOperands()
+int32_t poi::ss::formula::ptg::IntersectionPtg::getNumberOfOperands()
 {
     return 2;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::IntersectionPtg::class_()
+java::lang::Class* poi::ss::formula::ptg::IntersectionPtg::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.ptg.IntersectionPtg", 45);
     return c;
 }
 
-void org::apache::poi::ss::formula::ptg::IntersectionPtg::clinit()
+void poi::ss::formula::ptg::IntersectionPtg::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -119,7 +119,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::IntersectionPtg::getClass0()
+java::lang::Class* poi::ss::formula::ptg::IntersectionPtg::getClass0()
 {
     return class_();
 }

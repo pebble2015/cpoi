@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::Match_SingleValueVector final
+class poi::ss::formula::functions::Match_SingleValueVector final
     : public virtual ::java::lang::Object
     , public LookupUtils_ValueVector
 {
@@ -19,16 +19,16 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    ::org::apache::poi::ss::formula::eval::ValueEval* _value {  };
+    ::poi::ss::formula::eval::ValueEval* _value {  };
 protected:
-    void ctor(::org::apache::poi::ss::formula::eval::ValueEval* value);
+    void ctor(::poi::ss::formula::eval::ValueEval* value);
 
 public:
-    ::org::apache::poi::ss::formula::eval::ValueEval* getItem(int32_t index) override;
+    ::poi::ss::formula::eval::ValueEval* getItem(int32_t index) override;
     int32_t getSize() override;
 
     // Generated
-    Match_SingleValueVector(::org::apache::poi::ss::formula::eval::ValueEval* value);
+    Match_SingleValueVector(::poi::ss::formula::eval::ValueEval* value);
 protected:
     Match_SingleValueVector(const ::default_init_tag&);
 

@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::LookupUtils_LookupValueComparerBase
+class poi::ss::formula::functions::LookupUtils_LookupValueComparerBase
     : public virtual ::java::lang::Object
     , public virtual LookupUtils_LookupValueComparer
 {
@@ -21,18 +21,18 @@ public:
 private:
     ::java::lang::Class* _targetClass {  };
 protected:
-    void ctor(::org::apache::poi::ss::formula::eval::ValueEval* targetValue);
+    void ctor(::poi::ss::formula::eval::ValueEval* targetValue);
 
 public:
-    LookupUtils_CompareResult* compareTo(::org::apache::poi::ss::formula::eval::ValueEval* other) override;
+    LookupUtils_CompareResult* compareTo(::poi::ss::formula::eval::ValueEval* other) override;
     ::java::lang::String* toString() override;
 
 public: /* protected */
-    virtual LookupUtils_CompareResult* compareSameType(::org::apache::poi::ss::formula::eval::ValueEval* other) = 0;
+    virtual LookupUtils_CompareResult* compareSameType(::poi::ss::formula::eval::ValueEval* other) = 0;
     virtual ::java::lang::String* getValueAsString() = 0;
 
     // Generated
-    LookupUtils_LookupValueComparerBase(::org::apache::poi::ss::formula::eval::ValueEval* targetValue);
+    LookupUtils_LookupValueComparerBase(::poi::ss::formula::eval::ValueEval* targetValue);
 protected:
     LookupUtils_LookupValueComparerBase(const ::default_init_tag&);
 

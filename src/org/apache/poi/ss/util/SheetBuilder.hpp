@@ -26,7 +26,7 @@ typedef ::SubArray< ::java::lang::ObjectArray, CloneableArray, ::java::io::Seria
 
 struct default_init_tag;
 
-class org::apache::poi::ss::util::SheetBuilder
+class poi::ss::util::SheetBuilder
     : public virtual ::java::lang::Object
 {
 
@@ -34,28 +34,28 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    ::org::apache::poi::ss::usermodel::Workbook* workbook {  };
+    ::poi::ss::usermodel::Workbook* workbook {  };
     ::java::lang::ObjectArrayArray* cells {  };
     bool shouldCreateEmptyCells {  };
     ::java::lang::String* sheetName {  };
 protected:
-    void ctor(::org::apache::poi::ss::usermodel::Workbook* workbook, ::java::lang::ObjectArrayArray* cells);
+    void ctor(::poi::ss::usermodel::Workbook* workbook, ::java::lang::ObjectArrayArray* cells);
 
 public:
     virtual bool getCreateEmptyCells();
     virtual SheetBuilder* setCreateEmptyCells(bool shouldCreateEmptyCells);
     virtual SheetBuilder* setSheetName(::java::lang::String* sheetName);
-    virtual ::org::apache::poi::ss::usermodel::Sheet* build();
+    virtual ::poi::ss::usermodel::Sheet* build();
 
 private:
-    void setCellValue(::org::apache::poi::ss::usermodel::Cell* cell, ::java::lang::Object* value);
+    void setCellValue(::poi::ss::usermodel::Cell* cell, ::java::lang::Object* value);
     bool isFormulaDefinition(::java::lang::Object* obj);
     ::java::lang::String* getFormula(::java::lang::Object* obj);
 
     // Generated
 
 public:
-    SheetBuilder(::org::apache::poi::ss::usermodel::Workbook* workbook, ::java::lang::ObjectArrayArray* cells);
+    SheetBuilder(::poi::ss::usermodel::Workbook* workbook, ::java::lang::ObjectArrayArray* cells);
 protected:
     SheetBuilder(const ::default_init_tag&);
 

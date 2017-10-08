@@ -15,105 +15,105 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::Countif_CmpOp::Countif_CmpOp(const ::default_init_tag&)
+poi::ss::formula::functions::Countif_CmpOp::Countif_CmpOp(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::Countif_CmpOp::Countif_CmpOp(::java::lang::String* representation, int32_t code) 
+poi::ss::formula::functions::Countif_CmpOp::Countif_CmpOp(::java::lang::String* representation, int32_t code) 
     : Countif_CmpOp(*static_cast< ::default_init_tag* >(0))
 {
     ctor(representation,code);
 }
 
-constexpr int32_t org::apache::poi::ss::formula::functions::Countif_CmpOp::NONE;
+constexpr int32_t poi::ss::formula::functions::Countif_CmpOp::NONE;
 
-constexpr int32_t org::apache::poi::ss::formula::functions::Countif_CmpOp::EQ;
+constexpr int32_t poi::ss::formula::functions::Countif_CmpOp::EQ;
 
-constexpr int32_t org::apache::poi::ss::formula::functions::Countif_CmpOp::NE;
+constexpr int32_t poi::ss::formula::functions::Countif_CmpOp::NE;
 
-constexpr int32_t org::apache::poi::ss::formula::functions::Countif_CmpOp::LE;
+constexpr int32_t poi::ss::formula::functions::Countif_CmpOp::LE;
 
-constexpr int32_t org::apache::poi::ss::formula::functions::Countif_CmpOp::LT;
+constexpr int32_t poi::ss::formula::functions::Countif_CmpOp::LT;
 
-constexpr int32_t org::apache::poi::ss::formula::functions::Countif_CmpOp::GT;
+constexpr int32_t poi::ss::formula::functions::Countif_CmpOp::GT;
 
-constexpr int32_t org::apache::poi::ss::formula::functions::Countif_CmpOp::GE;
+constexpr int32_t poi::ss::formula::functions::Countif_CmpOp::GE;
 
-org::apache::poi::ss::formula::functions::Countif_CmpOp*& org::apache::poi::ss::formula::functions::Countif_CmpOp::OP_NONE()
+poi::ss::formula::functions::Countif_CmpOp*& poi::ss::formula::functions::Countif_CmpOp::OP_NONE()
 {
     clinit();
     return OP_NONE_;
 }
-org::apache::poi::ss::formula::functions::Countif_CmpOp* org::apache::poi::ss::formula::functions::Countif_CmpOp::OP_NONE_;
+poi::ss::formula::functions::Countif_CmpOp* poi::ss::formula::functions::Countif_CmpOp::OP_NONE_;
 
-org::apache::poi::ss::formula::functions::Countif_CmpOp*& org::apache::poi::ss::formula::functions::Countif_CmpOp::OP_EQ()
+poi::ss::formula::functions::Countif_CmpOp*& poi::ss::formula::functions::Countif_CmpOp::OP_EQ()
 {
     clinit();
     return OP_EQ_;
 }
-org::apache::poi::ss::formula::functions::Countif_CmpOp* org::apache::poi::ss::formula::functions::Countif_CmpOp::OP_EQ_;
+poi::ss::formula::functions::Countif_CmpOp* poi::ss::formula::functions::Countif_CmpOp::OP_EQ_;
 
-org::apache::poi::ss::formula::functions::Countif_CmpOp*& org::apache::poi::ss::formula::functions::Countif_CmpOp::OP_NE()
+poi::ss::formula::functions::Countif_CmpOp*& poi::ss::formula::functions::Countif_CmpOp::OP_NE()
 {
     clinit();
     return OP_NE_;
 }
-org::apache::poi::ss::formula::functions::Countif_CmpOp* org::apache::poi::ss::formula::functions::Countif_CmpOp::OP_NE_;
+poi::ss::formula::functions::Countif_CmpOp* poi::ss::formula::functions::Countif_CmpOp::OP_NE_;
 
-org::apache::poi::ss::formula::functions::Countif_CmpOp*& org::apache::poi::ss::formula::functions::Countif_CmpOp::OP_LE()
+poi::ss::formula::functions::Countif_CmpOp*& poi::ss::formula::functions::Countif_CmpOp::OP_LE()
 {
     clinit();
     return OP_LE_;
 }
-org::apache::poi::ss::formula::functions::Countif_CmpOp* org::apache::poi::ss::formula::functions::Countif_CmpOp::OP_LE_;
+poi::ss::formula::functions::Countif_CmpOp* poi::ss::formula::functions::Countif_CmpOp::OP_LE_;
 
-org::apache::poi::ss::formula::functions::Countif_CmpOp*& org::apache::poi::ss::formula::functions::Countif_CmpOp::OP_LT()
+poi::ss::formula::functions::Countif_CmpOp*& poi::ss::formula::functions::Countif_CmpOp::OP_LT()
 {
     clinit();
     return OP_LT_;
 }
-org::apache::poi::ss::formula::functions::Countif_CmpOp* org::apache::poi::ss::formula::functions::Countif_CmpOp::OP_LT_;
+poi::ss::formula::functions::Countif_CmpOp* poi::ss::formula::functions::Countif_CmpOp::OP_LT_;
 
-org::apache::poi::ss::formula::functions::Countif_CmpOp*& org::apache::poi::ss::formula::functions::Countif_CmpOp::OP_GT()
+poi::ss::formula::functions::Countif_CmpOp*& poi::ss::formula::functions::Countif_CmpOp::OP_GT()
 {
     clinit();
     return OP_GT_;
 }
-org::apache::poi::ss::formula::functions::Countif_CmpOp* org::apache::poi::ss::formula::functions::Countif_CmpOp::OP_GT_;
+poi::ss::formula::functions::Countif_CmpOp* poi::ss::formula::functions::Countif_CmpOp::OP_GT_;
 
-org::apache::poi::ss::formula::functions::Countif_CmpOp*& org::apache::poi::ss::formula::functions::Countif_CmpOp::OP_GE()
+poi::ss::formula::functions::Countif_CmpOp*& poi::ss::formula::functions::Countif_CmpOp::OP_GE()
 {
     clinit();
     return OP_GE_;
 }
-org::apache::poi::ss::formula::functions::Countif_CmpOp* org::apache::poi::ss::formula::functions::Countif_CmpOp::OP_GE_;
+poi::ss::formula::functions::Countif_CmpOp* poi::ss::formula::functions::Countif_CmpOp::OP_GE_;
 
-org::apache::poi::ss::formula::functions::Countif_CmpOp* org::apache::poi::ss::formula::functions::Countif_CmpOp::op(::java::lang::String* rep, int32_t code)
+poi::ss::formula::functions::Countif_CmpOp* poi::ss::formula::functions::Countif_CmpOp::op(::java::lang::String* rep, int32_t code)
 {
     clinit();
     return new Countif_CmpOp(rep, code);
 }
 
-void org::apache::poi::ss::formula::functions::Countif_CmpOp::ctor(::java::lang::String* representation, int32_t code)
+void poi::ss::formula::functions::Countif_CmpOp::ctor(::java::lang::String* representation, int32_t code)
 {
     super::ctor();
     _representation = representation;
     _code = code;
 }
 
-int32_t org::apache::poi::ss::formula::functions::Countif_CmpOp::getLength()
+int32_t poi::ss::formula::functions::Countif_CmpOp::getLength()
 {
     return npc(_representation)->length();
 }
 
-int32_t org::apache::poi::ss::formula::functions::Countif_CmpOp::getCode()
+int32_t poi::ss::formula::functions::Countif_CmpOp::getCode()
 {
     return _code;
 }
 
-org::apache::poi::ss::formula::functions::Countif_CmpOp* org::apache::poi::ss::formula::functions::Countif_CmpOp::getOperator(::java::lang::String* value)
+poi::ss::formula::functions::Countif_CmpOp* poi::ss::formula::functions::Countif_CmpOp::getOperator(::java::lang::String* value)
 {
     clinit();
     auto len = npc(value)->length();
@@ -149,7 +149,7 @@ org::apache::poi::ss::formula::functions::Countif_CmpOp* org::apache::poi::ss::f
     return OP_NONE_;
 }
 
-bool org::apache::poi::ss::formula::functions::Countif_CmpOp::evaluate(bool cmpResult)
+bool poi::ss::formula::functions::Countif_CmpOp::evaluate(bool cmpResult)
 {
     switch (_code) {
     case NONE:
@@ -163,7 +163,7 @@ bool org::apache::poi::ss::formula::functions::Countif_CmpOp::evaluate(bool cmpR
         ->append(u"'"_j)->toString());
 }
 
-bool org::apache::poi::ss::formula::functions::Countif_CmpOp::evaluate(int32_t cmpResult)
+bool poi::ss::formula::functions::Countif_CmpOp::evaluate(int32_t cmpResult)
 {
     switch (_code) {
     case NONE:
@@ -185,7 +185,7 @@ bool org::apache::poi::ss::formula::functions::Countif_CmpOp::evaluate(int32_t c
         ->append(u"'"_j)->toString());
 }
 
-java::lang::String* org::apache::poi::ss::formula::functions::Countif_CmpOp::toString()
+java::lang::String* poi::ss::formula::functions::Countif_CmpOp::toString()
 {
     auto sb = new ::java::lang::StringBuffer(int32_t(64));
     npc(sb)->append(npc(getClass())->getName());
@@ -193,20 +193,20 @@ java::lang::String* org::apache::poi::ss::formula::functions::Countif_CmpOp::toS
     return npc(sb)->toString();
 }
 
-java::lang::String* org::apache::poi::ss::formula::functions::Countif_CmpOp::getRepresentation()
+java::lang::String* poi::ss::formula::functions::Countif_CmpOp::getRepresentation()
 {
     return _representation;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Countif_CmpOp::class_()
+java::lang::Class* poi::ss::formula::functions::Countif_CmpOp::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.Countif.CmpOp", 49);
     return c;
 }
 
-void org::apache::poi::ss::formula::functions::Countif_CmpOp::clinit()
+void poi::ss::formula::functions::Countif_CmpOp::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -228,7 +228,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Countif_CmpOp::getClass0()
+java::lang::Class* poi::ss::formula::functions::Countif_CmpOp::getClass0()
 {
     return class_();
 }

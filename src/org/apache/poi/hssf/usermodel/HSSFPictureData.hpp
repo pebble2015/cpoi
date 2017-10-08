@@ -11,9 +11,9 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFPictureData
+class poi::hssf::usermodel::HSSFPictureData
     : public virtual ::java::lang::Object
-    , public virtual ::org::apache::poi::ss::usermodel::PictureData
+    , public virtual ::poi::ss::usermodel::PictureData
 {
 
 public:
@@ -27,9 +27,9 @@ public:
     static constexpr int16_t FORMAT_MASK { int16_t(-16) };
 
 private:
-    ::org::apache::poi::ddf::EscherBlipRecord* blip {  };
+    ::poi::ddf::EscherBlipRecord* blip {  };
 protected:
-    void ctor(::org::apache::poi::ddf::EscherBlipRecord* blip);
+    void ctor(::poi::ddf::EscherBlipRecord* blip);
 
 public:
     ::int8_tArray* getData() override;
@@ -39,7 +39,7 @@ public:
     int32_t getPictureType() override;
 
     // Generated
-    HSSFPictureData(::org::apache::poi::ddf::EscherBlipRecord* blip);
+    HSSFPictureData(::poi::ddf::EscherBlipRecord* blip);
 protected:
     HSSFPictureData(const ::default_init_tag&);
 

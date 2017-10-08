@@ -6,7 +6,7 @@
 #include <org/apache/poi/ss/usermodel/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::usermodel::Textbox
+struct poi::ss::usermodel::Textbox
     : public virtual ::java::lang::Object
 {
     static constexpr int16_t OBJECT_TYPE_TEXT { int16_t(6) };

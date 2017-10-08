@@ -16,24 +16,24 @@ static T java_cast(U* u)
     return t;
 }
 
-org::apache::poi::ss::formula::ptg::OperandPtg::OperandPtg(const ::default_init_tag&)
+poi::ss::formula::ptg::OperandPtg::OperandPtg(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::ptg::OperandPtg::OperandPtg()
+poi::ss::formula::ptg::OperandPtg::OperandPtg()
     : OperandPtg(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-bool org::apache::poi::ss::formula::ptg::OperandPtg::isBaseToken()
+bool poi::ss::formula::ptg::OperandPtg::isBaseToken()
 {
     return false;
 }
 
-org::apache::poi::ss::formula::ptg::OperandPtg* org::apache::poi::ss::formula::ptg::OperandPtg::copy()
+poi::ss::formula::ptg::OperandPtg* poi::ss::formula::ptg::OperandPtg::copy()
 {
     try {
         return java_cast< OperandPtg* >(clone());
@@ -44,13 +44,13 @@ org::apache::poi::ss::formula::ptg::OperandPtg* org::apache::poi::ss::formula::p
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::OperandPtg::class_()
+java::lang::Class* poi::ss::formula::ptg::OperandPtg::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.ptg.OperandPtg", 40);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::OperandPtg::getClass0()
+java::lang::Class* poi::ss::formula::ptg::OperandPtg::getClass0()
 {
     return class_();
 }

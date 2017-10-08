@@ -17,32 +17,32 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::FileSharingRecord::FileSharingRecord(const ::default_init_tag&)
+poi::hssf::record::FileSharingRecord::FileSharingRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::FileSharingRecord::FileSharingRecord() 
+poi::hssf::record::FileSharingRecord::FileSharingRecord() 
     : FileSharingRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::FileSharingRecord::FileSharingRecord(RecordInputStream* in) 
+poi::hssf::record::FileSharingRecord::FileSharingRecord(RecordInputStream* in) 
     : FileSharingRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::FileSharingRecord::sid;
+constexpr int16_t poi::hssf::record::FileSharingRecord::sid;
 
-void org::apache::poi::hssf::record::FileSharingRecord::ctor()
+void poi::hssf::record::FileSharingRecord::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hssf::record::FileSharingRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::FileSharingRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     field_1_readonly = npc(in)->readShort();
@@ -56,37 +56,37 @@ void org::apache::poi::hssf::record::FileSharingRecord::ctor(RecordInputStream* 
     }
 }
 
-void org::apache::poi::hssf::record::FileSharingRecord::setReadOnly(int16_t readonly)
+void poi::hssf::record::FileSharingRecord::setReadOnly(int16_t readonly)
 {
     field_1_readonly = readonly;
 }
 
-int16_t org::apache::poi::hssf::record::FileSharingRecord::getReadOnly()
+int16_t poi::hssf::record::FileSharingRecord::getReadOnly()
 {
     return field_1_readonly;
 }
 
-void org::apache::poi::hssf::record::FileSharingRecord::setPassword(int16_t password)
+void poi::hssf::record::FileSharingRecord::setPassword(int16_t password)
 {
     field_2_password = password;
 }
 
-int16_t org::apache::poi::hssf::record::FileSharingRecord::getPassword()
+int16_t poi::hssf::record::FileSharingRecord::getPassword()
 {
     return field_2_password;
 }
 
-java::lang::String* org::apache::poi::hssf::record::FileSharingRecord::getUsername()
+java::lang::String* poi::hssf::record::FileSharingRecord::getUsername()
 {
     return field_3_username_value;
 }
 
-void org::apache::poi::hssf::record::FileSharingRecord::setUsername(::java::lang::String* username)
+void poi::hssf::record::FileSharingRecord::setUsername(::java::lang::String* username)
 {
     field_3_username_value = username;
 }
 
-java::lang::String* org::apache::poi::hssf::record::FileSharingRecord::toString()
+java::lang::String* poi::hssf::record::FileSharingRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[FILESHARING]\n"_j);
@@ -97,18 +97,18 @@ java::lang::String* org::apache::poi::hssf::record::FileSharingRecord::toString(
     return npc(buffer)->toString();
 }
 
-void org::apache::poi::hssf::record::FileSharingRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::FileSharingRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(getReadOnly());
     npc(out)->writeShort(getPassword());
     npc(out)->writeShort(npc(field_3_username_value)->length());
     if(npc(field_3_username_value)->length() > 0) {
         npc(out)->writeByte(field_3_username_unicode_options);
-        ::org::apache::poi::util::StringUtil::putCompressedUnicode(getUsername(), out);
+        ::poi::util::StringUtil::putCompressedUnicode(getUsername(), out);
     }
 }
 
-int32_t org::apache::poi::hssf::record::FileSharingRecord::getDataSize()
+int32_t poi::hssf::record::FileSharingRecord::getDataSize()
 {
     auto nameLen = npc(field_3_username_value)->length();
     if(nameLen < 1) {
@@ -117,12 +117,12 @@ int32_t org::apache::poi::hssf::record::FileSharingRecord::getDataSize()
     return int32_t(7) + nameLen;
 }
 
-int16_t org::apache::poi::hssf::record::FileSharingRecord::getSid()
+int16_t poi::hssf::record::FileSharingRecord::getSid()
 {
     return sid;
 }
 
-org::apache::poi::hssf::record::FileSharingRecord* org::apache::poi::hssf::record::FileSharingRecord::clone()
+poi::hssf::record::FileSharingRecord* poi::hssf::record::FileSharingRecord::clone()
 {
     auto clone = new FileSharingRecord();
     npc(clone)->setReadOnly(field_1_readonly);
@@ -133,23 +133,23 @@ org::apache::poi::hssf::record::FileSharingRecord* org::apache::poi::hssf::recor
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::FileSharingRecord::class_()
+java::lang::Class* poi::hssf::record::FileSharingRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.FileSharingRecord", 44);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::FileSharingRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::FileSharingRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::FileSharingRecord::serialize()
+int8_tArray* poi::hssf::record::FileSharingRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::FileSharingRecord::getClass0()
+java::lang::Class* poi::hssf::record::FileSharingRecord::getClass0()
 {
     return class_();
 }

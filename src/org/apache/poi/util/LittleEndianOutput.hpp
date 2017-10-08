@@ -6,7 +6,7 @@
 #include <org/apache/poi/util/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::util::LittleEndianOutput
+struct poi::util::LittleEndianOutput
     : public virtual ::java::lang::Object
 {
     virtual void writeByte(int32_t v) = 0;

@@ -6,7 +6,7 @@
 #include <org/apache/poi/ss/formula/eval/fwd-POI.hpp>
 #include <org/apache/poi/ss/formula/eval/ValueEval.hpp>
 
-struct org::apache::poi::ss::formula::eval::NumericValueEval
+struct poi::ss::formula::eval::NumericValueEval
     : public virtual ValueEval
 {
     virtual double getNumberValue() = 0;

@@ -28,27 +28,21 @@ typedef ::SubArray< ::java::lang::Cloneable, ObjectArray > CloneableArray;
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
-            {
-                namespace formula
-                {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ParseNode, ::java::lang::ObjectArray > ParseNodeArray;
+typedef ::SubArray< ::poi::ss::formula::ParseNode, ::java::lang::ObjectArray > ParseNodeArray;
 
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+            namespace ptg
+            {
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 namespace java
 {
@@ -60,7 +54,7 @@ typedef ::SubArray< ::java::lang::ObjectArray, CloneableArray, ::java::io::Seria
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::FormulaParser final
+class poi::ss::formula::FormulaParser final
     : public ::java::lang::Object
 {
 
@@ -68,7 +62,7 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    static ::org::apache::poi::util::POILogger* log_;
+    static ::poi::util::POILogger* log_;
     ::java::lang::String* _formulaString {  };
     int32_t _formulaLength {  };
     int32_t _pointer {  };
@@ -79,16 +73,16 @@ private:
     int32_t look {  };
     bool _inIntersection {  };
     FormulaParsingWorkbook* _book {  };
-    ::org::apache::poi::ss::SpreadsheetVersion* _ssVersion {  };
+    ::poi::ss::SpreadsheetVersion* _ssVersion {  };
     int32_t _sheetIndex {  };
     int32_t _rowIndex {  };
 protected:
     void ctor(::java::lang::String* formula, FormulaParsingWorkbook* book, int32_t sheetIndex, int32_t rowIndex);
 
 public:
-    static ::org::apache::poi::ss::formula::ptg::PtgArray* parse(::java::lang::String* formula, FormulaParsingWorkbook* workbook, FormulaType* formulaType, int32_t sheetIndex, int32_t rowIndex);
-    static ::org::apache::poi::ss::formula::ptg::PtgArray* parse(::java::lang::String* formula, FormulaParsingWorkbook* workbook, FormulaType* formulaType, int32_t sheetIndex);
-    static ::org::apache::poi::ss::formula::ptg::Area3DPxg* parseStructuredReference(::java::lang::String* tableText, FormulaParsingWorkbook* workbook, int32_t rowIndex);
+    static ::poi::ss::formula::ptg::PtgArray* parse(::java::lang::String* formula, FormulaParsingWorkbook* workbook, FormulaType* formulaType, int32_t sheetIndex, int32_t rowIndex);
+    static ::poi::ss::formula::ptg::PtgArray* parse(::java::lang::String* formula, FormulaParsingWorkbook* workbook, FormulaType* formulaType, int32_t sheetIndex);
+    static ::poi::ss::formula::ptg::Area3DPxg* parseStructuredReference(::java::lang::String* tableText, FormulaParsingWorkbook* workbook, int32_t rowIndex);
 
 private:
     void GetChar();
@@ -118,7 +112,7 @@ private:
     ::java::lang::String* parseAsName();
     static bool isValidDefinedNameChar(int32_t ch);
     ParseNode* createAreaRefParseNode(SheetIdentifier* sheetIden, FormulaParser_SimpleRangePart* part1, FormulaParser_SimpleRangePart* part2) /* throws(FormulaParseException) */;
-    ::org::apache::poi::ss::util::AreaReference* createAreaRef(FormulaParser_SimpleRangePart* part1, FormulaParser_SimpleRangePart* part2);
+    ::poi::ss::util::AreaReference* createAreaRef(FormulaParser_SimpleRangePart* part1, FormulaParser_SimpleRangePart* part2);
     static ::java::util::regex::Pattern* CELL_REF_PATTERN_;
     FormulaParser_SimpleRangePart* parseSimpleRangePart();
     ::java::lang::String* getBookName();
@@ -128,8 +122,8 @@ private:
     bool isValidCellReference(::java::lang::String* str);
     ParseNode* function(::java::lang::String* name);
     void addName(::java::lang::String* functionName);
-    ParseNode* getFunction(::java::lang::String* name, ::org::apache::poi::ss::formula::ptg::Ptg* namePtg, ParseNodeArray* args);
-    void validateNumArgs(int32_t numArgs, ::org::apache::poi::ss::formula::function::FunctionMetadata* fm);
+    ParseNode* getFunction(::java::lang::String* name, ::poi::ss::formula::ptg::Ptg* namePtg, ParseNodeArray* args);
+    void validateNumArgs(int32_t numArgs, ::poi::ss::formula::function::FunctionMetadata* fm);
     static bool isArgumentDelimiter(int32_t ch);
     ParseNodeArray* Arguments();
     ParseNode* powerFactor();
@@ -141,21 +135,21 @@ private:
     ::java::lang::ObjectArray* parseArrayRow();
     ::java::lang::Object* parseArrayItem();
     ::java::lang::Boolean* parseBooleanLiteral();
-    static ::java::lang::Double* convertArrayNumber(::org::apache::poi::ss::formula::ptg::Ptg* ptg, bool isPositive);
-    ::org::apache::poi::ss::formula::ptg::Ptg* parseNumber();
+    static ::java::lang::Double* convertArrayNumber(::poi::ss::formula::ptg::Ptg* ptg, bool isPositive);
+    ::poi::ss::formula::ptg::Ptg* parseNumber();
     int32_t parseErrorLiteral();
     ::java::lang::String* parseUnquotedIdentifier();
-    static ::org::apache::poi::ss::formula::ptg::Ptg* getNumberPtgFromString(::java::lang::String* number1, ::java::lang::String* number2, ::java::lang::String* exponent);
+    static ::poi::ss::formula::ptg::Ptg* getNumberPtgFromString(::java::lang::String* number1, ::java::lang::String* number2, ::java::lang::String* exponent);
     ::java::lang::String* parseStringLiteral();
     ParseNode* Term();
     ParseNode* unionExpression();
     ParseNode* intersectionExpression();
     ParseNode* comparisonExpression();
-    ::org::apache::poi::ss::formula::ptg::Ptg* getComparisonToken();
+    ::poi::ss::formula::ptg::Ptg* getComparisonToken();
     ParseNode* concatExpression();
     ParseNode* additiveExpression();
     void parse();
-    ::org::apache::poi::ss::formula::ptg::PtgArray* getRPNPtg(FormulaType* formulaType);
+    ::poi::ss::formula::ptg::PtgArray* getRPNPtg(FormulaType* formulaType);
 
     // Generated
     FormulaParser(::java::lang::String* formula, FormulaParsingWorkbook* book, int32_t sheetIndex, int32_t rowIndex);
@@ -168,7 +162,7 @@ public:
     static void clinit();
 
 private:
-    static ::org::apache::poi::util::POILogger*& log();
+    static ::poi::util::POILogger*& log();
     static ::java::lang::String*& specHeaders();
     static ::java::lang::String*& specAll();
     static ::java::lang::String*& specData();

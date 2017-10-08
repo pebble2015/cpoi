@@ -7,10 +7,10 @@
 #include <org/apache/poi/ss/formula/eval/fwd-POI.hpp>
 #include <org/apache/poi/ss/formula/eval/ValueEval.hpp>
 
-struct org::apache::poi::ss::formula::TwoDEval
-    : public virtual ::org::apache::poi::ss::formula::eval::ValueEval
+struct poi::ss::formula::TwoDEval
+    : public virtual ::poi::ss::formula::eval::ValueEval
 {
-    virtual ::org::apache::poi::ss::formula::eval::ValueEval* getValue(int32_t rowIndex, int32_t columnIndex) = 0;
+    virtual ::poi::ss::formula::eval::ValueEval* getValue(int32_t rowIndex, int32_t columnIndex) = 0;
     virtual int32_t getWidth() = 0;
     virtual int32_t getHeight() = 0;
     virtual bool isRow() = 0;

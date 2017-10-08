@@ -12,23 +12,23 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::property::PropertyTableBase
+class poi::poifs::property::PropertyTableBase
     : public virtual ::java::lang::Object
-    , public virtual ::org::apache::poi::poifs::filesystem::BATManaged
+    , public virtual ::poi::poifs::filesystem::BATManaged
 {
 
 public:
     typedef ::java::lang::Object super;
 
 private:
-    static ::org::apache::poi::util::POILogger* _logger_;
-    ::org::apache::poi::poifs::storage::HeaderBlock* _header_block {  };
+    static ::poi::util::POILogger* _logger_;
+    ::poi::poifs::storage::HeaderBlock* _header_block {  };
 
 public: /* protected */
     ::java::util::List* _properties {  };
 protected:
-    void ctor(::org::apache::poi::poifs::storage::HeaderBlock* header_block);
-    void ctor(::org::apache::poi::poifs::storage::HeaderBlock* header_block, ::java::util::List* properties) /* throws(IOException) */;
+    void ctor(::poi::poifs::storage::HeaderBlock* header_block);
+    void ctor(::poi::poifs::storage::HeaderBlock* header_block, ::java::util::List* properties) /* throws(IOException) */;
 
 public:
     virtual void addProperty(Property* property);
@@ -46,8 +46,8 @@ public:
     void setStartBlock(int32_t index) override;
 
     // Generated
-    PropertyTableBase(::org::apache::poi::poifs::storage::HeaderBlock* header_block);
-    PropertyTableBase(::org::apache::poi::poifs::storage::HeaderBlock* header_block, ::java::util::List* properties);
+    PropertyTableBase(::poi::poifs::storage::HeaderBlock* header_block);
+    PropertyTableBase(::poi::poifs::storage::HeaderBlock* header_block, ::java::util::List* properties);
 protected:
     PropertyTableBase(const ::default_init_tag&);
 
@@ -57,6 +57,6 @@ public:
     static void clinit();
 
 private:
-    static ::org::apache::poi::util::POILogger*& _logger();
+    static ::poi::util::POILogger*& _logger();
     virtual ::java::lang::Class* getClass0();
 };

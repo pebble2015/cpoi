@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::util::LittleEndianByteArrayInputStream
+class poi::util::LittleEndianByteArrayInputStream
     : public ::java::io::ByteArrayInputStream
     , public virtual LittleEndianInput
 {

@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::aggregates::CustomViewSettingsRecordAggregate final
+class poi::hssf::record::aggregates::CustomViewSettingsRecordAggregate final
     : public RecordAggregate
 {
 
@@ -19,20 +19,20 @@ public:
     typedef RecordAggregate super;
 
 private:
-    ::org::apache::poi::hssf::record::Record* _begin {  };
-    ::org::apache::poi::hssf::record::Record* _end {  };
+    ::poi::hssf::record::Record* _begin {  };
+    ::poi::hssf::record::Record* _end {  };
     ::java::util::List* _recs {  };
     PageSettingsBlock* _psBlock {  };
 protected:
-    void ctor(::org::apache::poi::hssf::model::RecordStream* rs);
+    void ctor(::poi::hssf::model::RecordStream* rs);
 
 public:
     void visitContainedRecords(RecordAggregate_RecordVisitor* rv) override;
     static bool isBeginRecord(int32_t sid);
-    void append(::org::apache::poi::hssf::record::RecordBase* r);
+    void append(::poi::hssf::record::RecordBase* r);
 
     // Generated
-    CustomViewSettingsRecordAggregate(::org::apache::poi::hssf::model::RecordStream* rs);
+    CustomViewSettingsRecordAggregate(::poi::hssf::model::RecordStream* rs);
 protected:
     CustomViewSettingsRecordAggregate(const ::default_init_tag&);
 

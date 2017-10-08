@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::OldFileFormatException
+class poi::OldFileFormatException
     : public UnsupportedFileFormatException
 {
 

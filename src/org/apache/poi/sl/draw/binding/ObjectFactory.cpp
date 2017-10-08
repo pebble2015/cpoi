@@ -60,1338 +60,1338 @@
 #include <org/apache/poi/sl/draw/binding/CTVector3D.hpp>
 #include <org/apache/poi/sl/draw/binding/CTXYAdjustHandle.hpp>
 
-org::apache::poi::sl::draw::binding::ObjectFactory::ObjectFactory(const ::default_init_tag&)
+poi::sl::draw::binding::ObjectFactory::ObjectFactory(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::draw::binding::ObjectFactory::ObjectFactory() 
+poi::sl::draw::binding::ObjectFactory::ObjectFactory() 
     : ObjectFactory(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-javax::xml::namespace_::QName*& org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorAlpha_QNAME()
+javax::xml::namespace_::QName*& poi::sl::draw::binding::ObjectFactory::_CTSRgbColorAlpha_QNAME()
 {
     clinit();
     return _CTSRgbColorAlpha_QNAME_;
 }
-javax::xml::namespace_::QName* org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorAlpha_QNAME_;
+javax::xml::namespace_::QName* poi::sl::draw::binding::ObjectFactory::_CTSRgbColorAlpha_QNAME_;
 
-javax::xml::namespace_::QName*& org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorLum_QNAME()
+javax::xml::namespace_::QName*& poi::sl::draw::binding::ObjectFactory::_CTSRgbColorLum_QNAME()
 {
     clinit();
     return _CTSRgbColorLum_QNAME_;
 }
-javax::xml::namespace_::QName* org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorLum_QNAME_;
+javax::xml::namespace_::QName* poi::sl::draw::binding::ObjectFactory::_CTSRgbColorLum_QNAME_;
 
-javax::xml::namespace_::QName*& org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorGamma_QNAME()
+javax::xml::namespace_::QName*& poi::sl::draw::binding::ObjectFactory::_CTSRgbColorGamma_QNAME()
 {
     clinit();
     return _CTSRgbColorGamma_QNAME_;
 }
-javax::xml::namespace_::QName* org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorGamma_QNAME_;
+javax::xml::namespace_::QName* poi::sl::draw::binding::ObjectFactory::_CTSRgbColorGamma_QNAME_;
 
-javax::xml::namespace_::QName*& org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorInvGamma_QNAME()
+javax::xml::namespace_::QName*& poi::sl::draw::binding::ObjectFactory::_CTSRgbColorInvGamma_QNAME()
 {
     clinit();
     return _CTSRgbColorInvGamma_QNAME_;
 }
-javax::xml::namespace_::QName* org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorInvGamma_QNAME_;
+javax::xml::namespace_::QName* poi::sl::draw::binding::ObjectFactory::_CTSRgbColorInvGamma_QNAME_;
 
-javax::xml::namespace_::QName*& org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorRedOff_QNAME()
+javax::xml::namespace_::QName*& poi::sl::draw::binding::ObjectFactory::_CTSRgbColorRedOff_QNAME()
 {
     clinit();
     return _CTSRgbColorRedOff_QNAME_;
 }
-javax::xml::namespace_::QName* org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorRedOff_QNAME_;
+javax::xml::namespace_::QName* poi::sl::draw::binding::ObjectFactory::_CTSRgbColorRedOff_QNAME_;
 
-javax::xml::namespace_::QName*& org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorAlphaMod_QNAME()
+javax::xml::namespace_::QName*& poi::sl::draw::binding::ObjectFactory::_CTSRgbColorAlphaMod_QNAME()
 {
     clinit();
     return _CTSRgbColorAlphaMod_QNAME_;
 }
-javax::xml::namespace_::QName* org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorAlphaMod_QNAME_;
+javax::xml::namespace_::QName* poi::sl::draw::binding::ObjectFactory::_CTSRgbColorAlphaMod_QNAME_;
 
-javax::xml::namespace_::QName*& org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorAlphaOff_QNAME()
+javax::xml::namespace_::QName*& poi::sl::draw::binding::ObjectFactory::_CTSRgbColorAlphaOff_QNAME()
 {
     clinit();
     return _CTSRgbColorAlphaOff_QNAME_;
 }
-javax::xml::namespace_::QName* org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorAlphaOff_QNAME_;
+javax::xml::namespace_::QName* poi::sl::draw::binding::ObjectFactory::_CTSRgbColorAlphaOff_QNAME_;
 
-javax::xml::namespace_::QName*& org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorGreenOff_QNAME()
+javax::xml::namespace_::QName*& poi::sl::draw::binding::ObjectFactory::_CTSRgbColorGreenOff_QNAME()
 {
     clinit();
     return _CTSRgbColorGreenOff_QNAME_;
 }
-javax::xml::namespace_::QName* org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorGreenOff_QNAME_;
+javax::xml::namespace_::QName* poi::sl::draw::binding::ObjectFactory::_CTSRgbColorGreenOff_QNAME_;
 
-javax::xml::namespace_::QName*& org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorRedMod_QNAME()
+javax::xml::namespace_::QName*& poi::sl::draw::binding::ObjectFactory::_CTSRgbColorRedMod_QNAME()
 {
     clinit();
     return _CTSRgbColorRedMod_QNAME_;
 }
-javax::xml::namespace_::QName* org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorRedMod_QNAME_;
+javax::xml::namespace_::QName* poi::sl::draw::binding::ObjectFactory::_CTSRgbColorRedMod_QNAME_;
 
-javax::xml::namespace_::QName*& org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorHue_QNAME()
+javax::xml::namespace_::QName*& poi::sl::draw::binding::ObjectFactory::_CTSRgbColorHue_QNAME()
 {
     clinit();
     return _CTSRgbColorHue_QNAME_;
 }
-javax::xml::namespace_::QName* org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorHue_QNAME_;
+javax::xml::namespace_::QName* poi::sl::draw::binding::ObjectFactory::_CTSRgbColorHue_QNAME_;
 
-javax::xml::namespace_::QName*& org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorSatOff_QNAME()
+javax::xml::namespace_::QName*& poi::sl::draw::binding::ObjectFactory::_CTSRgbColorSatOff_QNAME()
 {
     clinit();
     return _CTSRgbColorSatOff_QNAME_;
 }
-javax::xml::namespace_::QName* org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorSatOff_QNAME_;
+javax::xml::namespace_::QName* poi::sl::draw::binding::ObjectFactory::_CTSRgbColorSatOff_QNAME_;
 
-javax::xml::namespace_::QName*& org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorGreenMod_QNAME()
+javax::xml::namespace_::QName*& poi::sl::draw::binding::ObjectFactory::_CTSRgbColorGreenMod_QNAME()
 {
     clinit();
     return _CTSRgbColorGreenMod_QNAME_;
 }
-javax::xml::namespace_::QName* org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorGreenMod_QNAME_;
+javax::xml::namespace_::QName* poi::sl::draw::binding::ObjectFactory::_CTSRgbColorGreenMod_QNAME_;
 
-javax::xml::namespace_::QName*& org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorSat_QNAME()
+javax::xml::namespace_::QName*& poi::sl::draw::binding::ObjectFactory::_CTSRgbColorSat_QNAME()
 {
     clinit();
     return _CTSRgbColorSat_QNAME_;
 }
-javax::xml::namespace_::QName* org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorSat_QNAME_;
+javax::xml::namespace_::QName* poi::sl::draw::binding::ObjectFactory::_CTSRgbColorSat_QNAME_;
 
-javax::xml::namespace_::QName*& org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorBlue_QNAME()
+javax::xml::namespace_::QName*& poi::sl::draw::binding::ObjectFactory::_CTSRgbColorBlue_QNAME()
 {
     clinit();
     return _CTSRgbColorBlue_QNAME_;
 }
-javax::xml::namespace_::QName* org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorBlue_QNAME_;
+javax::xml::namespace_::QName* poi::sl::draw::binding::ObjectFactory::_CTSRgbColorBlue_QNAME_;
 
-javax::xml::namespace_::QName*& org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorRed_QNAME()
+javax::xml::namespace_::QName*& poi::sl::draw::binding::ObjectFactory::_CTSRgbColorRed_QNAME()
 {
     clinit();
     return _CTSRgbColorRed_QNAME_;
 }
-javax::xml::namespace_::QName* org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorRed_QNAME_;
+javax::xml::namespace_::QName* poi::sl::draw::binding::ObjectFactory::_CTSRgbColorRed_QNAME_;
 
-javax::xml::namespace_::QName*& org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorSatMod_QNAME()
+javax::xml::namespace_::QName*& poi::sl::draw::binding::ObjectFactory::_CTSRgbColorSatMod_QNAME()
 {
     clinit();
     return _CTSRgbColorSatMod_QNAME_;
 }
-javax::xml::namespace_::QName* org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorSatMod_QNAME_;
+javax::xml::namespace_::QName* poi::sl::draw::binding::ObjectFactory::_CTSRgbColorSatMod_QNAME_;
 
-javax::xml::namespace_::QName*& org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorHueOff_QNAME()
+javax::xml::namespace_::QName*& poi::sl::draw::binding::ObjectFactory::_CTSRgbColorHueOff_QNAME()
 {
     clinit();
     return _CTSRgbColorHueOff_QNAME_;
 }
-javax::xml::namespace_::QName* org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorHueOff_QNAME_;
+javax::xml::namespace_::QName* poi::sl::draw::binding::ObjectFactory::_CTSRgbColorHueOff_QNAME_;
 
-javax::xml::namespace_::QName*& org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorBlueMod_QNAME()
+javax::xml::namespace_::QName*& poi::sl::draw::binding::ObjectFactory::_CTSRgbColorBlueMod_QNAME()
 {
     clinit();
     return _CTSRgbColorBlueMod_QNAME_;
 }
-javax::xml::namespace_::QName* org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorBlueMod_QNAME_;
+javax::xml::namespace_::QName* poi::sl::draw::binding::ObjectFactory::_CTSRgbColorBlueMod_QNAME_;
 
-javax::xml::namespace_::QName*& org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorShade_QNAME()
+javax::xml::namespace_::QName*& poi::sl::draw::binding::ObjectFactory::_CTSRgbColorShade_QNAME()
 {
     clinit();
     return _CTSRgbColorShade_QNAME_;
 }
-javax::xml::namespace_::QName* org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorShade_QNAME_;
+javax::xml::namespace_::QName* poi::sl::draw::binding::ObjectFactory::_CTSRgbColorShade_QNAME_;
 
-javax::xml::namespace_::QName*& org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorLumMod_QNAME()
+javax::xml::namespace_::QName*& poi::sl::draw::binding::ObjectFactory::_CTSRgbColorLumMod_QNAME()
 {
     clinit();
     return _CTSRgbColorLumMod_QNAME_;
 }
-javax::xml::namespace_::QName* org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorLumMod_QNAME_;
+javax::xml::namespace_::QName* poi::sl::draw::binding::ObjectFactory::_CTSRgbColorLumMod_QNAME_;
 
-javax::xml::namespace_::QName*& org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorInv_QNAME()
+javax::xml::namespace_::QName*& poi::sl::draw::binding::ObjectFactory::_CTSRgbColorInv_QNAME()
 {
     clinit();
     return _CTSRgbColorInv_QNAME_;
 }
-javax::xml::namespace_::QName* org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorInv_QNAME_;
+javax::xml::namespace_::QName* poi::sl::draw::binding::ObjectFactory::_CTSRgbColorInv_QNAME_;
 
-javax::xml::namespace_::QName*& org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorLumOff_QNAME()
+javax::xml::namespace_::QName*& poi::sl::draw::binding::ObjectFactory::_CTSRgbColorLumOff_QNAME()
 {
     clinit();
     return _CTSRgbColorLumOff_QNAME_;
 }
-javax::xml::namespace_::QName* org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorLumOff_QNAME_;
+javax::xml::namespace_::QName* poi::sl::draw::binding::ObjectFactory::_CTSRgbColorLumOff_QNAME_;
 
-javax::xml::namespace_::QName*& org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorTint_QNAME()
+javax::xml::namespace_::QName*& poi::sl::draw::binding::ObjectFactory::_CTSRgbColorTint_QNAME()
 {
     clinit();
     return _CTSRgbColorTint_QNAME_;
 }
-javax::xml::namespace_::QName* org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorTint_QNAME_;
+javax::xml::namespace_::QName* poi::sl::draw::binding::ObjectFactory::_CTSRgbColorTint_QNAME_;
 
-javax::xml::namespace_::QName*& org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorGreen_QNAME()
+javax::xml::namespace_::QName*& poi::sl::draw::binding::ObjectFactory::_CTSRgbColorGreen_QNAME()
 {
     clinit();
     return _CTSRgbColorGreen_QNAME_;
 }
-javax::xml::namespace_::QName* org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorGreen_QNAME_;
+javax::xml::namespace_::QName* poi::sl::draw::binding::ObjectFactory::_CTSRgbColorGreen_QNAME_;
 
-javax::xml::namespace_::QName*& org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorComp_QNAME()
+javax::xml::namespace_::QName*& poi::sl::draw::binding::ObjectFactory::_CTSRgbColorComp_QNAME()
 {
     clinit();
     return _CTSRgbColorComp_QNAME_;
 }
-javax::xml::namespace_::QName* org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorComp_QNAME_;
+javax::xml::namespace_::QName* poi::sl::draw::binding::ObjectFactory::_CTSRgbColorComp_QNAME_;
 
-javax::xml::namespace_::QName*& org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorBlueOff_QNAME()
+javax::xml::namespace_::QName*& poi::sl::draw::binding::ObjectFactory::_CTSRgbColorBlueOff_QNAME()
 {
     clinit();
     return _CTSRgbColorBlueOff_QNAME_;
 }
-javax::xml::namespace_::QName* org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorBlueOff_QNAME_;
+javax::xml::namespace_::QName* poi::sl::draw::binding::ObjectFactory::_CTSRgbColorBlueOff_QNAME_;
 
-javax::xml::namespace_::QName*& org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorHueMod_QNAME()
+javax::xml::namespace_::QName*& poi::sl::draw::binding::ObjectFactory::_CTSRgbColorHueMod_QNAME()
 {
     clinit();
     return _CTSRgbColorHueMod_QNAME_;
 }
-javax::xml::namespace_::QName* org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorHueMod_QNAME_;
+javax::xml::namespace_::QName* poi::sl::draw::binding::ObjectFactory::_CTSRgbColorHueMod_QNAME_;
 
-javax::xml::namespace_::QName*& org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorGray_QNAME()
+javax::xml::namespace_::QName*& poi::sl::draw::binding::ObjectFactory::_CTSRgbColorGray_QNAME()
 {
     clinit();
     return _CTSRgbColorGray_QNAME_;
 }
-javax::xml::namespace_::QName* org::apache::poi::sl::draw::binding::ObjectFactory::_CTSRgbColorGray_QNAME_;
+javax::xml::namespace_::QName* poi::sl::draw::binding::ObjectFactory::_CTSRgbColorGray_QNAME_;
 
-void org::apache::poi::sl::draw::binding::ObjectFactory::ctor()
+void poi::sl::draw::binding::ObjectFactory::ctor()
 {
     super::ctor();
 }
 
-org::apache::poi::sl::draw::binding::CTPositiveSize2D* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPositiveSize2D()
+poi::sl::draw::binding::CTPositiveSize2D* poi::sl::draw::binding::ObjectFactory::createCTPositiveSize2D()
 {
     return new CTPositiveSize2D();
 }
 
-org::apache::poi::sl::draw::binding::CTSphereCoords* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSphereCoords()
+poi::sl::draw::binding::CTSphereCoords* poi::sl::draw::binding::ObjectFactory::createCTSphereCoords()
 {
     return new CTSphereCoords();
 }
 
-org::apache::poi::sl::draw::binding::CTPositivePercentage* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPositivePercentage()
+poi::sl::draw::binding::CTPositivePercentage* poi::sl::draw::binding::ObjectFactory::createCTPositivePercentage()
 {
     return new CTPositivePercentage();
 }
 
-org::apache::poi::sl::draw::binding::CTAdjPoint2D* org::apache::poi::sl::draw::binding::ObjectFactory::createCTAdjPoint2D()
+poi::sl::draw::binding::CTAdjPoint2D* poi::sl::draw::binding::ObjectFactory::createCTAdjPoint2D()
 {
     return new CTAdjPoint2D();
 }
 
-org::apache::poi::sl::draw::binding::CTPath2DCubicBezierTo* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPath2DCubicBezierTo()
+poi::sl::draw::binding::CTPath2DCubicBezierTo* poi::sl::draw::binding::ObjectFactory::createCTPath2DCubicBezierTo()
 {
     return new CTPath2DCubicBezierTo();
 }
 
-org::apache::poi::sl::draw::binding::CTEmbeddedWAVAudioFile* org::apache::poi::sl::draw::binding::ObjectFactory::createCTEmbeddedWAVAudioFile()
+poi::sl::draw::binding::CTEmbeddedWAVAudioFile* poi::sl::draw::binding::ObjectFactory::createCTEmbeddedWAVAudioFile()
 {
     return new CTEmbeddedWAVAudioFile();
 }
 
-org::apache::poi::sl::draw::binding::CTPresetGeometry2D* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPresetGeometry2D()
+poi::sl::draw::binding::CTPresetGeometry2D* poi::sl::draw::binding::ObjectFactory::createCTPresetGeometry2D()
 {
     return new CTPresetGeometry2D();
 }
 
-org::apache::poi::sl::draw::binding::CTSchemeColor* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSchemeColor()
+poi::sl::draw::binding::CTSchemeColor* poi::sl::draw::binding::ObjectFactory::createCTSchemeColor()
 {
     return new CTSchemeColor();
 }
 
-org::apache::poi::sl::draw::binding::CTInverseTransform* org::apache::poi::sl::draw::binding::ObjectFactory::createCTInverseTransform()
+poi::sl::draw::binding::CTInverseTransform* poi::sl::draw::binding::ObjectFactory::createCTInverseTransform()
 {
     return new CTInverseTransform();
 }
 
-org::apache::poi::sl::draw::binding::CTScRgbColor* org::apache::poi::sl::draw::binding::ObjectFactory::createCTScRgbColor()
+poi::sl::draw::binding::CTScRgbColor* poi::sl::draw::binding::ObjectFactory::createCTScRgbColor()
 {
     return new CTScRgbColor();
 }
 
-org::apache::poi::sl::draw::binding::CTPositiveFixedAngle* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPositiveFixedAngle()
+poi::sl::draw::binding::CTPositiveFixedAngle* poi::sl::draw::binding::ObjectFactory::createCTPositiveFixedAngle()
 {
     return new CTPositiveFixedAngle();
 }
 
-org::apache::poi::sl::draw::binding::CTInverseGammaTransform* org::apache::poi::sl::draw::binding::ObjectFactory::createCTInverseGammaTransform()
+poi::sl::draw::binding::CTInverseGammaTransform* poi::sl::draw::binding::ObjectFactory::createCTInverseGammaTransform()
 {
     return new CTInverseGammaTransform();
 }
 
-org::apache::poi::sl::draw::binding::CTColorMRU* org::apache::poi::sl::draw::binding::ObjectFactory::createCTColorMRU()
+poi::sl::draw::binding::CTColorMRU* poi::sl::draw::binding::ObjectFactory::createCTColorMRU()
 {
     return new CTColorMRU();
 }
 
-org::apache::poi::sl::draw::binding::CTPath2DArcTo* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPath2DArcTo()
+poi::sl::draw::binding::CTPath2DArcTo* poi::sl::draw::binding::ObjectFactory::createCTPath2DArcTo()
 {
     return new CTPath2DArcTo();
 }
 
-org::apache::poi::sl::draw::binding::CTSystemColor* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSystemColor()
+poi::sl::draw::binding::CTSystemColor* poi::sl::draw::binding::ObjectFactory::createCTSystemColor()
 {
     return new CTSystemColor();
 }
 
-org::apache::poi::sl::draw::binding::CTGroupTransform2D* org::apache::poi::sl::draw::binding::ObjectFactory::createCTGroupTransform2D()
+poi::sl::draw::binding::CTGroupTransform2D* poi::sl::draw::binding::ObjectFactory::createCTGroupTransform2D()
 {
     return new CTGroupTransform2D();
 }
 
-org::apache::poi::sl::draw::binding::CTPoint2D* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPoint2D()
+poi::sl::draw::binding::CTPoint2D* poi::sl::draw::binding::ObjectFactory::createCTPoint2D()
 {
     return new CTPoint2D();
 }
 
-org::apache::poi::sl::draw::binding::CTGeomRect* org::apache::poi::sl::draw::binding::ObjectFactory::createCTGeomRect()
+poi::sl::draw::binding::CTGeomRect* poi::sl::draw::binding::ObjectFactory::createCTGeomRect()
 {
     return new CTGeomRect();
 }
 
-org::apache::poi::sl::draw::binding::CTScale2D* org::apache::poi::sl::draw::binding::ObjectFactory::createCTScale2D()
+poi::sl::draw::binding::CTScale2D* poi::sl::draw::binding::ObjectFactory::createCTScale2D()
 {
     return new CTScale2D();
 }
 
-org::apache::poi::sl::draw::binding::CTGeomGuide* org::apache::poi::sl::draw::binding::ObjectFactory::createCTGeomGuide()
+poi::sl::draw::binding::CTGeomGuide* poi::sl::draw::binding::ObjectFactory::createCTGeomGuide()
 {
     return new CTGeomGuide();
 }
 
-org::apache::poi::sl::draw::binding::CTXYAdjustHandle* org::apache::poi::sl::draw::binding::ObjectFactory::createCTXYAdjustHandle()
+poi::sl::draw::binding::CTXYAdjustHandle* poi::sl::draw::binding::ObjectFactory::createCTXYAdjustHandle()
 {
     return new CTXYAdjustHandle();
 }
 
-org::apache::poi::sl::draw::binding::CTCustomGeometry2D* org::apache::poi::sl::draw::binding::ObjectFactory::createCTCustomGeometry2D()
+poi::sl::draw::binding::CTCustomGeometry2D* poi::sl::draw::binding::ObjectFactory::createCTCustomGeometry2D()
 {
     return new CTCustomGeometry2D();
 }
 
-org::apache::poi::sl::draw::binding::CTOfficeArtExtension* org::apache::poi::sl::draw::binding::ObjectFactory::createCTOfficeArtExtension()
+poi::sl::draw::binding::CTOfficeArtExtension* poi::sl::draw::binding::ObjectFactory::createCTOfficeArtExtension()
 {
     return new CTOfficeArtExtension();
 }
 
-org::apache::poi::sl::draw::binding::CTGrayscaleTransform* org::apache::poi::sl::draw::binding::ObjectFactory::createCTGrayscaleTransform()
+poi::sl::draw::binding::CTGrayscaleTransform* poi::sl::draw::binding::ObjectFactory::createCTGrayscaleTransform()
 {
     return new CTGrayscaleTransform();
 }
 
-org::apache::poi::sl::draw::binding::CTPath2DClose* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPath2DClose()
+poi::sl::draw::binding::CTPath2DClose* poi::sl::draw::binding::ObjectFactory::createCTPath2DClose()
 {
     return new CTPath2DClose();
 }
 
-org::apache::poi::sl::draw::binding::CTComplementTransform* org::apache::poi::sl::draw::binding::ObjectFactory::createCTComplementTransform()
+poi::sl::draw::binding::CTComplementTransform* poi::sl::draw::binding::ObjectFactory::createCTComplementTransform()
 {
     return new CTComplementTransform();
 }
 
-org::apache::poi::sl::draw::binding::CTPoint3D* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPoint3D()
+poi::sl::draw::binding::CTPoint3D* poi::sl::draw::binding::ObjectFactory::createCTPoint3D()
 {
     return new CTPoint3D();
 }
 
-org::apache::poi::sl::draw::binding::CTPositiveFixedPercentage* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPositiveFixedPercentage()
+poi::sl::draw::binding::CTPositiveFixedPercentage* poi::sl::draw::binding::ObjectFactory::createCTPositiveFixedPercentage()
 {
     return new CTPositiveFixedPercentage();
 }
 
-org::apache::poi::sl::draw::binding::CTPath2D* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPath2D()
+poi::sl::draw::binding::CTPath2D* poi::sl::draw::binding::ObjectFactory::createCTPath2D()
 {
     return new CTPath2D();
 }
 
-org::apache::poi::sl::draw::binding::CTAdjustHandleList* org::apache::poi::sl::draw::binding::ObjectFactory::createCTAdjustHandleList()
+poi::sl::draw::binding::CTAdjustHandleList* poi::sl::draw::binding::ObjectFactory::createCTAdjustHandleList()
 {
     return new CTAdjustHandleList();
 }
 
-org::apache::poi::sl::draw::binding::CTConnectionSiteList* org::apache::poi::sl::draw::binding::ObjectFactory::createCTConnectionSiteList()
+poi::sl::draw::binding::CTConnectionSiteList* poi::sl::draw::binding::ObjectFactory::createCTConnectionSiteList()
 {
     return new CTConnectionSiteList();
 }
 
-org::apache::poi::sl::draw::binding::CTPresetTextShape* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPresetTextShape()
+poi::sl::draw::binding::CTPresetTextShape* poi::sl::draw::binding::ObjectFactory::createCTPresetTextShape()
 {
     return new CTPresetTextShape();
 }
 
-org::apache::poi::sl::draw::binding::CTSRgbColor* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSRgbColor()
+poi::sl::draw::binding::CTSRgbColor* poi::sl::draw::binding::ObjectFactory::createCTSRgbColor()
 {
     return new CTSRgbColor();
 }
 
-org::apache::poi::sl::draw::binding::CTPath2DMoveTo* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPath2DMoveTo()
+poi::sl::draw::binding::CTPath2DMoveTo* poi::sl::draw::binding::ObjectFactory::createCTPath2DMoveTo()
 {
     return new CTPath2DMoveTo();
 }
 
-org::apache::poi::sl::draw::binding::CTRelativeRect* org::apache::poi::sl::draw::binding::ObjectFactory::createCTRelativeRect()
+poi::sl::draw::binding::CTRelativeRect* poi::sl::draw::binding::ObjectFactory::createCTRelativeRect()
 {
     return new CTRelativeRect();
 }
 
-org::apache::poi::sl::draw::binding::CTPath2DList* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPath2DList()
+poi::sl::draw::binding::CTPath2DList* poi::sl::draw::binding::ObjectFactory::createCTPath2DList()
 {
     return new CTPath2DList();
 }
 
-org::apache::poi::sl::draw::binding::CTPolarAdjustHandle* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPolarAdjustHandle()
+poi::sl::draw::binding::CTPolarAdjustHandle* poi::sl::draw::binding::ObjectFactory::createCTPolarAdjustHandle()
 {
     return new CTPolarAdjustHandle();
 }
 
-org::apache::poi::sl::draw::binding::CTPercentage* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPercentage()
+poi::sl::draw::binding::CTPercentage* poi::sl::draw::binding::ObjectFactory::createCTPercentage()
 {
     return new CTPercentage();
 }
 
-org::apache::poi::sl::draw::binding::CTHslColor* org::apache::poi::sl::draw::binding::ObjectFactory::createCTHslColor()
+poi::sl::draw::binding::CTHslColor* poi::sl::draw::binding::ObjectFactory::createCTHslColor()
 {
     return new CTHslColor();
 }
 
-org::apache::poi::sl::draw::binding::CTRatio* org::apache::poi::sl::draw::binding::ObjectFactory::createCTRatio()
+poi::sl::draw::binding::CTRatio* poi::sl::draw::binding::ObjectFactory::createCTRatio()
 {
     return new CTRatio();
 }
 
-org::apache::poi::sl::draw::binding::CTGeomGuideList* org::apache::poi::sl::draw::binding::ObjectFactory::createCTGeomGuideList()
+poi::sl::draw::binding::CTGeomGuideList* poi::sl::draw::binding::ObjectFactory::createCTGeomGuideList()
 {
     return new CTGeomGuideList();
 }
 
-org::apache::poi::sl::draw::binding::CTTransform2D* org::apache::poi::sl::draw::binding::ObjectFactory::createCTTransform2D()
+poi::sl::draw::binding::CTTransform2D* poi::sl::draw::binding::ObjectFactory::createCTTransform2D()
 {
     return new CTTransform2D();
 }
 
-org::apache::poi::sl::draw::binding::CTGammaTransform* org::apache::poi::sl::draw::binding::ObjectFactory::createCTGammaTransform()
+poi::sl::draw::binding::CTGammaTransform* poi::sl::draw::binding::ObjectFactory::createCTGammaTransform()
 {
     return new CTGammaTransform();
 }
 
-org::apache::poi::sl::draw::binding::CTPath2DQuadBezierTo* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPath2DQuadBezierTo()
+poi::sl::draw::binding::CTPath2DQuadBezierTo* poi::sl::draw::binding::ObjectFactory::createCTPath2DQuadBezierTo()
 {
     return new CTPath2DQuadBezierTo();
 }
 
-org::apache::poi::sl::draw::binding::CTAngle* org::apache::poi::sl::draw::binding::ObjectFactory::createCTAngle()
+poi::sl::draw::binding::CTAngle* poi::sl::draw::binding::ObjectFactory::createCTAngle()
 {
     return new CTAngle();
 }
 
-org::apache::poi::sl::draw::binding::CTConnectionSite* org::apache::poi::sl::draw::binding::ObjectFactory::createCTConnectionSite()
+poi::sl::draw::binding::CTConnectionSite* poi::sl::draw::binding::ObjectFactory::createCTConnectionSite()
 {
     return new CTConnectionSite();
 }
 
-org::apache::poi::sl::draw::binding::CTHyperlink* org::apache::poi::sl::draw::binding::ObjectFactory::createCTHyperlink()
+poi::sl::draw::binding::CTHyperlink* poi::sl::draw::binding::ObjectFactory::createCTHyperlink()
 {
     return new CTHyperlink();
 }
 
-org::apache::poi::sl::draw::binding::CTFixedPercentage* org::apache::poi::sl::draw::binding::ObjectFactory::createCTFixedPercentage()
+poi::sl::draw::binding::CTFixedPercentage* poi::sl::draw::binding::ObjectFactory::createCTFixedPercentage()
 {
     return new CTFixedPercentage();
 }
 
-org::apache::poi::sl::draw::binding::CTPath2DLineTo* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPath2DLineTo()
+poi::sl::draw::binding::CTPath2DLineTo* poi::sl::draw::binding::ObjectFactory::createCTPath2DLineTo()
 {
     return new CTPath2DLineTo();
 }
 
-org::apache::poi::sl::draw::binding::CTColor* org::apache::poi::sl::draw::binding::ObjectFactory::createCTColor()
+poi::sl::draw::binding::CTColor* poi::sl::draw::binding::ObjectFactory::createCTColor()
 {
     return new CTColor();
 }
 
-org::apache::poi::sl::draw::binding::CTPresetColor* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPresetColor()
+poi::sl::draw::binding::CTPresetColor* poi::sl::draw::binding::ObjectFactory::createCTPresetColor()
 {
     return new CTPresetColor();
 }
 
-org::apache::poi::sl::draw::binding::CTVector3D* org::apache::poi::sl::draw::binding::ObjectFactory::createCTVector3D()
+poi::sl::draw::binding::CTVector3D* poi::sl::draw::binding::ObjectFactory::createCTVector3D()
 {
     return new CTVector3D();
 }
 
-org::apache::poi::sl::draw::binding::CTOfficeArtExtensionList* org::apache::poi::sl::draw::binding::ObjectFactory::createCTOfficeArtExtensionList()
+poi::sl::draw::binding::CTOfficeArtExtensionList* poi::sl::draw::binding::ObjectFactory::createCTOfficeArtExtensionList()
 {
     return new CTOfficeArtExtensionList();
 }
 
-org::apache::poi::sl::draw::binding::CTConnection* org::apache::poi::sl::draw::binding::ObjectFactory::createCTConnection()
+poi::sl::draw::binding::CTConnection* poi::sl::draw::binding::ObjectFactory::createCTConnection()
 {
     return new CTConnection();
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSRgbColorAlpha(CTPositiveFixedPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSRgbColorAlpha(CTPositiveFixedPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorAlpha_QNAME_, CTPositiveFixedPercentage::class_(), CTSRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSRgbColorLum(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSRgbColorLum(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorLum_QNAME_, CTPercentage::class_(), CTSRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSRgbColorGamma(CTGammaTransform* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSRgbColorGamma(CTGammaTransform* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorGamma_QNAME_, CTGammaTransform::class_(), CTSRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSRgbColorInvGamma(CTInverseGammaTransform* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSRgbColorInvGamma(CTInverseGammaTransform* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorInvGamma_QNAME_, CTInverseGammaTransform::class_(), CTSRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSRgbColorRedOff(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSRgbColorRedOff(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorRedOff_QNAME_, CTPercentage::class_(), CTSRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSRgbColorAlphaMod(CTPositivePercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSRgbColorAlphaMod(CTPositivePercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorAlphaMod_QNAME_, CTPositivePercentage::class_(), CTSRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSRgbColorAlphaOff(CTFixedPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSRgbColorAlphaOff(CTFixedPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorAlphaOff_QNAME_, CTFixedPercentage::class_(), CTSRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSRgbColorGreenOff(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSRgbColorGreenOff(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorGreenOff_QNAME_, CTPercentage::class_(), CTSRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSRgbColorRedMod(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSRgbColorRedMod(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorRedMod_QNAME_, CTPercentage::class_(), CTSRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSRgbColorHue(CTPositiveFixedAngle* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSRgbColorHue(CTPositiveFixedAngle* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorHue_QNAME_, CTPositiveFixedAngle::class_(), CTSRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSRgbColorSatOff(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSRgbColorSatOff(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorSatOff_QNAME_, CTPercentage::class_(), CTSRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSRgbColorGreenMod(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSRgbColorGreenMod(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorGreenMod_QNAME_, CTPercentage::class_(), CTSRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSRgbColorSat(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSRgbColorSat(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorSat_QNAME_, CTPercentage::class_(), CTSRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSRgbColorBlue(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSRgbColorBlue(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorBlue_QNAME_, CTPercentage::class_(), CTSRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSRgbColorRed(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSRgbColorRed(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorRed_QNAME_, CTPercentage::class_(), CTSRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSRgbColorSatMod(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSRgbColorSatMod(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorSatMod_QNAME_, CTPercentage::class_(), CTSRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSRgbColorHueOff(CTAngle* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSRgbColorHueOff(CTAngle* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorHueOff_QNAME_, CTAngle::class_(), CTSRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSRgbColorBlueMod(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSRgbColorBlueMod(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorBlueMod_QNAME_, CTPercentage::class_(), CTSRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSRgbColorShade(CTPositiveFixedPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSRgbColorShade(CTPositiveFixedPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorShade_QNAME_, CTPositiveFixedPercentage::class_(), CTSRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSRgbColorLumMod(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSRgbColorLumMod(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorLumMod_QNAME_, CTPercentage::class_(), CTSRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSRgbColorInv(CTInverseTransform* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSRgbColorInv(CTInverseTransform* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorInv_QNAME_, CTInverseTransform::class_(), CTSRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSRgbColorLumOff(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSRgbColorLumOff(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorLumOff_QNAME_, CTPercentage::class_(), CTSRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSRgbColorTint(CTPositiveFixedPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSRgbColorTint(CTPositiveFixedPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorTint_QNAME_, CTPositiveFixedPercentage::class_(), CTSRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSRgbColorGreen(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSRgbColorGreen(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorGreen_QNAME_, CTPercentage::class_(), CTSRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSRgbColorComp(CTComplementTransform* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSRgbColorComp(CTComplementTransform* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorComp_QNAME_, CTComplementTransform::class_(), CTSRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSRgbColorBlueOff(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSRgbColorBlueOff(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorBlueOff_QNAME_, CTPercentage::class_(), CTSRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSRgbColorHueMod(CTPositivePercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSRgbColorHueMod(CTPositivePercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorHueMod_QNAME_, CTPositivePercentage::class_(), CTSRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSRgbColorGray(CTGrayscaleTransform* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSRgbColorGray(CTGrayscaleTransform* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorGray_QNAME_, CTGrayscaleTransform::class_(), CTSRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSystemColorLum(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSystemColorLum(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorLum_QNAME_, CTPercentage::class_(), CTSystemColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSystemColorAlpha(CTPositiveFixedPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSystemColorAlpha(CTPositiveFixedPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorAlpha_QNAME_, CTPositiveFixedPercentage::class_(), CTSystemColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSystemColorGamma(CTGammaTransform* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSystemColorGamma(CTGammaTransform* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorGamma_QNAME_, CTGammaTransform::class_(), CTSystemColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSystemColorInvGamma(CTInverseGammaTransform* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSystemColorInvGamma(CTInverseGammaTransform* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorInvGamma_QNAME_, CTInverseGammaTransform::class_(), CTSystemColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSystemColorAlphaMod(CTPositivePercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSystemColorAlphaMod(CTPositivePercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorAlphaMod_QNAME_, CTPositivePercentage::class_(), CTSystemColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSystemColorRedOff(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSystemColorRedOff(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorRedOff_QNAME_, CTPercentage::class_(), CTSystemColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSystemColorAlphaOff(CTFixedPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSystemColorAlphaOff(CTFixedPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorAlphaOff_QNAME_, CTFixedPercentage::class_(), CTSystemColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSystemColorGreenOff(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSystemColorGreenOff(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorGreenOff_QNAME_, CTPercentage::class_(), CTSystemColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSystemColorRedMod(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSystemColorRedMod(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorRedMod_QNAME_, CTPercentage::class_(), CTSystemColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSystemColorHue(CTPositiveFixedAngle* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSystemColorHue(CTPositiveFixedAngle* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorHue_QNAME_, CTPositiveFixedAngle::class_(), CTSystemColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSystemColorSatOff(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSystemColorSatOff(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorSatOff_QNAME_, CTPercentage::class_(), CTSystemColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSystemColorGreenMod(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSystemColorGreenMod(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorGreenMod_QNAME_, CTPercentage::class_(), CTSystemColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSystemColorBlue(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSystemColorBlue(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorBlue_QNAME_, CTPercentage::class_(), CTSystemColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSystemColorSat(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSystemColorSat(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorSat_QNAME_, CTPercentage::class_(), CTSystemColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSystemColorRed(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSystemColorRed(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorRed_QNAME_, CTPercentage::class_(), CTSystemColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSystemColorSatMod(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSystemColorSatMod(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorSatMod_QNAME_, CTPercentage::class_(), CTSystemColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSystemColorBlueMod(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSystemColorBlueMod(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorBlueMod_QNAME_, CTPercentage::class_(), CTSystemColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSystemColorHueOff(CTAngle* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSystemColorHueOff(CTAngle* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorHueOff_QNAME_, CTAngle::class_(), CTSystemColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSystemColorShade(CTPositiveFixedPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSystemColorShade(CTPositiveFixedPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorShade_QNAME_, CTPositiveFixedPercentage::class_(), CTSystemColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSystemColorLumMod(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSystemColorLumMod(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorLumMod_QNAME_, CTPercentage::class_(), CTSystemColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSystemColorInv(CTInverseTransform* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSystemColorInv(CTInverseTransform* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorInv_QNAME_, CTInverseTransform::class_(), CTSystemColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSystemColorLumOff(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSystemColorLumOff(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorLumOff_QNAME_, CTPercentage::class_(), CTSystemColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSystemColorTint(CTPositiveFixedPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSystemColorTint(CTPositiveFixedPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorTint_QNAME_, CTPositiveFixedPercentage::class_(), CTSystemColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSystemColorGreen(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSystemColorGreen(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorGreen_QNAME_, CTPercentage::class_(), CTSystemColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSystemColorComp(CTComplementTransform* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSystemColorComp(CTComplementTransform* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorComp_QNAME_, CTComplementTransform::class_(), CTSystemColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSystemColorBlueOff(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSystemColorBlueOff(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorBlueOff_QNAME_, CTPercentage::class_(), CTSystemColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSystemColorHueMod(CTPositivePercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSystemColorHueMod(CTPositivePercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorHueMod_QNAME_, CTPositivePercentage::class_(), CTSystemColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSystemColorGray(CTGrayscaleTransform* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSystemColorGray(CTGrayscaleTransform* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorGray_QNAME_, CTGrayscaleTransform::class_(), CTSystemColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSchemeColorLum(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSchemeColorLum(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorLum_QNAME_, CTPercentage::class_(), CTSchemeColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSchemeColorAlpha(CTPositiveFixedPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSchemeColorAlpha(CTPositiveFixedPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorAlpha_QNAME_, CTPositiveFixedPercentage::class_(), CTSchemeColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSchemeColorGamma(CTGammaTransform* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSchemeColorGamma(CTGammaTransform* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorGamma_QNAME_, CTGammaTransform::class_(), CTSchemeColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSchemeColorInvGamma(CTInverseGammaTransform* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSchemeColorInvGamma(CTInverseGammaTransform* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorInvGamma_QNAME_, CTInverseGammaTransform::class_(), CTSchemeColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSchemeColorRedOff(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSchemeColorRedOff(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorRedOff_QNAME_, CTPercentage::class_(), CTSchemeColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSchemeColorAlphaMod(CTPositivePercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSchemeColorAlphaMod(CTPositivePercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorAlphaMod_QNAME_, CTPositivePercentage::class_(), CTSchemeColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSchemeColorAlphaOff(CTFixedPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSchemeColorAlphaOff(CTFixedPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorAlphaOff_QNAME_, CTFixedPercentage::class_(), CTSchemeColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSchemeColorGreenOff(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSchemeColorGreenOff(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorGreenOff_QNAME_, CTPercentage::class_(), CTSchemeColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSchemeColorHue(CTPositiveFixedAngle* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSchemeColorHue(CTPositiveFixedAngle* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorHue_QNAME_, CTPositiveFixedAngle::class_(), CTSchemeColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSchemeColorRedMod(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSchemeColorRedMod(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorRedMod_QNAME_, CTPercentage::class_(), CTSchemeColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSchemeColorSatOff(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSchemeColorSatOff(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorSatOff_QNAME_, CTPercentage::class_(), CTSchemeColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSchemeColorGreenMod(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSchemeColorGreenMod(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorGreenMod_QNAME_, CTPercentage::class_(), CTSchemeColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSchemeColorBlue(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSchemeColorBlue(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorBlue_QNAME_, CTPercentage::class_(), CTSchemeColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSchemeColorSat(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSchemeColorSat(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorSat_QNAME_, CTPercentage::class_(), CTSchemeColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSchemeColorRed(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSchemeColorRed(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorRed_QNAME_, CTPercentage::class_(), CTSchemeColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSchemeColorSatMod(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSchemeColorSatMod(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorSatMod_QNAME_, CTPercentage::class_(), CTSchemeColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSchemeColorHueOff(CTAngle* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSchemeColorHueOff(CTAngle* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorHueOff_QNAME_, CTAngle::class_(), CTSchemeColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSchemeColorBlueMod(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSchemeColorBlueMod(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorBlueMod_QNAME_, CTPercentage::class_(), CTSchemeColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSchemeColorShade(CTPositiveFixedPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSchemeColorShade(CTPositiveFixedPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorShade_QNAME_, CTPositiveFixedPercentage::class_(), CTSchemeColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSchemeColorLumMod(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSchemeColorLumMod(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorLumMod_QNAME_, CTPercentage::class_(), CTSchemeColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSchemeColorInv(CTInverseTransform* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSchemeColorInv(CTInverseTransform* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorInv_QNAME_, CTInverseTransform::class_(), CTSchemeColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSchemeColorLumOff(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSchemeColorLumOff(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorLumOff_QNAME_, CTPercentage::class_(), CTSchemeColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSchemeColorTint(CTPositiveFixedPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSchemeColorTint(CTPositiveFixedPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorTint_QNAME_, CTPositiveFixedPercentage::class_(), CTSchemeColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSchemeColorGreen(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSchemeColorGreen(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorGreen_QNAME_, CTPercentage::class_(), CTSchemeColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSchemeColorComp(CTComplementTransform* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSchemeColorComp(CTComplementTransform* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorComp_QNAME_, CTComplementTransform::class_(), CTSchemeColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSchemeColorBlueOff(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSchemeColorBlueOff(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorBlueOff_QNAME_, CTPercentage::class_(), CTSchemeColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSchemeColorHueMod(CTPositivePercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSchemeColorHueMod(CTPositivePercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorHueMod_QNAME_, CTPositivePercentage::class_(), CTSchemeColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTSchemeColorGray(CTGrayscaleTransform* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTSchemeColorGray(CTGrayscaleTransform* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorGray_QNAME_, CTGrayscaleTransform::class_(), CTSchemeColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTScRgbColorLum(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTScRgbColorLum(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorLum_QNAME_, CTPercentage::class_(), CTScRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTScRgbColorAlpha(CTPositiveFixedPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTScRgbColorAlpha(CTPositiveFixedPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorAlpha_QNAME_, CTPositiveFixedPercentage::class_(), CTScRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTScRgbColorGamma(CTGammaTransform* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTScRgbColorGamma(CTGammaTransform* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorGamma_QNAME_, CTGammaTransform::class_(), CTScRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTScRgbColorInvGamma(CTInverseGammaTransform* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTScRgbColorInvGamma(CTInverseGammaTransform* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorInvGamma_QNAME_, CTInverseGammaTransform::class_(), CTScRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTScRgbColorRedOff(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTScRgbColorRedOff(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorRedOff_QNAME_, CTPercentage::class_(), CTScRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTScRgbColorAlphaMod(CTPositivePercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTScRgbColorAlphaMod(CTPositivePercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorAlphaMod_QNAME_, CTPositivePercentage::class_(), CTScRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTScRgbColorAlphaOff(CTFixedPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTScRgbColorAlphaOff(CTFixedPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorAlphaOff_QNAME_, CTFixedPercentage::class_(), CTScRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTScRgbColorGreenOff(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTScRgbColorGreenOff(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorGreenOff_QNAME_, CTPercentage::class_(), CTScRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTScRgbColorHue(CTPositiveFixedAngle* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTScRgbColorHue(CTPositiveFixedAngle* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorHue_QNAME_, CTPositiveFixedAngle::class_(), CTScRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTScRgbColorRedMod(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTScRgbColorRedMod(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorRedMod_QNAME_, CTPercentage::class_(), CTScRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTScRgbColorSatOff(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTScRgbColorSatOff(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorSatOff_QNAME_, CTPercentage::class_(), CTScRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTScRgbColorGreenMod(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTScRgbColorGreenMod(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorGreenMod_QNAME_, CTPercentage::class_(), CTScRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTScRgbColorSat(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTScRgbColorSat(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorSat_QNAME_, CTPercentage::class_(), CTScRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTScRgbColorBlue(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTScRgbColorBlue(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorBlue_QNAME_, CTPercentage::class_(), CTScRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTScRgbColorRed(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTScRgbColorRed(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorRed_QNAME_, CTPercentage::class_(), CTScRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTScRgbColorSatMod(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTScRgbColorSatMod(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorSatMod_QNAME_, CTPercentage::class_(), CTScRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTScRgbColorHueOff(CTAngle* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTScRgbColorHueOff(CTAngle* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorHueOff_QNAME_, CTAngle::class_(), CTScRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTScRgbColorBlueMod(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTScRgbColorBlueMod(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorBlueMod_QNAME_, CTPercentage::class_(), CTScRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTScRgbColorShade(CTPositiveFixedPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTScRgbColorShade(CTPositiveFixedPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorShade_QNAME_, CTPositiveFixedPercentage::class_(), CTScRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTScRgbColorLumMod(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTScRgbColorLumMod(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorLumMod_QNAME_, CTPercentage::class_(), CTScRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTScRgbColorInv(CTInverseTransform* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTScRgbColorInv(CTInverseTransform* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorInv_QNAME_, CTInverseTransform::class_(), CTScRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTScRgbColorLumOff(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTScRgbColorLumOff(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorLumOff_QNAME_, CTPercentage::class_(), CTScRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTScRgbColorTint(CTPositiveFixedPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTScRgbColorTint(CTPositiveFixedPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorTint_QNAME_, CTPositiveFixedPercentage::class_(), CTScRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTScRgbColorGreen(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTScRgbColorGreen(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorGreen_QNAME_, CTPercentage::class_(), CTScRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTScRgbColorComp(CTComplementTransform* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTScRgbColorComp(CTComplementTransform* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorComp_QNAME_, CTComplementTransform::class_(), CTScRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTScRgbColorBlueOff(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTScRgbColorBlueOff(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorBlueOff_QNAME_, CTPercentage::class_(), CTScRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTScRgbColorHueMod(CTPositivePercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTScRgbColorHueMod(CTPositivePercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorHueMod_QNAME_, CTPositivePercentage::class_(), CTScRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTScRgbColorGray(CTGrayscaleTransform* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTScRgbColorGray(CTGrayscaleTransform* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorGray_QNAME_, CTGrayscaleTransform::class_(), CTScRgbColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTHslColorAlpha(CTPositiveFixedPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTHslColorAlpha(CTPositiveFixedPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorAlpha_QNAME_, CTPositiveFixedPercentage::class_(), CTHslColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTHslColorLum(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTHslColorLum(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorLum_QNAME_, CTPercentage::class_(), CTHslColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTHslColorGamma(CTGammaTransform* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTHslColorGamma(CTGammaTransform* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorGamma_QNAME_, CTGammaTransform::class_(), CTHslColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTHslColorInvGamma(CTInverseGammaTransform* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTHslColorInvGamma(CTInverseGammaTransform* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorInvGamma_QNAME_, CTInverseGammaTransform::class_(), CTHslColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTHslColorAlphaMod(CTPositivePercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTHslColorAlphaMod(CTPositivePercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorAlphaMod_QNAME_, CTPositivePercentage::class_(), CTHslColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTHslColorRedOff(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTHslColorRedOff(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorRedOff_QNAME_, CTPercentage::class_(), CTHslColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTHslColorAlphaOff(CTFixedPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTHslColorAlphaOff(CTFixedPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorAlphaOff_QNAME_, CTFixedPercentage::class_(), CTHslColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTHslColorGreenOff(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTHslColorGreenOff(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorGreenOff_QNAME_, CTPercentage::class_(), CTHslColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTHslColorHue(CTPositiveFixedAngle* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTHslColorHue(CTPositiveFixedAngle* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorHue_QNAME_, CTPositiveFixedAngle::class_(), CTHslColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTHslColorRedMod(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTHslColorRedMod(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorRedMod_QNAME_, CTPercentage::class_(), CTHslColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTHslColorSatOff(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTHslColorSatOff(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorSatOff_QNAME_, CTPercentage::class_(), CTHslColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTHslColorGreenMod(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTHslColorGreenMod(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorGreenMod_QNAME_, CTPercentage::class_(), CTHslColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTHslColorBlue(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTHslColorBlue(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorBlue_QNAME_, CTPercentage::class_(), CTHslColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTHslColorSat(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTHslColorSat(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorSat_QNAME_, CTPercentage::class_(), CTHslColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTHslColorRed(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTHslColorRed(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorRed_QNAME_, CTPercentage::class_(), CTHslColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTHslColorSatMod(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTHslColorSatMod(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorSatMod_QNAME_, CTPercentage::class_(), CTHslColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTHslColorBlueMod(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTHslColorBlueMod(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorBlueMod_QNAME_, CTPercentage::class_(), CTHslColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTHslColorHueOff(CTAngle* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTHslColorHueOff(CTAngle* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorHueOff_QNAME_, CTAngle::class_(), CTHslColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTHslColorShade(CTPositiveFixedPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTHslColorShade(CTPositiveFixedPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorShade_QNAME_, CTPositiveFixedPercentage::class_(), CTHslColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTHslColorLumMod(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTHslColorLumMod(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorLumMod_QNAME_, CTPercentage::class_(), CTHslColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTHslColorInv(CTInverseTransform* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTHslColorInv(CTInverseTransform* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorInv_QNAME_, CTInverseTransform::class_(), CTHslColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTHslColorLumOff(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTHslColorLumOff(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorLumOff_QNAME_, CTPercentage::class_(), CTHslColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTHslColorTint(CTPositiveFixedPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTHslColorTint(CTPositiveFixedPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorTint_QNAME_, CTPositiveFixedPercentage::class_(), CTHslColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTHslColorGreen(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTHslColorGreen(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorGreen_QNAME_, CTPercentage::class_(), CTHslColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTHslColorComp(CTComplementTransform* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTHslColorComp(CTComplementTransform* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorComp_QNAME_, CTComplementTransform::class_(), CTHslColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTHslColorBlueOff(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTHslColorBlueOff(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorBlueOff_QNAME_, CTPercentage::class_(), CTHslColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTHslColorHueMod(CTPositivePercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTHslColorHueMod(CTPositivePercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorHueMod_QNAME_, CTPositivePercentage::class_(), CTHslColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTHslColorGray(CTGrayscaleTransform* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTHslColorGray(CTGrayscaleTransform* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorGray_QNAME_, CTGrayscaleTransform::class_(), CTHslColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPresetColorLum(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTPresetColorLum(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorLum_QNAME_, CTPercentage::class_(), CTPresetColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPresetColorAlpha(CTPositiveFixedPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTPresetColorAlpha(CTPositiveFixedPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorAlpha_QNAME_, CTPositiveFixedPercentage::class_(), CTPresetColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPresetColorGamma(CTGammaTransform* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTPresetColorGamma(CTGammaTransform* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorGamma_QNAME_, CTGammaTransform::class_(), CTPresetColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPresetColorInvGamma(CTInverseGammaTransform* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTPresetColorInvGamma(CTInverseGammaTransform* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorInvGamma_QNAME_, CTInverseGammaTransform::class_(), CTPresetColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPresetColorRedOff(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTPresetColorRedOff(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorRedOff_QNAME_, CTPercentage::class_(), CTPresetColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPresetColorAlphaMod(CTPositivePercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTPresetColorAlphaMod(CTPositivePercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorAlphaMod_QNAME_, CTPositivePercentage::class_(), CTPresetColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPresetColorAlphaOff(CTFixedPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTPresetColorAlphaOff(CTFixedPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorAlphaOff_QNAME_, CTFixedPercentage::class_(), CTPresetColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPresetColorGreenOff(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTPresetColorGreenOff(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorGreenOff_QNAME_, CTPercentage::class_(), CTPresetColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPresetColorHue(CTPositiveFixedAngle* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTPresetColorHue(CTPositiveFixedAngle* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorHue_QNAME_, CTPositiveFixedAngle::class_(), CTPresetColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPresetColorRedMod(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTPresetColorRedMod(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorRedMod_QNAME_, CTPercentage::class_(), CTPresetColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPresetColorSatOff(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTPresetColorSatOff(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorSatOff_QNAME_, CTPercentage::class_(), CTPresetColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPresetColorGreenMod(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTPresetColorGreenMod(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorGreenMod_QNAME_, CTPercentage::class_(), CTPresetColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPresetColorBlue(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTPresetColorBlue(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorBlue_QNAME_, CTPercentage::class_(), CTPresetColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPresetColorSat(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTPresetColorSat(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorSat_QNAME_, CTPercentage::class_(), CTPresetColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPresetColorRed(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTPresetColorRed(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorRed_QNAME_, CTPercentage::class_(), CTPresetColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPresetColorSatMod(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTPresetColorSatMod(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorSatMod_QNAME_, CTPercentage::class_(), CTPresetColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPresetColorBlueMod(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTPresetColorBlueMod(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorBlueMod_QNAME_, CTPercentage::class_(), CTPresetColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPresetColorHueOff(CTAngle* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTPresetColorHueOff(CTAngle* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorHueOff_QNAME_, CTAngle::class_(), CTPresetColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPresetColorShade(CTPositiveFixedPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTPresetColorShade(CTPositiveFixedPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorShade_QNAME_, CTPositiveFixedPercentage::class_(), CTPresetColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPresetColorLumMod(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTPresetColorLumMod(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorLumMod_QNAME_, CTPercentage::class_(), CTPresetColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPresetColorInv(CTInverseTransform* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTPresetColorInv(CTInverseTransform* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorInv_QNAME_, CTInverseTransform::class_(), CTPresetColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPresetColorLumOff(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTPresetColorLumOff(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorLumOff_QNAME_, CTPercentage::class_(), CTPresetColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPresetColorTint(CTPositiveFixedPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTPresetColorTint(CTPositiveFixedPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorTint_QNAME_, CTPositiveFixedPercentage::class_(), CTPresetColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPresetColorGreen(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTPresetColorGreen(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorGreen_QNAME_, CTPercentage::class_(), CTPresetColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPresetColorComp(CTComplementTransform* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTPresetColorComp(CTComplementTransform* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorComp_QNAME_, CTComplementTransform::class_(), CTPresetColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPresetColorBlueOff(CTPercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTPresetColorBlueOff(CTPercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorBlueOff_QNAME_, CTPercentage::class_(), CTPresetColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPresetColorHueMod(CTPositivePercentage* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTPresetColorHueMod(CTPositivePercentage* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorHueMod_QNAME_, CTPositivePercentage::class_(), CTPresetColor::class_(), value);
 }
 
-javax::xml::bind::JAXBElement* org::apache::poi::sl::draw::binding::ObjectFactory::createCTPresetColorGray(CTGrayscaleTransform* value)
+javax::xml::bind::JAXBElement* poi::sl::draw::binding::ObjectFactory::createCTPresetColorGray(CTGrayscaleTransform* value)
 {
     return new ::javax::xml::bind::JAXBElement(_CTSRgbColorGray_QNAME_, CTGrayscaleTransform::class_(), CTPresetColor::class_(), value);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::draw::binding::ObjectFactory::class_()
+java::lang::Class* poi::sl::draw::binding::ObjectFactory::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.draw.binding.ObjectFactory", 44);
     return c;
 }
 
-void org::apache::poi::sl::draw::binding::ObjectFactory::clinit()
+void poi::sl::draw::binding::ObjectFactory::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -1434,7 +1434,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::sl::draw::binding::ObjectFactory::getClass0()
+java::lang::Class* poi::sl::draw::binding::ObjectFactory::getClass0()
 {
     return class_();
 }

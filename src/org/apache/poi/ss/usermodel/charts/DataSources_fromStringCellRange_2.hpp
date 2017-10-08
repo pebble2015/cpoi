@@ -12,7 +12,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::usermodel::charts::DataSources_fromStringCellRange_2
+class poi::ss::usermodel::charts::DataSources_fromStringCellRange_2
     : public DataSources_AbstractCellRangeDataSource
 {
 
@@ -24,7 +24,7 @@ public:
     // Generated
 
 public: /* protected */
-    DataSources_fromStringCellRange_2(::org::apache::poi::ss::usermodel::Sheet* sheet, ::org::apache::poi::ss::util::CellRangeAddress* cellRangeAddress);
+    DataSources_fromStringCellRange_2(::poi::ss::usermodel::Sheet* sheet, ::poi::ss::util::CellRangeAddress* cellRangeAddress);
 
 public:
     static ::java::lang::Class *class_();

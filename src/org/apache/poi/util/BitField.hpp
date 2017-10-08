@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::util::BitField
+class poi::util::BitField
     : public virtual ::java::lang::Object
 {
 

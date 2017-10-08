@@ -7,7 +7,7 @@ int main(int argc, char** argv)
 {
     init_jvm();
     
-    ::org::apache::poi::hpsf::extractor::HPSFPropertiesExtractor::main(make_args(argc, argv));
+    ::poi::hpsf::extractor::HPSFPropertiesExtractor::main(make_args(argc, argv));
     
     return 0;
 }

@@ -31,22 +31,16 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace poifs
     {
-        namespace poi
+        namespace crypt
         {
-            namespace poifs
-            {
-                namespace crypt
-                {
-typedef ::SubArray< ::org::apache::poi::poifs::crypt::CipherAlgorithm, ::java::lang::EnumArray > CipherAlgorithmArray;
-                } // crypt
-            } // poifs
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::poifs::crypt::CipherAlgorithm, ::java::lang::EnumArray > CipherAlgorithmArray;
+        } // crypt
+    } // poifs
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -55,19 +49,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::crypt::CipherAlgorithm::CipherAlgorithm(const ::default_init_tag&)
+poi::poifs::crypt::CipherAlgorithm::CipherAlgorithm(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::crypt::CipherAlgorithm::CipherAlgorithm(::java::lang::String* name, int ordinal, CipherProvider* provider, ::java::lang::String* jceId, int32_t ecmaId, int32_t defaultKeySize, ::int32_tArray* allowedKeySize, int32_t blockSize, int32_t encryptedVerifierHashLength, ::java::lang::String* xmlId, bool needsBouncyCastle) 
+poi::poifs::crypt::CipherAlgorithm::CipherAlgorithm(::java::lang::String* name, int ordinal, CipherProvider* provider, ::java::lang::String* jceId, int32_t ecmaId, int32_t defaultKeySize, ::int32_tArray* allowedKeySize, int32_t blockSize, int32_t encryptedVerifierHashLength, ::java::lang::String* xmlId, bool needsBouncyCastle) 
     : CipherAlgorithm(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal, provider,jceId,ecmaId,defaultKeySize,allowedKeySize,blockSize,encryptedVerifierHashLength,xmlId,needsBouncyCastle);
 }
 
-org::apache::poi::poifs::crypt::CipherAlgorithm* org::apache::poi::poifs::crypt::CipherAlgorithm::rc4 = new ::org::apache::poi::poifs::crypt::CipherAlgorithm(u"rc4"_j, 0, CipherProvider::rc4, u"RC4"_j, int32_t(26625), int32_t(64), new ::int32_tArray({
+poi::poifs::crypt::CipherAlgorithm* poi::poifs::crypt::CipherAlgorithm::rc4 = new ::poi::poifs::crypt::CipherAlgorithm(u"rc4"_j, 0, CipherProvider::rc4, u"RC4"_j, int32_t(26625), int32_t(64), new ::int32_tArray({
     int32_t(40)
     , int32_t(48)
     , int32_t(56)
@@ -81,10 +75,10 @@ org::apache::poi::poifs::crypt::CipherAlgorithm* org::apache::poi::poifs::crypt:
     , int32_t(120)
     , int32_t(128)
 }), -int32_t(1), int32_t(20), u"RC4"_j, false);
-org::apache::poi::poifs::crypt::CipherAlgorithm* org::apache::poi::poifs::crypt::CipherAlgorithm::aes128 = new ::org::apache::poi::poifs::crypt::CipherAlgorithm(u"aes128"_j, 1, CipherProvider::aes, u"AES"_j, int32_t(26126), int32_t(128), new ::int32_tArray({int32_t(128)}), int32_t(16), int32_t(32), u"AES"_j, false);
-org::apache::poi::poifs::crypt::CipherAlgorithm* org::apache::poi::poifs::crypt::CipherAlgorithm::aes192 = new ::org::apache::poi::poifs::crypt::CipherAlgorithm(u"aes192"_j, 2, CipherProvider::aes, u"AES"_j, int32_t(26127), int32_t(192), new ::int32_tArray({int32_t(192)}), int32_t(16), int32_t(32), u"AES"_j, false);
-org::apache::poi::poifs::crypt::CipherAlgorithm* org::apache::poi::poifs::crypt::CipherAlgorithm::aes256 = new ::org::apache::poi::poifs::crypt::CipherAlgorithm(u"aes256"_j, 3, CipherProvider::aes, u"AES"_j, int32_t(26128), int32_t(256), new ::int32_tArray({int32_t(256)}), int32_t(16), int32_t(32), u"AES"_j, false);
-org::apache::poi::poifs::crypt::CipherAlgorithm* org::apache::poi::poifs::crypt::CipherAlgorithm::rc2 = new ::org::apache::poi::poifs::crypt::CipherAlgorithm(u"rc2"_j, 4, nullptr, u"RC2"_j, -int32_t(1), int32_t(128), new ::int32_tArray({
+poi::poifs::crypt::CipherAlgorithm* poi::poifs::crypt::CipherAlgorithm::aes128 = new ::poi::poifs::crypt::CipherAlgorithm(u"aes128"_j, 1, CipherProvider::aes, u"AES"_j, int32_t(26126), int32_t(128), new ::int32_tArray({int32_t(128)}), int32_t(16), int32_t(32), u"AES"_j, false);
+poi::poifs::crypt::CipherAlgorithm* poi::poifs::crypt::CipherAlgorithm::aes192 = new ::poi::poifs::crypt::CipherAlgorithm(u"aes192"_j, 2, CipherProvider::aes, u"AES"_j, int32_t(26127), int32_t(192), new ::int32_tArray({int32_t(192)}), int32_t(16), int32_t(32), u"AES"_j, false);
+poi::poifs::crypt::CipherAlgorithm* poi::poifs::crypt::CipherAlgorithm::aes256 = new ::poi::poifs::crypt::CipherAlgorithm(u"aes256"_j, 3, CipherProvider::aes, u"AES"_j, int32_t(26128), int32_t(256), new ::int32_tArray({int32_t(256)}), int32_t(16), int32_t(32), u"AES"_j, false);
+poi::poifs::crypt::CipherAlgorithm* poi::poifs::crypt::CipherAlgorithm::rc2 = new ::poi::poifs::crypt::CipherAlgorithm(u"rc2"_j, 4, nullptr, u"RC2"_j, -int32_t(1), int32_t(128), new ::int32_tArray({
     int32_t(40)
     , int32_t(48)
     , int32_t(56)
@@ -98,16 +92,16 @@ org::apache::poi::poifs::crypt::CipherAlgorithm* org::apache::poi::poifs::crypt:
     , int32_t(120)
     , int32_t(128)
 }), int32_t(8), int32_t(20), u"RC2"_j, false);
-org::apache::poi::poifs::crypt::CipherAlgorithm* org::apache::poi::poifs::crypt::CipherAlgorithm::des = new ::org::apache::poi::poifs::crypt::CipherAlgorithm(u"des"_j, 5, nullptr, u"DES"_j, -int32_t(1), int32_t(64), new ::int32_tArray({int32_t(64)}), int32_t(8), int32_t(32), u"DES"_j, false);
-org::apache::poi::poifs::crypt::CipherAlgorithm* org::apache::poi::poifs::crypt::CipherAlgorithm::des3 = new ::org::apache::poi::poifs::crypt::CipherAlgorithm(u"des3"_j, 6, nullptr, u"DESede"_j, -int32_t(1), int32_t(192), new ::int32_tArray({int32_t(192)}), int32_t(8), int32_t(32), u"3DES"_j, false);
-org::apache::poi::poifs::crypt::CipherAlgorithm* org::apache::poi::poifs::crypt::CipherAlgorithm::des3_112 = new ::org::apache::poi::poifs::crypt::CipherAlgorithm(u"des3_112"_j, 7, nullptr, u"DESede"_j, -int32_t(1), int32_t(128), new ::int32_tArray({int32_t(128)}), int32_t(8), int32_t(32), u"3DES_112"_j, true);
-org::apache::poi::poifs::crypt::CipherAlgorithm* org::apache::poi::poifs::crypt::CipherAlgorithm::rsa = new ::org::apache::poi::poifs::crypt::CipherAlgorithm(u"rsa"_j, 8, nullptr, u"RSA"_j, -int32_t(1), int32_t(1024), new ::int32_tArray({
+poi::poifs::crypt::CipherAlgorithm* poi::poifs::crypt::CipherAlgorithm::des = new ::poi::poifs::crypt::CipherAlgorithm(u"des"_j, 5, nullptr, u"DES"_j, -int32_t(1), int32_t(64), new ::int32_tArray({int32_t(64)}), int32_t(8), int32_t(32), u"DES"_j, false);
+poi::poifs::crypt::CipherAlgorithm* poi::poifs::crypt::CipherAlgorithm::des3 = new ::poi::poifs::crypt::CipherAlgorithm(u"des3"_j, 6, nullptr, u"DESede"_j, -int32_t(1), int32_t(192), new ::int32_tArray({int32_t(192)}), int32_t(8), int32_t(32), u"3DES"_j, false);
+poi::poifs::crypt::CipherAlgorithm* poi::poifs::crypt::CipherAlgorithm::des3_112 = new ::poi::poifs::crypt::CipherAlgorithm(u"des3_112"_j, 7, nullptr, u"DESede"_j, -int32_t(1), int32_t(128), new ::int32_tArray({int32_t(128)}), int32_t(8), int32_t(32), u"3DES_112"_j, true);
+poi::poifs::crypt::CipherAlgorithm* poi::poifs::crypt::CipherAlgorithm::rsa = new ::poi::poifs::crypt::CipherAlgorithm(u"rsa"_j, 8, nullptr, u"RSA"_j, -int32_t(1), int32_t(1024), new ::int32_tArray({
     int32_t(1024)
     , int32_t(2048)
     , int32_t(3072)
     , int32_t(4096)
 }), -int32_t(1), -int32_t(1), u""_j, false);
-void org::apache::poi::poifs::crypt::CipherAlgorithm::ctor(::java::lang::String* name, int ordinal, CipherProvider* provider, ::java::lang::String* jceId, int32_t ecmaId, int32_t defaultKeySize, ::int32_tArray* allowedKeySize, int32_t blockSize, int32_t encryptedVerifierHashLength, ::java::lang::String* xmlId, bool needsBouncyCastle)
+void poi::poifs::crypt::CipherAlgorithm::ctor(::java::lang::String* name, int ordinal, CipherProvider* provider, ::java::lang::String* jceId, int32_t ecmaId, int32_t defaultKeySize, ::int32_tArray* allowedKeySize, int32_t blockSize, int32_t encryptedVerifierHashLength, ::java::lang::String* xmlId, bool needsBouncyCastle)
 {
     super::ctor(name, ordinal);
     this->provider = provider;
@@ -121,7 +115,7 @@ void org::apache::poi::poifs::crypt::CipherAlgorithm::ctor(::java::lang::String*
     this->needsBouncyCastle = needsBouncyCastle;
 }
 
-org::apache::poi::poifs::crypt::CipherAlgorithm* org::apache::poi::poifs::crypt::CipherAlgorithm::fromEcmaId(int32_t ecmaId)
+poi::poifs::crypt::CipherAlgorithm* poi::poifs::crypt::CipherAlgorithm::fromEcmaId(int32_t ecmaId)
 {
     clinit();
     for(auto ca : *npc(CipherAlgorithm::values())) {
@@ -129,11 +123,11 @@ org::apache::poi::poifs::crypt::CipherAlgorithm* org::apache::poi::poifs::crypt:
             return ca;
 
     }
-    throw new ::org::apache::poi::EncryptedDocumentException(::java::lang::StringBuilder().append(u"cipher algorithm "_j)->append(ecmaId)
+    throw new ::poi::EncryptedDocumentException(::java::lang::StringBuilder().append(u"cipher algorithm "_j)->append(ecmaId)
         ->append(u" not found"_j)->toString());
 }
 
-org::apache::poi::poifs::crypt::CipherAlgorithm* org::apache::poi::poifs::crypt::CipherAlgorithm::fromXmlId(::java::lang::String* xmlId, int32_t keySize)
+poi::poifs::crypt::CipherAlgorithm* poi::poifs::crypt::CipherAlgorithm::fromXmlId(::java::lang::String* xmlId, int32_t keySize)
 {
     clinit();
     for(auto ca : *npc(CipherAlgorithm::values())) {
@@ -146,7 +140,7 @@ org::apache::poi::poifs::crypt::CipherAlgorithm* org::apache::poi::poifs::crypt:
 
         }
     }
-    throw new ::org::apache::poi::EncryptedDocumentException(::java::lang::StringBuilder().append(u"cipher algorithm "_j)->append(xmlId)
+    throw new ::poi::EncryptedDocumentException(::java::lang::StringBuilder().append(u"cipher algorithm "_j)->append(xmlId)
         ->append(u"/"_j)
         ->append(keySize)
         ->append(u" not found"_j)->toString());
@@ -154,13 +148,13 @@ org::apache::poi::poifs::crypt::CipherAlgorithm* org::apache::poi::poifs::crypt:
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::crypt::CipherAlgorithm::class_()
+java::lang::Class* poi::poifs::crypt::CipherAlgorithm::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.crypt.CipherAlgorithm", 42);
     return c;
 }
 
-org::apache::poi::poifs::crypt::CipherAlgorithm* org::apache::poi::poifs::crypt::CipherAlgorithm::valueOf(::java::lang::String* a0)
+poi::poifs::crypt::CipherAlgorithm* poi::poifs::crypt::CipherAlgorithm::valueOf(::java::lang::String* a0)
 {
     if(aes128->toString()->equals(a0))
         return aes128;
@@ -183,9 +177,9 @@ org::apache::poi::poifs::crypt::CipherAlgorithm* org::apache::poi::poifs::crypt:
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::poifs::crypt::CipherAlgorithmArray* org::apache::poi::poifs::crypt::CipherAlgorithm::values()
+poi::poifs::crypt::CipherAlgorithmArray* poi::poifs::crypt::CipherAlgorithm::values()
 {
-    return new org::apache::poi::poifs::crypt::CipherAlgorithmArray({
+    return new poi::poifs::crypt::CipherAlgorithmArray({
         aes128,
         aes192,
         aes256,
@@ -198,7 +192,7 @@ org::apache::poi::poifs::crypt::CipherAlgorithmArray* org::apache::poi::poifs::c
     });
 }
 
-java::lang::Class* org::apache::poi::poifs::crypt::CipherAlgorithm::getClass0()
+java::lang::Class* poi::poifs::crypt::CipherAlgorithm::getClass0()
 {
     return class_();
 }

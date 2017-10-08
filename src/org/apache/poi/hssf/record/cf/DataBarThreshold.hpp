@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::cf::DataBarThreshold final
+class poi::hssf::record::cf::DataBarThreshold final
     : public Threshold
     , public ::java::lang::Cloneable
 {
@@ -18,14 +18,14 @@ public:
     typedef Threshold super;
 protected:
     void ctor();
-    void ctor(::org::apache::poi::util::LittleEndianInput* in);
+    void ctor(::poi::util::LittleEndianInput* in);
 
 public:
     DataBarThreshold* clone() override;
 
     // Generated
     DataBarThreshold();
-    DataBarThreshold(::org::apache::poi::util::LittleEndianInput* in);
+    DataBarThreshold(::poi::util::LittleEndianInput* in);
 protected:
     DataBarThreshold(const ::default_init_tag&);
 

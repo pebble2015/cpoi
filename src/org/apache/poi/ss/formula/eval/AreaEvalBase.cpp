@@ -16,37 +16,37 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::eval::AreaEvalBase::AreaEvalBase(const ::default_init_tag&)
+poi::ss::formula::eval::AreaEvalBase::AreaEvalBase(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::eval::AreaEvalBase::AreaEvalBase(::org::apache::poi::ss::formula::SheetRange* sheets, int32_t firstRow, int32_t firstColumn, int32_t lastRow, int32_t lastColumn) 
+poi::ss::formula::eval::AreaEvalBase::AreaEvalBase(::poi::ss::formula::SheetRange* sheets, int32_t firstRow, int32_t firstColumn, int32_t lastRow, int32_t lastColumn) 
     : AreaEvalBase(*static_cast< ::default_init_tag* >(0))
 {
     ctor(sheets,firstRow,firstColumn,lastRow,lastColumn);
 }
 
-org::apache::poi::ss::formula::eval::AreaEvalBase::AreaEvalBase(int32_t firstRow, int32_t firstColumn, int32_t lastRow, int32_t lastColumn) 
+poi::ss::formula::eval::AreaEvalBase::AreaEvalBase(int32_t firstRow, int32_t firstColumn, int32_t lastRow, int32_t lastColumn) 
     : AreaEvalBase(*static_cast< ::default_init_tag* >(0))
 {
     ctor(firstRow,firstColumn,lastRow,lastColumn);
 }
 
-org::apache::poi::ss::formula::eval::AreaEvalBase::AreaEvalBase(::org::apache::poi::ss::formula::ptg::AreaI* ptg) 
+poi::ss::formula::eval::AreaEvalBase::AreaEvalBase(::poi::ss::formula::ptg::AreaI* ptg) 
     : AreaEvalBase(*static_cast< ::default_init_tag* >(0))
 {
     ctor(ptg);
 }
 
-org::apache::poi::ss::formula::eval::AreaEvalBase::AreaEvalBase(::org::apache::poi::ss::formula::ptg::AreaI* ptg, ::org::apache::poi::ss::formula::SheetRange* sheets) 
+poi::ss::formula::eval::AreaEvalBase::AreaEvalBase(::poi::ss::formula::ptg::AreaI* ptg, ::poi::ss::formula::SheetRange* sheets) 
     : AreaEvalBase(*static_cast< ::default_init_tag* >(0))
 {
     ctor(ptg,sheets);
 }
 
-void org::apache::poi::ss::formula::eval::AreaEvalBase::ctor(::org::apache::poi::ss::formula::SheetRange* sheets, int32_t firstRow, int32_t firstColumn, int32_t lastRow, int32_t lastColumn)
+void poi::ss::formula::eval::AreaEvalBase::ctor(::poi::ss::formula::SheetRange* sheets, int32_t firstRow, int32_t firstColumn, int32_t lastRow, int32_t lastColumn)
 {
     super::ctor();
     _firstColumn = firstColumn;
@@ -64,52 +64,52 @@ void org::apache::poi::ss::formula::eval::AreaEvalBase::ctor(::org::apache::poi:
     }
 }
 
-void org::apache::poi::ss::formula::eval::AreaEvalBase::ctor(int32_t firstRow, int32_t firstColumn, int32_t lastRow, int32_t lastColumn)
+void poi::ss::formula::eval::AreaEvalBase::ctor(int32_t firstRow, int32_t firstColumn, int32_t lastRow, int32_t lastColumn)
 {
     ctor(nullptr, firstRow, firstColumn, lastRow, lastColumn);
 }
 
-void org::apache::poi::ss::formula::eval::AreaEvalBase::ctor(::org::apache::poi::ss::formula::ptg::AreaI* ptg)
+void poi::ss::formula::eval::AreaEvalBase::ctor(::poi::ss::formula::ptg::AreaI* ptg)
 {
     ctor(ptg, nullptr);
 }
 
-void org::apache::poi::ss::formula::eval::AreaEvalBase::ctor(::org::apache::poi::ss::formula::ptg::AreaI* ptg, ::org::apache::poi::ss::formula::SheetRange* sheets)
+void poi::ss::formula::eval::AreaEvalBase::ctor(::poi::ss::formula::ptg::AreaI* ptg, ::poi::ss::formula::SheetRange* sheets)
 {
     ctor(sheets, npc(ptg)->getFirstRow(), npc(ptg)->getFirstColumn(), npc(ptg)->getLastRow(), npc(ptg)->getLastColumn());
 }
 
-int32_t org::apache::poi::ss::formula::eval::AreaEvalBase::getFirstColumn()
+int32_t poi::ss::formula::eval::AreaEvalBase::getFirstColumn()
 {
     return _firstColumn;
 }
 
-int32_t org::apache::poi::ss::formula::eval::AreaEvalBase::getFirstRow()
+int32_t poi::ss::formula::eval::AreaEvalBase::getFirstRow()
 {
     return _firstRow;
 }
 
-int32_t org::apache::poi::ss::formula::eval::AreaEvalBase::getLastColumn()
+int32_t poi::ss::formula::eval::AreaEvalBase::getLastColumn()
 {
     return _lastColumn;
 }
 
-int32_t org::apache::poi::ss::formula::eval::AreaEvalBase::getLastRow()
+int32_t poi::ss::formula::eval::AreaEvalBase::getLastRow()
 {
     return _lastRow;
 }
 
-int32_t org::apache::poi::ss::formula::eval::AreaEvalBase::getFirstSheetIndex()
+int32_t poi::ss::formula::eval::AreaEvalBase::getFirstSheetIndex()
 {
     return _firstSheet;
 }
 
-int32_t org::apache::poi::ss::formula::eval::AreaEvalBase::getLastSheetIndex()
+int32_t poi::ss::formula::eval::AreaEvalBase::getLastSheetIndex()
 {
     return _lastSheet;
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::eval::AreaEvalBase::getAbsoluteValue(int32_t row, int32_t col)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::eval::AreaEvalBase::getAbsoluteValue(int32_t row, int32_t col)
 {
     auto rowOffsetIx = row - _firstRow;
     auto colOffsetIx = col - _firstColumn;
@@ -132,65 +132,65 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::e
     return getRelativeValue(rowOffsetIx, colOffsetIx);
 }
 
-bool org::apache::poi::ss::formula::eval::AreaEvalBase::contains(int32_t row, int32_t col)
+bool poi::ss::formula::eval::AreaEvalBase::contains(int32_t row, int32_t col)
 {
     return _firstRow <= row && _lastRow >= row && _firstColumn <= col && _lastColumn >= col;
 }
 
-bool org::apache::poi::ss::formula::eval::AreaEvalBase::containsRow(int32_t row)
+bool poi::ss::formula::eval::AreaEvalBase::containsRow(int32_t row)
 {
     return _firstRow <= row && _lastRow >= row;
 }
 
-bool org::apache::poi::ss::formula::eval::AreaEvalBase::containsColumn(int32_t col)
+bool poi::ss::formula::eval::AreaEvalBase::containsColumn(int32_t col)
 {
     return _firstColumn <= col && _lastColumn >= col;
 }
 
-bool org::apache::poi::ss::formula::eval::AreaEvalBase::isColumn()
+bool poi::ss::formula::eval::AreaEvalBase::isColumn()
 {
     return _firstColumn == _lastColumn;
 }
 
-bool org::apache::poi::ss::formula::eval::AreaEvalBase::isRow()
+bool poi::ss::formula::eval::AreaEvalBase::isRow()
 {
     return _firstRow == _lastRow;
 }
 
-int32_t org::apache::poi::ss::formula::eval::AreaEvalBase::getHeight()
+int32_t poi::ss::formula::eval::AreaEvalBase::getHeight()
 {
     return _lastRow - _firstRow + int32_t(1);
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::eval::AreaEvalBase::getValue(int32_t row, int32_t col)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::eval::AreaEvalBase::getValue(int32_t row, int32_t col)
 {
     return getRelativeValue(row, col);
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::eval::AreaEvalBase::getValue(int32_t sheetIndex, int32_t row, int32_t col)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::eval::AreaEvalBase::getValue(int32_t sheetIndex, int32_t row, int32_t col)
 {
     return getRelativeValue(sheetIndex, row, col);
 }
 
-int32_t org::apache::poi::ss::formula::eval::AreaEvalBase::getWidth()
+int32_t poi::ss::formula::eval::AreaEvalBase::getWidth()
 {
     return _lastColumn - _firstColumn + int32_t(1);
 }
 
-bool org::apache::poi::ss::formula::eval::AreaEvalBase::isSubTotal(int32_t rowIndex, int32_t columnIndex)
+bool poi::ss::formula::eval::AreaEvalBase::isSubTotal(int32_t rowIndex, int32_t columnIndex)
 {
     return false;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::eval::AreaEvalBase::class_()
+java::lang::Class* poi::ss::formula::eval::AreaEvalBase::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.eval.AreaEvalBase", 43);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::eval::AreaEvalBase::getClass0()
+java::lang::Class* poi::ss::formula::eval::AreaEvalBase::getClass0()
 {
     return class_();
 }

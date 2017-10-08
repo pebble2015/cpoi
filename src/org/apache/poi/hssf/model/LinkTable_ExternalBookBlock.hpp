@@ -25,34 +25,28 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace model
         {
-            namespace hssf
-            {
-                namespace model
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::model::LinkTable_CRNBlock, ::java::lang::ObjectArray > LinkTable_CRNBlockArray;
-                } // model
+typedef ::SubArray< ::poi::hssf::model::LinkTable_CRNBlock, ::java::lang::ObjectArray > LinkTable_CRNBlockArray;
+        } // model
 
-                namespace record
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::Record, RecordBaseArray > RecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::StandardRecord, RecordArray > StandardRecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::ExternalNameRecord, StandardRecordArray > ExternalNameRecordArray;
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+        namespace record
+        {
+typedef ::SubArray< ::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
+typedef ::SubArray< ::poi::hssf::record::Record, RecordBaseArray > RecordArray;
+typedef ::SubArray< ::poi::hssf::record::StandardRecord, RecordArray > StandardRecordArray;
+typedef ::SubArray< ::poi::hssf::record::ExternalNameRecord, StandardRecordArray > ExternalNameRecordArray;
+        } // record
+    } // hssf
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::model::LinkTable_ExternalBookBlock final
+class poi::hssf::model::LinkTable_ExternalBookBlock final
     : public ::java::lang::Object
 {
 
@@ -60,8 +54,8 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    ::org::apache::poi::hssf::record::SupBookRecord* _externalBookRecord {  };
-    ::org::apache::poi::hssf::record::ExternalNameRecordArray* _externalNameRecords {  };
+    ::poi::hssf::record::SupBookRecord* _externalBookRecord {  };
+    ::poi::hssf::record::ExternalNameRecordArray* _externalNameRecords {  };
     LinkTable_CRNBlockArray* _crnBlocks {  };
 protected:
     void ctor(RecordStream* rs);
@@ -70,12 +64,12 @@ protected:
     void ctor();
 
 public:
-    ::org::apache::poi::hssf::record::SupBookRecord* getExternalBookRecord();
+    ::poi::hssf::record::SupBookRecord* getExternalBookRecord();
     ::java::lang::String* getNameText(int32_t definedNameIndex);
     int32_t getNameIx(int32_t definedNameIndex);
     int32_t getIndexOfName(::java::lang::String* name);
     int32_t getNumberOfNames();
-    int32_t addExternalName(::org::apache::poi::hssf::record::ExternalNameRecord* rec);
+    int32_t addExternalName(::poi::hssf::record::ExternalNameRecord* rec);
 
     // Generated
     LinkTable_ExternalBookBlock(RecordStream* rs);

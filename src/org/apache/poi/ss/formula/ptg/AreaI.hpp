@@ -6,7 +6,7 @@
 #include <org/apache/poi/ss/formula/ptg/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::formula::ptg::AreaI
+struct poi::ss::formula::ptg::AreaI
     : public virtual ::java::lang::Object
 {
     virtual int32_t getFirstRow() = 0;

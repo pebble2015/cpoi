@@ -10,29 +10,23 @@
 #include <org/apache/poi/ss/formula/functions/Function.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::MultiOperandNumericFunction
+class poi::ss::formula::functions::MultiOperandNumericFunction
     : public virtual ::java::lang::Object
     , public virtual Function
 {
@@ -51,19 +45,19 @@ private:
     static int32_t DEFAULT_MAX_NUM_OPERANDS_;
 
 public:
-    ::org::apache::poi::ss::formula::eval::ValueEval* evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcCellRow, int32_t srcCellCol) override;
+    ::poi::ss::formula::eval::ValueEval* evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcCellRow, int32_t srcCellCol) override;
 
 public: /* protected */
     virtual double evaluate(::doubleArray* values) /* throws(EvaluationException) */ = 0;
     virtual int32_t getMaxNumOperands();
-    ::doubleArray* getNumberArray_(::org::apache::poi::ss::formula::eval::ValueEvalArray* operands) /* throws(EvaluationException) */;
+    ::doubleArray* getNumberArray_(::poi::ss::formula::eval::ValueEvalArray* operands) /* throws(EvaluationException) */;
 
 public:
     virtual bool isSubtotalCounted();
 
 private:
-    void collectValues(::org::apache::poi::ss::formula::eval::ValueEval* operand, MultiOperandNumericFunction_DoubleList* temp) /* throws(EvaluationException) */;
-    void collectValue(::org::apache::poi::ss::formula::eval::ValueEval* ve, bool isViaReference, MultiOperandNumericFunction_DoubleList* temp) /* throws(EvaluationException) */;
+    void collectValues(::poi::ss::formula::eval::ValueEval* operand, MultiOperandNumericFunction_DoubleList* temp) /* throws(EvaluationException) */;
+    void collectValue(::poi::ss::formula::eval::ValueEval* ve, bool isViaReference, MultiOperandNumericFunction_DoubleList* temp) /* throws(EvaluationException) */;
 
     // Generated
 

@@ -26,48 +26,48 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::AutoFilterInfoRecord::AutoFilterInfoRecord(const ::default_init_tag&)
+poi::hssf::record::AutoFilterInfoRecord::AutoFilterInfoRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::AutoFilterInfoRecord::AutoFilterInfoRecord() 
+poi::hssf::record::AutoFilterInfoRecord::AutoFilterInfoRecord() 
     : AutoFilterInfoRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::AutoFilterInfoRecord::AutoFilterInfoRecord(RecordInputStream* in) 
+poi::hssf::record::AutoFilterInfoRecord::AutoFilterInfoRecord(RecordInputStream* in) 
     : AutoFilterInfoRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::AutoFilterInfoRecord::sid;
+constexpr int16_t poi::hssf::record::AutoFilterInfoRecord::sid;
 
-void org::apache::poi::hssf::record::AutoFilterInfoRecord::ctor()
+void poi::hssf::record::AutoFilterInfoRecord::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hssf::record::AutoFilterInfoRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::AutoFilterInfoRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     _cEntries = npc(in)->readShort();
 }
 
-void org::apache::poi::hssf::record::AutoFilterInfoRecord::setNumEntries(int16_t num)
+void poi::hssf::record::AutoFilterInfoRecord::setNumEntries(int16_t num)
 {
     _cEntries = num;
 }
 
-int16_t org::apache::poi::hssf::record::AutoFilterInfoRecord::getNumEntries()
+int16_t poi::hssf::record::AutoFilterInfoRecord::getNumEntries()
 {
     return _cEntries;
 }
 
-java::lang::String* org::apache::poi::hssf::record::AutoFilterInfoRecord::toString()
+java::lang::String* poi::hssf::record::AutoFilterInfoRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[AUTOFILTERINFO]\n"_j);
@@ -76,45 +76,45 @@ java::lang::String* org::apache::poi::hssf::record::AutoFilterInfoRecord::toStri
     return npc(buffer)->toString();
 }
 
-void org::apache::poi::hssf::record::AutoFilterInfoRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::AutoFilterInfoRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(_cEntries);
 }
 
-int32_t org::apache::poi::hssf::record::AutoFilterInfoRecord::getDataSize()
+int32_t poi::hssf::record::AutoFilterInfoRecord::getDataSize()
 {
     return 2;
 }
 
-int16_t org::apache::poi::hssf::record::AutoFilterInfoRecord::getSid()
+int16_t poi::hssf::record::AutoFilterInfoRecord::getSid()
 {
     return sid;
 }
 
-org::apache::poi::hssf::record::AutoFilterInfoRecord* org::apache::poi::hssf::record::AutoFilterInfoRecord::clone()
+poi::hssf::record::AutoFilterInfoRecord* poi::hssf::record::AutoFilterInfoRecord::clone()
 {
     return java_cast< AutoFilterInfoRecord* >(cloneViaReserialise());
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::AutoFilterInfoRecord::class_()
+java::lang::Class* poi::hssf::record::AutoFilterInfoRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.AutoFilterInfoRecord", 47);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::AutoFilterInfoRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::AutoFilterInfoRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::AutoFilterInfoRecord::serialize()
+int8_tArray* poi::hssf::record::AutoFilterInfoRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::AutoFilterInfoRecord::getClass0()
+java::lang::Class* poi::hssf::record::AutoFilterInfoRecord::getClass0()
 {
     return class_();
 }

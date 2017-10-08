@@ -11,9 +11,9 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFWorkbook_SheetRecordCollector final
+class poi::hssf::usermodel::HSSFWorkbook_SheetRecordCollector final
     : public virtual ::java::lang::Object
-    , public ::org::apache::poi::hssf::record::aggregates::RecordAggregate_RecordVisitor
+    , public ::poi::hssf::record::aggregates::RecordAggregate_RecordVisitor
 {
 
 public:
@@ -27,7 +27,7 @@ protected:
 
 public:
     int32_t getTotalSize();
-    void visitRecord(::org::apache::poi::hssf::record::Record* r) override;
+    void visitRecord(::poi::hssf::record::Record* r) override;
     int32_t serialize(int32_t offset, ::int8_tArray* data);
 
     // Generated

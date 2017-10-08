@@ -6,7 +6,7 @@
 #include <org/apache/poi/sl/usermodel/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::sl::usermodel::StrokeStyle
+struct poi::sl::usermodel::StrokeStyle
     : public virtual ::java::lang::Object
 {
     virtual PaintStyle* getPaint() = 0;

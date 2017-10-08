@@ -43,28 +43,28 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::sl::draw::DrawTextShape::DrawTextShape(const ::default_init_tag&)
+poi::sl::draw::DrawTextShape::DrawTextShape(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::draw::DrawTextShape::DrawTextShape(::org::apache::poi::sl::usermodel::TextShape* shape) 
+poi::sl::draw::DrawTextShape::DrawTextShape(::poi::sl::usermodel::TextShape* shape) 
     : DrawTextShape(*static_cast< ::default_init_tag* >(0))
 {
     ctor(shape);
 }
 
-void org::apache::poi::sl::draw::DrawTextShape::ctor(::org::apache::poi::sl::usermodel::TextShape* shape)
+void poi::sl::draw::DrawTextShape::ctor(::poi::sl::usermodel::TextShape* shape)
 {
     super::ctor(shape);
 }
 
-void org::apache::poi::sl::draw::DrawTextShape::drawContent(::java::awt::Graphics2D* graphics)
+void poi::sl::draw::DrawTextShape::drawContent(::java::awt::Graphics2D* graphics)
 {
     npc(DrawFactory::getInstance(graphics))->fixFonts(graphics);
     auto s = getShape();
-    auto anchor = DrawShape::getAnchor(graphics, static_cast< ::org::apache::poi::sl::usermodel::PlaceableShape* >(s));
+    auto anchor = DrawShape::getAnchor(graphics, static_cast< ::poi::sl::usermodel::PlaceableShape* >(s));
     auto insets = npc(s)->getInsets();
     auto x = npc(anchor)->getX() + npc(insets)->left;
     auto y = npc(anchor)->getY();
@@ -72,8 +72,8 @@ void org::apache::poi::sl::draw::DrawTextShape::drawContent(::java::awt::Graphic
     auto vertFlip = npc(s)->getFlipVertical();
     auto horzFlip = npc(s)->getFlipHorizontal();
     auto sc = npc(s)->getParent();
-    while (dynamic_cast< ::org::apache::poi::sl::usermodel::PlaceableShape* >(sc) != nullptr) {
-        auto ps = java_cast< ::org::apache::poi::sl::usermodel::PlaceableShape* >(sc);
+    while (dynamic_cast< ::poi::sl::usermodel::PlaceableShape* >(sc) != nullptr) {
+        auto ps = java_cast< ::poi::sl::usermodel::PlaceableShape* >(sc);
         vertFlip ^= npc(ps)->getFlipVertical();
         horzFlip ^= npc(ps)->getFlipHorizontal();
         sc = npc(ps)->getParent();
@@ -98,16 +98,16 @@ void org::apache::poi::sl::draw::DrawTextShape::drawContent(::java::awt::Graphic
         double delta;
         {
             auto v = npc(s)->getVerticalAlignment();
-            if((v == ::org::apache::poi::sl::usermodel::VerticalAlignment::TOP)) {
+            if((v == ::poi::sl::usermodel::VerticalAlignment::TOP)) {
                 y += npc(insets)->top;
                 goto end_switch0;;
             }
-            if((v == ::org::apache::poi::sl::usermodel::VerticalAlignment::BOTTOM)) {
+            if((v == ::poi::sl::usermodel::VerticalAlignment::BOTTOM)) {
                 textHeight = getTextHeight(graphics);
                 y += npc(anchor)->getHeight() - textHeight - npc(insets)->bottom;
                 goto end_switch0;;
             }
-            if((v == ::org::apache::poi::sl::usermodel::VerticalAlignment::MIDDLE)) {
+            if((v == ::poi::sl::usermodel::VerticalAlignment::MIDDLE)) {
                 textHeight = getTextHeight(graphics);
                 auto delta = npc(anchor)->getHeight() - textHeight - npc(insets)->top- npc(insets)->bottom;
                 y += npc(insets)->top + delta / int32_t(2);
@@ -118,8 +118,8 @@ end_switch0:;
     }
 
     auto textDir = npc(s)->getTextDirection();
-    if(textDir == ::org::apache::poi::sl::usermodel::TextShape_TextDirection::VERTICAL || textDir == ::org::apache::poi::sl::usermodel::TextShape_TextDirection::VERTICAL_270) {
-        double const deg = (textDir == ::org::apache::poi::sl::usermodel::TextShape_TextDirection::VERTICAL) ? int32_t(90) : int32_t(270);
+    if(textDir == ::poi::sl::usermodel::TextShape_TextDirection::VERTICAL || textDir == ::poi::sl::usermodel::TextShape_TextDirection::VERTICAL_270) {
+        double const deg = (textDir == ::poi::sl::usermodel::TextShape_TextDirection::VERTICAL) ? int32_t(90) : int32_t(270);
         auto const cx = npc(anchor)->getCenterX();
         auto const cy = npc(anchor)->getCenterY();
         npc(graphics)->translate(cx, cy);
@@ -134,15 +134,15 @@ end_switch0:;
     npc(graphics)->setTransform(tx);
 }
 
-double org::apache::poi::sl::draw::DrawTextShape::drawParagraphs(::java::awt::Graphics2D* graphics, double x, double y)
+double poi::sl::draw::DrawTextShape::drawParagraphs(::java::awt::Graphics2D* graphics, double x, double y)
 {
     auto fact = DrawFactory::getInstance(graphics);
     auto y0 = y;
     auto paragraphs = npc(getShape())->iterator();
     auto isFirstLine = true;
     for (auto autoNbrIdx = int32_t(0); npc(paragraphs)->hasNext(); autoNbrIdx++) {
-        auto p = java_cast< ::org::apache::poi::sl::usermodel::TextParagraph* >(npc(paragraphs)->next());
-        auto dp = npc(fact)->getDrawable(static_cast< ::org::apache::poi::sl::usermodel::TextParagraph* >(p));
+        auto p = java_cast< ::poi::sl::usermodel::TextParagraph* >(npc(paragraphs)->next());
+        auto dp = npc(fact)->getDrawable(static_cast< ::poi::sl::usermodel::TextParagraph* >(p));
         auto bs = npc(p)->getBulletStyle();
         if(bs == nullptr || npc(bs)->getAutoNumberingScheme() == nullptr) {
             autoNbrIdx = -int32_t(1);
@@ -189,12 +189,12 @@ double org::apache::poi::sl::draw::DrawTextShape::drawParagraphs(::java::awt::Gr
     return y - y0;
 }
 
-double org::apache::poi::sl::draw::DrawTextShape::getTextHeight()
+double poi::sl::draw::DrawTextShape::getTextHeight()
 {
     return getTextHeight(nullptr);
 }
 
-double org::apache::poi::sl::draw::DrawTextShape::getTextHeight(::java::awt::Graphics2D* oldGraphics)
+double poi::sl::draw::DrawTextShape::getTextHeight(::java::awt::Graphics2D* oldGraphics)
 {
     auto img = new ::java::awt::image::BufferedImage(int32_t(1), int32_t(1), ::java::awt::image::BufferedImage::TYPE_INT_RGB);
     auto graphics = npc(img)->createGraphics();
@@ -206,20 +206,20 @@ double org::apache::poi::sl::draw::DrawTextShape::getTextHeight(::java::awt::Gra
     return drawParagraphs(graphics, 0, 0);
 }
 
-org::apache::poi::sl::usermodel::TextShape* org::apache::poi::sl::draw::DrawTextShape::getShape()
+poi::sl::usermodel::TextShape* poi::sl::draw::DrawTextShape::getShape()
 {
-    return java_cast< ::org::apache::poi::sl::usermodel::TextShape* >(shape);
+    return java_cast< ::poi::sl::usermodel::TextShape* >(shape);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::draw::DrawTextShape::class_()
+java::lang::Class* poi::sl::draw::DrawTextShape::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.draw.DrawTextShape", 36);
     return c;
 }
 
-java::lang::Class* org::apache::poi::sl::draw::DrawTextShape::getClass0()
+java::lang::Class* poi::sl::draw::DrawTextShape::getClass0()
 {
     return class_();
 }

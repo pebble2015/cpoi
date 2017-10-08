@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::filesystem::BlockStore
+class poi::poifs::filesystem::BlockStore
     : public virtual ::java::lang::Object
 {
 
@@ -21,7 +21,7 @@ public: /* protected */
     virtual int32_t getBlockStoreBlockSize() = 0;
     virtual ::java::nio::ByteBuffer* getBlockAt(int32_t offset) /* throws(IOException) */ = 0;
     virtual ::java::nio::ByteBuffer* createBlockIfNeeded(int32_t offset) /* throws(IOException) */ = 0;
-    virtual ::org::apache::poi::poifs::storage::BATBlock_BATBlockAndIndex* getBATBlockAndIndex(int32_t offset) = 0;
+    virtual ::poi::poifs::storage::BATBlock_BATBlockAndIndex* getBATBlockAndIndex(int32_t offset) = 0;
     virtual int32_t getNextBlock(int32_t offset) = 0;
     virtual void setNextBlock(int32_t offset, int32_t nextBlock) = 0;
     virtual int32_t getFreeBlock() /* throws(IOException) */ = 0;

@@ -9,7 +9,7 @@
 #include <org/apache/poi/sl/usermodel/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::sl::usermodel::TextRun
+struct poi::sl::usermodel::TextRun
     : public virtual ::java::lang::Object
 {
     virtual ::java::lang::String* getRawText() = 0;
@@ -21,11 +21,11 @@ struct org::apache::poi::sl::usermodel::TextRun
     virtual ::java::lang::Double* getFontSize() = 0;
     virtual void setFontSize(::java::lang::Double* fontSize) = 0;
     virtual ::java::lang::String* getFontFamily() = 0;
-    virtual ::java::lang::String* getFontFamily(::org::apache::poi::common::usermodel::fonts::FontGroup* fontGroup) = 0;
+    virtual ::java::lang::String* getFontFamily(::poi::common::usermodel::fonts::FontGroup* fontGroup) = 0;
     virtual void setFontFamily(::java::lang::String* typeface) = 0;
-    virtual void setFontFamily(::java::lang::String* typeface, ::org::apache::poi::common::usermodel::fonts::FontGroup* fontGroup) = 0;
-    virtual ::org::apache::poi::common::usermodel::fonts::FontInfo* getFontInfo(::org::apache::poi::common::usermodel::fonts::FontGroup* fontGroup) = 0;
-    virtual void setFontInfo(::org::apache::poi::common::usermodel::fonts::FontInfo* fontInfo, ::org::apache::poi::common::usermodel::fonts::FontGroup* fontGroup) = 0;
+    virtual void setFontFamily(::java::lang::String* typeface, ::poi::common::usermodel::fonts::FontGroup* fontGroup) = 0;
+    virtual ::poi::common::usermodel::fonts::FontInfo* getFontInfo(::poi::common::usermodel::fonts::FontGroup* fontGroup) = 0;
+    virtual void setFontInfo(::poi::common::usermodel::fonts::FontInfo* fontInfo, ::poi::common::usermodel::fonts::FontGroup* fontGroup) = 0;
     virtual bool isBold() = 0;
     virtual void setBold(bool bold) = 0;
     virtual bool isItalic() = 0;

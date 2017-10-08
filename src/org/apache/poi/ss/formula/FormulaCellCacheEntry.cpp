@@ -14,23 +14,17 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
-            {
-                namespace formula
-                {
-typedef ::SubArray< ::org::apache::poi::ss::formula::IEvaluationListener_ICacheEntry, ::java::lang::ObjectArray > IEvaluationListener_ICacheEntryArray;
-typedef ::SubArray< ::org::apache::poi::ss::formula::CellCacheEntry, ::java::lang::ObjectArray, IEvaluationListener_ICacheEntryArray > CellCacheEntryArray;
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::IEvaluationListener_ICacheEntry, ::java::lang::ObjectArray > IEvaluationListener_ICacheEntryArray;
+typedef ::SubArray< ::poi::ss::formula::CellCacheEntry, ::java::lang::ObjectArray, IEvaluationListener_ICacheEntryArray > CellCacheEntryArray;
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -39,24 +33,24 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::FormulaCellCacheEntry::FormulaCellCacheEntry(const ::default_init_tag&)
+poi::ss::formula::FormulaCellCacheEntry::FormulaCellCacheEntry(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::FormulaCellCacheEntry::FormulaCellCacheEntry() 
+poi::ss::formula::FormulaCellCacheEntry::FormulaCellCacheEntry() 
     : FormulaCellCacheEntry(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::ss::formula::FormulaCellCacheEntry::ctor()
+void poi::ss::formula::FormulaCellCacheEntry::ctor()
 {
     super::ctor();
 }
 
-bool org::apache::poi::ss::formula::FormulaCellCacheEntry::isInputSensitive()
+bool poi::ss::formula::FormulaCellCacheEntry::isInputSensitive()
 {
     if(_sensitiveInputCells != nullptr) {
         if(npc(_sensitiveInputCells)->length > 0) {
@@ -66,7 +60,7 @@ bool org::apache::poi::ss::formula::FormulaCellCacheEntry::isInputSensitive()
     return _usedBlankCellGroup == nullptr ? false : !npc(_usedBlankCellGroup)->isEmpty();
 }
 
-void org::apache::poi::ss::formula::FormulaCellCacheEntry::setSensitiveInputCells(CellCacheEntryArray* sensitiveInputCells)
+void poi::ss::formula::FormulaCellCacheEntry::setSensitiveInputCells(CellCacheEntryArray* sensitiveInputCells)
 {
     if(sensitiveInputCells == nullptr) {
         _sensitiveInputCells = nullptr;
@@ -77,7 +71,7 @@ void org::apache::poi::ss::formula::FormulaCellCacheEntry::setSensitiveInputCell
     }
 }
 
-void org::apache::poi::ss::formula::FormulaCellCacheEntry::clearFormulaEntry()
+void poi::ss::formula::FormulaCellCacheEntry::clearFormulaEntry()
 {
     auto usedCells = _sensitiveInputCells;
     if(usedCells != nullptr) {
@@ -89,7 +83,7 @@ void org::apache::poi::ss::formula::FormulaCellCacheEntry::clearFormulaEntry()
     clearValue();
 }
 
-void org::apache::poi::ss::formula::FormulaCellCacheEntry::changeConsumingCells(CellCacheEntryArray* usedCells)
+void poi::ss::formula::FormulaCellCacheEntry::changeConsumingCells(CellCacheEntryArray* usedCells)
 {
     auto prevUsedCells = _sensitiveInputCells;
     auto nUsed = npc(usedCells)->length;
@@ -120,14 +114,14 @@ void org::apache::poi::ss::formula::FormulaCellCacheEntry::changeConsumingCells(
     }
 }
 
-void org::apache::poi::ss::formula::FormulaCellCacheEntry::updateFormulaResult(::org::apache::poi::ss::formula::eval::ValueEval* result, CellCacheEntryArray* sensitiveInputCells, FormulaUsedBlankCellSet* usedBlankAreas)
+void poi::ss::formula::FormulaCellCacheEntry::updateFormulaResult(::poi::ss::formula::eval::ValueEval* result, CellCacheEntryArray* sensitiveInputCells, FormulaUsedBlankCellSet* usedBlankAreas)
 {
     updateValue(result);
     setSensitiveInputCells(sensitiveInputCells);
     _usedBlankCellGroup = usedBlankAreas;
 }
 
-void org::apache::poi::ss::formula::FormulaCellCacheEntry::notifyUpdatedBlankCell(FormulaUsedBlankCellSet_BookSheetKey* bsk, int32_t rowIndex, int32_t columnIndex, IEvaluationListener* evaluationListener)
+void poi::ss::formula::FormulaCellCacheEntry::notifyUpdatedBlankCell(FormulaUsedBlankCellSet_BookSheetKey* bsk, int32_t rowIndex, int32_t columnIndex, IEvaluationListener* evaluationListener)
 {
     if(_usedBlankCellGroup != nullptr) {
         if(npc(_usedBlankCellGroup)->containsCell(bsk, rowIndex, columnIndex)) {
@@ -139,13 +133,13 @@ void org::apache::poi::ss::formula::FormulaCellCacheEntry::notifyUpdatedBlankCel
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::FormulaCellCacheEntry::class_()
+java::lang::Class* poi::ss::formula::FormulaCellCacheEntry::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.FormulaCellCacheEntry", 47);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::FormulaCellCacheEntry::getClass0()
+java::lang::Class* poi::ss::formula::FormulaCellCacheEntry::getClass0()
 {
     return class_();
 }

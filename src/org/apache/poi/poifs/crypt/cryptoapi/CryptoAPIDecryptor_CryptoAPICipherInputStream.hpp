@@ -10,12 +10,12 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor_CryptoAPICipherInputStream
-    : public ::org::apache::poi::poifs::crypt::ChunkedCipherInputStream
+class poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor_CryptoAPICipherInputStream
+    : public ::poi::poifs::crypt::ChunkedCipherInputStream
 {
 
 public:
-    typedef ::org::apache::poi::poifs::crypt::ChunkedCipherInputStream super;
+    typedef ::poi::poifs::crypt::ChunkedCipherInputStream super;
 
 public: /* protected */
     ::javax::crypto::Cipher* initCipherForBlock(::javax::crypto::Cipher* existing, int32_t block) /* throws(GeneralSecurityException) */ override;

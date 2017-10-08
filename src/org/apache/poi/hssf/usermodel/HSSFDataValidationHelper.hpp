@@ -29,9 +29,9 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFDataValidationHelper
+class poi::hssf::usermodel::HSSFDataValidationHelper
     : public virtual ::java::lang::Object
-    , public virtual ::org::apache::poi::ss::usermodel::DataValidationHelper
+    , public virtual ::poi::ss::usermodel::DataValidationHelper
 {
 
 public:
@@ -40,16 +40,16 @@ protected:
     void ctor(HSSFSheet* sheet);
 
 public:
-    ::org::apache::poi::ss::usermodel::DataValidationConstraint* createDateConstraint(int32_t operatorType, ::java::lang::String* formula1, ::java::lang::String* formula2, ::java::lang::String* dateFormat) override;
-    ::org::apache::poi::ss::usermodel::DataValidationConstraint* createExplicitListConstraint(::java::lang::StringArray* listOfValues) override;
-    ::org::apache::poi::ss::usermodel::DataValidationConstraint* createFormulaListConstraint(::java::lang::String* listFormula) override;
-    ::org::apache::poi::ss::usermodel::DataValidationConstraint* createNumericConstraint(int32_t validationType, int32_t operatorType, ::java::lang::String* formula1, ::java::lang::String* formula2) override;
-    ::org::apache::poi::ss::usermodel::DataValidationConstraint* createIntegerConstraint(int32_t operatorType, ::java::lang::String* formula1, ::java::lang::String* formula2) override;
-    ::org::apache::poi::ss::usermodel::DataValidationConstraint* createDecimalConstraint(int32_t operatorType, ::java::lang::String* formula1, ::java::lang::String* formula2) override;
-    ::org::apache::poi::ss::usermodel::DataValidationConstraint* createTextLengthConstraint(int32_t operatorType, ::java::lang::String* formula1, ::java::lang::String* formula2) override;
-    ::org::apache::poi::ss::usermodel::DataValidationConstraint* createTimeConstraint(int32_t operatorType, ::java::lang::String* formula1, ::java::lang::String* formula2) override;
-    ::org::apache::poi::ss::usermodel::DataValidationConstraint* createCustomConstraint(::java::lang::String* formula) override;
-    ::org::apache::poi::ss::usermodel::DataValidation* createValidation(::org::apache::poi::ss::usermodel::DataValidationConstraint* constraint, ::org::apache::poi::ss::util::CellRangeAddressList* cellRangeAddressList) override;
+    ::poi::ss::usermodel::DataValidationConstraint* createDateConstraint(int32_t operatorType, ::java::lang::String* formula1, ::java::lang::String* formula2, ::java::lang::String* dateFormat) override;
+    ::poi::ss::usermodel::DataValidationConstraint* createExplicitListConstraint(::java::lang::StringArray* listOfValues) override;
+    ::poi::ss::usermodel::DataValidationConstraint* createFormulaListConstraint(::java::lang::String* listFormula) override;
+    ::poi::ss::usermodel::DataValidationConstraint* createNumericConstraint(int32_t validationType, int32_t operatorType, ::java::lang::String* formula1, ::java::lang::String* formula2) override;
+    ::poi::ss::usermodel::DataValidationConstraint* createIntegerConstraint(int32_t operatorType, ::java::lang::String* formula1, ::java::lang::String* formula2) override;
+    ::poi::ss::usermodel::DataValidationConstraint* createDecimalConstraint(int32_t operatorType, ::java::lang::String* formula1, ::java::lang::String* formula2) override;
+    ::poi::ss::usermodel::DataValidationConstraint* createTextLengthConstraint(int32_t operatorType, ::java::lang::String* formula1, ::java::lang::String* formula2) override;
+    ::poi::ss::usermodel::DataValidationConstraint* createTimeConstraint(int32_t operatorType, ::java::lang::String* formula1, ::java::lang::String* formula2) override;
+    ::poi::ss::usermodel::DataValidationConstraint* createCustomConstraint(::java::lang::String* formula) override;
+    ::poi::ss::usermodel::DataValidation* createValidation(::poi::ss::usermodel::DataValidationConstraint* constraint, ::poi::ss::util::CellRangeAddressList* cellRangeAddressList) override;
 
     // Generated
     HSSFDataValidationHelper(HSSFSheet* sheet);

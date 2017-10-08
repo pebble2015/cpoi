@@ -26,22 +26,16 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace ss
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::PrintOrientation, ::java::lang::EnumArray > PrintOrientationArray;
-                } // usermodel
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::usermodel::PrintOrientation, ::java::lang::EnumArray > PrintOrientationArray;
+        } // usermodel
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -50,40 +44,40 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::usermodel::PrintOrientation::PrintOrientation(const ::default_init_tag&)
+poi::ss::usermodel::PrintOrientation::PrintOrientation(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::usermodel::PrintOrientation::PrintOrientation(::java::lang::String* name, int ordinal, int32_t orientation) 
+poi::ss::usermodel::PrintOrientation::PrintOrientation(::java::lang::String* name, int ordinal, int32_t orientation) 
     : PrintOrientation(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal, orientation);
 }
 
-org::apache::poi::ss::usermodel::PrintOrientation* org::apache::poi::ss::usermodel::PrintOrientation::DEFAULT = new ::org::apache::poi::ss::usermodel::PrintOrientation(u"DEFAULT"_j, 0, int32_t(1));
-org::apache::poi::ss::usermodel::PrintOrientation* org::apache::poi::ss::usermodel::PrintOrientation::PORTRAIT = new ::org::apache::poi::ss::usermodel::PrintOrientation(u"PORTRAIT"_j, 1, int32_t(2));
-org::apache::poi::ss::usermodel::PrintOrientation* org::apache::poi::ss::usermodel::PrintOrientation::LANDSCAPE = new ::org::apache::poi::ss::usermodel::PrintOrientation(u"LANDSCAPE"_j, 2, int32_t(3));
-void org::apache::poi::ss::usermodel::PrintOrientation::ctor(::java::lang::String* name, int ordinal, int32_t orientation)
+poi::ss::usermodel::PrintOrientation* poi::ss::usermodel::PrintOrientation::DEFAULT = new ::poi::ss::usermodel::PrintOrientation(u"DEFAULT"_j, 0, int32_t(1));
+poi::ss::usermodel::PrintOrientation* poi::ss::usermodel::PrintOrientation::PORTRAIT = new ::poi::ss::usermodel::PrintOrientation(u"PORTRAIT"_j, 1, int32_t(2));
+poi::ss::usermodel::PrintOrientation* poi::ss::usermodel::PrintOrientation::LANDSCAPE = new ::poi::ss::usermodel::PrintOrientation(u"LANDSCAPE"_j, 2, int32_t(3));
+void poi::ss::usermodel::PrintOrientation::ctor(::java::lang::String* name, int ordinal, int32_t orientation)
 {
     super::ctor(name, ordinal);
     this->orientation = orientation;
 }
 
-int32_t org::apache::poi::ss::usermodel::PrintOrientation::getValue()
+int32_t poi::ss::usermodel::PrintOrientation::getValue()
 {
     return orientation;
 }
 
-org::apache::poi::ss::usermodel::PrintOrientationArray*& org::apache::poi::ss::usermodel::PrintOrientation::_table()
+poi::ss::usermodel::PrintOrientationArray*& poi::ss::usermodel::PrintOrientation::_table()
 {
     clinit();
     return _table_;
 }
-org::apache::poi::ss::usermodel::PrintOrientationArray* org::apache::poi::ss::usermodel::PrintOrientation::_table_;
+poi::ss::usermodel::PrintOrientationArray* poi::ss::usermodel::PrintOrientation::_table_;
 
-org::apache::poi::ss::usermodel::PrintOrientation* org::apache::poi::ss::usermodel::PrintOrientation::valueOf(int32_t value)
+poi::ss::usermodel::PrintOrientation* poi::ss::usermodel::PrintOrientation::valueOf(int32_t value)
 {
     clinit();
     return (*_table_)[value];
@@ -91,13 +85,13 @@ org::apache::poi::ss::usermodel::PrintOrientation* org::apache::poi::ss::usermod
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::usermodel::PrintOrientation::class_()
+java::lang::Class* poi::ss::usermodel::PrintOrientation::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.usermodel.PrintOrientation", 44);
     return c;
 }
 
-void org::apache::poi::ss::usermodel::PrintOrientation::clinit()
+void poi::ss::usermodel::PrintOrientation::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -118,12 +112,12 @@ struct clinit_ {
     }
 }
 
-java::lang::Enum* org::apache::poi::ss::usermodel::PrintOrientation::valueOf(::java::lang::Class* enumType, ::java::lang::String* name)
+java::lang::Enum* poi::ss::usermodel::PrintOrientation::valueOf(::java::lang::Class* enumType, ::java::lang::String* name)
 {
     return super::valueOf(enumType, name);
 }
 
-org::apache::poi::ss::usermodel::PrintOrientation* org::apache::poi::ss::usermodel::PrintOrientation::valueOf(::java::lang::String* a0)
+poi::ss::usermodel::PrintOrientation* poi::ss::usermodel::PrintOrientation::valueOf(::java::lang::String* a0)
 {
     if(DEFAULT->toString()->equals(a0))
         return DEFAULT;
@@ -134,16 +128,16 @@ org::apache::poi::ss::usermodel::PrintOrientation* org::apache::poi::ss::usermod
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::ss::usermodel::PrintOrientationArray* org::apache::poi::ss::usermodel::PrintOrientation::values()
+poi::ss::usermodel::PrintOrientationArray* poi::ss::usermodel::PrintOrientation::values()
 {
-    return new org::apache::poi::ss::usermodel::PrintOrientationArray({
+    return new poi::ss::usermodel::PrintOrientationArray({
         DEFAULT,
         LANDSCAPE,
         PORTRAIT,
     });
 }
 
-java::lang::Class* org::apache::poi::ss::usermodel::PrintOrientation::getClass0()
+java::lang::Class* poi::ss::usermodel::PrintOrientation::getClass0()
 {
     return class_();
 }

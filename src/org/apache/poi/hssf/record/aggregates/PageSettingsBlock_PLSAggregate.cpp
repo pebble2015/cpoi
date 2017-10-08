@@ -26,25 +26,19 @@ typedef ::SubArray< ::java::lang::Cloneable, ObjectArray > CloneableArray;
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
-            {
-                namespace record
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::Record, RecordBaseArray > RecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::StandardRecord, RecordArray > StandardRecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::ContinueRecord, StandardRecordArray, ::java::lang::CloneableArray > ContinueRecordArray;
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
+typedef ::SubArray< ::poi::hssf::record::Record, RecordBaseArray > RecordArray;
+typedef ::SubArray< ::poi::hssf::record::StandardRecord, RecordArray > StandardRecordArray;
+typedef ::SubArray< ::poi::hssf::record::ContinueRecord, StandardRecordArray, ::java::lang::CloneableArray > ContinueRecordArray;
+        } // record
+    } // hssf
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -62,42 +56,42 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::aggregates::PageSettingsBlock_PLSAggregate::PageSettingsBlock_PLSAggregate(const ::default_init_tag&)
+poi::hssf::record::aggregates::PageSettingsBlock_PLSAggregate::PageSettingsBlock_PLSAggregate(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::aggregates::PageSettingsBlock_PLSAggregate::PageSettingsBlock_PLSAggregate(::org::apache::poi::hssf::model::RecordStream* rs) 
+poi::hssf::record::aggregates::PageSettingsBlock_PLSAggregate::PageSettingsBlock_PLSAggregate(::poi::hssf::model::RecordStream* rs) 
     : PageSettingsBlock_PLSAggregate(*static_cast< ::default_init_tag* >(0))
 {
     ctor(rs);
 }
 
-org::apache::poi::hssf::record::ContinueRecordArray*& org::apache::poi::hssf::record::aggregates::PageSettingsBlock_PLSAggregate::EMPTY_CONTINUE_RECORD_ARRAY()
+poi::hssf::record::ContinueRecordArray*& poi::hssf::record::aggregates::PageSettingsBlock_PLSAggregate::EMPTY_CONTINUE_RECORD_ARRAY()
 {
     clinit();
     return EMPTY_CONTINUE_RECORD_ARRAY_;
 }
-org::apache::poi::hssf::record::ContinueRecordArray* org::apache::poi::hssf::record::aggregates::PageSettingsBlock_PLSAggregate::EMPTY_CONTINUE_RECORD_ARRAY_;
+poi::hssf::record::ContinueRecordArray* poi::hssf::record::aggregates::PageSettingsBlock_PLSAggregate::EMPTY_CONTINUE_RECORD_ARRAY_;
 
-void org::apache::poi::hssf::record::aggregates::PageSettingsBlock_PLSAggregate::ctor(::org::apache::poi::hssf::model::RecordStream* rs)
+void poi::hssf::record::aggregates::PageSettingsBlock_PLSAggregate::ctor(::poi::hssf::model::RecordStream* rs)
 {
     super::ctor();
     _pls = npc(rs)->getNext();
-    if(npc(rs)->peekNextSid() == ::org::apache::poi::hssf::record::ContinueRecord::sid) {
+    if(npc(rs)->peekNextSid() == ::poi::hssf::record::ContinueRecord::sid) {
         ::java::util::List* temp = new ::java::util::ArrayList();
-        while (npc(rs)->peekNextSid() == ::org::apache::poi::hssf::record::ContinueRecord::sid) {
-            npc(temp)->add(static_cast< ::java::lang::Object* >(java_cast< ::org::apache::poi::hssf::record::ContinueRecord* >(npc(rs)->getNext())));
+        while (npc(rs)->peekNextSid() == ::poi::hssf::record::ContinueRecord::sid) {
+            npc(temp)->add(static_cast< ::java::lang::Object* >(java_cast< ::poi::hssf::record::ContinueRecord* >(npc(rs)->getNext())));
         }
-        _plsContinues = new ::org::apache::poi::hssf::record::ContinueRecordArray(npc(temp)->size());
+        _plsContinues = new ::poi::hssf::record::ContinueRecordArray(npc(temp)->size());
         npc(temp)->toArray_(static_cast< ::java::lang::ObjectArray* >(_plsContinues));
     } else {
         _plsContinues = EMPTY_CONTINUE_RECORD_ARRAY_;
     }
 }
 
-void org::apache::poi::hssf::record::aggregates::PageSettingsBlock_PLSAggregate::visitContainedRecords(RecordAggregate_RecordVisitor* rv)
+void poi::hssf::record::aggregates::PageSettingsBlock_PLSAggregate::visitContainedRecords(RecordAggregate_RecordVisitor* rv)
 {
     npc(rv)->visitRecord(_pls);
     for(auto _plsContinue : *npc(_plsContinues)) {
@@ -107,20 +101,20 @@ void org::apache::poi::hssf::record::aggregates::PageSettingsBlock_PLSAggregate:
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::aggregates::PageSettingsBlock_PLSAggregate::class_()
+java::lang::Class* poi::hssf::record::aggregates::PageSettingsBlock_PLSAggregate::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.aggregates.PageSettingsBlock.PLSAggregate", 68);
     return c;
 }
 
-void org::apache::poi::hssf::record::aggregates::PageSettingsBlock_PLSAggregate::clinit()
+void poi::hssf::record::aggregates::PageSettingsBlock_PLSAggregate::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        EMPTY_CONTINUE_RECORD_ARRAY_ = (new ::org::apache::poi::hssf::record::ContinueRecordArray({}));
+        EMPTY_CONTINUE_RECORD_ARRAY_ = (new ::poi::hssf::record::ContinueRecordArray({}));
     }
 };
 
@@ -129,7 +123,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::hssf::record::aggregates::PageSettingsBlock_PLSAggregate::getClass0()
+java::lang::Class* poi::hssf::record::aggregates::PageSettingsBlock_PLSAggregate::getClass0()
 {
     return class_();
 }

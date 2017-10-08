@@ -54,62 +54,62 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hpsf::Property::Property(const ::default_init_tag&)
+poi::hpsf::Property::Property(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hpsf::Property::Property() 
+poi::hpsf::Property::Property() 
     : Property(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hpsf::Property::Property(Property* p) 
+poi::hpsf::Property::Property(Property* p) 
     : Property(*static_cast< ::default_init_tag* >(0))
 {
     ctor(p);
 }
 
-org::apache::poi::hpsf::Property::Property(int64_t id, int64_t type, ::java::lang::Object* value) 
+poi::hpsf::Property::Property(int64_t id, int64_t type, ::java::lang::Object* value) 
     : Property(*static_cast< ::default_init_tag* >(0))
 {
     ctor(id,type,value);
 }
 
-org::apache::poi::hpsf::Property::Property(int64_t id, ::int8_tArray* src, int64_t offset, int32_t length, int32_t codepage)  /* throws(UnsupportedEncodingException) */
+poi::hpsf::Property::Property(int64_t id, ::int8_tArray* src, int64_t offset, int32_t length, int32_t codepage)  /* throws(UnsupportedEncodingException) */
     : Property(*static_cast< ::default_init_tag* >(0))
 {
     ctor(id,src,offset,length,codepage);
 }
 
-org::apache::poi::hpsf::Property::Property(int64_t id, ::org::apache::poi::util::LittleEndianByteArrayInputStream* leis, int32_t length, int32_t codepage)  /* throws(UnsupportedEncodingException) */
+poi::hpsf::Property::Property(int64_t id, ::poi::util::LittleEndianByteArrayInputStream* leis, int32_t length, int32_t codepage)  /* throws(UnsupportedEncodingException) */
     : Property(*static_cast< ::default_init_tag* >(0))
 {
     ctor(id,leis,length,codepage);
 }
 
-constexpr int32_t org::apache::poi::hpsf::Property::DEFAULT_CODEPAGE;
+constexpr int32_t poi::hpsf::Property::DEFAULT_CODEPAGE;
 
-org::apache::poi::util::POILogger*& org::apache::poi::hpsf::Property::LOG()
+poi::util::POILogger*& poi::hpsf::Property::LOG()
 {
     clinit();
     return LOG_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::hpsf::Property::LOG_;
+poi::util::POILogger* poi::hpsf::Property::LOG_;
 
-void org::apache::poi::hpsf::Property::ctor()
+void poi::hpsf::Property::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hpsf::Property::ctor(Property* p)
+void poi::hpsf::Property::ctor(Property* p)
 {
     ctor(npc(p)->id, npc(p)->type, npc(p)->value);
 }
 
-void org::apache::poi::hpsf::Property::ctor(int64_t id, int64_t type, ::java::lang::Object* value)
+void poi::hpsf::Property::ctor(int64_t id, int64_t type, ::java::lang::Object* value)
 {
     super::ctor();
     this->id = id;
@@ -117,7 +117,7 @@ void org::apache::poi::hpsf::Property::ctor(int64_t id, int64_t type, ::java::la
     this->value = value;
 }
 
-void org::apache::poi::hpsf::Property::ctor(int64_t id, ::int8_tArray* src, int64_t offset, int32_t length, int32_t codepage) /* throws(UnsupportedEncodingException) */
+void poi::hpsf::Property::ctor(int64_t id, ::int8_tArray* src, int64_t offset, int32_t length, int32_t codepage) /* throws(UnsupportedEncodingException) */
 {
     super::ctor();
     this->id = id;
@@ -125,8 +125,8 @@ void org::apache::poi::hpsf::Property::ctor(int64_t id, ::int8_tArray* src, int6
         throw new ::java::io::UnsupportedEncodingException(u"Dictionary not allowed here"_j);
     }
     auto o = static_cast< int32_t >(offset);
-    type = ::org::apache::poi::util::LittleEndian::getUInt(src, o);
-    o += ::org::apache::poi::util::LittleEndianConsts::INT_SIZE;
+    type = ::poi::util::LittleEndian::getUInt(src, o);
+    o += ::poi::util::LittleEndianConsts::INT_SIZE;
     try {
         value = VariantSupport::read(src, o, length, static_cast< int32_t >(type), codepage);
     } catch (UnsupportedVariantTypeException* ex) {
@@ -135,7 +135,7 @@ void org::apache::poi::hpsf::Property::ctor(int64_t id, ::int8_tArray* src, int6
     }
 }
 
-void org::apache::poi::hpsf::Property::ctor(int64_t id, ::org::apache::poi::util::LittleEndianByteArrayInputStream* leis, int32_t length, int32_t codepage) /* throws(UnsupportedEncodingException) */
+void poi::hpsf::Property::ctor(int64_t id, ::poi::util::LittleEndianByteArrayInputStream* leis, int32_t length, int32_t codepage) /* throws(UnsupportedEncodingException) */
 {
     super::ctor();
     this->id = id;
@@ -151,37 +151,37 @@ void org::apache::poi::hpsf::Property::ctor(int64_t id, ::org::apache::poi::util
     }
 }
 
-int64_t org::apache::poi::hpsf::Property::getID()
+int64_t poi::hpsf::Property::getID()
 {
     return id;
 }
 
-void org::apache::poi::hpsf::Property::setID(int64_t id)
+void poi::hpsf::Property::setID(int64_t id)
 {
     this->id = id;
 }
 
-int64_t org::apache::poi::hpsf::Property::getType()
+int64_t poi::hpsf::Property::getType()
 {
     return type;
 }
 
-void org::apache::poi::hpsf::Property::setType(int64_t type)
+void poi::hpsf::Property::setType(int64_t type)
 {
     this->type = type;
 }
 
-java::lang::Object* org::apache::poi::hpsf::Property::getValue()
+java::lang::Object* poi::hpsf::Property::getValue()
 {
     return value;
 }
 
-void org::apache::poi::hpsf::Property::setValue(::java::lang::Object* value)
+void poi::hpsf::Property::setValue(::java::lang::Object* value)
 {
     this->value = value;
 }
 
-int32_t org::apache::poi::hpsf::Property::getSize(int32_t codepage) /* throws(WritingNotSupportedException) */
+int32_t poi::hpsf::Property::getSize(int32_t codepage) /* throws(WritingNotSupportedException) */
 {
     auto length = Variant::getVariantLength(type);
     if(length >= 0 || type == Variant::VT_EMPTY) {
@@ -193,7 +193,7 @@ int32_t org::apache::poi::hpsf::Property::getSize(int32_t codepage) /* throws(Wr
     if(type == Variant::VT_LPSTR || type == Variant::VT_LPWSTR) {
         auto bos = new ::java::io::ByteArrayOutputStream();
         try {
-            length = write(bos, codepage) - int32_t(2) * ::org::apache::poi::util::LittleEndianConsts::INT_SIZE;
+            length = write(bos, codepage) - int32_t(2) * ::poi::util::LittleEndianConsts::INT_SIZE;
             length += (int32_t(4) - (length & int32_t(3))) & int32_t(3);
             return length;
         } catch (::java::io::IOException* e) {
@@ -203,7 +203,7 @@ int32_t org::apache::poi::hpsf::Property::getSize(int32_t codepage) /* throws(Wr
     throw new WritingNotSupportedException(type, value);
 }
 
-bool org::apache::poi::hpsf::Property::equals(::java::lang::Object* o)
+bool poi::hpsf::Property::equals(::java::lang::Object* o)
 {
     if(!(dynamic_cast< Property* >(o) != nullptr)) {
         return false;
@@ -242,7 +242,7 @@ bool org::apache::poi::hpsf::Property::equals(::java::lang::Object* o)
     return npc(value)->equals(pValue);
 }
 
-int32_t org::apache::poi::hpsf::Property::unpaddedLength(::int8_tArray* buf)
+int32_t poi::hpsf::Property::unpaddedLength(::int8_tArray* buf)
 {
     clinit();
     int32_t len;
@@ -252,12 +252,12 @@ int32_t org::apache::poi::hpsf::Property::unpaddedLength(::int8_tArray* buf)
     return len;
 }
 
-bool org::apache::poi::hpsf::Property::typesAreEqual(int64_t t1, int64_t t2)
+bool poi::hpsf::Property::typesAreEqual(int64_t t1, int64_t t2)
 {
     return (t1 == t2 || (t1 == Variant::VT_LPSTR && t2 == Variant::VT_LPWSTR) || (t2 == Variant::VT_LPSTR && t1 == Variant::VT_LPWSTR));
 }
 
-int32_t org::apache::poi::hpsf::Property::hashCode()
+int32_t poi::hpsf::Property::hashCode()
 {
     int64_t hashCode = int32_t(0);
     hashCode += id;
@@ -268,12 +268,12 @@ int32_t org::apache::poi::hpsf::Property::hashCode()
     return static_cast< int32_t >((hashCode & int64_t(4294967295LL)));
 }
 
-java::lang::String* org::apache::poi::hpsf::Property::toString()
+java::lang::String* poi::hpsf::Property::toString()
 {
     return toString(Property::DEFAULT_CODEPAGE, nullptr);
 }
 
-java::lang::String* org::apache::poi::hpsf::Property::toString(int32_t codepage, ::org::apache::poi::hpsf::wellknown::PropertyIDMap* idMap)
+java::lang::String* poi::hpsf::Property::toString(int32_t codepage, ::poi::hpsf::wellknown::PropertyIDMap* idMap)
 {
     auto const b = new ::java::lang::StringBuilder();
     npc(b)->append(u"Property["_j);
@@ -281,7 +281,7 @@ java::lang::String* org::apache::poi::hpsf::Property::toString(int32_t codepage,
     npc(b)->append(id);
     auto idName = (idMap == nullptr) ? static_cast< ::java::lang::String* >(nullptr) : npc(idMap)->get(::java::lang::Long::valueOf(id));
     if(idName == nullptr) {
-        idName = npc(::org::apache::poi::hpsf::wellknown::PropertyIDMap::getFallbackProperties())->get(::java::lang::Long::valueOf(id));
+        idName = npc(::poi::hpsf::wellknown::PropertyIDMap::getFallbackProperties())->get(::java::lang::Long::valueOf(id));
     }
     if(idName != nullptr) {
         npc(b)->append(u" ("_j);
@@ -302,17 +302,17 @@ java::lang::String* org::apache::poi::hpsf::Property::toString(int32_t codepage,
         try {
             write(bos, codepage);
         } catch (::java::lang::Exception* e) {
-            npc(LOG_)->log(::org::apache::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"can't serialize string"_j), static_cast< ::java::lang::Object* >(e)}));
+            npc(LOG_)->log(::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"can't serialize string"_j), static_cast< ::java::lang::Object* >(e)}));
         }
-        if(npc(bos)->size() > int32_t(2) * ::org::apache::poi::util::LittleEndianConsts::INT_SIZE) {
-            auto const hex = ::org::apache::poi::util::HexDump::dump(npc(bos)->toByteArray_(), -int32_t(2) * ::org::apache::poi::util::LittleEndianConsts::INT_SIZE, int32_t(2) * ::org::apache::poi::util::LittleEndianConsts::INT_SIZE);
+        if(npc(bos)->size() > int32_t(2) * ::poi::util::LittleEndianConsts::INT_SIZE) {
+            auto const hex = ::poi::util::HexDump::dump(npc(bos)->toByteArray_(), -int32_t(2) * ::poi::util::LittleEndianConsts::INT_SIZE, int32_t(2) * ::poi::util::LittleEndianConsts::INT_SIZE);
             npc(b)->append(hex);
         }
     } else if(dynamic_cast< ::int8_tArray* >(value) != nullptr) {
         npc(b)->append(u"\n"_j);
         auto bytes = java_cast< ::int8_tArray* >(value);
         if(npc(bytes)->length > 0) {
-            auto hex = ::org::apache::poi::util::HexDump::dump(bytes, 0LL, 0);
+            auto hex = ::poi::util::HexDump::dump(bytes, 0LL, 0);
             npc(b)->append(hex);
         }
     } else if(dynamic_cast< ::java::util::Date* >(value) != nullptr) {
@@ -333,7 +333,7 @@ java::lang::String* org::apache::poi::hpsf::Property::toString(int32_t codepage,
             auto str = ::java::lang::String::format(::java::util::Locale::ROOT(), u"%02d:%02d:%02d.%03d"_j, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::Long::valueOf(hr)), static_cast< ::java::lang::Object* >(::java::lang::Long::valueOf(min)), static_cast< ::java::lang::Object* >(::java::lang::Long::valueOf(sec)), static_cast< ::java::lang::Object* >(::java::lang::Long::valueOf(ms))}));
             npc(b)->append(str);
         } else {
-            auto cal = ::java::util::Calendar::getInstance(::org::apache::poi::util::LocaleUtil::TIMEZONE_UTC(), ::java::util::Locale::ROOT());
+            auto cal = ::java::util::Calendar::getInstance(::poi::util::LocaleUtil::TIMEZONE_UTC(), ::java::util::Locale::ROOT());
             npc(cal)->setTime(d);
             npc(b)->append(::javax::xml::bind::DatatypeConverter::printDateTime(cal));
         }
@@ -352,7 +352,7 @@ java::lang::String* org::apache::poi::hpsf::Property::toString(int32_t codepage,
     return npc(b)->toString();
 }
 
-java::lang::String* org::apache::poi::hpsf::Property::getVariantName()
+java::lang::String* poi::hpsf::Property::getVariantName()
 {
     if(getID() == 0) {
         return u"dictionary"_j;
@@ -360,54 +360,54 @@ java::lang::String* org::apache::poi::hpsf::Property::getVariantName()
     return Variant::getVariantName(getType());
 }
 
-java::lang::String* org::apache::poi::hpsf::Property::decodeValueFromID()
+java::lang::String* poi::hpsf::Property::decodeValueFromID()
 {
     try {
         switch (static_cast< int32_t >(getID())) {
-        case ::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_CODEPAGE:
-            return ::org::apache::poi::util::CodePageUtil::codepageToEncoding(npc((java_cast< ::java::lang::Number* >(value)))->intValue());
-        case ::org::apache::poi::hpsf::wellknown::PropertyIDMap::PID_LOCALE:
-            return ::org::apache::poi::util::LocaleUtil::getLocaleFromLCID(npc((java_cast< ::java::lang::Number* >(value)))->intValue());
+        case ::poi::hpsf::wellknown::PropertyIDMap::PID_CODEPAGE:
+            return ::poi::util::CodePageUtil::codepageToEncoding(npc((java_cast< ::java::lang::Number* >(value)))->intValue());
+        case ::poi::hpsf::wellknown::PropertyIDMap::PID_LOCALE:
+            return ::poi::util::LocaleUtil::getLocaleFromLCID(npc((java_cast< ::java::lang::Number* >(value)))->intValue());
         }
 
     } catch (::java::lang::Exception* e) {
-        npc(LOG_)->log(::org::apache::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Can't decode id "_j)->append(getID())->toString())}));
+        npc(LOG_)->log(::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Can't decode id "_j)->append(getID())->toString())}));
     }
     return nullptr;
 }
 
-int32_t org::apache::poi::hpsf::Property::write(::java::io::OutputStream* out, int32_t codepage) /* throws(IOException, WritingNotSupportedException) */
+int32_t poi::hpsf::Property::write(::java::io::OutputStream* out, int32_t codepage) /* throws(IOException, WritingNotSupportedException) */
 {
     auto length = int32_t(0);
     auto variantType = getType();
-    if(variantType == Variant::VT_LPSTR && codepage != ::org::apache::poi::util::CodePageUtil::CP_UTF16) {
-        auto csStr = ::org::apache::poi::util::CodePageUtil::codepageToEncoding(codepage > 0 ? codepage : Property::DEFAULT_CODEPAGE);
+    if(variantType == Variant::VT_LPSTR && codepage != ::poi::util::CodePageUtil::CP_UTF16) {
+        auto csStr = ::poi::util::CodePageUtil::codepageToEncoding(codepage > 0 ? codepage : Property::DEFAULT_CODEPAGE);
         if(!npc(npc(::java::nio::charset::Charset::forName(csStr))->newEncoder())->canEncode(static_cast< ::java::lang::CharSequence* >(java_cast< ::java::lang::String* >(value)))) {
             variantType = Variant::VT_LPWSTR;
         }
     }
-    ::org::apache::poi::util::LittleEndian::putUInt(variantType, out);
-    length += ::org::apache::poi::util::LittleEndianConsts::INT_SIZE;
+    ::poi::util::LittleEndian::putUInt(variantType, out);
+    length += ::poi::util::LittleEndianConsts::INT_SIZE;
     length += VariantSupport::write(out, variantType, getValue(), codepage);
     return length;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hpsf::Property::class_()
+java::lang::Class* poi::hpsf::Property::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hpsf.Property", 28);
     return c;
 }
 
-void org::apache::poi::hpsf::Property::clinit()
+void poi::hpsf::Property::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        LOG_ = ::org::apache::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(Property::class_()));
+        LOG_ = ::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(Property::class_()));
     }
 };
 
@@ -416,7 +416,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::hpsf::Property::getClass0()
+java::lang::Class* poi::hpsf::Property::getClass0()
 {
     return class_();
 }

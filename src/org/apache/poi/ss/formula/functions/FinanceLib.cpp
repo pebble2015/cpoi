@@ -12,24 +12,24 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::FinanceLib::FinanceLib(const ::default_init_tag&)
+poi::ss::formula::functions::FinanceLib::FinanceLib(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::FinanceLib::FinanceLib() 
+poi::ss::formula::functions::FinanceLib::FinanceLib() 
     : FinanceLib(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::ss::formula::functions::FinanceLib::ctor()
+void poi::ss::formula::functions::FinanceLib::ctor()
 {
     super::ctor();
 }
 
-double org::apache::poi::ss::formula::functions::FinanceLib::fv(double r, double n, double y, double p, bool t)
+double poi::ss::formula::functions::FinanceLib::fv(double r, double n, double y, double p, bool t)
 {
     clinit();
     double retval = int32_t(0);
@@ -42,7 +42,7 @@ double org::apache::poi::ss::formula::functions::FinanceLib::fv(double r, double
     return retval;
 }
 
-double org::apache::poi::ss::formula::functions::FinanceLib::pv(double r, double n, double y, double f, bool t)
+double poi::ss::formula::functions::FinanceLib::pv(double r, double n, double y, double f, bool t)
 {
     clinit();
     double retval = int32_t(0);
@@ -55,7 +55,7 @@ double org::apache::poi::ss::formula::functions::FinanceLib::pv(double r, double
     return retval;
 }
 
-double org::apache::poi::ss::formula::functions::FinanceLib::npv(double r, ::doubleArray* cfs)
+double poi::ss::formula::functions::FinanceLib::npv(double r, ::doubleArray* cfs)
 {
     clinit();
     double npv = int32_t(0);
@@ -68,7 +68,7 @@ double org::apache::poi::ss::formula::functions::FinanceLib::npv(double r, ::dou
     return npv;
 }
 
-double org::apache::poi::ss::formula::functions::FinanceLib::pmt(double r, double n, double p, double f, bool t)
+double poi::ss::formula::functions::FinanceLib::pmt(double r, double n, double p, double f, bool t)
 {
     clinit();
     double retval = int32_t(0);
@@ -81,7 +81,7 @@ double org::apache::poi::ss::formula::functions::FinanceLib::pmt(double r, doubl
     return retval;
 }
 
-double org::apache::poi::ss::formula::functions::FinanceLib::nper(double r, double y, double p, double f, bool t)
+double poi::ss::formula::functions::FinanceLib::nper(double r, double y, double p, double f, bool t)
 {
     clinit();
     double retval = int32_t(0);
@@ -100,13 +100,13 @@ double org::apache::poi::ss::formula::functions::FinanceLib::nper(double r, doub
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::FinanceLib::class_()
+java::lang::Class* poi::ss::formula::functions::FinanceLib::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.FinanceLib", 46);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::FinanceLib::getClass0()
+java::lang::Class* poi::ss::formula::functions::FinanceLib::getClass0()
 {
     return class_();
 }

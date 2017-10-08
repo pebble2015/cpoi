@@ -8,19 +8,19 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::DrawConnectorShape
+class poi::sl::draw::DrawConnectorShape
     : public DrawSimpleShape
 {
 
 public:
     typedef DrawSimpleShape super;
 protected:
-    void ctor(::org::apache::poi::sl::usermodel::ConnectorShape* shape);
+    void ctor(::poi::sl::usermodel::ConnectorShape* shape);
 
     // Generated
 
 public:
-    DrawConnectorShape(::org::apache::poi::sl::usermodel::ConnectorShape* shape);
+    DrawConnectorShape(::poi::sl::usermodel::ConnectorShape* shape);
 protected:
     DrawConnectorShape(const ::default_init_tag&);
 

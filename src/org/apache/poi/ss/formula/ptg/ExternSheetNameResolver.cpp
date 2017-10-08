@@ -27,24 +27,24 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::ptg::ExternSheetNameResolver::ExternSheetNameResolver(const ::default_init_tag&)
+poi::ss::formula::ptg::ExternSheetNameResolver::ExternSheetNameResolver(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::ptg::ExternSheetNameResolver::ExternSheetNameResolver() 
+poi::ss::formula::ptg::ExternSheetNameResolver::ExternSheetNameResolver() 
     : ExternSheetNameResolver(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::ss::formula::ptg::ExternSheetNameResolver::ctor()
+void poi::ss::formula::ptg::ExternSheetNameResolver::ctor()
 {
     super::ctor();
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::ExternSheetNameResolver::prependSheetName(::org::apache::poi::ss::formula::FormulaRenderingWorkbook* book, int32_t field_1_index_extern_sheet, ::java::lang::String* cellRefText)
+java::lang::String* poi::ss::formula::ptg::ExternSheetNameResolver::prependSheetName(::poi::ss::formula::FormulaRenderingWorkbook* book, int32_t field_1_index_extern_sheet, ::java::lang::String* cellRefText)
 {
     clinit();
     auto externalSheet = npc(book)->getExternalSheet(field_1_index_extern_sheet);
@@ -54,16 +54,16 @@ java::lang::String* org::apache::poi::ss::formula::ptg::ExternSheetNameResolver:
         auto sheetName = npc(externalSheet)->getSheetName();
         if(wbName != nullptr) {
             sb = new ::java::lang::StringBuffer(npc(wbName)->length() + npc(sheetName)->length() + npc(cellRefText)->length()+ int32_t(4));
-            ::org::apache::poi::ss::formula::SheetNameFormatter::appendFormat(sb, wbName, sheetName);
+            ::poi::ss::formula::SheetNameFormatter::appendFormat(sb, wbName, sheetName);
         } else {
             sb = new ::java::lang::StringBuffer(npc(sheetName)->length() + npc(cellRefText)->length() + int32_t(4));
-            ::org::apache::poi::ss::formula::SheetNameFormatter::appendFormat(sb, sheetName);
+            ::poi::ss::formula::SheetNameFormatter::appendFormat(sb, sheetName);
         }
-        if(dynamic_cast< ::org::apache::poi::ss::formula::EvaluationWorkbook_ExternalSheetRange* >(externalSheet) != nullptr) {
-            auto r = java_cast< ::org::apache::poi::ss::formula::EvaluationWorkbook_ExternalSheetRange* >(externalSheet);
+        if(dynamic_cast< ::poi::ss::formula::EvaluationWorkbook_ExternalSheetRange* >(externalSheet) != nullptr) {
+            auto r = java_cast< ::poi::ss::formula::EvaluationWorkbook_ExternalSheetRange* >(externalSheet);
             if(!npc(npc(r)->getFirstSheetName())->equals(static_cast< ::java::lang::Object* >(npc(r)->getLastSheetName()))) {
                 npc(sb)->append(u':');
-                ::org::apache::poi::ss::formula::SheetNameFormatter::appendFormat(sb, npc(r)->getLastSheetName());
+                ::poi::ss::formula::SheetNameFormatter::appendFormat(sb, npc(r)->getLastSheetName());
             }
         }
     } else {
@@ -73,7 +73,7 @@ java::lang::String* org::apache::poi::ss::formula::ptg::ExternSheetNameResolver:
         if(npc(firstSheetName)->length() < 1) {
             npc(sb)->append(u"#REF"_j);
         } else {
-            ::org::apache::poi::ss::formula::SheetNameFormatter::appendFormat(sb, firstSheetName);
+            ::poi::ss::formula::SheetNameFormatter::appendFormat(sb, firstSheetName);
             if(!npc(firstSheetName)->equals(static_cast< ::java::lang::Object* >(lastSheetName))) {
                 npc(sb)->append(u':');
                 npc(sb)->append(lastSheetName);
@@ -87,13 +87,13 @@ java::lang::String* org::apache::poi::ss::formula::ptg::ExternSheetNameResolver:
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::ExternSheetNameResolver::class_()
+java::lang::Class* poi::ss::formula::ptg::ExternSheetNameResolver::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.ptg.ExternSheetNameResolver", 53);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::ExternSheetNameResolver::getClass0()
+java::lang::Class* poi::ss::formula::ptg::ExternSheetNameResolver::getClass0()
 {
     return class_();
 }

@@ -15,32 +15,32 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::chart::ChartRecord::ChartRecord(const ::default_init_tag&)
+poi::hssf::record::chart::ChartRecord::ChartRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::chart::ChartRecord::ChartRecord() 
+poi::hssf::record::chart::ChartRecord::ChartRecord() 
     : ChartRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::chart::ChartRecord::ChartRecord(::org::apache::poi::hssf::record::RecordInputStream* in) 
+poi::hssf::record::chart::ChartRecord::ChartRecord(::poi::hssf::record::RecordInputStream* in) 
     : ChartRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::chart::ChartRecord::sid;
+constexpr int16_t poi::hssf::record::chart::ChartRecord::sid;
 
-void org::apache::poi::hssf::record::chart::ChartRecord::ctor()
+void poi::hssf::record::chart::ChartRecord::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hssf::record::chart::ChartRecord::ctor(::org::apache::poi::hssf::record::RecordInputStream* in)
+void poi::hssf::record::chart::ChartRecord::ctor(::poi::hssf::record::RecordInputStream* in)
 {
     super::ctor();
     field_1_x = npc(in)->readInt();
@@ -49,7 +49,7 @@ void org::apache::poi::hssf::record::chart::ChartRecord::ctor(::org::apache::poi
     field_4_height = npc(in)->readInt();
 }
 
-java::lang::String* org::apache::poi::hssf::record::chart::ChartRecord::toString()
+java::lang::String* poi::hssf::record::chart::ChartRecord::toString()
 {
     auto sb = new ::java::lang::StringBuffer();
     npc(sb)->append(u"[CHART]\n"_j);
@@ -61,7 +61,7 @@ java::lang::String* org::apache::poi::hssf::record::chart::ChartRecord::toString
     return npc(sb)->toString();
 }
 
-void org::apache::poi::hssf::record::chart::ChartRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::chart::ChartRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeInt(field_1_x);
     npc(out)->writeInt(field_2_y);
@@ -69,17 +69,17 @@ void org::apache::poi::hssf::record::chart::ChartRecord::serialize(::org::apache
     npc(out)->writeInt(field_4_height);
 }
 
-int32_t org::apache::poi::hssf::record::chart::ChartRecord::getDataSize()
+int32_t poi::hssf::record::chart::ChartRecord::getDataSize()
 {
     return int32_t(4) + int32_t(4) + int32_t(4)+ int32_t(4);
 }
 
-int16_t org::apache::poi::hssf::record::chart::ChartRecord::getSid()
+int16_t poi::hssf::record::chart::ChartRecord::getSid()
 {
     return sid;
 }
 
-org::apache::poi::hssf::record::chart::ChartRecord* org::apache::poi::hssf::record::chart::ChartRecord::clone()
+poi::hssf::record::chart::ChartRecord* poi::hssf::record::chart::ChartRecord::clone()
 {
     auto rec = new ChartRecord();
     npc(rec)->field_1_x = field_1_x;
@@ -89,65 +89,65 @@ org::apache::poi::hssf::record::chart::ChartRecord* org::apache::poi::hssf::reco
     return rec;
 }
 
-int32_t org::apache::poi::hssf::record::chart::ChartRecord::getX()
+int32_t poi::hssf::record::chart::ChartRecord::getX()
 {
     return field_1_x;
 }
 
-void org::apache::poi::hssf::record::chart::ChartRecord::setX(int32_t x)
+void poi::hssf::record::chart::ChartRecord::setX(int32_t x)
 {
     field_1_x = x;
 }
 
-int32_t org::apache::poi::hssf::record::chart::ChartRecord::getY()
+int32_t poi::hssf::record::chart::ChartRecord::getY()
 {
     return field_2_y;
 }
 
-void org::apache::poi::hssf::record::chart::ChartRecord::setY(int32_t y)
+void poi::hssf::record::chart::ChartRecord::setY(int32_t y)
 {
     field_2_y = y;
 }
 
-int32_t org::apache::poi::hssf::record::chart::ChartRecord::getWidth()
+int32_t poi::hssf::record::chart::ChartRecord::getWidth()
 {
     return field_3_width;
 }
 
-void org::apache::poi::hssf::record::chart::ChartRecord::setWidth(int32_t width)
+void poi::hssf::record::chart::ChartRecord::setWidth(int32_t width)
 {
     field_3_width = width;
 }
 
-int32_t org::apache::poi::hssf::record::chart::ChartRecord::getHeight()
+int32_t poi::hssf::record::chart::ChartRecord::getHeight()
 {
     return field_4_height;
 }
 
-void org::apache::poi::hssf::record::chart::ChartRecord::setHeight(int32_t height)
+void poi::hssf::record::chart::ChartRecord::setHeight(int32_t height)
 {
     field_4_height = height;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::chart::ChartRecord::class_()
+java::lang::Class* poi::hssf::record::chart::ChartRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.chart.ChartRecord", 44);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::chart::ChartRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::chart::ChartRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::chart::ChartRecord::serialize()
+int8_tArray* poi::hssf::record::chart::ChartRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::chart::ChartRecord::getClass0()
+java::lang::Class* poi::hssf::record::chart::ChartRecord::getClass0()
 {
     return class_();
 }

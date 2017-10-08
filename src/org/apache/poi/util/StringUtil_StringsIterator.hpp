@@ -28,7 +28,7 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
 
 struct default_init_tag;
 
-class org::apache::poi::util::StringUtil_StringsIterator
+class poi::util::StringUtil_StringsIterator
     : public virtual ::java::lang::Object
     , public virtual ::java::util::Iterator
 {

@@ -6,7 +6,7 @@
 #include <org/apache/poi/ss/usermodel/fwd-POI.hpp>
 #include <org/apache/poi/ss/usermodel/Shape.hpp>
 
-struct org::apache::poi::ss::usermodel::SimpleShape
+struct poi::ss::usermodel::SimpleShape
     : public virtual Shape
 {
     virtual int32_t getShapeId() = 0;

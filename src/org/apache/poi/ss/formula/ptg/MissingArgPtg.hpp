@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::ptg::MissingArgPtg final
+class poi::ss::formula::ptg::MissingArgPtg final
     : public ScalarConstantPtg
 {
 
@@ -29,7 +29,7 @@ protected:
     void ctor();
 
 public:
-    void write(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void write(::poi::util::LittleEndianOutput* out) override;
     int32_t getSize() override;
     ::java::lang::String* toFormulaString() override;
 

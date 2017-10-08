@@ -26,26 +26,20 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace sl
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace sl
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::sl::usermodel::TableCell_BorderEdge, ::java::lang::EnumArray > TableCell_BorderEdgeArray;
-                } // usermodel
-            } // sl
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::sl::usermodel::TableCell_BorderEdge, ::java::lang::EnumArray > TableCell_BorderEdgeArray;
+        } // usermodel
+    } // sl
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::DrawTableShape
+class poi::sl::draw::DrawTableShape
     : public DrawShape
 {
 
@@ -53,7 +47,7 @@ public:
     typedef DrawShape super;
     static constexpr int32_t borderSize { int32_t(2) };
 protected:
-    void ctor(::org::apache::poi::sl::usermodel::TableShape* shape);
+    void ctor(::poi::sl::usermodel::TableShape* shape);
 
 public: /* protected */
     virtual Drawable* getGroupShape(::java::awt::Graphics2D* graphics);
@@ -64,7 +58,7 @@ public:
     void drawContent(::java::awt::Graphics2D* graphics) override;
 
 public: /* protected */
-    ::org::apache::poi::sl::usermodel::TableShape* getShape() override;
+    ::poi::sl::usermodel::TableShape* getShape() override;
 
 public:
     virtual void setAllBorders(::java::lang::ObjectArray*/*...*/ args);
@@ -72,12 +66,12 @@ public:
     virtual void setInsideBorders(::java::lang::ObjectArray*/*...*/ args);
 
 private:
-    static void setEdges(::org::apache::poi::sl::usermodel::TableCell* cell, ::org::apache::poi::sl::usermodel::TableCell_BorderEdgeArray* edges, ::java::lang::ObjectArray*/*...*/ args);
+    static void setEdges(::poi::sl::usermodel::TableCell* cell, ::poi::sl::usermodel::TableCell_BorderEdgeArray* edges, ::java::lang::ObjectArray*/*...*/ args);
 
     // Generated
 
 public:
-    DrawTableShape(::org::apache::poi::sl::usermodel::TableShape* shape);
+    DrawTableShape(::poi::sl::usermodel::TableShape* shape);
 protected:
     DrawTableShape(const ::default_init_tag&);
 

@@ -13,29 +13,23 @@
 #include <org/apache/poi/hssf/usermodel/HSSFConditionalFormattingRule.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace util
         {
-            namespace ss
-            {
-                namespace util
-                {
-typedef ::SubArray< ::org::apache::poi::ss::util::CellRangeAddressBase, ::java::lang::ObjectArray > CellRangeAddressBaseArray;
-typedef ::SubArray< ::org::apache::poi::ss::util::CellRangeAddress, CellRangeAddressBaseArray > CellRangeAddressArray;
-                } // util
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::util::CellRangeAddressBase, ::java::lang::ObjectArray > CellRangeAddressBaseArray;
+typedef ::SubArray< ::poi::ss::util::CellRangeAddress, CellRangeAddressBaseArray > CellRangeAddressArray;
+        } // util
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFConditionalFormatting final
+class poi::hssf::usermodel::HSSFConditionalFormatting final
     : public virtual ::java::lang::Object
-    , public ::org::apache::poi::ss::usermodel::ConditionalFormatting
+    , public ::poi::ss::usermodel::ConditionalFormatting
 {
 
 public:
@@ -43,20 +37,20 @@ public:
 
 private:
     HSSFSheet* sheet {  };
-    ::org::apache::poi::hssf::record::aggregates::CFRecordsAggregate* cfAggregate {  };
+    ::poi::hssf::record::aggregates::CFRecordsAggregate* cfAggregate {  };
 protected:
-    void ctor(HSSFSheet* sheet, ::org::apache::poi::hssf::record::aggregates::CFRecordsAggregate* cfAggregate);
+    void ctor(HSSFSheet* sheet, ::poi::hssf::record::aggregates::CFRecordsAggregate* cfAggregate);
 
 public: /* package */
-    ::org::apache::poi::hssf::record::aggregates::CFRecordsAggregate* getCFRecordsAggregate();
+    ::poi::hssf::record::aggregates::CFRecordsAggregate* getCFRecordsAggregate();
 
 public:
-    ::org::apache::poi::ss::util::CellRangeAddressArray* getFormattingRanges() override;
-    void setFormattingRanges(::org::apache::poi::ss::util::CellRangeAddressArray* ranges) override;
+    ::poi::ss::util::CellRangeAddressArray* getFormattingRanges() override;
+    void setFormattingRanges(::poi::ss::util::CellRangeAddressArray* ranges) override;
     void setRule(int32_t idx, HSSFConditionalFormattingRule* cfRule);
-    void setRule(int32_t idx, ::org::apache::poi::ss::usermodel::ConditionalFormattingRule* cfRule) override;
+    void setRule(int32_t idx, ::poi::ss::usermodel::ConditionalFormattingRule* cfRule) override;
     void addRule(HSSFConditionalFormattingRule* cfRule);
-    void addRule(::org::apache::poi::ss::usermodel::ConditionalFormattingRule* cfRule) override;
+    void addRule(::poi::ss::usermodel::ConditionalFormattingRule* cfRule) override;
     HSSFConditionalFormattingRule* getRule(int32_t idx) override;
     int32_t getNumberOfRules() override;
     ::java::lang::String* toString() override;
@@ -64,7 +58,7 @@ public:
     // Generated
 
 public: /* package */
-    HSSFConditionalFormatting(HSSFSheet* sheet, ::org::apache::poi::hssf::record::aggregates::CFRecordsAggregate* cfAggregate);
+    HSSFConditionalFormatting(HSSFSheet* sheet, ::poi::hssf::record::aggregates::CFRecordsAggregate* cfAggregate);
 protected:
     HSSFConditionalFormatting(const ::default_init_tag&);
 

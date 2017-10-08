@@ -66,24 +66,24 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::eventfilesystem::POIFSReader::POIFSReader(const ::default_init_tag&)
+poi::poifs::eventfilesystem::POIFSReader::POIFSReader(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::eventfilesystem::POIFSReader::POIFSReader() 
+poi::poifs::eventfilesystem::POIFSReader::POIFSReader() 
     : POIFSReader(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::poifs::eventfilesystem::POIFSReader::init()
+void poi::poifs::eventfilesystem::POIFSReader::init()
 {
     notifyEmptyDirectories = false;
 }
 
-void org::apache::poi::poifs::eventfilesystem::POIFSReader::ctor()
+void poi::poifs::eventfilesystem::POIFSReader::ctor()
 {
     super::ctor();
     init();
@@ -91,18 +91,18 @@ void org::apache::poi::poifs::eventfilesystem::POIFSReader::ctor()
     registryClosed = false;
 }
 
-void org::apache::poi::poifs::eventfilesystem::POIFSReader::read(::java::io::InputStream* stream) /* throws(IOException) */
+void poi::poifs::eventfilesystem::POIFSReader::read(::java::io::InputStream* stream) /* throws(IOException) */
 {
     registryClosed = true;
-    auto header_block = new ::org::apache::poi::poifs::storage::HeaderBlock(stream);
-    auto data_blocks = new ::org::apache::poi::poifs::storage::RawDataBlockList(stream, npc(header_block)->getBigBlockSize());
-    new ::org::apache::poi::poifs::storage::BlockAllocationTableReader(npc(header_block)->getBigBlockSize(), npc(header_block)->getBATCount(), npc(header_block)->getBATArray_(), npc(header_block)->getXBATCount(), npc(header_block)->getXBATIndex(), data_blocks);
-    auto properties = new ::org::apache::poi::poifs::property::PropertyTable(header_block, data_blocks);
+    auto header_block = new ::poi::poifs::storage::HeaderBlock(stream);
+    auto data_blocks = new ::poi::poifs::storage::RawDataBlockList(stream, npc(header_block)->getBigBlockSize());
+    new ::poi::poifs::storage::BlockAllocationTableReader(npc(header_block)->getBigBlockSize(), npc(header_block)->getBATCount(), npc(header_block)->getBATArray_(), npc(header_block)->getXBATCount(), npc(header_block)->getXBATIndex(), data_blocks);
+    auto properties = new ::poi::poifs::property::PropertyTable(header_block, data_blocks);
     auto root = npc(properties)->getRoot();
-    processProperties(::org::apache::poi::poifs::storage::SmallBlockTableReader::getSmallDocumentBlocks(npc(header_block)->getBigBlockSize(), data_blocks, root, npc(header_block)->getSBATStart()), data_blocks, npc(root)->getChildren(), new ::org::apache::poi::poifs::filesystem::POIFSDocumentPath());
+    processProperties(::poi::poifs::storage::SmallBlockTableReader::getSmallDocumentBlocks(npc(header_block)->getBigBlockSize(), data_blocks, root, npc(header_block)->getSBATStart()), data_blocks, npc(root)->getChildren(), new ::poi::poifs::filesystem::POIFSDocumentPath());
 }
 
-void org::apache::poi::poifs::eventfilesystem::POIFSReader::registerListener(POIFSReaderListener* listener)
+void poi::poifs::eventfilesystem::POIFSReader::registerListener(POIFSReaderListener* listener)
 {
     if(listener == nullptr) {
         throw new ::java::lang::NullPointerException();
@@ -113,12 +113,12 @@ void org::apache::poi::poifs::eventfilesystem::POIFSReader::registerListener(POI
     npc(registry)->registerListener(listener);
 }
 
-void org::apache::poi::poifs::eventfilesystem::POIFSReader::registerListener(POIFSReaderListener* listener, ::java::lang::String* name)
+void poi::poifs::eventfilesystem::POIFSReader::registerListener(POIFSReaderListener* listener, ::java::lang::String* name)
 {
     registerListener(listener, nullptr, name);
 }
 
-void org::apache::poi::poifs::eventfilesystem::POIFSReader::registerListener(POIFSReaderListener* listener, ::org::apache::poi::poifs::filesystem::POIFSDocumentPath* path, ::java::lang::String* name)
+void poi::poifs::eventfilesystem::POIFSReader::registerListener(POIFSReaderListener* listener, ::poi::poifs::filesystem::POIFSDocumentPath* path, ::java::lang::String* name)
 {
     if((listener == nullptr) || (name == nullptr) || (npc(name)->length() == 0)) {
         throw new ::java::lang::NullPointerException();
@@ -126,15 +126,15 @@ void org::apache::poi::poifs::eventfilesystem::POIFSReader::registerListener(POI
     if(registryClosed) {
         throw new ::java::lang::IllegalStateException();
     }
-    npc(registry)->registerListener(listener, (path == nullptr) ? new ::org::apache::poi::poifs::filesystem::POIFSDocumentPath() : path, name);
+    npc(registry)->registerListener(listener, (path == nullptr) ? new ::poi::poifs::filesystem::POIFSDocumentPath() : path, name);
 }
 
-void org::apache::poi::poifs::eventfilesystem::POIFSReader::setNotifyEmptyDirectories(bool notifyEmptyDirectories)
+void poi::poifs::eventfilesystem::POIFSReader::setNotifyEmptyDirectories(bool notifyEmptyDirectories)
 {
     this->notifyEmptyDirectories = notifyEmptyDirectories;
 }
 
-void org::apache::poi::poifs::eventfilesystem::POIFSReader::main(::java::lang::StringArray* args) /* throws(IOException) */
+void poi::poifs::eventfilesystem::POIFSReader::main(::java::lang::StringArray* args) /* throws(IOException) */
 {
     clinit();
     if(npc(args)->length == 0) {
@@ -152,7 +152,7 @@ void org::apache::poi::poifs::eventfilesystem::POIFSReader::main(::java::lang::S
     }
 }
 
-void org::apache::poi::poifs::eventfilesystem::POIFSReader::processProperties(::org::apache::poi::poifs::storage::BlockList* small_blocks, ::org::apache::poi::poifs::storage::BlockList* big_blocks, ::java::util::Iterator* properties, ::org::apache::poi::poifs::filesystem::POIFSDocumentPath* path) /* throws(IOException) */
+void poi::poifs::eventfilesystem::POIFSReader::processProperties(::poi::poifs::storage::BlockList* small_blocks, ::poi::poifs::storage::BlockList* big_blocks, ::java::util::Iterator* properties, ::poi::poifs::filesystem::POIFSDocumentPath* path) /* throws(IOException) */
 {
     if(!npc(properties)->hasNext() && notifyEmptyDirectories) {
         auto listeners = npc(registry)->getListeners(path, u"."_j);
@@ -164,26 +164,26 @@ void org::apache::poi::poifs::eventfilesystem::POIFSReader::processProperties(::
         return;
     }
     while (npc(properties)->hasNext()) {
-        auto property = java_cast< ::org::apache::poi::poifs::property::Property* >(npc(properties)->next());
+        auto property = java_cast< ::poi::poifs::property::Property* >(npc(properties)->next());
         auto name = npc(property)->getName();
         if(npc(property)->isDirectory()) {
-            auto new_path = new ::org::apache::poi::poifs::filesystem::POIFSDocumentPath(path, new ::java::lang::StringArray({name}));
-            auto dp = java_cast< ::org::apache::poi::poifs::property::DirectoryProperty* >(property);
+            auto new_path = new ::poi::poifs::filesystem::POIFSDocumentPath(path, new ::java::lang::StringArray({name}));
+            auto dp = java_cast< ::poi::poifs::property::DirectoryProperty* >(property);
             processProperties(small_blocks, big_blocks, npc(dp)->getChildren(), new_path);
         } else {
             auto startBlock = npc(property)->getStartBlock();
             auto listeners = npc(registry)->getListeners(path, name);
             if(npc(listeners)->hasNext()) {
                 auto size = npc(property)->getSize();
-                ::org::apache::poi::poifs::filesystem::OPOIFSDocument* document = nullptr;
+                ::poi::poifs::filesystem::OPOIFSDocument* document = nullptr;
                 if(npc(property)->shouldUseSmallBlocks()) {
-                    document = new ::org::apache::poi::poifs::filesystem::OPOIFSDocument(name, npc(small_blocks)->fetchBlocks(startBlock, -int32_t(1)), size);
+                    document = new ::poi::poifs::filesystem::OPOIFSDocument(name, npc(small_blocks)->fetchBlocks(startBlock, -int32_t(1)), size);
                 } else {
-                    document = new ::org::apache::poi::poifs::filesystem::OPOIFSDocument(name, npc(big_blocks)->fetchBlocks(startBlock, -int32_t(1)), size);
+                    document = new ::poi::poifs::filesystem::OPOIFSDocument(name, npc(big_blocks)->fetchBlocks(startBlock, -int32_t(1)), size);
                 }
                 while (npc(listeners)->hasNext()) {
                     auto listener = java_cast< POIFSReaderListener* >(npc(listeners)->next());
-                    npc(listener)->processPOIFSReaderEvent(new POIFSReaderEvent(new ::org::apache::poi::poifs::filesystem::DocumentInputStream(document), path, name));
+                    npc(listener)->processPOIFSReaderEvent(new POIFSReaderEvent(new ::poi::poifs::filesystem::DocumentInputStream(document), path, name));
                 }
             } else {
                 if(npc(property)->shouldUseSmallBlocks()) {
@@ -198,13 +198,13 @@ void org::apache::poi::poifs::eventfilesystem::POIFSReader::processProperties(::
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::eventfilesystem::POIFSReader::class_()
+java::lang::Class* poi::poifs::eventfilesystem::POIFSReader::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.eventfilesystem.POIFSReader", 48);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::eventfilesystem::POIFSReader::getClass0()
+java::lang::Class* poi::poifs::eventfilesystem::POIFSReader::getClass0()
 {
     return class_();
 }

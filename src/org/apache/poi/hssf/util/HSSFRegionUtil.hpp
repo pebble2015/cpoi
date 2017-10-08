@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::util::HSSFRegionUtil final
+class poi::hssf::util::HSSFRegionUtil final
     : public ::java::lang::Object
 {
 
@@ -20,14 +20,14 @@ protected:
     void ctor();
 
 public:
-    static void setBorderLeft(int32_t border, ::org::apache::poi::ss::util::CellRangeAddress* region, ::org::apache::poi::hssf::usermodel::HSSFSheet* sheet, ::org::apache::poi::hssf::usermodel::HSSFWorkbook* workbook);
-    static void setLeftBorderColor(int32_t color, ::org::apache::poi::ss::util::CellRangeAddress* region, ::org::apache::poi::hssf::usermodel::HSSFSheet* sheet, ::org::apache::poi::hssf::usermodel::HSSFWorkbook* workbook);
-    static void setBorderRight(int32_t border, ::org::apache::poi::ss::util::CellRangeAddress* region, ::org::apache::poi::hssf::usermodel::HSSFSheet* sheet, ::org::apache::poi::hssf::usermodel::HSSFWorkbook* workbook);
-    static void setRightBorderColor(int32_t color, ::org::apache::poi::ss::util::CellRangeAddress* region, ::org::apache::poi::hssf::usermodel::HSSFSheet* sheet, ::org::apache::poi::hssf::usermodel::HSSFWorkbook* workbook);
-    static void setBorderBottom(int32_t border, ::org::apache::poi::ss::util::CellRangeAddress* region, ::org::apache::poi::hssf::usermodel::HSSFSheet* sheet, ::org::apache::poi::hssf::usermodel::HSSFWorkbook* workbook);
-    static void setBottomBorderColor(int32_t color, ::org::apache::poi::ss::util::CellRangeAddress* region, ::org::apache::poi::hssf::usermodel::HSSFSheet* sheet, ::org::apache::poi::hssf::usermodel::HSSFWorkbook* workbook);
-    static void setBorderTop(int32_t border, ::org::apache::poi::ss::util::CellRangeAddress* region, ::org::apache::poi::hssf::usermodel::HSSFSheet* sheet, ::org::apache::poi::hssf::usermodel::HSSFWorkbook* workbook);
-    static void setTopBorderColor(int32_t color, ::org::apache::poi::ss::util::CellRangeAddress* region, ::org::apache::poi::hssf::usermodel::HSSFSheet* sheet, ::org::apache::poi::hssf::usermodel::HSSFWorkbook* workbook);
+    static void setBorderLeft(int32_t border, ::poi::ss::util::CellRangeAddress* region, ::poi::hssf::usermodel::HSSFSheet* sheet, ::poi::hssf::usermodel::HSSFWorkbook* workbook);
+    static void setLeftBorderColor(int32_t color, ::poi::ss::util::CellRangeAddress* region, ::poi::hssf::usermodel::HSSFSheet* sheet, ::poi::hssf::usermodel::HSSFWorkbook* workbook);
+    static void setBorderRight(int32_t border, ::poi::ss::util::CellRangeAddress* region, ::poi::hssf::usermodel::HSSFSheet* sheet, ::poi::hssf::usermodel::HSSFWorkbook* workbook);
+    static void setRightBorderColor(int32_t color, ::poi::ss::util::CellRangeAddress* region, ::poi::hssf::usermodel::HSSFSheet* sheet, ::poi::hssf::usermodel::HSSFWorkbook* workbook);
+    static void setBorderBottom(int32_t border, ::poi::ss::util::CellRangeAddress* region, ::poi::hssf::usermodel::HSSFSheet* sheet, ::poi::hssf::usermodel::HSSFWorkbook* workbook);
+    static void setBottomBorderColor(int32_t color, ::poi::ss::util::CellRangeAddress* region, ::poi::hssf::usermodel::HSSFSheet* sheet, ::poi::hssf::usermodel::HSSFWorkbook* workbook);
+    static void setBorderTop(int32_t border, ::poi::ss::util::CellRangeAddress* region, ::poi::hssf::usermodel::HSSFSheet* sheet, ::poi::hssf::usermodel::HSSFWorkbook* workbook);
+    static void setTopBorderColor(int32_t color, ::poi::ss::util::CellRangeAddress* region, ::poi::hssf::usermodel::HSSFSheet* sheet, ::poi::hssf::usermodel::HSSFWorkbook* workbook);
 
     // Generated
 

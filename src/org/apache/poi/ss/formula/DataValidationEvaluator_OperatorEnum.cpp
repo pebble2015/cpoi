@@ -33,59 +33,53 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
-            {
-                namespace formula
-                {
-typedef ::SubArray< ::org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum, ::java::lang::EnumArray > DataValidationEvaluator_OperatorEnumArray;
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::DataValidationEvaluator_OperatorEnum, ::java::lang::EnumArray > DataValidationEvaluator_OperatorEnumArray;
+        } // formula
+    } // ss
+} // poi
 
-org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum::DataValidationEvaluator_OperatorEnum(const ::default_init_tag&)
+poi::ss::formula::DataValidationEvaluator_OperatorEnum::DataValidationEvaluator_OperatorEnum(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum::DataValidationEvaluator_OperatorEnum(::java::lang::String* name, int ordinal)
+poi::ss::formula::DataValidationEvaluator_OperatorEnum::DataValidationEvaluator_OperatorEnum(::java::lang::String* name, int ordinal)
     : DataValidationEvaluator_OperatorEnum(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal);
 }
 
-org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum* org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum::BETWEEN = new ::org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum_1(u"BETWEEN"_j, 0);
-org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum* org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum::NOT_BETWEEN = new ::org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum_2(u"NOT_BETWEEN"_j, 1);
-org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum* org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum::EQUAL = new ::org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum_3(u"EQUAL"_j, 2);
-org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum* org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum::NOT_EQUAL = new ::org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum_4(u"NOT_EQUAL"_j, 3);
-org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum* org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum::GREATER_THAN = new ::org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum_5(u"GREATER_THAN"_j, 4);
-org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum* org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum::LESS_THAN = new ::org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum_6(u"LESS_THAN"_j, 5);
-org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum* org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum::GREATER_OR_EQUAL = new ::org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum_7(u"GREATER_OR_EQUAL"_j, 6);
-org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum* org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum::LESS_OR_EQUAL = new ::org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum_8(u"LESS_OR_EQUAL"_j, 7);
-org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum*& org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum::IGNORED()
+poi::ss::formula::DataValidationEvaluator_OperatorEnum* poi::ss::formula::DataValidationEvaluator_OperatorEnum::BETWEEN = new ::poi::ss::formula::DataValidationEvaluator_OperatorEnum_1(u"BETWEEN"_j, 0);
+poi::ss::formula::DataValidationEvaluator_OperatorEnum* poi::ss::formula::DataValidationEvaluator_OperatorEnum::NOT_BETWEEN = new ::poi::ss::formula::DataValidationEvaluator_OperatorEnum_2(u"NOT_BETWEEN"_j, 1);
+poi::ss::formula::DataValidationEvaluator_OperatorEnum* poi::ss::formula::DataValidationEvaluator_OperatorEnum::EQUAL = new ::poi::ss::formula::DataValidationEvaluator_OperatorEnum_3(u"EQUAL"_j, 2);
+poi::ss::formula::DataValidationEvaluator_OperatorEnum* poi::ss::formula::DataValidationEvaluator_OperatorEnum::NOT_EQUAL = new ::poi::ss::formula::DataValidationEvaluator_OperatorEnum_4(u"NOT_EQUAL"_j, 3);
+poi::ss::formula::DataValidationEvaluator_OperatorEnum* poi::ss::formula::DataValidationEvaluator_OperatorEnum::GREATER_THAN = new ::poi::ss::formula::DataValidationEvaluator_OperatorEnum_5(u"GREATER_THAN"_j, 4);
+poi::ss::formula::DataValidationEvaluator_OperatorEnum* poi::ss::formula::DataValidationEvaluator_OperatorEnum::LESS_THAN = new ::poi::ss::formula::DataValidationEvaluator_OperatorEnum_6(u"LESS_THAN"_j, 5);
+poi::ss::formula::DataValidationEvaluator_OperatorEnum* poi::ss::formula::DataValidationEvaluator_OperatorEnum::GREATER_OR_EQUAL = new ::poi::ss::formula::DataValidationEvaluator_OperatorEnum_7(u"GREATER_OR_EQUAL"_j, 6);
+poi::ss::formula::DataValidationEvaluator_OperatorEnum* poi::ss::formula::DataValidationEvaluator_OperatorEnum::LESS_OR_EQUAL = new ::poi::ss::formula::DataValidationEvaluator_OperatorEnum_8(u"LESS_OR_EQUAL"_j, 7);
+poi::ss::formula::DataValidationEvaluator_OperatorEnum*& poi::ss::formula::DataValidationEvaluator_OperatorEnum::IGNORED()
 {
     clinit();
     return IGNORED_;
 }
-org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum* org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum::IGNORED_;
+poi::ss::formula::DataValidationEvaluator_OperatorEnum* poi::ss::formula::DataValidationEvaluator_OperatorEnum::IGNORED_;
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum::class_()
+java::lang::Class* poi::ss::formula::DataValidationEvaluator_OperatorEnum::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.DataValidationEvaluator.OperatorEnum", 62);
     return c;
 }
 
-void org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum::clinit()
+void poi::ss::formula::DataValidationEvaluator_OperatorEnum::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -101,7 +95,7 @@ struct clinit_ {
     }
 }
 
-org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum* org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum::valueOf(::java::lang::String* a0)
+poi::ss::formula::DataValidationEvaluator_OperatorEnum* poi::ss::formula::DataValidationEvaluator_OperatorEnum::valueOf(::java::lang::String* a0)
 {
     if(BETWEEN->toString()->equals(a0))
         return BETWEEN;
@@ -122,9 +116,9 @@ org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum* org::apache
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnumArray* org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum::values()
+poi::ss::formula::DataValidationEvaluator_OperatorEnumArray* poi::ss::formula::DataValidationEvaluator_OperatorEnum::values()
 {
-    return new org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnumArray({
+    return new poi::ss::formula::DataValidationEvaluator_OperatorEnumArray({
         BETWEEN,
         EQUAL,
         GREATER_OR_EQUAL,
@@ -136,7 +130,7 @@ org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnumArray* org::a
     });
 }
 
-java::lang::Class* org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum::getClass0()
+java::lang::Class* poi::ss::formula::DataValidationEvaluator_OperatorEnum::getClass0()
 {
     return class_();
 }

@@ -34,22 +34,16 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace sl
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace sl
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::sl::usermodel::AutoNumberingScheme, ::java::lang::EnumArray > AutoNumberingSchemeArray;
-                } // usermodel
-            } // sl
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::sl::usermodel::AutoNumberingScheme, ::java::lang::EnumArray > AutoNumberingSchemeArray;
+        } // usermodel
+    } // sl
+} // poi
 
 namespace java
 {
@@ -66,67 +60,67 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::sl::usermodel::AutoNumberingScheme::AutoNumberingScheme(const ::default_init_tag&)
+poi::sl::usermodel::AutoNumberingScheme::AutoNumberingScheme(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::usermodel::AutoNumberingScheme::AutoNumberingScheme(::java::lang::String* name, int ordinal, int32_t nativeId, int32_t ooxmlId) 
+poi::sl::usermodel::AutoNumberingScheme::AutoNumberingScheme(::java::lang::String* name, int ordinal, int32_t nativeId, int32_t ooxmlId) 
     : AutoNumberingScheme(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal, nativeId,ooxmlId);
 }
 
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::alphaLcParenBoth = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"alphaLcParenBoth"_j, 0, int32_t(8), int32_t(1));
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::alphaUcParenBoth = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"alphaUcParenBoth"_j, 1, int32_t(10), int32_t(2));
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::alphaLcParenRight = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"alphaLcParenRight"_j, 2, int32_t(9), int32_t(3));
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::alphaUcParenRight = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"alphaUcParenRight"_j, 3, int32_t(11), int32_t(4));
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::alphaLcPeriod = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"alphaLcPeriod"_j, 4, int32_t(0), int32_t(5));
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::alphaUcPeriod = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"alphaUcPeriod"_j, 5, int32_t(1), int32_t(6));
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::arabicParenBoth = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"arabicParenBoth"_j, 6, int32_t(12), int32_t(7));
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::arabicParenRight = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"arabicParenRight"_j, 7, int32_t(2), int32_t(8));
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::arabicPeriod = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"arabicPeriod"_j, 8, int32_t(3), int32_t(9));
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::arabicPlain = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"arabicPlain"_j, 9, int32_t(13), int32_t(10));
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::romanLcParenBoth = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"romanLcParenBoth"_j, 10, int32_t(4), int32_t(11));
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::romanUcParenBoth = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"romanUcParenBoth"_j, 11, int32_t(14), int32_t(12));
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::romanLcParenRight = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"romanLcParenRight"_j, 12, int32_t(5), int32_t(13));
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::romanUcParenRight = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"romanUcParenRight"_j, 13, int32_t(15), int32_t(14));
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::romanLcPeriod = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"romanLcPeriod"_j, 14, int32_t(6), int32_t(15));
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::romanUcPeriod = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"romanUcPeriod"_j, 15, int32_t(7), int32_t(16));
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::circleNumDbPlain = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"circleNumDbPlain"_j, 16, int32_t(18), int32_t(17));
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::circleNumWdBlackPlain = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"circleNumWdBlackPlain"_j, 17, int32_t(20), int32_t(18));
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::circleNumWdWhitePlain = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"circleNumWdWhitePlain"_j, 18, int32_t(19), int32_t(19));
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::arabicDbPeriod = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"arabicDbPeriod"_j, 19, int32_t(29), int32_t(20));
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::arabicDbPlain = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"arabicDbPlain"_j, 20, int32_t(28), int32_t(21));
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::ea1ChsPeriod = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"ea1ChsPeriod"_j, 21, int32_t(17), int32_t(22));
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::ea1ChsPlain = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"ea1ChsPlain"_j, 22, int32_t(16), int32_t(23));
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::ea1ChtPeriod = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"ea1ChtPeriod"_j, 23, int32_t(21), int32_t(24));
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::ea1ChtPlain = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"ea1ChtPlain"_j, 24, int32_t(20), int32_t(25));
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::ea1JpnChsDbPeriod = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"ea1JpnChsDbPeriod"_j, 25, int32_t(38), int32_t(26));
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::ea1JpnKorPlain = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"ea1JpnKorPlain"_j, 26, int32_t(26), int32_t(27));
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::ea1JpnKorPeriod = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"ea1JpnKorPeriod"_j, 27, int32_t(27), int32_t(28));
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::arabic1Minus = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"arabic1Minus"_j, 28, int32_t(23), int32_t(29));
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::arabic2Minus = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"arabic2Minus"_j, 29, int32_t(24), int32_t(30));
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::hebrew2Minus = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"hebrew2Minus"_j, 30, int32_t(25), int32_t(31));
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::thaiAlphaPeriod = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"thaiAlphaPeriod"_j, 31, int32_t(30), int32_t(32));
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::thaiAlphaParenRight = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"thaiAlphaParenRight"_j, 32, int32_t(31), int32_t(33));
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::thaiAlphaParenBoth = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"thaiAlphaParenBoth"_j, 33, int32_t(32), int32_t(34));
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::thaiNumPeriod = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"thaiNumPeriod"_j, 34, int32_t(33), int32_t(35));
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::thaiNumParenRight = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"thaiNumParenRight"_j, 35, int32_t(34), int32_t(36));
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::thaiNumParenBoth = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"thaiNumParenBoth"_j, 36, int32_t(35), int32_t(37));
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::hindiAlphaPeriod = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"hindiAlphaPeriod"_j, 37, int32_t(36), int32_t(38));
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::hindiNumPeriod = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"hindiNumPeriod"_j, 38, int32_t(37), int32_t(39));
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::hindiNumParenRight = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"hindiNumParenRight"_j, 39, int32_t(39), int32_t(40));
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::hindiAlpha1Period = new ::org::apache::poi::sl::usermodel::AutoNumberingScheme(u"hindiAlpha1Period"_j, 40, int32_t(39), int32_t(41));
-void org::apache::poi::sl::usermodel::AutoNumberingScheme::ctor(::java::lang::String* name, int ordinal, int32_t nativeId, int32_t ooxmlId)
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::alphaLcParenBoth = new ::poi::sl::usermodel::AutoNumberingScheme(u"alphaLcParenBoth"_j, 0, int32_t(8), int32_t(1));
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::alphaUcParenBoth = new ::poi::sl::usermodel::AutoNumberingScheme(u"alphaUcParenBoth"_j, 1, int32_t(10), int32_t(2));
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::alphaLcParenRight = new ::poi::sl::usermodel::AutoNumberingScheme(u"alphaLcParenRight"_j, 2, int32_t(9), int32_t(3));
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::alphaUcParenRight = new ::poi::sl::usermodel::AutoNumberingScheme(u"alphaUcParenRight"_j, 3, int32_t(11), int32_t(4));
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::alphaLcPeriod = new ::poi::sl::usermodel::AutoNumberingScheme(u"alphaLcPeriod"_j, 4, int32_t(0), int32_t(5));
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::alphaUcPeriod = new ::poi::sl::usermodel::AutoNumberingScheme(u"alphaUcPeriod"_j, 5, int32_t(1), int32_t(6));
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::arabicParenBoth = new ::poi::sl::usermodel::AutoNumberingScheme(u"arabicParenBoth"_j, 6, int32_t(12), int32_t(7));
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::arabicParenRight = new ::poi::sl::usermodel::AutoNumberingScheme(u"arabicParenRight"_j, 7, int32_t(2), int32_t(8));
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::arabicPeriod = new ::poi::sl::usermodel::AutoNumberingScheme(u"arabicPeriod"_j, 8, int32_t(3), int32_t(9));
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::arabicPlain = new ::poi::sl::usermodel::AutoNumberingScheme(u"arabicPlain"_j, 9, int32_t(13), int32_t(10));
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::romanLcParenBoth = new ::poi::sl::usermodel::AutoNumberingScheme(u"romanLcParenBoth"_j, 10, int32_t(4), int32_t(11));
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::romanUcParenBoth = new ::poi::sl::usermodel::AutoNumberingScheme(u"romanUcParenBoth"_j, 11, int32_t(14), int32_t(12));
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::romanLcParenRight = new ::poi::sl::usermodel::AutoNumberingScheme(u"romanLcParenRight"_j, 12, int32_t(5), int32_t(13));
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::romanUcParenRight = new ::poi::sl::usermodel::AutoNumberingScheme(u"romanUcParenRight"_j, 13, int32_t(15), int32_t(14));
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::romanLcPeriod = new ::poi::sl::usermodel::AutoNumberingScheme(u"romanLcPeriod"_j, 14, int32_t(6), int32_t(15));
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::romanUcPeriod = new ::poi::sl::usermodel::AutoNumberingScheme(u"romanUcPeriod"_j, 15, int32_t(7), int32_t(16));
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::circleNumDbPlain = new ::poi::sl::usermodel::AutoNumberingScheme(u"circleNumDbPlain"_j, 16, int32_t(18), int32_t(17));
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::circleNumWdBlackPlain = new ::poi::sl::usermodel::AutoNumberingScheme(u"circleNumWdBlackPlain"_j, 17, int32_t(20), int32_t(18));
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::circleNumWdWhitePlain = new ::poi::sl::usermodel::AutoNumberingScheme(u"circleNumWdWhitePlain"_j, 18, int32_t(19), int32_t(19));
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::arabicDbPeriod = new ::poi::sl::usermodel::AutoNumberingScheme(u"arabicDbPeriod"_j, 19, int32_t(29), int32_t(20));
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::arabicDbPlain = new ::poi::sl::usermodel::AutoNumberingScheme(u"arabicDbPlain"_j, 20, int32_t(28), int32_t(21));
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::ea1ChsPeriod = new ::poi::sl::usermodel::AutoNumberingScheme(u"ea1ChsPeriod"_j, 21, int32_t(17), int32_t(22));
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::ea1ChsPlain = new ::poi::sl::usermodel::AutoNumberingScheme(u"ea1ChsPlain"_j, 22, int32_t(16), int32_t(23));
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::ea1ChtPeriod = new ::poi::sl::usermodel::AutoNumberingScheme(u"ea1ChtPeriod"_j, 23, int32_t(21), int32_t(24));
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::ea1ChtPlain = new ::poi::sl::usermodel::AutoNumberingScheme(u"ea1ChtPlain"_j, 24, int32_t(20), int32_t(25));
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::ea1JpnChsDbPeriod = new ::poi::sl::usermodel::AutoNumberingScheme(u"ea1JpnChsDbPeriod"_j, 25, int32_t(38), int32_t(26));
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::ea1JpnKorPlain = new ::poi::sl::usermodel::AutoNumberingScheme(u"ea1JpnKorPlain"_j, 26, int32_t(26), int32_t(27));
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::ea1JpnKorPeriod = new ::poi::sl::usermodel::AutoNumberingScheme(u"ea1JpnKorPeriod"_j, 27, int32_t(27), int32_t(28));
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::arabic1Minus = new ::poi::sl::usermodel::AutoNumberingScheme(u"arabic1Minus"_j, 28, int32_t(23), int32_t(29));
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::arabic2Minus = new ::poi::sl::usermodel::AutoNumberingScheme(u"arabic2Minus"_j, 29, int32_t(24), int32_t(30));
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::hebrew2Minus = new ::poi::sl::usermodel::AutoNumberingScheme(u"hebrew2Minus"_j, 30, int32_t(25), int32_t(31));
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::thaiAlphaPeriod = new ::poi::sl::usermodel::AutoNumberingScheme(u"thaiAlphaPeriod"_j, 31, int32_t(30), int32_t(32));
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::thaiAlphaParenRight = new ::poi::sl::usermodel::AutoNumberingScheme(u"thaiAlphaParenRight"_j, 32, int32_t(31), int32_t(33));
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::thaiAlphaParenBoth = new ::poi::sl::usermodel::AutoNumberingScheme(u"thaiAlphaParenBoth"_j, 33, int32_t(32), int32_t(34));
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::thaiNumPeriod = new ::poi::sl::usermodel::AutoNumberingScheme(u"thaiNumPeriod"_j, 34, int32_t(33), int32_t(35));
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::thaiNumParenRight = new ::poi::sl::usermodel::AutoNumberingScheme(u"thaiNumParenRight"_j, 35, int32_t(34), int32_t(36));
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::thaiNumParenBoth = new ::poi::sl::usermodel::AutoNumberingScheme(u"thaiNumParenBoth"_j, 36, int32_t(35), int32_t(37));
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::hindiAlphaPeriod = new ::poi::sl::usermodel::AutoNumberingScheme(u"hindiAlphaPeriod"_j, 37, int32_t(36), int32_t(38));
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::hindiNumPeriod = new ::poi::sl::usermodel::AutoNumberingScheme(u"hindiNumPeriod"_j, 38, int32_t(37), int32_t(39));
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::hindiNumParenRight = new ::poi::sl::usermodel::AutoNumberingScheme(u"hindiNumParenRight"_j, 39, int32_t(39), int32_t(40));
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::hindiAlpha1Period = new ::poi::sl::usermodel::AutoNumberingScheme(u"hindiAlpha1Period"_j, 40, int32_t(39), int32_t(41));
+void poi::sl::usermodel::AutoNumberingScheme::ctor(::java::lang::String* name, int ordinal, int32_t nativeId, int32_t ooxmlId)
 {
     super::ctor(name, ordinal);
     this->nativeId = nativeId;
     this->ooxmlId = ooxmlId;
 }
 
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::forNativeID(int32_t nativeId)
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::forNativeID(int32_t nativeId)
 {
     clinit();
     for(auto ans : *npc(values())) {
@@ -137,7 +131,7 @@ org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::user
     return nullptr;
 }
 
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::forOoxmlID(int32_t ooxmlId)
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::forOoxmlID(int32_t ooxmlId)
 {
     clinit();
     for(auto ans : *npc(values())) {
@@ -148,7 +142,7 @@ org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::user
     return nullptr;
 }
 
-java::lang::String* org::apache::poi::sl::usermodel::AutoNumberingScheme::getDescription()
+java::lang::String* poi::sl::usermodel::AutoNumberingScheme::getDescription()
 {
     {
         auto v = this;
@@ -283,7 +277,7 @@ end_switch0:;
 
 }
 
-java::lang::String* org::apache::poi::sl::usermodel::AutoNumberingScheme::format(int32_t value)
+java::lang::String* poi::sl::usermodel::AutoNumberingScheme::format(int32_t value)
 {
     auto index = formatIndex(value);
     auto cased = formatCase(index);
@@ -291,7 +285,7 @@ java::lang::String* org::apache::poi::sl::usermodel::AutoNumberingScheme::format
     return seperated;
 }
 
-java::lang::String* org::apache::poi::sl::usermodel::AutoNumberingScheme::formatSeperator(::java::lang::String* cased)
+java::lang::String* poi::sl::usermodel::AutoNumberingScheme::formatSeperator(::java::lang::String* cased)
 {
     auto name = npc(static_cast< ::java::lang::Enum* >(this)->name())->toLowerCase(::java::util::Locale::ROOT());
     if(npc(name)->contains(u"plain"_j))
@@ -313,7 +307,7 @@ java::lang::String* org::apache::poi::sl::usermodel::AutoNumberingScheme::format
     return cased;
 }
 
-java::lang::String* org::apache::poi::sl::usermodel::AutoNumberingScheme::formatCase(::java::lang::String* index)
+java::lang::String* poi::sl::usermodel::AutoNumberingScheme::formatCase(::java::lang::String* index)
 {
     auto name = npc(static_cast< ::java::lang::Enum* >(this)->name())->toLowerCase(::java::util::Locale::ROOT());
     if(npc(name)->contains(u"lc"_j))
@@ -325,42 +319,42 @@ java::lang::String* org::apache::poi::sl::usermodel::AutoNumberingScheme::format
     return index;
 }
 
-java::lang::String*& org::apache::poi::sl::usermodel::AutoNumberingScheme::ARABIC_LIST()
+java::lang::String*& poi::sl::usermodel::AutoNumberingScheme::ARABIC_LIST()
 {
     clinit();
     return ARABIC_LIST_;
 }
-java::lang::String* org::apache::poi::sl::usermodel::AutoNumberingScheme::ARABIC_LIST_;
+java::lang::String* poi::sl::usermodel::AutoNumberingScheme::ARABIC_LIST_;
 
-java::lang::String*& org::apache::poi::sl::usermodel::AutoNumberingScheme::ALPHA_LIST()
+java::lang::String*& poi::sl::usermodel::AutoNumberingScheme::ALPHA_LIST()
 {
     clinit();
     return ALPHA_LIST_;
 }
-java::lang::String* org::apache::poi::sl::usermodel::AutoNumberingScheme::ALPHA_LIST_;
+java::lang::String* poi::sl::usermodel::AutoNumberingScheme::ALPHA_LIST_;
 
-java::lang::String*& org::apache::poi::sl::usermodel::AutoNumberingScheme::WINGDINGS_WHITE_LIST()
+java::lang::String*& poi::sl::usermodel::AutoNumberingScheme::WINGDINGS_WHITE_LIST()
 {
     clinit();
     return WINGDINGS_WHITE_LIST_;
 }
-java::lang::String* org::apache::poi::sl::usermodel::AutoNumberingScheme::WINGDINGS_WHITE_LIST_;
+java::lang::String* poi::sl::usermodel::AutoNumberingScheme::WINGDINGS_WHITE_LIST_;
 
-java::lang::String*& org::apache::poi::sl::usermodel::AutoNumberingScheme::WINGDINGS_BLACK_LIST()
+java::lang::String*& poi::sl::usermodel::AutoNumberingScheme::WINGDINGS_BLACK_LIST()
 {
     clinit();
     return WINGDINGS_BLACK_LIST_;
 }
-java::lang::String* org::apache::poi::sl::usermodel::AutoNumberingScheme::WINGDINGS_BLACK_LIST_;
+java::lang::String* poi::sl::usermodel::AutoNumberingScheme::WINGDINGS_BLACK_LIST_;
 
-java::lang::String*& org::apache::poi::sl::usermodel::AutoNumberingScheme::CIRCLE_DB_LIST()
+java::lang::String*& poi::sl::usermodel::AutoNumberingScheme::CIRCLE_DB_LIST()
 {
     clinit();
     return CIRCLE_DB_LIST_;
 }
-java::lang::String* org::apache::poi::sl::usermodel::AutoNumberingScheme::CIRCLE_DB_LIST_;
+java::lang::String* poi::sl::usermodel::AutoNumberingScheme::CIRCLE_DB_LIST_;
 
-java::lang::String* org::apache::poi::sl::usermodel::AutoNumberingScheme::formatIndex(int32_t value)
+java::lang::String* poi::sl::usermodel::AutoNumberingScheme::formatIndex(int32_t value)
 {
     auto name = npc(static_cast< ::java::lang::Enum* >(this)->name())->toLowerCase(::java::util::Locale::ROOT());
     if(npc(name)->startsWith(u"roman"_j)) {
@@ -380,7 +374,7 @@ java::lang::String* org::apache::poi::sl::usermodel::AutoNumberingScheme::format
     }
 }
 
-java::lang::String* org::apache::poi::sl::usermodel::AutoNumberingScheme::getIndexedList(int32_t val, ::java::lang::String* list, bool oneBased)
+java::lang::String* poi::sl::usermodel::AutoNumberingScheme::getIndexedList(int32_t val, ::java::lang::String* list, bool oneBased)
 {
     clinit();
     auto sb = new ::java::lang::StringBuilder();
@@ -388,7 +382,7 @@ java::lang::String* org::apache::poi::sl::usermodel::AutoNumberingScheme::getInd
     return npc(sb)->toString();
 }
 
-void org::apache::poi::sl::usermodel::AutoNumberingScheme::addIndexedChar(int32_t val, ::java::lang::String* list, bool oneBased, ::java::lang::StringBuilder* sb)
+void poi::sl::usermodel::AutoNumberingScheme::addIndexedChar(int32_t val, ::java::lang::String* list, bool oneBased, ::java::lang::StringBuilder* sb)
 {
     clinit();
     if(oneBased)
@@ -401,7 +395,7 @@ void org::apache::poi::sl::usermodel::AutoNumberingScheme::addIndexedChar(int32_
     npc(sb)->append(npc(list)->charAt(val % len));
 }
 
-java::lang::String* org::apache::poi::sl::usermodel::AutoNumberingScheme::formatRomanIndex(int32_t value)
+java::lang::String* poi::sl::usermodel::AutoNumberingScheme::formatRomanIndex(int32_t value)
 {
     auto const VALUES = new ::int32_tArray({
         int32_t(1000)
@@ -547,13 +541,13 @@ java::lang::String* org::apache::poi::sl::usermodel::AutoNumberingScheme::format
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::usermodel::AutoNumberingScheme::class_()
+java::lang::Class* poi::sl::usermodel::AutoNumberingScheme::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.usermodel.AutoNumberingScheme", 47);
     return c;
 }
 
-void org::apache::poi::sl::usermodel::AutoNumberingScheme::clinit()
+void poi::sl::usermodel::AutoNumberingScheme::clinit()
 {
 struct string_init_ {
     string_init_() {
@@ -570,7 +564,7 @@ struct string_init_ {
     super::clinit();
 }
 
-org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::usermodel::AutoNumberingScheme::valueOf(::java::lang::String* a0)
+poi::sl::usermodel::AutoNumberingScheme* poi::sl::usermodel::AutoNumberingScheme::valueOf(::java::lang::String* a0)
 {
     if(alphaLcParenBoth->toString()->equals(a0))
         return alphaLcParenBoth;
@@ -657,9 +651,9 @@ org::apache::poi::sl::usermodel::AutoNumberingScheme* org::apache::poi::sl::user
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::sl::usermodel::AutoNumberingSchemeArray* org::apache::poi::sl::usermodel::AutoNumberingScheme::values()
+poi::sl::usermodel::AutoNumberingSchemeArray* poi::sl::usermodel::AutoNumberingScheme::values()
 {
-    return new org::apache::poi::sl::usermodel::AutoNumberingSchemeArray({
+    return new poi::sl::usermodel::AutoNumberingSchemeArray({
         alphaLcParenBoth,
         alphaLcParenRight,
         alphaLcPeriod,
@@ -704,7 +698,7 @@ org::apache::poi::sl::usermodel::AutoNumberingSchemeArray* org::apache::poi::sl:
     });
 }
 
-java::lang::Class* org::apache::poi::sl::usermodel::AutoNumberingScheme::getClass0()
+java::lang::Class* poi::sl::usermodel::AutoNumberingScheme::getClass0()
 {
     return class_();
 }

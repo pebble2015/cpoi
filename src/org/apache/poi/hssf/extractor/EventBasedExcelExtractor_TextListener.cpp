@@ -41,20 +41,20 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::extractor::EventBasedExcelExtractor_TextListener::EventBasedExcelExtractor_TextListener(EventBasedExcelExtractor *EventBasedExcelExtractor_this, const ::default_init_tag&)
+poi::hssf::extractor::EventBasedExcelExtractor_TextListener::EventBasedExcelExtractor_TextListener(EventBasedExcelExtractor *EventBasedExcelExtractor_this, const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
     , EventBasedExcelExtractor_this(EventBasedExcelExtractor_this)
 {
     clinit();
 }
 
-org::apache::poi::hssf::extractor::EventBasedExcelExtractor_TextListener::EventBasedExcelExtractor_TextListener(EventBasedExcelExtractor *EventBasedExcelExtractor_this) 
+poi::hssf::extractor::EventBasedExcelExtractor_TextListener::EventBasedExcelExtractor_TextListener(EventBasedExcelExtractor *EventBasedExcelExtractor_this) 
     : EventBasedExcelExtractor_TextListener(EventBasedExcelExtractor_this, *static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::hssf::extractor::EventBasedExcelExtractor_TextListener::init()
+void poi::hssf::extractor::EventBasedExcelExtractor_TextListener::init()
 {
     _text = new ::java::lang::StringBuffer();
     sheetNum = -int32_t(1);
@@ -62,33 +62,33 @@ void org::apache::poi::hssf::extractor::EventBasedExcelExtractor_TextListener::i
     nextRow = -int32_t(1);
 }
 
-void org::apache::poi::hssf::extractor::EventBasedExcelExtractor_TextListener::ctor()
+void poi::hssf::extractor::EventBasedExcelExtractor_TextListener::ctor()
 {
     super::ctor();
     init();
     sheetNames = new ::java::util::ArrayList();
 }
 
-void org::apache::poi::hssf::extractor::EventBasedExcelExtractor_TextListener::processRecord(::org::apache::poi::hssf::record::Record* record)
+void poi::hssf::extractor::EventBasedExcelExtractor_TextListener::processRecord(::poi::hssf::record::Record* record)
 {
     ::java::lang::String* thisText = nullptr;
     auto thisRow = -int32_t(1);
     {
-        ::org::apache::poi::hssf::record::BoundSheetRecord* sr;
-        ::org::apache::poi::hssf::record::BOFRecord* bof;
-        ::org::apache::poi::hssf::record::FormulaRecord* frec;
-        ::org::apache::poi::hssf::record::LabelRecord* lrec;
-        ::org::apache::poi::hssf::record::LabelSSTRecord* lsrec;
-        ::org::apache::poi::hssf::record::NoteRecord* nrec;
-        ::org::apache::poi::hssf::record::NumberRecord* numrec;
+        ::poi::hssf::record::BoundSheetRecord* sr;
+        ::poi::hssf::record::BOFRecord* bof;
+        ::poi::hssf::record::FormulaRecord* frec;
+        ::poi::hssf::record::LabelRecord* lrec;
+        ::poi::hssf::record::LabelSSTRecord* lsrec;
+        ::poi::hssf::record::NoteRecord* nrec;
+        ::poi::hssf::record::NumberRecord* numrec;
         switch (npc(record)->getSid()) {
-        case ::org::apache::poi::hssf::record::BoundSheetRecord::sid:
-            sr = java_cast< ::org::apache::poi::hssf::record::BoundSheetRecord* >(record);
+        case ::poi::hssf::record::BoundSheetRecord::sid:
+            sr = java_cast< ::poi::hssf::record::BoundSheetRecord* >(record);
             npc(sheetNames)->add(static_cast< ::java::lang::Object* >(npc(sr)->getSheetname()));
             break;
-        case ::org::apache::poi::hssf::record::BOFRecord::sid:
-            bof = java_cast< ::org::apache::poi::hssf::record::BOFRecord* >(record);
-            if(npc(bof)->getType() == ::org::apache::poi::hssf::record::BOFRecord::TYPE_WORKSHEET) {
+        case ::poi::hssf::record::BOFRecord::sid:
+            bof = java_cast< ::poi::hssf::record::BOFRecord* >(record);
+            if(npc(bof)->getType() == ::poi::hssf::record::BOFRecord::TYPE_WORKSHEET) {
                 sheetNum++;
                 rowNum = -int32_t(1);
                 if(EventBasedExcelExtractor_this->_includeSheetNames) {
@@ -99,14 +99,14 @@ void org::apache::poi::hssf::extractor::EventBasedExcelExtractor_TextListener::p
                 }
             }
             break;
-        case ::org::apache::poi::hssf::record::SSTRecord::sid:
-            sstRecord = java_cast< ::org::apache::poi::hssf::record::SSTRecord* >(record);
+        case ::poi::hssf::record::SSTRecord::sid:
+            sstRecord = java_cast< ::poi::hssf::record::SSTRecord* >(record);
             break;
-        case ::org::apache::poi::hssf::record::FormulaRecord::sid:
-            frec = java_cast< ::org::apache::poi::hssf::record::FormulaRecord* >(record);
+        case ::poi::hssf::record::FormulaRecord::sid:
+            frec = java_cast< ::poi::hssf::record::FormulaRecord* >(record);
             thisRow = npc(frec)->getRow();
             if(EventBasedExcelExtractor_this->_formulasNotResults) {
-                thisText = ::org::apache::poi::hssf::model::HSSFFormulaParser::toFormulaString(static_cast< ::org::apache::poi::hssf::usermodel::HSSFWorkbook* >(nullptr), npc(frec)->getParsedExpression());
+                thisText = ::poi::hssf::model::HSSFFormulaParser::toFormulaString(static_cast< ::poi::hssf::usermodel::HSSFWorkbook* >(nullptr), npc(frec)->getParsedExpression());
             } else {
                 if(npc(frec)->hasCachedResultString()) {
                     outputNextStringValue = true;
@@ -116,33 +116,33 @@ void org::apache::poi::hssf::extractor::EventBasedExcelExtractor_TextListener::p
                 }
             }
             break;
-        case ::org::apache::poi::hssf::record::StringRecord::sid:
+        case ::poi::hssf::record::StringRecord::sid:
             if(outputNextStringValue) {
-                auto srec = java_cast< ::org::apache::poi::hssf::record::StringRecord* >(record);
+                auto srec = java_cast< ::poi::hssf::record::StringRecord* >(record);
                 thisText = npc(srec)->getString();
                 thisRow = nextRow;
                 outputNextStringValue = false;
             }
             break;
-        case ::org::apache::poi::hssf::record::LabelRecord::sid:
-            lrec = java_cast< ::org::apache::poi::hssf::record::LabelRecord* >(record);
+        case ::poi::hssf::record::LabelRecord::sid:
+            lrec = java_cast< ::poi::hssf::record::LabelRecord* >(record);
             thisRow = npc(lrec)->getRow();
             thisText = npc(lrec)->getValue();
             break;
-        case ::org::apache::poi::hssf::record::LabelSSTRecord::sid:
-            lsrec = java_cast< ::org::apache::poi::hssf::record::LabelSSTRecord* >(record);
+        case ::poi::hssf::record::LabelSSTRecord::sid:
+            lsrec = java_cast< ::poi::hssf::record::LabelSSTRecord* >(record);
             thisRow = npc(lsrec)->getRow();
             if(sstRecord == nullptr) {
                 throw new ::java::lang::IllegalStateException(u"No SST record found"_j);
             }
             thisText = npc(npc(sstRecord)->getString(npc(lsrec)->getSSTIndex()))->toString();
             break;
-        case ::org::apache::poi::hssf::record::NoteRecord::sid:
-            nrec = java_cast< ::org::apache::poi::hssf::record::NoteRecord* >(record);
+        case ::poi::hssf::record::NoteRecord::sid:
+            nrec = java_cast< ::poi::hssf::record::NoteRecord* >(record);
             thisRow = npc(nrec)->getRow();
             break;
-        case ::org::apache::poi::hssf::record::NumberRecord::sid:
-            numrec = java_cast< ::org::apache::poi::hssf::record::NumberRecord* >(record);
+        case ::poi::hssf::record::NumberRecord::sid:
+            numrec = java_cast< ::poi::hssf::record::NumberRecord* >(record);
             thisRow = npc(numrec)->getRow();
             thisText = npc(_ft)->formatNumberDateCell(numrec);
             break;
@@ -166,13 +166,13 @@ void org::apache::poi::hssf::extractor::EventBasedExcelExtractor_TextListener::p
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::extractor::EventBasedExcelExtractor_TextListener::class_()
+java::lang::Class* poi::hssf::extractor::EventBasedExcelExtractor_TextListener::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.extractor.EventBasedExcelExtractor.TextListener", 67);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::extractor::EventBasedExcelExtractor_TextListener::getClass0()
+java::lang::Class* poi::hssf::extractor::EventBasedExcelExtractor_TextListener::getClass0()
 {
     return class_();
 }

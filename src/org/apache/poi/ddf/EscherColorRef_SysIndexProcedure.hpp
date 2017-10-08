@@ -24,23 +24,17 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ddf
     {
-        namespace poi
-        {
-            namespace ddf
-            {
-typedef ::SubArray< ::org::apache::poi::ddf::EscherColorRef_SysIndexProcedure, ::java::lang::EnumArray > EscherColorRef_SysIndexProcedureArray;
-            } // ddf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ddf::EscherColorRef_SysIndexProcedure, ::java::lang::EnumArray > EscherColorRef_SysIndexProcedureArray;
+    } // ddf
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ddf::EscherColorRef_SysIndexProcedure final
+class poi::ddf::EscherColorRef_SysIndexProcedure final
     : public ::java::lang::Enum
 {
 
@@ -58,7 +52,7 @@ public: /* package */
     static EscherColorRef_SysIndexProcedure *INVERT_HIGHBIT_AFTER;
 
 private:
-    ::org::apache::poi::util::BitField* mask {  };
+    ::poi::util::BitField* mask {  };
 protected:
     void ctor(::java::lang::String* name, int ordinal, int32_t mask);
 

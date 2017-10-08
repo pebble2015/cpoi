@@ -33,25 +33,19 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -60,68 +54,68 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::Roman::Roman(const ::default_init_tag&)
+poi::ss::formula::functions::Roman::Roman(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::Roman::Roman()
+poi::ss::formula::functions::Roman::Roman()
     : Roman(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-int32_tArray*& org::apache::poi::ss::formula::functions::Roman::VALUES()
+int32_tArray*& poi::ss::formula::functions::Roman::VALUES()
 {
     clinit();
     return VALUES_;
 }
-int32_tArray* org::apache::poi::ss::formula::functions::Roman::VALUES_;
+int32_tArray* poi::ss::formula::functions::Roman::VALUES_;
 
-java::lang::StringArray*& org::apache::poi::ss::formula::functions::Roman::ROMAN()
+java::lang::StringArray*& poi::ss::formula::functions::Roman::ROMAN()
 {
     clinit();
     return ROMAN_;
 }
-java::lang::StringArray* org::apache::poi::ss::formula::functions::Roman::ROMAN_;
+java::lang::StringArray* poi::ss::formula::functions::Roman::ROMAN_;
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Roman::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* numberVE, ::org::apache::poi::ss::formula::eval::ValueEval* formVE)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Roman::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::poi::ss::formula::eval::ValueEval* numberVE, ::poi::ss::formula::eval::ValueEval* formVE)
 {
     auto number = int32_t(0);
     try {
-        auto ve = ::org::apache::poi::ss::formula::eval::OperandResolver::getSingleValue(numberVE, srcRowIndex, srcColumnIndex);
-        number = ::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToInt(ve);
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        auto ve = ::poi::ss::formula::eval::OperandResolver::getSingleValue(numberVE, srcRowIndex, srcColumnIndex);
+        number = ::poi::ss::formula::eval::OperandResolver::coerceValueToInt(ve);
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
     if(number < 0) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
     if(number > 3999) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
     if(number == 0) {
-        return new ::org::apache::poi::ss::formula::eval::StringEval(u""_j);
+        return new ::poi::ss::formula::eval::StringEval(u""_j);
     }
     auto form = int32_t(0);
     try {
-        auto ve = ::org::apache::poi::ss::formula::eval::OperandResolver::getSingleValue(formVE, srcRowIndex, srcColumnIndex);
-        form = ::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToInt(ve);
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::NUM_ERROR();
+        auto ve = ::poi::ss::formula::eval::OperandResolver::getSingleValue(formVE, srcRowIndex, srcColumnIndex);
+        form = ::poi::ss::formula::eval::OperandResolver::coerceValueToInt(ve);
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
+        return ::poi::ss::formula::eval::ErrorEval::NUM_ERROR();
     }
     if(form > 4 || form < 0) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
     auto result = this->integerToRoman(number);
     if(form == 0) {
-        return new ::org::apache::poi::ss::formula::eval::StringEval(result);
+        return new ::poi::ss::formula::eval::StringEval(result);
     }
-    return new ::org::apache::poi::ss::formula::eval::StringEval(makeConcise(result, form));
+    return new ::poi::ss::formula::eval::StringEval(makeConcise(result, form));
 }
 
-java::lang::String* org::apache::poi::ss::formula::functions::Roman::integerToRoman(int32_t number)
+java::lang::String* poi::ss::formula::functions::Roman::integerToRoman(int32_t number)
 {
     auto result = new ::java::lang::StringBuilder();
     for (auto i = int32_t(0); i < 13; i++) {
@@ -133,7 +127,7 @@ java::lang::String* org::apache::poi::ss::formula::functions::Roman::integerToRo
     return npc(result)->toString();
 }
 
-java::lang::String* org::apache::poi::ss::formula::functions::Roman::makeConcise(::java::lang::String* result, int32_t form)
+java::lang::String* poi::ss::formula::functions::Roman::makeConcise(::java::lang::String* result, int32_t form)
 {
     if(form > 0) {
         result = npc(result)->replaceAll(u"XLV"_j, u"VL"_j);
@@ -174,13 +168,13 @@ java::lang::String* org::apache::poi::ss::formula::functions::Roman::makeConcise
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Roman::class_()
+java::lang::Class* poi::ss::formula::functions::Roman::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.Roman", 41);
     return c;
 }
 
-void org::apache::poi::ss::formula::functions::Roman::clinit()
+void poi::ss::formula::functions::Roman::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -225,12 +219,12 @@ struct clinit_ {
     }
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Roman::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Roman::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
 {
     return super::evaluate(args, srcRowIndex, srcColumnIndex);
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Roman::getClass0()
+java::lang::Class* poi::ss::formula::functions::Roman::getClass0()
 {
     return class_();
 }

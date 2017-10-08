@@ -14,24 +14,24 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::StatsLib::StatsLib(const ::default_init_tag&)
+poi::ss::formula::functions::StatsLib::StatsLib(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::StatsLib::StatsLib() 
+poi::ss::formula::functions::StatsLib::StatsLib() 
     : StatsLib(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::ss::formula::functions::StatsLib::ctor()
+void poi::ss::formula::functions::StatsLib::ctor()
 {
     super::ctor();
 }
 
-double org::apache::poi::ss::formula::functions::StatsLib::avedev(::doubleArray* v)
+double poi::ss::formula::functions::StatsLib::avedev(::doubleArray* v)
 {
     clinit();
     double r = int32_t(0);
@@ -49,7 +49,7 @@ double org::apache::poi::ss::formula::functions::StatsLib::avedev(::doubleArray*
     return r;
 }
 
-double org::apache::poi::ss::formula::functions::StatsLib::stdev(::doubleArray* v)
+double poi::ss::formula::functions::StatsLib::stdev(::doubleArray* v)
 {
     clinit();
     auto r = ::java::lang::Double::NaN;
@@ -59,7 +59,7 @@ double org::apache::poi::ss::formula::functions::StatsLib::stdev(::doubleArray* 
     return r;
 }
 
-double org::apache::poi::ss::formula::functions::StatsLib::var(::doubleArray* v)
+double poi::ss::formula::functions::StatsLib::var(::doubleArray* v)
 {
     clinit();
     auto r = ::java::lang::Double::NaN;
@@ -69,7 +69,7 @@ double org::apache::poi::ss::formula::functions::StatsLib::var(::doubleArray* v)
     return r;
 }
 
-double org::apache::poi::ss::formula::functions::StatsLib::varp(::doubleArray* v)
+double poi::ss::formula::functions::StatsLib::varp(::doubleArray* v)
 {
     clinit();
     auto r = ::java::lang::Double::NaN;
@@ -79,7 +79,7 @@ double org::apache::poi::ss::formula::functions::StatsLib::varp(::doubleArray* v
     return r;
 }
 
-double org::apache::poi::ss::formula::functions::StatsLib::median(::doubleArray* v)
+double poi::ss::formula::functions::StatsLib::median(::doubleArray* v)
 {
     clinit();
     auto r = ::java::lang::Double::NaN;
@@ -91,7 +91,7 @@ double org::apache::poi::ss::formula::functions::StatsLib::median(::doubleArray*
     return r;
 }
 
-double org::apache::poi::ss::formula::functions::StatsLib::devsq(::doubleArray* v)
+double poi::ss::formula::functions::StatsLib::devsq(::doubleArray* v)
 {
     clinit();
     auto r = ::java::lang::Double::NaN;
@@ -112,7 +112,7 @@ double org::apache::poi::ss::formula::functions::StatsLib::devsq(::doubleArray* 
     return r;
 }
 
-double org::apache::poi::ss::formula::functions::StatsLib::kthLargest(::doubleArray* v, int32_t k)
+double poi::ss::formula::functions::StatsLib::kthLargest(::doubleArray* v, int32_t k)
 {
     clinit();
     auto r = ::java::lang::Double::NaN;
@@ -124,7 +124,7 @@ double org::apache::poi::ss::formula::functions::StatsLib::kthLargest(::doubleAr
     return r;
 }
 
-double org::apache::poi::ss::formula::functions::StatsLib::kthSmallest(::doubleArray* v, int32_t k)
+double poi::ss::formula::functions::StatsLib::kthSmallest(::doubleArray* v, int32_t k)
 {
     clinit();
     auto r = ::java::lang::Double::NaN;
@@ -138,13 +138,13 @@ double org::apache::poi::ss::formula::functions::StatsLib::kthSmallest(::doubleA
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::StatsLib::class_()
+java::lang::Class* poi::ss::formula::functions::StatsLib::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.StatsLib", 44);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::StatsLib::getClass0()
+java::lang::Class* poi::ss::formula::functions::StatsLib::getClass0()
 {
     return class_();
 }

@@ -11,31 +11,25 @@
 #include <org/apache/poi/ss/usermodel/Name.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFName final
+class poi::hssf::usermodel::HSSFName final
     : public virtual ::java::lang::Object
-    , public ::org::apache::poi::ss::usermodel::Name
+    , public ::poi::ss::usermodel::Name
 {
 
 public:
@@ -43,11 +37,11 @@ public:
 
 private:
     HSSFWorkbook* _book {  };
-    ::org::apache::poi::hssf::record::NameRecord* _definedNameRec {  };
-    ::org::apache::poi::hssf::record::NameCommentRecord* _commentRec {  };
+    ::poi::hssf::record::NameRecord* _definedNameRec {  };
+    ::poi::hssf::record::NameCommentRecord* _commentRec {  };
 protected:
-    void ctor(HSSFWorkbook* book, ::org::apache::poi::hssf::record::NameRecord* name);
-    void ctor(HSSFWorkbook* book, ::org::apache::poi::hssf::record::NameRecord* name, ::org::apache::poi::hssf::record::NameCommentRecord* comment);
+    void ctor(HSSFWorkbook* book, ::poi::hssf::record::NameRecord* name);
+    void ctor(HSSFWorkbook* book, ::poi::hssf::record::NameRecord* name, ::poi::hssf::record::NameCommentRecord* comment);
 
 public:
     ::java::lang::String* getSheetName() override;
@@ -62,7 +56,7 @@ public:
     ::java::lang::String* getRefersToFormula() override;
 
 public: /* package */
-    void setNameDefinition(::org::apache::poi::ss::formula::ptg::PtgArray* ptgs);
+    void setNameDefinition(::poi::ss::formula::ptg::PtgArray* ptgs);
 
 public:
     bool isDeleted() override;
@@ -77,8 +71,8 @@ public:
     // Generated
 
 public: /* package */
-    HSSFName(HSSFWorkbook* book, ::org::apache::poi::hssf::record::NameRecord* name);
-    HSSFName(HSSFWorkbook* book, ::org::apache::poi::hssf::record::NameRecord* name, ::org::apache::poi::hssf::record::NameCommentRecord* comment);
+    HSSFName(HSSFWorkbook* book, ::poi::hssf::record::NameRecord* name);
+    HSSFName(HSSFWorkbook* book, ::poi::hssf::record::NameRecord* name, ::poi::hssf::record::NameCommentRecord* comment);
 protected:
     HSSFName(const ::default_init_tag&);
 

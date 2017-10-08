@@ -23,25 +23,19 @@ typedef ::SubArray< ::java::lang::Cloneable, ObjectArray > CloneableArray;
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace ss
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::Cell, ::java::lang::ObjectArray > CellArray;
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::CellArray, ::java::lang::CloneableArray, ::java::io::SerializableArray > CellArrayArray;
-                } // usermodel
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::usermodel::Cell, ::java::lang::ObjectArray > CellArray;
+typedef ::SubArray< ::poi::ss::usermodel::CellArray, ::java::lang::CloneableArray, ::java::io::SerializableArray > CellArrayArray;
+        } // usermodel
+    } // ss
+} // poi
 
-struct org::apache::poi::ss::usermodel::CellRange
+struct poi::ss::usermodel::CellRange
     : public virtual ::java::lang::Iterable
 {
     virtual int32_t getWidth() = 0;

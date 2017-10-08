@@ -17,77 +17,77 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::ptg::FuncVarPtg::FuncVarPtg(const ::default_init_tag&)
+poi::ss::formula::ptg::FuncVarPtg::FuncVarPtg(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::ptg::FuncVarPtg::FuncVarPtg(int32_t functionIndex, int32_t returnClass, ::int8_tArray* paramClasses, int32_t numArgs) 
+poi::ss::formula::ptg::FuncVarPtg::FuncVarPtg(int32_t functionIndex, int32_t returnClass, ::int8_tArray* paramClasses, int32_t numArgs) 
     : FuncVarPtg(*static_cast< ::default_init_tag* >(0))
 {
     ctor(functionIndex,returnClass,paramClasses,numArgs);
 }
 
-constexpr int8_t org::apache::poi::ss::formula::ptg::FuncVarPtg::sid;
+constexpr int8_t poi::ss::formula::ptg::FuncVarPtg::sid;
 
-constexpr int32_t org::apache::poi::ss::formula::ptg::FuncVarPtg::SIZE;
+constexpr int32_t poi::ss::formula::ptg::FuncVarPtg::SIZE;
 
-org::apache::poi::ss::formula::ptg::OperationPtg*& org::apache::poi::ss::formula::ptg::FuncVarPtg::SUM()
+poi::ss::formula::ptg::OperationPtg*& poi::ss::formula::ptg::FuncVarPtg::SUM()
 {
     clinit();
     return SUM_;
 }
-org::apache::poi::ss::formula::ptg::OperationPtg* org::apache::poi::ss::formula::ptg::FuncVarPtg::SUM_;
+poi::ss::formula::ptg::OperationPtg* poi::ss::formula::ptg::FuncVarPtg::SUM_;
 
-void org::apache::poi::ss::formula::ptg::FuncVarPtg::ctor(int32_t functionIndex, int32_t returnClass, ::int8_tArray* paramClasses, int32_t numArgs)
+void poi::ss::formula::ptg::FuncVarPtg::ctor(int32_t functionIndex, int32_t returnClass, ::int8_tArray* paramClasses, int32_t numArgs)
 {
     super::ctor(functionIndex, returnClass, paramClasses, numArgs);
 }
 
-org::apache::poi::ss::formula::ptg::FuncVarPtg* org::apache::poi::ss::formula::ptg::FuncVarPtg::create(::org::apache::poi::util::LittleEndianInput* in)
+poi::ss::formula::ptg::FuncVarPtg* poi::ss::formula::ptg::FuncVarPtg::create(::poi::util::LittleEndianInput* in)
 {
     clinit();
     return create(static_cast< int32_t >(npc(in)->readByte()), static_cast< int32_t >(npc(in)->readShort()));
 }
 
-org::apache::poi::ss::formula::ptg::FuncVarPtg* org::apache::poi::ss::formula::ptg::FuncVarPtg::create(::java::lang::String* pName, int32_t numArgs)
+poi::ss::formula::ptg::FuncVarPtg* poi::ss::formula::ptg::FuncVarPtg::create(::java::lang::String* pName, int32_t numArgs)
 {
     clinit();
     return create(numArgs, static_cast< int32_t >(lookupIndex(pName)));
 }
 
-org::apache::poi::ss::formula::ptg::FuncVarPtg* org::apache::poi::ss::formula::ptg::FuncVarPtg::create(int32_t numArgs, int32_t functionIndex)
+poi::ss::formula::ptg::FuncVarPtg* poi::ss::formula::ptg::FuncVarPtg::create(int32_t numArgs, int32_t functionIndex)
 {
     clinit();
-    auto fm = ::org::apache::poi::ss::formula::function::FunctionMetadataRegistry::getFunctionByIndex(functionIndex);
+    auto fm = ::poi::ss::formula::function::FunctionMetadataRegistry::getFunctionByIndex(functionIndex);
     if(fm == nullptr) {
         return new FuncVarPtg(functionIndex, Ptg::CLASS_VALUE, new ::int8_tArray({Ptg::CLASS_VALUE}), numArgs);
     }
     return new FuncVarPtg(functionIndex, npc(fm)->getReturnClassCode(), npc(fm)->getParameterClassCodes(), numArgs);
 }
 
-void org::apache::poi::ss::formula::ptg::FuncVarPtg::write(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::ss::formula::ptg::FuncVarPtg::write(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeByte(sid + getPtgClass());
     npc(out)->writeByte(getNumberOfOperands());
     npc(out)->writeShort(getFunctionIndex());
 }
 
-int32_t org::apache::poi::ss::formula::ptg::FuncVarPtg::getSize()
+int32_t poi::ss::formula::ptg::FuncVarPtg::getSize()
 {
     return SIZE;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::FuncVarPtg::class_()
+java::lang::Class* poi::ss::formula::ptg::FuncVarPtg::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.ptg.FuncVarPtg", 40);
     return c;
 }
 
-void org::apache::poi::ss::formula::ptg::FuncVarPtg::clinit()
+void poi::ss::formula::ptg::FuncVarPtg::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -103,7 +103,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::FuncVarPtg::getClass0()
+java::lang::Class* poi::ss::formula::ptg::FuncVarPtg::getClass0()
 {
     return class_();
 }

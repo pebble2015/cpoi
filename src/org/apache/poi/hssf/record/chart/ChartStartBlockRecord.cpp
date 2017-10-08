@@ -16,32 +16,32 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::chart::ChartStartBlockRecord::ChartStartBlockRecord(const ::default_init_tag&)
+poi::hssf::record::chart::ChartStartBlockRecord::ChartStartBlockRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::chart::ChartStartBlockRecord::ChartStartBlockRecord() 
+poi::hssf::record::chart::ChartStartBlockRecord::ChartStartBlockRecord() 
     : ChartStartBlockRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::chart::ChartStartBlockRecord::ChartStartBlockRecord(::org::apache::poi::hssf::record::RecordInputStream* in) 
+poi::hssf::record::chart::ChartStartBlockRecord::ChartStartBlockRecord(::poi::hssf::record::RecordInputStream* in) 
     : ChartStartBlockRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::chart::ChartStartBlockRecord::sid;
+constexpr int16_t poi::hssf::record::chart::ChartStartBlockRecord::sid;
 
-void org::apache::poi::hssf::record::chart::ChartStartBlockRecord::ctor()
+void poi::hssf::record::chart::ChartStartBlockRecord::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hssf::record::chart::ChartStartBlockRecord::ctor(::org::apache::poi::hssf::record::RecordInputStream* in)
+void poi::hssf::record::chart::ChartStartBlockRecord::ctor(::poi::hssf::record::RecordInputStream* in)
 {
     super::ctor();
     rt = npc(in)->readShort();
@@ -52,17 +52,17 @@ void org::apache::poi::hssf::record::chart::ChartStartBlockRecord::ctor(::org::a
     iObjectInstance2 = npc(in)->readShort();
 }
 
-int32_t org::apache::poi::hssf::record::chart::ChartStartBlockRecord::getDataSize()
+int32_t poi::hssf::record::chart::ChartStartBlockRecord::getDataSize()
 {
     return int32_t(2) + int32_t(2) + int32_t(2)+ int32_t(2)+ int32_t(2)+ int32_t(2);
 }
 
-int16_t org::apache::poi::hssf::record::chart::ChartStartBlockRecord::getSid()
+int16_t poi::hssf::record::chart::ChartStartBlockRecord::getSid()
 {
     return sid;
 }
 
-void org::apache::poi::hssf::record::chart::ChartStartBlockRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::chart::ChartStartBlockRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(rt);
     npc(out)->writeShort(grbitFrt);
@@ -72,21 +72,21 @@ void org::apache::poi::hssf::record::chart::ChartStartBlockRecord::serialize(::o
     npc(out)->writeShort(iObjectInstance2);
 }
 
-java::lang::String* org::apache::poi::hssf::record::chart::ChartStartBlockRecord::toString()
+java::lang::String* poi::hssf::record::chart::ChartStartBlockRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[STARTBLOCK]\n"_j);
-    npc(npc(npc(buffer)->append(u"    .rt              ="_j))->append(::org::apache::poi::util::HexDump::shortToHex(rt)))->append(u'\u000a');
-    npc(npc(npc(buffer)->append(u"    .grbitFrt        ="_j))->append(::org::apache::poi::util::HexDump::shortToHex(grbitFrt)))->append(u'\u000a');
-    npc(npc(npc(buffer)->append(u"    .iObjectKind     ="_j))->append(::org::apache::poi::util::HexDump::shortToHex(iObjectKind)))->append(u'\u000a');
-    npc(npc(npc(buffer)->append(u"    .iObjectContext  ="_j))->append(::org::apache::poi::util::HexDump::shortToHex(iObjectContext)))->append(u'\u000a');
-    npc(npc(npc(buffer)->append(u"    .iObjectInstance1="_j))->append(::org::apache::poi::util::HexDump::shortToHex(iObjectInstance1)))->append(u'\u000a');
-    npc(npc(npc(buffer)->append(u"    .iObjectInstance2="_j))->append(::org::apache::poi::util::HexDump::shortToHex(iObjectInstance2)))->append(u'\u000a');
+    npc(npc(npc(buffer)->append(u"    .rt              ="_j))->append(::poi::util::HexDump::shortToHex(rt)))->append(u'\u000a');
+    npc(npc(npc(buffer)->append(u"    .grbitFrt        ="_j))->append(::poi::util::HexDump::shortToHex(grbitFrt)))->append(u'\u000a');
+    npc(npc(npc(buffer)->append(u"    .iObjectKind     ="_j))->append(::poi::util::HexDump::shortToHex(iObjectKind)))->append(u'\u000a');
+    npc(npc(npc(buffer)->append(u"    .iObjectContext  ="_j))->append(::poi::util::HexDump::shortToHex(iObjectContext)))->append(u'\u000a');
+    npc(npc(npc(buffer)->append(u"    .iObjectInstance1="_j))->append(::poi::util::HexDump::shortToHex(iObjectInstance1)))->append(u'\u000a');
+    npc(npc(npc(buffer)->append(u"    .iObjectInstance2="_j))->append(::poi::util::HexDump::shortToHex(iObjectInstance2)))->append(u'\u000a');
     npc(buffer)->append(u"[/STARTBLOCK]\n"_j);
     return npc(buffer)->toString();
 }
 
-org::apache::poi::hssf::record::chart::ChartStartBlockRecord* org::apache::poi::hssf::record::chart::ChartStartBlockRecord::clone()
+poi::hssf::record::chart::ChartStartBlockRecord* poi::hssf::record::chart::ChartStartBlockRecord::clone()
 {
     auto record = new ChartStartBlockRecord();
     npc(record)->rt = rt;
@@ -100,23 +100,23 @@ org::apache::poi::hssf::record::chart::ChartStartBlockRecord* org::apache::poi::
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::chart::ChartStartBlockRecord::class_()
+java::lang::Class* poi::hssf::record::chart::ChartStartBlockRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.chart.ChartStartBlockRecord", 54);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::chart::ChartStartBlockRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::chart::ChartStartBlockRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::chart::ChartStartBlockRecord::serialize()
+int8_tArray* poi::hssf::record::chart::ChartStartBlockRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::chart::ChartStartBlockRecord::getClass0()
+java::lang::Class* poi::hssf::record::chart::ChartStartBlockRecord::getClass0()
 {
     return class_();
 }

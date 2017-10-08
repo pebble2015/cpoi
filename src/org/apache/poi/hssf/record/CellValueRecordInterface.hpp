@@ -6,7 +6,7 @@
 #include <org/apache/poi/hssf/record/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::hssf::record::CellValueRecordInterface
+struct poi::hssf::record::CellValueRecordInterface
     : public virtual ::java::lang::Object
 {
     virtual int32_t getRow() = 0;

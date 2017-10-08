@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::usermodel::DataValidation_ErrorStyle final
+class poi::ss::usermodel::DataValidation_ErrorStyle final
     : public ::java::lang::Object
 {
 

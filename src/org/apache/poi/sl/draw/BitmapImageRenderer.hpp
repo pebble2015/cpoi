@@ -15,7 +15,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::BitmapImageRenderer
+class poi::sl::draw::BitmapImageRenderer
     : public virtual ::java::lang::Object
     , public virtual ImageRenderer
 {
@@ -24,7 +24,7 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    static ::org::apache::poi::util::POILogger* LOG_;
+    static ::poi::util::POILogger* LOG_;
 
 public: /* protected */
     ::java::awt::image::BufferedImage* img {  };
@@ -56,6 +56,6 @@ public:
     static void clinit();
 
 private:
-    static ::org::apache::poi::util::POILogger*& LOG();
+    static ::poi::util::POILogger*& LOG();
     virtual ::java::lang::Class* getClass0();
 };

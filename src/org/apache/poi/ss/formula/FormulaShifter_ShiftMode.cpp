@@ -25,47 +25,41 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
-            {
-                namespace formula
-                {
-typedef ::SubArray< ::org::apache::poi::ss::formula::FormulaShifter_ShiftMode, ::java::lang::EnumArray > FormulaShifter_ShiftModeArray;
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::FormulaShifter_ShiftMode, ::java::lang::EnumArray > FormulaShifter_ShiftModeArray;
+        } // formula
+    } // ss
+} // poi
 
-org::apache::poi::ss::formula::FormulaShifter_ShiftMode::FormulaShifter_ShiftMode(const ::default_init_tag&)
+poi::ss::formula::FormulaShifter_ShiftMode::FormulaShifter_ShiftMode(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::FormulaShifter_ShiftMode::FormulaShifter_ShiftMode(::java::lang::String* name, int ordinal)
+poi::ss::formula::FormulaShifter_ShiftMode::FormulaShifter_ShiftMode(::java::lang::String* name, int ordinal)
     : FormulaShifter_ShiftMode(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal);
 }
 
-org::apache::poi::ss::formula::FormulaShifter_ShiftMode* org::apache::poi::ss::formula::FormulaShifter_ShiftMode::RowMove = new ::org::apache::poi::ss::formula::FormulaShifter_ShiftMode(u"RowMove"_j, 0);
-org::apache::poi::ss::formula::FormulaShifter_ShiftMode* org::apache::poi::ss::formula::FormulaShifter_ShiftMode::RowCopy = new ::org::apache::poi::ss::formula::FormulaShifter_ShiftMode(u"RowCopy"_j, 1);
-org::apache::poi::ss::formula::FormulaShifter_ShiftMode* org::apache::poi::ss::formula::FormulaShifter_ShiftMode::SheetMove = new ::org::apache::poi::ss::formula::FormulaShifter_ShiftMode(u"SheetMove"_j, 2);
+poi::ss::formula::FormulaShifter_ShiftMode* poi::ss::formula::FormulaShifter_ShiftMode::RowMove = new ::poi::ss::formula::FormulaShifter_ShiftMode(u"RowMove"_j, 0);
+poi::ss::formula::FormulaShifter_ShiftMode* poi::ss::formula::FormulaShifter_ShiftMode::RowCopy = new ::poi::ss::formula::FormulaShifter_ShiftMode(u"RowCopy"_j, 1);
+poi::ss::formula::FormulaShifter_ShiftMode* poi::ss::formula::FormulaShifter_ShiftMode::SheetMove = new ::poi::ss::formula::FormulaShifter_ShiftMode(u"SheetMove"_j, 2);
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::FormulaShifter_ShiftMode::class_()
+java::lang::Class* poi::ss::formula::FormulaShifter_ShiftMode::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.FormulaShifter.ShiftMode", 50);
     return c;
 }
 
-org::apache::poi::ss::formula::FormulaShifter_ShiftMode* org::apache::poi::ss::formula::FormulaShifter_ShiftMode::valueOf(::java::lang::String* a0)
+poi::ss::formula::FormulaShifter_ShiftMode* poi::ss::formula::FormulaShifter_ShiftMode::valueOf(::java::lang::String* a0)
 {
     if(RowCopy->toString()->equals(a0))
         return RowCopy;
@@ -76,16 +70,16 @@ org::apache::poi::ss::formula::FormulaShifter_ShiftMode* org::apache::poi::ss::f
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::ss::formula::FormulaShifter_ShiftModeArray* org::apache::poi::ss::formula::FormulaShifter_ShiftMode::values()
+poi::ss::formula::FormulaShifter_ShiftModeArray* poi::ss::formula::FormulaShifter_ShiftMode::values()
 {
-    return new org::apache::poi::ss::formula::FormulaShifter_ShiftModeArray({
+    return new poi::ss::formula::FormulaShifter_ShiftModeArray({
         RowCopy,
         RowMove,
         SheetMove,
     });
 }
 
-java::lang::Class* org::apache::poi::ss::formula::FormulaShifter_ShiftMode::getClass0()
+java::lang::Class* poi::ss::formula::FormulaShifter_ShiftMode::getClass0()
 {
     return class_();
 }

@@ -27,22 +27,16 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace ss
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::FontUnderline, ::java::lang::EnumArray > FontUnderlineArray;
-                } // usermodel
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::usermodel::FontUnderline, ::java::lang::EnumArray > FontUnderlineArray;
+        } // usermodel
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -51,35 +45,35 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::usermodel::FontUnderline::FontUnderline(const ::default_init_tag&)
+poi::ss::usermodel::FontUnderline::FontUnderline(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::usermodel::FontUnderline::FontUnderline(::java::lang::String* name, int ordinal, int32_t val) 
+poi::ss::usermodel::FontUnderline::FontUnderline(::java::lang::String* name, int ordinal, int32_t val) 
     : FontUnderline(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal, val);
 }
 
-org::apache::poi::ss::usermodel::FontUnderline* org::apache::poi::ss::usermodel::FontUnderline::SINGLE = new ::org::apache::poi::ss::usermodel::FontUnderline(u"SINGLE"_j, 0, int32_t(1));
-org::apache::poi::ss::usermodel::FontUnderline* org::apache::poi::ss::usermodel::FontUnderline::DOUBLE = new ::org::apache::poi::ss::usermodel::FontUnderline(u"DOUBLE"_j, 1, int32_t(2));
-org::apache::poi::ss::usermodel::FontUnderline* org::apache::poi::ss::usermodel::FontUnderline::SINGLE_ACCOUNTING = new ::org::apache::poi::ss::usermodel::FontUnderline(u"SINGLE_ACCOUNTING"_j, 2, int32_t(3));
-org::apache::poi::ss::usermodel::FontUnderline* org::apache::poi::ss::usermodel::FontUnderline::DOUBLE_ACCOUNTING = new ::org::apache::poi::ss::usermodel::FontUnderline(u"DOUBLE_ACCOUNTING"_j, 3, int32_t(4));
-org::apache::poi::ss::usermodel::FontUnderline* org::apache::poi::ss::usermodel::FontUnderline::NONE = new ::org::apache::poi::ss::usermodel::FontUnderline(u"NONE"_j, 4, int32_t(5));
-void org::apache::poi::ss::usermodel::FontUnderline::ctor(::java::lang::String* name, int ordinal, int32_t val)
+poi::ss::usermodel::FontUnderline* poi::ss::usermodel::FontUnderline::SINGLE = new ::poi::ss::usermodel::FontUnderline(u"SINGLE"_j, 0, int32_t(1));
+poi::ss::usermodel::FontUnderline* poi::ss::usermodel::FontUnderline::DOUBLE = new ::poi::ss::usermodel::FontUnderline(u"DOUBLE"_j, 1, int32_t(2));
+poi::ss::usermodel::FontUnderline* poi::ss::usermodel::FontUnderline::SINGLE_ACCOUNTING = new ::poi::ss::usermodel::FontUnderline(u"SINGLE_ACCOUNTING"_j, 2, int32_t(3));
+poi::ss::usermodel::FontUnderline* poi::ss::usermodel::FontUnderline::DOUBLE_ACCOUNTING = new ::poi::ss::usermodel::FontUnderline(u"DOUBLE_ACCOUNTING"_j, 3, int32_t(4));
+poi::ss::usermodel::FontUnderline* poi::ss::usermodel::FontUnderline::NONE = new ::poi::ss::usermodel::FontUnderline(u"NONE"_j, 4, int32_t(5));
+void poi::ss::usermodel::FontUnderline::ctor(::java::lang::String* name, int ordinal, int32_t val)
 {
     super::ctor(name, ordinal);
     value = val;
 }
 
-int32_t org::apache::poi::ss::usermodel::FontUnderline::getValue()
+int32_t poi::ss::usermodel::FontUnderline::getValue()
 {
     return value;
 }
 
-int8_t org::apache::poi::ss::usermodel::FontUnderline::getByteValue()
+int8_t poi::ss::usermodel::FontUnderline::getByteValue()
 {
     {
         auto v = this;
@@ -106,20 +100,20 @@ end_switch0:;
 
 }
 
-org::apache::poi::ss::usermodel::FontUnderlineArray*& org::apache::poi::ss::usermodel::FontUnderline::_table()
+poi::ss::usermodel::FontUnderlineArray*& poi::ss::usermodel::FontUnderline::_table()
 {
     clinit();
     return _table_;
 }
-org::apache::poi::ss::usermodel::FontUnderlineArray* org::apache::poi::ss::usermodel::FontUnderline::_table_;
+poi::ss::usermodel::FontUnderlineArray* poi::ss::usermodel::FontUnderline::_table_;
 
-org::apache::poi::ss::usermodel::FontUnderline* org::apache::poi::ss::usermodel::FontUnderline::valueOf(int32_t value)
+poi::ss::usermodel::FontUnderline* poi::ss::usermodel::FontUnderline::valueOf(int32_t value)
 {
     clinit();
     return (*_table_)[value];
 }
 
-org::apache::poi::ss::usermodel::FontUnderline* org::apache::poi::ss::usermodel::FontUnderline::valueOf(int8_t value)
+poi::ss::usermodel::FontUnderline* poi::ss::usermodel::FontUnderline::valueOf(int8_t value)
 {
     clinit();
     FontUnderline* val;
@@ -146,13 +140,13 @@ org::apache::poi::ss::usermodel::FontUnderline* org::apache::poi::ss::usermodel:
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::usermodel::FontUnderline::class_()
+java::lang::Class* poi::ss::usermodel::FontUnderline::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.usermodel.FontUnderline", 41);
     return c;
 }
 
-void org::apache::poi::ss::usermodel::FontUnderline::clinit()
+void poi::ss::usermodel::FontUnderline::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -173,12 +167,12 @@ struct clinit_ {
     }
 }
 
-java::lang::Enum* org::apache::poi::ss::usermodel::FontUnderline::valueOf(::java::lang::Class* enumType, ::java::lang::String* name)
+java::lang::Enum* poi::ss::usermodel::FontUnderline::valueOf(::java::lang::Class* enumType, ::java::lang::String* name)
 {
     return super::valueOf(enumType, name);
 }
 
-org::apache::poi::ss::usermodel::FontUnderline* org::apache::poi::ss::usermodel::FontUnderline::valueOf(::java::lang::String* a0)
+poi::ss::usermodel::FontUnderline* poi::ss::usermodel::FontUnderline::valueOf(::java::lang::String* a0)
 {
     if(DOUBLE->toString()->equals(a0))
         return DOUBLE;
@@ -193,9 +187,9 @@ org::apache::poi::ss::usermodel::FontUnderline* org::apache::poi::ss::usermodel:
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::ss::usermodel::FontUnderlineArray* org::apache::poi::ss::usermodel::FontUnderline::values()
+poi::ss::usermodel::FontUnderlineArray* poi::ss::usermodel::FontUnderline::values()
 {
-    return new org::apache::poi::ss::usermodel::FontUnderlineArray({
+    return new poi::ss::usermodel::FontUnderlineArray({
         DOUBLE,
         DOUBLE_ACCOUNTING,
         NONE,
@@ -204,7 +198,7 @@ org::apache::poi::ss::usermodel::FontUnderlineArray* org::apache::poi::ss::userm
     });
 }
 
-java::lang::Class* org::apache::poi::ss::usermodel::FontUnderline::getClass0()
+java::lang::Class* poi::ss::usermodel::FontUnderline::getClass0()
 {
     return class_();
 }

@@ -26,38 +26,38 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::usermodel::HSSFAnchor::HSSFAnchor(const ::default_init_tag&)
+poi::hssf::usermodel::HSSFAnchor::HSSFAnchor(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::usermodel::HSSFAnchor::HSSFAnchor() 
+poi::hssf::usermodel::HSSFAnchor::HSSFAnchor() 
     : HSSFAnchor(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::usermodel::HSSFAnchor::HSSFAnchor(int32_t dx1, int32_t dy1, int32_t dx2, int32_t dy2) 
+poi::hssf::usermodel::HSSFAnchor::HSSFAnchor(int32_t dx1, int32_t dy1, int32_t dx2, int32_t dy2) 
     : HSSFAnchor(*static_cast< ::default_init_tag* >(0))
 {
     ctor(dx1,dy1,dx2,dy2);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFAnchor::init()
+void poi::hssf::usermodel::HSSFAnchor::init()
 {
     _isHorizontallyFlipped = false;
     _isVerticallyFlipped = false;
 }
 
-void org::apache::poi::hssf::usermodel::HSSFAnchor::ctor()
+void poi::hssf::usermodel::HSSFAnchor::ctor()
 {
     super::ctor();
     init();
     createEscherAnchor();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFAnchor::ctor(int32_t dx1, int32_t dy1, int32_t dx2, int32_t dy2)
+void poi::hssf::usermodel::HSSFAnchor::ctor(int32_t dx1, int32_t dy1, int32_t dx2, int32_t dy2)
 {
     super::ctor();
     init();
@@ -68,14 +68,14 @@ void org::apache::poi::hssf::usermodel::HSSFAnchor::ctor(int32_t dx1, int32_t dy
     setDy2(dy2);
 }
 
-org::apache::poi::hssf::usermodel::HSSFAnchor* org::apache::poi::hssf::usermodel::HSSFAnchor::createAnchorFromEscher(::org::apache::poi::ddf::EscherContainerRecord* container)
+poi::hssf::usermodel::HSSFAnchor* poi::hssf::usermodel::HSSFAnchor::createAnchorFromEscher(::poi::ddf::EscherContainerRecord* container)
 {
     clinit();
-    if(nullptr != java_cast< ::org::apache::poi::ddf::EscherRecord* >(npc(container)->getChildById(::org::apache::poi::ddf::EscherChildAnchorRecord::RECORD_ID))) {
-        return new HSSFChildAnchor(java_cast< ::org::apache::poi::ddf::EscherChildAnchorRecord* >(java_cast< ::org::apache::poi::ddf::EscherRecord* >(npc(container)->getChildById(::org::apache::poi::ddf::EscherChildAnchorRecord::RECORD_ID))));
+    if(nullptr != java_cast< ::poi::ddf::EscherRecord* >(npc(container)->getChildById(::poi::ddf::EscherChildAnchorRecord::RECORD_ID))) {
+        return new HSSFChildAnchor(java_cast< ::poi::ddf::EscherChildAnchorRecord* >(java_cast< ::poi::ddf::EscherRecord* >(npc(container)->getChildById(::poi::ddf::EscherChildAnchorRecord::RECORD_ID))));
     } else {
-        if(nullptr != java_cast< ::org::apache::poi::ddf::EscherRecord* >(npc(container)->getChildById(::org::apache::poi::ddf::EscherClientAnchorRecord::RECORD_ID))) {
-            return new HSSFClientAnchor(java_cast< ::org::apache::poi::ddf::EscherClientAnchorRecord* >(java_cast< ::org::apache::poi::ddf::EscherRecord* >(npc(container)->getChildById(::org::apache::poi::ddf::EscherClientAnchorRecord::RECORD_ID))));
+        if(nullptr != java_cast< ::poi::ddf::EscherRecord* >(npc(container)->getChildById(::poi::ddf::EscherClientAnchorRecord::RECORD_ID))) {
+            return new HSSFClientAnchor(java_cast< ::poi::ddf::EscherClientAnchorRecord* >(java_cast< ::poi::ddf::EscherRecord* >(npc(container)->getChildById(::poi::ddf::EscherClientAnchorRecord::RECORD_ID))));
         }
         return nullptr;
     }
@@ -83,13 +83,13 @@ org::apache::poi::hssf::usermodel::HSSFAnchor* org::apache::poi::hssf::usermodel
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFAnchor::class_()
+java::lang::Class* poi::hssf::usermodel::HSSFAnchor::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.usermodel.HSSFAnchor", 40);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFAnchor::getClass0()
+java::lang::Class* poi::hssf::usermodel::HSSFAnchor::getClass0()
 {
     return class_();
 }

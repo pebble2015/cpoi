@@ -28,7 +28,7 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::dev::FormulaViewer
+class poi::hssf::dev::FormulaViewer
     : public virtual ::java::lang::Object
 {
 
@@ -45,15 +45,15 @@ public:
     virtual void run() /* throws(IOException) */;
 
 private:
-    void listFormula(::org::apache::poi::hssf::record::FormulaRecord* record);
+    void listFormula(::poi::hssf::record::FormulaRecord* record);
 
 public:
-    virtual void parseFormulaRecord(::org::apache::poi::hssf::record::FormulaRecord* record);
+    virtual void parseFormulaRecord(::poi::hssf::record::FormulaRecord* record);
 
 private:
-    ::java::lang::String* formulaString(::org::apache::poi::hssf::record::FormulaRecord* record);
-    static void throwInvalidRVAToken(::org::apache::poi::ss::formula::ptg::Ptg* token);
-    static ::java::lang::String* composeFormula(::org::apache::poi::hssf::record::FormulaRecord* record);
+    ::java::lang::String* formulaString(::poi::hssf::record::FormulaRecord* record);
+    static void throwInvalidRVAToken(::poi::ss::formula::ptg::Ptg* token);
+    static ::java::lang::String* composeFormula(::poi::hssf::record::FormulaRecord* record);
 
 public:
     virtual void setFile(::java::lang::String* file);

@@ -2,27 +2,21 @@
 #pragma once
 
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace eventusermodel
         {
-            namespace hssf
-            {
-                namespace eventusermodel
-                {
-                    class AbortableHSSFListener;
-                    class EventWorkbookBuilder;
-                    class EventWorkbookBuilder_SheetRecordCollectingListener;
-                    class FormatTrackingHSSFListener;
-                    class HSSFEventFactory;
-                    struct HSSFListener;
-                    class HSSFRequest;
-                    class HSSFUserException;
-                    class MissingRecordAwareHSSFListener;
-                } // eventusermodel
-            } // hssf
-        } // poi
-    } // apache
-} // org
+            class AbortableHSSFListener;
+            class EventWorkbookBuilder;
+            class EventWorkbookBuilder_SheetRecordCollectingListener;
+            class FormatTrackingHSSFListener;
+            class HSSFEventFactory;
+            struct HSSFListener;
+            class HSSFRequest;
+            class HSSFUserException;
+            class MissingRecordAwareHSSFListener;
+        } // eventusermodel
+    } // hssf
+} // poi

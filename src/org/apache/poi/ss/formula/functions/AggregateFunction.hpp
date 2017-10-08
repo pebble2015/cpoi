@@ -7,7 +7,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::AggregateFunction
+class poi::ss::formula::functions::AggregateFunction
     : public MultiOperandNumericFunction
 {
 

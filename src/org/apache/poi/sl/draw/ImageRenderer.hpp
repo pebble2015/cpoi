@@ -11,7 +11,7 @@
 #include <org/apache/poi/sl/draw/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::sl::draw::ImageRenderer
+struct poi::sl::draw::ImageRenderer
     : public virtual ::java::lang::Object
 {
     virtual void loadImage(::java::io::InputStream* data, ::java::lang::String* contentType) /* throws(IOException) */ = 0;

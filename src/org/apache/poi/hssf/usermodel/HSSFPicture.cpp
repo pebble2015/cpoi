@@ -61,94 +61,94 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::usermodel::HSSFPicture::HSSFPicture(const ::default_init_tag&)
+poi::hssf::usermodel::HSSFPicture::HSSFPicture(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::usermodel::HSSFPicture::HSSFPicture(::org::apache::poi::ddf::EscherContainerRecord* spContainer, ::org::apache::poi::hssf::record::ObjRecord* objRecord) 
+poi::hssf::usermodel::HSSFPicture::HSSFPicture(::poi::ddf::EscherContainerRecord* spContainer, ::poi::hssf::record::ObjRecord* objRecord) 
     : HSSFPicture(*static_cast< ::default_init_tag* >(0))
 {
     ctor(spContainer,objRecord);
 }
 
-org::apache::poi::hssf::usermodel::HSSFPicture::HSSFPicture(HSSFShape* parent, HSSFAnchor* anchor) 
+poi::hssf::usermodel::HSSFPicture::HSSFPicture(HSSFShape* parent, HSSFAnchor* anchor) 
     : HSSFPicture(*static_cast< ::default_init_tag* >(0))
 {
     ctor(parent,anchor);
 }
 
-org::apache::poi::util::POILogger*& org::apache::poi::hssf::usermodel::HSSFPicture::logger()
+poi::util::POILogger*& poi::hssf::usermodel::HSSFPicture::logger()
 {
     clinit();
     return logger_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::hssf::usermodel::HSSFPicture::logger_;
+poi::util::POILogger* poi::hssf::usermodel::HSSFPicture::logger_;
 
-constexpr int32_t org::apache::poi::hssf::usermodel::HSSFPicture::PICTURE_TYPE_EMF;
+constexpr int32_t poi::hssf::usermodel::HSSFPicture::PICTURE_TYPE_EMF;
 
-constexpr int32_t org::apache::poi::hssf::usermodel::HSSFPicture::PICTURE_TYPE_WMF;
+constexpr int32_t poi::hssf::usermodel::HSSFPicture::PICTURE_TYPE_WMF;
 
-constexpr int32_t org::apache::poi::hssf::usermodel::HSSFPicture::PICTURE_TYPE_PICT;
+constexpr int32_t poi::hssf::usermodel::HSSFPicture::PICTURE_TYPE_PICT;
 
-constexpr int32_t org::apache::poi::hssf::usermodel::HSSFPicture::PICTURE_TYPE_JPEG;
+constexpr int32_t poi::hssf::usermodel::HSSFPicture::PICTURE_TYPE_JPEG;
 
-constexpr int32_t org::apache::poi::hssf::usermodel::HSSFPicture::PICTURE_TYPE_PNG;
+constexpr int32_t poi::hssf::usermodel::HSSFPicture::PICTURE_TYPE_PNG;
 
-constexpr int32_t org::apache::poi::hssf::usermodel::HSSFPicture::PICTURE_TYPE_DIB;
+constexpr int32_t poi::hssf::usermodel::HSSFPicture::PICTURE_TYPE_DIB;
 
-void org::apache::poi::hssf::usermodel::HSSFPicture::ctor(::org::apache::poi::ddf::EscherContainerRecord* spContainer, ::org::apache::poi::hssf::record::ObjRecord* objRecord)
+void poi::hssf::usermodel::HSSFPicture::ctor(::poi::ddf::EscherContainerRecord* spContainer, ::poi::hssf::record::ObjRecord* objRecord)
 {
     super::ctor(spContainer, objRecord);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPicture::ctor(HSSFShape* parent, HSSFAnchor* anchor)
+void poi::hssf::usermodel::HSSFPicture::ctor(HSSFShape* parent, HSSFAnchor* anchor)
 {
     super::ctor(parent, anchor);
     super::setShapeType(OBJECT_TYPE_PICTURE);
-    auto cod = java_cast< ::org::apache::poi::hssf::record::CommonObjectDataSubRecord* >(java_cast< ::org::apache::poi::hssf::record::SubRecord* >(npc(npc(getObjRecord())->getSubRecords())->get(0)));
-    npc(cod)->setObjectType(::org::apache::poi::hssf::record::CommonObjectDataSubRecord::OBJECT_TYPE_PICTURE);
+    auto cod = java_cast< ::poi::hssf::record::CommonObjectDataSubRecord* >(java_cast< ::poi::hssf::record::SubRecord* >(npc(npc(getObjRecord())->getSubRecords())->get(0)));
+    npc(cod)->setObjectType(::poi::hssf::record::CommonObjectDataSubRecord::OBJECT_TYPE_PICTURE);
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFPicture::getPictureIndex()
+int32_t poi::hssf::usermodel::HSSFPicture::getPictureIndex()
 {
-    auto property = java_cast< ::org::apache::poi::ddf::EscherSimpleProperty* >(npc(getOptRecord())->lookup(::org::apache::poi::ddf::EscherProperties::BLIP__BLIPTODISPLAY));
+    auto property = java_cast< ::poi::ddf::EscherSimpleProperty* >(npc(getOptRecord())->lookup(::poi::ddf::EscherProperties::BLIP__BLIPTODISPLAY));
     if(nullptr == property) {
         return -int32_t(1);
     }
     return npc(property)->getPropertyValue();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPicture::setPictureIndex(int32_t pictureIndex)
+void poi::hssf::usermodel::HSSFPicture::setPictureIndex(int32_t pictureIndex)
 {
-    setPropertyValue(new ::org::apache::poi::ddf::EscherSimpleProperty(::org::apache::poi::ddf::EscherProperties::BLIP__BLIPTODISPLAY, false, true, pictureIndex));
+    setPropertyValue(new ::poi::ddf::EscherSimpleProperty(::poi::ddf::EscherProperties::BLIP__BLIPTODISPLAY, false, true, pictureIndex));
 }
 
-org::apache::poi::ddf::EscherContainerRecord* org::apache::poi::hssf::usermodel::HSSFPicture::createSpContainer()
+poi::ddf::EscherContainerRecord* poi::hssf::usermodel::HSSFPicture::createSpContainer()
 {
     auto spContainer = super::createSpContainer();
-    auto opt = java_cast< ::org::apache::poi::ddf::EscherOptRecord* >(npc(spContainer)->getChildById(::org::apache::poi::ddf::EscherOptRecord::RECORD_ID));
-    npc(opt)->removeEscherProperty(::org::apache::poi::ddf::EscherProperties::LINESTYLE__LINEDASHING);
-    npc(opt)->removeEscherProperty(::org::apache::poi::ddf::EscherProperties::LINESTYLE__NOLINEDRAWDASH);
-    npc(spContainer)->removeChildRecord(java_cast< ::org::apache::poi::ddf::EscherRecord* >(npc(spContainer)->getChildById(::org::apache::poi::ddf::EscherTextboxRecord::RECORD_ID)));
+    auto opt = java_cast< ::poi::ddf::EscherOptRecord* >(npc(spContainer)->getChildById(::poi::ddf::EscherOptRecord::RECORD_ID));
+    npc(opt)->removeEscherProperty(::poi::ddf::EscherProperties::LINESTYLE__LINEDASHING);
+    npc(opt)->removeEscherProperty(::poi::ddf::EscherProperties::LINESTYLE__NOLINEDRAWDASH);
+    npc(spContainer)->removeChildRecord(java_cast< ::poi::ddf::EscherRecord* >(npc(spContainer)->getChildById(::poi::ddf::EscherTextboxRecord::RECORD_ID)));
     return spContainer;
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPicture::resize()
+void poi::hssf::usermodel::HSSFPicture::resize()
 {
     resize(::java::lang::Double::MAX_VALUE);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPicture::resize(double scale)
+void poi::hssf::usermodel::HSSFPicture::resize(double scale)
 {
     resize(scale, scale);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPicture::resize(double scaleX, double scaleY)
+void poi::hssf::usermodel::HSSFPicture::resize(double scaleX, double scaleY)
 {
     auto anchor = getClientAnchor();
-    npc(anchor)->setAnchorType(::org::apache::poi::ss::usermodel::ClientAnchor_AnchorType::MOVE_DONT_RESIZE);
+    npc(anchor)->setAnchorType(::poi::ss::usermodel::ClientAnchor_AnchorType::MOVE_DONT_RESIZE);
     auto pref = getPreferredSize(scaleX, scaleY);
     auto row2 = npc(anchor)->getRow1() + (npc(pref)->getRow2() - npc(pref)->getRow1());
     auto col2 = npc(anchor)->getCol1() + (npc(pref)->getCol2() - npc(pref)->getCol1());
@@ -158,32 +158,32 @@ void org::apache::poi::hssf::usermodel::HSSFPicture::resize(double scaleX, doubl
     npc(anchor)->setDy2(npc(pref)->getDy2());
 }
 
-org::apache::poi::hssf::usermodel::HSSFClientAnchor* org::apache::poi::hssf::usermodel::HSSFPicture::getPreferredSize()
+poi::hssf::usermodel::HSSFClientAnchor* poi::hssf::usermodel::HSSFPicture::getPreferredSize()
 {
     return getPreferredSize(1.0);
 }
 
-org::apache::poi::hssf::usermodel::HSSFClientAnchor* org::apache::poi::hssf::usermodel::HSSFPicture::getPreferredSize(double scale)
+poi::hssf::usermodel::HSSFClientAnchor* poi::hssf::usermodel::HSSFPicture::getPreferredSize(double scale)
 {
     return getPreferredSize(scale, scale);
 }
 
-org::apache::poi::hssf::usermodel::HSSFClientAnchor* org::apache::poi::hssf::usermodel::HSSFPicture::getPreferredSize(double scaleX, double scaleY)
+poi::hssf::usermodel::HSSFClientAnchor* poi::hssf::usermodel::HSSFPicture::getPreferredSize(double scaleX, double scaleY)
 {
-    ::org::apache::poi::ss::util::ImageUtils::setPreferredSize(this, scaleX, scaleY);
+    ::poi::ss::util::ImageUtils::setPreferredSize(this, scaleX, scaleY);
     return getClientAnchor();
 }
 
-java::awt::Dimension* org::apache::poi::hssf::usermodel::HSSFPicture::getImageDimension()
+java::awt::Dimension* poi::hssf::usermodel::HSSFPicture::getImageDimension()
 {
     auto iwb = npc(java_cast< HSSFWorkbook* >(npc(npc(getPatriarch())->getSheet())->getWorkbook()))->getWorkbook();
     auto bse = npc(iwb)->getBSERecord(getPictureIndex());
     auto data = npc(npc(bse)->getBlipRecord())->getPicturedata();
     int32_t type = npc(bse)->getBlipTypeWin32();
-    return ::org::apache::poi::ss::util::ImageUtils::getImageDimension(new ::java::io::ByteArrayInputStream(data), type);
+    return ::poi::ss::util::ImageUtils::getImageDimension(new ::java::io::ByteArrayInputStream(data), type);
 }
 
-org::apache::poi::hssf::usermodel::HSSFPictureData* org::apache::poi::hssf::usermodel::HSSFPicture::getPictureData()
+poi::hssf::usermodel::HSSFPictureData* poi::hssf::usermodel::HSSFPicture::getPictureData()
 {
     auto picIdx = getPictureIndex();
     if(picIdx == -int32_t(1)) {
@@ -204,70 +204,70 @@ org::apache::poi::hssf::usermodel::HSSFPictureData* org::apache::poi::hssf::user
     return new HSSFPictureData(blipRecord);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPicture::afterInsert(HSSFPatriarch* patriarch)
+void poi::hssf::usermodel::HSSFPicture::afterInsert(HSSFPatriarch* patriarch)
 {
     auto agg = npc(patriarch)->getBoundAggregate();
-    npc(agg)->associateShapeToObjRecord(java_cast< ::org::apache::poi::ddf::EscherRecord* >(npc(getEscherContainer())->getChildById(::org::apache::poi::ddf::EscherClientDataRecord::RECORD_ID)), getObjRecord());
+    npc(agg)->associateShapeToObjRecord(java_cast< ::poi::ddf::EscherRecord* >(npc(getEscherContainer())->getChildById(::poi::ddf::EscherClientDataRecord::RECORD_ID)), getObjRecord());
     if(getPictureIndex() != -int32_t(1)) {
         auto bse = npc(npc(java_cast< HSSFWorkbook* >(npc(npc(patriarch)->getSheet())->getWorkbook()))->getWorkbook())->getBSERecord(getPictureIndex());
         npc(bse)->setRef(npc(bse)->getRef() + int32_t(1));
     }
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HSSFPicture::getFileName()
+java::lang::String* poi::hssf::usermodel::HSSFPicture::getFileName()
 {
-    auto propFile = java_cast< ::org::apache::poi::ddf::EscherComplexProperty* >(java_cast< ::org::apache::poi::ddf::EscherProperty* >(npc(getOptRecord())->lookup(::org::apache::poi::ddf::EscherProperties::BLIP__BLIPFILENAME)));
-    return (nullptr == propFile) ? u""_j : npc(::org::apache::poi::util::StringUtil::getFromUnicodeLE(npc(propFile)->getComplexData()))->trim();
+    auto propFile = java_cast< ::poi::ddf::EscherComplexProperty* >(java_cast< ::poi::ddf::EscherProperty* >(npc(getOptRecord())->lookup(::poi::ddf::EscherProperties::BLIP__BLIPFILENAME)));
+    return (nullptr == propFile) ? u""_j : npc(::poi::util::StringUtil::getFromUnicodeLE(npc(propFile)->getComplexData()))->trim();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPicture::setFileName(::java::lang::String* data)
+void poi::hssf::usermodel::HSSFPicture::setFileName(::java::lang::String* data)
 {
-    auto bytes = ::org::apache::poi::util::StringUtil::getToUnicodeLE(data);
-    auto prop = new ::org::apache::poi::ddf::EscherComplexProperty(::org::apache::poi::ddf::EscherProperties::BLIP__BLIPFILENAME, true, bytes);
+    auto bytes = ::poi::util::StringUtil::getToUnicodeLE(data);
+    auto prop = new ::poi::ddf::EscherComplexProperty(::poi::ddf::EscherProperties::BLIP__BLIPFILENAME, true, bytes);
     setPropertyValue(prop);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPicture::setShapeType(int32_t shapeType)
+void poi::hssf::usermodel::HSSFPicture::setShapeType(int32_t shapeType)
 {
     throw new ::java::lang::IllegalStateException(::java::lang::StringBuilder().append(u"Shape type can not be changed in "_j)->append(npc(this->getClass())->getSimpleName())->toString());
 }
 
-org::apache::poi::hssf::usermodel::HSSFShape* org::apache::poi::hssf::usermodel::HSSFPicture::cloneShape()
+poi::hssf::usermodel::HSSFShape* poi::hssf::usermodel::HSSFPicture::cloneShape()
 {
-    auto spContainer = new ::org::apache::poi::ddf::EscherContainerRecord();
+    auto spContainer = new ::poi::ddf::EscherContainerRecord();
     auto inSp = npc(getEscherContainer())->serialize();
-    npc(spContainer)->fillFields(inSp, int32_t(0), static_cast< ::org::apache::poi::ddf::EscherRecordFactory* >(new ::org::apache::poi::ddf::DefaultEscherRecordFactory()));
-    auto obj = java_cast< ::org::apache::poi::hssf::record::ObjRecord* >(npc(getObjRecord())->cloneViaReserialise());
+    npc(spContainer)->fillFields(inSp, int32_t(0), static_cast< ::poi::ddf::EscherRecordFactory* >(new ::poi::ddf::DefaultEscherRecordFactory()));
+    auto obj = java_cast< ::poi::hssf::record::ObjRecord* >(npc(getObjRecord())->cloneViaReserialise());
     return new HSSFPicture(spContainer, obj);
 }
 
-org::apache::poi::hssf::usermodel::HSSFClientAnchor* org::apache::poi::hssf::usermodel::HSSFPicture::getClientAnchor()
+poi::hssf::usermodel::HSSFClientAnchor* poi::hssf::usermodel::HSSFPicture::getClientAnchor()
 {
     auto a = getAnchor();
     return (dynamic_cast< HSSFClientAnchor* >(a) != nullptr) ? java_cast< HSSFClientAnchor* >(a) : static_cast< HSSFClientAnchor* >(nullptr);
 }
 
-org::apache::poi::ss::usermodel::Sheet* org::apache::poi::hssf::usermodel::HSSFPicture::getSheet()
+poi::ss::usermodel::Sheet* poi::hssf::usermodel::HSSFPicture::getSheet()
 {
     return npc(getPatriarch())->getSheet();
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFPicture::class_()
+java::lang::Class* poi::hssf::usermodel::HSSFPicture::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.usermodel.HSSFPicture", 41);
     return c;
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPicture::clinit()
+void poi::hssf::usermodel::HSSFPicture::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        logger_ = ::org::apache::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(HSSFPicture::class_()));
+        logger_ = ::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(HSSFPicture::class_()));
     }
 };
 
@@ -276,52 +276,52 @@ struct clinit_ {
     }
 }
 
-org::apache::poi::hssf::usermodel::HSSFAnchor* org::apache::poi::hssf::usermodel::HSSFPicture::getAnchor()
+poi::hssf::usermodel::HSSFAnchor* poi::hssf::usermodel::HSSFPicture::getAnchor()
 {
     return HSSFShape::getAnchor();
 }
 
-org::apache::poi::hssf::usermodel::HSSFShape* org::apache::poi::hssf::usermodel::HSSFPicture::getParent()
+poi::hssf::usermodel::HSSFShape* poi::hssf::usermodel::HSSFPicture::getParent()
 {
     return HSSFShape::getParent();
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HSSFPicture::getShapeName()
+java::lang::String* poi::hssf::usermodel::HSSFPicture::getShapeName()
 {
     return HSSFShape::getShapeName();
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFPicture::isNoFill()
+bool poi::hssf::usermodel::HSSFPicture::isNoFill()
 {
     return HSSFShape::isNoFill();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPicture::setFillColor(int32_t red, int32_t green, int32_t blue)
+void poi::hssf::usermodel::HSSFPicture::setFillColor(int32_t red, int32_t green, int32_t blue)
 {
     HSSFShape::setFillColor(red, green, blue);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPicture::setLineStyleColor(int32_t red, int32_t green, int32_t blue)
+void poi::hssf::usermodel::HSSFPicture::setLineStyleColor(int32_t red, int32_t green, int32_t blue)
 {
     HSSFShape::setLineStyleColor(red, green, blue);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPicture::setNoFill(bool noFill)
+void poi::hssf::usermodel::HSSFPicture::setNoFill(bool noFill)
 {
     HSSFShape::setNoFill(noFill);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPicture::setFillColor(int32_t fillColor)
+void poi::hssf::usermodel::HSSFPicture::setFillColor(int32_t fillColor)
 {
     super::setFillColor(fillColor);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPicture::setLineStyleColor(int32_t lineStyleColor)
+void poi::hssf::usermodel::HSSFPicture::setLineStyleColor(int32_t lineStyleColor)
 {
     super::setLineStyleColor(lineStyleColor);
 }
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFPicture::getClass0()
+java::lang::Class* poi::hssf::usermodel::HSSFPicture::getClass0()
 {
     return class_();
 }

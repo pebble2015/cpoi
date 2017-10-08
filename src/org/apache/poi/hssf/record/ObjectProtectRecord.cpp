@@ -15,38 +15,38 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::ObjectProtectRecord::ObjectProtectRecord(const ::default_init_tag&)
+poi::hssf::record::ObjectProtectRecord::ObjectProtectRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::ObjectProtectRecord::ObjectProtectRecord() 
+poi::hssf::record::ObjectProtectRecord::ObjectProtectRecord() 
     : ObjectProtectRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::ObjectProtectRecord::ObjectProtectRecord(RecordInputStream* in) 
+poi::hssf::record::ObjectProtectRecord::ObjectProtectRecord(RecordInputStream* in) 
     : ObjectProtectRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::ObjectProtectRecord::sid;
+constexpr int16_t poi::hssf::record::ObjectProtectRecord::sid;
 
-void org::apache::poi::hssf::record::ObjectProtectRecord::ctor()
+void poi::hssf::record::ObjectProtectRecord::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hssf::record::ObjectProtectRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::ObjectProtectRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     field_1_protect = npc(in)->readShort();
 }
 
-void org::apache::poi::hssf::record::ObjectProtectRecord::setProtect(bool protect)
+void poi::hssf::record::ObjectProtectRecord::setProtect(bool protect)
 {
     if(protect) {
         field_1_protect = 1;
@@ -55,12 +55,12 @@ void org::apache::poi::hssf::record::ObjectProtectRecord::setProtect(bool protec
     }
 }
 
-bool org::apache::poi::hssf::record::ObjectProtectRecord::getProtect()
+bool poi::hssf::record::ObjectProtectRecord::getProtect()
 {
     return (field_1_protect == 1);
 }
 
-java::lang::String* org::apache::poi::hssf::record::ObjectProtectRecord::toString()
+java::lang::String* poi::hssf::record::ObjectProtectRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[SCENARIOPROTECT]\n"_j);
@@ -69,22 +69,22 @@ java::lang::String* org::apache::poi::hssf::record::ObjectProtectRecord::toStrin
     return npc(buffer)->toString();
 }
 
-void org::apache::poi::hssf::record::ObjectProtectRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::ObjectProtectRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(field_1_protect);
 }
 
-int32_t org::apache::poi::hssf::record::ObjectProtectRecord::getDataSize()
+int32_t poi::hssf::record::ObjectProtectRecord::getDataSize()
 {
     return 2;
 }
 
-int16_t org::apache::poi::hssf::record::ObjectProtectRecord::getSid()
+int16_t poi::hssf::record::ObjectProtectRecord::getSid()
 {
     return sid;
 }
 
-org::apache::poi::hssf::record::ObjectProtectRecord* org::apache::poi::hssf::record::ObjectProtectRecord::clone()
+poi::hssf::record::ObjectProtectRecord* poi::hssf::record::ObjectProtectRecord::clone()
 {
     auto rec = new ObjectProtectRecord();
     npc(rec)->field_1_protect = field_1_protect;
@@ -93,23 +93,23 @@ org::apache::poi::hssf::record::ObjectProtectRecord* org::apache::poi::hssf::rec
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::ObjectProtectRecord::class_()
+java::lang::Class* poi::hssf::record::ObjectProtectRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.ObjectProtectRecord", 46);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::ObjectProtectRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::ObjectProtectRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::ObjectProtectRecord::serialize()
+int8_tArray* poi::hssf::record::ObjectProtectRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::ObjectProtectRecord::getClass0()
+java::lang::Class* poi::hssf::record::ObjectProtectRecord::getClass0()
 {
     return class_();
 }

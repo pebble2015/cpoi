@@ -6,7 +6,7 @@
 #include <org/apache/poi/ss/usermodel/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::usermodel::ConditionalFormattingThreshold
+struct poi::ss::usermodel::ConditionalFormattingThreshold
     : public virtual ::java::lang::Object
 {
     virtual ConditionalFormattingThreshold_RangeType* getRangeType() = 0;

@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::ptg::AreaPtg final
+class poi::ss::formula::ptg::AreaPtg final
     : public Area2DPtgBase
 {
 
@@ -20,9 +20,9 @@ public:
     static constexpr int16_t sid { int16_t(37) };
 protected:
     void ctor(int32_t firstRow, int32_t lastRow, int32_t firstColumn, int32_t lastColumn, bool firstRowRelative, bool lastRowRelative, bool firstColRelative, bool lastColRelative);
-    void ctor(::org::apache::poi::util::LittleEndianInput* in);
+    void ctor(::poi::util::LittleEndianInput* in);
     void ctor(::java::lang::String* arearef);
-    void ctor(::org::apache::poi::ss::util::AreaReference* arearef);
+    void ctor(::poi::ss::util::AreaReference* arearef);
 
 public: /* protected */
     int8_t getSid() override;
@@ -31,9 +31,9 @@ public: /* protected */
 
 public:
     AreaPtg(int32_t firstRow, int32_t lastRow, int32_t firstColumn, int32_t lastColumn, bool firstRowRelative, bool lastRowRelative, bool firstColRelative, bool lastColRelative);
-    AreaPtg(::org::apache::poi::util::LittleEndianInput* in);
+    AreaPtg(::poi::util::LittleEndianInput* in);
     AreaPtg(::java::lang::String* arearef);
-    AreaPtg(::org::apache::poi::ss::util::AreaReference* arearef);
+    AreaPtg(::poi::ss::util::AreaReference* arearef);
 protected:
     AreaPtg(const ::default_init_tag&);
 

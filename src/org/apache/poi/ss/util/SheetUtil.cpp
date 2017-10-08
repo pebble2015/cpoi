@@ -71,37 +71,37 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::util::SheetUtil::SheetUtil(const ::default_init_tag&)
+poi::ss::util::SheetUtil::SheetUtil(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::util::SheetUtil::SheetUtil()
+poi::ss::util::SheetUtil::SheetUtil()
     : SheetUtil(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-constexpr char16_t org::apache::poi::ss::util::SheetUtil::defaultChar;
+constexpr char16_t poi::ss::util::SheetUtil::defaultChar;
 
-constexpr double org::apache::poi::ss::util::SheetUtil::fontHeightMultiple;
+constexpr double poi::ss::util::SheetUtil::fontHeightMultiple;
 
-org::apache::poi::ss::usermodel::FormulaEvaluator*& org::apache::poi::ss::util::SheetUtil::dummyEvaluator()
+poi::ss::usermodel::FormulaEvaluator*& poi::ss::util::SheetUtil::dummyEvaluator()
 {
     clinit();
     return dummyEvaluator_;
 }
-org::apache::poi::ss::usermodel::FormulaEvaluator* org::apache::poi::ss::util::SheetUtil::dummyEvaluator_;
+poi::ss::usermodel::FormulaEvaluator* poi::ss::util::SheetUtil::dummyEvaluator_;
 
-java::awt::font::FontRenderContext*& org::apache::poi::ss::util::SheetUtil::fontRenderContext()
+java::awt::font::FontRenderContext*& poi::ss::util::SheetUtil::fontRenderContext()
 {
     clinit();
     return fontRenderContext_;
 }
-java::awt::font::FontRenderContext* org::apache::poi::ss::util::SheetUtil::fontRenderContext_;
+java::awt::font::FontRenderContext* poi::ss::util::SheetUtil::fontRenderContext_;
 
-double org::apache::poi::ss::util::SheetUtil::getCellWidth(::org::apache::poi::ss::usermodel::Cell* cell, int32_t defaultCharWidth, ::org::apache::poi::ss::usermodel::DataFormatter* formatter, bool useMergedCells)
+double poi::ss::util::SheetUtil::getCellWidth(::poi::ss::usermodel::Cell* cell, int32_t defaultCharWidth, ::poi::ss::usermodel::DataFormatter* formatter, bool useMergedCells)
 {
     clinit();
     auto sheet = npc(cell)->getSheet();
@@ -123,12 +123,12 @@ double org::apache::poi::ss::util::SheetUtil::getCellWidth(::org::apache::poi::s
     }
     auto style = npc(cell)->getCellStyle();
     auto cellType = npc(cell)->getCellTypeEnum();
-    if(cellType == ::org::apache::poi::ss::usermodel::CellType::FORMULA)
+    if(cellType == ::poi::ss::usermodel::CellType::FORMULA)
         cellType = npc(cell)->getCachedFormulaResultTypeEnum();
 
     auto font = npc(wb)->getFontAt(npc(style)->getFontIndex());
     double width = -int32_t(1);
-    if(cellType == ::org::apache::poi::ss::usermodel::CellType::STRING) {
+    if(cellType == ::poi::ss::usermodel::CellType::STRING) {
         auto rt = npc(cell)->getRichStringCellValue();
         auto lines = npc(npc(rt)->getString())->split(u"\\n"_j);
         for(auto line : *npc(lines)) {
@@ -139,13 +139,13 @@ double org::apache::poi::ss::util::SheetUtil::getCellWidth(::org::apache::poi::s
         }
     } else {
         ::java::lang::String* sval = nullptr;
-        if(cellType == ::org::apache::poi::ss::usermodel::CellType::NUMERIC) {
+        if(cellType == ::poi::ss::usermodel::CellType::NUMERIC) {
             try {
                 sval = npc(formatter)->formatCellValue(cell, dummyEvaluator_);
             } catch (::java::lang::Exception* e) {
                 sval = ::java::lang::String::valueOf(npc(cell)->getNumericCellValue());
             }
-        } else if(cellType == ::org::apache::poi::ss::usermodel::CellType::BOOLEAN) {
+        } else if(cellType == ::poi::ss::usermodel::CellType::BOOLEAN) {
             sval = npc(::java::lang::String::valueOf(npc(cell)->getBooleanCellValue()))->toUpperCase(::java::util::Locale::ROOT());
         }
         if(sval != nullptr) {
@@ -158,7 +158,7 @@ double org::apache::poi::ss::util::SheetUtil::getCellWidth(::org::apache::poi::s
     return width;
 }
 
-double org::apache::poi::ss::util::SheetUtil::getCellWidth(int32_t defaultCharWidth, int32_t colspan, ::org::apache::poi::ss::usermodel::CellStyle* style, double minWidth, ::java::text::AttributedString* str)
+double poi::ss::util::SheetUtil::getCellWidth(int32_t defaultCharWidth, int32_t colspan, ::poi::ss::usermodel::CellStyle* style, double minWidth, ::java::text::AttributedString* str)
 {
     clinit();
     auto layout = new ::java::awt::font::TextLayout(npc(str)->getIterator(), fontRenderContext_);
@@ -175,16 +175,16 @@ double org::apache::poi::ss::util::SheetUtil::getCellWidth(int32_t defaultCharWi
     return ::java::lang::Math::max(minWidth, ((frameWidth / colspan) / defaultCharWidth) + npc(style)->getIndention());
 }
 
-double org::apache::poi::ss::util::SheetUtil::getColumnWidth(::org::apache::poi::ss::usermodel::Sheet* sheet, int32_t column, bool useMergedCells)
+double poi::ss::util::SheetUtil::getColumnWidth(::poi::ss::usermodel::Sheet* sheet, int32_t column, bool useMergedCells)
 {
     clinit();
     return getColumnWidth(sheet, column, useMergedCells, npc(sheet)->getFirstRowNum(), npc(sheet)->getLastRowNum());
 }
 
-double org::apache::poi::ss::util::SheetUtil::getColumnWidth(::org::apache::poi::ss::usermodel::Sheet* sheet, int32_t column, bool useMergedCells, int32_t firstRow, int32_t lastRow)
+double poi::ss::util::SheetUtil::getColumnWidth(::poi::ss::usermodel::Sheet* sheet, int32_t column, bool useMergedCells, int32_t firstRow, int32_t lastRow)
 {
     clinit();
-    auto formatter = new ::org::apache::poi::ss::usermodel::DataFormatter();
+    auto formatter = new ::poi::ss::usermodel::DataFormatter();
     auto defaultCharWidth = getDefaultCharWidth(npc(sheet)->getWorkbook());
     double width = -int32_t(1);
     for (auto rowIdx = firstRow; rowIdx <= lastRow; ++rowIdx) {
@@ -197,7 +197,7 @@ double org::apache::poi::ss::util::SheetUtil::getColumnWidth(::org::apache::poi:
     return width;
 }
 
-int32_t org::apache::poi::ss::util::SheetUtil::getDefaultCharWidth(::org::apache::poi::ss::usermodel::Workbook* wb)
+int32_t poi::ss::util::SheetUtil::getDefaultCharWidth(::poi::ss::usermodel::Workbook* wb)
 {
     clinit();
     auto defaultFont = npc(wb)->getFontAt(static_cast< int16_t >(int32_t(0)));
@@ -207,7 +207,7 @@ int32_t org::apache::poi::ss::util::SheetUtil::getDefaultCharWidth(::org::apache
     return static_cast< int32_t >(npc(layout)->getAdvance());
 }
 
-double org::apache::poi::ss::util::SheetUtil::getColumnWidthForRow(::org::apache::poi::ss::usermodel::Row* row, int32_t column, int32_t defaultCharWidth, ::org::apache::poi::ss::usermodel::DataFormatter* formatter, bool useMergedCells)
+double poi::ss::util::SheetUtil::getColumnWidthForRow(::poi::ss::usermodel::Row* row, int32_t column, int32_t defaultCharWidth, ::poi::ss::usermodel::DataFormatter* formatter, bool useMergedCells)
 {
     clinit();
     if(row == nullptr) {
@@ -220,7 +220,7 @@ double org::apache::poi::ss::util::SheetUtil::getColumnWidthForRow(::org::apache
     return getCellWidth(cell, defaultCharWidth, formatter, useMergedCells);
 }
 
-bool org::apache::poi::ss::util::SheetUtil::canComputeColumnWidth(::org::apache::poi::ss::usermodel::Font* font)
+bool poi::ss::util::SheetUtil::canComputeColumnWidth(::poi::ss::usermodel::Font* font)
 {
     clinit();
     auto str = new ::java::text::AttributedString(u"1w"_j);
@@ -232,7 +232,7 @@ bool org::apache::poi::ss::util::SheetUtil::canComputeColumnWidth(::org::apache:
     return false;
 }
 
-void org::apache::poi::ss::util::SheetUtil::copyAttributes(::org::apache::poi::ss::usermodel::Font* font, ::java::text::AttributedString* str, int32_t startIdx, int32_t endIdx)
+void poi::ss::util::SheetUtil::copyAttributes(::poi::ss::usermodel::Font* font, ::java::text::AttributedString* str, int32_t startIdx, int32_t endIdx)
 {
     clinit();
     npc(str)->addAttribute(::java::awt::font::TextAttribute::FAMILY(), npc(font)->getFontName(), startIdx, endIdx);
@@ -243,18 +243,18 @@ void org::apache::poi::ss::util::SheetUtil::copyAttributes(::org::apache::poi::s
     if(npc(font)->getItalic())
         npc(str)->addAttribute(::java::awt::font::TextAttribute::POSTURE(), ::java::awt::font::TextAttribute::POSTURE_OBLIQUE(), startIdx, endIdx);
 
-    if(npc(font)->getUnderline() == ::org::apache::poi::ss::usermodel::Font::U_SINGLE)
+    if(npc(font)->getUnderline() == ::poi::ss::usermodel::Font::U_SINGLE)
         npc(str)->addAttribute(::java::awt::font::TextAttribute::UNDERLINE(), ::java::awt::font::TextAttribute::UNDERLINE_ON(), startIdx, endIdx);
 
 }
 
-bool org::apache::poi::ss::util::SheetUtil::containsCell(CellRangeAddress* cr, int32_t rowIx, int32_t colIx)
+bool poi::ss::util::SheetUtil::containsCell(CellRangeAddress* cr, int32_t rowIx, int32_t colIx)
 {
     clinit();
     return npc(cr)->isInRange(rowIx, colIx);
 }
 
-org::apache::poi::ss::usermodel::Cell* org::apache::poi::ss::util::SheetUtil::getCell(::org::apache::poi::ss::usermodel::Sheet* sheet, int32_t rowIx, int32_t colIx)
+poi::ss::usermodel::Cell* poi::ss::util::SheetUtil::getCell(::poi::ss::usermodel::Sheet* sheet, int32_t rowIx, int32_t colIx)
 {
     clinit();
     auto r = npc(sheet)->getRow(rowIx);
@@ -264,7 +264,7 @@ org::apache::poi::ss::usermodel::Cell* org::apache::poi::ss::util::SheetUtil::ge
     return nullptr;
 }
 
-org::apache::poi::ss::usermodel::Cell* org::apache::poi::ss::util::SheetUtil::getCellWithMerges(::org::apache::poi::ss::usermodel::Sheet* sheet, int32_t rowIx, int32_t colIx)
+poi::ss::usermodel::Cell* poi::ss::util::SheetUtil::getCellWithMerges(::poi::ss::usermodel::Sheet* sheet, int32_t rowIx, int32_t colIx)
 {
     clinit();
     auto const c = getCell(sheet, rowIx, colIx);
@@ -287,13 +287,13 @@ org::apache::poi::ss::usermodel::Cell* org::apache::poi::ss::util::SheetUtil::ge
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::util::SheetUtil::class_()
+java::lang::Class* poi::ss::util::SheetUtil::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.util.SheetUtil", 32);
     return c;
 }
 
-void org::apache::poi::ss::util::SheetUtil::clinit()
+void poi::ss::util::SheetUtil::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -310,7 +310,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::util::SheetUtil::getClass0()
+java::lang::Class* poi::ss::util::SheetUtil::getClass0()
 {
     return class_();
 }

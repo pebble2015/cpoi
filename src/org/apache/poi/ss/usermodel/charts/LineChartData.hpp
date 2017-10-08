@@ -6,7 +6,7 @@
 #include <org/apache/poi/ss/usermodel/charts/fwd-POI.hpp>
 #include <org/apache/poi/ss/usermodel/charts/ChartData.hpp>
 
-struct org::apache::poi::ss::usermodel::charts::LineChartData
+struct poi::ss::usermodel::charts::LineChartData
     : public virtual ChartData
 {
     virtual LineChartSeries* addSeries(ChartDataSource* categories, ChartDataSource* values) = 0;

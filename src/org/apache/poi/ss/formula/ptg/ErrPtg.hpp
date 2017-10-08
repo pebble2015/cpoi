@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::ptg::ErrPtg final
+class poi::ss::formula::ptg::ErrPtg final
     : public ScalarConstantPtg
 {
 
@@ -36,8 +36,8 @@ protected:
     void ctor(int32_t errorCode);
 
 public:
-    static ErrPtg* read(::org::apache::poi::util::LittleEndianInput* in);
-    void write(::org::apache::poi::util::LittleEndianOutput* out) override;
+    static ErrPtg* read(::poi::util::LittleEndianInput* in);
+    void write(::poi::util::LittleEndianOutput* out) override;
     ::java::lang::String* toFormulaString() override;
     int32_t getSize() override;
     int32_t getErrorCode();

@@ -16,66 +16,66 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::BOFRecord::BOFRecord(const ::default_init_tag&)
+poi::hssf::record::BOFRecord::BOFRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::BOFRecord::BOFRecord() 
+poi::hssf::record::BOFRecord::BOFRecord() 
     : BOFRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::BOFRecord::BOFRecord(int32_t type) 
+poi::hssf::record::BOFRecord::BOFRecord(int32_t type) 
     : BOFRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(type);
 }
 
-org::apache::poi::hssf::record::BOFRecord::BOFRecord(RecordInputStream* in) 
+poi::hssf::record::BOFRecord::BOFRecord(RecordInputStream* in) 
     : BOFRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::BOFRecord::sid;
+constexpr int16_t poi::hssf::record::BOFRecord::sid;
 
-constexpr int16_t org::apache::poi::hssf::record::BOFRecord::biff2_sid;
+constexpr int16_t poi::hssf::record::BOFRecord::biff2_sid;
 
-constexpr int16_t org::apache::poi::hssf::record::BOFRecord::biff3_sid;
+constexpr int16_t poi::hssf::record::BOFRecord::biff3_sid;
 
-constexpr int16_t org::apache::poi::hssf::record::BOFRecord::biff4_sid;
+constexpr int16_t poi::hssf::record::BOFRecord::biff4_sid;
 
-constexpr int16_t org::apache::poi::hssf::record::BOFRecord::biff5_sid;
+constexpr int16_t poi::hssf::record::BOFRecord::biff5_sid;
 
-constexpr int32_t org::apache::poi::hssf::record::BOFRecord::VERSION;
+constexpr int32_t poi::hssf::record::BOFRecord::VERSION;
 
-constexpr int32_t org::apache::poi::hssf::record::BOFRecord::BUILD;
+constexpr int32_t poi::hssf::record::BOFRecord::BUILD;
 
-constexpr int32_t org::apache::poi::hssf::record::BOFRecord::BUILD_YEAR;
+constexpr int32_t poi::hssf::record::BOFRecord::BUILD_YEAR;
 
-constexpr int32_t org::apache::poi::hssf::record::BOFRecord::HISTORY_MASK;
+constexpr int32_t poi::hssf::record::BOFRecord::HISTORY_MASK;
 
-constexpr int32_t org::apache::poi::hssf::record::BOFRecord::TYPE_WORKBOOK;
+constexpr int32_t poi::hssf::record::BOFRecord::TYPE_WORKBOOK;
 
-constexpr int32_t org::apache::poi::hssf::record::BOFRecord::TYPE_VB_MODULE;
+constexpr int32_t poi::hssf::record::BOFRecord::TYPE_VB_MODULE;
 
-constexpr int32_t org::apache::poi::hssf::record::BOFRecord::TYPE_WORKSHEET;
+constexpr int32_t poi::hssf::record::BOFRecord::TYPE_WORKSHEET;
 
-constexpr int32_t org::apache::poi::hssf::record::BOFRecord::TYPE_CHART;
+constexpr int32_t poi::hssf::record::BOFRecord::TYPE_CHART;
 
-constexpr int32_t org::apache::poi::hssf::record::BOFRecord::TYPE_EXCEL_4_MACRO;
+constexpr int32_t poi::hssf::record::BOFRecord::TYPE_EXCEL_4_MACRO;
 
-constexpr int32_t org::apache::poi::hssf::record::BOFRecord::TYPE_WORKSPACE_FILE;
+constexpr int32_t poi::hssf::record::BOFRecord::TYPE_WORKSPACE_FILE;
 
-void org::apache::poi::hssf::record::BOFRecord::ctor()
+void poi::hssf::record::BOFRecord::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hssf::record::BOFRecord::ctor(int32_t type)
+void poi::hssf::record::BOFRecord::ctor(int32_t type)
 {
     super::ctor();
     field_1_version = VERSION;
@@ -86,13 +86,13 @@ void org::apache::poi::hssf::record::BOFRecord::ctor(int32_t type)
     field_6_rversion = VERSION;
 }
 
-org::apache::poi::hssf::record::BOFRecord* org::apache::poi::hssf::record::BOFRecord::createSheetBOF()
+poi::hssf::record::BOFRecord* poi::hssf::record::BOFRecord::createSheetBOF()
 {
     clinit();
     return new BOFRecord(TYPE_WORKSHEET);
 }
 
-void org::apache::poi::hssf::record::BOFRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::BOFRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     field_1_version = npc(in)->readShort();
@@ -111,82 +111,82 @@ void org::apache::poi::hssf::record::BOFRecord::ctor(RecordInputStream* in)
     }
 }
 
-void org::apache::poi::hssf::record::BOFRecord::setVersion(int32_t version)
+void poi::hssf::record::BOFRecord::setVersion(int32_t version)
 {
     field_1_version = version;
 }
 
-void org::apache::poi::hssf::record::BOFRecord::setType(int32_t type)
+void poi::hssf::record::BOFRecord::setType(int32_t type)
 {
     field_2_type = type;
 }
 
-void org::apache::poi::hssf::record::BOFRecord::setBuild(int32_t build)
+void poi::hssf::record::BOFRecord::setBuild(int32_t build)
 {
     field_3_build = build;
 }
 
-void org::apache::poi::hssf::record::BOFRecord::setBuildYear(int32_t year)
+void poi::hssf::record::BOFRecord::setBuildYear(int32_t year)
 {
     field_4_year = year;
 }
 
-void org::apache::poi::hssf::record::BOFRecord::setHistoryBitMask(int32_t bitmask)
+void poi::hssf::record::BOFRecord::setHistoryBitMask(int32_t bitmask)
 {
     field_5_history = bitmask;
 }
 
-void org::apache::poi::hssf::record::BOFRecord::setRequiredVersion(int32_t version)
+void poi::hssf::record::BOFRecord::setRequiredVersion(int32_t version)
 {
     field_6_rversion = version;
 }
 
-int32_t org::apache::poi::hssf::record::BOFRecord::getVersion()
+int32_t poi::hssf::record::BOFRecord::getVersion()
 {
     return field_1_version;
 }
 
-int32_t org::apache::poi::hssf::record::BOFRecord::getType()
+int32_t poi::hssf::record::BOFRecord::getType()
 {
     return field_2_type;
 }
 
-int32_t org::apache::poi::hssf::record::BOFRecord::getBuild()
+int32_t poi::hssf::record::BOFRecord::getBuild()
 {
     return field_3_build;
 }
 
-int32_t org::apache::poi::hssf::record::BOFRecord::getBuildYear()
+int32_t poi::hssf::record::BOFRecord::getBuildYear()
 {
     return field_4_year;
 }
 
-int32_t org::apache::poi::hssf::record::BOFRecord::getHistoryBitMask()
+int32_t poi::hssf::record::BOFRecord::getHistoryBitMask()
 {
     return field_5_history;
 }
 
-int32_t org::apache::poi::hssf::record::BOFRecord::getRequiredVersion()
+int32_t poi::hssf::record::BOFRecord::getRequiredVersion()
 {
     return field_6_rversion;
 }
 
-java::lang::String* org::apache::poi::hssf::record::BOFRecord::toString()
+java::lang::String* poi::hssf::record::BOFRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[BOF RECORD]\n"_j);
-    npc(npc(npc(buffer)->append(u"    .version  = "_j))->append(::org::apache::poi::util::HexDump::shortToHex(getVersion())))->append(u"\n"_j);
-    npc(npc(buffer)->append(u"    .type     = "_j))->append(::org::apache::poi::util::HexDump::shortToHex(getType()));
+    npc(npc(npc(buffer)->append(u"    .version  = "_j))->append(::poi::util::HexDump::shortToHex(getVersion())))->append(u"\n"_j);
+    npc(npc(buffer)->append(u"    .type     = "_j))->append(::poi::util::HexDump::shortToHex(getType()));
     npc(npc(npc(npc(buffer)->append(u" ("_j))->append(getTypeName()))->append(u")"_j))->append(u"\n"_j);
-    npc(npc(npc(buffer)->append(u"    .build    = "_j))->append(::org::apache::poi::util::HexDump::shortToHex(getBuild())))->append(u"\n"_j);
+    npc(npc(npc(buffer)->append(u"    .build    = "_j))->append(::poi::util::HexDump::shortToHex(getBuild())))->append(u"\n"_j);
     npc(npc(npc(buffer)->append(u"    .buildyear= "_j))->append(getBuildYear()))->append(u"\n"_j);
-    npc(npc(npc(buffer)->append(u"    .history  = "_j))->append(::org::apache::poi::util::HexDump::intToHex(getHistoryBitMask())))->append(u"\n"_j);
-    npc(npc(npc(buffer)->append(u"    .reqver   = "_j))->append(::org::apache::poi::util::HexDump::intToHex(getRequiredVersion())))->append(u"\n"_j);
+    npc(npc(npc(buffer)->append(u"    .history  = "_j))->append(::poi::util::HexDump::intToHex(getHistoryBitMask())))->append(u"\n"_j);
+    npc(npc(npc(buffer)->append(u"    .reqver   = "_j))->append(::poi::util::HexDump::intToHex(getRequiredVersion())))->append(u"\n"_j);
     npc(buffer)->append(u"[/BOF RECORD]\n"_j);
     return npc(buffer)->toString();
 }
 
-java::lang::String* org::apache::poi::hssf::record::BOFRecord::getTypeName()
+java::lang::String* poi::hssf::record::BOFRecord::getTypeName()
 {
     switch (field_2_type) {
     case TYPE_CHART:
@@ -206,7 +206,7 @@ java::lang::String* org::apache::poi::hssf::record::BOFRecord::getTypeName()
     return u"#error unknown type#"_j;
 }
 
-void org::apache::poi::hssf::record::BOFRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::BOFRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(getVersion());
     npc(out)->writeShort(getType());
@@ -216,17 +216,17 @@ void org::apache::poi::hssf::record::BOFRecord::serialize(::org::apache::poi::ut
     npc(out)->writeInt(getRequiredVersion());
 }
 
-int32_t org::apache::poi::hssf::record::BOFRecord::getDataSize()
+int32_t poi::hssf::record::BOFRecord::getDataSize()
 {
     return 16;
 }
 
-int16_t org::apache::poi::hssf::record::BOFRecord::getSid()
+int16_t poi::hssf::record::BOFRecord::getSid()
 {
     return sid;
 }
 
-org::apache::poi::hssf::record::BOFRecord* org::apache::poi::hssf::record::BOFRecord::clone()
+poi::hssf::record::BOFRecord* poi::hssf::record::BOFRecord::clone()
 {
     auto rec = new BOFRecord();
     npc(rec)->field_1_version = field_1_version;
@@ -240,23 +240,23 @@ org::apache::poi::hssf::record::BOFRecord* org::apache::poi::hssf::record::BOFRe
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::BOFRecord::class_()
+java::lang::Class* poi::hssf::record::BOFRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.BOFRecord", 36);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::BOFRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::BOFRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::BOFRecord::serialize()
+int8_tArray* poi::hssf::record::BOFRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::BOFRecord::getClass0()
+java::lang::Class* poi::hssf::record::BOFRecord::getClass0()
 {
     return class_();
 }

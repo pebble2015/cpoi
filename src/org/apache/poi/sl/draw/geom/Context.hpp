@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::geom::Context
+class poi::sl::draw::geom::Context
     : public virtual ::java::lang::Object
 {
 

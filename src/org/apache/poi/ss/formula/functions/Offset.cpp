@@ -17,25 +17,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -53,26 +47,26 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::Offset::Offset(const ::default_init_tag&)
+poi::ss::formula::functions::Offset::Offset(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::Offset::Offset()
+poi::ss::formula::functions::Offset::Offset()
     : Offset(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-constexpr int32_t org::apache::poi::ss::formula::functions::Offset::LAST_VALID_ROW_INDEX;
+constexpr int32_t poi::ss::formula::functions::Offset::LAST_VALID_ROW_INDEX;
 
-constexpr int32_t org::apache::poi::ss::formula::functions::Offset::LAST_VALID_COLUMN_INDEX;
+constexpr int32_t poi::ss::formula::functions::Offset::LAST_VALID_COLUMN_INDEX;
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Offset::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcCellRow, int32_t srcCellCol)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Offset::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcCellRow, int32_t srcCellCol)
 {
     if(npc(args)->length < 3 || npc(args)->length > 5) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
     try {
         auto baseRef = evaluateBaseRef((*args)[int32_t(0)]);
@@ -82,11 +76,11 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::f
         auto width = npc(baseRef)->getWidth();
         switch (npc(args)->length) {
         case int32_t(5):
-            if(!(dynamic_cast< ::org::apache::poi::ss::formula::eval::MissingArgEval* >((*args)[int32_t(4)]) != nullptr)) {
+            if(!(dynamic_cast< ::poi::ss::formula::eval::MissingArgEval* >((*args)[int32_t(4)]) != nullptr)) {
                 width = evaluateIntArg((*args)[int32_t(4)], srcCellRow, srcCellCol);
             }
         case int32_t(4):
-            if(!(dynamic_cast< ::org::apache::poi::ss::formula::eval::MissingArgEval* >((*args)[int32_t(3)]) != nullptr)) {
+            if(!(dynamic_cast< ::poi::ss::formula::eval::MissingArgEval* >((*args)[int32_t(3)]) != nullptr)) {
                 height = evaluateIntArg((*args)[int32_t(3)], srcCellRow, srcCellCol);
             }
             break;
@@ -95,61 +89,61 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::f
         }
 
         if(height == 0 || width == 0) {
-            return ::org::apache::poi::ss::formula::eval::ErrorEval::REF_INVALID();
+            return ::poi::ss::formula::eval::ErrorEval::REF_INVALID();
         }
         auto rowOffsetRange = new Offset_LinearOffsetRange(rowOffset, height);
         auto colOffsetRange = new Offset_LinearOffsetRange(columnOffset, width);
         return createOffset(baseRef, rowOffsetRange, colOffsetRange);
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
         return npc(e)->getErrorEval();
     }
 }
 
-org::apache::poi::ss::formula::eval::AreaEval* org::apache::poi::ss::formula::functions::Offset::createOffset(Offset_BaseRef* baseRef, Offset_LinearOffsetRange* orRow, Offset_LinearOffsetRange* orCol) /* throws(EvaluationException) */
+poi::ss::formula::eval::AreaEval* poi::ss::formula::functions::Offset::createOffset(Offset_BaseRef* baseRef, Offset_LinearOffsetRange* orRow, Offset_LinearOffsetRange* orCol) /* throws(EvaluationException) */
 {
     clinit();
     auto absRows = npc(orRow)->normaliseAndTranslate(npc(baseRef)->getFirstRowIndex());
     auto absCols = npc(orCol)->normaliseAndTranslate(npc(baseRef)->getFirstColumnIndex());
     if(npc(absRows)->isOutOfBounds(0, LAST_VALID_ROW_INDEX)) {
-        throw new ::org::apache::poi::ss::formula::eval::EvaluationException(::org::apache::poi::ss::formula::eval::ErrorEval::REF_INVALID());
+        throw new ::poi::ss::formula::eval::EvaluationException(::poi::ss::formula::eval::ErrorEval::REF_INVALID());
     }
     if(npc(absCols)->isOutOfBounds(0, LAST_VALID_COLUMN_INDEX)) {
-        throw new ::org::apache::poi::ss::formula::eval::EvaluationException(::org::apache::poi::ss::formula::eval::ErrorEval::REF_INVALID());
+        throw new ::poi::ss::formula::eval::EvaluationException(::poi::ss::formula::eval::ErrorEval::REF_INVALID());
     }
     return npc(baseRef)->offset(npc(orRow)->getFirstIndex(), npc(orRow)->getLastIndex(), npc(orCol)->getFirstIndex(), npc(orCol)->getLastIndex());
 }
 
-org::apache::poi::ss::formula::functions::Offset_BaseRef* org::apache::poi::ss::formula::functions::Offset::evaluateBaseRef(::org::apache::poi::ss::formula::eval::ValueEval* eval) /* throws(EvaluationException) */
+poi::ss::formula::functions::Offset_BaseRef* poi::ss::formula::functions::Offset::evaluateBaseRef(::poi::ss::formula::eval::ValueEval* eval) /* throws(EvaluationException) */
 {
     clinit();
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::RefEval* >(eval) != nullptr) {
-        return new Offset_BaseRef(java_cast< ::org::apache::poi::ss::formula::eval::RefEval* >(eval));
+    if(dynamic_cast< ::poi::ss::formula::eval::RefEval* >(eval) != nullptr) {
+        return new Offset_BaseRef(java_cast< ::poi::ss::formula::eval::RefEval* >(eval));
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::AreaEval* >(eval) != nullptr) {
-        return new Offset_BaseRef(java_cast< ::org::apache::poi::ss::formula::eval::AreaEval* >(eval));
+    if(dynamic_cast< ::poi::ss::formula::eval::AreaEval* >(eval) != nullptr) {
+        return new Offset_BaseRef(java_cast< ::poi::ss::formula::eval::AreaEval* >(eval));
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::ErrorEval* >(eval) != nullptr) {
-        throw new ::org::apache::poi::ss::formula::eval::EvaluationException(java_cast< ::org::apache::poi::ss::formula::eval::ErrorEval* >(eval));
+    if(dynamic_cast< ::poi::ss::formula::eval::ErrorEval* >(eval) != nullptr) {
+        throw new ::poi::ss::formula::eval::EvaluationException(java_cast< ::poi::ss::formula::eval::ErrorEval* >(eval));
     }
-    throw new ::org::apache::poi::ss::formula::eval::EvaluationException(::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID());
+    throw new ::poi::ss::formula::eval::EvaluationException(::poi::ss::formula::eval::ErrorEval::VALUE_INVALID());
 }
 
-int32_t org::apache::poi::ss::formula::functions::Offset::evaluateIntArg(::org::apache::poi::ss::formula::eval::ValueEval* eval, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */
+int32_t poi::ss::formula::functions::Offset::evaluateIntArg(::poi::ss::formula::eval::ValueEval* eval, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */
 {
     clinit();
-    auto ve = ::org::apache::poi::ss::formula::eval::OperandResolver::getSingleValue(eval, srcCellRow, srcCellCol);
-    return ::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToInt(ve);
+    auto ve = ::poi::ss::formula::eval::OperandResolver::getSingleValue(eval, srcCellRow, srcCellCol);
+    return ::poi::ss::formula::eval::OperandResolver::coerceValueToInt(ve);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Offset::class_()
+java::lang::Class* poi::ss::formula::functions::Offset::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.Offset", 42);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Offset::getClass0()
+java::lang::Class* poi::ss::formula::functions::Offset::getClass0()
 {
     return class_();
 }

@@ -18,49 +18,49 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::util::MutableFPNumber::MutableFPNumber(const ::default_init_tag&)
+poi::ss::util::MutableFPNumber::MutableFPNumber(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::util::MutableFPNumber::MutableFPNumber(::java::math::BigInteger* frac, int32_t binaryExponent) 
+poi::ss::util::MutableFPNumber::MutableFPNumber(::java::math::BigInteger* frac, int32_t binaryExponent) 
     : MutableFPNumber(*static_cast< ::default_init_tag* >(0))
 {
     ctor(frac,binaryExponent);
 }
 
-java::math::BigInteger*& org::apache::poi::ss::util::MutableFPNumber::BI_MIN_BASE()
+java::math::BigInteger*& poi::ss::util::MutableFPNumber::BI_MIN_BASE()
 {
     clinit();
     return BI_MIN_BASE_;
 }
-java::math::BigInteger* org::apache::poi::ss::util::MutableFPNumber::BI_MIN_BASE_;
+java::math::BigInteger* poi::ss::util::MutableFPNumber::BI_MIN_BASE_;
 
-java::math::BigInteger*& org::apache::poi::ss::util::MutableFPNumber::BI_MAX_BASE()
+java::math::BigInteger*& poi::ss::util::MutableFPNumber::BI_MAX_BASE()
 {
     clinit();
     return BI_MAX_BASE_;
 }
-java::math::BigInteger* org::apache::poi::ss::util::MutableFPNumber::BI_MAX_BASE_;
+java::math::BigInteger* poi::ss::util::MutableFPNumber::BI_MAX_BASE_;
 
-constexpr int32_t org::apache::poi::ss::util::MutableFPNumber::C_64;
+constexpr int32_t poi::ss::util::MutableFPNumber::C_64;
 
-constexpr int32_t org::apache::poi::ss::util::MutableFPNumber::MIN_PRECISION;
+constexpr int32_t poi::ss::util::MutableFPNumber::MIN_PRECISION;
 
-void org::apache::poi::ss::util::MutableFPNumber::ctor(::java::math::BigInteger* frac, int32_t binaryExponent)
+void poi::ss::util::MutableFPNumber::ctor(::java::math::BigInteger* frac, int32_t binaryExponent)
 {
     super::ctor();
     _significand = frac;
     _binaryExponent = binaryExponent;
 }
 
-org::apache::poi::ss::util::MutableFPNumber* org::apache::poi::ss::util::MutableFPNumber::copy()
+poi::ss::util::MutableFPNumber* poi::ss::util::MutableFPNumber::copy()
 {
     return new MutableFPNumber(_significand, _binaryExponent);
 }
 
-void org::apache::poi::ss::util::MutableFPNumber::normalise64bit()
+void poi::ss::util::MutableFPNumber::normalise64bit()
 {
     auto oldBitLen = npc(_significand)->bitLength();
     auto sc = oldBitLen - C_64;
@@ -88,24 +88,24 @@ void org::apache::poi::ss::util::MutableFPNumber::normalise64bit()
     _significand = npc(_significand)->shiftRight(sc);
 }
 
-int32_t org::apache::poi::ss::util::MutableFPNumber::get64BitNormalisedExponent()
+int32_t poi::ss::util::MutableFPNumber::get64BitNormalisedExponent()
 {
     return _binaryExponent + npc(_significand)->bitLength() - C_64;
 }
 
-bool org::apache::poi::ss::util::MutableFPNumber::isBelowMaxRep()
+bool poi::ss::util::MutableFPNumber::isBelowMaxRep()
 {
     auto sc = npc(_significand)->bitLength() - C_64;
     return npc(_significand)->compareTo(npc(BI_MAX_BASE_)->shiftLeft(sc)) < 0;
 }
 
-bool org::apache::poi::ss::util::MutableFPNumber::isAboveMinRep()
+bool poi::ss::util::MutableFPNumber::isAboveMinRep()
 {
     auto sc = npc(_significand)->bitLength() - C_64;
     return npc(_significand)->compareTo(npc(BI_MIN_BASE_)->shiftLeft(sc)) > 0;
 }
 
-org::apache::poi::ss::util::NormalisedDecimal* org::apache::poi::ss::util::MutableFPNumber::createNormalisedDecimal(int32_t pow10)
+poi::ss::util::NormalisedDecimal* poi::ss::util::MutableFPNumber::createNormalisedDecimal(int32_t pow10)
 {
     auto missingUnderBits = _binaryExponent - int32_t(39);
     auto fracPart = (npc(_significand)->intValue() << missingUnderBits) & int32_t(16777088);
@@ -113,7 +113,7 @@ org::apache::poi::ss::util::NormalisedDecimal* org::apache::poi::ss::util::Mutab
     return new NormalisedDecimal(wholePart, fracPart, pow10);
 }
 
-void org::apache::poi::ss::util::MutableFPNumber::multiplyByPowerOfTen(int32_t pow10)
+void poi::ss::util::MutableFPNumber::multiplyByPowerOfTen(int32_t pow10)
 {
     auto tp = MutableFPNumber_TenPower::getInstance(::java::lang::Math::abs(pow10));
     if(pow10 < 0) {
@@ -123,7 +123,7 @@ void org::apache::poi::ss::util::MutableFPNumber::multiplyByPowerOfTen(int32_t p
     }
 }
 
-void org::apache::poi::ss::util::MutableFPNumber::mulShift(::java::math::BigInteger* multiplicand, int32_t multiplierShift)
+void poi::ss::util::MutableFPNumber::mulShift(::java::math::BigInteger* multiplicand, int32_t multiplierShift)
 {
     _significand = npc(_significand)->multiply(multiplicand);
     _binaryExponent += multiplierShift;
@@ -134,20 +134,20 @@ void org::apache::poi::ss::util::MutableFPNumber::mulShift(::java::math::BigInte
     }
 }
 
-org::apache::poi::ss::util::ExpandedDouble* org::apache::poi::ss::util::MutableFPNumber::createExpandedDouble()
+poi::ss::util::ExpandedDouble* poi::ss::util::MutableFPNumber::createExpandedDouble()
 {
     return new ExpandedDouble(_significand, _binaryExponent);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::util::MutableFPNumber::class_()
+java::lang::Class* poi::ss::util::MutableFPNumber::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.util.MutableFPNumber", 38);
     return c;
 }
 
-void org::apache::poi::ss::util::MutableFPNumber::clinit()
+void poi::ss::util::MutableFPNumber::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -164,7 +164,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::util::MutableFPNumber::getClass0()
+java::lang::Class* poi::ss::util::MutableFPNumber::getClass0()
 {
     return class_();
 }

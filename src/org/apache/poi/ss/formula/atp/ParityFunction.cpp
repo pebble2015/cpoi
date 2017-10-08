@@ -14,25 +14,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -41,57 +35,57 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::atp::ParityFunction::ParityFunction(const ::default_init_tag&)
+poi::ss::formula::atp::ParityFunction::ParityFunction(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::atp::ParityFunction::ParityFunction(int32_t desiredParity) 
+poi::ss::formula::atp::ParityFunction::ParityFunction(int32_t desiredParity) 
     : ParityFunction(*static_cast< ::default_init_tag* >(0))
 {
     ctor(desiredParity);
 }
 
-org::apache::poi::ss::formula::functions::FreeRefFunction*& org::apache::poi::ss::formula::atp::ParityFunction::IS_EVEN()
+poi::ss::formula::functions::FreeRefFunction*& poi::ss::formula::atp::ParityFunction::IS_EVEN()
 {
     clinit();
     return IS_EVEN_;
 }
-org::apache::poi::ss::formula::functions::FreeRefFunction* org::apache::poi::ss::formula::atp::ParityFunction::IS_EVEN_;
+poi::ss::formula::functions::FreeRefFunction* poi::ss::formula::atp::ParityFunction::IS_EVEN_;
 
-org::apache::poi::ss::formula::functions::FreeRefFunction*& org::apache::poi::ss::formula::atp::ParityFunction::IS_ODD()
+poi::ss::formula::functions::FreeRefFunction*& poi::ss::formula::atp::ParityFunction::IS_ODD()
 {
     clinit();
     return IS_ODD_;
 }
-org::apache::poi::ss::formula::functions::FreeRefFunction* org::apache::poi::ss::formula::atp::ParityFunction::IS_ODD_;
+poi::ss::formula::functions::FreeRefFunction* poi::ss::formula::atp::ParityFunction::IS_ODD_;
 
-void org::apache::poi::ss::formula::atp::ParityFunction::ctor(int32_t desiredParity)
+void poi::ss::formula::atp::ParityFunction::ctor(int32_t desiredParity)
 {
     super::ctor();
     _desiredParity = desiredParity;
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::atp::ParityFunction::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, ::org::apache::poi::ss::formula::OperationEvaluationContext* ec)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::atp::ParityFunction::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, ::poi::ss::formula::OperationEvaluationContext* ec)
 {
     if(npc(args)->length != 1) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
     int32_t val;
     try {
         val = evaluateArgParity((*args)[int32_t(0)], npc(ec)->getRowIndex(), npc(ec)->getColumnIndex());
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
         return npc(e)->getErrorEval();
     }
-    return ::org::apache::poi::ss::formula::eval::BoolEval::valueOf(val == _desiredParity);
+    return ::poi::ss::formula::eval::BoolEval::valueOf(val == _desiredParity);
 }
 
-int32_t org::apache::poi::ss::formula::atp::ParityFunction::evaluateArgParity(::org::apache::poi::ss::formula::eval::ValueEval* arg, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */
+int32_t poi::ss::formula::atp::ParityFunction::evaluateArgParity(::poi::ss::formula::eval::ValueEval* arg, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */
 {
     clinit();
-    auto ve = ::org::apache::poi::ss::formula::eval::OperandResolver::getSingleValue(arg, srcCellRow, static_cast< int16_t >(srcCellCol));
-    auto d = ::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToDouble(ve);
+    auto ve = ::poi::ss::formula::eval::OperandResolver::getSingleValue(arg, srcCellRow, static_cast< int16_t >(srcCellCol));
+    auto d = ::poi::ss::formula::eval::OperandResolver::coerceValueToDouble(ve);
     if(d < 0) {
         d = -d;
     }
@@ -101,13 +95,13 @@ int32_t org::apache::poi::ss::formula::atp::ParityFunction::evaluateArgParity(::
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::atp::ParityFunction::class_()
+java::lang::Class* poi::ss::formula::atp::ParityFunction::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.atp.ParityFunction", 44);
     return c;
 }
 
-void org::apache::poi::ss::formula::atp::ParityFunction::clinit()
+void poi::ss::formula::atp::ParityFunction::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -124,7 +118,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::formula::atp::ParityFunction::getClass0()
+java::lang::Class* poi::ss::formula::atp::ParityFunction::getClass0()
 {
     return class_();
 }

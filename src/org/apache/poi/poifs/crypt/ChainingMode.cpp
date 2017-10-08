@@ -25,39 +25,33 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace poifs
     {
-        namespace poi
+        namespace crypt
         {
-            namespace poifs
-            {
-                namespace crypt
-                {
-typedef ::SubArray< ::org::apache::poi::poifs::crypt::ChainingMode, ::java::lang::EnumArray > ChainingModeArray;
-                } // crypt
-            } // poifs
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::poifs::crypt::ChainingMode, ::java::lang::EnumArray > ChainingModeArray;
+        } // crypt
+    } // poifs
+} // poi
 
-org::apache::poi::poifs::crypt::ChainingMode::ChainingMode(const ::default_init_tag&)
+poi::poifs::crypt::ChainingMode::ChainingMode(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::crypt::ChainingMode::ChainingMode(::java::lang::String* name, int ordinal, ::java::lang::String* jceId, int32_t ecmaId) 
+poi::poifs::crypt::ChainingMode::ChainingMode(::java::lang::String* name, int ordinal, ::java::lang::String* jceId, int32_t ecmaId) 
     : ChainingMode(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal, jceId,ecmaId);
 }
 
-org::apache::poi::poifs::crypt::ChainingMode* org::apache::poi::poifs::crypt::ChainingMode::ecb = new ::org::apache::poi::poifs::crypt::ChainingMode(u"ecb"_j, 0, u"ECB"_j, int32_t(1));
-org::apache::poi::poifs::crypt::ChainingMode* org::apache::poi::poifs::crypt::ChainingMode::cbc = new ::org::apache::poi::poifs::crypt::ChainingMode(u"cbc"_j, 1, u"CBC"_j, int32_t(2));
-org::apache::poi::poifs::crypt::ChainingMode* org::apache::poi::poifs::crypt::ChainingMode::cfb = new ::org::apache::poi::poifs::crypt::ChainingMode(u"cfb"_j, 2, u"CFB8"_j, int32_t(3));
-void org::apache::poi::poifs::crypt::ChainingMode::ctor(::java::lang::String* name, int ordinal, ::java::lang::String* jceId, int32_t ecmaId)
+poi::poifs::crypt::ChainingMode* poi::poifs::crypt::ChainingMode::ecb = new ::poi::poifs::crypt::ChainingMode(u"ecb"_j, 0, u"ECB"_j, int32_t(1));
+poi::poifs::crypt::ChainingMode* poi::poifs::crypt::ChainingMode::cbc = new ::poi::poifs::crypt::ChainingMode(u"cbc"_j, 1, u"CBC"_j, int32_t(2));
+poi::poifs::crypt::ChainingMode* poi::poifs::crypt::ChainingMode::cfb = new ::poi::poifs::crypt::ChainingMode(u"cfb"_j, 2, u"CFB8"_j, int32_t(3));
+void poi::poifs::crypt::ChainingMode::ctor(::java::lang::String* name, int ordinal, ::java::lang::String* jceId, int32_t ecmaId)
 {
     super::ctor(name, ordinal);
     this->jceId = jceId;
@@ -66,13 +60,13 @@ void org::apache::poi::poifs::crypt::ChainingMode::ctor(::java::lang::String* na
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::crypt::ChainingMode::class_()
+java::lang::Class* poi::poifs::crypt::ChainingMode::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.crypt.ChainingMode", 39);
     return c;
 }
 
-org::apache::poi::poifs::crypt::ChainingMode* org::apache::poi::poifs::crypt::ChainingMode::valueOf(::java::lang::String* a0)
+poi::poifs::crypt::ChainingMode* poi::poifs::crypt::ChainingMode::valueOf(::java::lang::String* a0)
 {
     if(cbc->toString()->equals(a0))
         return cbc;
@@ -83,16 +77,16 @@ org::apache::poi::poifs::crypt::ChainingMode* org::apache::poi::poifs::crypt::Ch
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::poifs::crypt::ChainingModeArray* org::apache::poi::poifs::crypt::ChainingMode::values()
+poi::poifs::crypt::ChainingModeArray* poi::poifs::crypt::ChainingMode::values()
 {
-    return new org::apache::poi::poifs::crypt::ChainingModeArray({
+    return new poi::poifs::crypt::ChainingModeArray({
         cbc,
         cfb,
         ecb,
     });
 }
 
-java::lang::Class* org::apache::poi::poifs::crypt::ChainingMode::getClass0()
+java::lang::Class* poi::poifs::crypt::ChainingMode::getClass0()
 {
     return class_();
 }

@@ -51,31 +51,31 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::LookupUtils::LookupUtils(const ::default_init_tag&)
+poi::ss::formula::functions::LookupUtils::LookupUtils(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::LookupUtils::LookupUtils()
+poi::ss::formula::functions::LookupUtils::LookupUtils()
     : LookupUtils(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::functions::LookupUtils_ValueVector* org::apache::poi::ss::formula::functions::LookupUtils::createRowVector(::org::apache::poi::ss::formula::TwoDEval* tableArray_, int32_t relativeRowIndex)
+poi::ss::formula::functions::LookupUtils_ValueVector* poi::ss::formula::functions::LookupUtils::createRowVector(::poi::ss::formula::TwoDEval* tableArray_, int32_t relativeRowIndex)
 {
     clinit();
     return new LookupUtils_RowVector(tableArray_, relativeRowIndex);
 }
 
-org::apache::poi::ss::formula::functions::LookupUtils_ValueVector* org::apache::poi::ss::formula::functions::LookupUtils::createColumnVector(::org::apache::poi::ss::formula::TwoDEval* tableArray_, int32_t relativeColumnIndex)
+poi::ss::formula::functions::LookupUtils_ValueVector* poi::ss::formula::functions::LookupUtils::createColumnVector(::poi::ss::formula::TwoDEval* tableArray_, int32_t relativeColumnIndex)
 {
     clinit();
     return new LookupUtils_ColumnVector(tableArray_, relativeColumnIndex);
 }
 
-org::apache::poi::ss::formula::functions::LookupUtils_ValueVector* org::apache::poi::ss::formula::functions::LookupUtils::createVector(::org::apache::poi::ss::formula::TwoDEval* ae)
+poi::ss::formula::functions::LookupUtils_ValueVector* poi::ss::formula::functions::LookupUtils::createVector(::poi::ss::formula::TwoDEval* ae)
 {
     clinit();
     if(npc(ae)->isColumn()) {
@@ -87,84 +87,84 @@ org::apache::poi::ss::formula::functions::LookupUtils_ValueVector* org::apache::
     return nullptr;
 }
 
-org::apache::poi::ss::formula::functions::LookupUtils_ValueVector* org::apache::poi::ss::formula::functions::LookupUtils::createVector(::org::apache::poi::ss::formula::eval::RefEval* re)
+poi::ss::formula::functions::LookupUtils_ValueVector* poi::ss::formula::functions::LookupUtils::createVector(::poi::ss::formula::eval::RefEval* re)
 {
     clinit();
     return new LookupUtils_SheetVector(re);
 }
 
-int32_t org::apache::poi::ss::formula::functions::LookupUtils::resolveRowOrColIndexArg(::org::apache::poi::ss::formula::eval::ValueEval* rowColIndexArg, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */
+int32_t poi::ss::formula::functions::LookupUtils::resolveRowOrColIndexArg(::poi::ss::formula::eval::ValueEval* rowColIndexArg, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */
 {
     clinit();
     if(rowColIndexArg == nullptr) {
         throw new ::java::lang::IllegalArgumentException(u"argument must not be null"_j);
     }
-    ::org::apache::poi::ss::formula::eval::ValueEval* veRowColIndexArg;
+    ::poi::ss::formula::eval::ValueEval* veRowColIndexArg;
     try {
-        veRowColIndexArg = ::org::apache::poi::ss::formula::eval::OperandResolver::getSingleValue(rowColIndexArg, srcCellRow, static_cast< int16_t >(srcCellCol));
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
-        throw ::org::apache::poi::ss::formula::eval::EvaluationException::invalidRef();
+        veRowColIndexArg = ::poi::ss::formula::eval::OperandResolver::getSingleValue(rowColIndexArg, srcCellRow, static_cast< int16_t >(srcCellCol));
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
+        throw ::poi::ss::formula::eval::EvaluationException::invalidRef();
     }
     int32_t oneBasedIndex;
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::StringEval* >(veRowColIndexArg) != nullptr) {
-        auto se = java_cast< ::org::apache::poi::ss::formula::eval::StringEval* >(veRowColIndexArg);
+    if(dynamic_cast< ::poi::ss::formula::eval::StringEval* >(veRowColIndexArg) != nullptr) {
+        auto se = java_cast< ::poi::ss::formula::eval::StringEval* >(veRowColIndexArg);
         auto strVal = npc(se)->getStringValue();
-        auto dVal = ::org::apache::poi::ss::formula::eval::OperandResolver::parseDouble(strVal);
+        auto dVal = ::poi::ss::formula::eval::OperandResolver::parseDouble(strVal);
         if(dVal == nullptr) {
-            throw ::org::apache::poi::ss::formula::eval::EvaluationException::invalidRef();
+            throw ::poi::ss::formula::eval::EvaluationException::invalidRef();
         }
     }
-    oneBasedIndex = ::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToInt(veRowColIndexArg);
+    oneBasedIndex = ::poi::ss::formula::eval::OperandResolver::coerceValueToInt(veRowColIndexArg);
     if(oneBasedIndex < 1) {
-        throw ::org::apache::poi::ss::formula::eval::EvaluationException::invalidValue();
+        throw ::poi::ss::formula::eval::EvaluationException::invalidValue();
     }
     return oneBasedIndex - int32_t(1);
 }
 
-org::apache::poi::ss::formula::TwoDEval* org::apache::poi::ss::formula::functions::LookupUtils::resolveTableArrayArg(::org::apache::poi::ss::formula::eval::ValueEval* eval) /* throws(EvaluationException) */
+poi::ss::formula::TwoDEval* poi::ss::formula::functions::LookupUtils::resolveTableArrayArg(::poi::ss::formula::eval::ValueEval* eval) /* throws(EvaluationException) */
 {
     clinit();
-    if(dynamic_cast< ::org::apache::poi::ss::formula::TwoDEval* >(eval) != nullptr) {
-        return java_cast< ::org::apache::poi::ss::formula::TwoDEval* >(eval);
+    if(dynamic_cast< ::poi::ss::formula::TwoDEval* >(eval) != nullptr) {
+        return java_cast< ::poi::ss::formula::TwoDEval* >(eval);
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::RefEval* >(eval) != nullptr) {
-        auto refEval = java_cast< ::org::apache::poi::ss::formula::eval::RefEval* >(eval);
+    if(dynamic_cast< ::poi::ss::formula::eval::RefEval* >(eval) != nullptr) {
+        auto refEval = java_cast< ::poi::ss::formula::eval::RefEval* >(eval);
         return npc(refEval)->offset(0, 0, 0, 0);
     }
-    throw ::org::apache::poi::ss::formula::eval::EvaluationException::invalidValue();
+    throw ::poi::ss::formula::eval::EvaluationException::invalidValue();
 }
 
-bool org::apache::poi::ss::formula::functions::LookupUtils::resolveRangeLookupArg(::org::apache::poi::ss::formula::eval::ValueEval* rangeLookupArg, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */
+bool poi::ss::formula::functions::LookupUtils::resolveRangeLookupArg(::poi::ss::formula::eval::ValueEval* rangeLookupArg, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */
 {
     clinit();
-    auto valEval = ::org::apache::poi::ss::formula::eval::OperandResolver::getSingleValue(rangeLookupArg, srcCellRow, srcCellCol);
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::BlankEval* >(valEval) != nullptr) {
+    auto valEval = ::poi::ss::formula::eval::OperandResolver::getSingleValue(rangeLookupArg, srcCellRow, srcCellCol);
+    if(dynamic_cast< ::poi::ss::formula::eval::BlankEval* >(valEval) != nullptr) {
         return false;
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::BoolEval* >(valEval) != nullptr) {
-        auto boolEval = java_cast< ::org::apache::poi::ss::formula::eval::BoolEval* >(valEval);
+    if(dynamic_cast< ::poi::ss::formula::eval::BoolEval* >(valEval) != nullptr) {
+        auto boolEval = java_cast< ::poi::ss::formula::eval::BoolEval* >(valEval);
         return npc(boolEval)->getBooleanValue();
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::StringEval* >(valEval) != nullptr) {
-        auto stringValue = npc((java_cast< ::org::apache::poi::ss::formula::eval::StringEval* >(valEval)))->getStringValue();
+    if(dynamic_cast< ::poi::ss::formula::eval::StringEval* >(valEval) != nullptr) {
+        auto stringValue = npc((java_cast< ::poi::ss::formula::eval::StringEval* >(valEval)))->getStringValue();
         if(npc(stringValue)->length() < 1) {
-            throw ::org::apache::poi::ss::formula::eval::EvaluationException::invalidValue();
+            throw ::poi::ss::formula::eval::EvaluationException::invalidValue();
         }
         auto b = Countif::parseBoolean(stringValue);
         if(b != nullptr) {
             return npc(b)->booleanValue();
         }
-        throw ::org::apache::poi::ss::formula::eval::EvaluationException::invalidValue();
+        throw ::poi::ss::formula::eval::EvaluationException::invalidValue();
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::NumericValueEval* >(valEval) != nullptr) {
-        auto nve = java_cast< ::org::apache::poi::ss::formula::eval::NumericValueEval* >(valEval);
+    if(dynamic_cast< ::poi::ss::formula::eval::NumericValueEval* >(valEval) != nullptr) {
+        auto nve = java_cast< ::poi::ss::formula::eval::NumericValueEval* >(valEval);
         return 0.0 != npc(nve)->getNumberValue();
     }
     throw new ::java::lang::RuntimeException(::java::lang::StringBuilder().append(u"Unexpected eval type ("_j)->append(static_cast< ::java::lang::Object* >(valEval))
         ->append(u")"_j)->toString());
 }
 
-int32_t org::apache::poi::ss::formula::functions::LookupUtils::lookupIndexOfValue(::org::apache::poi::ss::formula::eval::ValueEval* lookupValue, LookupUtils_ValueVector* vector, bool isRangeLookup) /* throws(EvaluationException) */
+int32_t poi::ss::formula::functions::LookupUtils::lookupIndexOfValue(::poi::ss::formula::eval::ValueEval* lookupValue, LookupUtils_ValueVector* vector, bool isRangeLookup) /* throws(EvaluationException) */
 {
     clinit();
     auto lookupComparer = createLookupComparer(lookupValue, isRangeLookup, false);
@@ -175,12 +175,12 @@ int32_t org::apache::poi::ss::formula::functions::LookupUtils::lookupIndexOfValu
         result = lookupIndexOfExactValue(lookupComparer, vector);
     }
     if(result < 0) {
-        throw new ::org::apache::poi::ss::formula::eval::EvaluationException(::org::apache::poi::ss::formula::eval::ErrorEval::NA());
+        throw new ::poi::ss::formula::eval::EvaluationException(::poi::ss::formula::eval::ErrorEval::NA());
     }
     return result;
 }
 
-int32_t org::apache::poi::ss::formula::functions::LookupUtils::lookupIndexOfExactValue(LookupUtils_LookupValueComparer* lookupComparer, LookupUtils_ValueVector* vector)
+int32_t poi::ss::formula::functions::LookupUtils::lookupIndexOfExactValue(LookupUtils_LookupValueComparer* lookupComparer, LookupUtils_ValueVector* vector)
 {
     clinit();
     auto size = npc(vector)->getSize();
@@ -192,7 +192,7 @@ int32_t org::apache::poi::ss::formula::functions::LookupUtils::lookupIndexOfExac
     return -int32_t(1);
 }
 
-int32_t org::apache::poi::ss::formula::functions::LookupUtils::performBinarySearch(LookupUtils_ValueVector* vector, LookupUtils_LookupValueComparer* lookupComparer)
+int32_t poi::ss::formula::functions::LookupUtils::performBinarySearch(LookupUtils_ValueVector* vector, LookupUtils_LookupValueComparer* lookupComparer)
 {
     clinit();
     auto bsi = new LookupUtils_BinarySearchIndexes(npc(vector)->getSize());
@@ -217,7 +217,7 @@ int32_t org::apache::poi::ss::formula::functions::LookupUtils::performBinarySear
     }
 }
 
-int32_t org::apache::poi::ss::formula::functions::LookupUtils::handleMidValueTypeMismatch(LookupUtils_LookupValueComparer* lookupComparer, LookupUtils_ValueVector* vector, LookupUtils_BinarySearchIndexes* bsi, int32_t midIx)
+int32_t poi::ss::formula::functions::LookupUtils::handleMidValueTypeMismatch(LookupUtils_LookupValueComparer* lookupComparer, LookupUtils_ValueVector* vector, LookupUtils_BinarySearchIndexes* bsi, int32_t midIx)
 {
     clinit();
     auto newMid = midIx;
@@ -244,7 +244,7 @@ int32_t org::apache::poi::ss::formula::functions::LookupUtils::handleMidValueTyp
     }
 }
 
-int32_t org::apache::poi::ss::formula::functions::LookupUtils::findLastIndexInRunOfEqualValues(LookupUtils_LookupValueComparer* lookupComparer, LookupUtils_ValueVector* vector, int32_t firstFoundIndex, int32_t maxIx)
+int32_t poi::ss::formula::functions::LookupUtils::findLastIndexInRunOfEqualValues(LookupUtils_LookupValueComparer* lookupComparer, LookupUtils_ValueVector* vector, int32_t firstFoundIndex, int32_t maxIx)
 {
     clinit();
     for (auto i = firstFoundIndex + int32_t(1); i < maxIx; i++) {
@@ -255,20 +255,20 @@ int32_t org::apache::poi::ss::formula::functions::LookupUtils::findLastIndexInRu
     return maxIx - int32_t(1);
 }
 
-org::apache::poi::ss::formula::functions::LookupUtils_LookupValueComparer* org::apache::poi::ss::formula::functions::LookupUtils::createLookupComparer(::org::apache::poi::ss::formula::eval::ValueEval* lookupValue, bool matchExact, bool isMatchFunction)
+poi::ss::formula::functions::LookupUtils_LookupValueComparer* poi::ss::formula::functions::LookupUtils::createLookupComparer(::poi::ss::formula::eval::ValueEval* lookupValue, bool matchExact, bool isMatchFunction)
 {
     clinit();
-    if(lookupValue == static_cast< ::org::apache::poi::ss::formula::eval::ValueEval* >(::org::apache::poi::ss::formula::eval::BlankEval::instance())) {
-        return new LookupUtils_NumberLookupComparer(::org::apache::poi::ss::formula::eval::NumberEval::ZERO());
+    if(lookupValue == static_cast< ::poi::ss::formula::eval::ValueEval* >(::poi::ss::formula::eval::BlankEval::instance())) {
+        return new LookupUtils_NumberLookupComparer(::poi::ss::formula::eval::NumberEval::ZERO());
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::StringEval* >(lookupValue) != nullptr) {
-        return new LookupUtils_StringLookupComparer(java_cast< ::org::apache::poi::ss::formula::eval::StringEval* >(lookupValue), matchExact, isMatchFunction);
+    if(dynamic_cast< ::poi::ss::formula::eval::StringEval* >(lookupValue) != nullptr) {
+        return new LookupUtils_StringLookupComparer(java_cast< ::poi::ss::formula::eval::StringEval* >(lookupValue), matchExact, isMatchFunction);
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::NumberEval* >(lookupValue) != nullptr) {
-        return new LookupUtils_NumberLookupComparer(java_cast< ::org::apache::poi::ss::formula::eval::NumberEval* >(lookupValue));
+    if(dynamic_cast< ::poi::ss::formula::eval::NumberEval* >(lookupValue) != nullptr) {
+        return new LookupUtils_NumberLookupComparer(java_cast< ::poi::ss::formula::eval::NumberEval* >(lookupValue));
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::BoolEval* >(lookupValue) != nullptr) {
-        return new LookupUtils_BooleanLookupComparer(java_cast< ::org::apache::poi::ss::formula::eval::BoolEval* >(lookupValue));
+    if(dynamic_cast< ::poi::ss::formula::eval::BoolEval* >(lookupValue) != nullptr) {
+        return new LookupUtils_BooleanLookupComparer(java_cast< ::poi::ss::formula::eval::BoolEval* >(lookupValue));
     }
     throw new ::java::lang::IllegalArgumentException(::java::lang::StringBuilder().append(u"Bad lookup value type ("_j)->append(npc(npc(lookupValue)->getClass())->getName())
         ->append(u")"_j)->toString());
@@ -276,13 +276,13 @@ org::apache::poi::ss::formula::functions::LookupUtils_LookupValueComparer* org::
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::LookupUtils::class_()
+java::lang::Class* poi::ss::formula::functions::LookupUtils::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.LookupUtils", 47);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::LookupUtils::getClass0()
+java::lang::Class* poi::ss::formula::functions::LookupUtils::getClass0()
 {
     return class_();
 }

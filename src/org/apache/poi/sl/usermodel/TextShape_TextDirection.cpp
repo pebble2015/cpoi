@@ -25,48 +25,42 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace sl
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace sl
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::sl::usermodel::TextShape_TextDirection, ::java::lang::EnumArray > TextShape_TextDirectionArray;
-                } // usermodel
-            } // sl
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::sl::usermodel::TextShape_TextDirection, ::java::lang::EnumArray > TextShape_TextDirectionArray;
+        } // usermodel
+    } // sl
+} // poi
 
-org::apache::poi::sl::usermodel::TextShape_TextDirection::TextShape_TextDirection(const ::default_init_tag&)
+poi::sl::usermodel::TextShape_TextDirection::TextShape_TextDirection(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::usermodel::TextShape_TextDirection::TextShape_TextDirection(::java::lang::String* name, int ordinal)
+poi::sl::usermodel::TextShape_TextDirection::TextShape_TextDirection(::java::lang::String* name, int ordinal)
     : TextShape_TextDirection(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal);
 }
 
-org::apache::poi::sl::usermodel::TextShape_TextDirection* org::apache::poi::sl::usermodel::TextShape_TextDirection::HORIZONTAL = new ::org::apache::poi::sl::usermodel::TextShape_TextDirection(u"HORIZONTAL"_j, 0);
-org::apache::poi::sl::usermodel::TextShape_TextDirection* org::apache::poi::sl::usermodel::TextShape_TextDirection::VERTICAL = new ::org::apache::poi::sl::usermodel::TextShape_TextDirection(u"VERTICAL"_j, 1);
-org::apache::poi::sl::usermodel::TextShape_TextDirection* org::apache::poi::sl::usermodel::TextShape_TextDirection::VERTICAL_270 = new ::org::apache::poi::sl::usermodel::TextShape_TextDirection(u"VERTICAL_270"_j, 2);
-org::apache::poi::sl::usermodel::TextShape_TextDirection* org::apache::poi::sl::usermodel::TextShape_TextDirection::STACKED = new ::org::apache::poi::sl::usermodel::TextShape_TextDirection(u"STACKED"_j, 3);
+poi::sl::usermodel::TextShape_TextDirection* poi::sl::usermodel::TextShape_TextDirection::HORIZONTAL = new ::poi::sl::usermodel::TextShape_TextDirection(u"HORIZONTAL"_j, 0);
+poi::sl::usermodel::TextShape_TextDirection* poi::sl::usermodel::TextShape_TextDirection::VERTICAL = new ::poi::sl::usermodel::TextShape_TextDirection(u"VERTICAL"_j, 1);
+poi::sl::usermodel::TextShape_TextDirection* poi::sl::usermodel::TextShape_TextDirection::VERTICAL_270 = new ::poi::sl::usermodel::TextShape_TextDirection(u"VERTICAL_270"_j, 2);
+poi::sl::usermodel::TextShape_TextDirection* poi::sl::usermodel::TextShape_TextDirection::STACKED = new ::poi::sl::usermodel::TextShape_TextDirection(u"STACKED"_j, 3);
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::usermodel::TextShape_TextDirection::class_()
+java::lang::Class* poi::sl::usermodel::TextShape_TextDirection::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.usermodel.TextShape.TextDirection", 51);
     return c;
 }
 
-org::apache::poi::sl::usermodel::TextShape_TextDirection* org::apache::poi::sl::usermodel::TextShape_TextDirection::valueOf(::java::lang::String* a0)
+poi::sl::usermodel::TextShape_TextDirection* poi::sl::usermodel::TextShape_TextDirection::valueOf(::java::lang::String* a0)
 {
     if(HORIZONTAL->toString()->equals(a0))
         return HORIZONTAL;
@@ -79,9 +73,9 @@ org::apache::poi::sl::usermodel::TextShape_TextDirection* org::apache::poi::sl::
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::sl::usermodel::TextShape_TextDirectionArray* org::apache::poi::sl::usermodel::TextShape_TextDirection::values()
+poi::sl::usermodel::TextShape_TextDirectionArray* poi::sl::usermodel::TextShape_TextDirection::values()
 {
-    return new org::apache::poi::sl::usermodel::TextShape_TextDirectionArray({
+    return new poi::sl::usermodel::TextShape_TextDirectionArray({
         HORIZONTAL,
         STACKED,
         VERTICAL,
@@ -89,7 +83,7 @@ org::apache::poi::sl::usermodel::TextShape_TextDirectionArray* org::apache::poi:
     });
 }
 
-java::lang::Class* org::apache::poi::sl::usermodel::TextShape_TextDirection::getClass0()
+java::lang::Class* poi::sl::usermodel::TextShape_TextDirection::getClass0()
 {
     return class_();
 }

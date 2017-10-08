@@ -18,19 +18,13 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hpsf
     {
-        namespace poi
-        {
-            namespace hpsf
-            {
-typedef ::SubArray< ::org::apache::poi::hpsf::TypedPropertyValue, ::java::lang::ObjectArray > TypedPropertyValueArray;
-            } // hpsf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hpsf::TypedPropertyValue, ::java::lang::ObjectArray > TypedPropertyValueArray;
+    } // hpsf
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -48,25 +42,25 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hpsf::Vector::Vector(const ::default_init_tag&)
+poi::hpsf::Vector::Vector(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hpsf::Vector::Vector(int16_t type) 
+poi::hpsf::Vector::Vector(int16_t type) 
     : Vector(*static_cast< ::default_init_tag* >(0))
 {
     ctor(type);
 }
 
-void org::apache::poi::hpsf::Vector::ctor(int16_t type)
+void poi::hpsf::Vector::ctor(int16_t type)
 {
     super::ctor();
     this->_type = type;
 }
 
-void org::apache::poi::hpsf::Vector::read(::org::apache::poi::util::LittleEndianByteArrayInputStream* lei)
+void poi::hpsf::Vector::read(::poi::util::LittleEndianByteArrayInputStream* lei)
 {
     auto const longLength = npc(lei)->readUInt();
     if(longLength > ::java::lang::Integer::MAX_VALUE) {
@@ -87,20 +81,20 @@ void org::apache::poi::hpsf::Vector::read(::org::apache::poi::util::LittleEndian
     _values = java_cast< TypedPropertyValueArray* >(npc(values)->toArray_(static_cast< ::java::lang::ObjectArray* >(new TypedPropertyValueArray(npc(values)->size()))));
 }
 
-org::apache::poi::hpsf::TypedPropertyValueArray* org::apache::poi::hpsf::Vector::getValues()
+poi::hpsf::TypedPropertyValueArray* poi::hpsf::Vector::getValues()
 {
     return _values;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hpsf::Vector::class_()
+java::lang::Class* poi::hpsf::Vector::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hpsf.Vector", 26);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hpsf::Vector::getClass0()
+java::lang::Class* poi::hpsf::Vector::getClass0()
 {
     return class_();
 }

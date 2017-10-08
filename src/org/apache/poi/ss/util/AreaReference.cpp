@@ -39,23 +39,17 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace util
         {
-            namespace ss
-            {
-                namespace util
-                {
-typedef ::SubArray< ::org::apache::poi::ss::util::AreaReference, ::java::lang::ObjectArray > AreaReferenceArray;
-typedef ::SubArray< ::org::apache::poi::ss::util::CellReference, ::java::lang::ObjectArray > CellReferenceArray;
-                } // util
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::util::AreaReference, ::java::lang::ObjectArray > AreaReferenceArray;
+typedef ::SubArray< ::poi::ss::util::CellReference, ::java::lang::ObjectArray > CellReferenceArray;
+        } // util
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -73,44 +67,44 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::util::AreaReference::AreaReference(const ::default_init_tag&)
+poi::ss::util::AreaReference::AreaReference(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::util::AreaReference::AreaReference(::java::lang::String* reference, ::org::apache::poi::ss::SpreadsheetVersion* version) 
+poi::ss::util::AreaReference::AreaReference(::java::lang::String* reference, ::poi::ss::SpreadsheetVersion* version) 
     : AreaReference(*static_cast< ::default_init_tag* >(0))
 {
     ctor(reference,version);
 }
 
-org::apache::poi::ss::util::AreaReference::AreaReference(CellReference* topLeft, CellReference* botRight) 
+poi::ss::util::AreaReference::AreaReference(CellReference* topLeft, CellReference* botRight) 
     : AreaReference(*static_cast< ::default_init_tag* >(0))
 {
     ctor(topLeft,botRight);
 }
 
-org::apache::poi::ss::util::AreaReference::AreaReference(CellReference* topLeft, CellReference* botRight, ::org::apache::poi::ss::SpreadsheetVersion* version) 
+poi::ss::util::AreaReference::AreaReference(CellReference* topLeft, CellReference* botRight, ::poi::ss::SpreadsheetVersion* version) 
     : AreaReference(*static_cast< ::default_init_tag* >(0))
 {
     ctor(topLeft,botRight,version);
 }
 
-constexpr char16_t org::apache::poi::ss::util::AreaReference::SHEET_NAME_DELIMITER;
+constexpr char16_t poi::ss::util::AreaReference::SHEET_NAME_DELIMITER;
 
-constexpr char16_t org::apache::poi::ss::util::AreaReference::CELL_DELIMITER;
+constexpr char16_t poi::ss::util::AreaReference::CELL_DELIMITER;
 
-constexpr char16_t org::apache::poi::ss::util::AreaReference::SPECIAL_NAME_DELIMITER;
+constexpr char16_t poi::ss::util::AreaReference::SPECIAL_NAME_DELIMITER;
 
-org::apache::poi::ss::SpreadsheetVersion*& org::apache::poi::ss::util::AreaReference::DEFAULT_SPREADSHEET_VERSION()
+poi::ss::SpreadsheetVersion*& poi::ss::util::AreaReference::DEFAULT_SPREADSHEET_VERSION()
 {
     clinit();
     return DEFAULT_SPREADSHEET_VERSION_;
 }
-org::apache::poi::ss::SpreadsheetVersion* org::apache::poi::ss::util::AreaReference::DEFAULT_SPREADSHEET_VERSION_;
+poi::ss::SpreadsheetVersion* poi::ss::util::AreaReference::DEFAULT_SPREADSHEET_VERSION_;
 
-void org::apache::poi::ss::util::AreaReference::ctor(::java::lang::String* reference, ::org::apache::poi::ss::SpreadsheetVersion* version)
+void poi::ss::util::AreaReference::ctor(::java::lang::String* reference, ::poi::ss::SpreadsheetVersion* version)
 {
     super::ctor();
     _version = (nullptr != version) ? version : DEFAULT_SPREADSHEET_VERSION_;
@@ -149,7 +143,7 @@ void org::apache::poi::ss::util::AreaReference::ctor(::java::lang::String* refer
     }
 }
 
-bool org::apache::poi::ss::util::AreaReference::isPlainColumn(::java::lang::String* refPart)
+bool poi::ss::util::AreaReference::isPlainColumn(::java::lang::String* refPart)
 {
     clinit();
     for (auto i = npc(refPart)->length() - int32_t(1); i >= 0; i--) {
@@ -164,12 +158,12 @@ bool org::apache::poi::ss::util::AreaReference::isPlainColumn(::java::lang::Stri
     return true;
 }
 
-void org::apache::poi::ss::util::AreaReference::ctor(CellReference* topLeft, CellReference* botRight)
+void poi::ss::util::AreaReference::ctor(CellReference* topLeft, CellReference* botRight)
 {
     ctor(topLeft, botRight, DEFAULT_SPREADSHEET_VERSION_);
 }
 
-void org::apache::poi::ss::util::AreaReference::ctor(CellReference* topLeft, CellReference* botRight, ::org::apache::poi::ss::SpreadsheetVersion* version)
+void poi::ss::util::AreaReference::ctor(CellReference* topLeft, CellReference* botRight, ::poi::ss::SpreadsheetVersion* version)
 {
     super::ctor();
     _version = (nullptr != version) ? version : DEFAULT_SPREADSHEET_VERSION_;
@@ -215,7 +209,7 @@ void org::apache::poi::ss::util::AreaReference::ctor(CellReference* topLeft, Cel
     _isSingleCell = false;
 }
 
-bool org::apache::poi::ss::util::AreaReference::isContiguous(::java::lang::String* reference)
+bool poi::ss::util::AreaReference::isContiguous(::java::lang::String* reference)
 {
     clinit();
     auto sheetRefEnd = npc(reference)->indexOf(static_cast< int32_t >(u'!'));
@@ -225,7 +219,7 @@ bool org::apache::poi::ss::util::AreaReference::isContiguous(::java::lang::Strin
     return !npc(reference)->contains(u","_j);
 }
 
-org::apache::poi::ss::util::AreaReference* org::apache::poi::ss::util::AreaReference::getWholeRow(::org::apache::poi::ss::SpreadsheetVersion* version, ::java::lang::String* start, ::java::lang::String* end)
+poi::ss::util::AreaReference* poi::ss::util::AreaReference::getWholeRow(::poi::ss::SpreadsheetVersion* version, ::java::lang::String* start, ::java::lang::String* end)
 {
     clinit();
     if(nullptr == version) {
@@ -237,7 +231,7 @@ org::apache::poi::ss::util::AreaReference* org::apache::poi::ss::util::AreaRefer
         ->append(end)->toString(), version);
 }
 
-org::apache::poi::ss::util::AreaReference* org::apache::poi::ss::util::AreaReference::getWholeColumn(::org::apache::poi::ss::SpreadsheetVersion* version, ::java::lang::String* start, ::java::lang::String* end)
+poi::ss::util::AreaReference* poi::ss::util::AreaReference::getWholeColumn(::poi::ss::SpreadsheetVersion* version, ::java::lang::String* start, ::java::lang::String* end)
 {
     clinit();
     if(nullptr == version) {
@@ -249,7 +243,7 @@ org::apache::poi::ss::util::AreaReference* org::apache::poi::ss::util::AreaRefer
         ->append(npc(version)->getMaxRows())->toString(), version);
 }
 
-bool org::apache::poi::ss::util::AreaReference::isWholeColumnReference(::org::apache::poi::ss::SpreadsheetVersion* version, CellReference* topLeft, CellReference* botRight)
+bool poi::ss::util::AreaReference::isWholeColumnReference(::poi::ss::SpreadsheetVersion* version, CellReference* topLeft, CellReference* botRight)
 {
     clinit();
     if(nullptr == version) {
@@ -261,18 +255,18 @@ bool org::apache::poi::ss::util::AreaReference::isWholeColumnReference(::org::ap
     return false;
 }
 
-bool org::apache::poi::ss::util::AreaReference::isWholeColumnReference()
+bool poi::ss::util::AreaReference::isWholeColumnReference()
 {
     return isWholeColumnReference(_version, _firstCell, _lastCell);
 }
 
-org::apache::poi::ss::util::AreaReferenceArray* org::apache::poi::ss::util::AreaReference::generateContiguous(::java::lang::String* reference)
+poi::ss::util::AreaReferenceArray* poi::ss::util::AreaReference::generateContiguous(::java::lang::String* reference)
 {
     clinit();
     return generateContiguous(DEFAULT_SPREADSHEET_VERSION_, reference);
 }
 
-org::apache::poi::ss::util::AreaReferenceArray* org::apache::poi::ss::util::AreaReference::generateContiguous(::org::apache::poi::ss::SpreadsheetVersion* version, ::java::lang::String* reference)
+poi::ss::util::AreaReferenceArray* poi::ss::util::AreaReference::generateContiguous(::poi::ss::SpreadsheetVersion* version, ::java::lang::String* reference)
 {
     clinit();
     if(nullptr == version) {
@@ -286,22 +280,22 @@ org::apache::poi::ss::util::AreaReferenceArray* org::apache::poi::ss::util::Area
     return java_cast< AreaReferenceArray* >(npc(refs)->toArray_(static_cast< ::java::lang::ObjectArray* >(new AreaReferenceArray(npc(refs)->size()))));
 }
 
-bool org::apache::poi::ss::util::AreaReference::isSingleCell()
+bool poi::ss::util::AreaReference::isSingleCell()
 {
     return _isSingleCell;
 }
 
-org::apache::poi::ss::util::CellReference* org::apache::poi::ss::util::AreaReference::getFirstCell()
+poi::ss::util::CellReference* poi::ss::util::AreaReference::getFirstCell()
 {
     return _firstCell;
 }
 
-org::apache::poi::ss::util::CellReference* org::apache::poi::ss::util::AreaReference::getLastCell()
+poi::ss::util::CellReference* poi::ss::util::AreaReference::getLastCell()
 {
     return _lastCell;
 }
 
-org::apache::poi::ss::util::CellReferenceArray* org::apache::poi::ss::util::AreaReference::getAllReferencedCells()
+poi::ss::util::CellReferenceArray* poi::ss::util::AreaReference::getAllReferencedCells()
 {
     if(_isSingleCell) {
         return new CellReferenceArray({_firstCell});
@@ -321,7 +315,7 @@ org::apache::poi::ss::util::CellReferenceArray* org::apache::poi::ss::util::Area
     return java_cast< CellReferenceArray* >(npc(refs)->toArray_(static_cast< ::java::lang::ObjectArray* >(new CellReferenceArray(npc(refs)->size()))));
 }
 
-java::lang::String* org::apache::poi::ss::util::AreaReference::formatAsString()
+java::lang::String* poi::ss::util::AreaReference::formatAsString()
 {
     if(isWholeColumnReference()) {
         return ::java::lang::StringBuilder().append(CellReference::convertNumToColString(npc(_firstCell)->getCol()))->append(u":"_j)
@@ -340,7 +334,7 @@ java::lang::String* org::apache::poi::ss::util::AreaReference::formatAsString()
     return npc(sb)->toString();
 }
 
-java::lang::String* org::apache::poi::ss::util::AreaReference::toString()
+java::lang::String* poi::ss::util::AreaReference::toString()
 {
     auto sb = new ::java::lang::StringBuffer(int32_t(64));
     npc(npc(sb)->append(npc(getClass())->getName()))->append(u" ["_j);
@@ -349,7 +343,7 @@ java::lang::String* org::apache::poi::ss::util::AreaReference::toString()
     return npc(sb)->toString();
 }
 
-java::lang::StringArray* org::apache::poi::ss::util::AreaReference::separateAreaRefs(::java::lang::String* reference)
+java::lang::StringArray* poi::ss::util::AreaReference::separateAreaRefs(::java::lang::String* reference)
 {
     clinit();
     auto len = npc(reference)->length();
@@ -417,20 +411,20 @@ java::lang::StringArray* org::apache::poi::ss::util::AreaReference::separateArea
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::util::AreaReference::class_()
+java::lang::Class* poi::ss::util::AreaReference::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.util.AreaReference", 36);
     return c;
 }
 
-void org::apache::poi::ss::util::AreaReference::clinit()
+void poi::ss::util::AreaReference::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        DEFAULT_SPREADSHEET_VERSION_ = ::org::apache::poi::ss::SpreadsheetVersion::EXCEL97;
+        DEFAULT_SPREADSHEET_VERSION_ = ::poi::ss::SpreadsheetVersion::EXCEL97;
     }
 };
 
@@ -439,7 +433,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::util::AreaReference::getClass0()
+java::lang::Class* poi::ss::util::AreaReference::getClass0()
 {
     return class_();
 }

@@ -31,7 +31,7 @@ typedef ::SubArray< ::java::math::BigInteger, ::java::lang::NumberArray, ::java:
 
 struct default_init_tag;
 
-class org::apache::poi::ss::util::MutableFPNumber_Rounder final
+class poi::ss::util::MutableFPNumber_Rounder final
     : public ::java::lang::Object
 {
 

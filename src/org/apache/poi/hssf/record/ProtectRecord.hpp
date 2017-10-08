@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::ProtectRecord final
+class poi::hssf::record::ProtectRecord final
     : public StandardRecord
 {
 
@@ -19,7 +19,7 @@ public:
     static constexpr int16_t sid { int16_t(18) };
 
 private:
-    static ::org::apache::poi::util::BitField* protectFlag_;
+    static ::poi::util::BitField* protectFlag_;
     int32_t _options {  };
 protected:
     void ctor(int32_t options);
@@ -30,7 +30,7 @@ public:
     void setProtect(bool protect);
     bool getProtect();
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;
@@ -58,6 +58,6 @@ public:
     ::int8_tArray* serialize();
 
 private:
-    static ::org::apache::poi::util::BitField*& protectFlag();
+    static ::poi::util::BitField*& protectFlag();
     virtual ::java::lang::Class* getClass0();
 };

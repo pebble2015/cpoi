@@ -14,9 +14,9 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFFontFormatting final
+class poi::hssf::usermodel::HSSFFontFormatting final
     : public virtual ::java::lang::Object
-    , public ::org::apache::poi::ss::usermodel::FontFormatting
+    , public ::poi::ss::usermodel::FontFormatting
 {
 
 public:
@@ -28,19 +28,19 @@ public:
     static constexpr int8_t U_DOUBLE_ACCOUNTING { int8_t(34) };
 
 private:
-    ::org::apache::poi::hssf::record::cf::FontFormatting* fontFormatting {  };
+    ::poi::hssf::record::cf::FontFormatting* fontFormatting {  };
     HSSFWorkbook* workbook {  };
 protected:
-    void ctor(::org::apache::poi::hssf::record::CFRuleBase* cfRuleRecord, HSSFWorkbook* workbook);
+    void ctor(::poi::hssf::record::CFRuleBase* cfRuleRecord, HSSFWorkbook* workbook);
 
 public: /* protected */
-    ::org::apache::poi::hssf::record::cf::FontFormatting* getFontFormattingBlock();
+    ::poi::hssf::record::cf::FontFormatting* getFontFormattingBlock();
 
 public:
     int16_t getEscapementType() override;
     int16_t getFontColorIndex() override;
-    ::org::apache::poi::hssf::util::HSSFColor* getFontColor() override;
-    void setFontColor(::org::apache::poi::ss::usermodel::Color* color) override;
+    ::poi::hssf::util::HSSFColor* getFontColor() override;
+    void setFontColor(::poi::ss::usermodel::Color* color) override;
     int32_t getFontHeight() override;
     int16_t getFontWeight();
 
@@ -80,7 +80,7 @@ public:
     // Generated
 
 public: /* protected */
-    HSSFFontFormatting(::org::apache::poi::hssf::record::CFRuleBase* cfRuleRecord, HSSFWorkbook* workbook);
+    HSSFFontFormatting(::poi::hssf::record::CFRuleBase* cfRuleRecord, HSSFWorkbook* workbook);
 protected:
     HSSFFontFormatting(const ::default_init_tag&);
 

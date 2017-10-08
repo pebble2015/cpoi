@@ -13,37 +13,31 @@
 #include <org/apache/poi/poifs/storage/BigBlock.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace poifs
     {
-        namespace poi
+        namespace dev
         {
-            namespace poifs
-            {
-                namespace dev
-                {
-typedef ::SubArray< ::org::apache::poi::poifs::dev::POIFSViewable, ::java::lang::ObjectArray > POIFSViewableArray;
-                } // dev
+typedef ::SubArray< ::poi::poifs::dev::POIFSViewable, ::java::lang::ObjectArray > POIFSViewableArray;
+        } // dev
 
-                namespace property
-                {
-typedef ::SubArray< ::org::apache::poi::poifs::property::Child, ::java::lang::ObjectArray > ChildArray;
-typedef ::SubArray< ::org::apache::poi::poifs::property::Property, ::java::lang::ObjectArray, ChildArray, ::org::apache::poi::poifs::dev::POIFSViewableArray > PropertyArray;
-                } // property
+        namespace property
+        {
+typedef ::SubArray< ::poi::poifs::property::Child, ::java::lang::ObjectArray > ChildArray;
+typedef ::SubArray< ::poi::poifs::property::Property, ::java::lang::ObjectArray, ChildArray, ::poi::poifs::dev::POIFSViewableArray > PropertyArray;
+        } // property
 
-                namespace storage
-                {
-typedef ::SubArray< ::org::apache::poi::poifs::storage::BlockWritable, ::java::lang::ObjectArray > BlockWritableArray;
-                } // storage
-            } // poifs
-        } // poi
-    } // apache
-} // org
+        namespace storage
+        {
+typedef ::SubArray< ::poi::poifs::storage::BlockWritable, ::java::lang::ObjectArray > BlockWritableArray;
+        } // storage
+    } // poifs
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::storage::PropertyBlock final
+class poi::poifs::storage::PropertyBlock final
     : public BigBlock
 {
 
@@ -51,12 +45,12 @@ public:
     typedef BigBlock super;
 
 private:
-    ::org::apache::poi::poifs::property::PropertyArray* _properties {  };
+    ::poi::poifs::property::PropertyArray* _properties {  };
 protected:
-    void ctor(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ::org::apache::poi::poifs::property::PropertyArray* properties, int32_t offset);
+    void ctor(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ::poi::poifs::property::PropertyArray* properties, int32_t offset);
 
 public:
-    static BlockWritableArray* createPropertyBlockArray_(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ::java::util::List* properties);
+    static BlockWritableArray* createPropertyBlockArray_(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ::java::util::List* properties);
 
 public: /* package */
     void writeData(::java::io::OutputStream* stream) /* throws(IOException) */ override;
@@ -64,7 +58,7 @@ public: /* package */
     // Generated
 
 private:
-    PropertyBlock(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ::org::apache::poi::poifs::property::PropertyArray* properties, int32_t offset);
+    PropertyBlock(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ::poi::poifs::property::PropertyArray* properties, int32_t offset);
 protected:
     PropertyBlock(const ::default_init_tag&);
 

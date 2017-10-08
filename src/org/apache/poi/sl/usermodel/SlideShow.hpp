@@ -9,7 +9,7 @@
 #include <org/apache/poi/sl/usermodel/fwd-POI.hpp>
 #include <java/io/Closeable.hpp>
 
-struct org::apache::poi::sl::usermodel::SlideShow
+struct poi::sl::usermodel::SlideShow
     : public virtual ::java::io::Closeable
 {
     virtual Slide* createSlide() /* throws(IOException) */ = 0;

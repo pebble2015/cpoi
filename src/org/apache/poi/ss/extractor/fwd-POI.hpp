@@ -2,19 +2,13 @@
 #pragma once
 
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace extractor
         {
-            namespace ss
-            {
-                namespace extractor
-                {
-                    struct ExcelExtractor;
-                } // extractor
-            } // ss
-        } // poi
-    } // apache
-} // org
+            struct ExcelExtractor;
+        } // extractor
+    } // ss
+} // poi

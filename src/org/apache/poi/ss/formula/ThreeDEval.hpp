@@ -8,13 +8,13 @@
 #include <org/apache/poi/ss/formula/TwoDEval.hpp>
 #include <org/apache/poi/ss/formula/SheetRange.hpp>
 
-struct org::apache::poi::ss::formula::ThreeDEval
+struct poi::ss::formula::ThreeDEval
     : public virtual TwoDEval
     , public virtual SheetRange
 {
-    virtual ::org::apache::poi::ss::formula::eval::ValueEval* getValue(int32_t sheetIndex, int32_t rowIndex, int32_t columnIndex) = 0;
+    virtual ::poi::ss::formula::eval::ValueEval* getValue(int32_t sheetIndex, int32_t rowIndex, int32_t columnIndex) = 0;
 
     // Generated
     static ::java::lang::Class *class_();
-    virtual ::org::apache::poi::ss::formula::eval::ValueEval* getValue(int32_t rowIndex, int32_t columnIndex) = 0;
+    virtual ::poi::ss::formula::eval::ValueEval* getValue(int32_t rowIndex, int32_t columnIndex) = 0;
 };

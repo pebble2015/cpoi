@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::eval::AreaEvalBase
+class poi::ss::formula::eval::AreaEvalBase
     : public virtual ::java::lang::Object
     , public virtual AreaEval
 {
@@ -29,10 +29,10 @@ private:
     int32_t _nColumns {  };
     int32_t _nRows {  };
 protected:
-    void ctor(::org::apache::poi::ss::formula::SheetRange* sheets, int32_t firstRow, int32_t firstColumn, int32_t lastRow, int32_t lastColumn);
+    void ctor(::poi::ss::formula::SheetRange* sheets, int32_t firstRow, int32_t firstColumn, int32_t lastRow, int32_t lastColumn);
     void ctor(int32_t firstRow, int32_t firstColumn, int32_t lastRow, int32_t lastColumn);
-    void ctor(::org::apache::poi::ss::formula::ptg::AreaI* ptg);
-    void ctor(::org::apache::poi::ss::formula::ptg::AreaI* ptg, ::org::apache::poi::ss::formula::SheetRange* sheets);
+    void ctor(::poi::ss::formula::ptg::AreaI* ptg);
+    void ctor(::poi::ss::formula::ptg::AreaI* ptg, ::poi::ss::formula::SheetRange* sheets);
 
 public:
     int32_t getFirstColumn() override;
@@ -58,10 +58,10 @@ public:
     // Generated
 
 public: /* protected */
-    AreaEvalBase(::org::apache::poi::ss::formula::SheetRange* sheets, int32_t firstRow, int32_t firstColumn, int32_t lastRow, int32_t lastColumn);
+    AreaEvalBase(::poi::ss::formula::SheetRange* sheets, int32_t firstRow, int32_t firstColumn, int32_t lastRow, int32_t lastColumn);
     AreaEvalBase(int32_t firstRow, int32_t firstColumn, int32_t lastRow, int32_t lastColumn);
-    AreaEvalBase(::org::apache::poi::ss::formula::ptg::AreaI* ptg);
-    AreaEvalBase(::org::apache::poi::ss::formula::ptg::AreaI* ptg, ::org::apache::poi::ss::formula::SheetRange* sheets);
+    AreaEvalBase(::poi::ss::formula::ptg::AreaI* ptg);
+    AreaEvalBase(::poi::ss::formula::ptg::AreaI* ptg, ::poi::ss::formula::SheetRange* sheets);
 protected:
     AreaEvalBase(const ::default_init_tag&);
 

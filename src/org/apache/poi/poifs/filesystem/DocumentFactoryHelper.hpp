@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::filesystem::DocumentFactoryHelper
+class poi::poifs::filesystem::DocumentFactoryHelper
     : public virtual ::java::lang::Object
 {
 

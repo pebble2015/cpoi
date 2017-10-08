@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::PasswordRev4Record final
+class poi::hssf::record::PasswordRev4Record final
     : public StandardRecord
 {
 
@@ -27,7 +27,7 @@ protected:
 public:
     void setPassword(int16_t pw);
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;

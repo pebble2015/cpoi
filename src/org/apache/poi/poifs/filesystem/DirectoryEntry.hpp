@@ -11,7 +11,7 @@
 #include <org/apache/poi/poifs/filesystem/Entry.hpp>
 #include <java/lang/Iterable.hpp>
 
-struct org::apache::poi::poifs::filesystem::DirectoryEntry
+struct poi::poifs::filesystem::DirectoryEntry
     : public virtual Entry
     , public virtual ::java::lang::Iterable
 {
@@ -24,8 +24,8 @@ struct org::apache::poi::poifs::filesystem::DirectoryEntry
     virtual DocumentEntry* createDocument(::java::lang::String* name, ::java::io::InputStream* stream) /* throws(IOException) */ = 0;
     virtual DocumentEntry* createDocument(::java::lang::String* name, int32_t size, POIFSWriterListener* writer) /* throws(IOException) */ = 0;
     virtual DirectoryEntry* createDirectory(::java::lang::String* name) /* throws(IOException) */ = 0;
-    virtual ::org::apache::poi::hpsf::ClassID* getStorageClsid() = 0;
-    virtual void setStorageClsid(::org::apache::poi::hpsf::ClassID* clsidStorage) = 0;
+    virtual ::poi::hpsf::ClassID* getStorageClsid() = 0;
+    virtual void setStorageClsid(::poi::hpsf::ClassID* clsidStorage) = 0;
 
     // Generated
     static ::java::lang::Class *class_();

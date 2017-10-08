@@ -12,19 +12,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::property::DirectoryProperty_PropertyComparator::DirectoryProperty_PropertyComparator(const ::default_init_tag&)
+poi::poifs::property::DirectoryProperty_PropertyComparator::DirectoryProperty_PropertyComparator(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::property::DirectoryProperty_PropertyComparator::DirectoryProperty_PropertyComparator()
+poi::poifs::property::DirectoryProperty_PropertyComparator::DirectoryProperty_PropertyComparator()
     : DirectoryProperty_PropertyComparator(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-int32_t org::apache::poi::poifs::property::DirectoryProperty_PropertyComparator::compare(Property* o1, Property* o2)
+int32_t poi::poifs::property::DirectoryProperty_PropertyComparator::compare(Property* o1, Property* o2)
 {
     auto VBA_PROJECT = u"_VBA_PROJECT"_j;
     auto name1 = npc(o1)->getName();
@@ -49,25 +49,25 @@ int32_t org::apache::poi::poifs::property::DirectoryProperty_PropertyComparator:
     return result;
 }
 
-int32_t org::apache::poi::poifs::property::DirectoryProperty_PropertyComparator::compare(::java::lang::Object* o1, ::java::lang::Object* o2)
+int32_t poi::poifs::property::DirectoryProperty_PropertyComparator::compare(::java::lang::Object* o1, ::java::lang::Object* o2)
 { 
     return compare(dynamic_cast< Property* >(o1), dynamic_cast< Property* >(o2));
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::property::DirectoryProperty_PropertyComparator::class_()
+java::lang::Class* poi::poifs::property::DirectoryProperty_PropertyComparator::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.property.DirectoryProperty.PropertyComparator", 66);
     return c;
 }
 
-bool org::apache::poi::poifs::property::DirectoryProperty_PropertyComparator::equals(::java::lang::Object* obj)
+bool poi::poifs::property::DirectoryProperty_PropertyComparator::equals(::java::lang::Object* obj)
 {
     return Object::equals(obj);
 }
 
-java::lang::Class* org::apache::poi::poifs::property::DirectoryProperty_PropertyComparator::getClass0()
+java::lang::Class* poi::poifs::property::DirectoryProperty_PropertyComparator::getClass0()
 {
     return class_();
 }

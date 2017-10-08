@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::format::CellElapsedFormatter_TimeSpec
+class poi::ss::format::CellElapsedFormatter_TimeSpec
     : public virtual ::java::lang::Object
 {
 

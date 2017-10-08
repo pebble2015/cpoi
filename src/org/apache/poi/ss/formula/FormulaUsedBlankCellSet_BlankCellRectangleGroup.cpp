@@ -14,19 +14,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::FormulaUsedBlankCellSet_BlankCellRectangleGroup::FormulaUsedBlankCellSet_BlankCellRectangleGroup(const ::default_init_tag&)
+poi::ss::formula::FormulaUsedBlankCellSet_BlankCellRectangleGroup::FormulaUsedBlankCellSet_BlankCellRectangleGroup(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::FormulaUsedBlankCellSet_BlankCellRectangleGroup::FormulaUsedBlankCellSet_BlankCellRectangleGroup(int32_t firstRowIndex, int32_t firstColumnIndex, int32_t lastColumnIndex) 
+poi::ss::formula::FormulaUsedBlankCellSet_BlankCellRectangleGroup::FormulaUsedBlankCellSet_BlankCellRectangleGroup(int32_t firstRowIndex, int32_t firstColumnIndex, int32_t lastColumnIndex) 
     : FormulaUsedBlankCellSet_BlankCellRectangleGroup(*static_cast< ::default_init_tag* >(0))
 {
     ctor(firstRowIndex,firstColumnIndex,lastColumnIndex);
 }
 
-void org::apache::poi::ss::formula::FormulaUsedBlankCellSet_BlankCellRectangleGroup::ctor(int32_t firstRowIndex, int32_t firstColumnIndex, int32_t lastColumnIndex)
+void poi::ss::formula::FormulaUsedBlankCellSet_BlankCellRectangleGroup::ctor(int32_t firstRowIndex, int32_t firstColumnIndex, int32_t lastColumnIndex)
 {
     super::ctor();
     _firstRowIndex = firstRowIndex;
@@ -35,7 +35,7 @@ void org::apache::poi::ss::formula::FormulaUsedBlankCellSet_BlankCellRectangleGr
     _lastRowIndex = firstRowIndex;
 }
 
-bool org::apache::poi::ss::formula::FormulaUsedBlankCellSet_BlankCellRectangleGroup::containsCell(int32_t rowIndex, int32_t columnIndex)
+bool poi::ss::formula::FormulaUsedBlankCellSet_BlankCellRectangleGroup::containsCell(int32_t rowIndex, int32_t columnIndex)
 {
     if(columnIndex < _firstColumnIndex) {
         return false;
@@ -52,7 +52,7 @@ bool org::apache::poi::ss::formula::FormulaUsedBlankCellSet_BlankCellRectangleGr
     return true;
 }
 
-bool org::apache::poi::ss::formula::FormulaUsedBlankCellSet_BlankCellRectangleGroup::acceptRow(int32_t rowIndex, int32_t firstColumnIndex, int32_t lastColumnIndex)
+bool poi::ss::formula::FormulaUsedBlankCellSet_BlankCellRectangleGroup::acceptRow(int32_t rowIndex, int32_t firstColumnIndex, int32_t lastColumnIndex)
 {
     if(firstColumnIndex != _firstColumnIndex) {
         return false;
@@ -67,11 +67,11 @@ bool org::apache::poi::ss::formula::FormulaUsedBlankCellSet_BlankCellRectangleGr
     return true;
 }
 
-java::lang::String* org::apache::poi::ss::formula::FormulaUsedBlankCellSet_BlankCellRectangleGroup::toString()
+java::lang::String* poi::ss::formula::FormulaUsedBlankCellSet_BlankCellRectangleGroup::toString()
 {
     auto sb = new ::java::lang::StringBuffer(int32_t(64));
-    auto crA = new ::org::apache::poi::ss::util::CellReference(_firstRowIndex, _firstColumnIndex, false, false);
-    auto crB = new ::org::apache::poi::ss::util::CellReference(_lastRowIndex, _lastColumnIndex, false, false);
+    auto crA = new ::poi::ss::util::CellReference(_firstRowIndex, _firstColumnIndex, false, false);
+    auto crB = new ::poi::ss::util::CellReference(_lastRowIndex, _lastColumnIndex, false, false);
     npc(sb)->append(npc(getClass())->getName());
     npc(npc(npc(npc(npc(sb)->append(u" ["_j))->append(npc(crA)->formatAsString()))->append(u':'))->append(npc(crB)->formatAsString()))->append(u"]"_j);
     return npc(sb)->toString();
@@ -79,13 +79,13 @@ java::lang::String* org::apache::poi::ss::formula::FormulaUsedBlankCellSet_Blank
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::FormulaUsedBlankCellSet_BlankCellRectangleGroup::class_()
+java::lang::Class* poi::ss::formula::FormulaUsedBlankCellSet_BlankCellRectangleGroup::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.FormulaUsedBlankCellSet.BlankCellRectangleGroup", 73);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::FormulaUsedBlankCellSet_BlankCellRectangleGroup::getClass0()
+java::lang::Class* poi::ss::formula::FormulaUsedBlankCellSet_BlankCellRectangleGroup::getClass0()
 {
     return class_();
 }

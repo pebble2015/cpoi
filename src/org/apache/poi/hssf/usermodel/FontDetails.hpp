@@ -27,7 +27,7 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::FontDetails
+class poi::hssf::usermodel::FontDetails
     : public virtual ::java::lang::Object
 {
 

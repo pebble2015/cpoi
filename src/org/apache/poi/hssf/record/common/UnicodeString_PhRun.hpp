@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::common::UnicodeString_PhRun
+class poi::hssf::record::common::UnicodeString_PhRun
     : public virtual ::java::lang::Object
 {
 
@@ -23,10 +23,10 @@ private:
     int32_t realTextLength {  };
 protected:
     void ctor(int32_t phoneticTextFirstCharacterOffset, int32_t realTextFirstCharacterOffset, int32_t realTextLength);
-    void ctor(::org::apache::poi::util::LittleEndianInput* in);
+    void ctor(::poi::util::LittleEndianInput* in);
 
 private:
-    void serialize(::org::apache::poi::hssf::record::cont::ContinuableRecordOutput* out);
+    void serialize(::poi::hssf::record::cont::ContinuableRecordOutput* out);
 
     // Generated
 
@@ -34,7 +34,7 @@ public:
     UnicodeString_PhRun(int32_t phoneticTextFirstCharacterOffset, int32_t realTextFirstCharacterOffset, int32_t realTextLength);
 
 private:
-    UnicodeString_PhRun(::org::apache::poi::util::LittleEndianInput* in);
+    UnicodeString_PhRun(::poi::util::LittleEndianInput* in);
 protected:
     UnicodeString_PhRun(const ::default_init_tag&);
 

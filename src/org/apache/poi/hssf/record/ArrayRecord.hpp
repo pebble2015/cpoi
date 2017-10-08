@@ -13,29 +13,23 @@
 #include <java/lang/Cloneable.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::ArrayRecord final
+class poi::hssf::record::ArrayRecord final
     : public SharedValueRecordBase
     , public ::java::lang::Cloneable
 {
@@ -49,19 +43,19 @@ private:
     static constexpr int32_t OPT_CALCULATE_ON_OPEN { int32_t(2) };
     int32_t _options {  };
     int32_t _field3notUsed {  };
-    ::org::apache::poi::ss::formula::Formula* _formula {  };
+    ::poi::ss::formula::Formula* _formula {  };
 protected:
     void ctor(RecordInputStream* in);
-    void ctor(::org::apache::poi::ss::formula::Formula* formula, ::org::apache::poi::hssf::util::CellRangeAddress8Bit* range);
+    void ctor(::poi::ss::formula::Formula* formula, ::poi::hssf::util::CellRangeAddress8Bit* range);
 
 public:
     bool isAlwaysRecalculate();
     bool isCalculateOnOpen();
-    ::org::apache::poi::ss::formula::ptg::PtgArray* getFormulaTokens();
+    ::poi::ss::formula::ptg::PtgArray* getFormulaTokens();
 
 public: /* protected */
     int32_t getExtraDataSize() override;
-    void serializeExtraData(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serializeExtraData(::poi::util::LittleEndianOutput* out) override;
 
 public:
     int16_t getSid() override;
@@ -70,7 +64,7 @@ public:
 
     // Generated
     ArrayRecord(RecordInputStream* in);
-    ArrayRecord(::org::apache::poi::ss::formula::Formula* formula, ::org::apache::poi::hssf::util::CellRangeAddress8Bit* range);
+    ArrayRecord(::poi::ss::formula::Formula* formula, ::poi::hssf::util::CellRangeAddress8Bit* range);
 protected:
     ArrayRecord(const ::default_init_tag&);
 

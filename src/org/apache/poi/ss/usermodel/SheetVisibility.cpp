@@ -25,47 +25,41 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace ss
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::SheetVisibility, ::java::lang::EnumArray > SheetVisibilityArray;
-                } // usermodel
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::usermodel::SheetVisibility, ::java::lang::EnumArray > SheetVisibilityArray;
+        } // usermodel
+    } // ss
+} // poi
 
-org::apache::poi::ss::usermodel::SheetVisibility::SheetVisibility(const ::default_init_tag&)
+poi::ss::usermodel::SheetVisibility::SheetVisibility(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::usermodel::SheetVisibility::SheetVisibility(::java::lang::String* name, int ordinal)
+poi::ss::usermodel::SheetVisibility::SheetVisibility(::java::lang::String* name, int ordinal)
     : SheetVisibility(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal);
 }
 
-org::apache::poi::ss::usermodel::SheetVisibility* org::apache::poi::ss::usermodel::SheetVisibility::VISIBLE = new ::org::apache::poi::ss::usermodel::SheetVisibility(u"VISIBLE"_j, 0);
-org::apache::poi::ss::usermodel::SheetVisibility* org::apache::poi::ss::usermodel::SheetVisibility::HIDDEN = new ::org::apache::poi::ss::usermodel::SheetVisibility(u"HIDDEN"_j, 1);
-org::apache::poi::ss::usermodel::SheetVisibility* org::apache::poi::ss::usermodel::SheetVisibility::VERY_HIDDEN = new ::org::apache::poi::ss::usermodel::SheetVisibility(u"VERY_HIDDEN"_j, 2);
+poi::ss::usermodel::SheetVisibility* poi::ss::usermodel::SheetVisibility::VISIBLE = new ::poi::ss::usermodel::SheetVisibility(u"VISIBLE"_j, 0);
+poi::ss::usermodel::SheetVisibility* poi::ss::usermodel::SheetVisibility::HIDDEN = new ::poi::ss::usermodel::SheetVisibility(u"HIDDEN"_j, 1);
+poi::ss::usermodel::SheetVisibility* poi::ss::usermodel::SheetVisibility::VERY_HIDDEN = new ::poi::ss::usermodel::SheetVisibility(u"VERY_HIDDEN"_j, 2);
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::usermodel::SheetVisibility::class_()
+java::lang::Class* poi::ss::usermodel::SheetVisibility::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.usermodel.SheetVisibility", 43);
     return c;
 }
 
-org::apache::poi::ss::usermodel::SheetVisibility* org::apache::poi::ss::usermodel::SheetVisibility::valueOf(::java::lang::String* a0)
+poi::ss::usermodel::SheetVisibility* poi::ss::usermodel::SheetVisibility::valueOf(::java::lang::String* a0)
 {
     if(HIDDEN->toString()->equals(a0))
         return HIDDEN;
@@ -76,16 +70,16 @@ org::apache::poi::ss::usermodel::SheetVisibility* org::apache::poi::ss::usermode
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::ss::usermodel::SheetVisibilityArray* org::apache::poi::ss::usermodel::SheetVisibility::values()
+poi::ss::usermodel::SheetVisibilityArray* poi::ss::usermodel::SheetVisibility::values()
 {
-    return new org::apache::poi::ss::usermodel::SheetVisibilityArray({
+    return new poi::ss::usermodel::SheetVisibilityArray({
         HIDDEN,
         VERY_HIDDEN,
         VISIBLE,
     });
 }
 
-java::lang::Class* org::apache::poi::ss::usermodel::SheetVisibility::getClass0()
+java::lang::Class* poi::ss::usermodel::SheetVisibility::getClass0()
 {
     return class_();
 }

@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::crypt::EncryptionInfo
+class poi::poifs::crypt::EncryptionInfo
     : public virtual ::java::lang::Object
     , public virtual ::java::lang::Cloneable
 {
@@ -28,16 +28,16 @@ private:
     EncryptionVerifier* verifier {  };
     Decryptor* decryptor {  };
     Encryptor* encryptor {  };
-    static ::org::apache::poi::util::BitField* flagCryptoAPI_;
-    static ::org::apache::poi::util::BitField* flagDocProps_;
-    static ::org::apache::poi::util::BitField* flagExternal_;
-    static ::org::apache::poi::util::BitField* flagAES_;
+    static ::poi::util::BitField* flagCryptoAPI_;
+    static ::poi::util::BitField* flagDocProps_;
+    static ::poi::util::BitField* flagExternal_;
+    static ::poi::util::BitField* flagAES_;
 protected:
-    void ctor(::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs) /* throws(IOException) */;
-    void ctor(::org::apache::poi::poifs::filesystem::OPOIFSFileSystem* fs) /* throws(IOException) */;
-    void ctor(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs) /* throws(IOException) */;
-    void ctor(::org::apache::poi::poifs::filesystem::DirectoryNode* dir) /* throws(IOException) */;
-    void ctor(::org::apache::poi::util::LittleEndianInput* dis, EncryptionMode* preferredEncryptionMode) /* throws(IOException) */;
+    void ctor(::poi::poifs::filesystem::POIFSFileSystem* fs) /* throws(IOException) */;
+    void ctor(::poi::poifs::filesystem::OPOIFSFileSystem* fs) /* throws(IOException) */;
+    void ctor(::poi::poifs::filesystem::NPOIFSFileSystem* fs) /* throws(IOException) */;
+    void ctor(::poi::poifs::filesystem::DirectoryNode* dir) /* throws(IOException) */;
+    void ctor(::poi::util::LittleEndianInput* dis, EncryptionMode* preferredEncryptionMode) /* throws(IOException) */;
     void ctor(EncryptionMode* encryptionMode);
     void ctor(EncryptionMode* encryptionMode, CipherAlgorithm* cipherAlgorithm, HashAlgorithm* hashAlgorithm, int32_t keyBits, int32_t blockSize, ChainingMode* chainingMode);
 
@@ -61,11 +61,11 @@ public:
     EncryptionInfo* clone() /* throws(CloneNotSupportedException) */ override;
 
     // Generated
-    EncryptionInfo(::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs);
-    EncryptionInfo(::org::apache::poi::poifs::filesystem::OPOIFSFileSystem* fs);
-    EncryptionInfo(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs);
-    EncryptionInfo(::org::apache::poi::poifs::filesystem::DirectoryNode* dir);
-    EncryptionInfo(::org::apache::poi::util::LittleEndianInput* dis, EncryptionMode* preferredEncryptionMode);
+    EncryptionInfo(::poi::poifs::filesystem::POIFSFileSystem* fs);
+    EncryptionInfo(::poi::poifs::filesystem::OPOIFSFileSystem* fs);
+    EncryptionInfo(::poi::poifs::filesystem::NPOIFSFileSystem* fs);
+    EncryptionInfo(::poi::poifs::filesystem::DirectoryNode* dir);
+    EncryptionInfo(::poi::util::LittleEndianInput* dis, EncryptionMode* preferredEncryptionMode);
     EncryptionInfo(EncryptionMode* encryptionMode);
     EncryptionInfo(EncryptionMode* encryptionMode, CipherAlgorithm* cipherAlgorithm, HashAlgorithm* hashAlgorithm, int32_t keyBits, int32_t blockSize, ChainingMode* chainingMode);
 protected:
@@ -75,10 +75,10 @@ protected:
 public:
     static ::java::lang::Class *class_();
     static void clinit();
-    static ::org::apache::poi::util::BitField*& flagCryptoAPI();
-    static ::org::apache::poi::util::BitField*& flagDocProps();
-    static ::org::apache::poi::util::BitField*& flagExternal();
-    static ::org::apache::poi::util::BitField*& flagAES();
+    static ::poi::util::BitField*& flagCryptoAPI();
+    static ::poi::util::BitField*& flagDocProps();
+    static ::poi::util::BitField*& flagExternal();
+    static ::poi::util::BitField*& flagAES();
 
 private:
     virtual ::java::lang::Class* getClass0();

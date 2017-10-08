@@ -40,37 +40,37 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::ColumnInfoRecordsAggregate(const ::default_init_tag&)
+poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::ColumnInfoRecordsAggregate(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::ColumnInfoRecordsAggregate() 
+poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::ColumnInfoRecordsAggregate() 
     : ColumnInfoRecordsAggregate(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::ColumnInfoRecordsAggregate(::org::apache::poi::hssf::model::RecordStream* rs) 
+poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::ColumnInfoRecordsAggregate(::poi::hssf::model::RecordStream* rs) 
     : ColumnInfoRecordsAggregate(*static_cast< ::default_init_tag* >(0))
 {
     ctor(rs);
 }
 
-void org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::ctor()
+void poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::ctor()
 {
     super::ctor();
     records = new ::java::util::ArrayList();
 }
 
-void org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::ctor(::org::apache::poi::hssf::model::RecordStream* rs)
+void poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::ctor(::poi::hssf::model::RecordStream* rs)
 {
     ctor();
     auto isInOrder = true;
-    ::org::apache::poi::hssf::record::ColumnInfoRecord* cirPrev = nullptr;
-    while (static_cast< ::java::lang::Object* >(npc(rs)->peekNextClass()) == static_cast< ::java::lang::Object* >(::org::apache::poi::hssf::record::ColumnInfoRecord::class_())) {
-        auto cir = java_cast< ::org::apache::poi::hssf::record::ColumnInfoRecord* >(npc(rs)->getNext());
+    ::poi::hssf::record::ColumnInfoRecord* cirPrev = nullptr;
+    while (static_cast< ::java::lang::Object* >(npc(rs)->peekNextClass()) == static_cast< ::java::lang::Object* >(::poi::hssf::record::ColumnInfoRecord::class_())) {
+        auto cir = java_cast< ::poi::hssf::record::ColumnInfoRecord* >(npc(rs)->getNext());
         npc(records)->add(static_cast< ::java::lang::Object* >(cir));
         if(cirPrev != nullptr && ColumnInfoRecordsAggregate_CIRComparator::compareColInfos(cirPrev, cir) > 0) {
             isInOrder = false;
@@ -85,11 +85,11 @@ void org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::cto
     }
 }
 
-org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate* org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::clone()
+poi::hssf::record::aggregates::ColumnInfoRecordsAggregate* poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::clone()
 {
     auto rec = new ColumnInfoRecordsAggregate();
     for (auto _i = npc(records)->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::hssf::record::ColumnInfoRecord* ci = java_cast< ::org::apache::poi::hssf::record::ColumnInfoRecord* >(_i->next());
+        ::poi::hssf::record::ColumnInfoRecord* ci = java_cast< ::poi::hssf::record::ColumnInfoRecord* >(_i->next());
         {
             npc(npc(rec)->records)->add(static_cast< ::java::lang::Object* >(npc(ci)->clone()));
         }
@@ -97,31 +97,31 @@ org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate* org::apa
     return rec;
 }
 
-void org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::insertColumn(::org::apache::poi::hssf::record::ColumnInfoRecord* col)
+void poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::insertColumn(::poi::hssf::record::ColumnInfoRecord* col)
 {
     npc(records)->add(static_cast< ::java::lang::Object* >(col));
     ::java::util::Collections::sort(records, ColumnInfoRecordsAggregate_CIRComparator::instance());
 }
 
-void org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::insertColumn(int32_t idx, ::org::apache::poi::hssf::record::ColumnInfoRecord* col)
+void poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::insertColumn(int32_t idx, ::poi::hssf::record::ColumnInfoRecord* col)
 {
     npc(records)->add(idx, col);
 }
 
-int32_t org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::getNumColumns()
+int32_t poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::getNumColumns()
 {
     return npc(records)->size();
 }
 
-void org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::visitContainedRecords(RecordAggregate_RecordVisitor* rv)
+void poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::visitContainedRecords(RecordAggregate_RecordVisitor* rv)
 {
     auto nItems = npc(records)->size();
     if(nItems < 1) {
         return;
     }
-    ::org::apache::poi::hssf::record::ColumnInfoRecord* cirPrev = nullptr;
+    ::poi::hssf::record::ColumnInfoRecord* cirPrev = nullptr;
     for (auto i = int32_t(0); i < nItems; i++) {
-        auto cir = java_cast< ::org::apache::poi::hssf::record::ColumnInfoRecord* >(npc(records)->get(i));
+        auto cir = java_cast< ::poi::hssf::record::ColumnInfoRecord* >(npc(records)->get(i));
         npc(rv)->visitRecord(cir);
         if(cirPrev != nullptr && ColumnInfoRecordsAggregate_CIRComparator::compareColInfos(cirPrev, cir) > 0) {
             throw new ::java::lang::RuntimeException(u"Column info records are out of order"_j);
@@ -130,13 +130,13 @@ void org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::vis
     }
 }
 
-int32_t org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::findStartOfColumnOutlineGroup(int32_t pIdx)
+int32_t poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::findStartOfColumnOutlineGroup(int32_t pIdx)
 {
-    auto columnInfo = java_cast< ::org::apache::poi::hssf::record::ColumnInfoRecord* >(npc(records)->get(pIdx));
+    auto columnInfo = java_cast< ::poi::hssf::record::ColumnInfoRecord* >(npc(records)->get(pIdx));
     auto level = npc(columnInfo)->getOutlineLevel();
     auto idx = pIdx;
     while (idx != 0) {
-        auto prevColumnInfo = java_cast< ::org::apache::poi::hssf::record::ColumnInfoRecord* >(npc(records)->get(idx - int32_t(1)));
+        auto prevColumnInfo = java_cast< ::poi::hssf::record::ColumnInfoRecord* >(npc(records)->get(idx - int32_t(1)));
         if(!npc(prevColumnInfo)->isAdjacentBefore(columnInfo)) {
             break;
         }
@@ -149,13 +149,13 @@ int32_t org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::
     return idx;
 }
 
-int32_t org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::findEndOfColumnOutlineGroup(int32_t colInfoIndex)
+int32_t poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::findEndOfColumnOutlineGroup(int32_t colInfoIndex)
 {
-    auto columnInfo = java_cast< ::org::apache::poi::hssf::record::ColumnInfoRecord* >(npc(records)->get(colInfoIndex));
+    auto columnInfo = java_cast< ::poi::hssf::record::ColumnInfoRecord* >(npc(records)->get(colInfoIndex));
     auto level = npc(columnInfo)->getOutlineLevel();
     auto idx = colInfoIndex;
     while (idx < npc(records)->size() - int32_t(1)) {
-        auto nextColumnInfo = java_cast< ::org::apache::poi::hssf::record::ColumnInfoRecord* >(npc(records)->get(idx + int32_t(1)));
+        auto nextColumnInfo = java_cast< ::poi::hssf::record::ColumnInfoRecord* >(npc(records)->get(idx + int32_t(1)));
         if(!npc(columnInfo)->isAdjacentBefore(nextColumnInfo)) {
             break;
         }
@@ -168,12 +168,12 @@ int32_t org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::
     return idx;
 }
 
-org::apache::poi::hssf::record::ColumnInfoRecord* org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::getColInfo(int32_t idx)
+poi::hssf::record::ColumnInfoRecord* poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::getColInfo(int32_t idx)
 {
-    return java_cast< ::org::apache::poi::hssf::record::ColumnInfoRecord* >(npc(records)->get(idx));
+    return java_cast< ::poi::hssf::record::ColumnInfoRecord* >(npc(records)->get(idx));
 }
 
-bool org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::isColumnGroupCollapsed(int32_t idx)
+bool poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::isColumnGroupCollapsed(int32_t idx)
 {
     auto endOfOutlineGroupIdx = findEndOfColumnOutlineGroup(idx);
     auto nextColInfoIx = endOfOutlineGroupIdx + int32_t(1);
@@ -187,7 +187,7 @@ bool org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::isC
     return npc(nextColInfo)->getCollapsed();
 }
 
-bool org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::isColumnGroupHiddenByParent(int32_t idx)
+bool poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::isColumnGroupHiddenByParent(int32_t idx)
 {
     auto endLevel = int32_t(0);
     auto endHidden = false;
@@ -215,7 +215,7 @@ bool org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::isC
     return startHidden;
 }
 
-void org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::collapseColumn(int32_t columnIndex)
+void poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::collapseColumn(int32_t columnIndex)
 {
     auto colInfoIx = findColInfoIdx(columnIndex, 0);
     if(colInfoIx == -int32_t(1)) {
@@ -227,7 +227,7 @@ void org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::col
     setColumn(lastColIx + int32_t(1), nullptr, nullptr, nullptr, nullptr, ::java::lang::Boolean::TRUE());
 }
 
-int32_t org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::setGroupHidden(int32_t pIdx, int32_t level, bool hidden)
+int32_t poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::setGroupHidden(int32_t pIdx, int32_t level, bool hidden)
 {
     auto idx = pIdx;
     auto columnInfo = getColInfo(idx);
@@ -248,7 +248,7 @@ int32_t org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::
     return npc(columnInfo)->getLastColumn();
 }
 
-void org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::expandColumn(int32_t columnIndex)
+void poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::expandColumn(int32_t columnIndex)
 {
     auto idx = findColInfoIdx(columnIndex, 0);
     if(idx == -int32_t(1)) {
@@ -272,18 +272,18 @@ void org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::exp
     setColumn(npc(columnInfo)->getLastColumn() + int32_t(1), nullptr, nullptr, nullptr, nullptr, ::java::lang::Boolean::FALSE());
 }
 
-org::apache::poi::hssf::record::ColumnInfoRecord* org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::copyColInfo(::org::apache::poi::hssf::record::ColumnInfoRecord* ci)
+poi::hssf::record::ColumnInfoRecord* poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::copyColInfo(::poi::hssf::record::ColumnInfoRecord* ci)
 {
     clinit();
     return npc(ci)->clone();
 }
 
-void org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::setColumn(int32_t targetColumnIx, ::java::lang::Short* xfIndex, ::java::lang::Integer* width, ::java::lang::Integer* level, ::java::lang::Boolean* hidden, ::java::lang::Boolean* collapsed)
+void poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::setColumn(int32_t targetColumnIx, ::java::lang::Short* xfIndex, ::java::lang::Integer* width, ::java::lang::Integer* level, ::java::lang::Boolean* hidden, ::java::lang::Boolean* collapsed)
 {
-    ::org::apache::poi::hssf::record::ColumnInfoRecord* ci = nullptr;
+    ::poi::hssf::record::ColumnInfoRecord* ci = nullptr;
     auto k = int32_t(0);
     for (k = 0; k < npc(records)->size(); k++) {
-        auto tci = java_cast< ::org::apache::poi::hssf::record::ColumnInfoRecord* >(npc(records)->get(k));
+        auto tci = java_cast< ::poi::hssf::record::ColumnInfoRecord* >(npc(records)->get(k));
         if(npc(tci)->containsColumn(targetColumnIx)) {
             ci = tci;
             break;
@@ -293,7 +293,7 @@ void org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::set
         }
     }
     if(ci == nullptr) {
-        auto nci = new ::org::apache::poi::hssf::record::ColumnInfoRecord();
+        auto nci = new ::poi::hssf::record::ColumnInfoRecord();
         npc(nci)->setFirstColumn(targetColumnIx);
         npc(nci)->setLastColumn(targetColumnIx);
         setColumnInfoFields(nci, xfIndex, width, level, hidden, collapsed);
@@ -344,7 +344,7 @@ void org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::set
     }
 }
 
-void org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::setColumnInfoFields(::org::apache::poi::hssf::record::ColumnInfoRecord* ci, ::java::lang::Short* xfStyle, ::java::lang::Integer* width, ::java::lang::Integer* level, ::java::lang::Boolean* hidden, ::java::lang::Boolean* collapsed)
+void poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::setColumnInfoFields(::poi::hssf::record::ColumnInfoRecord* ci, ::java::lang::Short* xfStyle, ::java::lang::Integer* width, ::java::lang::Integer* level, ::java::lang::Boolean* hidden, ::java::lang::Boolean* collapsed)
 {
     clinit();
     if(xfStyle != nullptr) {
@@ -364,7 +364,7 @@ void org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::set
     }
 }
 
-int32_t org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::findColInfoIdx(int32_t columnIx, int32_t fromColInfoIdx)
+int32_t poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::findColInfoIdx(int32_t columnIx, int32_t fromColInfoIdx)
 {
     if(columnIx < 0) {
         throw new ::java::lang::IllegalArgumentException(::java::lang::StringBuilder().append(u"column parameter out of range: "_j)->append(columnIx)->toString());
@@ -384,7 +384,7 @@ int32_t org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::
     return -int32_t(1);
 }
 
-void org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::attemptMergeColInfoRecords(int32_t colInfoIx)
+void poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::attemptMergeColInfoRecords(int32_t colInfoIx)
 {
     auto nRecords = npc(records)->size();
     if(colInfoIx < 0 || colInfoIx >= nRecords) {
@@ -407,7 +407,7 @@ void org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::att
     }
 }
 
-bool org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::mergeColInfoRecords(::org::apache::poi::hssf::record::ColumnInfoRecord* ciA, ::org::apache::poi::hssf::record::ColumnInfoRecord* ciB)
+bool poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::mergeColInfoRecords(::poi::hssf::record::ColumnInfoRecord* ciA, ::poi::hssf::record::ColumnInfoRecord* ciB)
 {
     clinit();
     if(npc(ciA)->isAdjacentBefore(ciB) && npc(ciA)->formatMatches(ciB)) {
@@ -417,7 +417,7 @@ bool org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::mer
     return false;
 }
 
-void org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::groupColumnRange(int32_t fromColumnIx, int32_t toColumnIx, bool indent)
+void poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::groupColumnRange(int32_t fromColumnIx, int32_t toColumnIx, bool indent)
 {
     auto colInfoSearchStartIdx = int32_t(0);
     for (auto i = fromColumnIx; i <= toColumnIx; i++) {
@@ -438,7 +438,7 @@ void org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::gro
     }
 }
 
-org::apache::poi::hssf::record::ColumnInfoRecord* org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::findColumnInfo(int32_t columnIndex)
+poi::hssf::record::ColumnInfoRecord* poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::findColumnInfo(int32_t columnIndex)
 {
     auto nInfos = npc(records)->size();
     for (auto i = int32_t(0); i < nInfos; i++) {
@@ -450,7 +450,7 @@ org::apache::poi::hssf::record::ColumnInfoRecord* org::apache::poi::hssf::record
     return nullptr;
 }
 
-int32_t org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::getMaxOutlineLevel()
+int32_t poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::getMaxOutlineLevel()
 {
     auto result = int32_t(0);
     auto count = npc(records)->size();
@@ -461,7 +461,7 @@ int32_t org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::
     return result;
 }
 
-int32_t org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::getOutlineLevel(int32_t columnIndex)
+int32_t poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::getOutlineLevel(int32_t columnIndex)
 {
     auto ci = findColumnInfo(columnIndex);
     if(ci != nullptr) {
@@ -473,13 +473,13 @@ int32_t org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::class_()
+java::lang::Class* poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.aggregates.ColumnInfoRecordsAggregate", 64);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::getClass0()
+java::lang::Class* poi::hssf::record::aggregates::ColumnInfoRecordsAggregate::getClass0()
 {
     return class_();
 }

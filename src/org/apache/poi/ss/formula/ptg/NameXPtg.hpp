@@ -12,9 +12,9 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::ptg::NameXPtg final
+class poi::ss::formula::ptg::NameXPtg final
     : public OperandPtg
-    , public ::org::apache::poi::ss::formula::WorkbookDependentFormula
+    , public ::poi::ss::formula::WorkbookDependentFormula
 {
 
 public:
@@ -29,12 +29,12 @@ private:
 protected:
     void ctor(int32_t sheetRefIndex, int32_t nameNumber, int32_t reserved);
     void ctor(int32_t sheetRefIndex, int32_t nameIndex);
-    void ctor(::org::apache::poi::util::LittleEndianInput* in);
+    void ctor(::poi::util::LittleEndianInput* in);
 
 public:
-    void write(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void write(::poi::util::LittleEndianOutput* out) override;
     int32_t getSize() override;
-    ::java::lang::String* toFormulaString(::org::apache::poi::ss::formula::FormulaRenderingWorkbook* book) override;
+    ::java::lang::String* toFormulaString(::poi::ss::formula::FormulaRenderingWorkbook* book) override;
     ::java::lang::String* toFormulaString() override;
     ::java::lang::String* toString() override;
     int8_t getDefaultOperandClass() override;
@@ -48,7 +48,7 @@ private:
 
 public:
     NameXPtg(int32_t sheetRefIndex, int32_t nameIndex);
-    NameXPtg(::org::apache::poi::util::LittleEndianInput* in);
+    NameXPtg(::poi::util::LittleEndianInput* in);
 protected:
     NameXPtg(const ::default_init_tag&);
 

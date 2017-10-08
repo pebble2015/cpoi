@@ -13,7 +13,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::util::IOUtils final
+class poi::util::IOUtils final
     : public ::java::lang::Object
 {
 
@@ -36,12 +36,12 @@ public:
     static int32_t readFully(::java::io::InputStream* in, ::int8_tArray* b) /* throws(IOException) */;
     static int32_t readFully(::java::io::InputStream* in, ::int8_tArray* b, int32_t off, int32_t len) /* throws(IOException) */;
     static int32_t readFully(::java::nio::channels::ReadableByteChannel* channel, ::java::nio::ByteBuffer* b) /* throws(IOException) */;
-    static void write(::org::apache::poi::POIDocument* doc, ::java::io::OutputStream* out) /* throws(IOException) */;
-    static void write(::org::apache::poi::ss::usermodel::Workbook* doc, ::java::io::OutputStream* out) /* throws(IOException) */;
-    static void writeAndClose(::org::apache::poi::POIDocument* doc, ::java::io::OutputStream* out) /* throws(IOException) */;
-    static void writeAndClose(::org::apache::poi::POIDocument* doc, ::java::io::File* out) /* throws(IOException) */;
-    static void writeAndClose(::org::apache::poi::POIDocument* doc) /* throws(IOException) */;
-    static void writeAndClose(::org::apache::poi::ss::usermodel::Workbook* doc, ::java::io::OutputStream* out) /* throws(IOException) */;
+    static void write(::poi::POIDocument* doc, ::java::io::OutputStream* out) /* throws(IOException) */;
+    static void write(::poi::ss::usermodel::Workbook* doc, ::java::io::OutputStream* out) /* throws(IOException) */;
+    static void writeAndClose(::poi::POIDocument* doc, ::java::io::OutputStream* out) /* throws(IOException) */;
+    static void writeAndClose(::poi::POIDocument* doc, ::java::io::File* out) /* throws(IOException) */;
+    static void writeAndClose(::poi::POIDocument* doc) /* throws(IOException) */;
+    static void writeAndClose(::poi::ss::usermodel::Workbook* doc, ::java::io::OutputStream* out) /* throws(IOException) */;
     static void copy(::java::io::InputStream* inp, ::java::io::OutputStream* out) /* throws(IOException) */;
     static int64_t calculateChecksum(::int8_tArray* data);
     static int64_t calculateChecksum(::java::io::InputStream* stream) /* throws(IOException) */;

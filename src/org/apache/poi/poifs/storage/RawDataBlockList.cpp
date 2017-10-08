@@ -14,23 +14,17 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace poifs
     {
-        namespace poi
+        namespace storage
         {
-            namespace poifs
-            {
-                namespace storage
-                {
-typedef ::SubArray< ::org::apache::poi::poifs::storage::ListManagedBlock, ::java::lang::ObjectArray > ListManagedBlockArray;
-typedef ::SubArray< ::org::apache::poi::poifs::storage::RawDataBlock, ::java::lang::ObjectArray, ListManagedBlockArray > RawDataBlockArray;
-                } // storage
-            } // poifs
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::poifs::storage::ListManagedBlock, ::java::lang::ObjectArray > ListManagedBlockArray;
+typedef ::SubArray< ::poi::poifs::storage::RawDataBlock, ::java::lang::ObjectArray, ListManagedBlockArray > RawDataBlockArray;
+        } // storage
+    } // poifs
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -48,19 +42,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::storage::RawDataBlockList::RawDataBlockList(const ::default_init_tag&)
+poi::poifs::storage::RawDataBlockList::RawDataBlockList(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::storage::RawDataBlockList::RawDataBlockList(::java::io::InputStream* stream, ::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize)  /* throws(IOException) */
+poi::poifs::storage::RawDataBlockList::RawDataBlockList(::java::io::InputStream* stream, ::poi::poifs::common::POIFSBigBlockSize* bigBlockSize)  /* throws(IOException) */
     : RawDataBlockList(*static_cast< ::default_init_tag* >(0))
 {
     ctor(stream,bigBlockSize);
 }
 
-void org::apache::poi::poifs::storage::RawDataBlockList::ctor(::java::io::InputStream* stream, ::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize) /* throws(IOException) */
+void poi::poifs::storage::RawDataBlockList::ctor(::java::io::InputStream* stream, ::poi::poifs::common::POIFSBigBlockSize* bigBlockSize) /* throws(IOException) */
 {
     super::ctor();
     ::java::util::List* blocks = new ::java::util::ArrayList();
@@ -78,13 +72,13 @@ void org::apache::poi::poifs::storage::RawDataBlockList::ctor(::java::io::InputS
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::storage::RawDataBlockList::class_()
+java::lang::Class* poi::poifs::storage::RawDataBlockList::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.storage.RawDataBlockList", 45);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::storage::RawDataBlockList::getClass0()
+java::lang::Class* poi::poifs::storage::RawDataBlockList::getClass0()
 {
     return class_();
 }

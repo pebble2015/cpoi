@@ -60,49 +60,49 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ddf::EscherContainerRecord::EscherContainerRecord(const ::default_init_tag&)
+poi::ddf::EscherContainerRecord::EscherContainerRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ddf::EscherContainerRecord::EscherContainerRecord()
+poi::ddf::EscherContainerRecord::EscherContainerRecord()
     : EscherContainerRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::ddf::EscherContainerRecord::ctor()
+void poi::ddf::EscherContainerRecord::ctor()
 {
     super::ctor();
     init();
 }
 
-void org::apache::poi::ddf::EscherContainerRecord::init()
+void poi::ddf::EscherContainerRecord::init()
 {
     _childRecords = new ::java::util::ArrayList();
 }
 
-constexpr int16_t org::apache::poi::ddf::EscherContainerRecord::DGG_CONTAINER;
+constexpr int16_t poi::ddf::EscherContainerRecord::DGG_CONTAINER;
 
-constexpr int16_t org::apache::poi::ddf::EscherContainerRecord::BSTORE_CONTAINER;
+constexpr int16_t poi::ddf::EscherContainerRecord::BSTORE_CONTAINER;
 
-constexpr int16_t org::apache::poi::ddf::EscherContainerRecord::DG_CONTAINER;
+constexpr int16_t poi::ddf::EscherContainerRecord::DG_CONTAINER;
 
-constexpr int16_t org::apache::poi::ddf::EscherContainerRecord::SPGR_CONTAINER;
+constexpr int16_t poi::ddf::EscherContainerRecord::SPGR_CONTAINER;
 
-constexpr int16_t org::apache::poi::ddf::EscherContainerRecord::SP_CONTAINER;
+constexpr int16_t poi::ddf::EscherContainerRecord::SP_CONTAINER;
 
-constexpr int16_t org::apache::poi::ddf::EscherContainerRecord::SOLVER_CONTAINER;
+constexpr int16_t poi::ddf::EscherContainerRecord::SOLVER_CONTAINER;
 
-org::apache::poi::util::POILogger*& org::apache::poi::ddf::EscherContainerRecord::log()
+poi::util::POILogger*& poi::ddf::EscherContainerRecord::log()
 {
     clinit();
     return log_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::ddf::EscherContainerRecord::log_;
+poi::util::POILogger* poi::ddf::EscherContainerRecord::log_;
 
-int32_t org::apache::poi::ddf::EscherContainerRecord::fillFields(::int8_tArray* data, int32_t pOffset, EscherRecordFactory* recordFactory)
+int32_t poi::ddf::EscherContainerRecord::fillFields(::int8_tArray* data, int32_t pOffset, EscherRecordFactory* recordFactory)
 {
     auto bytesRemaining = readHeader(data, pOffset);
     auto bytesWritten = int32_t(8);
@@ -116,8 +116,8 @@ int32_t org::apache::poi::ddf::EscherContainerRecord::fillFields(::int8_tArray* 
         addChildRecord(child);
         if(offset >= npc(data)->length && bytesRemaining > 0) {
             _remainingLength = bytesRemaining;
-            if(npc(log_)->check(::org::apache::poi::util::POILogger::WARN)) {
-                npc(log_)->log(::org::apache::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Not enough Escher data: "_j)->append(bytesRemaining)
+            if(npc(log_)->check(::poi::util::POILogger::WARN)) {
+                npc(log_)->log(::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Not enough Escher data: "_j)->append(bytesRemaining)
                     ->append(u" bytes remaining but no space left"_j)->toString())}));
             }
         }
@@ -125,11 +125,11 @@ int32_t org::apache::poi::ddf::EscherContainerRecord::fillFields(::int8_tArray* 
     return bytesWritten;
 }
 
-int32_t org::apache::poi::ddf::EscherContainerRecord::serialize(int32_t offset, ::int8_tArray* data, EscherSerializationListener* listener)
+int32_t poi::ddf::EscherContainerRecord::serialize(int32_t offset, ::int8_tArray* data, EscherSerializationListener* listener)
 {
     npc(listener)->beforeRecordSerialize(offset, getRecordId(), this);
-    ::org::apache::poi::util::LittleEndian::putShort(data, offset, getOptions());
-    ::org::apache::poi::util::LittleEndian::putShort(data, offset + int32_t(2), getRecordId());
+    ::poi::util::LittleEndian::putShort(data, offset, getOptions());
+    ::poi::util::LittleEndian::putShort(data, offset + int32_t(2), getRecordId());
     auto remainingBytes = int32_t(0);
     for (auto _i = this->iterator(); _i->hasNext(); ) {
         EscherRecord* r = java_cast< EscherRecord* >(_i->next());
@@ -138,7 +138,7 @@ int32_t org::apache::poi::ddf::EscherContainerRecord::serialize(int32_t offset, 
         }
     }
     remainingBytes += _remainingLength;
-    ::org::apache::poi::util::LittleEndian::putInt(data, offset + int32_t(4), remainingBytes);
+    ::poi::util::LittleEndian::putInt(data, offset + int32_t(4), remainingBytes);
     auto pos = offset + int32_t(8);
     for (auto _i = this->iterator(); _i->hasNext(); ) {
         EscherRecord* r = java_cast< EscherRecord* >(_i->next());
@@ -150,7 +150,7 @@ int32_t org::apache::poi::ddf::EscherContainerRecord::serialize(int32_t offset, 
     return pos - offset;
 }
 
-int32_t org::apache::poi::ddf::EscherContainerRecord::getRecordSize()
+int32_t poi::ddf::EscherContainerRecord::getRecordSize()
 {
     auto childRecordsSize = int32_t(0);
     for (auto _i = this->iterator(); _i->hasNext(); ) {
@@ -162,7 +162,7 @@ int32_t org::apache::poi::ddf::EscherContainerRecord::getRecordSize()
     return int32_t(8) + childRecordsSize;
 }
 
-bool org::apache::poi::ddf::EscherContainerRecord::hasChildOfType(int16_t recordId)
+bool poi::ddf::EscherContainerRecord::hasChildOfType(int16_t recordId)
 {
     for (auto _i = this->iterator(); _i->hasNext(); ) {
         EscherRecord* r = java_cast< EscherRecord* >(_i->next());
@@ -175,27 +175,27 @@ bool org::apache::poi::ddf::EscherContainerRecord::hasChildOfType(int16_t record
     return false;
 }
 
-org::apache::poi::ddf::EscherRecord* org::apache::poi::ddf::EscherContainerRecord::getChild(int32_t index)
+poi::ddf::EscherRecord* poi::ddf::EscherContainerRecord::getChild(int32_t index)
 {
     return java_cast< EscherRecord* >(npc(_childRecords)->get(index));
 }
 
-java::util::List* org::apache::poi::ddf::EscherContainerRecord::getChildRecords()
+java::util::List* poi::ddf::EscherContainerRecord::getChildRecords()
 {
     return new ::java::util::ArrayList(static_cast< ::java::util::Collection* >(_childRecords));
 }
 
-java::util::Iterator* org::apache::poi::ddf::EscherContainerRecord::getChildIterator()
+java::util::Iterator* poi::ddf::EscherContainerRecord::getChildIterator()
 {
     return iterator();
 }
 
-java::util::Iterator* org::apache::poi::ddf::EscherContainerRecord::iterator()
+java::util::Iterator* poi::ddf::EscherContainerRecord::iterator()
 {
     return npc(::java::util::Collections::unmodifiableList(_childRecords))->iterator();
 }
 
-void org::apache::poi::ddf::EscherContainerRecord::setChildRecords(::java::util::List* childRecords)
+void poi::ddf::EscherContainerRecord::setChildRecords(::java::util::List* childRecords)
 {
     if(childRecords == _childRecords) {
         throw new ::java::lang::IllegalStateException(u"Child records private data member has escaped"_j);
@@ -204,12 +204,12 @@ void org::apache::poi::ddf::EscherContainerRecord::setChildRecords(::java::util:
     npc(_childRecords)->addAll(static_cast< ::java::util::Collection* >(childRecords));
 }
 
-bool org::apache::poi::ddf::EscherContainerRecord::removeChildRecord(EscherRecord* toBeRemoved)
+bool poi::ddf::EscherContainerRecord::removeChildRecord(EscherRecord* toBeRemoved)
 {
     return npc(_childRecords)->remove(static_cast< ::java::lang::Object* >(toBeRemoved));
 }
 
-java::util::List* org::apache::poi::ddf::EscherContainerRecord::getChildContainers()
+java::util::List* poi::ddf::EscherContainerRecord::getChildContainers()
 {
     ::java::util::List* containers = new ::java::util::ArrayList();
     for (auto _i = this->iterator(); _i->hasNext(); ) {
@@ -223,7 +223,7 @@ java::util::List* org::apache::poi::ddf::EscherContainerRecord::getChildContaine
     return containers;
 }
 
-java::lang::String* org::apache::poi::ddf::EscherContainerRecord::getRecordName()
+java::lang::String* poi::ddf::EscherContainerRecord::getRecordName()
 {
     switch (getRecordId()) {
     case DGG_CONTAINER:
@@ -239,12 +239,12 @@ java::lang::String* org::apache::poi::ddf::EscherContainerRecord::getRecordName(
     case SOLVER_CONTAINER:
         return u"SolverContainer"_j;
     default:
-        return ::java::lang::StringBuilder().append(u"Container 0x"_j)->append(::org::apache::poi::util::HexDump::toHex(getRecordId()))->toString();
+        return ::java::lang::StringBuilder().append(u"Container 0x"_j)->append(::poi::util::HexDump::toHex(getRecordId()))->toString();
     }
 
 }
 
-void org::apache::poi::ddf::EscherContainerRecord::display(::java::io::PrintWriter* w, int32_t indent)
+void poi::ddf::EscherContainerRecord::display(::java::io::PrintWriter* w, int32_t indent)
 {
     super::display(w, indent);
     for (auto _i = this->iterator(); _i->hasNext(); ) {
@@ -255,12 +255,12 @@ void org::apache::poi::ddf::EscherContainerRecord::display(::java::io::PrintWrit
     }
 }
 
-void org::apache::poi::ddf::EscherContainerRecord::addChildRecord(EscherRecord* record)
+void poi::ddf::EscherContainerRecord::addChildRecord(EscherRecord* record)
 {
     npc(_childRecords)->add(static_cast< ::java::lang::Object* >(record));
 }
 
-void org::apache::poi::ddf::EscherContainerRecord::addChildBefore(EscherRecord* record, int32_t insertBeforeRecordId)
+void poi::ddf::EscherContainerRecord::addChildBefore(EscherRecord* record, int32_t insertBeforeRecordId)
 {
     auto idx = int32_t(0);
     for (auto _i = this->iterator(); _i->hasNext(); ) {
@@ -275,7 +275,7 @@ void org::apache::poi::ddf::EscherContainerRecord::addChildBefore(EscherRecord* 
     npc(_childRecords)->add(idx, record);
 }
 
-/* <T extends EscherRecord> */org::apache::poi::ddf::EscherRecord* org::apache::poi::ddf::EscherContainerRecord::getChildById(int16_t recordId)
+/* <T extends EscherRecord> */poi::ddf::EscherRecord* poi::ddf::EscherContainerRecord::getChildById(int16_t recordId)
 {
     for (auto _i = this->iterator(); _i->hasNext(); ) {
         EscherRecord* childRecord = java_cast< EscherRecord* >(_i->next());
@@ -289,7 +289,7 @@ void org::apache::poi::ddf::EscherContainerRecord::addChildBefore(EscherRecord* 
     return nullptr;
 }
 
-void org::apache::poi::ddf::EscherContainerRecord::getRecordsById(int16_t recordId, ::java::util::List* out)
+void poi::ddf::EscherContainerRecord::getRecordsById(int16_t recordId, ::java::util::List* out)
 {
     for (auto _i = this->iterator(); _i->hasNext(); ) {
         EscherRecord* r = java_cast< EscherRecord* >(_i->next());
@@ -304,7 +304,7 @@ void org::apache::poi::ddf::EscherContainerRecord::getRecordsById(int16_t record
     }
 }
 
-java::lang::ObjectArrayArray* org::apache::poi::ddf::EscherContainerRecord::getAttributeMap()
+java::lang::ObjectArrayArray* poi::ddf::EscherContainerRecord::getAttributeMap()
 {
     ::java::util::List* chList = new ::java::util::ArrayList(npc(_childRecords)->size() * int32_t(2) + int32_t(2));
     npc(chList)->add(static_cast< ::java::lang::Object* >(u"children"_j));
@@ -329,20 +329,20 @@ java::lang::ObjectArrayArray* org::apache::poi::ddf::EscherContainerRecord::getA
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ddf::EscherContainerRecord::class_()
+java::lang::Class* poi::ddf::EscherContainerRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ddf.EscherContainerRecord", 40);
     return c;
 }
 
-void org::apache::poi::ddf::EscherContainerRecord::clinit()
+void poi::ddf::EscherContainerRecord::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        log_ = ::org::apache::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(EscherContainerRecord::class_()));
+        log_ = ::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(EscherContainerRecord::class_()));
     }
 };
 
@@ -351,22 +351,22 @@ struct clinit_ {
     }
 }
 
-int32_t org::apache::poi::ddf::EscherContainerRecord::fillFields(::int8_tArray* data, EscherRecordFactory* f)
+int32_t poi::ddf::EscherContainerRecord::fillFields(::int8_tArray* data, EscherRecordFactory* f)
 {
     return super::fillFields(data, f);
 }
 
-int8_tArray* org::apache::poi::ddf::EscherContainerRecord::serialize()
+int8_tArray* poi::ddf::EscherContainerRecord::serialize()
 {
     return super::serialize();
 }
 
-int32_t org::apache::poi::ddf::EscherContainerRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::ddf::EscherContainerRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-java::lang::Class* org::apache::poi::ddf::EscherContainerRecord::getClass0()
+java::lang::Class* poi::ddf::EscherContainerRecord::getClass0()
 {
     return class_();
 }

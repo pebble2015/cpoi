@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::aggregates::RecordAggregate_RecordSizingVisitor final
+class poi::hssf::record::aggregates::RecordAggregate_RecordSizingVisitor final
     : public virtual ::java::lang::Object
     , public RecordAggregate_RecordVisitor
 {
@@ -25,7 +25,7 @@ protected:
 
 public:
     int32_t getTotalSize();
-    void visitRecord(::org::apache::poi::hssf::record::Record* r) override;
+    void visitRecord(::poi::hssf::record::Record* r) override;
 
     // Generated
     RecordAggregate_RecordSizingVisitor();

@@ -2,25 +2,19 @@
 #pragma once
 
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace udf
             {
-                namespace formula
-                {
-                    namespace udf
-                    {
-                        class AggregatingUDFFinder;
-                        class DefaultUDFFinder;
-                        class IndexedUDFFinder;
-                        struct UDFFinder;
-                    } // udf
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+                class AggregatingUDFFinder;
+                class DefaultUDFFinder;
+                class IndexedUDFFinder;
+                struct UDFFinder;
+            } // udf
+        } // formula
+    } // ss
+} // poi

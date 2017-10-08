@@ -19,26 +19,20 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
-            {
-                namespace record
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::Record, RecordBaseArray > RecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::StandardRecord, RecordArray > StandardRecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::BoundSheetRecord, StandardRecordArray > BoundSheetRecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::ExternSheetRecord, StandardRecordArray > ExternSheetRecordArray;
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
+typedef ::SubArray< ::poi::hssf::record::Record, RecordBaseArray > RecordArray;
+typedef ::SubArray< ::poi::hssf::record::StandardRecord, RecordArray > StandardRecordArray;
+typedef ::SubArray< ::poi::hssf::record::BoundSheetRecord, StandardRecordArray > BoundSheetRecordArray;
+typedef ::SubArray< ::poi::hssf::record::ExternSheetRecord, StandardRecordArray > ExternSheetRecordArray;
+        } // record
+    } // hssf
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -47,19 +41,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::eventusermodel::EventWorkbookBuilder::EventWorkbookBuilder(const ::default_init_tag&)
+poi::hssf::eventusermodel::EventWorkbookBuilder::EventWorkbookBuilder(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::eventusermodel::EventWorkbookBuilder::EventWorkbookBuilder()
+poi::hssf::eventusermodel::EventWorkbookBuilder::EventWorkbookBuilder()
     : EventWorkbookBuilder(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::model::InternalWorkbook* org::apache::poi::hssf::eventusermodel::EventWorkbookBuilder::createStubWorkbook(::org::apache::poi::hssf::record::ExternSheetRecordArray* externs, ::org::apache::poi::hssf::record::BoundSheetRecordArray* bounds, ::org::apache::poi::hssf::record::SSTRecord* sst)
+poi::hssf::model::InternalWorkbook* poi::hssf::eventusermodel::EventWorkbookBuilder::createStubWorkbook(::poi::hssf::record::ExternSheetRecordArray* externs, ::poi::hssf::record::BoundSheetRecordArray* bounds, ::poi::hssf::record::SSTRecord* sst)
 {
     clinit();
     ::java::util::List* wbRecords = new ::java::util::ArrayList();
@@ -72,16 +66,16 @@ org::apache::poi::hssf::model::InternalWorkbook* org::apache::poi::hssf::eventus
         npc(wbRecords)->add(static_cast< ::java::lang::Object* >(sst));
     }
     if(externs != nullptr) {
-        npc(wbRecords)->add(static_cast< ::java::lang::Object* >(::org::apache::poi::hssf::record::SupBookRecord::createInternalReferences(static_cast< int16_t >(npc(externs)->length))));
+        npc(wbRecords)->add(static_cast< ::java::lang::Object* >(::poi::hssf::record::SupBookRecord::createInternalReferences(static_cast< int16_t >(npc(externs)->length))));
         for(auto extern_ : *npc(externs)) {
             npc(wbRecords)->add(static_cast< ::java::lang::Object* >(extern_));
         }
     }
-    npc(wbRecords)->add(static_cast< ::java::lang::Object* >(::org::apache::poi::hssf::record::EOFRecord::instance()));
-    return ::org::apache::poi::hssf::model::InternalWorkbook::createWorkbook(wbRecords);
+    npc(wbRecords)->add(static_cast< ::java::lang::Object* >(::poi::hssf::record::EOFRecord::instance()));
+    return ::poi::hssf::model::InternalWorkbook::createWorkbook(wbRecords);
 }
 
-org::apache::poi::hssf::model::InternalWorkbook* org::apache::poi::hssf::eventusermodel::EventWorkbookBuilder::createStubWorkbook(::org::apache::poi::hssf::record::ExternSheetRecordArray* externs, ::org::apache::poi::hssf::record::BoundSheetRecordArray* bounds)
+poi::hssf::model::InternalWorkbook* poi::hssf::eventusermodel::EventWorkbookBuilder::createStubWorkbook(::poi::hssf::record::ExternSheetRecordArray* externs, ::poi::hssf::record::BoundSheetRecordArray* bounds)
 {
     clinit();
     return createStubWorkbook(externs, bounds, nullptr);
@@ -89,13 +83,13 @@ org::apache::poi::hssf::model::InternalWorkbook* org::apache::poi::hssf::eventus
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::eventusermodel::EventWorkbookBuilder::class_()
+java::lang::Class* poi::hssf::eventusermodel::EventWorkbookBuilder::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.eventusermodel.EventWorkbookBuilder", 55);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::eventusermodel::EventWorkbookBuilder::getClass0()
+java::lang::Class* poi::hssf::eventusermodel::EventWorkbookBuilder::getClass0()
 {
     return class_();
 }

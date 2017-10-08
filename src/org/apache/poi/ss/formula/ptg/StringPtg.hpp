@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::ptg::StringPtg final
+class poi::ss::formula::ptg::StringPtg final
     : public ScalarConstantPtg
 {
 
@@ -23,17 +23,17 @@ private:
     bool _is16bitUnicode {  };
     ::java::lang::String* field_3_string {  };
 protected:
-    void ctor(::org::apache::poi::util::LittleEndianInput* in);
+    void ctor(::poi::util::LittleEndianInput* in);
     void ctor(::java::lang::String* value);
 
 public:
     ::java::lang::String* getValue();
-    void write(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void write(::poi::util::LittleEndianOutput* out) override;
     int32_t getSize() override;
     ::java::lang::String* toFormulaString() override;
 
     // Generated
-    StringPtg(::org::apache::poi::util::LittleEndianInput* in);
+    StringPtg(::poi::util::LittleEndianInput* in);
     StringPtg(::java::lang::String* value);
 protected:
     StringPtg(const ::default_init_tag&);

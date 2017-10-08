@@ -12,25 +12,19 @@
 #include <org/apache/poi/ss/formula/functions/TextFunction.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -39,48 +33,48 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::TextFunction_LeftRight::TextFunction_LeftRight(const ::default_init_tag&)
+poi::ss::formula::functions::TextFunction_LeftRight::TextFunction_LeftRight(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::TextFunction_LeftRight::TextFunction_LeftRight(bool isLeft) 
+poi::ss::formula::functions::TextFunction_LeftRight::TextFunction_LeftRight(bool isLeft) 
     : TextFunction_LeftRight(*static_cast< ::default_init_tag* >(0))
 {
     ctor(isLeft);
 }
 
-org::apache::poi::ss::formula::eval::ValueEval*& org::apache::poi::ss::formula::functions::TextFunction_LeftRight::DEFAULT_ARG1()
+poi::ss::formula::eval::ValueEval*& poi::ss::formula::functions::TextFunction_LeftRight::DEFAULT_ARG1()
 {
     clinit();
     return DEFAULT_ARG1_;
 }
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::TextFunction_LeftRight::DEFAULT_ARG1_;
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::TextFunction_LeftRight::DEFAULT_ARG1_;
 
-void org::apache::poi::ss::formula::functions::TextFunction_LeftRight::ctor(bool isLeft)
+void poi::ss::formula::functions::TextFunction_LeftRight::ctor(bool isLeft)
 {
     super::ctor();
     _isLeft = isLeft;
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::TextFunction_LeftRight::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* arg0)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::TextFunction_LeftRight::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::poi::ss::formula::eval::ValueEval* arg0)
 {
     return evaluate(srcRowIndex, srcColumnIndex, arg0, DEFAULT_ARG1_);
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::TextFunction_LeftRight::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* arg0, ::org::apache::poi::ss::formula::eval::ValueEval* arg1)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::TextFunction_LeftRight::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::poi::ss::formula::eval::ValueEval* arg0, ::poi::ss::formula::eval::ValueEval* arg1)
 {
     ::java::lang::String* arg;
     int32_t index;
     try {
         arg = TextFunction::evaluateStringArg(arg0, srcRowIndex, srcColumnIndex);
         index = TextFunction::evaluateIntArg(arg1, srcRowIndex, srcColumnIndex);
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
         return npc(e)->getErrorEval();
     }
     if(index < 0) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
     ::java::lang::String* result;
     if(_isLeft) {
@@ -88,25 +82,25 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::f
     } else {
         result = npc(arg)->substring(::java::lang::Math::max(int32_t(0), npc(arg)->length() - index));
     }
-    return new ::org::apache::poi::ss::formula::eval::StringEval(result);
+    return new ::poi::ss::formula::eval::StringEval(result);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::TextFunction_LeftRight::class_()
+java::lang::Class* poi::ss::formula::functions::TextFunction_LeftRight::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.TextFunction.LeftRight", 58);
     return c;
 }
 
-void org::apache::poi::ss::formula::functions::TextFunction_LeftRight::clinit()
+void poi::ss::formula::functions::TextFunction_LeftRight::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        DEFAULT_ARG1_ = new ::org::apache::poi::ss::formula::eval::NumberEval(1.0);
+        DEFAULT_ARG1_ = new ::poi::ss::formula::eval::NumberEval(1.0);
     }
 };
 
@@ -115,12 +109,12 @@ struct clinit_ {
     }
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::TextFunction_LeftRight::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::TextFunction_LeftRight::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
 {
     return super::evaluate(args, srcRowIndex, srcColumnIndex);
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::TextFunction_LeftRight::getClass0()
+java::lang::Class* poi::ss::formula::functions::TextFunction_LeftRight::getClass0()
 {
     return class_();
 }

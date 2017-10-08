@@ -12,37 +12,37 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::HeaderRecord::HeaderRecord(const ::default_init_tag&)
+poi::hssf::record::HeaderRecord::HeaderRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::HeaderRecord::HeaderRecord(::java::lang::String* text) 
+poi::hssf::record::HeaderRecord::HeaderRecord(::java::lang::String* text) 
     : HeaderRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(text);
 }
 
-org::apache::poi::hssf::record::HeaderRecord::HeaderRecord(RecordInputStream* in) 
+poi::hssf::record::HeaderRecord::HeaderRecord(RecordInputStream* in) 
     : HeaderRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::HeaderRecord::sid;
+constexpr int16_t poi::hssf::record::HeaderRecord::sid;
 
-void org::apache::poi::hssf::record::HeaderRecord::ctor(::java::lang::String* text)
+void poi::hssf::record::HeaderRecord::ctor(::java::lang::String* text)
 {
     super::ctor(text);
 }
 
-void org::apache::poi::hssf::record::HeaderRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::HeaderRecord::ctor(RecordInputStream* in)
 {
     super::ctor(in);
 }
 
-java::lang::String* org::apache::poi::hssf::record::HeaderRecord::toString()
+java::lang::String* poi::hssf::record::HeaderRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[HEADER]\n"_j);
@@ -51,25 +51,25 @@ java::lang::String* org::apache::poi::hssf::record::HeaderRecord::toString()
     return npc(buffer)->toString();
 }
 
-int16_t org::apache::poi::hssf::record::HeaderRecord::getSid()
+int16_t poi::hssf::record::HeaderRecord::getSid()
 {
     return sid;
 }
 
-org::apache::poi::hssf::record::HeaderRecord* org::apache::poi::hssf::record::HeaderRecord::clone()
+poi::hssf::record::HeaderRecord* poi::hssf::record::HeaderRecord::clone()
 {
     return new HeaderRecord(getText());
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::HeaderRecord::class_()
+java::lang::Class* poi::hssf::record::HeaderRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.HeaderRecord", 39);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::record::HeaderRecord::getClass0()
+java::lang::Class* poi::hssf::record::HeaderRecord::getClass0()
 {
     return class_();
 }

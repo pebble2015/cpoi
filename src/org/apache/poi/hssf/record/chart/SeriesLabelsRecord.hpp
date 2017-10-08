@@ -11,29 +11,29 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::chart::SeriesLabelsRecord final
-    : public ::org::apache::poi::hssf::record::StandardRecord
+class poi::hssf::record::chart::SeriesLabelsRecord final
+    : public ::poi::hssf::record::StandardRecord
 {
 
 public:
-    typedef ::org::apache::poi::hssf::record::StandardRecord super;
+    typedef ::poi::hssf::record::StandardRecord super;
     static constexpr int16_t sid { int16_t(4108) };
 
 private:
-    static ::org::apache::poi::util::BitField* showActual_;
-    static ::org::apache::poi::util::BitField* showPercent_;
-    static ::org::apache::poi::util::BitField* labelAsPercentage_;
-    static ::org::apache::poi::util::BitField* smoothedLine_;
-    static ::org::apache::poi::util::BitField* showLabel_;
-    static ::org::apache::poi::util::BitField* showBubbleSizes_;
+    static ::poi::util::BitField* showActual_;
+    static ::poi::util::BitField* showPercent_;
+    static ::poi::util::BitField* labelAsPercentage_;
+    static ::poi::util::BitField* smoothedLine_;
+    static ::poi::util::BitField* showLabel_;
+    static ::poi::util::BitField* showBubbleSizes_;
     int16_t field_1_formatFlags {  };
 protected:
     void ctor();
-    void ctor(::org::apache::poi::hssf::record::RecordInputStream* in);
+    void ctor(::poi::hssf::record::RecordInputStream* in);
 
 public:
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;
@@ -58,7 +58,7 @@ public:
 
     // Generated
     SeriesLabelsRecord();
-    SeriesLabelsRecord(::org::apache::poi::hssf::record::RecordInputStream* in);
+    SeriesLabelsRecord(::poi::hssf::record::RecordInputStream* in);
 protected:
     SeriesLabelsRecord(const ::default_init_tag&);
 
@@ -70,11 +70,11 @@ public:
     ::int8_tArray* serialize();
 
 private:
-    static ::org::apache::poi::util::BitField*& showActual();
-    static ::org::apache::poi::util::BitField*& showPercent();
-    static ::org::apache::poi::util::BitField*& labelAsPercentage();
-    static ::org::apache::poi::util::BitField*& smoothedLine();
-    static ::org::apache::poi::util::BitField*& showLabel();
-    static ::org::apache::poi::util::BitField*& showBubbleSizes();
+    static ::poi::util::BitField*& showActual();
+    static ::poi::util::BitField*& showPercent();
+    static ::poi::util::BitField*& labelAsPercentage();
+    static ::poi::util::BitField*& smoothedLine();
+    static ::poi::util::BitField*& showLabel();
+    static ::poi::util::BitField*& showBubbleSizes();
     virtual ::java::lang::Class* getClass0();
 };

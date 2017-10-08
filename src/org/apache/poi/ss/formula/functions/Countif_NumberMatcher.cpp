@@ -28,33 +28,33 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::Countif_NumberMatcher::Countif_NumberMatcher(const ::default_init_tag&)
+poi::ss::formula::functions::Countif_NumberMatcher::Countif_NumberMatcher(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::Countif_NumberMatcher::Countif_NumberMatcher(double value, Countif_CmpOp* operator_) 
+poi::ss::formula::functions::Countif_NumberMatcher::Countif_NumberMatcher(double value, Countif_CmpOp* operator_) 
     : Countif_NumberMatcher(*static_cast< ::default_init_tag* >(0))
 {
     ctor(value,operator_);
 }
 
-void org::apache::poi::ss::formula::functions::Countif_NumberMatcher::ctor(double value, Countif_CmpOp* operator_)
+void poi::ss::formula::functions::Countif_NumberMatcher::ctor(double value, Countif_CmpOp* operator_)
 {
     super::ctor(operator_);
     _value = value;
 }
 
-java::lang::String* org::apache::poi::ss::formula::functions::Countif_NumberMatcher::getValueText()
+java::lang::String* poi::ss::formula::functions::Countif_NumberMatcher::getValueText()
 {
     return ::java::lang::String::valueOf(_value);
 }
 
-bool org::apache::poi::ss::formula::functions::Countif_NumberMatcher::matches(::org::apache::poi::ss::formula::eval::ValueEval* x)
+bool poi::ss::formula::functions::Countif_NumberMatcher::matches(::poi::ss::formula::eval::ValueEval* x)
 {
     double testValue;
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::StringEval* >(x) != nullptr) {
+    if(dynamic_cast< ::poi::ss::formula::eval::StringEval* >(x) != nullptr) {
         switch (getCode()) {
         case Countif_CmpOp::EQ:
         case Countif_CmpOp::NONE:
@@ -65,16 +65,16 @@ bool org::apache::poi::ss::formula::functions::Countif_NumberMatcher::matches(::
             return false;
         }
 
-        auto se = java_cast< ::org::apache::poi::ss::formula::eval::StringEval* >(x);
-        auto val = ::org::apache::poi::ss::formula::eval::OperandResolver::parseDouble(npc(se)->getStringValue());
+        auto se = java_cast< ::poi::ss::formula::eval::StringEval* >(x);
+        auto val = ::poi::ss::formula::eval::OperandResolver::parseDouble(npc(se)->getStringValue());
         if(val == nullptr) {
             return false;
         }
         return _value == npc(val)->doubleValue();
-    } else if((dynamic_cast< ::org::apache::poi::ss::formula::eval::NumberEval* >(x) != nullptr)) {
-        auto ne = java_cast< ::org::apache::poi::ss::formula::eval::NumberEval* >(x);
+    } else if((dynamic_cast< ::poi::ss::formula::eval::NumberEval* >(x) != nullptr)) {
+        auto ne = java_cast< ::poi::ss::formula::eval::NumberEval* >(x);
         testValue = npc(ne)->getNumberValue();
-    } else if((dynamic_cast< ::org::apache::poi::ss::formula::eval::BlankEval* >(x) != nullptr)) {
+    } else if((dynamic_cast< ::poi::ss::formula::eval::BlankEval* >(x) != nullptr)) {
         switch (getCode()) {
         case Countif_CmpOp::NE:
             return true;
@@ -90,13 +90,13 @@ bool org::apache::poi::ss::formula::functions::Countif_NumberMatcher::matches(::
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Countif_NumberMatcher::class_()
+java::lang::Class* poi::ss::formula::functions::Countif_NumberMatcher::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.Countif.NumberMatcher", 57);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Countif_NumberMatcher::getClass0()
+java::lang::Class* poi::ss::formula::functions::Countif_NumberMatcher::getClass0()
 {
     return class_();
 }

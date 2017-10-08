@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::format::CellNumberStringMod
+class poi::ss::format::CellNumberStringMod
     : public virtual ::java::lang::Object
     , public virtual ::java::lang::Comparable
 {

@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::eventusermodel::dummyrecord::LastCellOfRowDummyRecord final
+class poi::hssf::eventusermodel::dummyrecord::LastCellOfRowDummyRecord final
     : public DummyRecordBase
 {
 

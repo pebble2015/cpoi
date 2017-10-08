@@ -19,16 +19,16 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFPicture
+class poi::hssf::usermodel::HSSFPicture
     : public HSSFSimpleShape
-    , public virtual ::org::apache::poi::ss::usermodel::Picture
+    , public virtual ::poi::ss::usermodel::Picture
 {
 
 public:
     typedef HSSFSimpleShape super;
 
 private:
-    static ::org::apache::poi::util::POILogger* logger_;
+    static ::poi::util::POILogger* logger_;
 
 public:
     static constexpr int32_t PICTURE_TYPE_EMF { int32_t(2) };
@@ -38,7 +38,7 @@ public:
     static constexpr int32_t PICTURE_TYPE_PNG { int32_t(6) };
     static constexpr int32_t PICTURE_TYPE_DIB { int32_t(7) };
 protected:
-    void ctor(::org::apache::poi::ddf::EscherContainerRecord* spContainer, ::org::apache::poi::hssf::record::ObjRecord* objRecord);
+    void ctor(::poi::ddf::EscherContainerRecord* spContainer, ::poi::hssf::record::ObjRecord* objRecord);
     void ctor(HSSFShape* parent, HSSFAnchor* anchor);
 
 public:
@@ -46,7 +46,7 @@ public:
     virtual void setPictureIndex(int32_t pictureIndex);
 
 public: /* protected */
-    ::org::apache::poi::ddf::EscherContainerRecord* createSpContainer() override;
+    ::poi::ddf::EscherContainerRecord* createSpContainer() override;
 
 public:
     void resize() override;
@@ -71,10 +71,10 @@ public: /* protected */
 
 public:
     HSSFClientAnchor* getClientAnchor() override;
-    ::org::apache::poi::ss::usermodel::Sheet* getSheet() override;
+    ::poi::ss::usermodel::Sheet* getSheet() override;
 
     // Generated
-    HSSFPicture(::org::apache::poi::ddf::EscherContainerRecord* spContainer, ::org::apache::poi::hssf::record::ObjRecord* objRecord);
+    HSSFPicture(::poi::ddf::EscherContainerRecord* spContainer, ::poi::hssf::record::ObjRecord* objRecord);
     HSSFPicture(HSSFShape* parent, HSSFAnchor* anchor);
 protected:
     HSSFPicture(const ::default_init_tag&);
@@ -94,6 +94,6 @@ public:
     virtual void setLineStyleColor(int32_t lineStyleColor);
 
 private:
-    static ::org::apache::poi::util::POILogger*& logger();
+    static ::poi::util::POILogger*& logger();
     virtual ::java::lang::Class* getClass0();
 };

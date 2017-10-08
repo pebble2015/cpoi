@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::format::CellElapsedFormatter_ElapsedPartHandler
+class poi::ss::format::CellElapsedFormatter_ElapsedPartHandler
     : public virtual ::java::lang::Object
     , public virtual CellFormatPart_PartHandler
 {

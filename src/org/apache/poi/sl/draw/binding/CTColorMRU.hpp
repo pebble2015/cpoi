@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::binding::CTColorMRU
+class poi::sl::draw::binding::CTColorMRU
     : public virtual ::java::lang::Object
 {
 

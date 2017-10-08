@@ -9,20 +9,20 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::DrawGraphicalFrame
+class poi::sl::draw::DrawGraphicalFrame
     : public DrawShape
 {
 
 public:
     typedef DrawShape super;
 protected:
-    void ctor(::org::apache::poi::sl::usermodel::GraphicalFrame* shape);
+    void ctor(::poi::sl::usermodel::GraphicalFrame* shape);
 
 public:
     void draw(::java::awt::Graphics2D* context) override;
 
     // Generated
-    DrawGraphicalFrame(::org::apache::poi::sl::usermodel::GraphicalFrame* shape);
+    DrawGraphicalFrame(::poi::sl::usermodel::GraphicalFrame* shape);
 protected:
     DrawGraphicalFrame(const ::default_init_tag&);
 

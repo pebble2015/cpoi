@@ -30,27 +30,27 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::crypt::standard::StandardEncryptionVerifier::StandardEncryptionVerifier(const ::default_init_tag&)
+poi::poifs::crypt::standard::StandardEncryptionVerifier::StandardEncryptionVerifier(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::crypt::standard::StandardEncryptionVerifier::StandardEncryptionVerifier(::org::apache::poi::util::LittleEndianInput* is, StandardEncryptionHeader* header) 
+poi::poifs::crypt::standard::StandardEncryptionVerifier::StandardEncryptionVerifier(::poi::util::LittleEndianInput* is, StandardEncryptionHeader* header) 
     : StandardEncryptionVerifier(*static_cast< ::default_init_tag* >(0))
 {
     ctor(is,header);
 }
 
-org::apache::poi::poifs::crypt::standard::StandardEncryptionVerifier::StandardEncryptionVerifier(::org::apache::poi::poifs::crypt::CipherAlgorithm* cipherAlgorithm, ::org::apache::poi::poifs::crypt::HashAlgorithm* hashAlgorithm, int32_t keyBits, int32_t blockSize, ::org::apache::poi::poifs::crypt::ChainingMode* chainingMode) 
+poi::poifs::crypt::standard::StandardEncryptionVerifier::StandardEncryptionVerifier(::poi::poifs::crypt::CipherAlgorithm* cipherAlgorithm, ::poi::poifs::crypt::HashAlgorithm* hashAlgorithm, int32_t keyBits, int32_t blockSize, ::poi::poifs::crypt::ChainingMode* chainingMode) 
     : StandardEncryptionVerifier(*static_cast< ::default_init_tag* >(0))
 {
     ctor(cipherAlgorithm,hashAlgorithm,keyBits,blockSize,chainingMode);
 }
 
-constexpr int32_t org::apache::poi::poifs::crypt::standard::StandardEncryptionVerifier::SPIN_COUNT;
+constexpr int32_t poi::poifs::crypt::standard::StandardEncryptionVerifier::SPIN_COUNT;
 
-void org::apache::poi::poifs::crypt::standard::StandardEncryptionVerifier::ctor(::org::apache::poi::util::LittleEndianInput* is, StandardEncryptionHeader* header)
+void poi::poifs::crypt::standard::StandardEncryptionVerifier::ctor(::poi::util::LittleEndianInput* is, StandardEncryptionHeader* header)
 {
     super::ctor();
     auto saltSize = npc(is)->readInt();
@@ -74,7 +74,7 @@ void org::apache::poi::poifs::crypt::standard::StandardEncryptionVerifier::ctor(
     setHashAlgorithm(npc(header)->getHashAlgorithm());
 }
 
-void org::apache::poi::poifs::crypt::standard::StandardEncryptionVerifier::ctor(::org::apache::poi::poifs::crypt::CipherAlgorithm* cipherAlgorithm, ::org::apache::poi::poifs::crypt::HashAlgorithm* hashAlgorithm, int32_t keyBits, int32_t blockSize, ::org::apache::poi::poifs::crypt::ChainingMode* chainingMode)
+void poi::poifs::crypt::standard::StandardEncryptionVerifier::ctor(::poi::poifs::crypt::CipherAlgorithm* cipherAlgorithm, ::poi::poifs::crypt::HashAlgorithm* hashAlgorithm, int32_t keyBits, int32_t blockSize, ::poi::poifs::crypt::ChainingMode* chainingMode)
 {
     super::ctor();
     setCipherAlgorithm(cipherAlgorithm);
@@ -84,25 +84,25 @@ void org::apache::poi::poifs::crypt::standard::StandardEncryptionVerifier::ctor(
     verifierHashSize = npc(hashAlgorithm)->hashSize;
 }
 
-void org::apache::poi::poifs::crypt::standard::StandardEncryptionVerifier::setSalt(::int8_tArray* salt)
+void poi::poifs::crypt::standard::StandardEncryptionVerifier::setSalt(::int8_tArray* salt)
 {
     if(salt == nullptr || npc(salt)->length != 16) {
-        throw new ::org::apache::poi::EncryptedDocumentException(u"invalid verifier salt"_j);
+        throw new ::poi::EncryptedDocumentException(u"invalid verifier salt"_j);
     }
     super::setSalt(salt);
 }
 
-void org::apache::poi::poifs::crypt::standard::StandardEncryptionVerifier::setEncryptedVerifier(::int8_tArray* encryptedVerifier)
+void poi::poifs::crypt::standard::StandardEncryptionVerifier::setEncryptedVerifier(::int8_tArray* encryptedVerifier)
 {
     super::setEncryptedVerifier(encryptedVerifier);
 }
 
-void org::apache::poi::poifs::crypt::standard::StandardEncryptionVerifier::setEncryptedVerifierHash(::int8_tArray* encryptedVerifierHash)
+void poi::poifs::crypt::standard::StandardEncryptionVerifier::setEncryptedVerifierHash(::int8_tArray* encryptedVerifierHash)
 {
     super::setEncryptedVerifierHash(encryptedVerifierHash);
 }
 
-void org::apache::poi::poifs::crypt::standard::StandardEncryptionVerifier::write(::org::apache::poi::util::LittleEndianByteArrayOutputStream* bos)
+void poi::poifs::crypt::standard::StandardEncryptionVerifier::write(::poi::util::LittleEndianByteArrayOutputStream* bos)
 {
     auto salt = getSalt();
     /* assert((npc(salt)->length == 16)) */ ;
@@ -117,25 +117,25 @@ void org::apache::poi::poifs::crypt::standard::StandardEncryptionVerifier::write
     npc(bos)->write(encryptedVerifierHash);
 }
 
-int32_t org::apache::poi::poifs::crypt::standard::StandardEncryptionVerifier::getVerifierHashSize()
+int32_t poi::poifs::crypt::standard::StandardEncryptionVerifier::getVerifierHashSize()
 {
     return verifierHashSize;
 }
 
-org::apache::poi::poifs::crypt::standard::StandardEncryptionVerifier* org::apache::poi::poifs::crypt::standard::StandardEncryptionVerifier::clone() /* throws(CloneNotSupportedException) */
+poi::poifs::crypt::standard::StandardEncryptionVerifier* poi::poifs::crypt::standard::StandardEncryptionVerifier::clone() /* throws(CloneNotSupportedException) */
 {
     return java_cast< StandardEncryptionVerifier* >(super::clone());
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::crypt::standard::StandardEncryptionVerifier::class_()
+java::lang::Class* poi::poifs::crypt::standard::StandardEncryptionVerifier::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.crypt.standard.StandardEncryptionVerifier", 62);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::crypt::standard::StandardEncryptionVerifier::getClass0()
+java::lang::Class* poi::poifs::crypt::standard::StandardEncryptionVerifier::getClass0()
 {
     return class_();
 }

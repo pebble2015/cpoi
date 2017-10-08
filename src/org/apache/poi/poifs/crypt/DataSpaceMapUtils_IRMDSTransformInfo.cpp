@@ -15,25 +15,25 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::crypt::DataSpaceMapUtils_IRMDSTransformInfo::DataSpaceMapUtils_IRMDSTransformInfo(const ::default_init_tag&)
+poi::poifs::crypt::DataSpaceMapUtils_IRMDSTransformInfo::DataSpaceMapUtils_IRMDSTransformInfo(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::crypt::DataSpaceMapUtils_IRMDSTransformInfo::DataSpaceMapUtils_IRMDSTransformInfo(DataSpaceMapUtils_TransformInfoHeader* transformInfoHeader, int32_t extensibilityHeader, ::java::lang::String* xrMLLicense) 
+poi::poifs::crypt::DataSpaceMapUtils_IRMDSTransformInfo::DataSpaceMapUtils_IRMDSTransformInfo(DataSpaceMapUtils_TransformInfoHeader* transformInfoHeader, int32_t extensibilityHeader, ::java::lang::String* xrMLLicense) 
     : DataSpaceMapUtils_IRMDSTransformInfo(*static_cast< ::default_init_tag* >(0))
 {
     ctor(transformInfoHeader,extensibilityHeader,xrMLLicense);
 }
 
-org::apache::poi::poifs::crypt::DataSpaceMapUtils_IRMDSTransformInfo::DataSpaceMapUtils_IRMDSTransformInfo(::org::apache::poi::util::LittleEndianInput* is) 
+poi::poifs::crypt::DataSpaceMapUtils_IRMDSTransformInfo::DataSpaceMapUtils_IRMDSTransformInfo(::poi::util::LittleEndianInput* is) 
     : DataSpaceMapUtils_IRMDSTransformInfo(*static_cast< ::default_init_tag* >(0))
 {
     ctor(is);
 }
 
-void org::apache::poi::poifs::crypt::DataSpaceMapUtils_IRMDSTransformInfo::ctor(DataSpaceMapUtils_TransformInfoHeader* transformInfoHeader, int32_t extensibilityHeader, ::java::lang::String* xrMLLicense)
+void poi::poifs::crypt::DataSpaceMapUtils_IRMDSTransformInfo::ctor(DataSpaceMapUtils_TransformInfoHeader* transformInfoHeader, int32_t extensibilityHeader, ::java::lang::String* xrMLLicense)
 {
     super::ctor();
     this->transformInfoHeader = transformInfoHeader;
@@ -41,7 +41,7 @@ void org::apache::poi::poifs::crypt::DataSpaceMapUtils_IRMDSTransformInfo::ctor(
     this->xrMLLicense = xrMLLicense;
 }
 
-void org::apache::poi::poifs::crypt::DataSpaceMapUtils_IRMDSTransformInfo::ctor(::org::apache::poi::util::LittleEndianInput* is)
+void poi::poifs::crypt::DataSpaceMapUtils_IRMDSTransformInfo::ctor(::poi::util::LittleEndianInput* is)
 {
     super::ctor();
     transformInfoHeader = new DataSpaceMapUtils_TransformInfoHeader(is);
@@ -49,7 +49,7 @@ void org::apache::poi::poifs::crypt::DataSpaceMapUtils_IRMDSTransformInfo::ctor(
     xrMLLicense = DataSpaceMapUtils::readUtf8LPP4(is);
 }
 
-void org::apache::poi::poifs::crypt::DataSpaceMapUtils_IRMDSTransformInfo::write(::org::apache::poi::util::LittleEndianByteArrayOutputStream* bos)
+void poi::poifs::crypt::DataSpaceMapUtils_IRMDSTransformInfo::write(::poi::util::LittleEndianByteArrayOutputStream* bos)
 {
     npc(transformInfoHeader)->write(bos);
     npc(bos)->writeInt(extensibilityHeader);
@@ -59,13 +59,13 @@ void org::apache::poi::poifs::crypt::DataSpaceMapUtils_IRMDSTransformInfo::write
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::crypt::DataSpaceMapUtils_IRMDSTransformInfo::class_()
+java::lang::Class* poi::poifs::crypt::DataSpaceMapUtils_IRMDSTransformInfo::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.crypt.DataSpaceMapUtils.IRMDSTransformInfo", 63);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::crypt::DataSpaceMapUtils_IRMDSTransformInfo::getClass0()
+java::lang::Class* poi::poifs::crypt::DataSpaceMapUtils_IRMDSTransformInfo::getClass0()
 {
     return class_();
 }

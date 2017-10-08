@@ -27,22 +27,16 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
-            {
-                namespace formula
-                {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ParseNode, ::java::lang::ObjectArray > ParseNodeArray;
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ParseNode, ::java::lang::ObjectArray > ParseNodeArray;
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -60,39 +54,39 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::OperandClassTransformer::OperandClassTransformer(const ::default_init_tag&)
+poi::ss::formula::OperandClassTransformer::OperandClassTransformer(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::OperandClassTransformer::OperandClassTransformer(FormulaType* formulaType) 
+poi::ss::formula::OperandClassTransformer::OperandClassTransformer(FormulaType* formulaType) 
     : OperandClassTransformer(*static_cast< ::default_init_tag* >(0))
 {
     ctor(formulaType);
 }
 
-void org::apache::poi::ss::formula::OperandClassTransformer::ctor(FormulaType* formulaType)
+void poi::ss::formula::OperandClassTransformer::ctor(FormulaType* formulaType)
 {
     super::ctor();
     _formulaType = formulaType;
 }
 
-void org::apache::poi::ss::formula::OperandClassTransformer::transformFormula(ParseNode* rootNode)
+void poi::ss::formula::OperandClassTransformer::transformFormula(ParseNode* rootNode)
 {
     int8_t rootNodeOperandClass;
     {
         auto v = _formulaType;
         if((v == FormulaType::CELL)) {
-            rootNodeOperandClass = ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_VALUE;
+            rootNodeOperandClass = ::poi::ss::formula::ptg::Ptg::CLASS_VALUE;
             goto end_switch0;;
         }
         if((v == FormulaType::ARRAY)) {
-            rootNodeOperandClass = ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_ARRAY;
+            rootNodeOperandClass = ::poi::ss::formula::ptg::Ptg::CLASS_ARRAY;
             goto end_switch0;;
         }
         if((v == FormulaType::NAMEDRANGE) || (v == FormulaType::DATAVALIDATION_LIST)) {
-            rootNodeOperandClass = ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_REF;
+            rootNodeOperandClass = ::poi::ss::formula::ptg::Ptg::CLASS_REF;
             goto end_switch0;;
         }
         if((((v != FormulaType::CELL) && (v != FormulaType::ARRAY) && (v != FormulaType::NAMEDRANGE) && (v != FormulaType::DATAVALIDATION_LIST)))) {
@@ -105,35 +99,35 @@ end_switch0:;
     transformNode(rootNode, rootNodeOperandClass, false);
 }
 
-void org::apache::poi::ss::formula::OperandClassTransformer::transformNode(ParseNode* node, int8_t desiredOperandClass, bool callerForceArrayFlag)
+void poi::ss::formula::OperandClassTransformer::transformNode(ParseNode* node, int8_t desiredOperandClass, bool callerForceArrayFlag)
 {
     auto token = npc(node)->getToken();
     auto children = npc(node)->getChildren();
     auto isSimpleValueFunc = isSimpleValueFunction(token);
     if(isSimpleValueFunc) {
-        auto localForceArray_ = desiredOperandClass == ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_ARRAY;
+        auto localForceArray_ = desiredOperandClass == ::poi::ss::formula::ptg::Ptg::CLASS_ARRAY;
         for (auto i = int32_t(0); i < npc(children)->length; i++) {
             transformNode((*children)[i], desiredOperandClass, localForceArray_);
         }
-        setSimpleValueFuncClass(java_cast< ::org::apache::poi::ss::formula::ptg::AbstractFunctionPtg* >(token), desiredOperandClass, callerForceArrayFlag);
+        setSimpleValueFuncClass(java_cast< ::poi::ss::formula::ptg::AbstractFunctionPtg* >(token), desiredOperandClass, callerForceArrayFlag);
         return;
     }
     if(isSingleArgSum(token)) {
-        token = ::org::apache::poi::ss::formula::ptg::FuncVarPtg::SUM();
+        token = ::poi::ss::formula::ptg::FuncVarPtg::SUM();
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::ptg::ValueOperatorPtg* >(token) != nullptr || dynamic_cast< ::org::apache::poi::ss::formula::ptg::ControlPtg* >(token) != nullptr || dynamic_cast< ::org::apache::poi::ss::formula::ptg::MemFuncPtg* >(token) != nullptr|| dynamic_cast< ::org::apache::poi::ss::formula::ptg::MemAreaPtg* >(token) != nullptr|| dynamic_cast< ::org::apache::poi::ss::formula::ptg::UnionPtg* >(token) != nullptr|| dynamic_cast< ::org::apache::poi::ss::formula::ptg::IntersectionPtg* >(token) != nullptr) {
-        auto localDesiredOperandClass = desiredOperandClass == ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_REF ? ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_VALUE : desiredOperandClass;
+    if(dynamic_cast< ::poi::ss::formula::ptg::ValueOperatorPtg* >(token) != nullptr || dynamic_cast< ::poi::ss::formula::ptg::ControlPtg* >(token) != nullptr || dynamic_cast< ::poi::ss::formula::ptg::MemFuncPtg* >(token) != nullptr|| dynamic_cast< ::poi::ss::formula::ptg::MemAreaPtg* >(token) != nullptr|| dynamic_cast< ::poi::ss::formula::ptg::UnionPtg* >(token) != nullptr|| dynamic_cast< ::poi::ss::formula::ptg::IntersectionPtg* >(token) != nullptr) {
+        auto localDesiredOperandClass = desiredOperandClass == ::poi::ss::formula::ptg::Ptg::CLASS_REF ? ::poi::ss::formula::ptg::Ptg::CLASS_VALUE : desiredOperandClass;
         for (auto i = int32_t(0); i < npc(children)->length; i++) {
             transformNode((*children)[i], localDesiredOperandClass, callerForceArrayFlag);
         }
         return;
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::ptg::AbstractFunctionPtg* >(token) != nullptr) {
-        transformFunctionNode(java_cast< ::org::apache::poi::ss::formula::ptg::AbstractFunctionPtg* >(token), children, desiredOperandClass, callerForceArrayFlag);
+    if(dynamic_cast< ::poi::ss::formula::ptg::AbstractFunctionPtg* >(token) != nullptr) {
+        transformFunctionNode(java_cast< ::poi::ss::formula::ptg::AbstractFunctionPtg* >(token), children, desiredOperandClass, callerForceArrayFlag);
         return;
     }
     if(npc(children)->length > 0) {
-        if(token == static_cast< ::org::apache::poi::ss::formula::ptg::Ptg* >(::org::apache::poi::ss::formula::ptg::RangePtg::instance())) {
+        if(token == static_cast< ::poi::ss::formula::ptg::Ptg* >(::poi::ss::formula::ptg::RangePtg::instance())) {
             return;
         }
         throw new ::java::lang::IllegalStateException(u"Node should not have any children"_j);
@@ -144,27 +138,27 @@ void org::apache::poi::ss::formula::OperandClassTransformer::transformNode(Parse
     npc(token)->setClass(transformClass(npc(token)->getPtgClass(), desiredOperandClass, callerForceArrayFlag));
 }
 
-bool org::apache::poi::ss::formula::OperandClassTransformer::isSingleArgSum(::org::apache::poi::ss::formula::ptg::Ptg* token)
+bool poi::ss::formula::OperandClassTransformer::isSingleArgSum(::poi::ss::formula::ptg::Ptg* token)
 {
     clinit();
-    if(dynamic_cast< ::org::apache::poi::ss::formula::ptg::AttrPtg* >(token) != nullptr) {
-        auto attrPtg = java_cast< ::org::apache::poi::ss::formula::ptg::AttrPtg* >(token);
+    if(dynamic_cast< ::poi::ss::formula::ptg::AttrPtg* >(token) != nullptr) {
+        auto attrPtg = java_cast< ::poi::ss::formula::ptg::AttrPtg* >(token);
         return npc(attrPtg)->isSum();
     }
     return false;
 }
 
-bool org::apache::poi::ss::formula::OperandClassTransformer::isSimpleValueFunction(::org::apache::poi::ss::formula::ptg::Ptg* token)
+bool poi::ss::formula::OperandClassTransformer::isSimpleValueFunction(::poi::ss::formula::ptg::Ptg* token)
 {
     clinit();
-    if(dynamic_cast< ::org::apache::poi::ss::formula::ptg::AbstractFunctionPtg* >(token) != nullptr) {
-        auto aptg = java_cast< ::org::apache::poi::ss::formula::ptg::AbstractFunctionPtg* >(token);
-        if(npc(aptg)->getDefaultOperandClass() != ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_VALUE) {
+    if(dynamic_cast< ::poi::ss::formula::ptg::AbstractFunctionPtg* >(token) != nullptr) {
+        auto aptg = java_cast< ::poi::ss::formula::ptg::AbstractFunctionPtg* >(token);
+        if(npc(aptg)->getDefaultOperandClass() != ::poi::ss::formula::ptg::Ptg::CLASS_VALUE) {
             return false;
         }
         auto numberOfOperands = npc(aptg)->getNumberOfOperands();
         for (auto i = numberOfOperands - int32_t(1); i >= 0; i--) {
-            if(npc(aptg)->getParameterClass(i) != ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_VALUE) {
+            if(npc(aptg)->getParameterClass(i) != ::poi::ss::formula::ptg::Ptg::CLASS_VALUE) {
                 return false;
             }
         }
@@ -173,46 +167,46 @@ bool org::apache::poi::ss::formula::OperandClassTransformer::isSimpleValueFuncti
     return false;
 }
 
-int8_t org::apache::poi::ss::formula::OperandClassTransformer::transformClass(int8_t currentOperandClass, int8_t desiredOperandClass, bool callerForceArrayFlag)
+int8_t poi::ss::formula::OperandClassTransformer::transformClass(int8_t currentOperandClass, int8_t desiredOperandClass, bool callerForceArrayFlag)
 {
     switch (desiredOperandClass) {
-    case ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_VALUE:
+    case ::poi::ss::formula::ptg::Ptg::CLASS_VALUE:
         if(!callerForceArrayFlag) {
-            return ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_VALUE;
+            return ::poi::ss::formula::ptg::Ptg::CLASS_VALUE;
         }
-    case ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_ARRAY:
-        return ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_ARRAY;
-    case ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_REF:
+    case ::poi::ss::formula::ptg::Ptg::CLASS_ARRAY:
+        return ::poi::ss::formula::ptg::Ptg::CLASS_ARRAY;
+    case ::poi::ss::formula::ptg::Ptg::CLASS_REF:
         if(!callerForceArrayFlag) {
             return currentOperandClass;
         }
-        return ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_REF;
+        return ::poi::ss::formula::ptg::Ptg::CLASS_REF;
     }
 
     throw new ::java::lang::IllegalStateException(::java::lang::StringBuilder().append(u"Unexpected operand class ("_j)->append(desiredOperandClass)
         ->append(u")"_j)->toString());
 }
 
-void org::apache::poi::ss::formula::OperandClassTransformer::transformFunctionNode(::org::apache::poi::ss::formula::ptg::AbstractFunctionPtg* afp, ParseNodeArray* children, int8_t desiredOperandClass, bool callerForceArrayFlag)
+void poi::ss::formula::OperandClassTransformer::transformFunctionNode(::poi::ss::formula::ptg::AbstractFunctionPtg* afp, ParseNodeArray* children, int8_t desiredOperandClass, bool callerForceArrayFlag)
 {
     bool localForceArrayFlag;
     auto defaultReturnOperandClass = npc(afp)->getDefaultOperandClass();
     if(callerForceArrayFlag) {
         switch (defaultReturnOperandClass) {
-        case ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_REF:
-            if(desiredOperandClass == ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_REF) {
-                npc(afp)->setClass(::org::apache::poi::ss::formula::ptg::Ptg::CLASS_REF);
+        case ::poi::ss::formula::ptg::Ptg::CLASS_REF:
+            if(desiredOperandClass == ::poi::ss::formula::ptg::Ptg::CLASS_REF) {
+                npc(afp)->setClass(::poi::ss::formula::ptg::Ptg::CLASS_REF);
             } else {
-                npc(afp)->setClass(::org::apache::poi::ss::formula::ptg::Ptg::CLASS_ARRAY);
+                npc(afp)->setClass(::poi::ss::formula::ptg::Ptg::CLASS_ARRAY);
             }
             localForceArrayFlag = false;
             break;
-        case ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_ARRAY:
-            npc(afp)->setClass(::org::apache::poi::ss::formula::ptg::Ptg::CLASS_ARRAY);
+        case ::poi::ss::formula::ptg::Ptg::CLASS_ARRAY:
+            npc(afp)->setClass(::poi::ss::formula::ptg::Ptg::CLASS_ARRAY);
             localForceArrayFlag = false;
             break;
-        case ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_VALUE:
-            npc(afp)->setClass(::org::apache::poi::ss::formula::ptg::Ptg::CLASS_ARRAY);
+        case ::poi::ss::formula::ptg::Ptg::CLASS_VALUE:
+            npc(afp)->setClass(::poi::ss::formula::ptg::Ptg::CLASS_ARRAY);
             localForceArrayFlag = true;
             break;
         default:
@@ -226,32 +220,32 @@ void org::apache::poi::ss::formula::OperandClassTransformer::transformFunctionNo
             npc(afp)->setClass(defaultReturnOperandClass);
         } else {
             switch (desiredOperandClass) {
-            case ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_VALUE:
-                npc(afp)->setClass(::org::apache::poi::ss::formula::ptg::Ptg::CLASS_VALUE);
+            case ::poi::ss::formula::ptg::Ptg::CLASS_VALUE:
+                npc(afp)->setClass(::poi::ss::formula::ptg::Ptg::CLASS_VALUE);
                 localForceArrayFlag = false;
                 break;
-            case ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_ARRAY:
+            case ::poi::ss::formula::ptg::Ptg::CLASS_ARRAY:
                 switch (defaultReturnOperandClass) {
-                case ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_REF:
-                    npc(afp)->setClass(::org::apache::poi::ss::formula::ptg::Ptg::CLASS_REF);
+                case ::poi::ss::formula::ptg::Ptg::CLASS_REF:
+                    npc(afp)->setClass(::poi::ss::formula::ptg::Ptg::CLASS_REF);
                     break;
-                case ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_VALUE:
-                    npc(afp)->setClass(::org::apache::poi::ss::formula::ptg::Ptg::CLASS_ARRAY);
+                case ::poi::ss::formula::ptg::Ptg::CLASS_VALUE:
+                    npc(afp)->setClass(::poi::ss::formula::ptg::Ptg::CLASS_ARRAY);
                     break;
                 default:
                     throw new ::java::lang::IllegalStateException(::java::lang::StringBuilder().append(u"Unexpected operand class ("_j)->append(defaultReturnOperandClass)
                         ->append(u")"_j)->toString());
                 }
 
-                localForceArrayFlag = (defaultReturnOperandClass == ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_VALUE);
+                localForceArrayFlag = (defaultReturnOperandClass == ::poi::ss::formula::ptg::Ptg::CLASS_VALUE);
                 break;
-            case ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_REF:
+            case ::poi::ss::formula::ptg::Ptg::CLASS_REF:
                 switch (defaultReturnOperandClass) {
-                case ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_ARRAY:
-                    npc(afp)->setClass(::org::apache::poi::ss::formula::ptg::Ptg::CLASS_ARRAY);
+                case ::poi::ss::formula::ptg::Ptg::CLASS_ARRAY:
+                    npc(afp)->setClass(::poi::ss::formula::ptg::Ptg::CLASS_ARRAY);
                     break;
-                case ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_VALUE:
-                    npc(afp)->setClass(::org::apache::poi::ss::formula::ptg::Ptg::CLASS_VALUE);
+                case ::poi::ss::formula::ptg::Ptg::CLASS_VALUE:
+                    npc(afp)->setClass(::poi::ss::formula::ptg::Ptg::CLASS_VALUE);
                     break;
                 default:
                     throw new ::java::lang::IllegalStateException(::java::lang::StringBuilder().append(u"Unexpected operand class ("_j)->append(defaultReturnOperandClass)
@@ -274,24 +268,24 @@ void org::apache::poi::ss::formula::OperandClassTransformer::transformFunctionNo
     }
 }
 
-void org::apache::poi::ss::formula::OperandClassTransformer::setSimpleValueFuncClass(::org::apache::poi::ss::formula::ptg::AbstractFunctionPtg* afp, int8_t desiredOperandClass, bool callerForceArrayFlag)
+void poi::ss::formula::OperandClassTransformer::setSimpleValueFuncClass(::poi::ss::formula::ptg::AbstractFunctionPtg* afp, int8_t desiredOperandClass, bool callerForceArrayFlag)
 {
-    if(callerForceArrayFlag || desiredOperandClass == ::org::apache::poi::ss::formula::ptg::Ptg::CLASS_ARRAY) {
-        npc(afp)->setClass(::org::apache::poi::ss::formula::ptg::Ptg::CLASS_ARRAY);
+    if(callerForceArrayFlag || desiredOperandClass == ::poi::ss::formula::ptg::Ptg::CLASS_ARRAY) {
+        npc(afp)->setClass(::poi::ss::formula::ptg::Ptg::CLASS_ARRAY);
     } else {
-        npc(afp)->setClass(::org::apache::poi::ss::formula::ptg::Ptg::CLASS_VALUE);
+        npc(afp)->setClass(::poi::ss::formula::ptg::Ptg::CLASS_VALUE);
     }
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::OperandClassTransformer::class_()
+java::lang::Class* poi::ss::formula::OperandClassTransformer::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.OperandClassTransformer", 49);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::OperandClassTransformer::getClass0()
+java::lang::Class* poi::ss::formula::OperandClassTransformer::getClass0()
 {
     return class_();
 }

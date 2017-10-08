@@ -31,77 +31,77 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::crypt::Encryptor::Encryptor(const ::default_init_tag&)
+poi::poifs::crypt::Encryptor::Encryptor(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::crypt::Encryptor::Encryptor()
+poi::poifs::crypt::Encryptor::Encryptor()
     : Encryptor(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-java::lang::String*& org::apache::poi::poifs::crypt::Encryptor::DEFAULT_POIFS_ENTRY()
+java::lang::String*& poi::poifs::crypt::Encryptor::DEFAULT_POIFS_ENTRY()
 {
     clinit();
     return DEFAULT_POIFS_ENTRY_;
 }
-java::lang::String* org::apache::poi::poifs::crypt::Encryptor::DEFAULT_POIFS_ENTRY_;
+java::lang::String* poi::poifs::crypt::Encryptor::DEFAULT_POIFS_ENTRY_;
 
-org::apache::poi::poifs::crypt::Encryptor* org::apache::poi::poifs::crypt::Encryptor::getInstance(EncryptionInfo* info)
+poi::poifs::crypt::Encryptor* poi::poifs::crypt::Encryptor::getInstance(EncryptionInfo* info)
 {
     clinit();
     return npc(info)->getEncryptor();
 }
 
-java::io::OutputStream* org::apache::poi::poifs::crypt::Encryptor::getDataStream(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs) /* throws(IOException, GeneralSecurityException) */
+java::io::OutputStream* poi::poifs::crypt::Encryptor::getDataStream(::poi::poifs::filesystem::NPOIFSFileSystem* fs) /* throws(IOException, GeneralSecurityException) */
 {
     return getDataStream(npc(fs)->getRoot());
 }
 
-java::io::OutputStream* org::apache::poi::poifs::crypt::Encryptor::getDataStream(::org::apache::poi::poifs::filesystem::OPOIFSFileSystem* fs) /* throws(IOException, GeneralSecurityException) */
+java::io::OutputStream* poi::poifs::crypt::Encryptor::getDataStream(::poi::poifs::filesystem::OPOIFSFileSystem* fs) /* throws(IOException, GeneralSecurityException) */
 {
     return getDataStream(npc(fs)->getRoot());
 }
 
-java::io::OutputStream* org::apache::poi::poifs::crypt::Encryptor::getDataStream(::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs) /* throws(IOException, GeneralSecurityException) */
+java::io::OutputStream* poi::poifs::crypt::Encryptor::getDataStream(::poi::poifs::filesystem::POIFSFileSystem* fs) /* throws(IOException, GeneralSecurityException) */
 {
     return getDataStream(npc(fs)->getRoot());
 }
 
-org::apache::poi::poifs::crypt::ChunkedCipherOutputStream* org::apache::poi::poifs::crypt::Encryptor::getDataStream(::java::io::OutputStream* stream, int32_t initialOffset) /* throws(IOException, GeneralSecurityException) */
+poi::poifs::crypt::ChunkedCipherOutputStream* poi::poifs::crypt::Encryptor::getDataStream(::java::io::OutputStream* stream, int32_t initialOffset) /* throws(IOException, GeneralSecurityException) */
 {
-    throw new ::org::apache::poi::EncryptedDocumentException(u"this decryptor doesn't support writing directly to a stream"_j);
+    throw new ::poi::EncryptedDocumentException(u"this decryptor doesn't support writing directly to a stream"_j);
 }
 
-javax::crypto::SecretKey* org::apache::poi::poifs::crypt::Encryptor::getSecretKey()
+javax::crypto::SecretKey* poi::poifs::crypt::Encryptor::getSecretKey()
 {
     return secretKey;
 }
 
-void org::apache::poi::poifs::crypt::Encryptor::setSecretKey(::javax::crypto::SecretKey* secretKey)
+void poi::poifs::crypt::Encryptor::setSecretKey(::javax::crypto::SecretKey* secretKey)
 {
     this->secretKey = secretKey;
 }
 
-org::apache::poi::poifs::crypt::EncryptionInfo* org::apache::poi::poifs::crypt::Encryptor::getEncryptionInfo()
+poi::poifs::crypt::EncryptionInfo* poi::poifs::crypt::Encryptor::getEncryptionInfo()
 {
     return encryptionInfo;
 }
 
-void org::apache::poi::poifs::crypt::Encryptor::setEncryptionInfo(EncryptionInfo* encryptionInfo)
+void poi::poifs::crypt::Encryptor::setEncryptionInfo(EncryptionInfo* encryptionInfo)
 {
     this->encryptionInfo = encryptionInfo;
 }
 
-void org::apache::poi::poifs::crypt::Encryptor::setChunkSize(int32_t chunkSize)
+void poi::poifs::crypt::Encryptor::setChunkSize(int32_t chunkSize)
 {
-    throw new ::org::apache::poi::EncryptedDocumentException(u"this decryptor doesn't support changing the chunk size"_j);
+    throw new ::poi::EncryptedDocumentException(u"this decryptor doesn't support changing the chunk size"_j);
 }
 
-org::apache::poi::poifs::crypt::Encryptor* org::apache::poi::poifs::crypt::Encryptor::clone() /* throws(CloneNotSupportedException) */
+poi::poifs::crypt::Encryptor* poi::poifs::crypt::Encryptor::clone() /* throws(CloneNotSupportedException) */
 {
     auto other = java_cast< Encryptor* >(super::clone());
     npc(other)->secretKey = new ::javax::crypto::spec::SecretKeySpec(npc(secretKey)->getEncoded(), npc(secretKey)->getAlgorithm());
@@ -110,13 +110,13 @@ org::apache::poi::poifs::crypt::Encryptor* org::apache::poi::poifs::crypt::Encry
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::crypt::Encryptor::class_()
+java::lang::Class* poi::poifs::crypt::Encryptor::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.crypt.Encryptor", 36);
     return c;
 }
 
-void org::apache::poi::poifs::crypt::Encryptor::clinit()
+void poi::poifs::crypt::Encryptor::clinit()
 {
 struct string_init_ {
     string_init_() {
@@ -129,7 +129,7 @@ struct string_init_ {
     super::clinit();
 }
 
-java::lang::Class* org::apache::poi::poifs::crypt::Encryptor::getClass0()
+java::lang::Class* poi::poifs::crypt::Encryptor::getClass0()
 {
     return class_();
 }

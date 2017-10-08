@@ -2,19 +2,13 @@
 #pragma once
 
 
-namespace org
+namespace poi
 {
-    namespace apache
-    {
-        namespace poi
-        {
-            class EmptyFileException;
-            class EncryptedDocumentException;
-            class OldFileFormatException;
-            class POIDocument;
-            class POIOLE2TextExtractor;
-            class POITextExtractor;
-            class UnsupportedFileFormatException;
-        } // poi
-    } // apache
-} // org
+    class EmptyFileException;
+    class EncryptedDocumentException;
+    class OldFileFormatException;
+    class POIDocument;
+    class POIOLE2TextExtractor;
+    class POITextExtractor;
+    class UnsupportedFileFormatException;
+} // poi

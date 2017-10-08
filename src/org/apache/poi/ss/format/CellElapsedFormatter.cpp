@@ -76,32 +76,32 @@ namespace
 
     template<typename F> finally_<F> finally(F f) { return finally_<F>(f); }
 }
-org::apache::poi::ss::format::CellElapsedFormatter::CellElapsedFormatter(const ::default_init_tag&)
+poi::ss::format::CellElapsedFormatter::CellElapsedFormatter(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::format::CellElapsedFormatter::CellElapsedFormatter(::java::lang::String* pattern) 
+poi::ss::format::CellElapsedFormatter::CellElapsedFormatter(::java::lang::String* pattern) 
     : CellElapsedFormatter(*static_cast< ::default_init_tag* >(0))
 {
     ctor(pattern);
 }
 
-java::util::regex::Pattern*& org::apache::poi::ss::format::CellElapsedFormatter::PERCENTS()
+java::util::regex::Pattern*& poi::ss::format::CellElapsedFormatter::PERCENTS()
 {
     clinit();
     return PERCENTS_;
 }
-java::util::regex::Pattern* org::apache::poi::ss::format::CellElapsedFormatter::PERCENTS_;
+java::util::regex::Pattern* poi::ss::format::CellElapsedFormatter::PERCENTS_;
 
-constexpr double org::apache::poi::ss::format::CellElapsedFormatter::HOUR__FACTOR;
+constexpr double poi::ss::format::CellElapsedFormatter::HOUR__FACTOR;
 
-constexpr double org::apache::poi::ss::format::CellElapsedFormatter::MIN__FACTOR;
+constexpr double poi::ss::format::CellElapsedFormatter::MIN__FACTOR;
 
-constexpr double org::apache::poi::ss::format::CellElapsedFormatter::SEC__FACTOR;
+constexpr double poi::ss::format::CellElapsedFormatter::SEC__FACTOR;
 
-void org::apache::poi::ss::format::CellElapsedFormatter::ctor(::java::lang::String* pattern)
+void poi::ss::format::CellElapsedFormatter::ctor(::java::lang::String* pattern)
 {
     super::ctor(pattern);
     specs = new ::java::util::ArrayList();
@@ -118,14 +118,14 @@ void org::apache::poi::ss::format::CellElapsedFormatter::ctor(::java::lang::Stri
     printfFmt = npc(desc)->toString();
 }
 
-org::apache::poi::ss::format::CellElapsedFormatter_TimeSpec* org::apache::poi::ss::format::CellElapsedFormatter::assignSpec(char16_t type, int32_t pos, int32_t len)
+poi::ss::format::CellElapsedFormatter_TimeSpec* poi::ss::format::CellElapsedFormatter::assignSpec(char16_t type, int32_t pos, int32_t len)
 {
     auto spec = new CellElapsedFormatter_TimeSpec(type, pos, len, factorFor(type, len));
     npc(specs)->add(static_cast< ::java::lang::Object* >(spec));
     return spec;
 }
 
-double org::apache::poi::ss::format::CellElapsedFormatter::factorFor(char16_t type, int32_t len)
+double poi::ss::format::CellElapsedFormatter::factorFor(char16_t type, int32_t len)
 {
     clinit();
     switch (type) {
@@ -143,7 +143,7 @@ double org::apache::poi::ss::format::CellElapsedFormatter::factorFor(char16_t ty
 
 }
 
-double org::apache::poi::ss::format::CellElapsedFormatter::modFor(char16_t type, int32_t len)
+double poi::ss::format::CellElapsedFormatter::modFor(char16_t type, int32_t len)
 {
     clinit();
     switch (type) {
@@ -161,7 +161,7 @@ double org::apache::poi::ss::format::CellElapsedFormatter::modFor(char16_t type,
 
 }
 
-void org::apache::poi::ss::format::CellElapsedFormatter::formatValue(::java::lang::StringBuffer* toAppendTo, ::java::lang::Object* value)
+void poi::ss::format::CellElapsedFormatter::formatValue(::java::lang::StringBuffer* toAppendTo, ::java::lang::Object* value)
 {
     auto elapsed = npc((java_cast< ::java::lang::Number* >(value)))->doubleValue();
     if(elapsed < 0) {
@@ -184,20 +184,20 @@ void org::apache::poi::ss::format::CellElapsedFormatter::formatValue(::java::lan
 
 }
 
-void org::apache::poi::ss::format::CellElapsedFormatter::simpleValue(::java::lang::StringBuffer* toAppendTo, ::java::lang::Object* value)
+void poi::ss::format::CellElapsedFormatter::simpleValue(::java::lang::StringBuffer* toAppendTo, ::java::lang::Object* value)
 {
     formatValue(toAppendTo, value);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::format::CellElapsedFormatter::class_()
+java::lang::Class* poi::ss::format::CellElapsedFormatter::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.format.CellElapsedFormatter", 45);
     return c;
 }
 
-void org::apache::poi::ss::format::CellElapsedFormatter::clinit()
+void poi::ss::format::CellElapsedFormatter::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -213,7 +213,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::format::CellElapsedFormatter::getClass0()
+java::lang::Class* poi::ss::format::CellElapsedFormatter::getClass0()
 {
     return class_();
 }

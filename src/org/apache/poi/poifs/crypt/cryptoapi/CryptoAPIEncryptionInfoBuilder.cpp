@@ -18,24 +18,24 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIEncryptionInfoBuilder::CryptoAPIEncryptionInfoBuilder(const ::default_init_tag&)
+poi::poifs::crypt::cryptoapi::CryptoAPIEncryptionInfoBuilder::CryptoAPIEncryptionInfoBuilder(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIEncryptionInfoBuilder::CryptoAPIEncryptionInfoBuilder() 
+poi::poifs::crypt::cryptoapi::CryptoAPIEncryptionInfoBuilder::CryptoAPIEncryptionInfoBuilder() 
     : CryptoAPIEncryptionInfoBuilder(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIEncryptionInfoBuilder::ctor()
+void poi::poifs::crypt::cryptoapi::CryptoAPIEncryptionInfoBuilder::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIEncryptionInfoBuilder::initialize(::org::apache::poi::poifs::crypt::EncryptionInfo* info, ::org::apache::poi::util::LittleEndianInput* dis) /* throws(IOException) */
+void poi::poifs::crypt::cryptoapi::CryptoAPIEncryptionInfoBuilder::initialize(::poi::poifs::crypt::EncryptionInfo* info, ::poi::util::LittleEndianInput* dis) /* throws(IOException) */
 {
     npc(dis)->readInt();
     auto header = new CryptoAPIEncryptionHeader(dis);
@@ -49,18 +49,18 @@ void org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIEncryptionInfoBuilder::
     npc(info)->setEncryptor(enc);
 }
 
-void org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIEncryptionInfoBuilder::initialize(::org::apache::poi::poifs::crypt::EncryptionInfo* info, ::org::apache::poi::poifs::crypt::CipherAlgorithm* cipherAlgorithm, ::org::apache::poi::poifs::crypt::HashAlgorithm* hashAlgorithm, int32_t keyBits, int32_t blockSize, ::org::apache::poi::poifs::crypt::ChainingMode* chainingMode)
+void poi::poifs::crypt::cryptoapi::CryptoAPIEncryptionInfoBuilder::initialize(::poi::poifs::crypt::EncryptionInfo* info, ::poi::poifs::crypt::CipherAlgorithm* cipherAlgorithm, ::poi::poifs::crypt::HashAlgorithm* hashAlgorithm, int32_t keyBits, int32_t blockSize, ::poi::poifs::crypt::ChainingMode* chainingMode)
 {
     if(cipherAlgorithm == nullptr) {
-        cipherAlgorithm = ::org::apache::poi::poifs::crypt::CipherAlgorithm::rc4;
+        cipherAlgorithm = ::poi::poifs::crypt::CipherAlgorithm::rc4;
     }
     if(hashAlgorithm == nullptr) {
-        hashAlgorithm = ::org::apache::poi::poifs::crypt::HashAlgorithm::sha1;
+        hashAlgorithm = ::poi::poifs::crypt::HashAlgorithm::sha1;
     }
     if(keyBits == -int32_t(1)) {
         keyBits = 40;
     }
-    /* assert((cipherAlgorithm == ::org::apache::poi::poifs::crypt::CipherAlgorithm::rc4 && hashAlgorithm == ::org::apache::poi::poifs::crypt::HashAlgorithm::sha1)) */ ;
+    /* assert((cipherAlgorithm == ::poi::poifs::crypt::CipherAlgorithm::rc4 && hashAlgorithm == ::poi::poifs::crypt::HashAlgorithm::sha1)) */ ;
     npc(info)->setHeader(new CryptoAPIEncryptionHeader(cipherAlgorithm, hashAlgorithm, keyBits, blockSize, chainingMode));
     npc(info)->setVerifier(new CryptoAPIEncryptionVerifier(cipherAlgorithm, hashAlgorithm, keyBits, blockSize, chainingMode));
     auto dec = new CryptoAPIDecryptor();
@@ -73,13 +73,13 @@ void org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIEncryptionInfoBuilder::
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIEncryptionInfoBuilder::class_()
+java::lang::Class* poi::poifs::crypt::cryptoapi::CryptoAPIEncryptionInfoBuilder::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.crypt.cryptoapi.CryptoAPIEncryptionInfoBuilder", 67);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIEncryptionInfoBuilder::getClass0()
+java::lang::Class* poi::poifs::crypt::cryptoapi::CryptoAPIEncryptionInfoBuilder::getClass0()
 {
     return class_();
 }

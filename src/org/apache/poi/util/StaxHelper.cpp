@@ -22,31 +22,31 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::util::StaxHelper::StaxHelper(const ::default_init_tag&)
+poi::util::StaxHelper::StaxHelper(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::util::StaxHelper::StaxHelper() 
+poi::util::StaxHelper::StaxHelper() 
     : StaxHelper(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::util::POILogger*& org::apache::poi::util::StaxHelper::logger()
+poi::util::POILogger*& poi::util::StaxHelper::logger()
 {
     clinit();
     return logger_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::util::StaxHelper::logger_;
+poi::util::POILogger* poi::util::StaxHelper::logger_;
 
-void org::apache::poi::util::StaxHelper::ctor()
+void poi::util::StaxHelper::ctor()
 {
     super::ctor();
 }
 
-javax::xml::stream::XMLInputFactory* org::apache::poi::util::StaxHelper::newXMLInputFactory()
+javax::xml::stream::XMLInputFactory* poi::util::StaxHelper::newXMLInputFactory()
 {
     clinit();
     auto factory = ::javax::xml::stream::XMLInputFactory::newFactory();
@@ -57,7 +57,7 @@ javax::xml::stream::XMLInputFactory* org::apache::poi::util::StaxHelper::newXMLI
     return factory;
 }
 
-javax::xml::stream::XMLOutputFactory* org::apache::poi::util::StaxHelper::newXMLOutputFactory()
+javax::xml::stream::XMLOutputFactory* poi::util::StaxHelper::newXMLOutputFactory()
 {
     clinit();
     auto factory = ::javax::xml::stream::XMLOutputFactory::newFactory();
@@ -65,13 +65,13 @@ javax::xml::stream::XMLOutputFactory* org::apache::poi::util::StaxHelper::newXML
     return factory;
 }
 
-javax::xml::stream::XMLEventFactory* org::apache::poi::util::StaxHelper::newXMLEventFactory()
+javax::xml::stream::XMLEventFactory* poi::util::StaxHelper::newXMLEventFactory()
 {
     clinit();
     return ::javax::xml::stream::XMLEventFactory::newFactory();
 }
 
-void org::apache::poi::util::StaxHelper::trySetProperty(::javax::xml::stream::XMLInputFactory* factory, ::java::lang::String* feature, bool flag)
+void poi::util::StaxHelper::trySetProperty(::javax::xml::stream::XMLInputFactory* factory, ::java::lang::String* feature, bool flag)
 {
     clinit();
     try {
@@ -83,7 +83,7 @@ void org::apache::poi::util::StaxHelper::trySetProperty(::javax::xml::stream::XM
     }
 }
 
-void org::apache::poi::util::StaxHelper::trySetProperty(::javax::xml::stream::XMLOutputFactory* factory, ::java::lang::String* feature, bool flag)
+void poi::util::StaxHelper::trySetProperty(::javax::xml::stream::XMLOutputFactory* factory, ::java::lang::String* feature, bool flag)
 {
     clinit();
     try {
@@ -97,13 +97,13 @@ void org::apache::poi::util::StaxHelper::trySetProperty(::javax::xml::stream::XM
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::util::StaxHelper::class_()
+java::lang::Class* poi::util::StaxHelper::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.util.StaxHelper", 30);
     return c;
 }
 
-void org::apache::poi::util::StaxHelper::clinit()
+void poi::util::StaxHelper::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -119,7 +119,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::util::StaxHelper::getClass0()
+java::lang::Class* poi::util::StaxHelper::getClass0()
 {
     return class_();
 }

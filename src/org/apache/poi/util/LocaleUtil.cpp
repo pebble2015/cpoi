@@ -27,102 +27,102 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::util::LocaleUtil::LocaleUtil(const ::default_init_tag&)
+poi::util::LocaleUtil::LocaleUtil(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::util::LocaleUtil::LocaleUtil() 
+poi::util::LocaleUtil::LocaleUtil() 
     : LocaleUtil(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::util::LocaleUtil::ctor()
+void poi::util::LocaleUtil::ctor()
 {
     super::ctor();
 }
 
-java::util::TimeZone*& org::apache::poi::util::LocaleUtil::TIMEZONE_UTC()
+java::util::TimeZone*& poi::util::LocaleUtil::TIMEZONE_UTC()
 {
     clinit();
     return TIMEZONE_UTC_;
 }
-java::util::TimeZone* org::apache::poi::util::LocaleUtil::TIMEZONE_UTC_;
+java::util::TimeZone* poi::util::LocaleUtil::TIMEZONE_UTC_;
 
-java::nio::charset::Charset*& org::apache::poi::util::LocaleUtil::CHARSET_1252()
+java::nio::charset::Charset*& poi::util::LocaleUtil::CHARSET_1252()
 {
     clinit();
     return CHARSET_1252_;
 }
-java::nio::charset::Charset* org::apache::poi::util::LocaleUtil::CHARSET_1252_;
+java::nio::charset::Charset* poi::util::LocaleUtil::CHARSET_1252_;
 
-java::lang::ThreadLocal*& org::apache::poi::util::LocaleUtil::userTimeZone()
+java::lang::ThreadLocal*& poi::util::LocaleUtil::userTimeZone()
 {
     clinit();
     return userTimeZone_;
 }
-java::lang::ThreadLocal* org::apache::poi::util::LocaleUtil::userTimeZone_;
+java::lang::ThreadLocal* poi::util::LocaleUtil::userTimeZone_;
 
-java::lang::ThreadLocal*& org::apache::poi::util::LocaleUtil::userLocale()
+java::lang::ThreadLocal*& poi::util::LocaleUtil::userLocale()
 {
     clinit();
     return userLocale_;
 }
-java::lang::ThreadLocal* org::apache::poi::util::LocaleUtil::userLocale_;
+java::lang::ThreadLocal* poi::util::LocaleUtil::userLocale_;
 
-void org::apache::poi::util::LocaleUtil::setUserTimeZone(::java::util::TimeZone* timezone)
+void poi::util::LocaleUtil::setUserTimeZone(::java::util::TimeZone* timezone)
 {
     clinit();
     npc(userTimeZone_)->set(timezone);
 }
 
-java::util::TimeZone* org::apache::poi::util::LocaleUtil::getUserTimeZone()
+java::util::TimeZone* poi::util::LocaleUtil::getUserTimeZone()
 {
     clinit();
     auto timeZone = java_cast< ::java::util::TimeZone* >(npc(userTimeZone_)->get());
     return (timeZone != nullptr) ? timeZone : ::java::util::TimeZone::getDefault();
 }
 
-void org::apache::poi::util::LocaleUtil::resetUserTimeZone()
+void poi::util::LocaleUtil::resetUserTimeZone()
 {
     clinit();
     npc(userTimeZone_)->remove();
 }
 
-void org::apache::poi::util::LocaleUtil::setUserLocale(::java::util::Locale* locale)
+void poi::util::LocaleUtil::setUserLocale(::java::util::Locale* locale)
 {
     clinit();
     npc(userLocale_)->set(locale);
 }
 
-java::util::Locale* org::apache::poi::util::LocaleUtil::getUserLocale()
+java::util::Locale* poi::util::LocaleUtil::getUserLocale()
 {
     clinit();
     auto locale = java_cast< ::java::util::Locale* >(npc(userLocale_)->get());
     return (locale != nullptr) ? locale : ::java::util::Locale::getDefault();
 }
 
-void org::apache::poi::util::LocaleUtil::resetUserLocale()
+void poi::util::LocaleUtil::resetUserLocale()
 {
     clinit();
     npc(userLocale_)->remove();
 }
 
-java::util::Calendar* org::apache::poi::util::LocaleUtil::getLocaleCalendar()
+java::util::Calendar* poi::util::LocaleUtil::getLocaleCalendar()
 {
     clinit();
     return getLocaleCalendar(getUserTimeZone());
 }
 
-java::util::Calendar* org::apache::poi::util::LocaleUtil::getLocaleCalendar(int32_t year, int32_t month, int32_t day)
+java::util::Calendar* poi::util::LocaleUtil::getLocaleCalendar(int32_t year, int32_t month, int32_t day)
 {
     clinit();
     return getLocaleCalendar(year, month, day, 0, 0, 0);
 }
 
-java::util::Calendar* org::apache::poi::util::LocaleUtil::getLocaleCalendar(int32_t year, int32_t month, int32_t day, int32_t hour, int32_t minute, int32_t second)
+java::util::Calendar* poi::util::LocaleUtil::getLocaleCalendar(int32_t year, int32_t month, int32_t day, int32_t hour, int32_t minute, int32_t second)
 {
     clinit();
     auto cal = getLocaleCalendar();
@@ -131,13 +131,13 @@ java::util::Calendar* org::apache::poi::util::LocaleUtil::getLocaleCalendar(int3
     return cal;
 }
 
-java::util::Calendar* org::apache::poi::util::LocaleUtil::getLocaleCalendar(::java::util::TimeZone* timeZone)
+java::util::Calendar* poi::util::LocaleUtil::getLocaleCalendar(::java::util::TimeZone* timeZone)
 {
     clinit();
     return ::java::util::Calendar::getInstance(timeZone, getUserLocale());
 }
 
-java::lang::String* org::apache::poi::util::LocaleUtil::getLocaleFromLCID(int32_t lcid)
+java::lang::String* poi::util::LocaleUtil::getLocaleFromLCID(int32_t lcid)
 {
     clinit();
     auto languageId = lcid & int32_t(65535);
@@ -1062,13 +1062,13 @@ java::lang::String* org::apache::poi::util::LocaleUtil::getLocaleFromLCID(int32_
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::util::LocaleUtil::class_()
+java::lang::Class* poi::util::LocaleUtil::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.util.LocaleUtil", 30);
     return c;
 }
 
-void org::apache::poi::util::LocaleUtil::clinit()
+void poi::util::LocaleUtil::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -1087,7 +1087,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::util::LocaleUtil::getClass0()
+java::lang::Class* poi::util::LocaleUtil::getClass0()
 {
     return class_();
 }

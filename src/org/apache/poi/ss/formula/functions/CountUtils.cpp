@@ -28,24 +28,24 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::CountUtils::CountUtils(const ::default_init_tag&)
+poi::ss::formula::functions::CountUtils::CountUtils(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::CountUtils::CountUtils() 
+poi::ss::formula::functions::CountUtils::CountUtils() 
     : CountUtils(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::ss::formula::functions::CountUtils::ctor()
+void poi::ss::formula::functions::CountUtils::ctor()
 {
     super::ctor();
 }
 
-int32_t org::apache::poi::ss::formula::functions::CountUtils::countMatchingCellsInArea(::org::apache::poi::ss::formula::ThreeDEval* areaEval, CountUtils_I_MatchPredicate* criteriaPredicate)
+int32_t poi::ss::formula::functions::CountUtils::countMatchingCellsInArea(::poi::ss::formula::ThreeDEval* areaEval, CountUtils_I_MatchPredicate* criteriaPredicate)
 {
     clinit();
     auto result = int32_t(0);
@@ -72,7 +72,7 @@ int32_t org::apache::poi::ss::formula::functions::CountUtils::countMatchingCells
     return result;
 }
 
-int32_t org::apache::poi::ss::formula::functions::CountUtils::countMatchingCellsInRef(::org::apache::poi::ss::formula::eval::RefEval* refEval, CountUtils_I_MatchPredicate* criteriaPredicate)
+int32_t poi::ss::formula::functions::CountUtils::countMatchingCellsInRef(::poi::ss::formula::eval::RefEval* refEval, CountUtils_I_MatchPredicate* criteriaPredicate)
 {
     clinit();
     auto result = int32_t(0);
@@ -87,33 +87,33 @@ int32_t org::apache::poi::ss::formula::functions::CountUtils::countMatchingCells
     return result;
 }
 
-int32_t org::apache::poi::ss::formula::functions::CountUtils::countArg(::org::apache::poi::ss::formula::eval::ValueEval* eval, CountUtils_I_MatchPredicate* criteriaPredicate)
+int32_t poi::ss::formula::functions::CountUtils::countArg(::poi::ss::formula::eval::ValueEval* eval, CountUtils_I_MatchPredicate* criteriaPredicate)
 {
     clinit();
     if(eval == nullptr) {
         throw new ::java::lang::IllegalArgumentException(u"eval must not be null"_j);
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::ThreeDEval* >(eval) != nullptr) {
-        return countMatchingCellsInArea(java_cast< ::org::apache::poi::ss::formula::ThreeDEval* >(eval), criteriaPredicate);
+    if(dynamic_cast< ::poi::ss::formula::ThreeDEval* >(eval) != nullptr) {
+        return countMatchingCellsInArea(java_cast< ::poi::ss::formula::ThreeDEval* >(eval), criteriaPredicate);
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::TwoDEval* >(eval) != nullptr) {
+    if(dynamic_cast< ::poi::ss::formula::TwoDEval* >(eval) != nullptr) {
         throw new ::java::lang::IllegalArgumentException(u"Count requires 3D Evals, 2D ones aren't supported"_j);
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::RefEval* >(eval) != nullptr) {
-        return CountUtils::countMatchingCellsInRef(java_cast< ::org::apache::poi::ss::formula::eval::RefEval* >(eval), criteriaPredicate);
+    if(dynamic_cast< ::poi::ss::formula::eval::RefEval* >(eval) != nullptr) {
+        return CountUtils::countMatchingCellsInRef(java_cast< ::poi::ss::formula::eval::RefEval* >(eval), criteriaPredicate);
     }
     return npc(criteriaPredicate)->matches(eval) ? int32_t(1) : int32_t(0);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::CountUtils::class_()
+java::lang::Class* poi::ss::formula::functions::CountUtils::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.CountUtils", 46);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::CountUtils::getClass0()
+java::lang::Class* poi::ss::formula::functions::CountUtils::getClass0()
 {
     return class_();
 }

@@ -6,7 +6,7 @@
 #include <org/apache/poi/ss/usermodel/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::usermodel::ConditionFilterData
+struct poi::ss::usermodel::ConditionFilterData
     : public virtual ::java::lang::Object
 {
     virtual bool getAboveAverage() = 0;

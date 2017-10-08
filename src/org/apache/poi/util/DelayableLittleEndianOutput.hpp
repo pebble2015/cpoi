@@ -6,7 +6,7 @@
 #include <org/apache/poi/util/fwd-POI.hpp>
 #include <org/apache/poi/util/LittleEndianOutput.hpp>
 
-struct org::apache::poi::util::DelayableLittleEndianOutput
+struct poi::util::DelayableLittleEndianOutput
     : public virtual LittleEndianOutput
 {
     virtual LittleEndianOutput* createDelayedOutput(int32_t size) = 0;

@@ -15,44 +15,44 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::UncalcedRecord::UncalcedRecord(const ::default_init_tag&)
+poi::hssf::record::UncalcedRecord::UncalcedRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::UncalcedRecord::UncalcedRecord() 
+poi::hssf::record::UncalcedRecord::UncalcedRecord() 
     : UncalcedRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::UncalcedRecord::UncalcedRecord(RecordInputStream* in) 
+poi::hssf::record::UncalcedRecord::UncalcedRecord(RecordInputStream* in) 
     : UncalcedRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::UncalcedRecord::sid;
+constexpr int16_t poi::hssf::record::UncalcedRecord::sid;
 
-void org::apache::poi::hssf::record::UncalcedRecord::ctor()
+void poi::hssf::record::UncalcedRecord::ctor()
 {
     super::ctor();
     _reserved = 0;
 }
 
-int16_t org::apache::poi::hssf::record::UncalcedRecord::getSid()
+int16_t poi::hssf::record::UncalcedRecord::getSid()
 {
     return sid;
 }
 
-void org::apache::poi::hssf::record::UncalcedRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::UncalcedRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     _reserved = npc(in)->readShort();
 }
 
-java::lang::String* org::apache::poi::hssf::record::UncalcedRecord::toString()
+java::lang::String* poi::hssf::record::UncalcedRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[UNCALCED]\n"_j);
@@ -61,17 +61,17 @@ java::lang::String* org::apache::poi::hssf::record::UncalcedRecord::toString()
     return npc(buffer)->toString();
 }
 
-void org::apache::poi::hssf::record::UncalcedRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::UncalcedRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(_reserved);
 }
 
-int32_t org::apache::poi::hssf::record::UncalcedRecord::getDataSize()
+int32_t poi::hssf::record::UncalcedRecord::getDataSize()
 {
     return 2;
 }
 
-int32_t org::apache::poi::hssf::record::UncalcedRecord::getStaticRecordSize()
+int32_t poi::hssf::record::UncalcedRecord::getStaticRecordSize()
 {
     clinit();
     return 6;
@@ -79,23 +79,23 @@ int32_t org::apache::poi::hssf::record::UncalcedRecord::getStaticRecordSize()
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::UncalcedRecord::class_()
+java::lang::Class* poi::hssf::record::UncalcedRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.UncalcedRecord", 41);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::UncalcedRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::UncalcedRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::UncalcedRecord::serialize()
+int8_tArray* poi::hssf::record::UncalcedRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::UncalcedRecord::getClass0()
+java::lang::Class* poi::hssf::record::UncalcedRecord::getClass0()
 {
     return class_();
 }

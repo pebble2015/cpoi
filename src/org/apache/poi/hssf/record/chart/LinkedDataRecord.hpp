@@ -13,39 +13,33 @@
 #include <java/lang/Cloneable.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::chart::LinkedDataRecord final
-    : public ::org::apache::poi::hssf::record::StandardRecord
+class poi::hssf::record::chart::LinkedDataRecord final
+    : public ::poi::hssf::record::StandardRecord
     , public ::java::lang::Cloneable
 {
 
 public:
-    typedef ::org::apache::poi::hssf::record::StandardRecord super;
+    typedef ::poi::hssf::record::StandardRecord super;
     static constexpr int16_t sid { int16_t(4177) };
 
 private:
-    static ::org::apache::poi::util::BitField* customNumberFormat_;
+    static ::poi::util::BitField* customNumberFormat_;
     int8_t field_1_linkType {  };
 
 public:
@@ -67,14 +61,14 @@ public:
 private:
     int16_t field_3_options {  };
     int16_t field_4_indexNumberFmtRecord {  };
-    ::org::apache::poi::ss::formula::Formula* field_5_formulaOfLink {  };
+    ::poi::ss::formula::Formula* field_5_formulaOfLink {  };
 protected:
     void ctor();
-    void ctor(::org::apache::poi::hssf::record::RecordInputStream* in);
+    void ctor(::poi::hssf::record::RecordInputStream* in);
 
 public:
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;
@@ -90,14 +84,14 @@ public:
     void setOptions(int16_t field_3_options);
     int16_t getIndexNumberFmtRecord();
     void setIndexNumberFmtRecord(int16_t field_4_indexNumberFmtRecord);
-    ::org::apache::poi::ss::formula::ptg::PtgArray* getFormulaOfLink();
-    void setFormulaOfLink(::org::apache::poi::ss::formula::ptg::PtgArray* ptgs);
+    ::poi::ss::formula::ptg::PtgArray* getFormulaOfLink();
+    void setFormulaOfLink(::poi::ss::formula::ptg::PtgArray* ptgs);
     void setCustomNumberFormat(bool value);
     bool isCustomNumberFormat();
 
     // Generated
     LinkedDataRecord();
-    LinkedDataRecord(::org::apache::poi::hssf::record::RecordInputStream* in);
+    LinkedDataRecord(::poi::hssf::record::RecordInputStream* in);
 protected:
     LinkedDataRecord(const ::default_init_tag&);
 
@@ -109,6 +103,6 @@ public:
     ::int8_tArray* serialize();
 
 private:
-    static ::org::apache::poi::util::BitField*& customNumberFormat();
+    static ::poi::util::BitField*& customNumberFormat();
     virtual ::java::lang::Class* getClass0();
 };

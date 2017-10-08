@@ -7,7 +7,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFOptimiser
+class poi::hssf::usermodel::HSSFOptimiser
     : public virtual ::java::lang::Object
 {
 

@@ -26,22 +26,16 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace ss
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::FontCharset, ::java::lang::EnumArray > FontCharsetArray;
-                } // usermodel
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::usermodel::FontCharset, ::java::lang::EnumArray > FontCharsetArray;
+        } // usermodel
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -50,56 +44,56 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::usermodel::FontCharset::FontCharset(const ::default_init_tag&)
+poi::ss::usermodel::FontCharset::FontCharset(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::usermodel::FontCharset::FontCharset(::java::lang::String* name, int ordinal, int32_t value) 
+poi::ss::usermodel::FontCharset::FontCharset(::java::lang::String* name, int ordinal, int32_t value) 
     : FontCharset(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal, value);
 }
 
-org::apache::poi::ss::usermodel::FontCharset* org::apache::poi::ss::usermodel::FontCharset::ANSI = new ::org::apache::poi::ss::usermodel::FontCharset(u"ANSI"_j, 0, int32_t(0));
-org::apache::poi::ss::usermodel::FontCharset* org::apache::poi::ss::usermodel::FontCharset::DEFAULT = new ::org::apache::poi::ss::usermodel::FontCharset(u"DEFAULT"_j, 1, int32_t(1));
-org::apache::poi::ss::usermodel::FontCharset* org::apache::poi::ss::usermodel::FontCharset::SYMBOL = new ::org::apache::poi::ss::usermodel::FontCharset(u"SYMBOL"_j, 2, int32_t(2));
-org::apache::poi::ss::usermodel::FontCharset* org::apache::poi::ss::usermodel::FontCharset::MAC = new ::org::apache::poi::ss::usermodel::FontCharset(u"MAC"_j, 3, int32_t(77));
-org::apache::poi::ss::usermodel::FontCharset* org::apache::poi::ss::usermodel::FontCharset::SHIFTJIS = new ::org::apache::poi::ss::usermodel::FontCharset(u"SHIFTJIS"_j, 4, int32_t(128));
-org::apache::poi::ss::usermodel::FontCharset* org::apache::poi::ss::usermodel::FontCharset::HANGEUL = new ::org::apache::poi::ss::usermodel::FontCharset(u"HANGEUL"_j, 5, int32_t(129));
-org::apache::poi::ss::usermodel::FontCharset* org::apache::poi::ss::usermodel::FontCharset::JOHAB = new ::org::apache::poi::ss::usermodel::FontCharset(u"JOHAB"_j, 6, int32_t(130));
-org::apache::poi::ss::usermodel::FontCharset* org::apache::poi::ss::usermodel::FontCharset::GB2312 = new ::org::apache::poi::ss::usermodel::FontCharset(u"GB2312"_j, 7, int32_t(134));
-org::apache::poi::ss::usermodel::FontCharset* org::apache::poi::ss::usermodel::FontCharset::CHINESEBIG5 = new ::org::apache::poi::ss::usermodel::FontCharset(u"CHINESEBIG5"_j, 8, int32_t(136));
-org::apache::poi::ss::usermodel::FontCharset* org::apache::poi::ss::usermodel::FontCharset::GREEK = new ::org::apache::poi::ss::usermodel::FontCharset(u"GREEK"_j, 9, int32_t(161));
-org::apache::poi::ss::usermodel::FontCharset* org::apache::poi::ss::usermodel::FontCharset::TURKISH = new ::org::apache::poi::ss::usermodel::FontCharset(u"TURKISH"_j, 10, int32_t(162));
-org::apache::poi::ss::usermodel::FontCharset* org::apache::poi::ss::usermodel::FontCharset::VIETNAMESE = new ::org::apache::poi::ss::usermodel::FontCharset(u"VIETNAMESE"_j, 11, int32_t(163));
-org::apache::poi::ss::usermodel::FontCharset* org::apache::poi::ss::usermodel::FontCharset::HEBREW = new ::org::apache::poi::ss::usermodel::FontCharset(u"HEBREW"_j, 12, int32_t(177));
-org::apache::poi::ss::usermodel::FontCharset* org::apache::poi::ss::usermodel::FontCharset::ARABIC = new ::org::apache::poi::ss::usermodel::FontCharset(u"ARABIC"_j, 13, int32_t(178));
-org::apache::poi::ss::usermodel::FontCharset* org::apache::poi::ss::usermodel::FontCharset::BALTIC = new ::org::apache::poi::ss::usermodel::FontCharset(u"BALTIC"_j, 14, int32_t(186));
-org::apache::poi::ss::usermodel::FontCharset* org::apache::poi::ss::usermodel::FontCharset::RUSSIAN = new ::org::apache::poi::ss::usermodel::FontCharset(u"RUSSIAN"_j, 15, int32_t(204));
-org::apache::poi::ss::usermodel::FontCharset* org::apache::poi::ss::usermodel::FontCharset::THAI = new ::org::apache::poi::ss::usermodel::FontCharset(u"THAI"_j, 16, int32_t(222));
-org::apache::poi::ss::usermodel::FontCharset* org::apache::poi::ss::usermodel::FontCharset::EASTEUROPE = new ::org::apache::poi::ss::usermodel::FontCharset(u"EASTEUROPE"_j, 17, int32_t(238));
-org::apache::poi::ss::usermodel::FontCharset* org::apache::poi::ss::usermodel::FontCharset::OEM = new ::org::apache::poi::ss::usermodel::FontCharset(u"OEM"_j, 18, int32_t(255));
-void org::apache::poi::ss::usermodel::FontCharset::ctor(::java::lang::String* name, int ordinal, int32_t value)
+poi::ss::usermodel::FontCharset* poi::ss::usermodel::FontCharset::ANSI = new ::poi::ss::usermodel::FontCharset(u"ANSI"_j, 0, int32_t(0));
+poi::ss::usermodel::FontCharset* poi::ss::usermodel::FontCharset::DEFAULT = new ::poi::ss::usermodel::FontCharset(u"DEFAULT"_j, 1, int32_t(1));
+poi::ss::usermodel::FontCharset* poi::ss::usermodel::FontCharset::SYMBOL = new ::poi::ss::usermodel::FontCharset(u"SYMBOL"_j, 2, int32_t(2));
+poi::ss::usermodel::FontCharset* poi::ss::usermodel::FontCharset::MAC = new ::poi::ss::usermodel::FontCharset(u"MAC"_j, 3, int32_t(77));
+poi::ss::usermodel::FontCharset* poi::ss::usermodel::FontCharset::SHIFTJIS = new ::poi::ss::usermodel::FontCharset(u"SHIFTJIS"_j, 4, int32_t(128));
+poi::ss::usermodel::FontCharset* poi::ss::usermodel::FontCharset::HANGEUL = new ::poi::ss::usermodel::FontCharset(u"HANGEUL"_j, 5, int32_t(129));
+poi::ss::usermodel::FontCharset* poi::ss::usermodel::FontCharset::JOHAB = new ::poi::ss::usermodel::FontCharset(u"JOHAB"_j, 6, int32_t(130));
+poi::ss::usermodel::FontCharset* poi::ss::usermodel::FontCharset::GB2312 = new ::poi::ss::usermodel::FontCharset(u"GB2312"_j, 7, int32_t(134));
+poi::ss::usermodel::FontCharset* poi::ss::usermodel::FontCharset::CHINESEBIG5 = new ::poi::ss::usermodel::FontCharset(u"CHINESEBIG5"_j, 8, int32_t(136));
+poi::ss::usermodel::FontCharset* poi::ss::usermodel::FontCharset::GREEK = new ::poi::ss::usermodel::FontCharset(u"GREEK"_j, 9, int32_t(161));
+poi::ss::usermodel::FontCharset* poi::ss::usermodel::FontCharset::TURKISH = new ::poi::ss::usermodel::FontCharset(u"TURKISH"_j, 10, int32_t(162));
+poi::ss::usermodel::FontCharset* poi::ss::usermodel::FontCharset::VIETNAMESE = new ::poi::ss::usermodel::FontCharset(u"VIETNAMESE"_j, 11, int32_t(163));
+poi::ss::usermodel::FontCharset* poi::ss::usermodel::FontCharset::HEBREW = new ::poi::ss::usermodel::FontCharset(u"HEBREW"_j, 12, int32_t(177));
+poi::ss::usermodel::FontCharset* poi::ss::usermodel::FontCharset::ARABIC = new ::poi::ss::usermodel::FontCharset(u"ARABIC"_j, 13, int32_t(178));
+poi::ss::usermodel::FontCharset* poi::ss::usermodel::FontCharset::BALTIC = new ::poi::ss::usermodel::FontCharset(u"BALTIC"_j, 14, int32_t(186));
+poi::ss::usermodel::FontCharset* poi::ss::usermodel::FontCharset::RUSSIAN = new ::poi::ss::usermodel::FontCharset(u"RUSSIAN"_j, 15, int32_t(204));
+poi::ss::usermodel::FontCharset* poi::ss::usermodel::FontCharset::THAI = new ::poi::ss::usermodel::FontCharset(u"THAI"_j, 16, int32_t(222));
+poi::ss::usermodel::FontCharset* poi::ss::usermodel::FontCharset::EASTEUROPE = new ::poi::ss::usermodel::FontCharset(u"EASTEUROPE"_j, 17, int32_t(238));
+poi::ss::usermodel::FontCharset* poi::ss::usermodel::FontCharset::OEM = new ::poi::ss::usermodel::FontCharset(u"OEM"_j, 18, int32_t(255));
+void poi::ss::usermodel::FontCharset::ctor(::java::lang::String* name, int ordinal, int32_t value)
 {
     super::ctor(name, ordinal);
     charset = value;
 }
 
-int32_t org::apache::poi::ss::usermodel::FontCharset::getValue()
+int32_t poi::ss::usermodel::FontCharset::getValue()
 {
     return charset;
 }
 
-org::apache::poi::ss::usermodel::FontCharsetArray*& org::apache::poi::ss::usermodel::FontCharset::_table()
+poi::ss::usermodel::FontCharsetArray*& poi::ss::usermodel::FontCharset::_table()
 {
     clinit();
     return _table_;
 }
-org::apache::poi::ss::usermodel::FontCharsetArray* org::apache::poi::ss::usermodel::FontCharset::_table_;
+poi::ss::usermodel::FontCharsetArray* poi::ss::usermodel::FontCharset::_table_;
 
-org::apache::poi::ss::usermodel::FontCharset* org::apache::poi::ss::usermodel::FontCharset::valueOf(int32_t value)
+poi::ss::usermodel::FontCharset* poi::ss::usermodel::FontCharset::valueOf(int32_t value)
 {
     clinit();
     if(value >= npc(_table_)->length)
@@ -110,13 +104,13 @@ org::apache::poi::ss::usermodel::FontCharset* org::apache::poi::ss::usermodel::F
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::usermodel::FontCharset::class_()
+java::lang::Class* poi::ss::usermodel::FontCharset::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.usermodel.FontCharset", 39);
     return c;
 }
 
-void org::apache::poi::ss::usermodel::FontCharset::clinit()
+void poi::ss::usermodel::FontCharset::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -137,12 +131,12 @@ struct clinit_ {
     }
 }
 
-java::lang::Enum* org::apache::poi::ss::usermodel::FontCharset::valueOf(::java::lang::Class* enumType, ::java::lang::String* name)
+java::lang::Enum* poi::ss::usermodel::FontCharset::valueOf(::java::lang::Class* enumType, ::java::lang::String* name)
 {
     return super::valueOf(enumType, name);
 }
 
-org::apache::poi::ss::usermodel::FontCharset* org::apache::poi::ss::usermodel::FontCharset::valueOf(::java::lang::String* a0)
+poi::ss::usermodel::FontCharset* poi::ss::usermodel::FontCharset::valueOf(::java::lang::String* a0)
 {
     if(ANSI->toString()->equals(a0))
         return ANSI;
@@ -185,9 +179,9 @@ org::apache::poi::ss::usermodel::FontCharset* org::apache::poi::ss::usermodel::F
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::ss::usermodel::FontCharsetArray* org::apache::poi::ss::usermodel::FontCharset::values()
+poi::ss::usermodel::FontCharsetArray* poi::ss::usermodel::FontCharset::values()
 {
-    return new org::apache::poi::ss::usermodel::FontCharsetArray({
+    return new poi::ss::usermodel::FontCharsetArray({
         ANSI,
         ARABIC,
         BALTIC,
@@ -210,7 +204,7 @@ org::apache::poi::ss::usermodel::FontCharsetArray* org::apache::poi::ss::usermod
     });
 }
 
-java::lang::Class* org::apache::poi::ss::usermodel::FontCharset::getClass0()
+java::lang::Class* poi::ss::usermodel::FontCharset::getClass0()
 {
     return class_();
 }

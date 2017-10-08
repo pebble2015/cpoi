@@ -18,164 +18,164 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::util::CodePageUtil::CodePageUtil(const ::default_init_tag&)
+poi::util::CodePageUtil::CodePageUtil(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::util::CodePageUtil::CodePageUtil()
+poi::util::CodePageUtil::CodePageUtil()
     : CodePageUtil(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-java::util::Set*& org::apache::poi::util::CodePageUtil::DOUBLE_BYTE_CHARSETS()
+java::util::Set*& poi::util::CodePageUtil::DOUBLE_BYTE_CHARSETS()
 {
     clinit();
     return DOUBLE_BYTE_CHARSETS_;
 }
-java::util::Set* org::apache::poi::util::CodePageUtil::DOUBLE_BYTE_CHARSETS_;
+java::util::Set* poi::util::CodePageUtil::DOUBLE_BYTE_CHARSETS_;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_037;
+constexpr int32_t poi::util::CodePageUtil::CP_037;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_SJIS;
+constexpr int32_t poi::util::CodePageUtil::CP_SJIS;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_GBK;
+constexpr int32_t poi::util::CodePageUtil::CP_GBK;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_MS949;
+constexpr int32_t poi::util::CodePageUtil::CP_MS949;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_UTF16;
+constexpr int32_t poi::util::CodePageUtil::CP_UTF16;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_UTF16_BE;
+constexpr int32_t poi::util::CodePageUtil::CP_UTF16_BE;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_WINDOWS_1250;
+constexpr int32_t poi::util::CodePageUtil::CP_WINDOWS_1250;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_WINDOWS_1251;
+constexpr int32_t poi::util::CodePageUtil::CP_WINDOWS_1251;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_WINDOWS_1252;
+constexpr int32_t poi::util::CodePageUtil::CP_WINDOWS_1252;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_WINDOWS_1252_BIFF23;
+constexpr int32_t poi::util::CodePageUtil::CP_WINDOWS_1252_BIFF23;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_WINDOWS_1253;
+constexpr int32_t poi::util::CodePageUtil::CP_WINDOWS_1253;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_WINDOWS_1254;
+constexpr int32_t poi::util::CodePageUtil::CP_WINDOWS_1254;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_WINDOWS_1255;
+constexpr int32_t poi::util::CodePageUtil::CP_WINDOWS_1255;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_WINDOWS_1256;
+constexpr int32_t poi::util::CodePageUtil::CP_WINDOWS_1256;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_WINDOWS_1257;
+constexpr int32_t poi::util::CodePageUtil::CP_WINDOWS_1257;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_WINDOWS_1258;
+constexpr int32_t poi::util::CodePageUtil::CP_WINDOWS_1258;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_JOHAB;
+constexpr int32_t poi::util::CodePageUtil::CP_JOHAB;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_MAC_ROMAN;
+constexpr int32_t poi::util::CodePageUtil::CP_MAC_ROMAN;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_MAC_ROMAN_BIFF23;
+constexpr int32_t poi::util::CodePageUtil::CP_MAC_ROMAN_BIFF23;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_MAC_JAPAN;
+constexpr int32_t poi::util::CodePageUtil::CP_MAC_JAPAN;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_MAC_CHINESE_TRADITIONAL;
+constexpr int32_t poi::util::CodePageUtil::CP_MAC_CHINESE_TRADITIONAL;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_MAC_KOREAN;
+constexpr int32_t poi::util::CodePageUtil::CP_MAC_KOREAN;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_MAC_ARABIC;
+constexpr int32_t poi::util::CodePageUtil::CP_MAC_ARABIC;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_MAC_HEBREW;
+constexpr int32_t poi::util::CodePageUtil::CP_MAC_HEBREW;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_MAC_GREEK;
+constexpr int32_t poi::util::CodePageUtil::CP_MAC_GREEK;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_MAC_CYRILLIC;
+constexpr int32_t poi::util::CodePageUtil::CP_MAC_CYRILLIC;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_MAC_CHINESE_SIMPLE;
+constexpr int32_t poi::util::CodePageUtil::CP_MAC_CHINESE_SIMPLE;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_MAC_ROMANIA;
+constexpr int32_t poi::util::CodePageUtil::CP_MAC_ROMANIA;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_MAC_UKRAINE;
+constexpr int32_t poi::util::CodePageUtil::CP_MAC_UKRAINE;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_MAC_THAI;
+constexpr int32_t poi::util::CodePageUtil::CP_MAC_THAI;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_MAC_CENTRAL_EUROPE;
+constexpr int32_t poi::util::CodePageUtil::CP_MAC_CENTRAL_EUROPE;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_MAC_ICELAND;
+constexpr int32_t poi::util::CodePageUtil::CP_MAC_ICELAND;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_MAC_TURKISH;
+constexpr int32_t poi::util::CodePageUtil::CP_MAC_TURKISH;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_MAC_CROATIAN;
+constexpr int32_t poi::util::CodePageUtil::CP_MAC_CROATIAN;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_US_ACSII;
+constexpr int32_t poi::util::CodePageUtil::CP_US_ACSII;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_KOI8_R;
+constexpr int32_t poi::util::CodePageUtil::CP_KOI8_R;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_ISO_8859_1;
+constexpr int32_t poi::util::CodePageUtil::CP_ISO_8859_1;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_ISO_8859_2;
+constexpr int32_t poi::util::CodePageUtil::CP_ISO_8859_2;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_ISO_8859_3;
+constexpr int32_t poi::util::CodePageUtil::CP_ISO_8859_3;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_ISO_8859_4;
+constexpr int32_t poi::util::CodePageUtil::CP_ISO_8859_4;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_ISO_8859_5;
+constexpr int32_t poi::util::CodePageUtil::CP_ISO_8859_5;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_ISO_8859_6;
+constexpr int32_t poi::util::CodePageUtil::CP_ISO_8859_6;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_ISO_8859_7;
+constexpr int32_t poi::util::CodePageUtil::CP_ISO_8859_7;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_ISO_8859_8;
+constexpr int32_t poi::util::CodePageUtil::CP_ISO_8859_8;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_ISO_8859_9;
+constexpr int32_t poi::util::CodePageUtil::CP_ISO_8859_9;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_ISO_2022_JP1;
+constexpr int32_t poi::util::CodePageUtil::CP_ISO_2022_JP1;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_ISO_2022_JP2;
+constexpr int32_t poi::util::CodePageUtil::CP_ISO_2022_JP2;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_ISO_2022_JP3;
+constexpr int32_t poi::util::CodePageUtil::CP_ISO_2022_JP3;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_ISO_2022_KR;
+constexpr int32_t poi::util::CodePageUtil::CP_ISO_2022_KR;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_EUC_JP;
+constexpr int32_t poi::util::CodePageUtil::CP_EUC_JP;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_EUC_KR;
+constexpr int32_t poi::util::CodePageUtil::CP_EUC_KR;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_GB2312;
+constexpr int32_t poi::util::CodePageUtil::CP_GB2312;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_GB18030;
+constexpr int32_t poi::util::CodePageUtil::CP_GB18030;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_US_ASCII2;
+constexpr int32_t poi::util::CodePageUtil::CP_US_ASCII2;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_UTF8;
+constexpr int32_t poi::util::CodePageUtil::CP_UTF8;
 
-constexpr int32_t org::apache::poi::util::CodePageUtil::CP_UNICODE;
+constexpr int32_t poi::util::CodePageUtil::CP_UNICODE;
 
-int8_tArray* org::apache::poi::util::CodePageUtil::getBytesInCodePage(::java::lang::String* string, int32_t codepage) /* throws(UnsupportedEncodingException) */
+int8_tArray* poi::util::CodePageUtil::getBytesInCodePage(::java::lang::String* string, int32_t codepage) /* throws(UnsupportedEncodingException) */
 {
     clinit();
     auto encoding = codepageToEncoding(codepage);
     return npc(string)->getBytes(encoding);
 }
 
-java::lang::String* org::apache::poi::util::CodePageUtil::getStringFromCodePage(::int8_tArray* string, int32_t codepage) /* throws(UnsupportedEncodingException) */
+java::lang::String* poi::util::CodePageUtil::getStringFromCodePage(::int8_tArray* string, int32_t codepage) /* throws(UnsupportedEncodingException) */
 {
     clinit();
     return getStringFromCodePage(string, 0, npc(string)->length, codepage);
 }
 
-java::lang::String* org::apache::poi::util::CodePageUtil::getStringFromCodePage(::int8_tArray* string, int32_t offset, int32_t length, int32_t codepage) /* throws(UnsupportedEncodingException) */
+java::lang::String* poi::util::CodePageUtil::getStringFromCodePage(::int8_tArray* string, int32_t offset, int32_t length, int32_t codepage) /* throws(UnsupportedEncodingException) */
 {
     clinit();
     auto encoding = codepageToEncoding(codepage);
     return new ::java::lang::String(string, offset, length, encoding);
 }
 
-java::lang::String* org::apache::poi::util::CodePageUtil::codepageToEncoding(int32_t codepage) /* throws(UnsupportedEncodingException) */
+java::lang::String* poi::util::CodePageUtil::codepageToEncoding(int32_t codepage) /* throws(UnsupportedEncodingException) */
 {
     clinit();
     return codepageToEncoding(codepage, false);
 }
 
-java::lang::String* org::apache::poi::util::CodePageUtil::codepageToEncoding(int32_t codepage, bool javaLangFormat) /* throws(UnsupportedEncodingException) */
+java::lang::String* poi::util::CodePageUtil::codepageToEncoding(int32_t codepage, bool javaLangFormat) /* throws(UnsupportedEncodingException) */
 {
     clinit();
     if(codepage <= 0)
@@ -347,7 +347,7 @@ java::lang::String* org::apache::poi::util::CodePageUtil::codepageToEncoding(int
 
 }
 
-java::lang::String* org::apache::poi::util::CodePageUtil::cp950ToString(::int8_tArray* data, int32_t offset, int32_t lengthInBytes)
+java::lang::String* poi::util::CodePageUtil::cp950ToString(::int8_tArray* data, int32_t offset, int32_t lengthInBytes)
 {
     clinit();
     auto sb = new ::java::lang::StringBuilder();
@@ -363,13 +363,13 @@ java::lang::String* org::apache::poi::util::CodePageUtil::cp950ToString(::int8_t
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::util::CodePageUtil::class_()
+java::lang::Class* poi::util::CodePageUtil::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.util.CodePageUtil", 32);
     return c;
 }
 
-void org::apache::poi::util::CodePageUtil::clinit()
+void poi::util::CodePageUtil::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -385,7 +385,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::util::CodePageUtil::getClass0()
+java::lang::Class* poi::util::CodePageUtil::getClass0()
 {
     return class_();
 }

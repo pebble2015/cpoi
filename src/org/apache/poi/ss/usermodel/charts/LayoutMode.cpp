@@ -25,49 +25,43 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace ss
+            namespace charts
             {
-                namespace usermodel
-                {
-                    namespace charts
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::charts::LayoutMode, ::java::lang::EnumArray > LayoutModeArray;
-                    } // charts
-                } // usermodel
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::usermodel::charts::LayoutMode, ::java::lang::EnumArray > LayoutModeArray;
+            } // charts
+        } // usermodel
+    } // ss
+} // poi
 
-org::apache::poi::ss::usermodel::charts::LayoutMode::LayoutMode(const ::default_init_tag&)
+poi::ss::usermodel::charts::LayoutMode::LayoutMode(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::usermodel::charts::LayoutMode::LayoutMode(::java::lang::String* name, int ordinal)
+poi::ss::usermodel::charts::LayoutMode::LayoutMode(::java::lang::String* name, int ordinal)
     : LayoutMode(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal);
 }
 
-org::apache::poi::ss::usermodel::charts::LayoutMode* org::apache::poi::ss::usermodel::charts::LayoutMode::EDGE = new ::org::apache::poi::ss::usermodel::charts::LayoutMode(u"EDGE"_j, 0);
-org::apache::poi::ss::usermodel::charts::LayoutMode* org::apache::poi::ss::usermodel::charts::LayoutMode::FACTOR = new ::org::apache::poi::ss::usermodel::charts::LayoutMode(u"FACTOR"_j, 1);
+poi::ss::usermodel::charts::LayoutMode* poi::ss::usermodel::charts::LayoutMode::EDGE = new ::poi::ss::usermodel::charts::LayoutMode(u"EDGE"_j, 0);
+poi::ss::usermodel::charts::LayoutMode* poi::ss::usermodel::charts::LayoutMode::FACTOR = new ::poi::ss::usermodel::charts::LayoutMode(u"FACTOR"_j, 1);
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::usermodel::charts::LayoutMode::class_()
+java::lang::Class* poi::ss::usermodel::charts::LayoutMode::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.usermodel.charts.LayoutMode", 45);
     return c;
 }
 
-org::apache::poi::ss::usermodel::charts::LayoutMode* org::apache::poi::ss::usermodel::charts::LayoutMode::valueOf(::java::lang::String* a0)
+poi::ss::usermodel::charts::LayoutMode* poi::ss::usermodel::charts::LayoutMode::valueOf(::java::lang::String* a0)
 {
     if(EDGE->toString()->equals(a0))
         return EDGE;
@@ -76,15 +70,15 @@ org::apache::poi::ss::usermodel::charts::LayoutMode* org::apache::poi::ss::userm
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::ss::usermodel::charts::LayoutModeArray* org::apache::poi::ss::usermodel::charts::LayoutMode::values()
+poi::ss::usermodel::charts::LayoutModeArray* poi::ss::usermodel::charts::LayoutMode::values()
 {
-    return new org::apache::poi::ss::usermodel::charts::LayoutModeArray({
+    return new poi::ss::usermodel::charts::LayoutModeArray({
         EDGE,
         FACTOR,
     });
 }
 
-java::lang::Class* org::apache::poi::ss::usermodel::charts::LayoutMode::getClass0()
+java::lang::Class* poi::ss::usermodel::charts::LayoutMode::getClass0()
 {
     return class_();
 }

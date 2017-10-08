@@ -12,7 +12,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::BoolErrRecord final
+class poi::hssf::record::BoolErrRecord final
     : public CellRecord
     , public ::java::lang::Cloneable
 {
@@ -31,7 +31,7 @@ protected:
 public:
     void setValue(bool value);
     void setValue(int8_t value);
-    void setValue(::org::apache::poi::ss::usermodel::FormulaError* value);
+    void setValue(::poi::ss::usermodel::FormulaError* value);
     bool getBooleanValue();
     int8_t getErrorValue();
     bool isBoolean();
@@ -40,7 +40,7 @@ public:
 public: /* protected */
     ::java::lang::String* getRecordName() override;
     void appendValueText(::java::lang::StringBuilder* sb) override;
-    void serializeValue(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serializeValue(::poi::util::LittleEndianOutput* out) override;
     int32_t getValueDataSize() override;
 
 public:

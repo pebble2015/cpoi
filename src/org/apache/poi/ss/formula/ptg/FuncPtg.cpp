@@ -17,37 +17,37 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::ptg::FuncPtg::FuncPtg(const ::default_init_tag&)
+poi::ss::formula::ptg::FuncPtg::FuncPtg(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::ptg::FuncPtg::FuncPtg(int32_t funcIndex, ::org::apache::poi::ss::formula::function::FunctionMetadata* fm) 
+poi::ss::formula::ptg::FuncPtg::FuncPtg(int32_t funcIndex, ::poi::ss::formula::function::FunctionMetadata* fm) 
     : FuncPtg(*static_cast< ::default_init_tag* >(0))
 {
     ctor(funcIndex,fm);
 }
 
-constexpr int8_t org::apache::poi::ss::formula::ptg::FuncPtg::sid;
+constexpr int8_t poi::ss::formula::ptg::FuncPtg::sid;
 
-constexpr int32_t org::apache::poi::ss::formula::ptg::FuncPtg::SIZE;
+constexpr int32_t poi::ss::formula::ptg::FuncPtg::SIZE;
 
-org::apache::poi::ss::formula::ptg::FuncPtg* org::apache::poi::ss::formula::ptg::FuncPtg::create(::org::apache::poi::util::LittleEndianInput* in)
+poi::ss::formula::ptg::FuncPtg* poi::ss::formula::ptg::FuncPtg::create(::poi::util::LittleEndianInput* in)
 {
     clinit();
     return create(npc(in)->readUShort());
 }
 
-void org::apache::poi::ss::formula::ptg::FuncPtg::ctor(int32_t funcIndex, ::org::apache::poi::ss::formula::function::FunctionMetadata* fm)
+void poi::ss::formula::ptg::FuncPtg::ctor(int32_t funcIndex, ::poi::ss::formula::function::FunctionMetadata* fm)
 {
     super::ctor(funcIndex, npc(fm)->getReturnClassCode(), npc(fm)->getParameterClassCodes(), npc(fm)->getMinParams());
 }
 
-org::apache::poi::ss::formula::ptg::FuncPtg* org::apache::poi::ss::formula::ptg::FuncPtg::create(int32_t functionIndex)
+poi::ss::formula::ptg::FuncPtg* poi::ss::formula::ptg::FuncPtg::create(int32_t functionIndex)
 {
     clinit();
-    auto fm = ::org::apache::poi::ss::formula::function::FunctionMetadataRegistry::getFunctionByIndex(functionIndex);
+    auto fm = ::poi::ss::formula::function::FunctionMetadataRegistry::getFunctionByIndex(functionIndex);
     if(fm == nullptr) {
         throw new ::java::lang::RuntimeException(::java::lang::StringBuilder().append(u"Invalid built-in function index ("_j)->append(functionIndex)
             ->append(u")"_j)->toString());
@@ -55,26 +55,26 @@ org::apache::poi::ss::formula::ptg::FuncPtg* org::apache::poi::ss::formula::ptg:
     return new FuncPtg(functionIndex, fm);
 }
 
-void org::apache::poi::ss::formula::ptg::FuncPtg::write(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::ss::formula::ptg::FuncPtg::write(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeByte(sid + getPtgClass());
     npc(out)->writeShort(getFunctionIndex());
 }
 
-int32_t org::apache::poi::ss::formula::ptg::FuncPtg::getSize()
+int32_t poi::ss::formula::ptg::FuncPtg::getSize()
 {
     return SIZE;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::FuncPtg::class_()
+java::lang::Class* poi::ss::formula::ptg::FuncPtg::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.ptg.FuncPtg", 37);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::FuncPtg::getClass0()
+java::lang::Class* poi::ss::formula::ptg::FuncPtg::getClass0()
 {
     return class_();
 }

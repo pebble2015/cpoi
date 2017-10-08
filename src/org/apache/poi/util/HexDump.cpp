@@ -51,38 +51,38 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::util::HexDump::HexDump(const ::default_init_tag&)
+poi::util::HexDump::HexDump(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::util::HexDump::HexDump() 
+poi::util::HexDump::HexDump() 
     : HexDump(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-java::lang::String*& org::apache::poi::util::HexDump::EOL()
+java::lang::String*& poi::util::HexDump::EOL()
 {
     clinit();
     return EOL_;
 }
-java::lang::String* org::apache::poi::util::HexDump::EOL_;
+java::lang::String* poi::util::HexDump::EOL_;
 
-java::nio::charset::Charset*& org::apache::poi::util::HexDump::UTF8()
+java::nio::charset::Charset*& poi::util::HexDump::UTF8()
 {
     clinit();
     return UTF8_;
 }
-java::nio::charset::Charset* org::apache::poi::util::HexDump::UTF8_;
+java::nio::charset::Charset* poi::util::HexDump::UTF8_;
 
-void org::apache::poi::util::HexDump::ctor()
+void poi::util::HexDump::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::util::HexDump::dump(::int8_tArray* data, int64_t offset, ::java::io::OutputStream* stream, int32_t index, int32_t length) /* throws(IOException, ArrayIndexOutOfBoundsException, IllegalArgumentException) */
+void poi::util::HexDump::dump(::int8_tArray* data, int64_t offset, ::java::io::OutputStream* stream, int32_t index, int32_t length) /* throws(IOException, ArrayIndexOutOfBoundsException, IllegalArgumentException) */
 {
     clinit();
     if(stream == nullptr) {
@@ -93,19 +93,19 @@ void org::apache::poi::util::HexDump::dump(::int8_tArray* data, int64_t offset, 
     npc(osw)->flush();
 }
 
-void org::apache::poi::util::HexDump::dump(::int8_tArray* data, int64_t offset, ::java::io::OutputStream* stream, int32_t index) /* throws(IOException, ArrayIndexOutOfBoundsException, IllegalArgumentException) */
+void poi::util::HexDump::dump(::int8_tArray* data, int64_t offset, ::java::io::OutputStream* stream, int32_t index) /* throws(IOException, ArrayIndexOutOfBoundsException, IllegalArgumentException) */
 {
     clinit();
     dump(data, offset, stream, index, ::java::lang::Integer::MAX_VALUE);
 }
 
-java::lang::String* org::apache::poi::util::HexDump::dump(::int8_tArray* data, int64_t offset, int32_t index)
+java::lang::String* poi::util::HexDump::dump(::int8_tArray* data, int64_t offset, int32_t index)
 {
     clinit();
     return dump(data, offset, index, ::java::lang::Integer::MAX_VALUE);
 }
 
-java::lang::String* org::apache::poi::util::HexDump::dump(::int8_tArray* data, int64_t offset, int32_t index, int32_t length)
+java::lang::String* poi::util::HexDump::dump(::int8_tArray* data, int64_t offset, int32_t index, int32_t length)
 {
     clinit();
     if(data == nullptr || npc(data)->length == 0) {
@@ -143,7 +143,7 @@ java::lang::String* org::apache::poi::util::HexDump::dump(::int8_tArray* data, i
     return npc(buffer)->toString();
 }
 
-char16_t org::apache::poi::util::HexDump::toAscii(int32_t dataB)
+char16_t poi::util::HexDump::toAscii(int32_t dataB)
 {
     clinit();
     auto charB = static_cast< char16_t >((dataB & int32_t(255)));
@@ -162,7 +162,7 @@ char16_t org::apache::poi::util::HexDump::toAscii(int32_t dataB)
     return charB;
 }
 
-java::lang::String* org::apache::poi::util::HexDump::toHex(::int8_tArray* value)
+java::lang::String* poi::util::HexDump::toHex(::int8_tArray* value)
 {
     clinit();
     auto retVal = new ::java::lang::StringBuilder();
@@ -179,7 +179,7 @@ java::lang::String* org::apache::poi::util::HexDump::toHex(::int8_tArray* value)
     return npc(retVal)->toString();
 }
 
-java::lang::String* org::apache::poi::util::HexDump::toHex(::int16_tArray* value)
+java::lang::String* poi::util::HexDump::toHex(::int16_tArray* value)
 {
     clinit();
     auto retVal = new ::java::lang::StringBuilder();
@@ -194,7 +194,7 @@ java::lang::String* org::apache::poi::util::HexDump::toHex(::int16_tArray* value
     return npc(retVal)->toString();
 }
 
-java::lang::String* org::apache::poi::util::HexDump::toHex(::int8_tArray* value, int32_t bytesPerLine)
+java::lang::String* poi::util::HexDump::toHex(::int8_tArray* value, int32_t bytesPerLine)
 {
     clinit();
     if(npc(value)->length == 0) {
@@ -218,7 +218,7 @@ java::lang::String* org::apache::poi::util::HexDump::toHex(::int8_tArray* value,
     return npc(retVal)->toString();
 }
 
-java::lang::String* org::apache::poi::util::HexDump::toHex(int16_t value)
+java::lang::String* poi::util::HexDump::toHex(int16_t value)
 {
     clinit();
     auto sb = new ::java::lang::StringBuilder(int32_t(4));
@@ -226,7 +226,7 @@ java::lang::String* org::apache::poi::util::HexDump::toHex(int16_t value)
     return npc(sb)->toString();
 }
 
-java::lang::String* org::apache::poi::util::HexDump::toHex(int8_t value)
+java::lang::String* poi::util::HexDump::toHex(int8_t value)
 {
     clinit();
     auto sb = new ::java::lang::StringBuilder(int32_t(2));
@@ -234,7 +234,7 @@ java::lang::String* org::apache::poi::util::HexDump::toHex(int8_t value)
     return npc(sb)->toString();
 }
 
-java::lang::String* org::apache::poi::util::HexDump::toHex(int32_t value)
+java::lang::String* poi::util::HexDump::toHex(int32_t value)
 {
     clinit();
     auto sb = new ::java::lang::StringBuilder(int32_t(8));
@@ -242,7 +242,7 @@ java::lang::String* org::apache::poi::util::HexDump::toHex(int32_t value)
     return npc(sb)->toString();
 }
 
-java::lang::String* org::apache::poi::util::HexDump::toHex(int64_t value)
+java::lang::String* poi::util::HexDump::toHex(int64_t value)
 {
     clinit();
     auto sb = new ::java::lang::StringBuilder(int32_t(16));
@@ -250,13 +250,13 @@ java::lang::String* org::apache::poi::util::HexDump::toHex(int64_t value)
     return npc(sb)->toString();
 }
 
-java::lang::String* org::apache::poi::util::HexDump::toHex(::java::lang::String* value)
+java::lang::String* poi::util::HexDump::toHex(::java::lang::String* value)
 {
     clinit();
     return (value == nullptr || npc(value)->length() == 0) ? u"[]"_j : toHex(npc(value)->getBytes(LocaleUtil::CHARSET_1252()));
 }
 
-void org::apache::poi::util::HexDump::dump(::java::io::InputStream* in, ::java::io::PrintStream* out, int32_t start, int32_t bytesToDump) /* throws(IOException) */
+void poi::util::HexDump::dump(::java::io::InputStream* in, ::java::io::PrintStream* out, int32_t start, int32_t bytesToDump) /* throws(IOException) */
 {
     clinit();
     auto buf = new ::java::io::ByteArrayOutputStream();
@@ -280,7 +280,7 @@ void org::apache::poi::util::HexDump::dump(::java::io::InputStream* in, ::java::
     dump(data, 0, out, start, npc(data)->length);
 }
 
-java::lang::String* org::apache::poi::util::HexDump::longToHex(int64_t value)
+java::lang::String* poi::util::HexDump::longToHex(int64_t value)
 {
     clinit();
     auto sb = new ::java::lang::StringBuilder(int32_t(18));
@@ -288,7 +288,7 @@ java::lang::String* org::apache::poi::util::HexDump::longToHex(int64_t value)
     return npc(sb)->toString();
 }
 
-java::lang::String* org::apache::poi::util::HexDump::intToHex(int32_t value)
+java::lang::String* poi::util::HexDump::intToHex(int32_t value)
 {
     clinit();
     auto sb = new ::java::lang::StringBuilder(int32_t(10));
@@ -296,7 +296,7 @@ java::lang::String* org::apache::poi::util::HexDump::intToHex(int32_t value)
     return npc(sb)->toString();
 }
 
-java::lang::String* org::apache::poi::util::HexDump::shortToHex(int32_t value)
+java::lang::String* poi::util::HexDump::shortToHex(int32_t value)
 {
     clinit();
     auto sb = new ::java::lang::StringBuilder(int32_t(6));
@@ -304,7 +304,7 @@ java::lang::String* org::apache::poi::util::HexDump::shortToHex(int32_t value)
     return npc(sb)->toString();
 }
 
-java::lang::String* org::apache::poi::util::HexDump::byteToHex(int32_t value)
+java::lang::String* poi::util::HexDump::byteToHex(int32_t value)
 {
     clinit();
     auto sb = new ::java::lang::StringBuilder(int32_t(4));
@@ -312,7 +312,7 @@ java::lang::String* org::apache::poi::util::HexDump::byteToHex(int32_t value)
     return npc(sb)->toString();
 }
 
-void org::apache::poi::util::HexDump::writeHex(::java::lang::StringBuilder* sb, int64_t value, int32_t nDigits, ::java::lang::String* prefix)
+void poi::util::HexDump::writeHex(::java::lang::StringBuilder* sb, int64_t value, int32_t nDigits, ::java::lang::String* prefix)
 {
     clinit();
     npc(sb)->append(prefix);
@@ -326,7 +326,7 @@ void org::apache::poi::util::HexDump::writeHex(::java::lang::StringBuilder* sb, 
     npc(sb)->append(buf);
 }
 
-void org::apache::poi::util::HexDump::main(::java::lang::StringArray* args) /* throws(IOException) */
+void poi::util::HexDump::main(::java::lang::StringArray* args) /* throws(IOException) */
 {
     clinit();
     ::java::io::InputStream* in = new ::java::io::FileInputStream((*args)[int32_t(0)]);
@@ -337,13 +337,13 @@ void org::apache::poi::util::HexDump::main(::java::lang::StringArray* args) /* t
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::util::HexDump::class_()
+java::lang::Class* poi::util::HexDump::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.util.HexDump", 27);
     return c;
 }
 
-void org::apache::poi::util::HexDump::clinit()
+void poi::util::HexDump::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -360,7 +360,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::util::HexDump::getClass0()
+java::lang::Class* poi::util::HexDump::getClass0()
 {
     return class_();
 }

@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::CellRecord
+class poi::hssf::record::CellRecord
     : public StandardRecord
     , public virtual CellValueRecordInterface
 {
@@ -39,11 +39,11 @@ public:
 public: /* protected */
     virtual void appendValueText(::java::lang::StringBuilder* sb) = 0;
     virtual ::java::lang::String* getRecordName() = 0;
-    virtual void serializeValue(::org::apache::poi::util::LittleEndianOutput* out) = 0;
+    virtual void serializeValue(::poi::util::LittleEndianOutput* out) = 0;
     virtual int32_t getValueDataSize() = 0;
 
 public:
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;

@@ -5,7 +5,7 @@
 #include <org/apache/poi/ss/formula/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::formula::WorkbookEvaluatorProvider
+struct poi::ss::formula::WorkbookEvaluatorProvider
     : public virtual ::java::lang::Object
 {
     virtual WorkbookEvaluator* _getWorkbookEvaluator() = 0;

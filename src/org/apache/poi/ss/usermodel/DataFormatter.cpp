@@ -95,160 +95,160 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::usermodel::DataFormatter::DataFormatter(const ::default_init_tag&)
+poi::ss::usermodel::DataFormatter::DataFormatter(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::usermodel::DataFormatter::DataFormatter() 
+poi::ss::usermodel::DataFormatter::DataFormatter() 
     : DataFormatter(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::usermodel::DataFormatter::DataFormatter(bool emulateCSV) 
+poi::ss::usermodel::DataFormatter::DataFormatter(bool emulateCSV) 
     : DataFormatter(*static_cast< ::default_init_tag* >(0))
 {
     ctor(emulateCSV);
 }
 
-org::apache::poi::ss::usermodel::DataFormatter::DataFormatter(::java::util::Locale* locale) 
+poi::ss::usermodel::DataFormatter::DataFormatter(::java::util::Locale* locale) 
     : DataFormatter(*static_cast< ::default_init_tag* >(0))
 {
     ctor(locale);
 }
 
-org::apache::poi::ss::usermodel::DataFormatter::DataFormatter(::java::util::Locale* locale, bool emulateCSV) 
+poi::ss::usermodel::DataFormatter::DataFormatter(::java::util::Locale* locale, bool emulateCSV) 
     : DataFormatter(*static_cast< ::default_init_tag* >(0))
 {
     ctor(locale,emulateCSV);
 }
 
-org::apache::poi::ss::usermodel::DataFormatter::DataFormatter(::java::util::Locale* locale, bool localeIsAdapting, bool emulateCSV) 
+poi::ss::usermodel::DataFormatter::DataFormatter(::java::util::Locale* locale, bool localeIsAdapting, bool emulateCSV) 
     : DataFormatter(*static_cast< ::default_init_tag* >(0))
 {
     ctor(locale,localeIsAdapting,emulateCSV);
 }
 
-void org::apache::poi::ss::usermodel::DataFormatter::init()
+void poi::ss::usermodel::DataFormatter::init()
 {
     formats = new ::java::util::HashMap();
     localeChangedObservable = new DataFormatter_LocaleChangeObservable(this);
 }
 
-java::lang::String*& org::apache::poi::ss::usermodel::DataFormatter::defaultFractionWholePartFormat()
+java::lang::String*& poi::ss::usermodel::DataFormatter::defaultFractionWholePartFormat()
 {
     clinit();
     return defaultFractionWholePartFormat_;
 }
-java::lang::String* org::apache::poi::ss::usermodel::DataFormatter::defaultFractionWholePartFormat_;
+java::lang::String* poi::ss::usermodel::DataFormatter::defaultFractionWholePartFormat_;
 
-java::lang::String*& org::apache::poi::ss::usermodel::DataFormatter::defaultFractionFractionPartFormat()
+java::lang::String*& poi::ss::usermodel::DataFormatter::defaultFractionFractionPartFormat()
 {
     clinit();
     return defaultFractionFractionPartFormat_;
 }
-java::lang::String* org::apache::poi::ss::usermodel::DataFormatter::defaultFractionFractionPartFormat_;
+java::lang::String* poi::ss::usermodel::DataFormatter::defaultFractionFractionPartFormat_;
 
-java::util::regex::Pattern*& org::apache::poi::ss::usermodel::DataFormatter::numPattern()
+java::util::regex::Pattern*& poi::ss::usermodel::DataFormatter::numPattern()
 {
     clinit();
     return numPattern_;
 }
-java::util::regex::Pattern* org::apache::poi::ss::usermodel::DataFormatter::numPattern_;
+java::util::regex::Pattern* poi::ss::usermodel::DataFormatter::numPattern_;
 
-java::util::regex::Pattern*& org::apache::poi::ss::usermodel::DataFormatter::daysAsText()
+java::util::regex::Pattern*& poi::ss::usermodel::DataFormatter::daysAsText()
 {
     clinit();
     return daysAsText_;
 }
-java::util::regex::Pattern* org::apache::poi::ss::usermodel::DataFormatter::daysAsText_;
+java::util::regex::Pattern* poi::ss::usermodel::DataFormatter::daysAsText_;
 
-java::util::regex::Pattern*& org::apache::poi::ss::usermodel::DataFormatter::amPmPattern()
+java::util::regex::Pattern*& poi::ss::usermodel::DataFormatter::amPmPattern()
 {
     clinit();
     return amPmPattern_;
 }
-java::util::regex::Pattern* org::apache::poi::ss::usermodel::DataFormatter::amPmPattern_;
+java::util::regex::Pattern* poi::ss::usermodel::DataFormatter::amPmPattern_;
 
-java::util::regex::Pattern*& org::apache::poi::ss::usermodel::DataFormatter::rangeConditionalPattern()
+java::util::regex::Pattern*& poi::ss::usermodel::DataFormatter::rangeConditionalPattern()
 {
     clinit();
     return rangeConditionalPattern_;
 }
-java::util::regex::Pattern* org::apache::poi::ss::usermodel::DataFormatter::rangeConditionalPattern_;
+java::util::regex::Pattern* poi::ss::usermodel::DataFormatter::rangeConditionalPattern_;
 
-java::util::regex::Pattern*& org::apache::poi::ss::usermodel::DataFormatter::localePatternGroup()
+java::util::regex::Pattern*& poi::ss::usermodel::DataFormatter::localePatternGroup()
 {
     clinit();
     return localePatternGroup_;
 }
-java::util::regex::Pattern* org::apache::poi::ss::usermodel::DataFormatter::localePatternGroup_;
+java::util::regex::Pattern* poi::ss::usermodel::DataFormatter::localePatternGroup_;
 
-java::util::regex::Pattern*& org::apache::poi::ss::usermodel::DataFormatter::colorPattern()
+java::util::regex::Pattern*& poi::ss::usermodel::DataFormatter::colorPattern()
 {
     clinit();
     return colorPattern_;
 }
-java::util::regex::Pattern* org::apache::poi::ss::usermodel::DataFormatter::colorPattern_;
+java::util::regex::Pattern* poi::ss::usermodel::DataFormatter::colorPattern_;
 
-java::util::regex::Pattern*& org::apache::poi::ss::usermodel::DataFormatter::fractionPattern()
+java::util::regex::Pattern*& poi::ss::usermodel::DataFormatter::fractionPattern()
 {
     clinit();
     return fractionPattern_;
 }
-java::util::regex::Pattern* org::apache::poi::ss::usermodel::DataFormatter::fractionPattern_;
+java::util::regex::Pattern* poi::ss::usermodel::DataFormatter::fractionPattern_;
 
-java::util::regex::Pattern*& org::apache::poi::ss::usermodel::DataFormatter::fractionStripper()
+java::util::regex::Pattern*& poi::ss::usermodel::DataFormatter::fractionStripper()
 {
     clinit();
     return fractionStripper_;
 }
-java::util::regex::Pattern* org::apache::poi::ss::usermodel::DataFormatter::fractionStripper_;
+java::util::regex::Pattern* poi::ss::usermodel::DataFormatter::fractionStripper_;
 
-java::util::regex::Pattern*& org::apache::poi::ss::usermodel::DataFormatter::alternateGrouping()
+java::util::regex::Pattern*& poi::ss::usermodel::DataFormatter::alternateGrouping()
 {
     clinit();
     return alternateGrouping_;
 }
-java::util::regex::Pattern* org::apache::poi::ss::usermodel::DataFormatter::alternateGrouping_;
+java::util::regex::Pattern* poi::ss::usermodel::DataFormatter::alternateGrouping_;
 
-java::lang::String*& org::apache::poi::ss::usermodel::DataFormatter::invalidDateTimeString()
+java::lang::String*& poi::ss::usermodel::DataFormatter::invalidDateTimeString()
 {
     clinit();
     return invalidDateTimeString_;
 }
-java::lang::String* org::apache::poi::ss::usermodel::DataFormatter::invalidDateTimeString_;
+java::lang::String* poi::ss::usermodel::DataFormatter::invalidDateTimeString_;
 
-org::apache::poi::util::POILogger*& org::apache::poi::ss::usermodel::DataFormatter::logger()
+poi::util::POILogger*& poi::ss::usermodel::DataFormatter::logger()
 {
     clinit();
     return logger_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::ss::usermodel::DataFormatter::logger_;
+poi::util::POILogger* poi::ss::usermodel::DataFormatter::logger_;
 
-void org::apache::poi::ss::usermodel::DataFormatter::ctor()
+void poi::ss::usermodel::DataFormatter::ctor()
 {
     ctor(false);
 }
 
-void org::apache::poi::ss::usermodel::DataFormatter::ctor(bool emulateCSV)
+void poi::ss::usermodel::DataFormatter::ctor(bool emulateCSV)
 {
-    ctor(::org::apache::poi::util::LocaleUtil::getUserLocale(), true, emulateCSV);
+    ctor(::poi::util::LocaleUtil::getUserLocale(), true, emulateCSV);
 }
 
-void org::apache::poi::ss::usermodel::DataFormatter::ctor(::java::util::Locale* locale)
+void poi::ss::usermodel::DataFormatter::ctor(::java::util::Locale* locale)
 {
     ctor(locale, false);
 }
 
-void org::apache::poi::ss::usermodel::DataFormatter::ctor(::java::util::Locale* locale, bool emulateCSV)
+void poi::ss::usermodel::DataFormatter::ctor(::java::util::Locale* locale, bool emulateCSV)
 {
     ctor(locale, false, emulateCSV);
 }
 
-void org::apache::poi::ss::usermodel::DataFormatter::ctor(::java::util::Locale* locale, bool localeIsAdapting, bool emulateCSV)
+void poi::ss::usermodel::DataFormatter::ctor(::java::util::Locale* locale, bool localeIsAdapting, bool emulateCSV)
 {
     super::ctor();
     init();
@@ -259,7 +259,7 @@ void org::apache::poi::ss::usermodel::DataFormatter::ctor(::java::util::Locale* 
     this->emulateCSV = emulateCSV;
 }
 
-java::text::Format* org::apache::poi::ss::usermodel::DataFormatter::getFormat(Cell* cell, ::org::apache::poi::ss::formula::ConditionalFormattingEvaluator* cfEvaluator)
+java::text::Format* poi::ss::usermodel::DataFormatter::getFormat(Cell* cell, ::poi::ss::formula::ConditionalFormattingEvaluator* cfEvaluator)
 {
     if(cell == nullptr)
         return nullptr;
@@ -276,20 +276,20 @@ java::text::Format* org::apache::poi::ss::usermodel::DataFormatter::getFormat(Ce
     return getFormat(npc(cell)->getNumericCellValue(), formatIndex, formatStr);
 }
 
-java::text::Format* org::apache::poi::ss::usermodel::DataFormatter::getFormat(double cellValue, int32_t formatIndex, ::java::lang::String* formatStrIn)
+java::text::Format* poi::ss::usermodel::DataFormatter::getFormat(double cellValue, int32_t formatIndex, ::java::lang::String* formatStrIn)
 {
     npc(localeChangedObservable)->checkForLocaleChange();
     auto formatStr = formatStrIn;
     if(npc(formatStr)->contains(u";"_j) && (npc(formatStr)->indexOf(static_cast< int32_t >(u';')) != npc(formatStr)->lastIndexOf(static_cast< int32_t >(u';')) || npc(npc(rangeConditionalPattern_)->matcher(formatStr))->matches())) {
         try {
-            auto cfmt = ::org::apache::poi::ss::format::CellFormat::getInstance(locale, formatStr);
+            auto cfmt = ::poi::ss::format::CellFormat::getInstance(locale, formatStr);
             ::java::lang::Object* cellValueO = ::java::lang::Double::valueOf(cellValue);
             if(DateUtil::isADateFormat(formatIndex, formatStr) && npc((java_cast< ::java::lang::Double* >(cellValueO)))->doubleValue() != 0.0) {
                 cellValueO = DateUtil::getJavaDate(cellValue);
             }
             return new DataFormatter_CellFormatResultWrapper(this, npc(cfmt)->apply(cellValueO));
         } catch (::java::lang::Exception* e) {
-            npc(logger_)->log(::org::apache::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Formatting failed for format "_j)->append(formatStr)
+            npc(logger_)->log(::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Formatting failed for format "_j)->append(formatStr)
                 ->append(u", falling back"_j)->toString()), static_cast< ::java::lang::Object* >(e)}));
         }
     }
@@ -308,14 +308,14 @@ java::text::Format* org::apache::poi::ss::usermodel::DataFormatter::getFormat(do
     return format;
 }
 
-java::text::Format* org::apache::poi::ss::usermodel::DataFormatter::createFormat(Cell* cell)
+java::text::Format* poi::ss::usermodel::DataFormatter::createFormat(Cell* cell)
 {
     int32_t formatIndex = npc(npc(cell)->getCellStyle())->getDataFormat();
     auto formatStr = npc(npc(cell)->getCellStyle())->getDataFormatString();
     return createFormat(npc(cell)->getNumericCellValue(), formatIndex, formatStr);
 }
 
-java::text::Format* org::apache::poi::ss::usermodel::DataFormatter::createFormat(double cellValue, int32_t formatIndex, ::java::lang::String* sFormat)
+java::text::Format* poi::ss::usermodel::DataFormatter::createFormat(double cellValue, int32_t formatIndex, ::java::lang::String* sFormat)
 {
     npc(localeChangedObservable)->checkForLocaleChange();
     auto formatStr = sFormat;
@@ -377,7 +377,7 @@ java::text::Format* org::apache::poi::ss::usermodel::DataFormatter::createFormat
     return nullptr;
 }
 
-java::text::Format* org::apache::poi::ss::usermodel::DataFormatter::createDateFormat(::java::lang::String* pFormatStr, double cellValue)
+java::text::Format* poi::ss::usermodel::DataFormatter::createDateFormat(::java::lang::String* pFormatStr, double cellValue)
 {
     auto formatStr = pFormatStr;
     formatStr = npc(formatStr)->replaceAll(u"\\\\-"_j, u"-"_j);
@@ -484,13 +484,13 @@ java::text::Format* org::apache::poi::ss::usermodel::DataFormatter::createDateFo
     try {
         return new ExcelStyleDateFormatter(formatStr, dateSymbols);
     } catch (::java::lang::IllegalArgumentException* iae) {
-        npc(logger_)->log(::org::apache::poi::util::POILogger::DEBUG, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Formatting failed for format "_j)->append(formatStr)
+        npc(logger_)->log(::poi::util::POILogger::DEBUG, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Formatting failed for format "_j)->append(formatStr)
             ->append(u", falling back"_j)->toString()), static_cast< ::java::lang::Object* >(iae)}));
         return getDefaultFormat(cellValue);
     }
 }
 
-java::lang::String* org::apache::poi::ss::usermodel::DataFormatter::cleanFormatForNumber(::java::lang::String* formatStr)
+java::lang::String* poi::ss::usermodel::DataFormatter::cleanFormatForNumber(::java::lang::String* formatStr)
 {
     auto sb = new ::java::lang::StringBuilder(formatStr);
     if(emulateCSV) {
@@ -541,7 +541,7 @@ java::lang::String* org::apache::poi::ss::usermodel::DataFormatter::cleanFormatF
     return npc(sb)->toString();
 }
 
-java::text::Format* org::apache::poi::ss::usermodel::DataFormatter::createNumberFormat(::java::lang::String* formatStr, double cellValue)
+java::text::Format* poi::ss::usermodel::DataFormatter::createNumberFormat(::java::lang::String* formatStr, double cellValue)
 {
     auto format = cleanFormatForNumber(formatStr);
     auto symbols = decimalSymbols;
@@ -559,18 +559,18 @@ java::text::Format* org::apache::poi::ss::usermodel::DataFormatter::createNumber
     try {
         return new DataFormatter_InternalDecimalFormatWithScale(format, symbols);
     } catch (::java::lang::IllegalArgumentException* iae) {
-        npc(logger_)->log(::org::apache::poi::util::POILogger::DEBUG, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Formatting failed for format "_j)->append(formatStr)
+        npc(logger_)->log(::poi::util::POILogger::DEBUG, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Formatting failed for format "_j)->append(formatStr)
             ->append(u", falling back"_j)->toString()), static_cast< ::java::lang::Object* >(iae)}));
         return getDefaultFormat(cellValue);
     }
 }
 
-java::text::Format* org::apache::poi::ss::usermodel::DataFormatter::getDefaultFormat(Cell* cell)
+java::text::Format* poi::ss::usermodel::DataFormatter::getDefaultFormat(Cell* cell)
 {
     return getDefaultFormat(npc(cell)->getNumericCellValue());
 }
 
-java::text::Format* org::apache::poi::ss::usermodel::DataFormatter::getDefaultFormat(double cellValue)
+java::text::Format* poi::ss::usermodel::DataFormatter::getDefaultFormat(double cellValue)
 {
     npc(localeChangedObservable)->checkForLocaleChange();
     if(defaultNumFormat != nullptr) {
@@ -579,12 +579,12 @@ java::text::Format* org::apache::poi::ss::usermodel::DataFormatter::getDefaultFo
     return generalNumberFormat;
 }
 
-java::lang::String* org::apache::poi::ss::usermodel::DataFormatter::performDateFormatting(::java::util::Date* d, ::java::text::Format* dateFormat)
+java::lang::String* poi::ss::usermodel::DataFormatter::performDateFormatting(::java::util::Date* d, ::java::text::Format* dateFormat)
 {
     return npc((dateFormat != nullptr ? dateFormat : static_cast< ::java::text::Format* >(defaultDateformat)))->format(d);
 }
 
-java::lang::String* org::apache::poi::ss::usermodel::DataFormatter::getFormattedDateString(Cell* cell, ::org::apache::poi::ss::formula::ConditionalFormattingEvaluator* cfEvaluator)
+java::lang::String* poi::ss::usermodel::DataFormatter::getFormattedDateString(Cell* cell, ::poi::ss::formula::ConditionalFormattingEvaluator* cfEvaluator)
 {
     auto dateFormat = getFormat(cell, cfEvaluator);
     if(dynamic_cast< ExcelStyleDateFormatter* >(dateFormat) != nullptr) {
@@ -594,7 +594,7 @@ java::lang::String* org::apache::poi::ss::usermodel::DataFormatter::getFormatted
     return performDateFormatting(d, dateFormat);
 }
 
-java::lang::String* org::apache::poi::ss::usermodel::DataFormatter::getFormattedNumberString(Cell* cell, ::org::apache::poi::ss::formula::ConditionalFormattingEvaluator* cfEvaluator)
+java::lang::String* poi::ss::usermodel::DataFormatter::getFormattedNumberString(Cell* cell, ::poi::ss::formula::ConditionalFormattingEvaluator* cfEvaluator)
 {
     auto numberFormat = getFormat(cell, cfEvaluator);
     auto d = npc(cell)->getNumericCellValue();
@@ -605,12 +605,12 @@ java::lang::String* org::apache::poi::ss::usermodel::DataFormatter::getFormatted
     return npc(formatted)->replaceFirst(u"E(\\d)"_j, u"E+$1"_j);
 }
 
-java::lang::String* org::apache::poi::ss::usermodel::DataFormatter::formatRawCellContents(double value, int32_t formatIndex, ::java::lang::String* formatString)
+java::lang::String* poi::ss::usermodel::DataFormatter::formatRawCellContents(double value, int32_t formatIndex, ::java::lang::String* formatString)
 {
     return formatRawCellContents(value, formatIndex, formatString, false);
 }
 
-java::lang::String* org::apache::poi::ss::usermodel::DataFormatter::formatRawCellContents(double value, int32_t formatIndex, ::java::lang::String* formatString, bool use1904Windowing)
+java::lang::String* poi::ss::usermodel::DataFormatter::formatRawCellContents(double value, int32_t formatIndex, ::java::lang::String* formatString, bool use1904Windowing)
 {
     npc(localeChangedObservable)->checkForLocaleChange();
     if(DateUtil::isADateFormat(formatIndex, formatString)) {
@@ -631,7 +631,7 @@ java::lang::String* org::apache::poi::ss::usermodel::DataFormatter::formatRawCel
         return ::java::lang::String::valueOf(value);
     }
     ::java::lang::String* result;
-    auto const textValue = ::org::apache::poi::ss::util::NumberToTextConverter::toText(value);
+    auto const textValue = ::poi::ss::util::NumberToTextConverter::toText(value);
     if(npc(textValue)->indexOf(static_cast< int32_t >(u'E')) > -int32_t(1)) {
         result = npc(numberFormat)->format(new ::java::lang::Double(value));
     } else {
@@ -643,17 +643,17 @@ java::lang::String* org::apache::poi::ss::usermodel::DataFormatter::formatRawCel
     return result;
 }
 
-java::lang::String* org::apache::poi::ss::usermodel::DataFormatter::formatCellValue(Cell* cell)
+java::lang::String* poi::ss::usermodel::DataFormatter::formatCellValue(Cell* cell)
 {
     return formatCellValue(cell, nullptr);
 }
 
-java::lang::String* org::apache::poi::ss::usermodel::DataFormatter::formatCellValue(Cell* cell, FormulaEvaluator* evaluator)
+java::lang::String* poi::ss::usermodel::DataFormatter::formatCellValue(Cell* cell, FormulaEvaluator* evaluator)
 {
     return formatCellValue(cell, evaluator, nullptr);
 }
 
-java::lang::String* org::apache::poi::ss::usermodel::DataFormatter::formatCellValue(Cell* cell, FormulaEvaluator* evaluator, ::org::apache::poi::ss::formula::ConditionalFormattingEvaluator* cfEvaluator)
+java::lang::String* poi::ss::usermodel::DataFormatter::formatCellValue(Cell* cell, FormulaEvaluator* evaluator, ::poi::ss::formula::ConditionalFormattingEvaluator* cfEvaluator)
 {
     npc(localeChangedObservable)->checkForLocaleChange();
     if(cell == nullptr) {
@@ -695,7 +695,7 @@ end_switch0:;
 
 }
 
-void org::apache::poi::ss::usermodel::DataFormatter::setDefaultNumberFormat(::java::text::Format* format)
+void poi::ss::usermodel::DataFormatter::setDefaultNumberFormat(::java::text::Format* format)
 {
     for (auto _i = npc(npc(formats)->entrySet())->iterator(); _i->hasNext(); ) {
         ::java::util::Map_Entry* entry = java_cast< ::java::util::Map_Entry* >(_i->next());
@@ -708,12 +708,12 @@ void org::apache::poi::ss::usermodel::DataFormatter::setDefaultNumberFormat(::ja
     defaultNumFormat = format;
 }
 
-void org::apache::poi::ss::usermodel::DataFormatter::addFormat(::java::lang::String* excelFormatStr, ::java::text::Format* format)
+void poi::ss::usermodel::DataFormatter::addFormat(::java::lang::String* excelFormatStr, ::java::text::Format* format)
 {
     npc(formats)->put(excelFormatStr, format);
 }
 
-java::text::DecimalFormat* org::apache::poi::ss::usermodel::DataFormatter::createIntegerOnlyFormat(::java::lang::String* fmt)
+java::text::DecimalFormat* poi::ss::usermodel::DataFormatter::createIntegerOnlyFormat(::java::lang::String* fmt)
 {
     clinit();
     auto dsf = ::java::text::DecimalFormatSymbols::getInstance(::java::util::Locale::ROOT());
@@ -722,24 +722,24 @@ java::text::DecimalFormat* org::apache::poi::ss::usermodel::DataFormatter::creat
     return result;
 }
 
-void org::apache::poi::ss::usermodel::DataFormatter::setExcelStyleRoundingMode(::java::text::DecimalFormat* format)
+void poi::ss::usermodel::DataFormatter::setExcelStyleRoundingMode(::java::text::DecimalFormat* format)
 {
     clinit();
     setExcelStyleRoundingMode(format, ::java::math::RoundingMode::HALF_UP);
 }
 
-void org::apache::poi::ss::usermodel::DataFormatter::setExcelStyleRoundingMode(::java::text::DecimalFormat* format, ::java::math::RoundingMode* roundingMode)
+void poi::ss::usermodel::DataFormatter::setExcelStyleRoundingMode(::java::text::DecimalFormat* format, ::java::math::RoundingMode* roundingMode)
 {
     clinit();
     npc(format)->setRoundingMode(roundingMode);
 }
 
-java::util::Observable* org::apache::poi::ss::usermodel::DataFormatter::getLocaleChangedObservable()
+java::util::Observable* poi::ss::usermodel::DataFormatter::getLocaleChangedObservable()
 {
     return localeChangedObservable;
 }
 
-void org::apache::poi::ss::usermodel::DataFormatter::update(::java::util::Observable* observable, ::java::lang::Object* localeObj)
+void poi::ss::usermodel::DataFormatter::update(::java::util::Observable* observable, ::java::lang::Object* localeObj)
 {
     if(!(dynamic_cast< ::java::util::Locale* >(localeObj) != nullptr))
         return;
@@ -753,7 +753,7 @@ void org::apache::poi::ss::usermodel::DataFormatter::update(::java::util::Observ
     decimalSymbols = ::java::text::DecimalFormatSymbols::getInstance(locale);
     generalNumberFormat = new ExcelGeneralNumberFormat(locale);
     defaultDateformat = new ::java::text::SimpleDateFormat(u"EEE MMM dd HH:mm:ss zzz yyyy"_j, dateSymbols);
-    npc(defaultDateformat)->setTimeZone(::org::apache::poi::util::LocaleUtil::getUserTimeZone());
+    npc(defaultDateformat)->setTimeZone(::poi::util::LocaleUtil::getUserTimeZone());
     npc(formats)->clear();
     auto zipFormat = DataFormatter_ZipPlusFourFormat::instance();
     addFormat(u"00000\\-0000"_j, zipFormat);
@@ -770,13 +770,13 @@ void org::apache::poi::ss::usermodel::DataFormatter::update(::java::util::Observ
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::usermodel::DataFormatter::class_()
+java::lang::Class* poi::ss::usermodel::DataFormatter::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.usermodel.DataFormatter", 41);
     return c;
 }
 
-void org::apache::poi::ss::usermodel::DataFormatter::clinit()
+void poi::ss::usermodel::DataFormatter::clinit()
 {
 struct string_init_ {
     string_init_() {
@@ -809,7 +809,7 @@ struct clinit_ {
 
             invalidDateTimeString_ = npc(buf)->toString();
         }
-        logger_ = ::org::apache::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(DataFormatter::class_()));
+        logger_ = ::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(DataFormatter::class_()));
     }
 };
 
@@ -818,7 +818,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::usermodel::DataFormatter::getClass0()
+java::lang::Class* poi::ss::usermodel::DataFormatter::getClass0()
 {
     return class_();
 }

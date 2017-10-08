@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::Countif_MatcherBase
+class poi::ss::formula::functions::Countif_MatcherBase
     : public virtual ::java::lang::Object
     , public virtual CountUtils_I_MatchPredicate
 {

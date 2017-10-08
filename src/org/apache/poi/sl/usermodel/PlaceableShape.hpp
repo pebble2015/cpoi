@@ -7,7 +7,7 @@
 #include <org/apache/poi/sl/usermodel/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::sl::usermodel::PlaceableShape
+struct poi::sl::usermodel::PlaceableShape
     : public virtual ::java::lang::Object
 {
     virtual ShapeContainer* getParent() = 0;

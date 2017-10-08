@@ -25,53 +25,47 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace ss
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::IgnoredErrorType, ::java::lang::EnumArray > IgnoredErrorTypeArray;
-                } // usermodel
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::usermodel::IgnoredErrorType, ::java::lang::EnumArray > IgnoredErrorTypeArray;
+        } // usermodel
+    } // ss
+} // poi
 
-org::apache::poi::ss::usermodel::IgnoredErrorType::IgnoredErrorType(const ::default_init_tag&)
+poi::ss::usermodel::IgnoredErrorType::IgnoredErrorType(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::usermodel::IgnoredErrorType::IgnoredErrorType(::java::lang::String* name, int ordinal)
+poi::ss::usermodel::IgnoredErrorType::IgnoredErrorType(::java::lang::String* name, int ordinal)
     : IgnoredErrorType(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal);
 }
 
-org::apache::poi::ss::usermodel::IgnoredErrorType* org::apache::poi::ss::usermodel::IgnoredErrorType::CALCULATED_COLUMN = new ::org::apache::poi::ss::usermodel::IgnoredErrorType(u"CALCULATED_COLUMN"_j, 0);
-org::apache::poi::ss::usermodel::IgnoredErrorType* org::apache::poi::ss::usermodel::IgnoredErrorType::EMPTY_CELL_REFERENCE = new ::org::apache::poi::ss::usermodel::IgnoredErrorType(u"EMPTY_CELL_REFERENCE"_j, 1);
-org::apache::poi::ss::usermodel::IgnoredErrorType* org::apache::poi::ss::usermodel::IgnoredErrorType::EVALUATION_ERROR = new ::org::apache::poi::ss::usermodel::IgnoredErrorType(u"EVALUATION_ERROR"_j, 2);
-org::apache::poi::ss::usermodel::IgnoredErrorType* org::apache::poi::ss::usermodel::IgnoredErrorType::FORMULA = new ::org::apache::poi::ss::usermodel::IgnoredErrorType(u"FORMULA"_j, 3);
-org::apache::poi::ss::usermodel::IgnoredErrorType* org::apache::poi::ss::usermodel::IgnoredErrorType::FORMULA_RANGE = new ::org::apache::poi::ss::usermodel::IgnoredErrorType(u"FORMULA_RANGE"_j, 4);
-org::apache::poi::ss::usermodel::IgnoredErrorType* org::apache::poi::ss::usermodel::IgnoredErrorType::LIST_DATA_VALIDATION = new ::org::apache::poi::ss::usermodel::IgnoredErrorType(u"LIST_DATA_VALIDATION"_j, 5);
-org::apache::poi::ss::usermodel::IgnoredErrorType* org::apache::poi::ss::usermodel::IgnoredErrorType::NUMBER_STORED_AS_TEXT = new ::org::apache::poi::ss::usermodel::IgnoredErrorType(u"NUMBER_STORED_AS_TEXT"_j, 6);
-org::apache::poi::ss::usermodel::IgnoredErrorType* org::apache::poi::ss::usermodel::IgnoredErrorType::TWO_DIGIT_TEXT_YEAR = new ::org::apache::poi::ss::usermodel::IgnoredErrorType(u"TWO_DIGIT_TEXT_YEAR"_j, 7);
-org::apache::poi::ss::usermodel::IgnoredErrorType* org::apache::poi::ss::usermodel::IgnoredErrorType::UNLOCKED_FORMULA = new ::org::apache::poi::ss::usermodel::IgnoredErrorType(u"UNLOCKED_FORMULA"_j, 8);
+poi::ss::usermodel::IgnoredErrorType* poi::ss::usermodel::IgnoredErrorType::CALCULATED_COLUMN = new ::poi::ss::usermodel::IgnoredErrorType(u"CALCULATED_COLUMN"_j, 0);
+poi::ss::usermodel::IgnoredErrorType* poi::ss::usermodel::IgnoredErrorType::EMPTY_CELL_REFERENCE = new ::poi::ss::usermodel::IgnoredErrorType(u"EMPTY_CELL_REFERENCE"_j, 1);
+poi::ss::usermodel::IgnoredErrorType* poi::ss::usermodel::IgnoredErrorType::EVALUATION_ERROR = new ::poi::ss::usermodel::IgnoredErrorType(u"EVALUATION_ERROR"_j, 2);
+poi::ss::usermodel::IgnoredErrorType* poi::ss::usermodel::IgnoredErrorType::FORMULA = new ::poi::ss::usermodel::IgnoredErrorType(u"FORMULA"_j, 3);
+poi::ss::usermodel::IgnoredErrorType* poi::ss::usermodel::IgnoredErrorType::FORMULA_RANGE = new ::poi::ss::usermodel::IgnoredErrorType(u"FORMULA_RANGE"_j, 4);
+poi::ss::usermodel::IgnoredErrorType* poi::ss::usermodel::IgnoredErrorType::LIST_DATA_VALIDATION = new ::poi::ss::usermodel::IgnoredErrorType(u"LIST_DATA_VALIDATION"_j, 5);
+poi::ss::usermodel::IgnoredErrorType* poi::ss::usermodel::IgnoredErrorType::NUMBER_STORED_AS_TEXT = new ::poi::ss::usermodel::IgnoredErrorType(u"NUMBER_STORED_AS_TEXT"_j, 6);
+poi::ss::usermodel::IgnoredErrorType* poi::ss::usermodel::IgnoredErrorType::TWO_DIGIT_TEXT_YEAR = new ::poi::ss::usermodel::IgnoredErrorType(u"TWO_DIGIT_TEXT_YEAR"_j, 7);
+poi::ss::usermodel::IgnoredErrorType* poi::ss::usermodel::IgnoredErrorType::UNLOCKED_FORMULA = new ::poi::ss::usermodel::IgnoredErrorType(u"UNLOCKED_FORMULA"_j, 8);
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::usermodel::IgnoredErrorType::class_()
+java::lang::Class* poi::ss::usermodel::IgnoredErrorType::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.usermodel.IgnoredErrorType", 44);
     return c;
 }
 
-org::apache::poi::ss::usermodel::IgnoredErrorType* org::apache::poi::ss::usermodel::IgnoredErrorType::valueOf(::java::lang::String* a0)
+poi::ss::usermodel::IgnoredErrorType* poi::ss::usermodel::IgnoredErrorType::valueOf(::java::lang::String* a0)
 {
     if(CALCULATED_COLUMN->toString()->equals(a0))
         return CALCULATED_COLUMN;
@@ -94,9 +88,9 @@ org::apache::poi::ss::usermodel::IgnoredErrorType* org::apache::poi::ss::usermod
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::ss::usermodel::IgnoredErrorTypeArray* org::apache::poi::ss::usermodel::IgnoredErrorType::values()
+poi::ss::usermodel::IgnoredErrorTypeArray* poi::ss::usermodel::IgnoredErrorType::values()
 {
-    return new org::apache::poi::ss::usermodel::IgnoredErrorTypeArray({
+    return new poi::ss::usermodel::IgnoredErrorTypeArray({
         CALCULATED_COLUMN,
         EMPTY_CELL_REFERENCE,
         EVALUATION_ERROR,
@@ -109,7 +103,7 @@ org::apache::poi::ss::usermodel::IgnoredErrorTypeArray* org::apache::poi::ss::us
     });
 }
 
-java::lang::Class* org::apache::poi::ss::usermodel::IgnoredErrorType::getClass0()
+java::lang::Class* poi::ss::usermodel::IgnoredErrorType::getClass0()
 {
     return class_();
 }

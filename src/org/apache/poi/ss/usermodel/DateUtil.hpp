@@ -12,7 +12,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::usermodel::DateUtil
+class poi::ss::usermodel::DateUtil
     : public virtual ::java::lang::Object
 {
 
@@ -75,7 +75,7 @@ public:
     static bool isADateFormat(int32_t formatIndex, ::java::lang::String* formatString);
     static bool isInternalDateFormat(int32_t format);
     static bool isCellDateFormatted(Cell* cell);
-    static bool isCellDateFormatted(Cell* cell, ::org::apache::poi::ss::formula::ConditionalFormattingEvaluator* cfEvaluator);
+    static bool isCellDateFormatted(Cell* cell, ::poi::ss::formula::ConditionalFormattingEvaluator* cfEvaluator);
     static bool isCellInternalDateFormatted(Cell* cell);
     static bool isValidExcelDate(double value);
 

@@ -9,13 +9,13 @@
 #include <org/apache/poi/sl/draw/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::sl::draw::DrawFontManager
+struct poi::sl::draw::DrawFontManager
     : public virtual ::java::lang::Object
 {
-    virtual ::org::apache::poi::common::usermodel::fonts::FontInfo* getMappedFont(::java::awt::Graphics2D* graphics, ::org::apache::poi::common::usermodel::fonts::FontInfo* fontInfo) = 0;
-    virtual ::org::apache::poi::common::usermodel::fonts::FontInfo* getFallbackFont(::java::awt::Graphics2D* graphics, ::org::apache::poi::common::usermodel::fonts::FontInfo* fontInfo) = 0;
-    virtual ::java::lang::String* mapFontCharset(::java::awt::Graphics2D* graphics, ::org::apache::poi::common::usermodel::fonts::FontInfo* fontInfo, ::java::lang::String* text) = 0;
-    virtual ::java::awt::Font* createAWTFont(::java::awt::Graphics2D* graphics, ::org::apache::poi::common::usermodel::fonts::FontInfo* fontInfo, double size, bool bold, bool italic) = 0;
+    virtual ::poi::common::usermodel::fonts::FontInfo* getMappedFont(::java::awt::Graphics2D* graphics, ::poi::common::usermodel::fonts::FontInfo* fontInfo) = 0;
+    virtual ::poi::common::usermodel::fonts::FontInfo* getFallbackFont(::java::awt::Graphics2D* graphics, ::poi::common::usermodel::fonts::FontInfo* fontInfo) = 0;
+    virtual ::java::lang::String* mapFontCharset(::java::awt::Graphics2D* graphics, ::poi::common::usermodel::fonts::FontInfo* fontInfo, ::java::lang::String* text) = 0;
+    virtual ::java::awt::Font* createAWTFont(::java::awt::Graphics2D* graphics, ::poi::common::usermodel::fonts::FontInfo* fontInfo, double size, bool bold, bool italic) = 0;
 
     // Generated
     static ::java::lang::Class *class_();

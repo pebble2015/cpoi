@@ -6,7 +6,7 @@
 #include <org/apache/poi/util/fwd-POI.hpp>
 #include <java/lang/annotation/Annotation.hpp>
 
-struct org::apache::poi::util::Internal
+struct poi::util::Internal
     : public virtual ::java::lang::annotation::Annotation
 {
     virtual ::java::lang::String* value() = 0;

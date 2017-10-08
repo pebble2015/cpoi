@@ -12,59 +12,59 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::util::HSSFColor_AUTOMATIC::HSSFColor_AUTOMATIC(const ::default_init_tag&)
+poi::hssf::util::HSSFColor_AUTOMATIC::HSSFColor_AUTOMATIC(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::util::HSSFColor_AUTOMATIC::HSSFColor_AUTOMATIC() 
+poi::hssf::util::HSSFColor_AUTOMATIC::HSSFColor_AUTOMATIC() 
     : HSSFColor_AUTOMATIC(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::util::HSSFColor_HSSFColorPredefined*& org::apache::poi::hssf::util::HSSFColor_AUTOMATIC::ref()
+poi::hssf::util::HSSFColor_HSSFColorPredefined*& poi::hssf::util::HSSFColor_AUTOMATIC::ref()
 {
     clinit();
     return ref_;
 }
-org::apache::poi::hssf::util::HSSFColor_HSSFColorPredefined* org::apache::poi::hssf::util::HSSFColor_AUTOMATIC::ref_;
+poi::hssf::util::HSSFColor_HSSFColorPredefined* poi::hssf::util::HSSFColor_AUTOMATIC::ref_;
 
-int16_t& org::apache::poi::hssf::util::HSSFColor_AUTOMATIC::index()
+int16_t& poi::hssf::util::HSSFColor_AUTOMATIC::index()
 {
     clinit();
     return index_;
 }
-int16_t org::apache::poi::hssf::util::HSSFColor_AUTOMATIC::index_;
+int16_t poi::hssf::util::HSSFColor_AUTOMATIC::index_;
 
-int32_t& org::apache::poi::hssf::util::HSSFColor_AUTOMATIC::index2()
+int32_t& poi::hssf::util::HSSFColor_AUTOMATIC::index2()
 {
     clinit();
     return index2_;
 }
-int32_t org::apache::poi::hssf::util::HSSFColor_AUTOMATIC::index2_;
+int32_t poi::hssf::util::HSSFColor_AUTOMATIC::index2_;
 
-int16_tArray*& org::apache::poi::hssf::util::HSSFColor_AUTOMATIC::triplet()
+int16_tArray*& poi::hssf::util::HSSFColor_AUTOMATIC::triplet()
 {
     clinit();
     return triplet_;
 }
-int16_tArray* org::apache::poi::hssf::util::HSSFColor_AUTOMATIC::triplet_;
+int16_tArray* poi::hssf::util::HSSFColor_AUTOMATIC::triplet_;
 
-java::lang::String*& org::apache::poi::hssf::util::HSSFColor_AUTOMATIC::hexString()
+java::lang::String*& poi::hssf::util::HSSFColor_AUTOMATIC::hexString()
 {
     clinit();
     return hexString_;
 }
-java::lang::String* org::apache::poi::hssf::util::HSSFColor_AUTOMATIC::hexString_;
+java::lang::String* poi::hssf::util::HSSFColor_AUTOMATIC::hexString_;
 
-void org::apache::poi::hssf::util::HSSFColor_AUTOMATIC::ctor()
+void poi::hssf::util::HSSFColor_AUTOMATIC::ctor()
 {
     super::ctor(ref_);
 }
 
-org::apache::poi::hssf::util::HSSFColor* org::apache::poi::hssf::util::HSSFColor_AUTOMATIC::getInstance()
+poi::hssf::util::HSSFColor* poi::hssf::util::HSSFColor_AUTOMATIC::getInstance()
 {
     clinit();
     return npc(ref_)->color;
@@ -72,13 +72,13 @@ org::apache::poi::hssf::util::HSSFColor* org::apache::poi::hssf::util::HSSFColor
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::util::HSSFColor_AUTOMATIC::class_()
+java::lang::Class* poi::hssf::util::HSSFColor_AUTOMATIC::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.util.HSSFColor.AUTOMATIC", 44);
     return c;
 }
 
-void org::apache::poi::hssf::util::HSSFColor_AUTOMATIC::clinit()
+void poi::hssf::util::HSSFColor_AUTOMATIC::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -98,7 +98,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::hssf::util::HSSFColor_AUTOMATIC::getClass0()
+java::lang::Class* poi::hssf::util::HSSFColor_AUTOMATIC::getClass0()
 {
     return class_();
 }

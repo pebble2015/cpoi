@@ -2,21 +2,15 @@
 #pragma once
 
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace wp
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace wp
-            {
-                namespace usermodel
-                {
-                    struct CharacterRun;
-                    class HeaderFooterType;
-                    struct Paragraph;
-                } // usermodel
-            } // wp
-        } // poi
-    } // apache
-} // org
+            struct CharacterRun;
+            class HeaderFooterType;
+            struct Paragraph;
+        } // usermodel
+    } // wp
+} // poi

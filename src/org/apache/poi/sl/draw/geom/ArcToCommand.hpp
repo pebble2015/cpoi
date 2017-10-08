@@ -12,7 +12,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::geom::ArcToCommand
+class poi::sl::draw::geom::ArcToCommand
     : public virtual ::java::lang::Object
     , public virtual PathCommand
 {
@@ -26,7 +26,7 @@ private:
     ::java::lang::String* stAng {  };
     ::java::lang::String* swAng {  };
 protected:
-    void ctor(::org::apache::poi::sl::draw::binding::CTPath2DArcTo* arc);
+    void ctor(::poi::sl::draw::binding::CTPath2DArcTo* arc);
 
 public:
     void execute(::java::awt::geom::Path2D_Double* path, Context* ctx) override;
@@ -37,7 +37,7 @@ private:
     // Generated
 
 public: /* package */
-    ArcToCommand(::org::apache::poi::sl::draw::binding::CTPath2DArcTo* arc);
+    ArcToCommand(::poi::sl::draw::binding::CTPath2DArcTo* arc);
 protected:
     ArcToCommand(const ::default_init_tag&);
 

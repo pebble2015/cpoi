@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::binding::CTVector3D
+class poi::sl::draw::binding::CTVector3D
     : public virtual ::java::lang::Object
 {
 

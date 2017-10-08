@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::IStabilityClassifier_1
+class poi::ss::formula::IStabilityClassifier_1
     : public virtual ::java::lang::Object
     , public virtual IStabilityClassifier
 {

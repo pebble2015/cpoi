@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::util::HexRead
+class poi::util::HexRead
     : public virtual ::java::lang::Object
 {
 

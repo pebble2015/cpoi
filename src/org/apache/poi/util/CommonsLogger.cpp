@@ -14,42 +14,42 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::util::CommonsLogger::CommonsLogger(const ::default_init_tag&)
+poi::util::CommonsLogger::CommonsLogger(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::util::CommonsLogger::CommonsLogger()
+poi::util::CommonsLogger::CommonsLogger()
     : CommonsLogger(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::util::CommonsLogger::ctor()
+void poi::util::CommonsLogger::ctor()
 {
     super::ctor();
     init();
 }
 
-void org::apache::poi::util::CommonsLogger::init()
+void poi::util::CommonsLogger::init()
 {
     log_ = nullptr;
 }
 
-org::apache::commons::logging::LogFactory*& org::apache::poi::util::CommonsLogger::_creator()
+org::apache::commons::logging::LogFactory*& poi::util::CommonsLogger::_creator()
 {
     clinit();
     return _creator_;
 }
-org::apache::commons::logging::LogFactory* org::apache::poi::util::CommonsLogger::_creator_;
+org::apache::commons::logging::LogFactory* poi::util::CommonsLogger::_creator_;
 
-void org::apache::poi::util::CommonsLogger::initialize(::java::lang::String* cat)
+void poi::util::CommonsLogger::initialize(::java::lang::String* cat)
 {
     this->log_ = npc(_creator_)->getInstance(cat);
 }
 
-void org::apache::poi::util::CommonsLogger::_log(int32_t level, ::java::lang::Object* obj1)
+void poi::util::CommonsLogger::_log(int32_t level, ::java::lang::Object* obj1)
 {
     if(level == FATAL) {
         if(npc(log_)->isFatalEnabled()) {
@@ -78,7 +78,7 @@ void org::apache::poi::util::CommonsLogger::_log(int32_t level, ::java::lang::Ob
     }
 }
 
-void org::apache::poi::util::CommonsLogger::_log(int32_t level, ::java::lang::Object* obj1, ::java::lang::Throwable* exception)
+void poi::util::CommonsLogger::_log(int32_t level, ::java::lang::Object* obj1, ::java::lang::Throwable* exception)
 {
     if(level == FATAL) {
         if(npc(log_)->isFatalEnabled()) {
@@ -125,7 +125,7 @@ void org::apache::poi::util::CommonsLogger::_log(int32_t level, ::java::lang::Ob
     }
 }
 
-bool org::apache::poi::util::CommonsLogger::check(int32_t level)
+bool poi::util::CommonsLogger::check(int32_t level)
 {
     if(level == FATAL) {
         if(npc(log_)->isFatalEnabled()) {
@@ -153,13 +153,13 @@ bool org::apache::poi::util::CommonsLogger::check(int32_t level)
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::util::CommonsLogger::class_()
+java::lang::Class* poi::util::CommonsLogger::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.util.CommonsLogger", 33);
     return c;
 }
 
-void org::apache::poi::util::CommonsLogger::clinit()
+void poi::util::CommonsLogger::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -175,7 +175,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::util::CommonsLogger::getClass0()
+java::lang::Class* poi::util::CommonsLogger::getClass0()
 {
     return class_();
 }

@@ -29,28 +29,28 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::sl::draw::DrawMasterSheet::DrawMasterSheet(const ::default_init_tag&)
+poi::sl::draw::DrawMasterSheet::DrawMasterSheet(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::draw::DrawMasterSheet::DrawMasterSheet(::org::apache::poi::sl::usermodel::MasterSheet* sheet) 
+poi::sl::draw::DrawMasterSheet::DrawMasterSheet(::poi::sl::usermodel::MasterSheet* sheet) 
     : DrawMasterSheet(*static_cast< ::default_init_tag* >(0))
 {
     ctor(sheet);
 }
 
-void org::apache::poi::sl::draw::DrawMasterSheet::ctor(::org::apache::poi::sl::usermodel::MasterSheet* sheet)
+void poi::sl::draw::DrawMasterSheet::ctor(::poi::sl::usermodel::MasterSheet* sheet)
 {
     super::ctor(sheet);
 }
 
-bool org::apache::poi::sl::draw::DrawMasterSheet::canDraw(::java::awt::Graphics2D* graphics, ::org::apache::poi::sl::usermodel::Shape* shape)
+bool poi::sl::draw::DrawMasterSheet::canDraw(::java::awt::Graphics2D* graphics, ::poi::sl::usermodel::Shape* shape)
 {
-    auto slide = java_cast< ::org::apache::poi::sl::usermodel::Slide* >(npc(graphics)->getRenderingHint(Drawable::CURRENT_SLIDE()));
-    if(dynamic_cast< ::org::apache::poi::sl::usermodel::SimpleShape* >(shape) != nullptr) {
-        auto ph = npc((java_cast< ::org::apache::poi::sl::usermodel::SimpleShape* >(shape)))->getPlaceholder();
+    auto slide = java_cast< ::poi::sl::usermodel::Slide* >(npc(graphics)->getRenderingHint(Drawable::CURRENT_SLIDE()));
+    if(dynamic_cast< ::poi::sl::usermodel::SimpleShape* >(shape) != nullptr) {
+        auto ph = npc((java_cast< ::poi::sl::usermodel::SimpleShape* >(shape)))->getPlaceholder();
         if(ph != nullptr) {
             return npc(slide)->getDisplayPlaceholder(ph);
         }
@@ -60,13 +60,13 @@ bool org::apache::poi::sl::draw::DrawMasterSheet::canDraw(::java::awt::Graphics2
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::draw::DrawMasterSheet::class_()
+java::lang::Class* poi::sl::draw::DrawMasterSheet::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.draw.DrawMasterSheet", 38);
     return c;
 }
 
-java::lang::Class* org::apache::poi::sl::draw::DrawMasterSheet::getClass0()
+java::lang::Class* poi::sl::draw::DrawMasterSheet::getClass0()
 {
     return class_();
 }

@@ -13,50 +13,44 @@
 #include <org/apache/poi/hssf/record/CellValueRecordInterface.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate final
+class poi::hssf::record::aggregates::FormulaRecordAggregate final
     : public RecordAggregate
-    , public ::org::apache::poi::hssf::record::CellValueRecordInterface
+    , public ::poi::hssf::record::CellValueRecordInterface
 {
 
 public:
     typedef RecordAggregate super;
 
 private:
-    ::org::apache::poi::hssf::record::FormulaRecord* _formulaRecord {  };
+    ::poi::hssf::record::FormulaRecord* _formulaRecord {  };
     SharedValueManager* _sharedValueManager {  };
-    ::org::apache::poi::hssf::record::StringRecord* _stringRecord {  };
-    ::org::apache::poi::hssf::record::SharedFormulaRecord* _sharedFormulaRecord {  };
+    ::poi::hssf::record::StringRecord* _stringRecord {  };
+    ::poi::hssf::record::SharedFormulaRecord* _sharedFormulaRecord {  };
 protected:
-    void ctor(::org::apache::poi::hssf::record::FormulaRecord* formulaRec, ::org::apache::poi::hssf::record::StringRecord* stringRec, SharedValueManager* svm);
+    void ctor(::poi::hssf::record::FormulaRecord* formulaRec, ::poi::hssf::record::StringRecord* stringRec, SharedValueManager* svm);
 
 private:
-    static void handleMissingSharedFormulaRecord(::org::apache::poi::hssf::record::FormulaRecord* formula);
+    static void handleMissingSharedFormulaRecord(::poi::hssf::record::FormulaRecord* formula);
 
 public:
-    ::org::apache::poi::hssf::record::FormulaRecord* getFormulaRecord();
-    ::org::apache::poi::hssf::record::StringRecord* getStringRecord();
+    ::poi::hssf::record::FormulaRecord* getFormulaRecord();
+    ::poi::hssf::record::StringRecord* getStringRecord();
     int16_t getXFIndex() override;
     void setXFIndex(int16_t xf) override;
     void setColumn(int16_t col) override;
@@ -69,19 +63,19 @@ public:
     void setCachedStringResult(::java::lang::String* value);
     void setCachedBooleanResult(bool value);
     void setCachedErrorResult(int32_t errorCode);
-    void setCachedErrorResult(::org::apache::poi::ss::usermodel::FormulaError* error);
+    void setCachedErrorResult(::poi::ss::usermodel::FormulaError* error);
     void setCachedDoubleResult(double value);
-    ::org::apache::poi::ss::formula::ptg::PtgArray* getFormulaTokens();
-    void setParsedExpression(::org::apache::poi::ss::formula::ptg::PtgArray* ptgs);
+    ::poi::ss::formula::ptg::PtgArray* getFormulaTokens();
+    void setParsedExpression(::poi::ss::formula::ptg::PtgArray* ptgs);
     void unlinkSharedFormula();
     void notifyFormulaChanging();
     bool isPartOfArrayFormula();
-    ::org::apache::poi::ss::util::CellRangeAddress* getArrayFormulaRange();
-    void setArrayFormula(::org::apache::poi::ss::util::CellRangeAddress* r, ::org::apache::poi::ss::formula::ptg::PtgArray* ptgs);
-    ::org::apache::poi::ss::util::CellRangeAddress* removeArrayFormula(int32_t rowIndex, int32_t columnIndex);
+    ::poi::ss::util::CellRangeAddress* getArrayFormulaRange();
+    void setArrayFormula(::poi::ss::util::CellRangeAddress* r, ::poi::ss::formula::ptg::PtgArray* ptgs);
+    ::poi::ss::util::CellRangeAddress* removeArrayFormula(int32_t rowIndex, int32_t columnIndex);
 
     // Generated
-    FormulaRecordAggregate(::org::apache::poi::hssf::record::FormulaRecord* formulaRec, ::org::apache::poi::hssf::record::StringRecord* stringRec, SharedValueManager* svm);
+    FormulaRecordAggregate(::poi::hssf::record::FormulaRecord* formulaRec, ::poi::hssf::record::StringRecord* stringRec, SharedValueManager* svm);
 protected:
     FormulaRecordAggregate(const ::default_init_tag&);
 

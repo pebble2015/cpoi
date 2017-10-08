@@ -16,75 +16,75 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::ptg::RefErrorPtg::RefErrorPtg(const ::default_init_tag&)
+poi::ss::formula::ptg::RefErrorPtg::RefErrorPtg(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::ptg::RefErrorPtg::RefErrorPtg() 
+poi::ss::formula::ptg::RefErrorPtg::RefErrorPtg() 
     : RefErrorPtg(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::ptg::RefErrorPtg::RefErrorPtg(::org::apache::poi::util::LittleEndianInput* in) 
+poi::ss::formula::ptg::RefErrorPtg::RefErrorPtg(::poi::util::LittleEndianInput* in) 
     : RefErrorPtg(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int32_t org::apache::poi::ss::formula::ptg::RefErrorPtg::SIZE;
+constexpr int32_t poi::ss::formula::ptg::RefErrorPtg::SIZE;
 
-constexpr int8_t org::apache::poi::ss::formula::ptg::RefErrorPtg::sid;
+constexpr int8_t poi::ss::formula::ptg::RefErrorPtg::sid;
 
-void org::apache::poi::ss::formula::ptg::RefErrorPtg::ctor()
+void poi::ss::formula::ptg::RefErrorPtg::ctor()
 {
     super::ctor();
     field_1_reserved = 0;
 }
 
-void org::apache::poi::ss::formula::ptg::RefErrorPtg::ctor(::org::apache::poi::util::LittleEndianInput* in)
+void poi::ss::formula::ptg::RefErrorPtg::ctor(::poi::util::LittleEndianInput* in)
 {
     super::ctor();
     field_1_reserved = npc(in)->readInt();
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::RefErrorPtg::toString()
+java::lang::String* poi::ss::formula::ptg::RefErrorPtg::toString()
 {
     return npc(getClass())->getName();
 }
 
-void org::apache::poi::ss::formula::ptg::RefErrorPtg::write(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::ss::formula::ptg::RefErrorPtg::write(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeByte(sid + getPtgClass());
     npc(out)->writeInt(field_1_reserved);
 }
 
-int32_t org::apache::poi::ss::formula::ptg::RefErrorPtg::getSize()
+int32_t poi::ss::formula::ptg::RefErrorPtg::getSize()
 {
     return SIZE;
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::RefErrorPtg::toFormulaString()
+java::lang::String* poi::ss::formula::ptg::RefErrorPtg::toFormulaString()
 {
-    return npc(::org::apache::poi::ss::usermodel::FormulaError::REF)->getString();
+    return npc(::poi::ss::usermodel::FormulaError::REF)->getString();
 }
 
-int8_t org::apache::poi::ss::formula::ptg::RefErrorPtg::getDefaultOperandClass()
+int8_t poi::ss::formula::ptg::RefErrorPtg::getDefaultOperandClass()
 {
     return Ptg::CLASS_REF;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::RefErrorPtg::class_()
+java::lang::Class* poi::ss::formula::ptg::RefErrorPtg::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.ptg.RefErrorPtg", 41);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::RefErrorPtg::getClass0()
+java::lang::Class* poi::ss::formula::ptg::RefErrorPtg::getClass0()
 {
     return class_();
 }

@@ -64,105 +64,105 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::usermodel::DateUtil::DateUtil(const ::default_init_tag&)
+poi::ss::usermodel::DateUtil::DateUtil(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::usermodel::DateUtil::DateUtil() 
+poi::ss::usermodel::DateUtil::DateUtil() 
     : DateUtil(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::ss::usermodel::DateUtil::ctor()
+void poi::ss::usermodel::DateUtil::ctor()
 {
     super::ctor();
 }
 
-constexpr int32_t org::apache::poi::ss::usermodel::DateUtil::SECONDS_PER_MINUTE;
+constexpr int32_t poi::ss::usermodel::DateUtil::SECONDS_PER_MINUTE;
 
-constexpr int32_t org::apache::poi::ss::usermodel::DateUtil::MINUTES_PER_HOUR;
+constexpr int32_t poi::ss::usermodel::DateUtil::MINUTES_PER_HOUR;
 
-constexpr int32_t org::apache::poi::ss::usermodel::DateUtil::HOURS_PER_DAY;
+constexpr int32_t poi::ss::usermodel::DateUtil::HOURS_PER_DAY;
 
-constexpr int32_t org::apache::poi::ss::usermodel::DateUtil::SECONDS_PER_DAY;
+constexpr int32_t poi::ss::usermodel::DateUtil::SECONDS_PER_DAY;
 
-constexpr int32_t org::apache::poi::ss::usermodel::DateUtil::BAD_DATE;
+constexpr int32_t poi::ss::usermodel::DateUtil::BAD_DATE;
 
-constexpr int64_t org::apache::poi::ss::usermodel::DateUtil::DAY_MILLISECONDS;
+constexpr int64_t poi::ss::usermodel::DateUtil::DAY_MILLISECONDS;
 
-java::util::regex::Pattern*& org::apache::poi::ss::usermodel::DateUtil::TIME_SEPARATOR_PATTERN()
+java::util::regex::Pattern*& poi::ss::usermodel::DateUtil::TIME_SEPARATOR_PATTERN()
 {
     clinit();
     return TIME_SEPARATOR_PATTERN_;
 }
-java::util::regex::Pattern* org::apache::poi::ss::usermodel::DateUtil::TIME_SEPARATOR_PATTERN_;
+java::util::regex::Pattern* poi::ss::usermodel::DateUtil::TIME_SEPARATOR_PATTERN_;
 
-java::util::regex::Pattern*& org::apache::poi::ss::usermodel::DateUtil::date_ptrn1()
+java::util::regex::Pattern*& poi::ss::usermodel::DateUtil::date_ptrn1()
 {
     clinit();
     return date_ptrn1_;
 }
-java::util::regex::Pattern* org::apache::poi::ss::usermodel::DateUtil::date_ptrn1_;
+java::util::regex::Pattern* poi::ss::usermodel::DateUtil::date_ptrn1_;
 
-java::util::regex::Pattern*& org::apache::poi::ss::usermodel::DateUtil::date_ptrn2()
+java::util::regex::Pattern*& poi::ss::usermodel::DateUtil::date_ptrn2()
 {
     clinit();
     return date_ptrn2_;
 }
-java::util::regex::Pattern* org::apache::poi::ss::usermodel::DateUtil::date_ptrn2_;
+java::util::regex::Pattern* poi::ss::usermodel::DateUtil::date_ptrn2_;
 
-java::util::regex::Pattern*& org::apache::poi::ss::usermodel::DateUtil::date_ptrn3a()
+java::util::regex::Pattern*& poi::ss::usermodel::DateUtil::date_ptrn3a()
 {
     clinit();
     return date_ptrn3a_;
 }
-java::util::regex::Pattern* org::apache::poi::ss::usermodel::DateUtil::date_ptrn3a_;
+java::util::regex::Pattern* poi::ss::usermodel::DateUtil::date_ptrn3a_;
 
-java::util::regex::Pattern*& org::apache::poi::ss::usermodel::DateUtil::date_ptrn3b()
+java::util::regex::Pattern*& poi::ss::usermodel::DateUtil::date_ptrn3b()
 {
     clinit();
     return date_ptrn3b_;
 }
-java::util::regex::Pattern* org::apache::poi::ss::usermodel::DateUtil::date_ptrn3b_;
+java::util::regex::Pattern* poi::ss::usermodel::DateUtil::date_ptrn3b_;
 
-java::util::regex::Pattern*& org::apache::poi::ss::usermodel::DateUtil::date_ptrn4()
+java::util::regex::Pattern*& poi::ss::usermodel::DateUtil::date_ptrn4()
 {
     clinit();
     return date_ptrn4_;
 }
-java::util::regex::Pattern* org::apache::poi::ss::usermodel::DateUtil::date_ptrn4_;
+java::util::regex::Pattern* poi::ss::usermodel::DateUtil::date_ptrn4_;
 
-java::util::regex::Pattern*& org::apache::poi::ss::usermodel::DateUtil::date_ptrn5()
+java::util::regex::Pattern*& poi::ss::usermodel::DateUtil::date_ptrn5()
 {
     clinit();
     return date_ptrn5_;
 }
-java::util::regex::Pattern* org::apache::poi::ss::usermodel::DateUtil::date_ptrn5_;
+java::util::regex::Pattern* poi::ss::usermodel::DateUtil::date_ptrn5_;
 
-double org::apache::poi::ss::usermodel::DateUtil::getExcelDate(::java::util::Date* date)
+double poi::ss::usermodel::DateUtil::getExcelDate(::java::util::Date* date)
 {
     clinit();
     return getExcelDate(date, false);
 }
 
-double org::apache::poi::ss::usermodel::DateUtil::getExcelDate(::java::util::Date* date, bool use1904windowing)
+double poi::ss::usermodel::DateUtil::getExcelDate(::java::util::Date* date, bool use1904windowing)
 {
     clinit();
-    auto calStart = ::org::apache::poi::util::LocaleUtil::getLocaleCalendar();
+    auto calStart = ::poi::util::LocaleUtil::getLocaleCalendar();
     npc(calStart)->setTime(date);
     return internalGetExcelDate(calStart, use1904windowing);
 }
 
-double org::apache::poi::ss::usermodel::DateUtil::getExcelDate(::java::util::Calendar* date, bool use1904windowing)
+double poi::ss::usermodel::DateUtil::getExcelDate(::java::util::Calendar* date, bool use1904windowing)
 {
     clinit();
     return internalGetExcelDate(java_cast< ::java::util::Calendar* >(npc(date)->clone()), use1904windowing);
 }
 
-double org::apache::poi::ss::usermodel::DateUtil::internalGetExcelDate(::java::util::Calendar* date, bool use1904windowing)
+double poi::ss::usermodel::DateUtil::internalGetExcelDate(::java::util::Calendar* date, bool use1904windowing)
 {
     clinit();
     if((!use1904windowing && npc(date)->get(::java::util::Calendar::YEAR) < 1900) || (use1904windowing && npc(date)->get(::java::util::Calendar::YEAR) < 1904)) {
@@ -179,38 +179,38 @@ double org::apache::poi::ss::usermodel::DateUtil::internalGetExcelDate(::java::u
     return value;
 }
 
-java::util::Date* org::apache::poi::ss::usermodel::DateUtil::getJavaDate(double date, ::java::util::TimeZone* tz)
+java::util::Date* poi::ss::usermodel::DateUtil::getJavaDate(double date, ::java::util::TimeZone* tz)
 {
     clinit();
     return getJavaDate(date, false, tz, false);
 }
 
-java::util::Date* org::apache::poi::ss::usermodel::DateUtil::getJavaDate(double date)
+java::util::Date* poi::ss::usermodel::DateUtil::getJavaDate(double date)
 {
     clinit();
     return getJavaDate(date, false, nullptr, false);
 }
 
-java::util::Date* org::apache::poi::ss::usermodel::DateUtil::getJavaDate(double date, bool use1904windowing, ::java::util::TimeZone* tz)
+java::util::Date* poi::ss::usermodel::DateUtil::getJavaDate(double date, bool use1904windowing, ::java::util::TimeZone* tz)
 {
     clinit();
     return getJavaDate(date, use1904windowing, tz, false);
 }
 
-java::util::Date* org::apache::poi::ss::usermodel::DateUtil::getJavaDate(double date, bool use1904windowing, ::java::util::TimeZone* tz, bool roundSeconds)
+java::util::Date* poi::ss::usermodel::DateUtil::getJavaDate(double date, bool use1904windowing, ::java::util::TimeZone* tz, bool roundSeconds)
 {
     clinit();
     auto calendar = getJavaCalendar(date, use1904windowing, tz, roundSeconds);
     return calendar == nullptr ? static_cast< ::java::util::Date* >(nullptr) : npc(calendar)->getTime();
 }
 
-java::util::Date* org::apache::poi::ss::usermodel::DateUtil::getJavaDate(double date, bool use1904windowing)
+java::util::Date* poi::ss::usermodel::DateUtil::getJavaDate(double date, bool use1904windowing)
 {
     clinit();
     return getJavaDate(date, use1904windowing, nullptr, false);
 }
 
-void org::apache::poi::ss::usermodel::DateUtil::setCalendar(::java::util::Calendar* calendar, int32_t wholeDays, int32_t millisecondsInDay, bool use1904windowing, bool roundSeconds)
+void poi::ss::usermodel::DateUtil::setCalendar(::java::util::Calendar* calendar, int32_t wholeDays, int32_t millisecondsInDay, bool use1904windowing, bool roundSeconds)
 {
     clinit();
     auto startYear = int32_t(1900);
@@ -232,31 +232,31 @@ void org::apache::poi::ss::usermodel::DateUtil::setCalendar(::java::util::Calend
     }
 }
 
-java::util::Calendar* org::apache::poi::ss::usermodel::DateUtil::getJavaCalendar(double date)
+java::util::Calendar* poi::ss::usermodel::DateUtil::getJavaCalendar(double date)
 {
     clinit();
     return getJavaCalendar(date, false, static_cast< ::java::util::TimeZone* >(nullptr), false);
 }
 
-java::util::Calendar* org::apache::poi::ss::usermodel::DateUtil::getJavaCalendar(double date, bool use1904windowing)
+java::util::Calendar* poi::ss::usermodel::DateUtil::getJavaCalendar(double date, bool use1904windowing)
 {
     clinit();
     return getJavaCalendar(date, use1904windowing, static_cast< ::java::util::TimeZone* >(nullptr), false);
 }
 
-java::util::Calendar* org::apache::poi::ss::usermodel::DateUtil::getJavaCalendarUTC(double date, bool use1904windowing)
+java::util::Calendar* poi::ss::usermodel::DateUtil::getJavaCalendarUTC(double date, bool use1904windowing)
 {
     clinit();
-    return getJavaCalendar(date, use1904windowing, ::org::apache::poi::util::LocaleUtil::TIMEZONE_UTC(), false);
+    return getJavaCalendar(date, use1904windowing, ::poi::util::LocaleUtil::TIMEZONE_UTC(), false);
 }
 
-java::util::Calendar* org::apache::poi::ss::usermodel::DateUtil::getJavaCalendar(double date, bool use1904windowing, ::java::util::TimeZone* timeZone)
+java::util::Calendar* poi::ss::usermodel::DateUtil::getJavaCalendar(double date, bool use1904windowing, ::java::util::TimeZone* timeZone)
 {
     clinit();
     return getJavaCalendar(date, use1904windowing, timeZone, false);
 }
 
-java::util::Calendar* org::apache::poi::ss::usermodel::DateUtil::getJavaCalendar(double date, bool use1904windowing, ::java::util::TimeZone* timeZone, bool roundSeconds)
+java::util::Calendar* poi::ss::usermodel::DateUtil::getJavaCalendar(double date, bool use1904windowing, ::java::util::TimeZone* timeZone, bool roundSeconds)
 {
     clinit();
     if(!isValidExcelDate(date)) {
@@ -266,43 +266,43 @@ java::util::Calendar* org::apache::poi::ss::usermodel::DateUtil::getJavaCalendar
     auto millisecondsInDay = static_cast< int32_t >(((date - wholeDays) * DAY_MILLISECONDS + 0.5));
     ::java::util::Calendar* calendar;
     if(timeZone != nullptr) {
-        calendar = ::org::apache::poi::util::LocaleUtil::getLocaleCalendar(timeZone);
+        calendar = ::poi::util::LocaleUtil::getLocaleCalendar(timeZone);
     } else {
-        calendar = ::org::apache::poi::util::LocaleUtil::getLocaleCalendar();
+        calendar = ::poi::util::LocaleUtil::getLocaleCalendar();
     }
     setCalendar(calendar, wholeDays, millisecondsInDay, use1904windowing, roundSeconds);
     return calendar;
 }
 
-java::lang::ThreadLocal*& org::apache::poi::ss::usermodel::DateUtil::lastFormatIndex()
+java::lang::ThreadLocal*& poi::ss::usermodel::DateUtil::lastFormatIndex()
 {
     clinit();
     return lastFormatIndex_;
 }
-java::lang::ThreadLocal* org::apache::poi::ss::usermodel::DateUtil::lastFormatIndex_;
+java::lang::ThreadLocal* poi::ss::usermodel::DateUtil::lastFormatIndex_;
 
-java::lang::ThreadLocal*& org::apache::poi::ss::usermodel::DateUtil::lastFormatString()
+java::lang::ThreadLocal*& poi::ss::usermodel::DateUtil::lastFormatString()
 {
     clinit();
     return lastFormatString_;
 }
-java::lang::ThreadLocal* org::apache::poi::ss::usermodel::DateUtil::lastFormatString_;
+java::lang::ThreadLocal* poi::ss::usermodel::DateUtil::lastFormatString_;
 
-java::lang::ThreadLocal*& org::apache::poi::ss::usermodel::DateUtil::lastCachedResult()
+java::lang::ThreadLocal*& poi::ss::usermodel::DateUtil::lastCachedResult()
 {
     clinit();
     return lastCachedResult_;
 }
-java::lang::ThreadLocal* org::apache::poi::ss::usermodel::DateUtil::lastCachedResult_;
+java::lang::ThreadLocal* poi::ss::usermodel::DateUtil::lastCachedResult_;
 
-bool org::apache::poi::ss::usermodel::DateUtil::isCached(::java::lang::String* formatString, int32_t formatIndex)
+bool poi::ss::usermodel::DateUtil::isCached(::java::lang::String* formatString, int32_t formatIndex)
 {
     clinit();
     auto cachedFormatString = java_cast< ::java::lang::String* >(npc(lastFormatString_)->get());
     return cachedFormatString != nullptr && formatIndex == (npc(java_cast< ::java::lang::Integer* >(npc(lastFormatIndex_)->get())))->intValue() && npc(formatString)->equals(static_cast< ::java::lang::Object* >(cachedFormatString));
 }
 
-void org::apache::poi::ss::usermodel::DateUtil::cache(::java::lang::String* formatString, int32_t formatIndex, bool cached)
+void poi::ss::usermodel::DateUtil::cache(::java::lang::String* formatString, int32_t formatIndex, bool cached)
 {
     clinit();
     npc(lastFormatIndex_)->set(::java::lang::Integer::valueOf(formatIndex));
@@ -310,7 +310,7 @@ void org::apache::poi::ss::usermodel::DateUtil::cache(::java::lang::String* form
     npc(lastCachedResult_)->set(::java::lang::Boolean::valueOf(cached));
 }
 
-bool org::apache::poi::ss::usermodel::DateUtil::isADateFormat(ExcelNumberFormat* numFmt)
+bool poi::ss::usermodel::DateUtil::isADateFormat(ExcelNumberFormat* numFmt)
 {
     clinit();
     if(numFmt == nullptr)
@@ -319,7 +319,7 @@ bool org::apache::poi::ss::usermodel::DateUtil::isADateFormat(ExcelNumberFormat*
     return isADateFormat(npc(numFmt)->getIdx(), npc(numFmt)->getFormat());
 }
 
-bool org::apache::poi::ss::usermodel::DateUtil::isADateFormat(int32_t formatIndex, ::java::lang::String* formatString)
+bool poi::ss::usermodel::DateUtil::isADateFormat(int32_t formatIndex, ::java::lang::String* formatString)
 {
     clinit();
     if(isInternalDateFormat(formatIndex)) {
@@ -376,7 +376,7 @@ bool org::apache::poi::ss::usermodel::DateUtil::isADateFormat(int32_t formatInde
     return result;
 }
 
-bool org::apache::poi::ss::usermodel::DateUtil::isInternalDateFormat(int32_t format)
+bool poi::ss::usermodel::DateUtil::isInternalDateFormat(int32_t format)
 {
     clinit();
     switch (format) {
@@ -398,13 +398,13 @@ bool org::apache::poi::ss::usermodel::DateUtil::isInternalDateFormat(int32_t for
     return false;
 }
 
-bool org::apache::poi::ss::usermodel::DateUtil::isCellDateFormatted(Cell* cell)
+bool poi::ss::usermodel::DateUtil::isCellDateFormatted(Cell* cell)
 {
     clinit();
     return isCellDateFormatted(cell, nullptr);
 }
 
-bool org::apache::poi::ss::usermodel::DateUtil::isCellDateFormatted(Cell* cell, ::org::apache::poi::ss::formula::ConditionalFormattingEvaluator* cfEvaluator)
+bool poi::ss::usermodel::DateUtil::isCellDateFormatted(Cell* cell, ::poi::ss::formula::ConditionalFormattingEvaluator* cfEvaluator)
 {
     clinit();
     if(cell == nullptr)
@@ -422,7 +422,7 @@ bool org::apache::poi::ss::usermodel::DateUtil::isCellDateFormatted(Cell* cell, 
     return bDate;
 }
 
-bool org::apache::poi::ss::usermodel::DateUtil::isCellInternalDateFormatted(Cell* cell)
+bool poi::ss::usermodel::DateUtil::isCellInternalDateFormatted(Cell* cell)
 {
     clinit();
     if(cell == nullptr)
@@ -438,19 +438,19 @@ bool org::apache::poi::ss::usermodel::DateUtil::isCellInternalDateFormatted(Cell
     return bDate;
 }
 
-bool org::apache::poi::ss::usermodel::DateUtil::isValidExcelDate(double value)
+bool poi::ss::usermodel::DateUtil::isValidExcelDate(double value)
 {
     clinit();
     return (value > -::java::lang::Double::MIN_VALUE);
 }
 
-int32_t org::apache::poi::ss::usermodel::DateUtil::absoluteDay(::java::util::Calendar* cal, bool use1904windowing)
+int32_t poi::ss::usermodel::DateUtil::absoluteDay(::java::util::Calendar* cal, bool use1904windowing)
 {
     clinit();
     return npc(cal)->get(::java::util::Calendar::DAY_OF_YEAR) + daysInPriorYears(npc(cal)->get(::java::util::Calendar::YEAR), use1904windowing);
 }
 
-int32_t org::apache::poi::ss::usermodel::DateUtil::daysInPriorYears(int32_t yr, bool use1904windowing)
+int32_t poi::ss::usermodel::DateUtil::daysInPriorYears(int32_t yr, bool use1904windowing)
 {
     clinit();
     if((!use1904windowing && yr < 1900) || (use1904windowing && yr < 1904)) {
@@ -461,7 +461,7 @@ int32_t org::apache::poi::ss::usermodel::DateUtil::daysInPriorYears(int32_t yr, 
     return int32_t(365) * (yr - (use1904windowing ? int32_t(1904) : int32_t(1900))) + leapDays;
 }
 
-java::util::Calendar* org::apache::poi::ss::usermodel::DateUtil::dayStart(::java::util::Calendar* cal)
+java::util::Calendar* poi::ss::usermodel::DateUtil::dayStart(::java::util::Calendar* cal)
 {
     clinit();
     npc(cal)->get(::java::util::Calendar::HOUR_OF_DAY);
@@ -473,7 +473,7 @@ java::util::Calendar* org::apache::poi::ss::usermodel::DateUtil::dayStart(::java
     return cal;
 }
 
-double org::apache::poi::ss::usermodel::DateUtil::convertTime(::java::lang::String* timeStr)
+double poi::ss::usermodel::DateUtil::convertTime(::java::lang::String* timeStr)
 {
     clinit();
     try {
@@ -486,7 +486,7 @@ double org::apache::poi::ss::usermodel::DateUtil::convertTime(::java::lang::Stri
     }
 }
 
-double org::apache::poi::ss::usermodel::DateUtil::convertTimeInternal(::java::lang::String* timeStr) /* throws(FormatException) */
+double poi::ss::usermodel::DateUtil::convertTimeInternal(::java::lang::String* timeStr) /* throws(FormatException) */
 {
     clinit();
     auto len = npc(timeStr)->length();
@@ -516,7 +516,7 @@ double org::apache::poi::ss::usermodel::DateUtil::convertTimeInternal(::java::la
     return totalSeconds / (SECONDS_PER_DAY);
 }
 
-java::util::Date* org::apache::poi::ss::usermodel::DateUtil::parseYYYYMMDDDate(::java::lang::String* dateStr)
+java::util::Date* poi::ss::usermodel::DateUtil::parseYYYYMMDDDate(::java::lang::String* dateStr)
 {
     clinit();
     try {
@@ -529,7 +529,7 @@ java::util::Date* org::apache::poi::ss::usermodel::DateUtil::parseYYYYMMDDDate(:
     }
 }
 
-java::util::Date* org::apache::poi::ss::usermodel::DateUtil::parseYYYYMMDDDateInternal(::java::lang::String* timeStr) /* throws(FormatException) */
+java::util::Date* poi::ss::usermodel::DateUtil::parseYYYYMMDDDateInternal(::java::lang::String* timeStr) /* throws(FormatException) */
 {
     clinit();
     if(npc(timeStr)->length() != 10) {
@@ -541,17 +541,17 @@ java::util::Date* org::apache::poi::ss::usermodel::DateUtil::parseYYYYMMDDDateIn
     auto year = parseInt(yearStr, u"year"_j, ::java::lang::Short::MIN_VALUE, ::java::lang::Short::MAX_VALUE);
     auto month = parseInt(monthStr, u"month"_j, 1, 12);
     auto day = parseInt(dayStr, u"day"_j, 1, 31);
-    auto cal = ::org::apache::poi::util::LocaleUtil::getLocaleCalendar(year, month - int32_t(1), day);
+    auto cal = ::poi::util::LocaleUtil::getLocaleCalendar(year, month - int32_t(1), day);
     return npc(cal)->getTime();
 }
 
-int32_t org::apache::poi::ss::usermodel::DateUtil::parseInt(::java::lang::String* strVal, ::java::lang::String* fieldName, int32_t rangeMax) /* throws(FormatException) */
+int32_t poi::ss::usermodel::DateUtil::parseInt(::java::lang::String* strVal, ::java::lang::String* fieldName, int32_t rangeMax) /* throws(FormatException) */
 {
     clinit();
     return parseInt(strVal, fieldName, 0, rangeMax - int32_t(1));
 }
 
-int32_t org::apache::poi::ss::usermodel::DateUtil::parseInt(::java::lang::String* strVal, ::java::lang::String* fieldName, int32_t lowerLimit, int32_t upperLimit) /* throws(FormatException) */
+int32_t poi::ss::usermodel::DateUtil::parseInt(::java::lang::String* strVal, ::java::lang::String* fieldName, int32_t lowerLimit, int32_t upperLimit) /* throws(FormatException) */
 {
     clinit();
     int32_t result;
@@ -575,13 +575,13 @@ int32_t org::apache::poi::ss::usermodel::DateUtil::parseInt(::java::lang::String
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::usermodel::DateUtil::class_()
+java::lang::Class* poi::ss::usermodel::DateUtil::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.usermodel.DateUtil", 36);
     return c;
 }
 
-void org::apache::poi::ss::usermodel::DateUtil::clinit()
+void poi::ss::usermodel::DateUtil::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -606,7 +606,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::usermodel::DateUtil::getClass0()
+java::lang::Class* poi::ss::usermodel::DateUtil::getClass0()
 {
     return class_();
 }

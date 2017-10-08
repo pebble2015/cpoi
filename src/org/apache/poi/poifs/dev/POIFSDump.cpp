@@ -85,19 +85,19 @@ namespace
 
     template<typename F> finally_<F> finally(F f) { return finally_<F>(f); }
 }
-org::apache::poi::poifs::dev::POIFSDump::POIFSDump(const ::default_init_tag&)
+poi::poifs::dev::POIFSDump::POIFSDump(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::dev::POIFSDump::POIFSDump()
+poi::poifs::dev::POIFSDump::POIFSDump()
     : POIFSDump(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::poifs::dev::POIFSDump::main(::java::lang::StringArray* args) /* throws(IOException) */
+void poi::poifs::dev::POIFSDump::main(::java::lang::StringArray* args) /* throws(IOException) */
 {
     clinit();
     if(npc(args)->length == 0) {
@@ -116,13 +116,13 @@ void org::apache::poi::poifs::dev::POIFSDump::main(::java::lang::StringArray* ar
         }
         npc(::java::lang::System::out())->println(::java::lang::StringBuilder().append(u"Dumping "_j)->append(filename)->toString());
         auto is = new ::java::io::FileInputStream(filename);
-        ::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs;
+        ::poi::poifs::filesystem::NPOIFSFileSystem* fs;
         {
             auto finally0 = finally([&] {
                 npc(is)->close();
             });
             {
-                fs = new ::org::apache::poi::poifs::filesystem::NPOIFSFileSystem(static_cast< ::java::io::InputStream* >(is));
+                fs = new ::poi::poifs::filesystem::NPOIFSFileSystem(static_cast< ::java::io::InputStream* >(is));
             }
         }
 
@@ -131,7 +131,7 @@ void org::apache::poi::poifs::dev::POIFSDump::main(::java::lang::StringArray* ar
                 npc(fs)->close();
             });
             {
-                ::org::apache::poi::poifs::filesystem::DirectoryEntry* root = npc(fs)->getRoot();
+                ::poi::poifs::filesystem::DirectoryEntry* root = npc(fs)->getRoot();
                 auto filenameWithoutPath = (new ::java::io::File(filename))->getName();
                 auto dumpDir = new ::java::io::File(::java::lang::StringBuilder().append(filenameWithoutPath)->append(u"_dump"_j)->toString());
                 auto file = new ::java::io::File(dumpDir, npc(root)->getName());
@@ -146,7 +146,7 @@ void org::apache::poi::poifs::dev::POIFSDump::main(::java::lang::StringArray* ar
                 if(dumpMini) {
                     auto props = npc(fs)->getPropertyTable();
                     auto startBlock = npc(npc(props)->getRoot())->getStartBlock();
-                    if(startBlock == ::org::apache::poi::poifs::common::POIFSConstants::END_OF_CHAIN) {
+                    if(startBlock == ::poi::poifs::common::POIFSConstants::END_OF_CHAIN) {
                         npc(::java::lang::System::err())->println(u"No Mini Stream in file"_j);
                     } else {
                         dump(fs, startBlock, u"mini-stream"_j, file);
@@ -158,15 +158,15 @@ void org::apache::poi::poifs::dev::POIFSDump::main(::java::lang::StringArray* ar
     }
 }
 
-void org::apache::poi::poifs::dev::POIFSDump::dump(::org::apache::poi::poifs::filesystem::DirectoryEntry* root, ::java::io::File* parent) /* throws(IOException) */
+void poi::poifs::dev::POIFSDump::dump(::poi::poifs::filesystem::DirectoryEntry* root, ::java::io::File* parent) /* throws(IOException) */
 {
     clinit();
     for (auto *it = npc(root)->getEntries(); npc(it)->hasNext(); ) {
-        auto entry = java_cast< ::org::apache::poi::poifs::filesystem::Entry* >(npc(it)->next());
-        if(dynamic_cast< ::org::apache::poi::poifs::filesystem::DocumentNode* >(entry) != nullptr) {
-            auto node = java_cast< ::org::apache::poi::poifs::filesystem::DocumentNode* >(entry);
-            auto is = new ::org::apache::poi::poifs::filesystem::DocumentInputStream(static_cast< ::org::apache::poi::poifs::filesystem::DocumentEntry* >(node));
-            auto bytes = ::org::apache::poi::util::IOUtils::toByteArray_(is);
+        auto entry = java_cast< ::poi::poifs::filesystem::Entry* >(npc(it)->next());
+        if(dynamic_cast< ::poi::poifs::filesystem::DocumentNode* >(entry) != nullptr) {
+            auto node = java_cast< ::poi::poifs::filesystem::DocumentNode* >(entry);
+            auto is = new ::poi::poifs::filesystem::DocumentInputStream(static_cast< ::poi::poifs::filesystem::DocumentEntry* >(node));
+            auto bytes = ::poi::util::IOUtils::toByteArray_(is);
             npc(is)->close();
             ::java::io::OutputStream* out = new ::java::io::FileOutputStream(new ::java::io::File(parent, npc(npc(node)->getName())->trim()));
             {
@@ -178,8 +178,8 @@ void org::apache::poi::poifs::dev::POIFSDump::dump(::org::apache::poi::poifs::fi
                 }
             }
 
-        } else if(dynamic_cast< ::org::apache::poi::poifs::filesystem::DirectoryEntry* >(entry) != nullptr) {
-            auto dir = java_cast< ::org::apache::poi::poifs::filesystem::DirectoryEntry* >(entry);
+        } else if(dynamic_cast< ::poi::poifs::filesystem::DirectoryEntry* >(entry) != nullptr) {
+            auto dir = java_cast< ::poi::poifs::filesystem::DirectoryEntry* >(entry);
             auto file = new ::java::io::File(parent, npc(entry)->getName());
             if(!npc(file)->exists() && !npc(file)->mkdirs()) {
                 throw new ::java::io::IOException(::java::lang::StringBuilder().append(u"Could not create directory "_j)->append(static_cast< ::java::lang::Object* >(file))->toString());
@@ -191,7 +191,7 @@ void org::apache::poi::poifs::dev::POIFSDump::dump(::org::apache::poi::poifs::fi
     }
 }
 
-void org::apache::poi::poifs::dev::POIFSDump::dump(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs, int32_t startBlock, ::java::lang::String* name, ::java::io::File* parent) /* throws(IOException) */
+void poi::poifs::dev::POIFSDump::dump(::poi::poifs::filesystem::NPOIFSFileSystem* fs, int32_t startBlock, ::java::lang::String* name, ::java::io::File* parent) /* throws(IOException) */
 {
     clinit();
     auto file = new ::java::io::File(parent, name);
@@ -201,7 +201,7 @@ void org::apache::poi::poifs::dev::POIFSDump::dump(::org::apache::poi::poifs::fi
             npc(out)->close();
         });
         {
-            auto stream = new ::org::apache::poi::poifs::filesystem::NPOIFSStream(fs, startBlock);
+            auto stream = new ::poi::poifs::filesystem::NPOIFSStream(fs, startBlock);
             auto b = new ::int8_tArray(npc(fs)->getBigBlockSize());
             for (auto _i = npc(stream)->iterator(); _i->hasNext(); ) {
                 ::java::nio::ByteBuffer* bb = java_cast< ::java::nio::ByteBuffer* >(_i->next());
@@ -218,13 +218,13 @@ void org::apache::poi::poifs::dev::POIFSDump::dump(::org::apache::poi::poifs::fi
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::dev::POIFSDump::class_()
+java::lang::Class* poi::poifs::dev::POIFSDump::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.dev.POIFSDump", 34);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::dev::POIFSDump::getClass0()
+java::lang::Class* poi::poifs::dev::POIFSDump::getClass0()
 {
     return class_();
 }

@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::usermodel::CellCopyPolicy_Builder
+class poi::ss::usermodel::CellCopyPolicy_Builder
     : public virtual ::java::lang::Object
 {
 

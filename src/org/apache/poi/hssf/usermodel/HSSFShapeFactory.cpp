@@ -50,49 +50,49 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::usermodel::HSSFShapeFactory::HSSFShapeFactory(const ::default_init_tag&)
+poi::hssf::usermodel::HSSFShapeFactory::HSSFShapeFactory(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::usermodel::HSSFShapeFactory::HSSFShapeFactory()
+poi::hssf::usermodel::HSSFShapeFactory::HSSFShapeFactory()
     : HSSFShapeFactory(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFShapeFactory::createShapeTree(::org::apache::poi::ddf::EscherContainerRecord* container, ::org::apache::poi::hssf::record::EscherAggregate* agg, HSSFShapeContainer* out, ::org::apache::poi::poifs::filesystem::DirectoryNode* root)
+void poi::hssf::usermodel::HSSFShapeFactory::createShapeTree(::poi::ddf::EscherContainerRecord* container, ::poi::hssf::record::EscherAggregate* agg, HSSFShapeContainer* out, ::poi::poifs::filesystem::DirectoryNode* root)
 {
     clinit();
-    if(npc(container)->getRecordId() == ::org::apache::poi::ddf::EscherContainerRecord::SPGR_CONTAINER) {
-        ::org::apache::poi::hssf::record::ObjRecord* obj = nullptr;
-        auto clientData = java_cast< ::org::apache::poi::ddf::EscherClientDataRecord* >(npc((java_cast< ::org::apache::poi::ddf::EscherContainerRecord* >(npc(container)->getChild(int32_t(0)))))->getChildById(::org::apache::poi::ddf::EscherClientDataRecord::RECORD_ID));
+    if(npc(container)->getRecordId() == ::poi::ddf::EscherContainerRecord::SPGR_CONTAINER) {
+        ::poi::hssf::record::ObjRecord* obj = nullptr;
+        auto clientData = java_cast< ::poi::ddf::EscherClientDataRecord* >(npc((java_cast< ::poi::ddf::EscherContainerRecord* >(npc(container)->getChild(int32_t(0)))))->getChildById(::poi::ddf::EscherClientDataRecord::RECORD_ID));
         if(nullptr != clientData) {
-            obj = java_cast< ::org::apache::poi::hssf::record::ObjRecord* >(java_cast< ::org::apache::poi::hssf::record::Record* >(npc(npc(agg)->getShapeToObjMapping())->get(clientData)));
+            obj = java_cast< ::poi::hssf::record::ObjRecord* >(java_cast< ::poi::hssf::record::Record* >(npc(npc(agg)->getShapeToObjMapping())->get(clientData)));
         }
         auto group = new HSSFShapeGroup(container, obj);
         auto children = npc(container)->getChildContainers();
         for (auto i = int32_t(0); i < npc(children)->size(); i++) {
-            auto spContainer = java_cast< ::org::apache::poi::ddf::EscherContainerRecord* >(npc(children)->get(i));
+            auto spContainer = java_cast< ::poi::ddf::EscherContainerRecord* >(npc(children)->get(i));
             if(i != 0) {
                 createShapeTree(spContainer, agg, group, root);
             }
         }
         npc(out)->addShape(group);
-    } else if(npc(container)->getRecordId() == ::org::apache::poi::ddf::EscherContainerRecord::SP_CONTAINER) {
+    } else if(npc(container)->getRecordId() == ::poi::ddf::EscherContainerRecord::SP_CONTAINER) {
         auto shapeToObj = npc(agg)->getShapeToObjMapping();
-        ::org::apache::poi::hssf::record::ObjRecord* objRecord = nullptr;
-        ::org::apache::poi::hssf::record::TextObjectRecord* txtRecord = nullptr;
+        ::poi::hssf::record::ObjRecord* objRecord = nullptr;
+        ::poi::hssf::record::TextObjectRecord* txtRecord = nullptr;
         for (auto _i = npc(container)->iterator(); _i->hasNext(); ) {
-            ::org::apache::poi::ddf::EscherRecord* record = java_cast< ::org::apache::poi::ddf::EscherRecord* >(_i->next());
+            ::poi::ddf::EscherRecord* record = java_cast< ::poi::ddf::EscherRecord* >(_i->next());
             {
                 switch (npc(record)->getRecordId()) {
-                case ::org::apache::poi::ddf::EscherClientDataRecord::RECORD_ID:
-                    objRecord = java_cast< ::org::apache::poi::hssf::record::ObjRecord* >(java_cast< ::org::apache::poi::hssf::record::Record* >(npc(shapeToObj)->get(record)));
+                case ::poi::ddf::EscherClientDataRecord::RECORD_ID:
+                    objRecord = java_cast< ::poi::hssf::record::ObjRecord* >(java_cast< ::poi::hssf::record::Record* >(npc(shapeToObj)->get(record)));
                     break;
-                case ::org::apache::poi::ddf::EscherTextboxRecord::RECORD_ID:
-                    txtRecord = java_cast< ::org::apache::poi::hssf::record::TextObjectRecord* >(java_cast< ::org::apache::poi::hssf::record::Record* >(npc(shapeToObj)->get(record)));
+                case ::poi::ddf::EscherTextboxRecord::RECORD_ID:
+                    txtRecord = java_cast< ::poi::hssf::record::TextObjectRecord* >(java_cast< ::poi::hssf::record::Record* >(npc(shapeToObj)->get(record)));
                     break;
                 default:
                     break;
@@ -101,36 +101,36 @@ void org::apache::poi::hssf::usermodel::HSSFShapeFactory::createShapeTree(::org:
             }
         }
         if(objRecord == nullptr) {
-            throw new ::org::apache::poi::util::RecordFormatException(u"EscherClientDataRecord can't be found."_j);
+            throw new ::poi::util::RecordFormatException(u"EscherClientDataRecord can't be found."_j);
         }
         if(isEmbeddedObject(objRecord)) {
             auto objectData = new HSSFObjectData(container, objRecord, root);
             npc(out)->addShape(objectData);
             return;
         }
-        auto cmo = java_cast< ::org::apache::poi::hssf::record::CommonObjectDataSubRecord* >(java_cast< ::org::apache::poi::hssf::record::SubRecord* >(npc(npc(objRecord)->getSubRecords())->get(0)));
+        auto cmo = java_cast< ::poi::hssf::record::CommonObjectDataSubRecord* >(java_cast< ::poi::hssf::record::SubRecord* >(npc(npc(objRecord)->getSubRecords())->get(0)));
         HSSFShape* shape;
         {
-            ::org::apache::poi::ddf::EscherOptRecord* optRecord;
+            ::poi::ddf::EscherOptRecord* optRecord;
             switch (npc(cmo)->getObjectType()) {
-            case ::org::apache::poi::hssf::record::CommonObjectDataSubRecord::OBJECT_TYPE_PICTURE:
+            case ::poi::hssf::record::CommonObjectDataSubRecord::OBJECT_TYPE_PICTURE:
                 shape = new HSSFPicture(container, objRecord);
                 break;
-            case ::org::apache::poi::hssf::record::CommonObjectDataSubRecord::OBJECT_TYPE_RECTANGLE:
+            case ::poi::hssf::record::CommonObjectDataSubRecord::OBJECT_TYPE_RECTANGLE:
                 shape = new HSSFSimpleShape(container, objRecord, txtRecord);
                 break;
-            case ::org::apache::poi::hssf::record::CommonObjectDataSubRecord::OBJECT_TYPE_LINE:
+            case ::poi::hssf::record::CommonObjectDataSubRecord::OBJECT_TYPE_LINE:
                 shape = new HSSFSimpleShape(container, objRecord);
                 break;
-            case ::org::apache::poi::hssf::record::CommonObjectDataSubRecord::OBJECT_TYPE_COMBO_BOX:
+            case ::poi::hssf::record::CommonObjectDataSubRecord::OBJECT_TYPE_COMBO_BOX:
                 shape = new HSSFCombobox(container, objRecord);
                 break;
-            case ::org::apache::poi::hssf::record::CommonObjectDataSubRecord::OBJECT_TYPE_MICROSOFT_OFFICE_DRAWING:
-                optRecord = java_cast< ::org::apache::poi::ddf::EscherOptRecord* >(npc(container)->getChildById(::org::apache::poi::ddf::EscherOptRecord::RECORD_ID));
+            case ::poi::hssf::record::CommonObjectDataSubRecord::OBJECT_TYPE_MICROSOFT_OFFICE_DRAWING:
+                optRecord = java_cast< ::poi::ddf::EscherOptRecord* >(npc(container)->getChildById(::poi::ddf::EscherOptRecord::RECORD_ID));
                 if(optRecord == nullptr) {
                     shape = new HSSFSimpleShape(container, objRecord, txtRecord);
                 } else {
-                    auto property = java_cast< ::org::apache::poi::ddf::EscherProperty* >(npc(optRecord)->lookup(::org::apache::poi::ddf::EscherProperties::GEOMETRY__VERTICES));
+                    auto property = java_cast< ::poi::ddf::EscherProperty* >(npc(optRecord)->lookup(::poi::ddf::EscherProperties::GEOMETRY__VERTICES));
                     if(nullptr != property) {
                         shape = new HSSFPolygon(container, objRecord, txtRecord);
                     } else {
@@ -138,10 +138,10 @@ void org::apache::poi::hssf::usermodel::HSSFShapeFactory::createShapeTree(::org:
                     }
                 }
                 break;
-            case ::org::apache::poi::hssf::record::CommonObjectDataSubRecord::OBJECT_TYPE_TEXT:
+            case ::poi::hssf::record::CommonObjectDataSubRecord::OBJECT_TYPE_TEXT:
                 shape = new HSSFTextbox(container, objRecord, txtRecord);
                 break;
-            case ::org::apache::poi::hssf::record::CommonObjectDataSubRecord::OBJECT_TYPE_COMMENT:
+            case ::poi::hssf::record::CommonObjectDataSubRecord::OBJECT_TYPE_COMMENT:
                 shape = new HSSFComment(container, objRecord, txtRecord, npc(agg)->getNoteRecordByObj(objRecord));
                 break;
             default:
@@ -153,13 +153,13 @@ void org::apache::poi::hssf::usermodel::HSSFShapeFactory::createShapeTree(::org:
     }
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFShapeFactory::isEmbeddedObject(::org::apache::poi::hssf::record::ObjRecord* obj)
+bool poi::hssf::usermodel::HSSFShapeFactory::isEmbeddedObject(::poi::hssf::record::ObjRecord* obj)
 {
     clinit();
     for (auto _i = npc(npc(obj)->getSubRecords())->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::hssf::record::SubRecord* sub = java_cast< ::org::apache::poi::hssf::record::SubRecord* >(_i->next());
+        ::poi::hssf::record::SubRecord* sub = java_cast< ::poi::hssf::record::SubRecord* >(_i->next());
         {
-            if(dynamic_cast< ::org::apache::poi::hssf::record::EmbeddedObjectRefSubRecord* >(sub) != nullptr) {
+            if(dynamic_cast< ::poi::hssf::record::EmbeddedObjectRefSubRecord* >(sub) != nullptr) {
                 return true;
             }
         }
@@ -169,13 +169,13 @@ bool org::apache::poi::hssf::usermodel::HSSFShapeFactory::isEmbeddedObject(::org
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFShapeFactory::class_()
+java::lang::Class* poi::hssf::usermodel::HSSFShapeFactory::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.usermodel.HSSFShapeFactory", 46);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFShapeFactory::getClass0()
+java::lang::Class* poi::hssf::usermodel::HSSFShapeFactory::getClass0()
 {
     return class_();
 }

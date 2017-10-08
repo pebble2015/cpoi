@@ -6,7 +6,7 @@
 #include <org/apache/poi/ss/util/cellwalk/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::util::cellwalk::CellWalkContext
+struct poi::ss::util::cellwalk::CellWalkContext
     : public virtual ::java::lang::Object
 {
     virtual int64_t getOrdinalNumber() = 0;

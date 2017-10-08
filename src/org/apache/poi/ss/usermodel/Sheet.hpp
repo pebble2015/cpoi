@@ -9,7 +9,7 @@
 #include <org/apache/poi/ss/util/fwd-POI.hpp>
 #include <java/lang/Iterable.hpp>
 
-struct org::apache::poi::ss::usermodel::Sheet
+struct poi::ss::usermodel::Sheet
     : public virtual ::java::lang::Iterable
 {
     static constexpr int16_t LeftMargin { int16_t(0) };
@@ -42,8 +42,8 @@ struct org::apache::poi::ss::usermodel::Sheet
     virtual void setDefaultRowHeight(int16_t height) = 0;
     virtual void setDefaultRowHeightInPoints(float height) = 0;
     virtual CellStyle* getColumnStyle(int32_t column) = 0;
-    virtual int32_t addMergedRegion(::org::apache::poi::ss::util::CellRangeAddress* region) = 0;
-    virtual int32_t addMergedRegionUnsafe(::org::apache::poi::ss::util::CellRangeAddress* region) = 0;
+    virtual int32_t addMergedRegion(::poi::ss::util::CellRangeAddress* region) = 0;
+    virtual int32_t addMergedRegionUnsafe(::poi::ss::util::CellRangeAddress* region) = 0;
     virtual void validateMergedRegions() = 0;
     virtual void setVerticallyCenter(bool value) = 0;
     virtual void setHorizontallyCenter(bool value) = 0;
@@ -52,7 +52,7 @@ struct org::apache::poi::ss::usermodel::Sheet
     virtual void removeMergedRegion(int32_t index) = 0;
     virtual void removeMergedRegions(::java::util::Collection* indices) = 0;
     virtual int32_t getNumMergedRegions() = 0;
-    virtual ::org::apache::poi::ss::util::CellRangeAddress* getMergedRegion(int32_t index) = 0;
+    virtual ::poi::ss::util::CellRangeAddress* getMergedRegion(int32_t index) = 0;
     virtual ::java::util::List* getMergedRegions() = 0;
     virtual ::java::util::Iterator* rowIterator() = 0;
     virtual void setForceFormulaRecalculation(bool value) = 0;
@@ -91,7 +91,7 @@ struct org::apache::poi::ss::usermodel::Sheet
     virtual void createFreezePane(int32_t colSplit, int32_t rowSplit, int32_t leftmostColumn, int32_t topRow) = 0;
     virtual void createFreezePane(int32_t colSplit, int32_t rowSplit) = 0;
     virtual void createSplitPane(int32_t xSplitPos, int32_t ySplitPos, int32_t leftmostColumn, int32_t topRow, int32_t activePane) = 0;
-    virtual ::org::apache::poi::ss::util::PaneInformation* getPaneInformation() = 0;
+    virtual ::poi::ss::util::PaneInformation* getPaneInformation() = 0;
     virtual void setDisplayGridlines(bool show) = 0;
     virtual bool isDisplayGridlines() = 0;
     virtual void setDisplayFormulas(bool show) = 0;
@@ -115,30 +115,30 @@ struct org::apache::poi::ss::usermodel::Sheet
     virtual void setDefaultColumnStyle(int32_t column, CellStyle* style) = 0;
     virtual void autoSizeColumn(int32_t column) = 0;
     virtual void autoSizeColumn(int32_t column, bool useMergedCells) = 0;
-    virtual Comment* getCellComment(::org::apache::poi::ss::util::CellAddress* ref) = 0;
+    virtual Comment* getCellComment(::poi::ss::util::CellAddress* ref) = 0;
     virtual ::java::util::Map* getCellComments() = 0;
     virtual Drawing* getDrawingPatriarch() = 0;
     virtual Drawing* createDrawingPatriarch() = 0;
     virtual Workbook* getWorkbook() = 0;
     virtual ::java::lang::String* getSheetName() = 0;
     virtual bool isSelected() = 0;
-    virtual CellRange* setArrayFormula(::java::lang::String* formula, ::org::apache::poi::ss::util::CellRangeAddress* range) = 0;
+    virtual CellRange* setArrayFormula(::java::lang::String* formula, ::poi::ss::util::CellRangeAddress* range) = 0;
     virtual CellRange* removeArrayFormula(Cell* cell) = 0;
     virtual DataValidationHelper* getDataValidationHelper() = 0;
     virtual ::java::util::List* getDataValidations() = 0;
     virtual void addValidationData(DataValidation* dataValidation) = 0;
-    virtual AutoFilter* setAutoFilter(::org::apache::poi::ss::util::CellRangeAddress* range) = 0;
+    virtual AutoFilter* setAutoFilter(::poi::ss::util::CellRangeAddress* range) = 0;
     virtual SheetConditionalFormatting* getSheetConditionalFormatting() = 0;
-    virtual ::org::apache::poi::ss::util::CellRangeAddress* getRepeatingRows() = 0;
-    virtual ::org::apache::poi::ss::util::CellRangeAddress* getRepeatingColumns() = 0;
-    virtual void setRepeatingRows(::org::apache::poi::ss::util::CellRangeAddress* rowRangeRef) = 0;
-    virtual void setRepeatingColumns(::org::apache::poi::ss::util::CellRangeAddress* columnRangeRef) = 0;
+    virtual ::poi::ss::util::CellRangeAddress* getRepeatingRows() = 0;
+    virtual ::poi::ss::util::CellRangeAddress* getRepeatingColumns() = 0;
+    virtual void setRepeatingRows(::poi::ss::util::CellRangeAddress* rowRangeRef) = 0;
+    virtual void setRepeatingColumns(::poi::ss::util::CellRangeAddress* columnRangeRef) = 0;
     virtual int32_t getColumnOutlineLevel(int32_t columnIndex) = 0;
     virtual Hyperlink* getHyperlink(int32_t row, int32_t column) = 0;
-    virtual Hyperlink* getHyperlink(::org::apache::poi::ss::util::CellAddress* addr) = 0;
+    virtual Hyperlink* getHyperlink(::poi::ss::util::CellAddress* addr) = 0;
     virtual ::java::util::List* getHyperlinkList() = 0;
-    virtual ::org::apache::poi::ss::util::CellAddress* getActiveCell() = 0;
-    virtual void setActiveCell(::org::apache::poi::ss::util::CellAddress* address) = 0;
+    virtual ::poi::ss::util::CellAddress* getActiveCell() = 0;
+    virtual void setActiveCell(::poi::ss::util::CellAddress* address) = 0;
 
     // Generated
     static ::java::lang::Class *class_();

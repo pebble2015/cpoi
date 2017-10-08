@@ -28,92 +28,92 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::eval::ErrorEval::ErrorEval(const ::default_init_tag&)
+poi::ss::formula::eval::ErrorEval::ErrorEval(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::eval::ErrorEval::ErrorEval(::org::apache::poi::ss::usermodel::FormulaError* error) 
+poi::ss::formula::eval::ErrorEval::ErrorEval(::poi::ss::usermodel::FormulaError* error) 
     : ErrorEval(*static_cast< ::default_init_tag* >(0))
 {
     ctor(error);
 }
 
-java::util::Map*& org::apache::poi::ss::formula::eval::ErrorEval::evals()
+java::util::Map*& poi::ss::formula::eval::ErrorEval::evals()
 {
     clinit();
     return evals_;
 }
-java::util::Map* org::apache::poi::ss::formula::eval::ErrorEval::evals_;
+java::util::Map* poi::ss::formula::eval::ErrorEval::evals_;
 
-org::apache::poi::ss::formula::eval::ErrorEval*& org::apache::poi::ss::formula::eval::ErrorEval::NULL_INTERSECTION()
+poi::ss::formula::eval::ErrorEval*& poi::ss::formula::eval::ErrorEval::NULL_INTERSECTION()
 {
     clinit();
     return NULL_INTERSECTION_;
 }
-org::apache::poi::ss::formula::eval::ErrorEval* org::apache::poi::ss::formula::eval::ErrorEval::NULL_INTERSECTION_;
+poi::ss::formula::eval::ErrorEval* poi::ss::formula::eval::ErrorEval::NULL_INTERSECTION_;
 
-org::apache::poi::ss::formula::eval::ErrorEval*& org::apache::poi::ss::formula::eval::ErrorEval::DIV_ZERO()
+poi::ss::formula::eval::ErrorEval*& poi::ss::formula::eval::ErrorEval::DIV_ZERO()
 {
     clinit();
     return DIV_ZERO_;
 }
-org::apache::poi::ss::formula::eval::ErrorEval* org::apache::poi::ss::formula::eval::ErrorEval::DIV_ZERO_;
+poi::ss::formula::eval::ErrorEval* poi::ss::formula::eval::ErrorEval::DIV_ZERO_;
 
-org::apache::poi::ss::formula::eval::ErrorEval*& org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID()
+poi::ss::formula::eval::ErrorEval*& poi::ss::formula::eval::ErrorEval::VALUE_INVALID()
 {
     clinit();
     return VALUE_INVALID_;
 }
-org::apache::poi::ss::formula::eval::ErrorEval* org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID_;
+poi::ss::formula::eval::ErrorEval* poi::ss::formula::eval::ErrorEval::VALUE_INVALID_;
 
-org::apache::poi::ss::formula::eval::ErrorEval*& org::apache::poi::ss::formula::eval::ErrorEval::REF_INVALID()
+poi::ss::formula::eval::ErrorEval*& poi::ss::formula::eval::ErrorEval::REF_INVALID()
 {
     clinit();
     return REF_INVALID_;
 }
-org::apache::poi::ss::formula::eval::ErrorEval* org::apache::poi::ss::formula::eval::ErrorEval::REF_INVALID_;
+poi::ss::formula::eval::ErrorEval* poi::ss::formula::eval::ErrorEval::REF_INVALID_;
 
-org::apache::poi::ss::formula::eval::ErrorEval*& org::apache::poi::ss::formula::eval::ErrorEval::NAME_INVALID()
+poi::ss::formula::eval::ErrorEval*& poi::ss::formula::eval::ErrorEval::NAME_INVALID()
 {
     clinit();
     return NAME_INVALID_;
 }
-org::apache::poi::ss::formula::eval::ErrorEval* org::apache::poi::ss::formula::eval::ErrorEval::NAME_INVALID_;
+poi::ss::formula::eval::ErrorEval* poi::ss::formula::eval::ErrorEval::NAME_INVALID_;
 
-org::apache::poi::ss::formula::eval::ErrorEval*& org::apache::poi::ss::formula::eval::ErrorEval::NUM_ERROR()
+poi::ss::formula::eval::ErrorEval*& poi::ss::formula::eval::ErrorEval::NUM_ERROR()
 {
     clinit();
     return NUM_ERROR_;
 }
-org::apache::poi::ss::formula::eval::ErrorEval* org::apache::poi::ss::formula::eval::ErrorEval::NUM_ERROR_;
+poi::ss::formula::eval::ErrorEval* poi::ss::formula::eval::ErrorEval::NUM_ERROR_;
 
-org::apache::poi::ss::formula::eval::ErrorEval*& org::apache::poi::ss::formula::eval::ErrorEval::NA()
+poi::ss::formula::eval::ErrorEval*& poi::ss::formula::eval::ErrorEval::NA()
 {
     clinit();
     return NA_;
 }
-org::apache::poi::ss::formula::eval::ErrorEval* org::apache::poi::ss::formula::eval::ErrorEval::NA_;
+poi::ss::formula::eval::ErrorEval* poi::ss::formula::eval::ErrorEval::NA_;
 
-org::apache::poi::ss::formula::eval::ErrorEval*& org::apache::poi::ss::formula::eval::ErrorEval::FUNCTION_NOT_IMPLEMENTED()
+poi::ss::formula::eval::ErrorEval*& poi::ss::formula::eval::ErrorEval::FUNCTION_NOT_IMPLEMENTED()
 {
     clinit();
     return FUNCTION_NOT_IMPLEMENTED_;
 }
-org::apache::poi::ss::formula::eval::ErrorEval* org::apache::poi::ss::formula::eval::ErrorEval::FUNCTION_NOT_IMPLEMENTED_;
+poi::ss::formula::eval::ErrorEval* poi::ss::formula::eval::ErrorEval::FUNCTION_NOT_IMPLEMENTED_;
 
-org::apache::poi::ss::formula::eval::ErrorEval*& org::apache::poi::ss::formula::eval::ErrorEval::CIRCULAR_REF_ERROR()
+poi::ss::formula::eval::ErrorEval*& poi::ss::formula::eval::ErrorEval::CIRCULAR_REF_ERROR()
 {
     clinit();
     return CIRCULAR_REF_ERROR_;
 }
-org::apache::poi::ss::formula::eval::ErrorEval* org::apache::poi::ss::formula::eval::ErrorEval::CIRCULAR_REF_ERROR_;
+poi::ss::formula::eval::ErrorEval* poi::ss::formula::eval::ErrorEval::CIRCULAR_REF_ERROR_;
 
-org::apache::poi::ss::formula::eval::ErrorEval* org::apache::poi::ss::formula::eval::ErrorEval::valueOf(int32_t errorCode)
+poi::ss::formula::eval::ErrorEval* poi::ss::formula::eval::ErrorEval::valueOf(int32_t errorCode)
 {
     clinit();
-    auto error = ::org::apache::poi::ss::usermodel::FormulaError::forInt(errorCode);
+    auto error = ::poi::ss::usermodel::FormulaError::forInt(errorCode);
     auto eval = java_cast< ErrorEval* >(npc(evals_)->get(error));
     if(eval != nullptr) {
         return eval;
@@ -122,34 +122,34 @@ org::apache::poi::ss::formula::eval::ErrorEval* org::apache::poi::ss::formula::e
     }
 }
 
-java::lang::String* org::apache::poi::ss::formula::eval::ErrorEval::getText(int32_t errorCode)
+java::lang::String* poi::ss::formula::eval::ErrorEval::getText(int32_t errorCode)
 {
     clinit();
-    if(::org::apache::poi::ss::usermodel::FormulaError::isValidCode(errorCode)) {
-        return npc(::org::apache::poi::ss::usermodel::FormulaError::forInt(errorCode))->getString();
+    if(::poi::ss::usermodel::FormulaError::isValidCode(errorCode)) {
+        return npc(::poi::ss::usermodel::FormulaError::forInt(errorCode))->getString();
     }
     return ::java::lang::StringBuilder().append(u"~non~std~err("_j)->append(errorCode)
         ->append(u")~"_j)->toString();
 }
 
-void org::apache::poi::ss::formula::eval::ErrorEval::ctor(::org::apache::poi::ss::usermodel::FormulaError* error)
+void poi::ss::formula::eval::ErrorEval::ctor(::poi::ss::usermodel::FormulaError* error)
 {
     super::ctor();
     _error = error;
     npc(evals_)->put(error, this);
 }
 
-int32_t org::apache::poi::ss::formula::eval::ErrorEval::getErrorCode()
+int32_t poi::ss::formula::eval::ErrorEval::getErrorCode()
 {
     return npc(_error)->getLongCode();
 }
 
-java::lang::String* org::apache::poi::ss::formula::eval::ErrorEval::getErrorString()
+java::lang::String* poi::ss::formula::eval::ErrorEval::getErrorString()
 {
     return npc(_error)->getString();
 }
 
-java::lang::String* org::apache::poi::ss::formula::eval::ErrorEval::toString()
+java::lang::String* poi::ss::formula::eval::ErrorEval::toString()
 {
     return ::java::lang::StringBuilder().append(npc(getClass())->getName())->append(u" ["_j)
         ->append(npc(_error)->getString())
@@ -158,13 +158,13 @@ java::lang::String* org::apache::poi::ss::formula::eval::ErrorEval::toString()
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::eval::ErrorEval::class_()
+java::lang::Class* poi::ss::formula::eval::ErrorEval::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.eval.ErrorEval", 40);
     return c;
 }
 
-void org::apache::poi::ss::formula::eval::ErrorEval::clinit()
+void poi::ss::formula::eval::ErrorEval::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -172,15 +172,15 @@ struct clinit_ {
     clinit_() {
         in_cl_init = true;
         evals_ = new ::java::util::HashMap();
-        NULL_INTERSECTION_ = new ErrorEval(::org::apache::poi::ss::usermodel::FormulaError::NULL_);
-        DIV_ZERO_ = new ErrorEval(::org::apache::poi::ss::usermodel::FormulaError::DIV0);
-        VALUE_INVALID_ = new ErrorEval(::org::apache::poi::ss::usermodel::FormulaError::VALUE);
-        REF_INVALID_ = new ErrorEval(::org::apache::poi::ss::usermodel::FormulaError::REF);
-        NAME_INVALID_ = new ErrorEval(::org::apache::poi::ss::usermodel::FormulaError::NAME);
-        NUM_ERROR_ = new ErrorEval(::org::apache::poi::ss::usermodel::FormulaError::NUM);
-        NA_ = new ErrorEval(::org::apache::poi::ss::usermodel::FormulaError::NA);
-        FUNCTION_NOT_IMPLEMENTED_ = new ErrorEval(::org::apache::poi::ss::usermodel::FormulaError::FUNCTION_NOT_IMPLEMENTED);
-        CIRCULAR_REF_ERROR_ = new ErrorEval(::org::apache::poi::ss::usermodel::FormulaError::CIRCULAR_REF);
+        NULL_INTERSECTION_ = new ErrorEval(::poi::ss::usermodel::FormulaError::NULL_);
+        DIV_ZERO_ = new ErrorEval(::poi::ss::usermodel::FormulaError::DIV0);
+        VALUE_INVALID_ = new ErrorEval(::poi::ss::usermodel::FormulaError::VALUE);
+        REF_INVALID_ = new ErrorEval(::poi::ss::usermodel::FormulaError::REF);
+        NAME_INVALID_ = new ErrorEval(::poi::ss::usermodel::FormulaError::NAME);
+        NUM_ERROR_ = new ErrorEval(::poi::ss::usermodel::FormulaError::NUM);
+        NA_ = new ErrorEval(::poi::ss::usermodel::FormulaError::NA);
+        FUNCTION_NOT_IMPLEMENTED_ = new ErrorEval(::poi::ss::usermodel::FormulaError::FUNCTION_NOT_IMPLEMENTED);
+        CIRCULAR_REF_ERROR_ = new ErrorEval(::poi::ss::usermodel::FormulaError::CIRCULAR_REF);
     }
 };
 
@@ -189,7 +189,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::formula::eval::ErrorEval::getClass0()
+java::lang::Class* poi::ss::formula::eval::ErrorEval::getClass0()
 {
     return class_();
 }

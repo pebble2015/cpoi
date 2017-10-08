@@ -10,29 +10,23 @@
 #include <org/apache/poi/hssf/record/StandardRecord.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
-            {
-                namespace record
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::Record, RecordBaseArray > RecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::StandardRecord, RecordArray > StandardRecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::BoundSheetRecord, StandardRecordArray > BoundSheetRecordArray;
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
+typedef ::SubArray< ::poi::hssf::record::Record, RecordBaseArray > RecordArray;
+typedef ::SubArray< ::poi::hssf::record::StandardRecord, RecordArray > StandardRecordArray;
+typedef ::SubArray< ::poi::hssf::record::BoundSheetRecord, StandardRecordArray > BoundSheetRecordArray;
+        } // record
+    } // hssf
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::BoundSheetRecord final
+class poi::hssf::record::BoundSheetRecord final
     : public StandardRecord
 {
 
@@ -41,8 +35,8 @@ public:
     static constexpr int16_t sid { int16_t(133) };
 
 private:
-    static ::org::apache::poi::util::BitField* hiddenFlag_;
-    static ::org::apache::poi::util::BitField* veryHiddenFlag_;
+    static ::poi::util::BitField* hiddenFlag_;
+    static ::poi::util::BitField* veryHiddenFlag_;
     int32_t field_1_position_of_BOF {  };
     int32_t field_2_option_flags {  };
     int32_t field_4_isMultibyteUnicode {  };
@@ -67,7 +61,7 @@ public: /* protected */
     int32_t getDataSize() override;
 
 public:
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
     int16_t getSid() override;
     bool isHidden();
     void setHidden(bool hidden);
@@ -94,8 +88,8 @@ public:
     ::int8_tArray* serialize();
 
 private:
-    static ::org::apache::poi::util::BitField*& hiddenFlag();
-    static ::org::apache::poi::util::BitField*& veryHiddenFlag();
+    static ::poi::util::BitField*& hiddenFlag();
+    static ::poi::util::BitField*& veryHiddenFlag();
     static ::java::util::Comparator*& BOFComparator();
     virtual ::java::lang::Class* getClass0();
     friend class BoundSheetRecord_1;

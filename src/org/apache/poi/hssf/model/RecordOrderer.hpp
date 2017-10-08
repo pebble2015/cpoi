@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::model::RecordOrderer final
+class poi::hssf::model::RecordOrderer final
     : public ::java::lang::Object
 {
 
@@ -21,7 +21,7 @@ protected:
     void ctor();
 
 public:
-    static void addNewSheetRecord(::java::util::List* sheetRecords, ::org::apache::poi::hssf::record::RecordBase* newRecord);
+    static void addNewSheetRecord(::java::util::List* sheetRecords, ::poi::hssf::record::RecordBase* newRecord);
 
 private:
     static int32_t findSheetInsertPos(::java::util::List* records, ::java::lang::Class* recClass);
@@ -32,11 +32,11 @@ private:
     static int32_t findInsertPosForNewCondFormatTable(::java::util::List* records);
     static int32_t findInsertPosForNewMergedRecordTable(::java::util::List* records);
     static int32_t findDataValidationTableInsertPos(::java::util::List* records);
-    static bool isDVTPriorRecord(::org::apache::poi::hssf::record::RecordBase* rb);
+    static bool isDVTPriorRecord(::poi::hssf::record::RecordBase* rb);
     static bool isDVTSubsequentRecord(int16_t sid);
     static int32_t getDimensionsIndex(::java::util::List* records);
     static int32_t getGutsRecordInsertPos(::java::util::List* records);
-    static bool isGutsPriorRecord(::org::apache::poi::hssf::record::RecordBase* rb);
+    static bool isGutsPriorRecord(::poi::hssf::record::RecordBase* rb);
 
 public:
     static bool isEndOfRowBlock(int32_t sid);

@@ -17,36 +17,30 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace ss
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::ConditionalFormattingThreshold, ::java::lang::ObjectArray > ConditionalFormattingThresholdArray;
-                } // usermodel
-            } // ss
+typedef ::SubArray< ::poi::ss::usermodel::ConditionalFormattingThreshold, ::java::lang::ObjectArray > ConditionalFormattingThresholdArray;
+        } // usermodel
+    } // ss
 
-            namespace hssf
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::usermodel::HSSFConditionalFormattingThreshold, ::java::lang::ObjectArray, ::org::apache::poi::ss::usermodel::ConditionalFormattingThresholdArray > HSSFConditionalFormattingThresholdArray;
-                } // usermodel
-            } // hssf
-        } // poi
-    } // apache
-} // org
+    namespace hssf
+    {
+        namespace usermodel
+        {
+typedef ::SubArray< ::poi::hssf::usermodel::HSSFConditionalFormattingThreshold, ::java::lang::ObjectArray, ::poi::ss::usermodel::ConditionalFormattingThresholdArray > HSSFConditionalFormattingThresholdArray;
+        } // usermodel
+    } // hssf
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFIconMultiStateFormatting final
+class poi::hssf::usermodel::HSSFIconMultiStateFormatting final
     : public virtual ::java::lang::Object
-    , public ::org::apache::poi::ss::usermodel::IconMultiStateFormatting
+    , public ::poi::ss::usermodel::IconMultiStateFormatting
 {
 
 public:
@@ -54,26 +48,26 @@ public:
 
 private:
     HSSFSheet* sheet {  };
-    ::org::apache::poi::hssf::record::CFRule12Record* cfRule12Record {  };
-    ::org::apache::poi::hssf::record::cf::IconMultiStateFormatting* iconFormatting {  };
+    ::poi::hssf::record::CFRule12Record* cfRule12Record {  };
+    ::poi::hssf::record::cf::IconMultiStateFormatting* iconFormatting {  };
 protected:
-    void ctor(::org::apache::poi::hssf::record::CFRule12Record* cfRule12Record, HSSFSheet* sheet);
+    void ctor(::poi::hssf::record::CFRule12Record* cfRule12Record, HSSFSheet* sheet);
 
 public:
-    ::org::apache::poi::ss::usermodel::IconMultiStateFormatting_IconSet* getIconSet() override;
-    void setIconSet(::org::apache::poi::ss::usermodel::IconMultiStateFormatting_IconSet* set) override;
+    ::poi::ss::usermodel::IconMultiStateFormatting_IconSet* getIconSet() override;
+    void setIconSet(::poi::ss::usermodel::IconMultiStateFormatting_IconSet* set) override;
     bool isIconOnly() override;
     void setIconOnly(bool only) override;
     bool isReversed() override;
     void setReversed(bool reversed) override;
     HSSFConditionalFormattingThresholdArray* getThresholds() override;
-    void setThresholds(::org::apache::poi::ss::usermodel::ConditionalFormattingThresholdArray* thresholds) override;
+    void setThresholds(::poi::ss::usermodel::ConditionalFormattingThresholdArray* thresholds) override;
     HSSFConditionalFormattingThreshold* createThreshold() override;
 
     // Generated
 
 public: /* protected */
-    HSSFIconMultiStateFormatting(::org::apache::poi::hssf::record::CFRule12Record* cfRule12Record, HSSFSheet* sheet);
+    HSSFIconMultiStateFormatting(::poi::hssf::record::CFRule12Record* cfRule12Record, HSSFSheet* sheet);
 protected:
     HSSFIconMultiStateFormatting(const ::default_init_tag&);
 

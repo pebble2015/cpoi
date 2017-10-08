@@ -10,18 +10,18 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFPrintSetup
+class poi::hssf::usermodel::HSSFPrintSetup
     : public virtual ::java::lang::Object
-    , public virtual ::org::apache::poi::ss::usermodel::PrintSetup
+    , public virtual ::poi::ss::usermodel::PrintSetup
 {
 
 public:
     typedef ::java::lang::Object super;
 
 public: /* package */
-    ::org::apache::poi::hssf::record::PrintSetupRecord* printSetupRecord {  };
+    ::poi::hssf::record::PrintSetupRecord* printSetupRecord {  };
 protected:
-    void ctor(::org::apache::poi::hssf::record::PrintSetupRecord* printSetupRecord);
+    void ctor(::poi::hssf::record::PrintSetupRecord* printSetupRecord);
 
 public:
     void setPaperSize(int16_t size) override;
@@ -66,7 +66,7 @@ public:
     // Generated
 
 public: /* protected */
-    HSSFPrintSetup(::org::apache::poi::hssf::record::PrintSetupRecord* printSetupRecord);
+    HSSFPrintSetup(::poi::hssf::record::PrintSetupRecord* printSetupRecord);
 protected:
     HSSFPrintSetup(const ::default_init_tag&);
 

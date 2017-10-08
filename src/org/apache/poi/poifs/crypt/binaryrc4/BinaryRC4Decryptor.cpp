@@ -46,31 +46,31 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::crypt::binaryrc4::BinaryRC4Decryptor::BinaryRC4Decryptor(const ::default_init_tag&)
+poi::poifs::crypt::binaryrc4::BinaryRC4Decryptor::BinaryRC4Decryptor(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::crypt::binaryrc4::BinaryRC4Decryptor::BinaryRC4Decryptor() 
+poi::poifs::crypt::binaryrc4::BinaryRC4Decryptor::BinaryRC4Decryptor() 
     : BinaryRC4Decryptor(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::poifs::crypt::binaryrc4::BinaryRC4Decryptor::init()
+void poi::poifs::crypt::binaryrc4::BinaryRC4Decryptor::init()
 {
     length = -int64_t(1LL);
     chunkSize = int32_t(512);
 }
 
-void org::apache::poi::poifs::crypt::binaryrc4::BinaryRC4Decryptor::ctor()
+void poi::poifs::crypt::binaryrc4::BinaryRC4Decryptor::ctor()
 {
     super::ctor();
     init();
 }
 
-bool org::apache::poi::poifs::crypt::binaryrc4::BinaryRC4Decryptor::verifyPassword(::java::lang::String* password)
+bool poi::poifs::crypt::binaryrc4::BinaryRC4Decryptor::verifyPassword(::java::lang::String* password)
 {
     auto ver = npc(getEncryptionInfo())->getVerifier();
     auto skey = generateSecretKey(password, ver);
@@ -83,50 +83,50 @@ bool org::apache::poi::poifs::crypt::binaryrc4::BinaryRC4Decryptor::verifyPasswo
         auto encryptedVerifierHash = npc(ver)->getEncryptedVerifierHash();
         auto verifierHash = npc(cipher)->doFinal(encryptedVerifierHash);
         auto hashAlgo = npc(ver)->getHashAlgorithm();
-        auto hashAlg = ::org::apache::poi::poifs::crypt::CryptoFunctions::getMessageDigest(hashAlgo);
+        auto hashAlg = ::poi::poifs::crypt::CryptoFunctions::getMessageDigest(hashAlgo);
         auto calcVerifierHash = npc(hashAlg)->digest(verifier);
         if(::java::util::Arrays::equals(calcVerifierHash, verifierHash)) {
             setSecretKey(skey);
             return true;
         }
     } catch (::java::security::GeneralSecurityException* e) {
-        throw new ::org::apache::poi::EncryptedDocumentException(static_cast< ::java::lang::Throwable* >(e));
+        throw new ::poi::EncryptedDocumentException(static_cast< ::java::lang::Throwable* >(e));
     }
     return false;
 }
 
-javax::crypto::Cipher* org::apache::poi::poifs::crypt::binaryrc4::BinaryRC4Decryptor::initCipherForBlock(::javax::crypto::Cipher* cipher, int32_t block) /* throws(GeneralSecurityException) */
+javax::crypto::Cipher* poi::poifs::crypt::binaryrc4::BinaryRC4Decryptor::initCipherForBlock(::javax::crypto::Cipher* cipher, int32_t block) /* throws(GeneralSecurityException) */
 {
     return initCipherForBlock(cipher, block, getEncryptionInfo(), getSecretKey(), ::javax::crypto::Cipher::DECRYPT_MODE);
 }
 
-javax::crypto::Cipher* org::apache::poi::poifs::crypt::binaryrc4::BinaryRC4Decryptor::initCipherForBlock(::javax::crypto::Cipher* cipher, int32_t block, ::org::apache::poi::poifs::crypt::EncryptionInfo* encryptionInfo, ::javax::crypto::SecretKey* skey, int32_t encryptMode) /* throws(GeneralSecurityException) */
+javax::crypto::Cipher* poi::poifs::crypt::binaryrc4::BinaryRC4Decryptor::initCipherForBlock(::javax::crypto::Cipher* cipher, int32_t block, ::poi::poifs::crypt::EncryptionInfo* encryptionInfo, ::javax::crypto::SecretKey* skey, int32_t encryptMode) /* throws(GeneralSecurityException) */
 {
     clinit();
     auto ver = npc(encryptionInfo)->getVerifier();
     auto hashAlgo = npc(ver)->getHashAlgorithm();
     auto blockKey = new ::int8_tArray(int32_t(4));
-    ::org::apache::poi::util::LittleEndian::putUInt(blockKey, 0, block);
-    auto encKey = ::org::apache::poi::poifs::crypt::CryptoFunctions::generateKey(npc(skey)->getEncoded(), hashAlgo, blockKey, 16);
+    ::poi::util::LittleEndian::putUInt(blockKey, 0, block);
+    auto encKey = ::poi::poifs::crypt::CryptoFunctions::generateKey(npc(skey)->getEncoded(), hashAlgo, blockKey, 16);
     ::javax::crypto::SecretKey* key = new ::javax::crypto::spec::SecretKeySpec(encKey, npc(skey)->getAlgorithm());
     if(cipher == nullptr) {
         auto em = npc(encryptionInfo)->getHeader();
-        cipher = ::org::apache::poi::poifs::crypt::CryptoFunctions::getCipher(key, npc(em)->getCipherAlgorithm(), nullptr, nullptr, encryptMode);
+        cipher = ::poi::poifs::crypt::CryptoFunctions::getCipher(key, npc(em)->getCipherAlgorithm(), nullptr, nullptr, encryptMode);
     } else {
         npc(cipher)->init_(encryptMode, static_cast< ::java::security::Key* >(key));
     }
     return cipher;
 }
 
-javax::crypto::SecretKey* org::apache::poi::poifs::crypt::binaryrc4::BinaryRC4Decryptor::generateSecretKey(::java::lang::String* password, ::org::apache::poi::poifs::crypt::EncryptionVerifier* ver)
+javax::crypto::SecretKey* poi::poifs::crypt::binaryrc4::BinaryRC4Decryptor::generateSecretKey(::java::lang::String* password, ::poi::poifs::crypt::EncryptionVerifier* ver)
 {
     clinit();
     if(npc(password)->length() > 255) {
         password = npc(password)->substring(0, 255);
     }
     auto hashAlgo = npc(ver)->getHashAlgorithm();
-    auto hashAlg = ::org::apache::poi::poifs::crypt::CryptoFunctions::getMessageDigest(hashAlgo);
-    auto hash = npc(hashAlg)->digest(::org::apache::poi::util::StringUtil::getToUnicodeLE(password));
+    auto hashAlg = ::poi::poifs::crypt::CryptoFunctions::getMessageDigest(hashAlgo);
+    auto hash = npc(hashAlg)->digest(::poi::util::StringUtil::getToUnicodeLE(password));
     auto salt = npc(ver)->getSalt();
     npc(hashAlg)->reset();
     for (auto i = int32_t(0); i < 16; i++) {
@@ -139,19 +139,19 @@ javax::crypto::SecretKey* org::apache::poi::poifs::crypt::binaryrc4::BinaryRC4De
     return skey;
 }
 
-org::apache::poi::poifs::crypt::ChunkedCipherInputStream* org::apache::poi::poifs::crypt::binaryrc4::BinaryRC4Decryptor::getDataStream(::org::apache::poi::poifs::filesystem::DirectoryNode* dir) /* throws(IOException, GeneralSecurityException) */
+poi::poifs::crypt::ChunkedCipherInputStream* poi::poifs::crypt::binaryrc4::BinaryRC4Decryptor::getDataStream(::poi::poifs::filesystem::DirectoryNode* dir) /* throws(IOException, GeneralSecurityException) */
 {
     auto dis = npc(dir)->createDocumentInputStream(DEFAULT_POIFS_ENTRY());
     length = npc(dis)->readLong();
     return new BinaryRC4Decryptor_BinaryRC4CipherInputStream(this, dis, length);
 }
 
-java::io::InputStream* org::apache::poi::poifs::crypt::binaryrc4::BinaryRC4Decryptor::getDataStream(::java::io::InputStream* stream, int32_t size, int32_t initialPos) /* throws(IOException, GeneralSecurityException) */
+java::io::InputStream* poi::poifs::crypt::binaryrc4::BinaryRC4Decryptor::getDataStream(::java::io::InputStream* stream, int32_t size, int32_t initialPos) /* throws(IOException, GeneralSecurityException) */
 {
     return new BinaryRC4Decryptor_BinaryRC4CipherInputStream(this, stream, size, initialPos);
 }
 
-int64_t org::apache::poi::poifs::crypt::binaryrc4::BinaryRC4Decryptor::getLength()
+int64_t poi::poifs::crypt::binaryrc4::BinaryRC4Decryptor::getLength()
 {
     if(length == -int64_t(1LL)) {
         throw new ::java::lang::IllegalStateException(u"Decryptor.getDataStream() was not called"_j);
@@ -159,40 +159,40 @@ int64_t org::apache::poi::poifs::crypt::binaryrc4::BinaryRC4Decryptor::getLength
     return length;
 }
 
-void org::apache::poi::poifs::crypt::binaryrc4::BinaryRC4Decryptor::setChunkSize(int32_t chunkSize)
+void poi::poifs::crypt::binaryrc4::BinaryRC4Decryptor::setChunkSize(int32_t chunkSize)
 {
     this->chunkSize = chunkSize;
 }
 
-org::apache::poi::poifs::crypt::binaryrc4::BinaryRC4Decryptor* org::apache::poi::poifs::crypt::binaryrc4::BinaryRC4Decryptor::clone() /* throws(CloneNotSupportedException) */
+poi::poifs::crypt::binaryrc4::BinaryRC4Decryptor* poi::poifs::crypt::binaryrc4::BinaryRC4Decryptor::clone() /* throws(CloneNotSupportedException) */
 {
     return java_cast< BinaryRC4Decryptor* >(super::clone());
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::crypt::binaryrc4::BinaryRC4Decryptor::class_()
+java::lang::Class* poi::poifs::crypt::binaryrc4::BinaryRC4Decryptor::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.crypt.binaryrc4.BinaryRC4Decryptor", 55);
     return c;
 }
 
-java::io::InputStream* org::apache::poi::poifs::crypt::binaryrc4::BinaryRC4Decryptor::getDataStream(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs)
+java::io::InputStream* poi::poifs::crypt::binaryrc4::BinaryRC4Decryptor::getDataStream(::poi::poifs::filesystem::NPOIFSFileSystem* fs)
 {
     return super::getDataStream(fs);
 }
 
-java::io::InputStream* org::apache::poi::poifs::crypt::binaryrc4::BinaryRC4Decryptor::getDataStream(::org::apache::poi::poifs::filesystem::OPOIFSFileSystem* fs)
+java::io::InputStream* poi::poifs::crypt::binaryrc4::BinaryRC4Decryptor::getDataStream(::poi::poifs::filesystem::OPOIFSFileSystem* fs)
 {
     return super::getDataStream(fs);
 }
 
-java::io::InputStream* org::apache::poi::poifs::crypt::binaryrc4::BinaryRC4Decryptor::getDataStream(::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs)
+java::io::InputStream* poi::poifs::crypt::binaryrc4::BinaryRC4Decryptor::getDataStream(::poi::poifs::filesystem::POIFSFileSystem* fs)
 {
     return super::getDataStream(fs);
 }
 
-java::lang::Class* org::apache::poi::poifs::crypt::binaryrc4::BinaryRC4Decryptor::getClass0()
+java::lang::Class* poi::poifs::crypt::binaryrc4::BinaryRC4Decryptor::getClass0()
 {
     return class_();
 }

@@ -2,32 +2,26 @@
 #pragma once
 
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace poifs
     {
-        namespace poi
+        namespace crypt
         {
-            namespace poifs
+            namespace cryptoapi
             {
-                namespace crypt
-                {
-                    namespace cryptoapi
-                    {
-                        class CryptoAPIDecryptor;
-                        class CryptoAPIDecryptor_CryptoAPICipherInputStream;
-                        class CryptoAPIDecryptor_StreamDescriptorEntry;
-                        class CryptoAPIDocumentInputStream;
-                        class CryptoAPIDocumentOutputStream;
-                        class CryptoAPIEncryptionHeader;
-                        class CryptoAPIEncryptionInfoBuilder;
-                        class CryptoAPIEncryptionVerifier;
-                        class CryptoAPIEncryptor;
-                        class CryptoAPIEncryptor_CryptoAPICipherOutputStream;
-                        class CryptoAPIEncryptor_createEncryptionInfoEntry_1;
-                    } // cryptoapi
-                } // crypt
-            } // poifs
-        } // poi
-    } // apache
-} // org
+                class CryptoAPIDecryptor;
+                class CryptoAPIDecryptor_CryptoAPICipherInputStream;
+                class CryptoAPIDecryptor_StreamDescriptorEntry;
+                class CryptoAPIDocumentInputStream;
+                class CryptoAPIDocumentOutputStream;
+                class CryptoAPIEncryptionHeader;
+                class CryptoAPIEncryptionInfoBuilder;
+                class CryptoAPIEncryptionVerifier;
+                class CryptoAPIEncryptor;
+                class CryptoAPIEncryptor_CryptoAPICipherOutputStream;
+                class CryptoAPIEncryptor_createEncryptionInfoEntry_1;
+            } // cryptoapi
+        } // crypt
+    } // poifs
+} // poi

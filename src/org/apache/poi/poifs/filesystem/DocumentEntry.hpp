@@ -6,7 +6,7 @@
 #include <org/apache/poi/poifs/filesystem/fwd-POI.hpp>
 #include <org/apache/poi/poifs/filesystem/Entry.hpp>
 
-struct org::apache::poi::poifs::filesystem::DocumentEntry
+struct poi::poifs::filesystem::DocumentEntry
     : public virtual Entry
 {
     virtual int32_t getSize() = 0;

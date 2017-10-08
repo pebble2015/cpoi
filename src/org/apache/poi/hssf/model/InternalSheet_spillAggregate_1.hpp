@@ -10,14 +10,14 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::model::InternalSheet_spillAggregate_1
+class poi::hssf::model::InternalSheet_spillAggregate_1
     : public virtual ::java::lang::Object
-    , public virtual ::org::apache::poi::hssf::record::aggregates::RecordAggregate_RecordVisitor
+    , public virtual ::poi::hssf::record::aggregates::RecordAggregate_RecordVisitor
 {
 
 public:
     typedef ::java::lang::Object super;
-    void visitRecord(::org::apache::poi::hssf::record::Record* r) override;
+    void visitRecord(::poi::hssf::record::Record* r) override;
 
     // Generated
     InternalSheet_spillAggregate_1(::java::util::List* recs);

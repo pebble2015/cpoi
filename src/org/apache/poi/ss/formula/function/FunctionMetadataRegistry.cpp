@@ -14,25 +14,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace function
             {
-                namespace formula
-                {
-                    namespace function
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::function::FunctionMetadata, ::java::lang::ObjectArray > FunctionMetadataArray;
-                    } // function
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::function::FunctionMetadata, ::java::lang::ObjectArray > FunctionMetadataArray;
+            } // function
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -50,43 +44,43 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::function::FunctionMetadataRegistry::FunctionMetadataRegistry(const ::default_init_tag&)
+poi::ss::formula::function::FunctionMetadataRegistry::FunctionMetadataRegistry(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::function::FunctionMetadataRegistry::FunctionMetadataRegistry(FunctionMetadataArray* functionDataByIndex, ::java::util::Map* functionDataByName) 
+poi::ss::formula::function::FunctionMetadataRegistry::FunctionMetadataRegistry(FunctionMetadataArray* functionDataByIndex, ::java::util::Map* functionDataByName) 
     : FunctionMetadataRegistry(*static_cast< ::default_init_tag* >(0))
 {
     ctor(functionDataByIndex,functionDataByName);
 }
 
-java::lang::String*& org::apache::poi::ss::formula::function::FunctionMetadataRegistry::FUNCTION_NAME_IF()
+java::lang::String*& poi::ss::formula::function::FunctionMetadataRegistry::FUNCTION_NAME_IF()
 {
     clinit();
     return FUNCTION_NAME_IF_;
 }
-java::lang::String* org::apache::poi::ss::formula::function::FunctionMetadataRegistry::FUNCTION_NAME_IF_;
+java::lang::String* poi::ss::formula::function::FunctionMetadataRegistry::FUNCTION_NAME_IF_;
 
-constexpr int32_t org::apache::poi::ss::formula::function::FunctionMetadataRegistry::FUNCTION_INDEX_IF;
+constexpr int32_t poi::ss::formula::function::FunctionMetadataRegistry::FUNCTION_INDEX_IF;
 
-constexpr int16_t org::apache::poi::ss::formula::function::FunctionMetadataRegistry::FUNCTION_INDEX_SUM;
+constexpr int16_t poi::ss::formula::function::FunctionMetadataRegistry::FUNCTION_INDEX_SUM;
 
-constexpr int32_t org::apache::poi::ss::formula::function::FunctionMetadataRegistry::FUNCTION_INDEX_CHOOSE;
+constexpr int32_t poi::ss::formula::function::FunctionMetadataRegistry::FUNCTION_INDEX_CHOOSE;
 
-constexpr int16_t org::apache::poi::ss::formula::function::FunctionMetadataRegistry::FUNCTION_INDEX_INDIRECT;
+constexpr int16_t poi::ss::formula::function::FunctionMetadataRegistry::FUNCTION_INDEX_INDIRECT;
 
-constexpr int16_t org::apache::poi::ss::formula::function::FunctionMetadataRegistry::FUNCTION_INDEX_EXTERNAL;
+constexpr int16_t poi::ss::formula::function::FunctionMetadataRegistry::FUNCTION_INDEX_EXTERNAL;
 
-org::apache::poi::ss::formula::function::FunctionMetadataRegistry*& org::apache::poi::ss::formula::function::FunctionMetadataRegistry::_instance()
+poi::ss::formula::function::FunctionMetadataRegistry*& poi::ss::formula::function::FunctionMetadataRegistry::_instance()
 {
     clinit();
     return _instance_;
 }
-org::apache::poi::ss::formula::function::FunctionMetadataRegistry* org::apache::poi::ss::formula::function::FunctionMetadataRegistry::_instance_;
+poi::ss::formula::function::FunctionMetadataRegistry* poi::ss::formula::function::FunctionMetadataRegistry::_instance_;
 
-org::apache::poi::ss::formula::function::FunctionMetadataRegistry* org::apache::poi::ss::formula::function::FunctionMetadataRegistry::getInstance()
+poi::ss::formula::function::FunctionMetadataRegistry* poi::ss::formula::function::FunctionMetadataRegistry::getInstance()
 {
     clinit();
     if(_instance_ == nullptr) {
@@ -95,30 +89,30 @@ org::apache::poi::ss::formula::function::FunctionMetadataRegistry* org::apache::
     return _instance_;
 }
 
-void org::apache::poi::ss::formula::function::FunctionMetadataRegistry::ctor(FunctionMetadataArray* functionDataByIndex, ::java::util::Map* functionDataByName)
+void poi::ss::formula::function::FunctionMetadataRegistry::ctor(FunctionMetadataArray* functionDataByIndex, ::java::util::Map* functionDataByName)
 {
     super::ctor();
     _functionDataByIndex = (functionDataByIndex == nullptr) ? static_cast< FunctionMetadataArray* >(nullptr) : npc(functionDataByIndex)->clone();
     _functionDataByName = functionDataByName;
 }
 
-java::util::Set* org::apache::poi::ss::formula::function::FunctionMetadataRegistry::getAllFunctionNames()
+java::util::Set* poi::ss::formula::function::FunctionMetadataRegistry::getAllFunctionNames()
 {
     return npc(_functionDataByName)->keySet();
 }
 
-org::apache::poi::ss::formula::function::FunctionMetadata* org::apache::poi::ss::formula::function::FunctionMetadataRegistry::getFunctionByIndex(int32_t index)
+poi::ss::formula::function::FunctionMetadata* poi::ss::formula::function::FunctionMetadataRegistry::getFunctionByIndex(int32_t index)
 {
     clinit();
     return npc(getInstance())->getFunctionByIndexInternal(index);
 }
 
-org::apache::poi::ss::formula::function::FunctionMetadata* org::apache::poi::ss::formula::function::FunctionMetadataRegistry::getFunctionByIndexInternal(int32_t index)
+poi::ss::formula::function::FunctionMetadata* poi::ss::formula::function::FunctionMetadataRegistry::getFunctionByIndexInternal(int32_t index)
 {
     return (*_functionDataByIndex)[index];
 }
 
-int16_t org::apache::poi::ss::formula::function::FunctionMetadataRegistry::lookupIndexByName(::java::lang::String* name)
+int16_t poi::ss::formula::function::FunctionMetadataRegistry::lookupIndexByName(::java::lang::String* name)
 {
     clinit();
     auto fd = npc(getInstance())->getFunctionByNameInternal(name);
@@ -128,12 +122,12 @@ int16_t org::apache::poi::ss::formula::function::FunctionMetadataRegistry::looku
     return static_cast< int16_t >(npc(fd)->getIndex());
 }
 
-org::apache::poi::ss::formula::function::FunctionMetadata* org::apache::poi::ss::formula::function::FunctionMetadataRegistry::getFunctionByNameInternal(::java::lang::String* name)
+poi::ss::formula::function::FunctionMetadata* poi::ss::formula::function::FunctionMetadataRegistry::getFunctionByNameInternal(::java::lang::String* name)
 {
     return java_cast< FunctionMetadata* >(npc(_functionDataByName)->get(name));
 }
 
-org::apache::poi::ss::formula::function::FunctionMetadata* org::apache::poi::ss::formula::function::FunctionMetadataRegistry::getFunctionByName(::java::lang::String* name)
+poi::ss::formula::function::FunctionMetadata* poi::ss::formula::function::FunctionMetadataRegistry::getFunctionByName(::java::lang::String* name)
 {
     clinit();
     return npc(getInstance())->getFunctionByNameInternal(name);
@@ -141,13 +135,13 @@ org::apache::poi::ss::formula::function::FunctionMetadata* org::apache::poi::ss:
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::function::FunctionMetadataRegistry::class_()
+java::lang::Class* poi::ss::formula::function::FunctionMetadataRegistry::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.function.FunctionMetadataRegistry", 59);
     return c;
 }
 
-void org::apache::poi::ss::formula::function::FunctionMetadataRegistry::clinit()
+void poi::ss::formula::function::FunctionMetadataRegistry::clinit()
 {
 struct string_init_ {
     string_init_() {
@@ -160,7 +154,7 @@ struct string_init_ {
     super::clinit();
 }
 
-java::lang::Class* org::apache::poi::ss::formula::function::FunctionMetadataRegistry::getClass0()
+java::lang::Class* poi::ss::formula::function::FunctionMetadataRegistry::getClass0()
 {
     return class_();
 }

@@ -10,25 +10,19 @@
 #include <Array.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -37,29 +31,29 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::Mirr::Mirr(const ::default_init_tag&)
+poi::ss::formula::functions::Mirr::Mirr(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::Mirr::Mirr() 
+poi::ss::formula::functions::Mirr::Mirr() 
     : Mirr(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::ss::formula::functions::Mirr::ctor()
+void poi::ss::formula::functions::Mirr::ctor()
 {
     super::ctor(false, false);
 }
 
-int32_t org::apache::poi::ss::formula::functions::Mirr::getMaxNumOperands()
+int32_t poi::ss::formula::functions::Mirr::getMaxNumOperands()
 {
     return 3;
 }
 
-double org::apache::poi::ss::formula::functions::Mirr::evaluate(::doubleArray* values) /* throws(EvaluationException) */
+double poi::ss::formula::functions::Mirr::evaluate(::doubleArray* values) /* throws(EvaluationException) */
 {
     auto financeRate = (*values)[npc(values)->length - int32_t(1)];
     auto reinvestRate = (*values)[npc(values)->length - int32_t(2)];
@@ -77,12 +71,12 @@ double org::apache::poi::ss::formula::functions::Mirr::evaluate(::doubleArray* v
         mirrValuesAreAllPositives &= mirrValue > 0;
     }
     if(mirrValuesAreAllPositives) {
-        throw new ::org::apache::poi::ss::formula::eval::EvaluationException(::org::apache::poi::ss::formula::eval::ErrorEval::DIV_ZERO());
+        throw new ::poi::ss::formula::eval::EvaluationException(::poi::ss::formula::eval::ErrorEval::DIV_ZERO());
     }
     return mirr(mirrValues, financeRate, reinvestRate);
 }
 
-double org::apache::poi::ss::formula::functions::Mirr::mirr(::doubleArray* in, double financeRate, double reinvestRate)
+double poi::ss::formula::functions::Mirr::mirr(::doubleArray* in, double financeRate, double reinvestRate)
 {
     clinit();
     double value = int32_t(0);
@@ -108,18 +102,18 @@ double org::apache::poi::ss::formula::functions::Mirr::mirr(::doubleArray* in, d
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Mirr::class_()
+java::lang::Class* poi::ss::formula::functions::Mirr::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.Mirr", 40);
     return c;
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Mirr::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcCellRow, int32_t srcCellCol)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Mirr::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcCellRow, int32_t srcCellCol)
 {
     return super::evaluate(args, srcCellRow, srcCellCol);
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Mirr::getClass0()
+java::lang::Class* poi::ss::formula::functions::Mirr::getClass0()
 {
     return class_();
 }

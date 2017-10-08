@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::util::IntList
+class poi::util::IntList
     : public virtual ::java::lang::Object
 {
 

@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::atp::WorkdayCalculator
+class poi::ss::formula::atp::WorkdayCalculator
     : public virtual ::java::lang::Object
 {
 

@@ -28,9 +28,9 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::crypt::DataSpaceMapUtils_DataSpaceMapEntry
+class poi::poifs::crypt::DataSpaceMapUtils_DataSpaceMapEntry
     : public virtual ::java::lang::Object
-    , public virtual ::org::apache::poi::poifs::crypt::standard::EncryptionRecord
+    , public virtual ::poi::poifs::crypt::standard::EncryptionRecord
 {
 
 public:
@@ -42,14 +42,14 @@ public: /* package */
     ::java::lang::String* dataSpaceName {  };
 protected:
     void ctor(::int32_tArray* referenceComponentType, ::java::lang::StringArray* referenceComponent, ::java::lang::String* dataSpaceName);
-    void ctor(::org::apache::poi::util::LittleEndianInput* is);
+    void ctor(::poi::util::LittleEndianInput* is);
 
 public:
-    void write(::org::apache::poi::util::LittleEndianByteArrayOutputStream* os) override;
+    void write(::poi::util::LittleEndianByteArrayOutputStream* os) override;
 
     // Generated
     DataSpaceMapUtils_DataSpaceMapEntry(::int32_tArray* referenceComponentType, ::java::lang::StringArray* referenceComponent, ::java::lang::String* dataSpaceName);
-    DataSpaceMapUtils_DataSpaceMapEntry(::org::apache::poi::util::LittleEndianInput* is);
+    DataSpaceMapUtils_DataSpaceMapEntry(::poi::util::LittleEndianInput* is);
 protected:
     DataSpaceMapUtils_DataSpaceMapEntry(const ::default_init_tag&);
 

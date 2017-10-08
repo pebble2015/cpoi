@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::aggregates::ChartSubstreamRecordAggregate final
+class poi::hssf::record::aggregates::ChartSubstreamRecordAggregate final
     : public RecordAggregate
 {
 
@@ -18,17 +18,17 @@ public:
     typedef RecordAggregate super;
 
 private:
-    ::org::apache::poi::hssf::record::BOFRecord* _bofRec {  };
+    ::poi::hssf::record::BOFRecord* _bofRec {  };
     ::java::util::List* _recs {  };
     PageSettingsBlock* _psBlock {  };
 protected:
-    void ctor(::org::apache::poi::hssf::model::RecordStream* rs);
+    void ctor(::poi::hssf::model::RecordStream* rs);
 
 public:
     void visitContainedRecords(RecordAggregate_RecordVisitor* rv) override;
 
     // Generated
-    ChartSubstreamRecordAggregate(::org::apache::poi::hssf::model::RecordStream* rs);
+    ChartSubstreamRecordAggregate(::poi::hssf::model::RecordStream* rs);
 protected:
     ChartSubstreamRecordAggregate(const ::default_init_tag&);
 

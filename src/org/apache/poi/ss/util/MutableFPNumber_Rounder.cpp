@@ -37,26 +37,26 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::util::MutableFPNumber_Rounder::MutableFPNumber_Rounder(const ::default_init_tag&)
+poi::ss::util::MutableFPNumber_Rounder::MutableFPNumber_Rounder(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::util::MutableFPNumber_Rounder::MutableFPNumber_Rounder()
+poi::ss::util::MutableFPNumber_Rounder::MutableFPNumber_Rounder()
     : MutableFPNumber_Rounder(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-java::math::BigIntegerArray*& org::apache::poi::ss::util::MutableFPNumber_Rounder::HALF_BITS()
+java::math::BigIntegerArray*& poi::ss::util::MutableFPNumber_Rounder::HALF_BITS()
 {
     clinit();
     return HALF_BITS_;
 }
-java::math::BigIntegerArray* org::apache::poi::ss::util::MutableFPNumber_Rounder::HALF_BITS_;
+java::math::BigIntegerArray* poi::ss::util::MutableFPNumber_Rounder::HALF_BITS_;
 
-java::math::BigInteger* org::apache::poi::ss::util::MutableFPNumber_Rounder::round(::java::math::BigInteger* bi, int32_t nBits)
+java::math::BigInteger* poi::ss::util::MutableFPNumber_Rounder::round(::java::math::BigInteger* bi, int32_t nBits)
 {
     clinit();
     if(nBits < 1) {
@@ -67,13 +67,13 @@ java::math::BigInteger* org::apache::poi::ss::util::MutableFPNumber_Rounder::rou
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::util::MutableFPNumber_Rounder::class_()
+java::lang::Class* poi::ss::util::MutableFPNumber_Rounder::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.util.MutableFPNumber.Rounder", 46);
     return c;
 }
 
-void org::apache::poi::ss::util::MutableFPNumber_Rounder::clinit()
+void poi::ss::util::MutableFPNumber_Rounder::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -97,7 +97,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::util::MutableFPNumber_Rounder::getClass0()
+java::lang::Class* poi::ss::util::MutableFPNumber_Rounder::getClass0()
 {
     return class_();
 }

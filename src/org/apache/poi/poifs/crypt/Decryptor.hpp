@@ -13,7 +13,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::crypt::Decryptor
+class poi::poifs::crypt::Decryptor
     : public virtual ::java::lang::Object
     , public virtual ::java::lang::Cloneable
 {
@@ -37,16 +37,16 @@ protected:
     void ctor();
 
 public:
-    virtual ::java::io::InputStream* getDataStream(::org::apache::poi::poifs::filesystem::DirectoryNode* dir) /* throws(IOException, GeneralSecurityException) */ = 0;
+    virtual ::java::io::InputStream* getDataStream(::poi::poifs::filesystem::DirectoryNode* dir) /* throws(IOException, GeneralSecurityException) */ = 0;
     virtual ::java::io::InputStream* getDataStream(::java::io::InputStream* stream, int32_t size, int32_t initialPos) /* throws(IOException, GeneralSecurityException) */;
     virtual void setChunkSize(int32_t chunkSize);
     virtual ::javax::crypto::Cipher* initCipherForBlock(::javax::crypto::Cipher* cipher, int32_t block) /* throws(GeneralSecurityException) */;
     virtual bool verifyPassword(::java::lang::String* password) /* throws(GeneralSecurityException) */ = 0;
     virtual int64_t getLength() = 0;
     static Decryptor* getInstance(EncryptionInfo* info);
-    virtual ::java::io::InputStream* getDataStream(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs) /* throws(IOException, GeneralSecurityException) */;
-    virtual ::java::io::InputStream* getDataStream(::org::apache::poi::poifs::filesystem::OPOIFSFileSystem* fs) /* throws(IOException, GeneralSecurityException) */;
-    virtual ::java::io::InputStream* getDataStream(::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs) /* throws(IOException, GeneralSecurityException) */;
+    virtual ::java::io::InputStream* getDataStream(::poi::poifs::filesystem::NPOIFSFileSystem* fs) /* throws(IOException, GeneralSecurityException) */;
+    virtual ::java::io::InputStream* getDataStream(::poi::poifs::filesystem::OPOIFSFileSystem* fs) /* throws(IOException, GeneralSecurityException) */;
+    virtual ::java::io::InputStream* getDataStream(::poi::poifs::filesystem::POIFSFileSystem* fs) /* throws(IOException, GeneralSecurityException) */;
     virtual ::int8_tArray* getVerifier();
     virtual ::javax::crypto::SecretKey* getSecretKey();
     virtual ::int8_tArray* getIntegrityHmacKey();

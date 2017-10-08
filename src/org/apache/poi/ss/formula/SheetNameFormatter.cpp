@@ -20,33 +20,33 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::SheetNameFormatter::SheetNameFormatter(const ::default_init_tag&)
+poi::ss::formula::SheetNameFormatter::SheetNameFormatter(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::SheetNameFormatter::SheetNameFormatter() 
+poi::ss::formula::SheetNameFormatter::SheetNameFormatter() 
     : SheetNameFormatter(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-constexpr char16_t org::apache::poi::ss::formula::SheetNameFormatter::DELIMITER;
+constexpr char16_t poi::ss::formula::SheetNameFormatter::DELIMITER;
 
-java::util::regex::Pattern*& org::apache::poi::ss::formula::SheetNameFormatter::CELL_REF_PATTERN()
+java::util::regex::Pattern*& poi::ss::formula::SheetNameFormatter::CELL_REF_PATTERN()
 {
     clinit();
     return CELL_REF_PATTERN_;
 }
-java::util::regex::Pattern* org::apache::poi::ss::formula::SheetNameFormatter::CELL_REF_PATTERN_;
+java::util::regex::Pattern* poi::ss::formula::SheetNameFormatter::CELL_REF_PATTERN_;
 
-void org::apache::poi::ss::formula::SheetNameFormatter::ctor()
+void poi::ss::formula::SheetNameFormatter::ctor()
 {
     super::ctor();
 }
 
-java::lang::String* org::apache::poi::ss::formula::SheetNameFormatter::format(::java::lang::String* rawSheetName)
+java::lang::String* poi::ss::formula::SheetNameFormatter::format(::java::lang::String* rawSheetName)
 {
     clinit();
     auto sb = new ::java::lang::StringBuffer(npc(rawSheetName)->length() + int32_t(2));
@@ -54,7 +54,7 @@ java::lang::String* org::apache::poi::ss::formula::SheetNameFormatter::format(::
     return npc(sb)->toString();
 }
 
-void org::apache::poi::ss::formula::SheetNameFormatter::appendFormat(::java::lang::StringBuffer* out, ::java::lang::String* rawSheetName)
+void poi::ss::formula::SheetNameFormatter::appendFormat(::java::lang::StringBuffer* out, ::java::lang::String* rawSheetName)
 {
     clinit();
     auto needsQuotes = needsDelimiting(rawSheetName);
@@ -67,7 +67,7 @@ void org::apache::poi::ss::formula::SheetNameFormatter::appendFormat(::java::lan
     }
 }
 
-void org::apache::poi::ss::formula::SheetNameFormatter::appendFormat(::java::lang::StringBuffer* out, ::java::lang::String* workbookName, ::java::lang::String* rawSheetName)
+void poi::ss::formula::SheetNameFormatter::appendFormat(::java::lang::StringBuffer* out, ::java::lang::String* workbookName, ::java::lang::String* rawSheetName)
 {
     clinit();
     auto needsQuotes = needsDelimiting(workbookName) || needsDelimiting(rawSheetName);
@@ -86,7 +86,7 @@ void org::apache::poi::ss::formula::SheetNameFormatter::appendFormat(::java::lan
     }
 }
 
-void org::apache::poi::ss::formula::SheetNameFormatter::appendAndEscape(::java::lang::StringBuffer* sb, ::java::lang::String* rawSheetName)
+void poi::ss::formula::SheetNameFormatter::appendAndEscape(::java::lang::StringBuffer* sb, ::java::lang::String* rawSheetName)
 {
     clinit();
     auto len = npc(rawSheetName)->length();
@@ -99,7 +99,7 @@ void org::apache::poi::ss::formula::SheetNameFormatter::appendAndEscape(::java::
     }
 }
 
-bool org::apache::poi::ss::formula::SheetNameFormatter::needsDelimiting(::java::lang::String* rawSheetName)
+bool poi::ss::formula::SheetNameFormatter::needsDelimiting(::java::lang::String* rawSheetName)
 {
     clinit();
     auto len = npc(rawSheetName)->length();
@@ -126,7 +126,7 @@ bool org::apache::poi::ss::formula::SheetNameFormatter::needsDelimiting(::java::
     return false;
 }
 
-bool org::apache::poi::ss::formula::SheetNameFormatter::nameLooksLikeBooleanLiteral(::java::lang::String* rawSheetName)
+bool poi::ss::formula::SheetNameFormatter::nameLooksLikeBooleanLiteral(::java::lang::String* rawSheetName)
 {
     clinit();
     switch (npc(rawSheetName)->charAt(int32_t(0))) {
@@ -141,7 +141,7 @@ bool org::apache::poi::ss::formula::SheetNameFormatter::nameLooksLikeBooleanLite
     return false;
 }
 
-bool org::apache::poi::ss::formula::SheetNameFormatter::isSpecialChar(char16_t ch)
+bool poi::ss::formula::SheetNameFormatter::isSpecialChar(char16_t ch)
 {
     clinit();
     if(::java::lang::Character::isLetterOrDigit(ch)) {
@@ -161,13 +161,13 @@ bool org::apache::poi::ss::formula::SheetNameFormatter::isSpecialChar(char16_t c
     return true;
 }
 
-bool org::apache::poi::ss::formula::SheetNameFormatter::cellReferenceIsWithinRange(::java::lang::String* lettersPrefix, ::java::lang::String* numbersSuffix)
+bool poi::ss::formula::SheetNameFormatter::cellReferenceIsWithinRange(::java::lang::String* lettersPrefix, ::java::lang::String* numbersSuffix)
 {
     clinit();
-    return ::org::apache::poi::ss::util::CellReference::cellReferenceIsWithinRange(lettersPrefix, numbersSuffix, ::org::apache::poi::ss::SpreadsheetVersion::EXCEL97);
+    return ::poi::ss::util::CellReference::cellReferenceIsWithinRange(lettersPrefix, numbersSuffix, ::poi::ss::SpreadsheetVersion::EXCEL97);
 }
 
-bool org::apache::poi::ss::formula::SheetNameFormatter::nameLooksLikePlainCellReference(::java::lang::String* rawSheetName)
+bool poi::ss::formula::SheetNameFormatter::nameLooksLikePlainCellReference(::java::lang::String* rawSheetName)
 {
     clinit();
     auto matcher = npc(CELL_REF_PATTERN_)->matcher(rawSheetName);
@@ -181,13 +181,13 @@ bool org::apache::poi::ss::formula::SheetNameFormatter::nameLooksLikePlainCellRe
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::SheetNameFormatter::class_()
+java::lang::Class* poi::ss::formula::SheetNameFormatter::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.SheetNameFormatter", 44);
     return c;
 }
 
-void org::apache::poi::ss::formula::SheetNameFormatter::clinit()
+void poi::ss::formula::SheetNameFormatter::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -203,7 +203,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::formula::SheetNameFormatter::getClass0()
+java::lang::Class* poi::ss::formula::SheetNameFormatter::getClass0()
 {
     return class_();
 }

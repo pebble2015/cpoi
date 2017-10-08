@@ -15,7 +15,7 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::crypt::binaryrc4::BinaryRC4Encryptor_createEncryptionInfoEntry_1::BinaryRC4Encryptor_createEncryptionInfoEntry_1(BinaryRC4Encryptor *BinaryRC4Encryptor_this, ::org::apache::poi::poifs::crypt::EncryptionInfo* info, BinaryRC4EncryptionHeader* header, BinaryRC4EncryptionVerifier* verifier)
+poi::poifs::crypt::binaryrc4::BinaryRC4Encryptor_createEncryptionInfoEntry_1::BinaryRC4Encryptor_createEncryptionInfoEntry_1(BinaryRC4Encryptor *BinaryRC4Encryptor_this, ::poi::poifs::crypt::EncryptionInfo* info, BinaryRC4EncryptionHeader* header, BinaryRC4EncryptionVerifier* verifier)
     : super(*static_cast< ::default_init_tag* >(0))
     , BinaryRC4Encryptor_this(BinaryRC4Encryptor_this)
     , info(info)
@@ -26,7 +26,7 @@ org::apache::poi::poifs::crypt::binaryrc4::BinaryRC4Encryptor_createEncryptionIn
     ctor();
 }
 
-void org::apache::poi::poifs::crypt::binaryrc4::BinaryRC4Encryptor_createEncryptionInfoEntry_1::write(::org::apache::poi::util::LittleEndianByteArrayOutputStream* bos)
+void poi::poifs::crypt::binaryrc4::BinaryRC4Encryptor_createEncryptionInfoEntry_1::write(::poi::util::LittleEndianByteArrayOutputStream* bos)
 {
     npc(bos)->writeShort(npc(info)->getVersionMajor());
     npc(bos)->writeShort(npc(info)->getVersionMinor());
@@ -36,13 +36,13 @@ void org::apache::poi::poifs::crypt::binaryrc4::BinaryRC4Encryptor_createEncrypt
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::crypt::binaryrc4::BinaryRC4Encryptor_createEncryptionInfoEntry_1::class_()
+java::lang::Class* poi::poifs::crypt::binaryrc4::BinaryRC4Encryptor_createEncryptionInfoEntry_1::class_()
 {
     static ::java::lang::Class* c = ::class_(u"", 0);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::crypt::binaryrc4::BinaryRC4Encryptor_createEncryptionInfoEntry_1::getClass0()
+java::lang::Class* poi::poifs::crypt::binaryrc4::BinaryRC4Encryptor_createEncryptionInfoEntry_1::getClass0()
 {
     return class_();
 }

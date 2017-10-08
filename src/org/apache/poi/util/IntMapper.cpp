@@ -27,39 +27,39 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::util::IntMapper::IntMapper(const ::default_init_tag&)
+poi::util::IntMapper::IntMapper(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::util::IntMapper::IntMapper() 
+poi::util::IntMapper::IntMapper() 
     : IntMapper(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::util::IntMapper::IntMapper(int32_t initialCapacity) 
+poi::util::IntMapper::IntMapper(int32_t initialCapacity) 
     : IntMapper(*static_cast< ::default_init_tag* >(0))
 {
     ctor(initialCapacity);
 }
 
-constexpr int32_t org::apache::poi::util::IntMapper::_default_size;
+constexpr int32_t poi::util::IntMapper::_default_size;
 
-void org::apache::poi::util::IntMapper::ctor()
+void poi::util::IntMapper::ctor()
 {
     ctor(_default_size);
 }
 
-void org::apache::poi::util::IntMapper::ctor(int32_t initialCapacity)
+void poi::util::IntMapper::ctor(int32_t initialCapacity)
 {
     super::ctor();
     elements = new ::java::util::ArrayList(initialCapacity);
     valueKeyMap = new ::java::util::HashMap(initialCapacity);
 }
 
-bool org::apache::poi::util::IntMapper::add(::java::lang::Object* value)
+bool poi::util::IntMapper::add(::java::lang::Object* value)
 {
     auto index = npc(elements)->size();
     npc(elements)->add(static_cast< ::java::lang::Object* >(value));
@@ -67,17 +67,17 @@ bool org::apache::poi::util::IntMapper::add(::java::lang::Object* value)
     return true;
 }
 
-int32_t org::apache::poi::util::IntMapper::size()
+int32_t poi::util::IntMapper::size()
 {
     return npc(elements)->size();
 }
 
-java::lang::Object* org::apache::poi::util::IntMapper::get(int32_t index)
+java::lang::Object* poi::util::IntMapper::get(int32_t index)
 {
     return java_cast< ::java::lang::Object* >(npc(elements)->get(index));
 }
 
-int32_t org::apache::poi::util::IntMapper::getIndex(::java::lang::Object* o)
+int32_t poi::util::IntMapper::getIndex(::java::lang::Object* o)
 {
     auto i = java_cast< ::java::lang::Integer* >(npc(valueKeyMap)->get(o));
     if(i == nullptr)
@@ -86,20 +86,20 @@ int32_t org::apache::poi::util::IntMapper::getIndex(::java::lang::Object* o)
     return npc(i)->intValue();
 }
 
-java::util::Iterator* org::apache::poi::util::IntMapper::iterator()
+java::util::Iterator* poi::util::IntMapper::iterator()
 {
     return npc(elements)->iterator();
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::util::IntMapper::class_()
+java::lang::Class* poi::util::IntMapper::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.util.IntMapper", 29);
     return c;
 }
 
-java::lang::Class* org::apache::poi::util::IntMapper::getClass0()
+java::lang::Class* poi::util::IntMapper::getClass0()
 {
     return class_();
 }

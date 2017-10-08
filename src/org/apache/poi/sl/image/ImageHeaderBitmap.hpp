@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::image::ImageHeaderBitmap
+class poi::sl::image::ImageHeaderBitmap
     : public virtual ::java::lang::Object
 {
 
@@ -18,7 +18,7 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    static ::org::apache::poi::util::POILogger* LOG_;
+    static ::poi::util::POILogger* LOG_;
     ::java::awt::Dimension* size {  };
 protected:
     void ctor(::int8_tArray* data, int32_t offset);
@@ -37,6 +37,6 @@ public:
     static void clinit();
 
 private:
-    static ::org::apache::poi::util::POILogger*& LOG();
+    static ::poi::util::POILogger*& LOG();
     virtual ::java::lang::Class* getClass0();
 };

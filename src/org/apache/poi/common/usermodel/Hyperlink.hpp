@@ -7,7 +7,7 @@
 #include <org/apache/poi/common/usermodel/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::common::usermodel::Hyperlink
+struct poi::common::usermodel::Hyperlink
     : public virtual ::java::lang::Object
 {
     virtual ::java::lang::String* getAddress() = 0;

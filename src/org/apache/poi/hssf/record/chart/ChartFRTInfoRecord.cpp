@@ -14,25 +14,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
+            namespace chart
             {
-                namespace record
-                {
-                    namespace chart
-                    {
-typedef ::SubArray< ::org::apache::poi::hssf::record::chart::ChartFRTInfoRecord_CFRTID, ::java::lang::ObjectArray > ChartFRTInfoRecord_CFRTIDArray;
-                    } // chart
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hssf::record::chart::ChartFRTInfoRecord_CFRTID, ::java::lang::ObjectArray > ChartFRTInfoRecord_CFRTIDArray;
+            } // chart
+        } // record
+    } // hssf
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -41,21 +35,21 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::chart::ChartFRTInfoRecord::ChartFRTInfoRecord(const ::default_init_tag&)
+poi::hssf::record::chart::ChartFRTInfoRecord::ChartFRTInfoRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::chart::ChartFRTInfoRecord::ChartFRTInfoRecord(::org::apache::poi::hssf::record::RecordInputStream* in) 
+poi::hssf::record::chart::ChartFRTInfoRecord::ChartFRTInfoRecord(::poi::hssf::record::RecordInputStream* in) 
     : ChartFRTInfoRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::chart::ChartFRTInfoRecord::sid;
+constexpr int16_t poi::hssf::record::chart::ChartFRTInfoRecord::sid;
 
-void org::apache::poi::hssf::record::chart::ChartFRTInfoRecord::ctor(::org::apache::poi::hssf::record::RecordInputStream* in)
+void poi::hssf::record::chart::ChartFRTInfoRecord::ctor(::poi::hssf::record::RecordInputStream* in)
 {
     super::ctor();
     rt = npc(in)->readShort();
@@ -69,17 +63,17 @@ void org::apache::poi::hssf::record::chart::ChartFRTInfoRecord::ctor(::org::apac
     }
 }
 
-int32_t org::apache::poi::hssf::record::chart::ChartFRTInfoRecord::getDataSize()
+int32_t poi::hssf::record::chart::ChartFRTInfoRecord::getDataSize()
 {
     return int32_t(2) + int32_t(2) + int32_t(1)+ int32_t(1)+ int32_t(2)+ npc(rgCFRTID)->length * ChartFRTInfoRecord_CFRTID::ENCODED_SIZE;
 }
 
-int16_t org::apache::poi::hssf::record::chart::ChartFRTInfoRecord::getSid()
+int16_t poi::hssf::record::chart::ChartFRTInfoRecord::getSid()
 {
     return sid;
 }
 
-void org::apache::poi::hssf::record::chart::ChartFRTInfoRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::chart::ChartFRTInfoRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(rt);
     npc(out)->writeShort(grbitFrt);
@@ -92,38 +86,38 @@ void org::apache::poi::hssf::record::chart::ChartFRTInfoRecord::serialize(::org:
     }
 }
 
-java::lang::String* org::apache::poi::hssf::record::chart::ChartFRTInfoRecord::toString()
+java::lang::String* poi::hssf::record::chart::ChartFRTInfoRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[CHARTFRTINFO]\n"_j);
-    npc(npc(npc(buffer)->append(u"    .rt           ="_j))->append(::org::apache::poi::util::HexDump::shortToHex(rt)))->append(u'\u000a');
-    npc(npc(npc(buffer)->append(u"    .grbitFrt     ="_j))->append(::org::apache::poi::util::HexDump::shortToHex(grbitFrt)))->append(u'\u000a');
-    npc(npc(npc(buffer)->append(u"    .verOriginator="_j))->append(::org::apache::poi::util::HexDump::byteToHex(verOriginator)))->append(u'\u000a');
-    npc(npc(npc(buffer)->append(u"    .verWriter    ="_j))->append(::org::apache::poi::util::HexDump::byteToHex(verOriginator)))->append(u'\u000a');
-    npc(npc(npc(buffer)->append(u"    .nCFRTIDs     ="_j))->append(::org::apache::poi::util::HexDump::shortToHex(npc(rgCFRTID)->length)))->append(u'\u000a');
+    npc(npc(npc(buffer)->append(u"    .rt           ="_j))->append(::poi::util::HexDump::shortToHex(rt)))->append(u'\u000a');
+    npc(npc(npc(buffer)->append(u"    .grbitFrt     ="_j))->append(::poi::util::HexDump::shortToHex(grbitFrt)))->append(u'\u000a');
+    npc(npc(npc(buffer)->append(u"    .verOriginator="_j))->append(::poi::util::HexDump::byteToHex(verOriginator)))->append(u'\u000a');
+    npc(npc(npc(buffer)->append(u"    .verWriter    ="_j))->append(::poi::util::HexDump::byteToHex(verOriginator)))->append(u'\u000a');
+    npc(npc(npc(buffer)->append(u"    .nCFRTIDs     ="_j))->append(::poi::util::HexDump::shortToHex(npc(rgCFRTID)->length)))->append(u'\u000a');
     npc(buffer)->append(u"[/CHARTFRTINFO]\n"_j);
     return npc(buffer)->toString();
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::chart::ChartFRTInfoRecord::class_()
+java::lang::Class* poi::hssf::record::chart::ChartFRTInfoRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.chart.ChartFRTInfoRecord", 51);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::chart::ChartFRTInfoRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::chart::ChartFRTInfoRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::chart::ChartFRTInfoRecord::serialize()
+int8_tArray* poi::hssf::record::chart::ChartFRTInfoRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::chart::ChartFRTInfoRecord::getClass0()
+java::lang::Class* poi::hssf::record::chart::ChartFRTInfoRecord::getClass0()
 {
     return class_();
 }

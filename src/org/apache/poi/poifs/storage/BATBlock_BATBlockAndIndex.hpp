@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::storage::BATBlock_BATBlockAndIndex
+class poi::poifs::storage::BATBlock_BATBlockAndIndex
     : public virtual ::java::lang::Object
 {
 

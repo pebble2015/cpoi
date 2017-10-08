@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ddf::EscherColorRef
+class poi::ddf::EscherColorRef
     : public virtual ::java::lang::Object
 {
 
@@ -19,14 +19,14 @@ public:
 private:
     int32_t opid {  };
     int32_t colorRef {  };
-    static ::org::apache::poi::util::BitField* FLAG_SYS_INDEX_;
-    static ::org::apache::poi::util::BitField* FLAG_SCHEME_INDEX_;
-    static ::org::apache::poi::util::BitField* FLAG_SYSTEM_RGB_;
-    static ::org::apache::poi::util::BitField* FLAG_PALETTE_RGB_;
-    static ::org::apache::poi::util::BitField* FLAG_PALETTE_INDEX_;
-    static ::org::apache::poi::util::BitField* FLAG_BLUE_;
-    static ::org::apache::poi::util::BitField* FLAG_GREEN_;
-    static ::org::apache::poi::util::BitField* FLAG_RED_;
+    static ::poi::util::BitField* FLAG_SYS_INDEX_;
+    static ::poi::util::BitField* FLAG_SCHEME_INDEX_;
+    static ::poi::util::BitField* FLAG_SYSTEM_RGB_;
+    static ::poi::util::BitField* FLAG_PALETTE_RGB_;
+    static ::poi::util::BitField* FLAG_PALETTE_INDEX_;
+    static ::poi::util::BitField* FLAG_BLUE_;
+    static ::poi::util::BitField* FLAG_GREEN_;
+    static ::poi::util::BitField* FLAG_RED_;
 protected:
     void ctor(int32_t colorRef);
     void ctor(::int8_tArray* source, int32_t start, int32_t len);
@@ -68,14 +68,14 @@ public:
 
 private:
     void init();
-    static ::org::apache::poi::util::BitField*& FLAG_SYS_INDEX();
-    static ::org::apache::poi::util::BitField*& FLAG_SCHEME_INDEX();
-    static ::org::apache::poi::util::BitField*& FLAG_SYSTEM_RGB();
-    static ::org::apache::poi::util::BitField*& FLAG_PALETTE_RGB();
-    static ::org::apache::poi::util::BitField*& FLAG_PALETTE_INDEX();
-    static ::org::apache::poi::util::BitField*& FLAG_BLUE();
-    static ::org::apache::poi::util::BitField*& FLAG_GREEN();
-    static ::org::apache::poi::util::BitField*& FLAG_RED();
+    static ::poi::util::BitField*& FLAG_SYS_INDEX();
+    static ::poi::util::BitField*& FLAG_SCHEME_INDEX();
+    static ::poi::util::BitField*& FLAG_SYSTEM_RGB();
+    static ::poi::util::BitField*& FLAG_PALETTE_RGB();
+    static ::poi::util::BitField*& FLAG_PALETTE_INDEX();
+    static ::poi::util::BitField*& FLAG_BLUE();
+    static ::poi::util::BitField*& FLAG_GREEN();
+    static ::poi::util::BitField*& FLAG_RED();
     virtual ::java::lang::Class* getClass0();
     friend class EscherColorRef_SysIndexSource;
     friend class EscherColorRef_SysIndexProcedure;

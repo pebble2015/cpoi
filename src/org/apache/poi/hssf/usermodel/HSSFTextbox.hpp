@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFTextbox
+class poi::hssf::usermodel::HSSFTextbox
     : public HSSFSimpleShape
 {
 
@@ -28,12 +28,12 @@ public:
     static constexpr int16_t VERTICAL_ALIGNMENT_JUSTIFY { int16_t(4) };
     static constexpr int16_t VERTICAL_ALIGNMENT_DISTRIBUTED { int16_t(7) };
 protected:
-    void ctor(::org::apache::poi::ddf::EscherContainerRecord* spContainer, ::org::apache::poi::hssf::record::ObjRecord* objRecord, ::org::apache::poi::hssf::record::TextObjectRecord* textObjectRecord);
+    void ctor(::poi::ddf::EscherContainerRecord* spContainer, ::poi::hssf::record::ObjRecord* objRecord, ::poi::hssf::record::TextObjectRecord* textObjectRecord);
     void ctor(HSSFShape* parent, HSSFAnchor* anchor);
 
 public: /* protected */
-    ::org::apache::poi::hssf::record::ObjRecord* createObjRecord() override;
-    ::org::apache::poi::ddf::EscherContainerRecord* createSpContainer() override;
+    ::poi::hssf::record::ObjRecord* createObjRecord() override;
+    ::poi::ddf::EscherContainerRecord* createSpContainer() override;
 
 public: /* package */
     void afterInsert(HSSFPatriarch* patriarch) override;
@@ -60,7 +60,7 @@ public: /* protected */
     // Generated
 
 public:
-    HSSFTextbox(::org::apache::poi::ddf::EscherContainerRecord* spContainer, ::org::apache::poi::hssf::record::ObjRecord* objRecord, ::org::apache::poi::hssf::record::TextObjectRecord* textObjectRecord);
+    HSSFTextbox(::poi::ddf::EscherContainerRecord* spContainer, ::poi::hssf::record::ObjRecord* objRecord, ::poi::hssf::record::TextObjectRecord* textObjectRecord);
     HSSFTextbox(HSSFShape* parent, HSSFAnchor* anchor);
 protected:
     HSSFTextbox(const ::default_init_tag&);

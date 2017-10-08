@@ -22,26 +22,20 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace poifs
     {
-        namespace poi
+        namespace filesystem
         {
-            namespace poifs
-            {
-                namespace filesystem
-                {
-typedef ::SubArray< ::org::apache::poi::poifs::filesystem::Ole10Native_EncodingMode, ::java::lang::EnumArray > Ole10Native_EncodingModeArray;
-                } // filesystem
-            } // poifs
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::poifs::filesystem::Ole10Native_EncodingMode, ::java::lang::EnumArray > Ole10Native_EncodingModeArray;
+        } // filesystem
+    } // poifs
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::filesystem::Ole10Native_EncodingMode final
+class poi::poifs::filesystem::Ole10Native_EncodingMode final
     : public ::java::lang::Enum
 {
 

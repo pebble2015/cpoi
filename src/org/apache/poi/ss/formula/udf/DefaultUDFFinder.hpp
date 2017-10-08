@@ -26,29 +26,23 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace functions
             {
-                namespace formula
-                {
-                    namespace functions
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::functions::FreeRefFunction, ::java::lang::ObjectArray > FreeRefFunctionArray;
-                    } // functions
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::functions::FreeRefFunction, ::java::lang::ObjectArray > FreeRefFunctionArray;
+            } // functions
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::udf::DefaultUDFFinder final
+class poi::ss::formula::udf::DefaultUDFFinder final
     : public virtual ::java::lang::Object
     , public UDFFinder
 {
@@ -59,13 +53,13 @@ public:
 private:
     ::java::util::Map* _functionsByName {  };
 protected:
-    void ctor(::java::lang::StringArray* functionNames, ::org::apache::poi::ss::formula::functions::FreeRefFunctionArray* functionImpls);
+    void ctor(::java::lang::StringArray* functionNames, ::poi::ss::formula::functions::FreeRefFunctionArray* functionImpls);
 
 public:
-    ::org::apache::poi::ss::formula::functions::FreeRefFunction* findFunction(::java::lang::String* name) override;
+    ::poi::ss::formula::functions::FreeRefFunction* findFunction(::java::lang::String* name) override;
 
     // Generated
-    DefaultUDFFinder(::java::lang::StringArray* functionNames, ::org::apache::poi::ss::formula::functions::FreeRefFunctionArray* functionImpls);
+    DefaultUDFFinder(::java::lang::StringArray* functionNames, ::poi::ss::formula::functions::FreeRefFunctionArray* functionImpls);
 protected:
     DefaultUDFFinder(const ::default_init_tag&);
 

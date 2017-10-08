@@ -21,19 +21,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::dev::BiffViewer_BiffRecordListener::BiffViewer_BiffRecordListener(const ::default_init_tag&)
+poi::hssf::dev::BiffViewer_BiffRecordListener::BiffViewer_BiffRecordListener(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::dev::BiffViewer_BiffRecordListener::BiffViewer_BiffRecordListener(::java::io::Writer* hexDumpWriter, bool zeroAlignEachRecord, bool noHeader) 
+poi::hssf::dev::BiffViewer_BiffRecordListener::BiffViewer_BiffRecordListener(::java::io::Writer* hexDumpWriter, bool zeroAlignEachRecord, bool noHeader) 
     : BiffViewer_BiffRecordListener(*static_cast< ::default_init_tag* >(0))
 {
     ctor(hexDumpWriter,zeroAlignEachRecord,noHeader);
 }
 
-void org::apache::poi::hssf::dev::BiffViewer_BiffRecordListener::ctor(::java::io::Writer* hexDumpWriter, bool zeroAlignEachRecord, bool noHeader)
+void poi::hssf::dev::BiffViewer_BiffRecordListener::ctor(::java::io::Writer* hexDumpWriter, bool zeroAlignEachRecord, bool noHeader)
 {
     super::ctor();
     _hexDumpWriter = hexDumpWriter;
@@ -42,7 +42,7 @@ void org::apache::poi::hssf::dev::BiffViewer_BiffRecordListener::ctor(::java::io
     _headers = new ::java::util::ArrayList();
 }
 
-void org::apache::poi::hssf::dev::BiffViewer_BiffRecordListener::processRecord(int32_t globalOffset, int32_t recordCounter, int32_t sid, int32_t dataSize, ::int8_tArray* data)
+void poi::hssf::dev::BiffViewer_BiffRecordListener::processRecord(int32_t globalOffset, int32_t recordCounter, int32_t sid, int32_t dataSize, ::int8_tArray* data)
 {
     auto header = formatRecordDetails(globalOffset, sid, dataSize, recordCounter);
     if(!_noHeader) {
@@ -61,33 +61,33 @@ void org::apache::poi::hssf::dev::BiffViewer_BiffRecordListener::processRecord(i
     }
 }
 
-java::util::List* org::apache::poi::hssf::dev::BiffViewer_BiffRecordListener::getRecentHeaders()
+java::util::List* poi::hssf::dev::BiffViewer_BiffRecordListener::getRecentHeaders()
 {
     auto result = _headers;
     _headers = new ::java::util::ArrayList();
     return result;
 }
 
-java::lang::String* org::apache::poi::hssf::dev::BiffViewer_BiffRecordListener::formatRecordDetails(int32_t globalOffset, int32_t sid, int32_t size, int32_t recordCounter)
+java::lang::String* poi::hssf::dev::BiffViewer_BiffRecordListener::formatRecordDetails(int32_t globalOffset, int32_t sid, int32_t size, int32_t recordCounter)
 {
     clinit();
     auto sb = new ::java::lang::StringBuilder(int32_t(64));
-    npc(npc(npc(npc(npc(sb)->append(u"Offset="_j))->append(::org::apache::poi::util::HexDump::intToHex(globalOffset)))->append(u"("_j))->append(globalOffset))->append(u")"_j);
+    npc(npc(npc(npc(npc(sb)->append(u"Offset="_j))->append(::poi::util::HexDump::intToHex(globalOffset)))->append(u"("_j))->append(globalOffset))->append(u")"_j);
     npc(npc(sb)->append(u" recno="_j))->append(recordCounter);
-    npc(npc(sb)->append(u" sid="_j))->append(::org::apache::poi::util::HexDump::shortToHex(sid));
-    npc(npc(npc(npc(npc(sb)->append(u" size="_j))->append(::org::apache::poi::util::HexDump::shortToHex(size)))->append(u"("_j))->append(size))->append(u")"_j);
+    npc(npc(sb)->append(u" sid="_j))->append(::poi::util::HexDump::shortToHex(sid));
+    npc(npc(npc(npc(npc(sb)->append(u" size="_j))->append(::poi::util::HexDump::shortToHex(size)))->append(u"("_j))->append(size))->append(u")"_j);
     return npc(sb)->toString();
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::dev::BiffViewer_BiffRecordListener::class_()
+java::lang::Class* poi::hssf::dev::BiffViewer_BiffRecordListener::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.dev.BiffViewer.BiffRecordListener", 53);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::dev::BiffViewer_BiffRecordListener::getClass0()
+java::lang::Class* poi::hssf::dev::BiffViewer_BiffRecordListener::getClass0()
 {
     return class_();
 }

@@ -47,42 +47,36 @@ typedef ::SubArray< ::java::lang::Cloneable, ObjectArray > CloneableArray;
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
+            namespace cf
             {
-                namespace record
-                {
-                    namespace cf
-                    {
-typedef ::SubArray< ::org::apache::poi::hssf::record::cf::Threshold, ::java::lang::ObjectArray > ThresholdArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::cf::ColorGradientThreshold, ThresholdArray, ::java::lang::CloneableArray > ColorGradientThresholdArray;
-                    } // cf
+typedef ::SubArray< ::poi::hssf::record::cf::Threshold, ::java::lang::ObjectArray > ThresholdArray;
+typedef ::SubArray< ::poi::hssf::record::cf::ColorGradientThreshold, ThresholdArray, ::java::lang::CloneableArray > ColorGradientThresholdArray;
+            } // cf
 
-                    namespace common
-                    {
-typedef ::SubArray< ::org::apache::poi::hssf::record::common::ExtendedColor, ::java::lang::ObjectArray, ::java::lang::CloneableArray > ExtendedColorArray;
-                    } // common
-                } // record
-            } // hssf
-
-            namespace ss
+            namespace common
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hssf::record::common::ExtendedColor, ::java::lang::ObjectArray, ::java::lang::CloneableArray > ExtendedColorArray;
+            } // common
+        } // record
+    } // hssf
+
+    namespace ss
+    {
+        namespace formula
+        {
+            namespace ptg
+            {
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -100,52 +94,52 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::CFRule12Record::CFRule12Record(const ::default_init_tag&)
+poi::hssf::record::CFRule12Record::CFRule12Record(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::CFRule12Record::CFRule12Record(int8_t conditionType, int8_t comparisonOperation) 
+poi::hssf::record::CFRule12Record::CFRule12Record(int8_t conditionType, int8_t comparisonOperation) 
     : CFRule12Record(*static_cast< ::default_init_tag* >(0))
 {
     ctor(conditionType,comparisonOperation);
 }
 
-org::apache::poi::hssf::record::CFRule12Record::CFRule12Record(int8_t conditionType, int8_t comparisonOperation, ::org::apache::poi::ss::formula::ptg::PtgArray* formula1, ::org::apache::poi::ss::formula::ptg::PtgArray* formula2, ::org::apache::poi::ss::formula::ptg::PtgArray* formulaScale) 
+poi::hssf::record::CFRule12Record::CFRule12Record(int8_t conditionType, int8_t comparisonOperation, ::poi::ss::formula::ptg::PtgArray* formula1, ::poi::ss::formula::ptg::PtgArray* formula2, ::poi::ss::formula::ptg::PtgArray* formulaScale) 
     : CFRule12Record(*static_cast< ::default_init_tag* >(0))
 {
     ctor(conditionType,comparisonOperation,formula1,formula2,formulaScale);
 }
 
-org::apache::poi::hssf::record::CFRule12Record::CFRule12Record(RecordInputStream* in) 
+poi::hssf::record::CFRule12Record::CFRule12Record(RecordInputStream* in) 
     : CFRule12Record(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::CFRule12Record::sid;
+constexpr int16_t poi::hssf::record::CFRule12Record::sid;
 
-void org::apache::poi::hssf::record::CFRule12Record::ctor(int8_t conditionType, int8_t comparisonOperation)
+void poi::hssf::record::CFRule12Record::ctor(int8_t conditionType, int8_t comparisonOperation)
 {
     super::ctor(conditionType, comparisonOperation);
     setDefaults();
 }
 
-void org::apache::poi::hssf::record::CFRule12Record::ctor(int8_t conditionType, int8_t comparisonOperation, ::org::apache::poi::ss::formula::ptg::PtgArray* formula1, ::org::apache::poi::ss::formula::ptg::PtgArray* formula2, ::org::apache::poi::ss::formula::ptg::PtgArray* formulaScale)
+void poi::hssf::record::CFRule12Record::ctor(int8_t conditionType, int8_t comparisonOperation, ::poi::ss::formula::ptg::PtgArray* formula1, ::poi::ss::formula::ptg::PtgArray* formula2, ::poi::ss::formula::ptg::PtgArray* formulaScale)
 {
     super::ctor(conditionType, comparisonOperation, formula1, formula2);
     setDefaults();
-    this->formula_scale = ::org::apache::poi::ss::formula::Formula::create(formulaScale);
+    this->formula_scale = ::poi::ss::formula::Formula::create(formulaScale);
 }
 
-void org::apache::poi::hssf::record::CFRule12Record::setDefaults()
+void poi::hssf::record::CFRule12Record::setDefaults()
 {
-    futureHeader = new ::org::apache::poi::hssf::record::common::FtrHeader();
+    futureHeader = new ::poi::hssf::record::common::FtrHeader();
     npc(futureHeader)->setRecordType(sid);
     ext_formatting_length = 0;
     ext_formatting_data = new ::int8_tArray(int32_t(4));
-    formula_scale = ::org::apache::poi::ss::formula::Formula::create(::org::apache::poi::ss::formula::ptg::Ptg::EMPTY_PTG_ARRAY());
+    formula_scale = ::poi::ss::formula::Formula::create(::poi::ss::formula::ptg::Ptg::EMPTY_PTG_ARRAY());
     ext_opts = 0;
     priority = 0;
     template_type = getConditionType();
@@ -153,14 +147,14 @@ void org::apache::poi::hssf::record::CFRule12Record::setDefaults()
     template_params = new ::int8_tArray(template_param_length);
 }
 
-org::apache::poi::hssf::record::CFRule12Record* org::apache::poi::hssf::record::CFRule12Record::create(::org::apache::poi::hssf::usermodel::HSSFSheet* sheet, ::java::lang::String* formulaText)
+poi::hssf::record::CFRule12Record* poi::hssf::record::CFRule12Record::create(::poi::hssf::usermodel::HSSFSheet* sheet, ::java::lang::String* formulaText)
 {
     clinit();
     auto formula1 = parseFormula(formulaText, sheet);
     return new CFRule12Record(CONDITION_TYPE_FORMULA, CFRuleBase_ComparisonOperator::NO_COMPARISON, formula1, nullptr, nullptr);
 }
 
-org::apache::poi::hssf::record::CFRule12Record* org::apache::poi::hssf::record::CFRule12Record::create(::org::apache::poi::hssf::usermodel::HSSFSheet* sheet, int8_t comparisonOperation, ::java::lang::String* formulaText1, ::java::lang::String* formulaText2)
+poi::hssf::record::CFRule12Record* poi::hssf::record::CFRule12Record::create(::poi::hssf::usermodel::HSSFSheet* sheet, int8_t comparisonOperation, ::java::lang::String* formulaText1, ::java::lang::String* formulaText2)
 {
     clinit();
     auto formula1 = parseFormula(formulaText1, sheet);
@@ -168,7 +162,7 @@ org::apache::poi::hssf::record::CFRule12Record* org::apache::poi::hssf::record::
     return new CFRule12Record(CONDITION_TYPE_CELL_VALUE_IS, comparisonOperation, formula1, formula2, nullptr);
 }
 
-org::apache::poi::hssf::record::CFRule12Record* org::apache::poi::hssf::record::CFRule12Record::create(::org::apache::poi::hssf::usermodel::HSSFSheet* sheet, int8_t comparisonOperation, ::java::lang::String* formulaText1, ::java::lang::String* formulaText2, ::java::lang::String* formulaTextScale)
+poi::hssf::record::CFRule12Record* poi::hssf::record::CFRule12Record::create(::poi::hssf::usermodel::HSSFSheet* sheet, int8_t comparisonOperation, ::java::lang::String* formulaText1, ::java::lang::String* formulaText2, ::java::lang::String* formulaTextScale)
 {
     clinit();
     auto formula1 = parseFormula(formulaText1, sheet);
@@ -177,7 +171,7 @@ org::apache::poi::hssf::record::CFRule12Record* org::apache::poi::hssf::record::
     return new CFRule12Record(CONDITION_TYPE_CELL_VALUE_IS, comparisonOperation, formula1, formula2, formula3);
 }
 
-org::apache::poi::hssf::record::CFRule12Record* org::apache::poi::hssf::record::CFRule12Record::create(::org::apache::poi::hssf::usermodel::HSSFSheet* sheet, ::org::apache::poi::hssf::record::common::ExtendedColor* color)
+poi::hssf::record::CFRule12Record* poi::hssf::record::CFRule12Record::create(::poi::hssf::usermodel::HSSFSheet* sheet, ::poi::hssf::record::common::ExtendedColor* color)
 {
     clinit();
     auto r = new CFRule12Record(CONDITION_TYPE_DATA_BAR, CFRuleBase_ComparisonOperator::NO_COMPARISON);
@@ -185,21 +179,21 @@ org::apache::poi::hssf::record::CFRule12Record* org::apache::poi::hssf::record::
     npc(dbf)->setColor(color);
     npc(dbf)->setPercentMin(static_cast< int8_t >(int32_t(0)));
     npc(dbf)->setPercentMax(static_cast< int8_t >(int32_t(100)));
-    auto min = new ::org::apache::poi::hssf::record::cf::DataBarThreshold();
-    npc(min)->setType(npc(::org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::MIN)->id);
+    auto min = new ::poi::hssf::record::cf::DataBarThreshold();
+    npc(min)->setType(npc(::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::MIN)->id);
     npc(dbf)->setThresholdMin(min);
-    auto max = new ::org::apache::poi::hssf::record::cf::DataBarThreshold();
-    npc(max)->setType(npc(::org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::MAX)->id);
+    auto max = new ::poi::hssf::record::cf::DataBarThreshold();
+    npc(max)->setType(npc(::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::MAX)->id);
     npc(dbf)->setThresholdMax(max);
     return r;
 }
 
-org::apache::poi::hssf::record::CFRule12Record* org::apache::poi::hssf::record::CFRule12Record::create(::org::apache::poi::hssf::usermodel::HSSFSheet* sheet, ::org::apache::poi::ss::usermodel::IconMultiStateFormatting_IconSet* iconSet)
+poi::hssf::record::CFRule12Record* poi::hssf::record::CFRule12Record::create(::poi::hssf::usermodel::HSSFSheet* sheet, ::poi::ss::usermodel::IconMultiStateFormatting_IconSet* iconSet)
 {
     clinit();
-    auto ts = new ::org::apache::poi::hssf::record::cf::ThresholdArray(npc(iconSet)->num);
+    auto ts = new ::poi::hssf::record::cf::ThresholdArray(npc(iconSet)->num);
     for (auto i = int32_t(0); i < npc(ts)->length; i++) {
-        ts->set(i, new ::org::apache::poi::hssf::record::cf::IconMultiStateThreshold());
+        ts->set(i, new ::poi::hssf::record::cf::IconMultiStateThreshold());
     }
     auto r = new CFRule12Record(CONDITION_TYPE_ICON_SET, CFRuleBase_ComparisonOperator::NO_COMPARISON);
     auto imf = npc(r)->createMultiStateFormatting();
@@ -208,15 +202,15 @@ org::apache::poi::hssf::record::CFRule12Record* org::apache::poi::hssf::record::
     return r;
 }
 
-org::apache::poi::hssf::record::CFRule12Record* org::apache::poi::hssf::record::CFRule12Record::createColorScale(::org::apache::poi::hssf::usermodel::HSSFSheet* sheet)
+poi::hssf::record::CFRule12Record* poi::hssf::record::CFRule12Record::createColorScale(::poi::hssf::usermodel::HSSFSheet* sheet)
 {
     clinit();
     auto numPoints = int32_t(3);
-    auto colors = new ::org::apache::poi::hssf::record::common::ExtendedColorArray(numPoints);
-    auto ts = new ::org::apache::poi::hssf::record::cf::ColorGradientThresholdArray(numPoints);
+    auto colors = new ::poi::hssf::record::common::ExtendedColorArray(numPoints);
+    auto ts = new ::poi::hssf::record::cf::ColorGradientThresholdArray(numPoints);
     for (auto i = int32_t(0); i < npc(ts)->length; i++) {
-        ts->set(i, new ::org::apache::poi::hssf::record::cf::ColorGradientThreshold());
-        colors->set(i, new ::org::apache::poi::hssf::record::common::ExtendedColor());
+        ts->set(i, new ::poi::hssf::record::cf::ColorGradientThreshold());
+        colors->set(i, new ::poi::hssf::record::common::ExtendedColor());
     }
     auto r = new CFRule12Record(CONDITION_TYPE_COLOR_SCALE, CFRuleBase_ComparisonOperator::NO_COMPARISON);
     auto cgf = npc(r)->createColorGradientFormatting();
@@ -226,10 +220,10 @@ org::apache::poi::hssf::record::CFRule12Record* org::apache::poi::hssf::record::
     return r;
 }
 
-void org::apache::poi::hssf::record::CFRule12Record::ctor(RecordInputStream* in)
+void poi::hssf::record::CFRule12Record::ctor(RecordInputStream* in)
 {
     super::ctor();
-    futureHeader = new ::org::apache::poi::hssf::record::common::FtrHeader(in);
+    futureHeader = new ::poi::hssf::record::common::FtrHeader(in);
     setConditionType(npc(in)->readByte());
     setComparisonOperation(npc(in)->readByte());
     auto field_3_formula1_len = npc(in)->readUShort();
@@ -245,10 +239,10 @@ void org::apache::poi::hssf::record::CFRule12Record::ctor(RecordInputStream* in)
             npc(in)->readFully(ext_formatting_data);
         }
     }
-    setFormula1(::org::apache::poi::ss::formula::Formula::read(field_3_formula1_len, in));
-    setFormula2(::org::apache::poi::ss::formula::Formula::read(field_4_formula2_len, in));
+    setFormula1(::poi::ss::formula::Formula::read(field_3_formula1_len, in));
+    setFormula2(::poi::ss::formula::Formula::read(field_4_formula2_len, in));
     auto formula_scale_len = npc(in)->readUShort();
-    formula_scale = ::org::apache::poi::ss::formula::Formula::read(formula_scale_len, in);
+    formula_scale = ::poi::ss::formula::Formula::read(formula_scale_len, in);
     ext_opts = npc(in)->readByte();
     priority = npc(in)->readUShort();
     template_type = npc(in)->readUShort();
@@ -257,107 +251,107 @@ void org::apache::poi::hssf::record::CFRule12Record::ctor(RecordInputStream* in)
         template_params = new ::int8_tArray(template_param_length);
         npc(in)->readFully(template_params);
     } else {
-        npc(logger())->log(::org::apache::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"CF Rule v12 template params length should be 0 or 16, found "_j)->append(template_param_length)->toString())}));
+        npc(logger())->log(::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"CF Rule v12 template params length should be 0 or 16, found "_j)->append(template_param_length)->toString())}));
         npc(in)->readRemainder();
     }
     auto type = getConditionType();
     if(type == CONDITION_TYPE_COLOR_SCALE) {
-        color_gradient = new ::org::apache::poi::hssf::record::cf::ColorGradientFormatting(in);
+        color_gradient = new ::poi::hssf::record::cf::ColorGradientFormatting(in);
     } else if(type == CONDITION_TYPE_DATA_BAR) {
-        data_bar = new ::org::apache::poi::hssf::record::cf::DataBarFormatting(in);
+        data_bar = new ::poi::hssf::record::cf::DataBarFormatting(in);
     } else if(type == CONDITION_TYPE_FILTER) {
         filter_data = npc(in)->readRemainder();
     } else if(type == CONDITION_TYPE_ICON_SET) {
-        multistate = new ::org::apache::poi::hssf::record::cf::IconMultiStateFormatting(in);
+        multistate = new ::poi::hssf::record::cf::IconMultiStateFormatting(in);
     }
 }
 
-bool org::apache::poi::hssf::record::CFRule12Record::containsDataBarBlock()
+bool poi::hssf::record::CFRule12Record::containsDataBarBlock()
 {
     return (data_bar != nullptr);
 }
 
-org::apache::poi::hssf::record::cf::DataBarFormatting* org::apache::poi::hssf::record::CFRule12Record::getDataBarFormatting()
+poi::hssf::record::cf::DataBarFormatting* poi::hssf::record::CFRule12Record::getDataBarFormatting()
 {
     return data_bar;
 }
 
-org::apache::poi::hssf::record::cf::DataBarFormatting* org::apache::poi::hssf::record::CFRule12Record::createDataBarFormatting()
+poi::hssf::record::cf::DataBarFormatting* poi::hssf::record::CFRule12Record::createDataBarFormatting()
 {
     if(data_bar != nullptr)
         return data_bar;
 
     setConditionType(CONDITION_TYPE_DATA_BAR);
-    data_bar = new ::org::apache::poi::hssf::record::cf::DataBarFormatting();
+    data_bar = new ::poi::hssf::record::cf::DataBarFormatting();
     return data_bar;
 }
 
-bool org::apache::poi::hssf::record::CFRule12Record::containsMultiStateBlock()
+bool poi::hssf::record::CFRule12Record::containsMultiStateBlock()
 {
     return (multistate != nullptr);
 }
 
-org::apache::poi::hssf::record::cf::IconMultiStateFormatting* org::apache::poi::hssf::record::CFRule12Record::getMultiStateFormatting()
+poi::hssf::record::cf::IconMultiStateFormatting* poi::hssf::record::CFRule12Record::getMultiStateFormatting()
 {
     return multistate;
 }
 
-org::apache::poi::hssf::record::cf::IconMultiStateFormatting* org::apache::poi::hssf::record::CFRule12Record::createMultiStateFormatting()
+poi::hssf::record::cf::IconMultiStateFormatting* poi::hssf::record::CFRule12Record::createMultiStateFormatting()
 {
     if(multistate != nullptr)
         return multistate;
 
     setConditionType(CONDITION_TYPE_ICON_SET);
-    multistate = new ::org::apache::poi::hssf::record::cf::IconMultiStateFormatting();
+    multistate = new ::poi::hssf::record::cf::IconMultiStateFormatting();
     return multistate;
 }
 
-bool org::apache::poi::hssf::record::CFRule12Record::containsColorGradientBlock()
+bool poi::hssf::record::CFRule12Record::containsColorGradientBlock()
 {
     return (color_gradient != nullptr);
 }
 
-org::apache::poi::hssf::record::cf::ColorGradientFormatting* org::apache::poi::hssf::record::CFRule12Record::getColorGradientFormatting()
+poi::hssf::record::cf::ColorGradientFormatting* poi::hssf::record::CFRule12Record::getColorGradientFormatting()
 {
     return color_gradient;
 }
 
-org::apache::poi::hssf::record::cf::ColorGradientFormatting* org::apache::poi::hssf::record::CFRule12Record::createColorGradientFormatting()
+poi::hssf::record::cf::ColorGradientFormatting* poi::hssf::record::CFRule12Record::createColorGradientFormatting()
 {
     if(color_gradient != nullptr)
         return color_gradient;
 
     setConditionType(CONDITION_TYPE_COLOR_SCALE);
-    color_gradient = new ::org::apache::poi::hssf::record::cf::ColorGradientFormatting();
+    color_gradient = new ::poi::hssf::record::cf::ColorGradientFormatting();
     return color_gradient;
 }
 
-org::apache::poi::ss::formula::ptg::PtgArray* org::apache::poi::hssf::record::CFRule12Record::getParsedExpressionScale()
+poi::ss::formula::ptg::PtgArray* poi::hssf::record::CFRule12Record::getParsedExpressionScale()
 {
     return npc(formula_scale)->getTokens();
 }
 
-void org::apache::poi::hssf::record::CFRule12Record::setParsedExpressionScale(::org::apache::poi::ss::formula::ptg::PtgArray* ptgs)
+void poi::hssf::record::CFRule12Record::setParsedExpressionScale(::poi::ss::formula::ptg::PtgArray* ptgs)
 {
-    formula_scale = ::org::apache::poi::ss::formula::Formula::create(ptgs);
+    formula_scale = ::poi::ss::formula::Formula::create(ptgs);
 }
 
-int32_t org::apache::poi::hssf::record::CFRule12Record::getPriority()
+int32_t poi::hssf::record::CFRule12Record::getPriority()
 {
     return priority;
 }
 
-void org::apache::poi::hssf::record::CFRule12Record::setPriority(int32_t priority)
+void poi::hssf::record::CFRule12Record::setPriority(int32_t priority)
 {
     this->priority = priority;
 }
 
-int16_t org::apache::poi::hssf::record::CFRule12Record::getSid()
+int16_t poi::hssf::record::CFRule12Record::getSid()
 {
     return sid;
 }
 
-void org::apache::poi::hssf::record::CFRule12Record::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::CFRule12Record::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(futureHeader)->serialize(out);
     auto formula1Len = getFormulaSize(getFormula1());
@@ -395,9 +389,9 @@ void org::apache::poi::hssf::record::CFRule12Record::serialize(::org::apache::po
     }
 }
 
-int32_t org::apache::poi::hssf::record::CFRule12Record::getDataSize()
+int32_t poi::hssf::record::CFRule12Record::getDataSize()
 {
-    auto len = ::org::apache::poi::hssf::record::common::FtrHeader::getDataSize() + int32_t(6);
+    auto len = ::poi::hssf::record::common::FtrHeader::getDataSize() + int32_t(6);
     if(ext_formatting_length == 0) {
         len += 6;
     } else {
@@ -420,7 +414,7 @@ int32_t org::apache::poi::hssf::record::CFRule12Record::getDataSize()
     return len;
 }
 
-java::lang::String* org::apache::poi::hssf::record::CFRule12Record::toString()
+java::lang::String* poi::hssf::record::CFRule12Record::toString()
 {
     auto buffer = new ::java::lang::StringBuilder();
     npc(buffer)->append(u"[CFRULE12]\n"_j);
@@ -436,15 +430,15 @@ java::lang::String* org::apache::poi::hssf::record::CFRule12Record::toString()
     if(containsPatternFormattingBlock()) {
         npc(npc(buffer)->append(static_cast< ::java::lang::Object* >(_patternFormatting)))->append(u"\n"_j);
     }
-    npc(npc(npc(buffer)->append(u"    .dxfn12_ext="_j))->append(::org::apache::poi::util::HexDump::toHex(ext_formatting_data)))->append(u"\n"_j);
+    npc(npc(npc(buffer)->append(u"    .dxfn12_ext="_j))->append(::poi::util::HexDump::toHex(ext_formatting_data)))->append(u"\n"_j);
     npc(npc(npc(buffer)->append(u"    .formula_1 ="_j))->append(::java::util::Arrays::toString(static_cast< ::java::lang::ObjectArray* >(npc(getFormula1())->getTokens()))))->append(u"\n"_j);
     npc(npc(npc(buffer)->append(u"    .formula_2 ="_j))->append(::java::util::Arrays::toString(static_cast< ::java::lang::ObjectArray* >(npc(getFormula2())->getTokens()))))->append(u"\n"_j);
     npc(npc(npc(buffer)->append(u"    .formula_S ="_j))->append(::java::util::Arrays::toString(static_cast< ::java::lang::ObjectArray* >(npc(formula_scale)->getTokens()))))->append(u"\n"_j);
     npc(npc(npc(buffer)->append(u"    .ext_opts  ="_j))->append(static_cast< int32_t >(ext_opts)))->append(u"\n"_j);
     npc(npc(npc(buffer)->append(u"    .priority  ="_j))->append(priority))->append(u"\n"_j);
     npc(npc(npc(buffer)->append(u"    .template_type  ="_j))->append(template_type))->append(u"\n"_j);
-    npc(npc(npc(buffer)->append(u"    .template_params="_j))->append(::org::apache::poi::util::HexDump::toHex(template_params)))->append(u"\n"_j);
-    npc(npc(npc(buffer)->append(u"    .filter_data    ="_j))->append(::org::apache::poi::util::HexDump::toHex(filter_data)))->append(u"\n"_j);
+    npc(npc(npc(buffer)->append(u"    .template_params="_j))->append(::poi::util::HexDump::toHex(template_params)))->append(u"\n"_j);
+    npc(npc(npc(buffer)->append(u"    .filter_data    ="_j))->append(::poi::util::HexDump::toHex(filter_data)))->append(u"\n"_j);
     if(color_gradient != nullptr) {
         npc(buffer)->append(static_cast< ::java::lang::Object* >(color_gradient));
     }
@@ -458,7 +452,7 @@ java::lang::String* org::apache::poi::hssf::record::CFRule12Record::toString()
     return npc(buffer)->toString();
 }
 
-org::apache::poi::hssf::record::CFRule12Record* org::apache::poi::hssf::record::CFRule12Record::clone()
+poi::hssf::record::CFRule12Record* poi::hssf::record::CFRule12Record::clone()
 {
     auto rec = new CFRule12Record(getConditionType(), getComparisonOperation());
     npc(npc(rec)->futureHeader)->setAssociatedRange(npc(npc(futureHeader)->getAssociatedRange())->copy());
@@ -474,13 +468,13 @@ org::apache::poi::hssf::record::CFRule12Record* org::apache::poi::hssf::record::
     npc(rec)->template_params = new ::int8_tArray(template_param_length);
     ::java::lang::System::arraycopy(template_params, 0, npc(rec)->template_params, 0, template_param_length);
     if(color_gradient != nullptr) {
-        npc(rec)->color_gradient = java_cast< ::org::apache::poi::hssf::record::cf::ColorGradientFormatting* >(npc(color_gradient)->clone());
+        npc(rec)->color_gradient = java_cast< ::poi::hssf::record::cf::ColorGradientFormatting* >(npc(color_gradient)->clone());
     }
     if(multistate != nullptr) {
-        npc(rec)->multistate = java_cast< ::org::apache::poi::hssf::record::cf::IconMultiStateFormatting* >(npc(multistate)->clone());
+        npc(rec)->multistate = java_cast< ::poi::hssf::record::cf::IconMultiStateFormatting* >(npc(multistate)->clone());
     }
     if(data_bar != nullptr) {
-        npc(rec)->data_bar = java_cast< ::org::apache::poi::hssf::record::cf::DataBarFormatting* >(npc(data_bar)->clone());
+        npc(rec)->data_bar = java_cast< ::poi::hssf::record::cf::DataBarFormatting* >(npc(data_bar)->clone());
     }
     if(filter_data != nullptr) {
         npc(rec)->filter_data = new ::int8_tArray(npc(filter_data)->length);
@@ -489,40 +483,40 @@ org::apache::poi::hssf::record::CFRule12Record* org::apache::poi::hssf::record::
     return rec;
 }
 
-int16_t org::apache::poi::hssf::record::CFRule12Record::getFutureRecordType()
+int16_t poi::hssf::record::CFRule12Record::getFutureRecordType()
 {
     return npc(futureHeader)->getRecordType();
 }
 
-org::apache::poi::hssf::record::common::FtrHeader* org::apache::poi::hssf::record::CFRule12Record::getFutureHeader()
+poi::hssf::record::common::FtrHeader* poi::hssf::record::CFRule12Record::getFutureHeader()
 {
     return futureHeader;
 }
 
-org::apache::poi::ss::util::CellRangeAddress* org::apache::poi::hssf::record::CFRule12Record::getAssociatedRange()
+poi::ss::util::CellRangeAddress* poi::hssf::record::CFRule12Record::getAssociatedRange()
 {
     return npc(futureHeader)->getAssociatedRange();
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::CFRule12Record::class_()
+java::lang::Class* poi::hssf::record::CFRule12Record::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.CFRule12Record", 41);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::CFRule12Record::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::CFRule12Record::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::CFRule12Record::serialize()
+int8_tArray* poi::hssf::record::CFRule12Record::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::CFRule12Record::getClass0()
+java::lang::Class* poi::hssf::record::CFRule12Record::getClass0()
 {
     return class_();
 }

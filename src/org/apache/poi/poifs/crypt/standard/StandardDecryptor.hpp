@@ -14,13 +14,13 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::crypt::standard::StandardDecryptor
-    : public ::org::apache::poi::poifs::crypt::Decryptor
+class poi::poifs::crypt::standard::StandardDecryptor
+    : public ::poi::poifs::crypt::Decryptor
     , public virtual ::java::lang::Cloneable
 {
 
 public:
-    typedef ::org::apache::poi::poifs::crypt::Decryptor super;
+    typedef ::poi::poifs::crypt::Decryptor super;
 
 private:
     int64_t _length {  };
@@ -31,14 +31,14 @@ public:
     bool verifyPassword(::java::lang::String* password) override;
 
 public: /* protected */
-    static ::javax::crypto::SecretKey* generateSecretKey(::java::lang::String* password, ::org::apache::poi::poifs::crypt::EncryptionVerifier* ver, int32_t keySize);
+    static ::javax::crypto::SecretKey* generateSecretKey(::java::lang::String* password, ::poi::poifs::crypt::EncryptionVerifier* ver, int32_t keySize);
     static ::int8_tArray* fillAndXor(::int8_tArray* hash, int8_t fillByte);
 
 private:
     ::javax::crypto::Cipher* getCipher(::javax::crypto::SecretKey* key);
 
 public:
-    ::java::io::InputStream* getDataStream(::org::apache::poi::poifs::filesystem::DirectoryNode* dir) /* throws(IOException) */ override;
+    ::java::io::InputStream* getDataStream(::poi::poifs::filesystem::DirectoryNode* dir) /* throws(IOException) */ override;
     int64_t getLength() override;
     StandardDecryptor* clone() /* throws(CloneNotSupportedException) */ override;
 
@@ -58,9 +58,9 @@ private:
 
 public:
     virtual ::java::io::InputStream* getDataStream(::java::io::InputStream* stream, int32_t size, int32_t initialPos);
-    virtual ::java::io::InputStream* getDataStream(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs);
-    virtual ::java::io::InputStream* getDataStream(::org::apache::poi::poifs::filesystem::OPOIFSFileSystem* fs);
-    virtual ::java::io::InputStream* getDataStream(::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs);
+    virtual ::java::io::InputStream* getDataStream(::poi::poifs::filesystem::NPOIFSFileSystem* fs);
+    virtual ::java::io::InputStream* getDataStream(::poi::poifs::filesystem::OPOIFSFileSystem* fs);
+    virtual ::java::io::InputStream* getDataStream(::poi::poifs::filesystem::POIFSFileSystem* fs);
 
 private:
     virtual ::java::lang::Class* getClass0();

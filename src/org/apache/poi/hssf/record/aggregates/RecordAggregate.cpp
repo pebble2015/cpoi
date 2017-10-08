@@ -12,26 +12,26 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::aggregates::RecordAggregate::RecordAggregate(const ::default_init_tag&)
+poi::hssf::record::aggregates::RecordAggregate::RecordAggregate(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::aggregates::RecordAggregate::RecordAggregate()
+poi::hssf::record::aggregates::RecordAggregate::RecordAggregate()
     : RecordAggregate(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-int32_t org::apache::poi::hssf::record::aggregates::RecordAggregate::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::aggregates::RecordAggregate::serialize(int32_t offset, ::int8_tArray* data)
 {
     auto srv = new RecordAggregate_SerializingRecordVisitor(data, offset);
     visitContainedRecords(srv);
     return npc(srv)->countBytesWritten();
 }
 
-int32_t org::apache::poi::hssf::record::aggregates::RecordAggregate::getRecordSize()
+int32_t poi::hssf::record::aggregates::RecordAggregate::getRecordSize()
 {
     auto rsv = new RecordAggregate_RecordSizingVisitor();
     visitContainedRecords(rsv);
@@ -40,13 +40,13 @@ int32_t org::apache::poi::hssf::record::aggregates::RecordAggregate::getRecordSi
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::aggregates::RecordAggregate::class_()
+java::lang::Class* poi::hssf::record::aggregates::RecordAggregate::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.aggregates.RecordAggregate", 53);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::record::aggregates::RecordAggregate::getClass0()
+java::lang::Class* poi::hssf::record::aggregates::RecordAggregate::getClass0()
 {
     return class_();
 }

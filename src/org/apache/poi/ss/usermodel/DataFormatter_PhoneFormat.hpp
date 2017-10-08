@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::usermodel::DataFormatter_PhoneFormat final
+class poi::ss::usermodel::DataFormatter_PhoneFormat final
     : public ::java::text::Format
 {
 

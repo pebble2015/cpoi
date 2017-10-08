@@ -25,50 +25,44 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace ss
+            namespace charts
             {
-                namespace usermodel
-                {
-                    namespace charts
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::charts::AxisCrosses, ::java::lang::EnumArray > AxisCrossesArray;
-                    } // charts
-                } // usermodel
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::usermodel::charts::AxisCrosses, ::java::lang::EnumArray > AxisCrossesArray;
+            } // charts
+        } // usermodel
+    } // ss
+} // poi
 
-org::apache::poi::ss::usermodel::charts::AxisCrosses::AxisCrosses(const ::default_init_tag&)
+poi::ss::usermodel::charts::AxisCrosses::AxisCrosses(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::usermodel::charts::AxisCrosses::AxisCrosses(::java::lang::String* name, int ordinal)
+poi::ss::usermodel::charts::AxisCrosses::AxisCrosses(::java::lang::String* name, int ordinal)
     : AxisCrosses(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal);
 }
 
-org::apache::poi::ss::usermodel::charts::AxisCrosses* org::apache::poi::ss::usermodel::charts::AxisCrosses::AUTO_ZERO = new ::org::apache::poi::ss::usermodel::charts::AxisCrosses(u"AUTO_ZERO"_j, 0);
-org::apache::poi::ss::usermodel::charts::AxisCrosses* org::apache::poi::ss::usermodel::charts::AxisCrosses::MIN = new ::org::apache::poi::ss::usermodel::charts::AxisCrosses(u"MIN"_j, 1);
-org::apache::poi::ss::usermodel::charts::AxisCrosses* org::apache::poi::ss::usermodel::charts::AxisCrosses::MAX = new ::org::apache::poi::ss::usermodel::charts::AxisCrosses(u"MAX"_j, 2);
+poi::ss::usermodel::charts::AxisCrosses* poi::ss::usermodel::charts::AxisCrosses::AUTO_ZERO = new ::poi::ss::usermodel::charts::AxisCrosses(u"AUTO_ZERO"_j, 0);
+poi::ss::usermodel::charts::AxisCrosses* poi::ss::usermodel::charts::AxisCrosses::MIN = new ::poi::ss::usermodel::charts::AxisCrosses(u"MIN"_j, 1);
+poi::ss::usermodel::charts::AxisCrosses* poi::ss::usermodel::charts::AxisCrosses::MAX = new ::poi::ss::usermodel::charts::AxisCrosses(u"MAX"_j, 2);
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::usermodel::charts::AxisCrosses::class_()
+java::lang::Class* poi::ss::usermodel::charts::AxisCrosses::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.usermodel.charts.AxisCrosses", 46);
     return c;
 }
 
-org::apache::poi::ss::usermodel::charts::AxisCrosses* org::apache::poi::ss::usermodel::charts::AxisCrosses::valueOf(::java::lang::String* a0)
+poi::ss::usermodel::charts::AxisCrosses* poi::ss::usermodel::charts::AxisCrosses::valueOf(::java::lang::String* a0)
 {
     if(AUTO_ZERO->toString()->equals(a0))
         return AUTO_ZERO;
@@ -79,16 +73,16 @@ org::apache::poi::ss::usermodel::charts::AxisCrosses* org::apache::poi::ss::user
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::ss::usermodel::charts::AxisCrossesArray* org::apache::poi::ss::usermodel::charts::AxisCrosses::values()
+poi::ss::usermodel::charts::AxisCrossesArray* poi::ss::usermodel::charts::AxisCrosses::values()
 {
-    return new org::apache::poi::ss::usermodel::charts::AxisCrossesArray({
+    return new poi::ss::usermodel::charts::AxisCrossesArray({
         AUTO_ZERO,
         MAX,
         MIN,
     });
 }
 
-java::lang::Class* org::apache::poi::ss::usermodel::charts::AxisCrosses::getClass0()
+java::lang::Class* poi::ss::usermodel::charts::AxisCrosses::getClass0()
 {
     return class_();
 }

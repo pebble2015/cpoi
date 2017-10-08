@@ -16,51 +16,51 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::DefaultColWidthRecord::DefaultColWidthRecord(const ::default_init_tag&)
+poi::hssf::record::DefaultColWidthRecord::DefaultColWidthRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::DefaultColWidthRecord::DefaultColWidthRecord() 
+poi::hssf::record::DefaultColWidthRecord::DefaultColWidthRecord() 
     : DefaultColWidthRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::DefaultColWidthRecord::DefaultColWidthRecord(RecordInputStream* in) 
+poi::hssf::record::DefaultColWidthRecord::DefaultColWidthRecord(RecordInputStream* in) 
     : DefaultColWidthRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::DefaultColWidthRecord::sid;
+constexpr int16_t poi::hssf::record::DefaultColWidthRecord::sid;
 
-constexpr int32_t org::apache::poi::hssf::record::DefaultColWidthRecord::DEFAULT_COLUMN_WIDTH;
+constexpr int32_t poi::hssf::record::DefaultColWidthRecord::DEFAULT_COLUMN_WIDTH;
 
-void org::apache::poi::hssf::record::DefaultColWidthRecord::ctor()
+void poi::hssf::record::DefaultColWidthRecord::ctor()
 {
     super::ctor();
     field_1_col_width = DEFAULT_COLUMN_WIDTH;
 }
 
-void org::apache::poi::hssf::record::DefaultColWidthRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::DefaultColWidthRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     field_1_col_width = npc(in)->readUShort();
 }
 
-void org::apache::poi::hssf::record::DefaultColWidthRecord::setColWidth(int32_t width)
+void poi::hssf::record::DefaultColWidthRecord::setColWidth(int32_t width)
 {
     field_1_col_width = width;
 }
 
-int32_t org::apache::poi::hssf::record::DefaultColWidthRecord::getColWidth()
+int32_t poi::hssf::record::DefaultColWidthRecord::getColWidth()
 {
     return field_1_col_width;
 }
 
-java::lang::String* org::apache::poi::hssf::record::DefaultColWidthRecord::toString()
+java::lang::String* poi::hssf::record::DefaultColWidthRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[DEFAULTCOLWIDTH]\n"_j);
@@ -69,22 +69,22 @@ java::lang::String* org::apache::poi::hssf::record::DefaultColWidthRecord::toStr
     return npc(buffer)->toString();
 }
 
-void org::apache::poi::hssf::record::DefaultColWidthRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::DefaultColWidthRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(getColWidth());
 }
 
-int32_t org::apache::poi::hssf::record::DefaultColWidthRecord::getDataSize()
+int32_t poi::hssf::record::DefaultColWidthRecord::getDataSize()
 {
     return 2;
 }
 
-int16_t org::apache::poi::hssf::record::DefaultColWidthRecord::getSid()
+int16_t poi::hssf::record::DefaultColWidthRecord::getSid()
 {
     return sid;
 }
 
-org::apache::poi::hssf::record::DefaultColWidthRecord* org::apache::poi::hssf::record::DefaultColWidthRecord::clone()
+poi::hssf::record::DefaultColWidthRecord* poi::hssf::record::DefaultColWidthRecord::clone()
 {
     auto rec = new DefaultColWidthRecord();
     npc(rec)->field_1_col_width = field_1_col_width;
@@ -93,23 +93,23 @@ org::apache::poi::hssf::record::DefaultColWidthRecord* org::apache::poi::hssf::r
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::DefaultColWidthRecord::class_()
+java::lang::Class* poi::hssf::record::DefaultColWidthRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.DefaultColWidthRecord", 48);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::DefaultColWidthRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::DefaultColWidthRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::DefaultColWidthRecord::serialize()
+int8_tArray* poi::hssf::record::DefaultColWidthRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::DefaultColWidthRecord::getClass0()
+java::lang::Class* poi::hssf::record::DefaultColWidthRecord::getClass0()
 {
     return class_();
 }

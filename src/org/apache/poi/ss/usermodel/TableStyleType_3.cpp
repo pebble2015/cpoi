@@ -17,14 +17,14 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::usermodel::TableStyleType_3::TableStyleType_3(::java::lang::String* name, int ordinal)
+poi::ss::usermodel::TableStyleType_3::TableStyleType_3(::java::lang::String* name, int ordinal)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
     ctor(name, ordinal);
 }
 
-org::apache::poi::ss::util::CellRangeAddressBase* org::apache::poi::ss::usermodel::TableStyleType_3::getRange(Table* table, Cell* cell)
+poi::ss::util::CellRangeAddressBase* poi::ss::usermodel::TableStyleType_3::getRange(Table* table, Cell* cell)
 {
     auto info = npc(table)->getStyle();
     if(!npc(info)->isShowColumnStripes())
@@ -42,7 +42,7 @@ org::apache::poi::ss::util::CellRangeAddressBase* org::apache::poi::ss::usermode
             break;
 
         if(c >= secondStart && c <= secondStart + c2Stripe - int32_t(1))
-            return new ::org::apache::poi::ss::util::CellRangeAddress(npc(table)->getStartRowIndex(), npc(table)->getEndRowIndex(), secondStart, secondStart + c2Stripe - int32_t(1));
+            return new ::poi::ss::util::CellRangeAddress(npc(table)->getStartRowIndex(), npc(table)->getEndRowIndex(), secondStart, secondStart + c2Stripe - int32_t(1));
 
         firstStart = secondStart + c2Stripe;
         secondStart = firstStart + c1Stripe;
@@ -52,13 +52,13 @@ org::apache::poi::ss::util::CellRangeAddressBase* org::apache::poi::ss::usermode
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::usermodel::TableStyleType_3::class_()
+java::lang::Class* poi::ss::usermodel::TableStyleType_3::class_()
 {
     static ::java::lang::Class* c = ::class_(u"", 0);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::usermodel::TableStyleType_3::getClass0()
+java::lang::Class* poi::ss::usermodel::TableStyleType_3::getClass0()
 {
     return class_();
 }

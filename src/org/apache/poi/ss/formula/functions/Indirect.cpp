@@ -45,25 +45,19 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -81,40 +75,40 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::Indirect::Indirect(const ::default_init_tag&)
+poi::ss::formula::functions::Indirect::Indirect(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::Indirect::Indirect() 
+poi::ss::formula::functions::Indirect::Indirect() 
     : Indirect(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::functions::FreeRefFunction*& org::apache::poi::ss::formula::functions::Indirect::instance()
+poi::ss::formula::functions::FreeRefFunction*& poi::ss::formula::functions::Indirect::instance()
 {
     clinit();
     return instance_;
 }
-org::apache::poi::ss::formula::functions::FreeRefFunction* org::apache::poi::ss::formula::functions::Indirect::instance_;
+poi::ss::formula::functions::FreeRefFunction* poi::ss::formula::functions::Indirect::instance_;
 
-void org::apache::poi::ss::formula::functions::Indirect::ctor()
+void poi::ss::formula::functions::Indirect::ctor()
 {
     super::ctor();
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Indirect::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, ::org::apache::poi::ss::formula::OperationEvaluationContext* ec)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Indirect::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, ::poi::ss::formula::OperationEvaluationContext* ec)
 {
     if(npc(args)->length < 1) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
     bool isA1style;
     ::java::lang::String* text;
     try {
-        auto ve = ::org::apache::poi::ss::formula::eval::OperandResolver::getSingleValue((*args)[int32_t(0)], npc(ec)->getRowIndex(), npc(ec)->getColumnIndex());
-        text = ::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToString(ve);
+        auto ve = ::poi::ss::formula::eval::OperandResolver::getSingleValue((*args)[int32_t(0)], npc(ec)->getRowIndex(), npc(ec)->getColumnIndex());
+        text = ::poi::ss::formula::eval::OperandResolver::coerceValueToString(ve);
         switch (npc(args)->length) {
         case int32_t(1):
             isA1style = true;
@@ -123,26 +117,26 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::f
             isA1style = evaluateBooleanArg((*args)[int32_t(1)], ec);
             break;
         default:
-            return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+            return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
         }
 
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
         return npc(e)->getErrorEval();
     }
     return evaluateIndirect(ec, text, isA1style);
 }
 
-bool org::apache::poi::ss::formula::functions::Indirect::evaluateBooleanArg(::org::apache::poi::ss::formula::eval::ValueEval* arg, ::org::apache::poi::ss::formula::OperationEvaluationContext* ec) /* throws(EvaluationException) */
+bool poi::ss::formula::functions::Indirect::evaluateBooleanArg(::poi::ss::formula::eval::ValueEval* arg, ::poi::ss::formula::OperationEvaluationContext* ec) /* throws(EvaluationException) */
 {
     clinit();
-    auto ve = ::org::apache::poi::ss::formula::eval::OperandResolver::getSingleValue(arg, npc(ec)->getRowIndex(), npc(ec)->getColumnIndex());
-    if(ve == static_cast< ::org::apache::poi::ss::formula::eval::ValueEval* >(::org::apache::poi::ss::formula::eval::BlankEval::instance()) || ve == static_cast< ::org::apache::poi::ss::formula::eval::ValueEval* >(::org::apache::poi::ss::formula::eval::MissingArgEval::instance())) {
+    auto ve = ::poi::ss::formula::eval::OperandResolver::getSingleValue(arg, npc(ec)->getRowIndex(), npc(ec)->getColumnIndex());
+    if(ve == static_cast< ::poi::ss::formula::eval::ValueEval* >(::poi::ss::formula::eval::BlankEval::instance()) || ve == static_cast< ::poi::ss::formula::eval::ValueEval* >(::poi::ss::formula::eval::MissingArgEval::instance())) {
         return false;
     }
-    return npc(::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToBoolean(ve, false))->booleanValue();
+    return npc(::poi::ss::formula::eval::OperandResolver::coerceValueToBoolean(ve, false))->booleanValue();
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Indirect::evaluateIndirect(::org::apache::poi::ss::formula::OperationEvaluationContext* ec, ::java::lang::String* text, bool isA1style)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Indirect::evaluateIndirect(::poi::ss::formula::OperationEvaluationContext* ec, ::java::lang::String* text, bool isA1style)
 {
     clinit();
     auto plingPos = npc(text)->lastIndexOf(static_cast< int32_t >(u'!'));
@@ -156,18 +150,18 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::f
     } else {
         auto parts = parseWorkbookAndSheetName(npc(text)->subSequence(int32_t(0), plingPos));
         if(parts == nullptr) {
-            return ::org::apache::poi::ss::formula::eval::ErrorEval::REF_INVALID();
+            return ::poi::ss::formula::eval::ErrorEval::REF_INVALID();
         }
         workbookName = (*parts)[int32_t(0)];
         sheetName = (*parts)[int32_t(1)];
         refText = npc(text)->substring(plingPos + int32_t(1));
     }
-    if(npc(npc(::org::apache::poi::ss::usermodel::Table::isStructuredReference())->matcher(refText))->matches()) {
-        ::org::apache::poi::ss::formula::ptg::Area3DPxg* areaPtg = nullptr;
+    if(npc(npc(::poi::ss::usermodel::Table::isStructuredReference())->matcher(refText))->matches()) {
+        ::poi::ss::formula::ptg::Area3DPxg* areaPtg = nullptr;
         try {
-            areaPtg = ::org::apache::poi::ss::formula::FormulaParser::parseStructuredReference(refText, java_cast< ::org::apache::poi::ss::formula::FormulaParsingWorkbook* >(npc(ec)->getWorkbook()), npc(ec)->getRowIndex());
-        } catch (::org::apache::poi::ss::formula::FormulaParseException* e) {
-            return ::org::apache::poi::ss::formula::eval::ErrorEval::REF_INVALID();
+            areaPtg = ::poi::ss::formula::FormulaParser::parseStructuredReference(refText, java_cast< ::poi::ss::formula::FormulaParsingWorkbook* >(npc(ec)->getWorkbook()), npc(ec)->getRowIndex());
+        } catch (::poi::ss::formula::FormulaParseException* e) {
+            return ::poi::ss::formula::eval::ErrorEval::REF_INVALID();
         }
         return npc(ec)->getArea3DEval(areaPtg);
     } else {
@@ -185,7 +179,7 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::f
     }
 }
 
-java::lang::StringArray* org::apache::poi::ss::formula::functions::Indirect::parseWorkbookAndSheetName(::java::lang::CharSequence* text)
+java::lang::StringArray* poi::ss::formula::functions::Indirect::parseWorkbookAndSheetName(::java::lang::CharSequence* text)
 {
     clinit();
     auto lastIx = npc(text)->length() - int32_t(1);
@@ -256,7 +250,7 @@ java::lang::StringArray* org::apache::poi::ss::formula::functions::Indirect::par
     });
 }
 
-java::lang::String* org::apache::poi::ss::formula::functions::Indirect::unescapeString(::java::lang::CharSequence* text)
+java::lang::String* poi::ss::formula::functions::Indirect::unescapeString(::java::lang::CharSequence* text)
 {
     clinit();
     auto len = npc(text)->length();
@@ -280,7 +274,7 @@ java::lang::String* org::apache::poi::ss::formula::functions::Indirect::unescape
     return npc(sb)->toString();
 }
 
-bool org::apache::poi::ss::formula::functions::Indirect::canTrim(::java::lang::CharSequence* text)
+bool poi::ss::formula::functions::Indirect::canTrim(::java::lang::CharSequence* text)
 {
     clinit();
     auto lastIx = npc(text)->length() - int32_t(1);
@@ -298,13 +292,13 @@ bool org::apache::poi::ss::formula::functions::Indirect::canTrim(::java::lang::C
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Indirect::class_()
+java::lang::Class* poi::ss::formula::functions::Indirect::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.Indirect", 44);
     return c;
 }
 
-void org::apache::poi::ss::formula::functions::Indirect::clinit()
+void poi::ss::formula::functions::Indirect::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -320,7 +314,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Indirect::getClass0()
+java::lang::Class* poi::ss::formula::functions::Indirect::getClass0()
 {
     return class_();
 }

@@ -39,27 +39,27 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ddf::EscherPropertyFactory::EscherPropertyFactory(const ::default_init_tag&)
+poi::ddf::EscherPropertyFactory::EscherPropertyFactory(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ddf::EscherPropertyFactory::EscherPropertyFactory()
+poi::ddf::EscherPropertyFactory::EscherPropertyFactory()
     : EscherPropertyFactory(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-java::util::List* org::apache::poi::ddf::EscherPropertyFactory::createProperties(::int8_tArray* data, int32_t offset, int16_t numProperties)
+java::util::List* poi::ddf::EscherPropertyFactory::createProperties(::int8_tArray* data, int32_t offset, int16_t numProperties)
 {
     ::java::util::List* results = new ::java::util::ArrayList();
     auto pos = offset;
     for (auto i = int32_t(0); i < numProperties; i++) {
         int16_t propId;
         int32_t propData;
-        propId = ::org::apache::poi::util::LittleEndian::getShort(data, pos);
-        propData = ::org::apache::poi::util::LittleEndian::getInt(data, pos + int32_t(2));
+        propId = ::poi::util::LittleEndian::getShort(data, pos);
+        propData = ::poi::util::LittleEndian::getInt(data, pos + int32_t(2));
         auto propNumber = static_cast< int16_t >((propId & static_cast< int16_t >(int32_t(16383))));
         auto isComplex = (propId & static_cast< int16_t >(int32_t(32768))) != 0;
         auto propertyType = EscherProperties::getPropertyType(propNumber);
@@ -114,13 +114,13 @@ java::util::List* org::apache::poi::ddf::EscherPropertyFactory::createProperties
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ddf::EscherPropertyFactory::class_()
+java::lang::Class* poi::ddf::EscherPropertyFactory::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ddf.EscherPropertyFactory", 40);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ddf::EscherPropertyFactory::getClass0()
+java::lang::Class* poi::ddf::EscherPropertyFactory::getClass0()
 {
     return class_();
 }

@@ -11,29 +11,23 @@
 #include <java/lang/Object.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::model::HSSFFormulaParser final
+class poi::hssf::model::HSSFFormulaParser final
     : public ::java::lang::Object
 {
 
@@ -41,15 +35,15 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    static ::org::apache::poi::ss::formula::FormulaParsingWorkbook* createParsingWorkbook(::org::apache::poi::hssf::usermodel::HSSFWorkbook* book);
+    static ::poi::ss::formula::FormulaParsingWorkbook* createParsingWorkbook(::poi::hssf::usermodel::HSSFWorkbook* book);
 protected:
     void ctor();
 
 public:
-    static ::org::apache::poi::ss::formula::ptg::PtgArray* parse(::java::lang::String* formula, ::org::apache::poi::hssf::usermodel::HSSFWorkbook* workbook) /* throws(FormulaParseException) */;
-    static ::org::apache::poi::ss::formula::ptg::PtgArray* parse(::java::lang::String* formula, ::org::apache::poi::hssf::usermodel::HSSFWorkbook* workbook, ::org::apache::poi::ss::formula::FormulaType* formulaType) /* throws(FormulaParseException) */;
-    static ::org::apache::poi::ss::formula::ptg::PtgArray* parse(::java::lang::String* formula, ::org::apache::poi::hssf::usermodel::HSSFWorkbook* workbook, ::org::apache::poi::ss::formula::FormulaType* formulaType, int32_t sheetIndex) /* throws(FormulaParseException) */;
-    static ::java::lang::String* toFormulaString(::org::apache::poi::hssf::usermodel::HSSFWorkbook* book, ::org::apache::poi::ss::formula::ptg::PtgArray* ptgs);
+    static ::poi::ss::formula::ptg::PtgArray* parse(::java::lang::String* formula, ::poi::hssf::usermodel::HSSFWorkbook* workbook) /* throws(FormulaParseException) */;
+    static ::poi::ss::formula::ptg::PtgArray* parse(::java::lang::String* formula, ::poi::hssf::usermodel::HSSFWorkbook* workbook, ::poi::ss::formula::FormulaType* formulaType) /* throws(FormulaParseException) */;
+    static ::poi::ss::formula::ptg::PtgArray* parse(::java::lang::String* formula, ::poi::hssf::usermodel::HSSFWorkbook* workbook, ::poi::ss::formula::FormulaType* formulaType, int32_t sheetIndex) /* throws(FormulaParseException) */;
+    static ::java::lang::String* toFormulaString(::poi::hssf::usermodel::HSSFWorkbook* book, ::poi::ss::formula::ptg::PtgArray* ptgs);
 
     // Generated
 

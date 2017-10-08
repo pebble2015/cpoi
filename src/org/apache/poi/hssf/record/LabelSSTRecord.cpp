@@ -15,74 +15,74 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::LabelSSTRecord::LabelSSTRecord(const ::default_init_tag&)
+poi::hssf::record::LabelSSTRecord::LabelSSTRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::LabelSSTRecord::LabelSSTRecord() 
+poi::hssf::record::LabelSSTRecord::LabelSSTRecord() 
     : LabelSSTRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::LabelSSTRecord::LabelSSTRecord(RecordInputStream* in) 
+poi::hssf::record::LabelSSTRecord::LabelSSTRecord(RecordInputStream* in) 
     : LabelSSTRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::LabelSSTRecord::sid;
+constexpr int16_t poi::hssf::record::LabelSSTRecord::sid;
 
-void org::apache::poi::hssf::record::LabelSSTRecord::ctor()
+void poi::hssf::record::LabelSSTRecord::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hssf::record::LabelSSTRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::LabelSSTRecord::ctor(RecordInputStream* in)
 {
     super::ctor(in);
     field_4_sst_index = npc(in)->readInt();
 }
 
-void org::apache::poi::hssf::record::LabelSSTRecord::setSSTIndex(int32_t index)
+void poi::hssf::record::LabelSSTRecord::setSSTIndex(int32_t index)
 {
     field_4_sst_index = index;
 }
 
-int32_t org::apache::poi::hssf::record::LabelSSTRecord::getSSTIndex()
+int32_t poi::hssf::record::LabelSSTRecord::getSSTIndex()
 {
     return field_4_sst_index;
 }
 
-java::lang::String* org::apache::poi::hssf::record::LabelSSTRecord::getRecordName()
+java::lang::String* poi::hssf::record::LabelSSTRecord::getRecordName()
 {
     return u"LABELSST"_j;
 }
 
-void org::apache::poi::hssf::record::LabelSSTRecord::appendValueText(::java::lang::StringBuilder* sb)
+void poi::hssf::record::LabelSSTRecord::appendValueText(::java::lang::StringBuilder* sb)
 {
     npc(sb)->append(u"  .sstIndex = "_j);
-    npc(sb)->append(::org::apache::poi::util::HexDump::shortToHex(getSSTIndex()));
+    npc(sb)->append(::poi::util::HexDump::shortToHex(getSSTIndex()));
 }
 
-void org::apache::poi::hssf::record::LabelSSTRecord::serializeValue(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::LabelSSTRecord::serializeValue(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeInt(getSSTIndex());
 }
 
-int32_t org::apache::poi::hssf::record::LabelSSTRecord::getValueDataSize()
+int32_t poi::hssf::record::LabelSSTRecord::getValueDataSize()
 {
     return 4;
 }
 
-int16_t org::apache::poi::hssf::record::LabelSSTRecord::getSid()
+int16_t poi::hssf::record::LabelSSTRecord::getSid()
 {
     return sid;
 }
 
-org::apache::poi::hssf::record::LabelSSTRecord* org::apache::poi::hssf::record::LabelSSTRecord::clone()
+poi::hssf::record::LabelSSTRecord* poi::hssf::record::LabelSSTRecord::clone()
 {
     auto rec = new LabelSSTRecord();
     copyBaseFields(rec);
@@ -92,13 +92,13 @@ org::apache::poi::hssf::record::LabelSSTRecord* org::apache::poi::hssf::record::
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::LabelSSTRecord::class_()
+java::lang::Class* poi::hssf::record::LabelSSTRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.LabelSSTRecord", 41);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::record::LabelSSTRecord::getClass0()
+java::lang::Class* poi::hssf::record::LabelSSTRecord::getClass0()
 {
     return class_();
 }

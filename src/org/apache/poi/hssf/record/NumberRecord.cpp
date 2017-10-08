@@ -15,73 +15,73 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::NumberRecord::NumberRecord(const ::default_init_tag&)
+poi::hssf::record::NumberRecord::NumberRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::NumberRecord::NumberRecord() 
+poi::hssf::record::NumberRecord::NumberRecord() 
     : NumberRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::NumberRecord::NumberRecord(RecordInputStream* in) 
+poi::hssf::record::NumberRecord::NumberRecord(RecordInputStream* in) 
     : NumberRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::NumberRecord::sid;
+constexpr int16_t poi::hssf::record::NumberRecord::sid;
 
-void org::apache::poi::hssf::record::NumberRecord::ctor()
+void poi::hssf::record::NumberRecord::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hssf::record::NumberRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::NumberRecord::ctor(RecordInputStream* in)
 {
     super::ctor(in);
     field_4_value = npc(in)->readDouble();
 }
 
-void org::apache::poi::hssf::record::NumberRecord::setValue(double value)
+void poi::hssf::record::NumberRecord::setValue(double value)
 {
     field_4_value = value;
 }
 
-double org::apache::poi::hssf::record::NumberRecord::getValue()
+double poi::hssf::record::NumberRecord::getValue()
 {
     return field_4_value;
 }
 
-java::lang::String* org::apache::poi::hssf::record::NumberRecord::getRecordName()
+java::lang::String* poi::hssf::record::NumberRecord::getRecordName()
 {
     return u"NUMBER"_j;
 }
 
-void org::apache::poi::hssf::record::NumberRecord::appendValueText(::java::lang::StringBuilder* sb)
+void poi::hssf::record::NumberRecord::appendValueText(::java::lang::StringBuilder* sb)
 {
-    npc(npc(sb)->append(u"  .value= "_j))->append(::org::apache::poi::ss::util::NumberToTextConverter::toText(field_4_value));
+    npc(npc(sb)->append(u"  .value= "_j))->append(::poi::ss::util::NumberToTextConverter::toText(field_4_value));
 }
 
-void org::apache::poi::hssf::record::NumberRecord::serializeValue(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::NumberRecord::serializeValue(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeDouble(getValue());
 }
 
-int32_t org::apache::poi::hssf::record::NumberRecord::getValueDataSize()
+int32_t poi::hssf::record::NumberRecord::getValueDataSize()
 {
     return 8;
 }
 
-int16_t org::apache::poi::hssf::record::NumberRecord::getSid()
+int16_t poi::hssf::record::NumberRecord::getSid()
 {
     return sid;
 }
 
-org::apache::poi::hssf::record::NumberRecord* org::apache::poi::hssf::record::NumberRecord::clone()
+poi::hssf::record::NumberRecord* poi::hssf::record::NumberRecord::clone()
 {
     auto rec = new NumberRecord();
     copyBaseFields(rec);
@@ -91,13 +91,13 @@ org::apache::poi::hssf::record::NumberRecord* org::apache::poi::hssf::record::Nu
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::NumberRecord::class_()
+java::lang::Class* poi::hssf::record::NumberRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.NumberRecord", 39);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::record::NumberRecord::getClass0()
+java::lang::Class* poi::hssf::record::NumberRecord::getClass0()
 {
     return class_();
 }

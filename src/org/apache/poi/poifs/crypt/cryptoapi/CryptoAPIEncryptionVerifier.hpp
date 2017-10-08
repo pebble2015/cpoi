@@ -11,16 +11,16 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIEncryptionVerifier
-    : public ::org::apache::poi::poifs::crypt::standard::StandardEncryptionVerifier
+class poi::poifs::crypt::cryptoapi::CryptoAPIEncryptionVerifier
+    : public ::poi::poifs::crypt::standard::StandardEncryptionVerifier
     , public virtual ::java::lang::Cloneable
 {
 
 public:
-    typedef ::org::apache::poi::poifs::crypt::standard::StandardEncryptionVerifier super;
+    typedef ::poi::poifs::crypt::standard::StandardEncryptionVerifier super;
 protected:
-    void ctor(::org::apache::poi::util::LittleEndianInput* is, CryptoAPIEncryptionHeader* header);
-    void ctor(::org::apache::poi::poifs::crypt::CipherAlgorithm* cipherAlgorithm, ::org::apache::poi::poifs::crypt::HashAlgorithm* hashAlgorithm, int32_t keyBits, int32_t blockSize, ::org::apache::poi::poifs::crypt::ChainingMode* chainingMode);
+    void ctor(::poi::util::LittleEndianInput* is, CryptoAPIEncryptionHeader* header);
+    void ctor(::poi::poifs::crypt::CipherAlgorithm* cipherAlgorithm, ::poi::poifs::crypt::HashAlgorithm* hashAlgorithm, int32_t keyBits, int32_t blockSize, ::poi::poifs::crypt::ChainingMode* chainingMode);
 
 public: /* protected */
     void setSalt(::int8_tArray* salt) override;
@@ -33,8 +33,8 @@ public:
     // Generated
 
 public: /* protected */
-    CryptoAPIEncryptionVerifier(::org::apache::poi::util::LittleEndianInput* is, CryptoAPIEncryptionHeader* header);
-    CryptoAPIEncryptionVerifier(::org::apache::poi::poifs::crypt::CipherAlgorithm* cipherAlgorithm, ::org::apache::poi::poifs::crypt::HashAlgorithm* hashAlgorithm, int32_t keyBits, int32_t blockSize, ::org::apache::poi::poifs::crypt::ChainingMode* chainingMode);
+    CryptoAPIEncryptionVerifier(::poi::util::LittleEndianInput* is, CryptoAPIEncryptionHeader* header);
+    CryptoAPIEncryptionVerifier(::poi::poifs::crypt::CipherAlgorithm* cipherAlgorithm, ::poi::poifs::crypt::HashAlgorithm* hashAlgorithm, int32_t keyBits, int32_t blockSize, ::poi::poifs::crypt::ChainingMode* chainingMode);
 protected:
     CryptoAPIEncryptionVerifier(const ::default_init_tag&);
 

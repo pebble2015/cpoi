@@ -11,67 +11,67 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::util::HSSFColor_TEAL::HSSFColor_TEAL(const ::default_init_tag&)
+poi::hssf::util::HSSFColor_TEAL::HSSFColor_TEAL(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::util::HSSFColor_TEAL::HSSFColor_TEAL() 
+poi::hssf::util::HSSFColor_TEAL::HSSFColor_TEAL() 
     : HSSFColor_TEAL(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::util::HSSFColor_HSSFColorPredefined*& org::apache::poi::hssf::util::HSSFColor_TEAL::ref()
+poi::hssf::util::HSSFColor_HSSFColorPredefined*& poi::hssf::util::HSSFColor_TEAL::ref()
 {
     clinit();
     return ref_;
 }
-org::apache::poi::hssf::util::HSSFColor_HSSFColorPredefined* org::apache::poi::hssf::util::HSSFColor_TEAL::ref_;
+poi::hssf::util::HSSFColor_HSSFColorPredefined* poi::hssf::util::HSSFColor_TEAL::ref_;
 
-int16_t& org::apache::poi::hssf::util::HSSFColor_TEAL::index()
+int16_t& poi::hssf::util::HSSFColor_TEAL::index()
 {
     clinit();
     return index_;
 }
-int16_t org::apache::poi::hssf::util::HSSFColor_TEAL::index_;
+int16_t poi::hssf::util::HSSFColor_TEAL::index_;
 
-int32_t& org::apache::poi::hssf::util::HSSFColor_TEAL::index2()
+int32_t& poi::hssf::util::HSSFColor_TEAL::index2()
 {
     clinit();
     return index2_;
 }
-int32_t org::apache::poi::hssf::util::HSSFColor_TEAL::index2_;
+int32_t poi::hssf::util::HSSFColor_TEAL::index2_;
 
-int16_tArray*& org::apache::poi::hssf::util::HSSFColor_TEAL::triplet()
+int16_tArray*& poi::hssf::util::HSSFColor_TEAL::triplet()
 {
     clinit();
     return triplet_;
 }
-int16_tArray* org::apache::poi::hssf::util::HSSFColor_TEAL::triplet_;
+int16_tArray* poi::hssf::util::HSSFColor_TEAL::triplet_;
 
-java::lang::String*& org::apache::poi::hssf::util::HSSFColor_TEAL::hexString()
+java::lang::String*& poi::hssf::util::HSSFColor_TEAL::hexString()
 {
     clinit();
     return hexString_;
 }
-java::lang::String* org::apache::poi::hssf::util::HSSFColor_TEAL::hexString_;
+java::lang::String* poi::hssf::util::HSSFColor_TEAL::hexString_;
 
-void org::apache::poi::hssf::util::HSSFColor_TEAL::ctor()
+void poi::hssf::util::HSSFColor_TEAL::ctor()
 {
     super::ctor(ref_);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::util::HSSFColor_TEAL::class_()
+java::lang::Class* poi::hssf::util::HSSFColor_TEAL::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.util.HSSFColor.TEAL", 39);
     return c;
 }
 
-void org::apache::poi::hssf::util::HSSFColor_TEAL::clinit()
+void poi::hssf::util::HSSFColor_TEAL::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -91,7 +91,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::hssf::util::HSSFColor_TEAL::getClass0()
+java::lang::Class* poi::hssf::util::HSSFColor_TEAL::getClass0()
 {
     return class_();
 }

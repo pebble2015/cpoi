@@ -7,7 +7,7 @@
 #include <org/apache/poi/ss/usermodel/fwd-POI.hpp>
 #include <org/apache/poi/ss/usermodel/Shape.hpp>
 
-struct org::apache::poi::ss::usermodel::Picture
+struct poi::ss::usermodel::Picture
     : public virtual Shape
 {
     virtual void resize() = 0;

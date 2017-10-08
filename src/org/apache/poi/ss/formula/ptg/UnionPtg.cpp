@@ -35,53 +35,53 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::ptg::UnionPtg::UnionPtg(const ::default_init_tag&)
+poi::ss::formula::ptg::UnionPtg::UnionPtg(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::ptg::UnionPtg::UnionPtg() 
+poi::ss::formula::ptg::UnionPtg::UnionPtg() 
     : UnionPtg(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-constexpr int8_t org::apache::poi::ss::formula::ptg::UnionPtg::sid;
+constexpr int8_t poi::ss::formula::ptg::UnionPtg::sid;
 
-org::apache::poi::ss::formula::ptg::OperationPtg*& org::apache::poi::ss::formula::ptg::UnionPtg::instance()
+poi::ss::formula::ptg::OperationPtg*& poi::ss::formula::ptg::UnionPtg::instance()
 {
     clinit();
     return instance_;
 }
-org::apache::poi::ss::formula::ptg::OperationPtg* org::apache::poi::ss::formula::ptg::UnionPtg::instance_;
+poi::ss::formula::ptg::OperationPtg* poi::ss::formula::ptg::UnionPtg::instance_;
 
-void org::apache::poi::ss::formula::ptg::UnionPtg::ctor()
+void poi::ss::formula::ptg::UnionPtg::ctor()
 {
     super::ctor();
 }
 
-bool org::apache::poi::ss::formula::ptg::UnionPtg::isBaseToken()
+bool poi::ss::formula::ptg::UnionPtg::isBaseToken()
 {
     return true;
 }
 
-int32_t org::apache::poi::ss::formula::ptg::UnionPtg::getSize()
+int32_t poi::ss::formula::ptg::UnionPtg::getSize()
 {
     return 1;
 }
 
-void org::apache::poi::ss::formula::ptg::UnionPtg::write(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::ss::formula::ptg::UnionPtg::write(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeByte(sid + getPtgClass());
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::UnionPtg::toFormulaString()
+java::lang::String* poi::ss::formula::ptg::UnionPtg::toFormulaString()
 {
     return u","_j;
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::UnionPtg::toFormulaString(::java::lang::StringArray* operands)
+java::lang::String* poi::ss::formula::ptg::UnionPtg::toFormulaString(::java::lang::StringArray* operands)
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append((*operands)[int32_t(0)]);
@@ -90,20 +90,20 @@ java::lang::String* org::apache::poi::ss::formula::ptg::UnionPtg::toFormulaStrin
     return npc(buffer)->toString();
 }
 
-int32_t org::apache::poi::ss::formula::ptg::UnionPtg::getNumberOfOperands()
+int32_t poi::ss::formula::ptg::UnionPtg::getNumberOfOperands()
 {
     return 2;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::UnionPtg::class_()
+java::lang::Class* poi::ss::formula::ptg::UnionPtg::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.ptg.UnionPtg", 38);
     return c;
 }
 
-void org::apache::poi::ss::formula::ptg::UnionPtg::clinit()
+void poi::ss::formula::ptg::UnionPtg::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -119,7 +119,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::UnionPtg::getClass0()
+java::lang::Class* poi::ss::formula::ptg::UnionPtg::getClass0()
 {
     return class_();
 }

@@ -7,7 +7,7 @@
 #include <org/apache/poi/sl/usermodel/fwd-POI.hpp>
 #include <org/apache/poi/sl/usermodel/Sheet.hpp>
 
-struct org::apache::poi::sl::usermodel::Slide
+struct poi::sl::usermodel::Slide
     : public virtual Sheet
 {
     virtual Notes* getNotes() = 0;

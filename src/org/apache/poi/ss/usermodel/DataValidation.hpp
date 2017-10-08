@@ -8,7 +8,7 @@
 #include <org/apache/poi/ss/util/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::usermodel::DataValidation
+struct poi::ss::usermodel::DataValidation
     : public virtual ::java::lang::Object
 {
     virtual DataValidationConstraint* getValidationConstraint() = 0;
@@ -28,7 +28,7 @@ struct org::apache::poi::ss::usermodel::DataValidation
     virtual void createErrorBox(::java::lang::String* title, ::java::lang::String* text) = 0;
     virtual ::java::lang::String* getErrorBoxTitle() = 0;
     virtual ::java::lang::String* getErrorBoxText() = 0;
-    virtual ::org::apache::poi::ss::util::CellRangeAddressList* getRegions() = 0;
+    virtual ::poi::ss::util::CellRangeAddressList* getRegions() = 0;
 
     // Generated
     static ::java::lang::Class *class_();

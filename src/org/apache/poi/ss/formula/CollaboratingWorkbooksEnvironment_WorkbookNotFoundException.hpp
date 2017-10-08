@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::CollaboratingWorkbooksEnvironment_WorkbookNotFoundException final
+class poi::ss::formula::CollaboratingWorkbooksEnvironment_WorkbookNotFoundException final
     : public ::java::lang::Exception
 {
 

@@ -26,22 +26,16 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace sl
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace sl
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::sl::usermodel::StrokeStyle_LineCap, ::java::lang::EnumArray > StrokeStyle_LineCapArray;
-                } // usermodel
-            } // sl
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::sl::usermodel::StrokeStyle_LineCap, ::java::lang::EnumArray > StrokeStyle_LineCapArray;
+        } // usermodel
+    } // sl
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -50,29 +44,29 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::sl::usermodel::StrokeStyle_LineCap::StrokeStyle_LineCap(const ::default_init_tag&)
+poi::sl::usermodel::StrokeStyle_LineCap::StrokeStyle_LineCap(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::usermodel::StrokeStyle_LineCap::StrokeStyle_LineCap(::java::lang::String* name, int ordinal, int32_t nativeId, int32_t ooxmlId) 
+poi::sl::usermodel::StrokeStyle_LineCap::StrokeStyle_LineCap(::java::lang::String* name, int ordinal, int32_t nativeId, int32_t ooxmlId) 
     : StrokeStyle_LineCap(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal, nativeId,ooxmlId);
 }
 
-org::apache::poi::sl::usermodel::StrokeStyle_LineCap* org::apache::poi::sl::usermodel::StrokeStyle_LineCap::ROUND = new ::org::apache::poi::sl::usermodel::StrokeStyle_LineCap(u"ROUND"_j, 0, int32_t(0), int32_t(1));
-org::apache::poi::sl::usermodel::StrokeStyle_LineCap* org::apache::poi::sl::usermodel::StrokeStyle_LineCap::SQUARE = new ::org::apache::poi::sl::usermodel::StrokeStyle_LineCap(u"SQUARE"_j, 1, int32_t(1), int32_t(2));
-org::apache::poi::sl::usermodel::StrokeStyle_LineCap* org::apache::poi::sl::usermodel::StrokeStyle_LineCap::FLAT = new ::org::apache::poi::sl::usermodel::StrokeStyle_LineCap(u"FLAT"_j, 2, int32_t(2), int32_t(3));
-void org::apache::poi::sl::usermodel::StrokeStyle_LineCap::ctor(::java::lang::String* name, int ordinal, int32_t nativeId, int32_t ooxmlId)
+poi::sl::usermodel::StrokeStyle_LineCap* poi::sl::usermodel::StrokeStyle_LineCap::ROUND = new ::poi::sl::usermodel::StrokeStyle_LineCap(u"ROUND"_j, 0, int32_t(0), int32_t(1));
+poi::sl::usermodel::StrokeStyle_LineCap* poi::sl::usermodel::StrokeStyle_LineCap::SQUARE = new ::poi::sl::usermodel::StrokeStyle_LineCap(u"SQUARE"_j, 1, int32_t(1), int32_t(2));
+poi::sl::usermodel::StrokeStyle_LineCap* poi::sl::usermodel::StrokeStyle_LineCap::FLAT = new ::poi::sl::usermodel::StrokeStyle_LineCap(u"FLAT"_j, 2, int32_t(2), int32_t(3));
+void poi::sl::usermodel::StrokeStyle_LineCap::ctor(::java::lang::String* name, int ordinal, int32_t nativeId, int32_t ooxmlId)
 {
     super::ctor(name, ordinal);
     this->nativeId = nativeId;
     this->ooxmlId = ooxmlId;
 }
 
-org::apache::poi::sl::usermodel::StrokeStyle_LineCap* org::apache::poi::sl::usermodel::StrokeStyle_LineCap::fromNativeId(int32_t nativeId)
+poi::sl::usermodel::StrokeStyle_LineCap* poi::sl::usermodel::StrokeStyle_LineCap::fromNativeId(int32_t nativeId)
 {
     clinit();
     for(auto ld : *npc(values())) {
@@ -83,7 +77,7 @@ org::apache::poi::sl::usermodel::StrokeStyle_LineCap* org::apache::poi::sl::user
     return nullptr;
 }
 
-org::apache::poi::sl::usermodel::StrokeStyle_LineCap* org::apache::poi::sl::usermodel::StrokeStyle_LineCap::fromOoxmlId(int32_t ooxmlId)
+poi::sl::usermodel::StrokeStyle_LineCap* poi::sl::usermodel::StrokeStyle_LineCap::fromOoxmlId(int32_t ooxmlId)
 {
     clinit();
     for(auto lc : *npc(values())) {
@@ -96,13 +90,13 @@ org::apache::poi::sl::usermodel::StrokeStyle_LineCap* org::apache::poi::sl::user
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::usermodel::StrokeStyle_LineCap::class_()
+java::lang::Class* poi::sl::usermodel::StrokeStyle_LineCap::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.usermodel.StrokeStyle.LineCap", 47);
     return c;
 }
 
-org::apache::poi::sl::usermodel::StrokeStyle_LineCap* org::apache::poi::sl::usermodel::StrokeStyle_LineCap::valueOf(::java::lang::String* a0)
+poi::sl::usermodel::StrokeStyle_LineCap* poi::sl::usermodel::StrokeStyle_LineCap::valueOf(::java::lang::String* a0)
 {
     if(FLAT->toString()->equals(a0))
         return FLAT;
@@ -113,16 +107,16 @@ org::apache::poi::sl::usermodel::StrokeStyle_LineCap* org::apache::poi::sl::user
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::sl::usermodel::StrokeStyle_LineCapArray* org::apache::poi::sl::usermodel::StrokeStyle_LineCap::values()
+poi::sl::usermodel::StrokeStyle_LineCapArray* poi::sl::usermodel::StrokeStyle_LineCap::values()
 {
-    return new org::apache::poi::sl::usermodel::StrokeStyle_LineCapArray({
+    return new poi::sl::usermodel::StrokeStyle_LineCapArray({
         FLAT,
         ROUND,
         SQUARE,
     });
 }
 
-java::lang::Class* org::apache::poi::sl::usermodel::StrokeStyle_LineCap::getClass0()
+java::lang::Class* poi::sl::usermodel::StrokeStyle_LineCap::getClass0()
 {
     return class_();
 }

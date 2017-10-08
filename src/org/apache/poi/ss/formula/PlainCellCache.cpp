@@ -25,53 +25,53 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::PlainCellCache::PlainCellCache(const ::default_init_tag&)
+poi::ss::formula::PlainCellCache::PlainCellCache(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::PlainCellCache::PlainCellCache() 
+poi::ss::formula::PlainCellCache::PlainCellCache() 
     : PlainCellCache(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::ss::formula::PlainCellCache::ctor()
+void poi::ss::formula::PlainCellCache::ctor()
 {
     super::ctor();
     _plainValueEntriesByLoc = new ::java::util::HashMap();
 }
 
-void org::apache::poi::ss::formula::PlainCellCache::put(PlainCellCache_Loc* key, PlainValueCellCacheEntry* cce)
+void poi::ss::formula::PlainCellCache::put(PlainCellCache_Loc* key, PlainValueCellCacheEntry* cce)
 {
     npc(_plainValueEntriesByLoc)->put(key, cce);
 }
 
-void org::apache::poi::ss::formula::PlainCellCache::clear()
+void poi::ss::formula::PlainCellCache::clear()
 {
     npc(_plainValueEntriesByLoc)->clear();
 }
 
-org::apache::poi::ss::formula::PlainValueCellCacheEntry* org::apache::poi::ss::formula::PlainCellCache::get(PlainCellCache_Loc* key)
+poi::ss::formula::PlainValueCellCacheEntry* poi::ss::formula::PlainCellCache::get(PlainCellCache_Loc* key)
 {
     return java_cast< PlainValueCellCacheEntry* >(npc(_plainValueEntriesByLoc)->get(key));
 }
 
-void org::apache::poi::ss::formula::PlainCellCache::remove(PlainCellCache_Loc* key)
+void poi::ss::formula::PlainCellCache::remove(PlainCellCache_Loc* key)
 {
     npc(_plainValueEntriesByLoc)->remove(key);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::PlainCellCache::class_()
+java::lang::Class* poi::ss::formula::PlainCellCache::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.PlainCellCache", 40);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::PlainCellCache::getClass0()
+java::lang::Class* poi::ss::formula::PlainCellCache::getClass0()
 {
     return class_();
 }

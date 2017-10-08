@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::usermodel::ConditionType
+class poi::ss::usermodel::ConditionType
     : public virtual ::java::lang::Object
 {
 

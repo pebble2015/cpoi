@@ -15,23 +15,17 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace util
         {
-            namespace ss
-            {
-                namespace util
-                {
-typedef ::SubArray< ::org::apache::poi::ss::util::CellRangeAddressBase, ::java::lang::ObjectArray > CellRangeAddressBaseArray;
-typedef ::SubArray< ::org::apache::poi::ss::util::CellRangeAddress, CellRangeAddressBaseArray > CellRangeAddressArray;
-                } // util
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::util::CellRangeAddressBase, ::java::lang::ObjectArray > CellRangeAddressBaseArray;
+typedef ::SubArray< ::poi::ss::util::CellRangeAddress, CellRangeAddressBaseArray > CellRangeAddressArray;
+        } // util
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -40,27 +34,27 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::MergeCellsRecord::MergeCellsRecord(const ::default_init_tag&)
+poi::hssf::record::MergeCellsRecord::MergeCellsRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::MergeCellsRecord::MergeCellsRecord(::org::apache::poi::ss::util::CellRangeAddressArray* regions, int32_t startIndex, int32_t numberOfRegions) 
+poi::hssf::record::MergeCellsRecord::MergeCellsRecord(::poi::ss::util::CellRangeAddressArray* regions, int32_t startIndex, int32_t numberOfRegions) 
     : MergeCellsRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(regions,startIndex,numberOfRegions);
 }
 
-org::apache::poi::hssf::record::MergeCellsRecord::MergeCellsRecord(RecordInputStream* in) 
+poi::hssf::record::MergeCellsRecord::MergeCellsRecord(RecordInputStream* in) 
     : MergeCellsRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::MergeCellsRecord::sid;
+constexpr int16_t poi::hssf::record::MergeCellsRecord::sid;
 
-void org::apache::poi::hssf::record::MergeCellsRecord::ctor(::org::apache::poi::ss::util::CellRangeAddressArray* regions, int32_t startIndex, int32_t numberOfRegions)
+void poi::hssf::record::MergeCellsRecord::ctor(::poi::ss::util::CellRangeAddressArray* regions, int32_t startIndex, int32_t numberOfRegions)
 {
     super::ctor();
     _regions = regions;
@@ -68,40 +62,40 @@ void org::apache::poi::hssf::record::MergeCellsRecord::ctor(::org::apache::poi::
     _numberOfRegions = numberOfRegions;
 }
 
-void org::apache::poi::hssf::record::MergeCellsRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::MergeCellsRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     auto nRegions = npc(in)->readUShort();
-    auto cras = new ::org::apache::poi::ss::util::CellRangeAddressArray(nRegions);
+    auto cras = new ::poi::ss::util::CellRangeAddressArray(nRegions);
     for (auto i = int32_t(0); i < nRegions; i++) {
-        cras->set(i, new ::org::apache::poi::ss::util::CellRangeAddress(in));
+        cras->set(i, new ::poi::ss::util::CellRangeAddress(in));
     }
     _numberOfRegions = nRegions;
     _startIndex = 0;
     _regions = cras;
 }
 
-int16_t org::apache::poi::hssf::record::MergeCellsRecord::getNumAreas()
+int16_t poi::hssf::record::MergeCellsRecord::getNumAreas()
 {
     return static_cast< int16_t >(_numberOfRegions);
 }
 
-org::apache::poi::ss::util::CellRangeAddress* org::apache::poi::hssf::record::MergeCellsRecord::getAreaAt(int32_t index)
+poi::ss::util::CellRangeAddress* poi::hssf::record::MergeCellsRecord::getAreaAt(int32_t index)
 {
     return (*_regions)[_startIndex + index];
 }
 
-int32_t org::apache::poi::hssf::record::MergeCellsRecord::getDataSize()
+int32_t poi::hssf::record::MergeCellsRecord::getDataSize()
 {
-    return ::org::apache::poi::ss::util::CellRangeAddressList::getEncodedSize(_numberOfRegions);
+    return ::poi::ss::util::CellRangeAddressList::getEncodedSize(_numberOfRegions);
 }
 
-int16_t org::apache::poi::hssf::record::MergeCellsRecord::getSid()
+int16_t poi::hssf::record::MergeCellsRecord::getSid()
 {
     return sid;
 }
 
-void org::apache::poi::hssf::record::MergeCellsRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::MergeCellsRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     auto nItems = _numberOfRegions;
     npc(out)->writeShort(nItems);
@@ -110,7 +104,7 @@ void org::apache::poi::hssf::record::MergeCellsRecord::serialize(::org::apache::
     }
 }
 
-java::lang::String* org::apache::poi::hssf::record::MergeCellsRecord::toString()
+java::lang::String* poi::hssf::record::MergeCellsRecord::toString()
 {
     auto retval = new ::java::lang::StringBuffer();
     npc(npc(retval)->append(u"[MERGEDCELLS]"_j))->append(u"\n"_j);
@@ -126,10 +120,10 @@ java::lang::String* org::apache::poi::hssf::record::MergeCellsRecord::toString()
     return npc(retval)->toString();
 }
 
-org::apache::poi::hssf::record::MergeCellsRecord* org::apache::poi::hssf::record::MergeCellsRecord::clone()
+poi::hssf::record::MergeCellsRecord* poi::hssf::record::MergeCellsRecord::clone()
 {
     auto nRegions = _numberOfRegions;
-    auto clonedRegions = new ::org::apache::poi::ss::util::CellRangeAddressArray(nRegions);
+    auto clonedRegions = new ::poi::ss::util::CellRangeAddressArray(nRegions);
     for (auto i = int32_t(0); i < npc(clonedRegions)->length; i++) {
         clonedRegions->set(i, npc((*_regions)[_startIndex + i])->copy());
     }
@@ -138,23 +132,23 @@ org::apache::poi::hssf::record::MergeCellsRecord* org::apache::poi::hssf::record
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::MergeCellsRecord::class_()
+java::lang::Class* poi::hssf::record::MergeCellsRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.MergeCellsRecord", 43);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::MergeCellsRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::MergeCellsRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::MergeCellsRecord::serialize()
+int8_tArray* poi::hssf::record::MergeCellsRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::MergeCellsRecord::getClass0()
+java::lang::Class* poi::hssf::record::MergeCellsRecord::getClass0()
 {
     return class_();
 }

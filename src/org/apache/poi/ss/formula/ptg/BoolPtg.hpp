@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::ptg::BoolPtg final
+class poi::ss::formula::ptg::BoolPtg final
     : public ScalarConstantPtg
 {
 
@@ -28,9 +28,9 @@ protected:
 
 public:
     static BoolPtg* valueOf(bool b);
-    static BoolPtg* read(::org::apache::poi::util::LittleEndianInput* in);
+    static BoolPtg* read(::poi::util::LittleEndianInput* in);
     bool getValue();
-    void write(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void write(::poi::util::LittleEndianOutput* out) override;
     int32_t getSize() override;
     ::java::lang::String* toFormulaString() override;
 

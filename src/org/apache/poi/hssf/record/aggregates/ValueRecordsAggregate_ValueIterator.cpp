@@ -26,23 +26,17 @@ typedef ::SubArray< ::java::lang::Cloneable, ObjectArray > CloneableArray;
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
-            {
-                namespace record
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::record::CellValueRecordInterface, ::java::lang::ObjectArray > CellValueRecordInterfaceArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::CellValueRecordInterfaceArray, ::java::lang::CloneableArray, ::java::io::SerializableArray > CellValueRecordInterfaceArrayArray;
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hssf::record::CellValueRecordInterface, ::java::lang::ObjectArray > CellValueRecordInterfaceArray;
+typedef ::SubArray< ::poi::hssf::record::CellValueRecordInterfaceArray, ::java::lang::CloneableArray, ::java::io::SerializableArray > CellValueRecordInterfaceArrayArray;
+        } // record
+    } // hssf
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -51,20 +45,20 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::aggregates::ValueRecordsAggregate_ValueIterator::ValueRecordsAggregate_ValueIterator(ValueRecordsAggregate *ValueRecordsAggregate_this, const ::default_init_tag&)
+poi::hssf::record::aggregates::ValueRecordsAggregate_ValueIterator::ValueRecordsAggregate_ValueIterator(ValueRecordsAggregate *ValueRecordsAggregate_this, const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
     , ValueRecordsAggregate_this(ValueRecordsAggregate_this)
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::aggregates::ValueRecordsAggregate_ValueIterator::ValueRecordsAggregate_ValueIterator(ValueRecordsAggregate *ValueRecordsAggregate_this) 
+poi::hssf::record::aggregates::ValueRecordsAggregate_ValueIterator::ValueRecordsAggregate_ValueIterator(ValueRecordsAggregate *ValueRecordsAggregate_this) 
     : ValueRecordsAggregate_ValueIterator(ValueRecordsAggregate_this, *static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::hssf::record::aggregates::ValueRecordsAggregate_ValueIterator::init()
+void poi::hssf::record::aggregates::ValueRecordsAggregate_ValueIterator::init()
 {
     curRowIndex = int32_t(0);
     curColIndex = -int32_t(1);
@@ -72,14 +66,14 @@ void org::apache::poi::hssf::record::aggregates::ValueRecordsAggregate_ValueIter
     nextColIndex = -int32_t(1);
 }
 
-void org::apache::poi::hssf::record::aggregates::ValueRecordsAggregate_ValueIterator::ctor()
+void poi::hssf::record::aggregates::ValueRecordsAggregate_ValueIterator::ctor()
 {
     super::ctor();
     init();
     getNextPos();
 }
 
-void org::apache::poi::hssf::record::aggregates::ValueRecordsAggregate_ValueIterator::getNextPos()
+void poi::hssf::record::aggregates::ValueRecordsAggregate_ValueIterator::getNextPos()
 {
     if(nextRowIndex >= npc(ValueRecordsAggregate_this->records)->length)
         return;
@@ -97,12 +91,12 @@ void org::apache::poi::hssf::record::aggregates::ValueRecordsAggregate_ValueIter
     }
 }
 
-bool org::apache::poi::hssf::record::aggregates::ValueRecordsAggregate_ValueIterator::hasNext()
+bool poi::hssf::record::aggregates::ValueRecordsAggregate_ValueIterator::hasNext()
 {
     return nextRowIndex < npc(ValueRecordsAggregate_this->records)->length;
 }
 
-org::apache::poi::hssf::record::CellValueRecordInterface* org::apache::poi::hssf::record::aggregates::ValueRecordsAggregate_ValueIterator::next()
+poi::hssf::record::CellValueRecordInterface* poi::hssf::record::aggregates::ValueRecordsAggregate_ValueIterator::next()
 {
     if(!hasNext())
         throw new ::java::lang::IndexOutOfBoundsException(u"iterator has no next"_j);
@@ -114,20 +108,20 @@ org::apache::poi::hssf::record::CellValueRecordInterface* org::apache::poi::hssf
     return ret;
 }
 
-void org::apache::poi::hssf::record::aggregates::ValueRecordsAggregate_ValueIterator::remove()
+void poi::hssf::record::aggregates::ValueRecordsAggregate_ValueIterator::remove()
 {
     (*ValueRecordsAggregate_this->records)[curRowIndex]->set(curColIndex, nullptr);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::aggregates::ValueRecordsAggregate_ValueIterator::class_()
+java::lang::Class* poi::hssf::record::aggregates::ValueRecordsAggregate_ValueIterator::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.aggregates.ValueRecordsAggregate.ValueIterator", 73);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::record::aggregates::ValueRecordsAggregate_ValueIterator::getClass0()
+java::lang::Class* poi::hssf::record::aggregates::ValueRecordsAggregate_ValueIterator::getClass0()
 {
     return class_();
 }

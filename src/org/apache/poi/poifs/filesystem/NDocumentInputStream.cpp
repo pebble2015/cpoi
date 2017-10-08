@@ -41,25 +41,25 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::filesystem::NDocumentInputStream::NDocumentInputStream(const ::default_init_tag&)
+poi::poifs::filesystem::NDocumentInputStream::NDocumentInputStream(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::filesystem::NDocumentInputStream::NDocumentInputStream(DocumentEntry* document)  /* throws(IOException) */
+poi::poifs::filesystem::NDocumentInputStream::NDocumentInputStream(DocumentEntry* document)  /* throws(IOException) */
     : NDocumentInputStream(*static_cast< ::default_init_tag* >(0))
 {
     ctor(document);
 }
 
-org::apache::poi::poifs::filesystem::NDocumentInputStream::NDocumentInputStream(NPOIFSDocument* document) 
+poi::poifs::filesystem::NDocumentInputStream::NDocumentInputStream(NPOIFSDocument* document) 
     : NDocumentInputStream(*static_cast< ::default_init_tag* >(0))
 {
     ctor(document);
 }
 
-void org::apache::poi::poifs::filesystem::NDocumentInputStream::ctor(DocumentEntry* document) /* throws(IOException) */
+void poi::poifs::filesystem::NDocumentInputStream::ctor(DocumentEntry* document) /* throws(IOException) */
 {
     super::ctor();
     if(!(dynamic_cast< DocumentNode* >(document) != nullptr)) {
@@ -75,12 +75,12 @@ void org::apache::poi::poifs::filesystem::NDocumentInputStream::ctor(DocumentEnt
     if(_document_size < 0) {
     }
     auto doc = java_cast< DocumentNode* >(document);
-    auto property = java_cast< ::org::apache::poi::poifs::property::DocumentProperty* >(npc(doc)->getProperty());
+    auto property = java_cast< ::poi::poifs::property::DocumentProperty* >(npc(doc)->getProperty());
     _document = new NPOIFSDocument(property, npc((java_cast< DirectoryNode* >(npc(doc)->getParent())))->getNFileSystem());
     _data = npc(_document)->getBlockIterator();
 }
 
-void org::apache::poi::poifs::filesystem::NDocumentInputStream::ctor(NPOIFSDocument* document)
+void poi::poifs::filesystem::NDocumentInputStream::ctor(NPOIFSDocument* document)
 {
     super::ctor();
     _current_offset = 0;
@@ -93,12 +93,12 @@ void org::apache::poi::poifs::filesystem::NDocumentInputStream::ctor(NPOIFSDocum
     _data = npc(_document)->getBlockIterator();
 }
 
-int32_t org::apache::poi::poifs::filesystem::NDocumentInputStream::available()
+int32_t poi::poifs::filesystem::NDocumentInputStream::available()
 {
     return remainingBytes();
 }
 
-int32_t org::apache::poi::poifs::filesystem::NDocumentInputStream::remainingBytes()
+int32_t poi::poifs::filesystem::NDocumentInputStream::remainingBytes()
 {
     if(_closed) {
         throw new ::java::lang::IllegalStateException(u"cannot perform requested operation on a closed stream"_j);
@@ -106,18 +106,18 @@ int32_t org::apache::poi::poifs::filesystem::NDocumentInputStream::remainingByte
     return _document_size - _current_offset;
 }
 
-void org::apache::poi::poifs::filesystem::NDocumentInputStream::close()
+void poi::poifs::filesystem::NDocumentInputStream::close()
 {
     _closed = true;
 }
 
-void org::apache::poi::poifs::filesystem::NDocumentInputStream::mark(int32_t ignoredReadlimit)
+void poi::poifs::filesystem::NDocumentInputStream::mark(int32_t ignoredReadlimit)
 {
     _marked_offset = _current_offset;
     _marked_offset_count = ::java::lang::Math::max(int32_t(0), _current_block_count - int32_t(1));
 }
 
-int32_t org::apache::poi::poifs::filesystem::NDocumentInputStream::read() /* throws(IOException) */
+int32_t poi::poifs::filesystem::NDocumentInputStream::read() /* throws(IOException) */
 {
     dieIfClosed();
     if(atEOD()) {
@@ -134,7 +134,7 @@ int32_t org::apache::poi::poifs::filesystem::NDocumentInputStream::read() /* thr
     return result;
 }
 
-int32_t org::apache::poi::poifs::filesystem::NDocumentInputStream::read(::int8_tArray* b, int32_t off, int32_t len) /* throws(IOException) */
+int32_t poi::poifs::filesystem::NDocumentInputStream::read(::int8_tArray* b, int32_t off, int32_t len) /* throws(IOException) */
 {
     dieIfClosed();
     if(b == nullptr) {
@@ -154,7 +154,7 @@ int32_t org::apache::poi::poifs::filesystem::NDocumentInputStream::read(::int8_t
     return limit;
 }
 
-void org::apache::poi::poifs::filesystem::NDocumentInputStream::reset()
+void poi::poifs::filesystem::NDocumentInputStream::reset()
 {
     if(_marked_offset == 0 && _marked_offset_count == 0) {
         _current_block_count = _marked_offset_count;
@@ -179,7 +179,7 @@ void org::apache::poi::poifs::filesystem::NDocumentInputStream::reset()
     _current_offset = _marked_offset;
 }
 
-int64_t org::apache::poi::poifs::filesystem::NDocumentInputStream::skip(int64_t n) /* throws(IOException) */
+int64_t poi::poifs::filesystem::NDocumentInputStream::skip(int64_t n) /* throws(IOException) */
 {
     dieIfClosed();
     if(n < 0) {
@@ -197,19 +197,19 @@ int64_t org::apache::poi::poifs::filesystem::NDocumentInputStream::skip(int64_t 
     return rval;
 }
 
-void org::apache::poi::poifs::filesystem::NDocumentInputStream::dieIfClosed() /* throws(IOException) */
+void poi::poifs::filesystem::NDocumentInputStream::dieIfClosed() /* throws(IOException) */
 {
     if(_closed) {
         throw new ::java::io::IOException(u"cannot perform requested operation on a closed stream"_j);
     }
 }
 
-bool org::apache::poi::poifs::filesystem::NDocumentInputStream::atEOD()
+bool poi::poifs::filesystem::NDocumentInputStream::atEOD()
 {
     return _current_offset == _document_size;
 }
 
-void org::apache::poi::poifs::filesystem::NDocumentInputStream::checkAvaliable(int32_t requestedSize)
+void poi::poifs::filesystem::NDocumentInputStream::checkAvaliable(int32_t requestedSize)
 {
     if(_closed) {
         throw new ::java::lang::IllegalStateException(u"cannot perform requested operation on a closed stream"_j);
@@ -222,7 +222,7 @@ void org::apache::poi::poifs::filesystem::NDocumentInputStream::checkAvaliable(i
     }
 }
 
-void org::apache::poi::poifs::filesystem::NDocumentInputStream::readFully(::int8_tArray* buf, int32_t off, int32_t len)
+void poi::poifs::filesystem::NDocumentInputStream::readFully(::int8_tArray* buf, int32_t off, int32_t len)
 {
     if(len < 0) {
         throw new ::java::lang::RuntimeException(u"Can't read negative number of bytes"_j);
@@ -241,49 +241,49 @@ void org::apache::poi::poifs::filesystem::NDocumentInputStream::readFully(::int8
     }
 }
 
-int8_t org::apache::poi::poifs::filesystem::NDocumentInputStream::readByte()
+int8_t poi::poifs::filesystem::NDocumentInputStream::readByte()
 {
     return static_cast< int8_t >(readUByte());
 }
 
-double org::apache::poi::poifs::filesystem::NDocumentInputStream::readDouble()
+double poi::poifs::filesystem::NDocumentInputStream::readDouble()
 {
     return ::java::lang::Double::longBitsToDouble(readLong());
 }
 
-int64_t org::apache::poi::poifs::filesystem::NDocumentInputStream::readLong()
+int64_t poi::poifs::filesystem::NDocumentInputStream::readLong()
 {
     checkAvaliable(SIZE_LONG);
     auto data = new ::int8_tArray(SIZE_LONG);
     readFully(data, int32_t(0), SIZE_LONG);
-    return ::org::apache::poi::util::LittleEndian::getLong(data, 0);
+    return ::poi::util::LittleEndian::getLong(data, 0);
 }
 
-int16_t org::apache::poi::poifs::filesystem::NDocumentInputStream::readShort()
+int16_t poi::poifs::filesystem::NDocumentInputStream::readShort()
 {
     checkAvaliable(SIZE_SHORT);
     auto data = new ::int8_tArray(SIZE_SHORT);
     readFully(data, int32_t(0), SIZE_SHORT);
-    return ::org::apache::poi::util::LittleEndian::getShort(data);
+    return ::poi::util::LittleEndian::getShort(data);
 }
 
-int32_t org::apache::poi::poifs::filesystem::NDocumentInputStream::readInt()
+int32_t poi::poifs::filesystem::NDocumentInputStream::readInt()
 {
     checkAvaliable(SIZE_INT);
     auto data = new ::int8_tArray(SIZE_INT);
     readFully(data, int32_t(0), SIZE_INT);
-    return ::org::apache::poi::util::LittleEndian::getInt(data);
+    return ::poi::util::LittleEndian::getInt(data);
 }
 
-int32_t org::apache::poi::poifs::filesystem::NDocumentInputStream::readUShort()
+int32_t poi::poifs::filesystem::NDocumentInputStream::readUShort()
 {
     checkAvaliable(SIZE_SHORT);
     auto data = new ::int8_tArray(SIZE_SHORT);
     readFully(data, int32_t(0), SIZE_SHORT);
-    return ::org::apache::poi::util::LittleEndian::getUShort(data);
+    return ::poi::util::LittleEndian::getUShort(data);
 }
 
-int32_t org::apache::poi::poifs::filesystem::NDocumentInputStream::readUByte()
+int32_t poi::poifs::filesystem::NDocumentInputStream::readUByte()
 {
     checkAvaliable(1);
     auto data = new ::int8_tArray(int32_t(1));
@@ -296,23 +296,23 @@ int32_t org::apache::poi::poifs::filesystem::NDocumentInputStream::readUByte()
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::filesystem::NDocumentInputStream::class_()
+java::lang::Class* poi::poifs::filesystem::NDocumentInputStream::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.filesystem.NDocumentInputStream", 52);
     return c;
 }
 
-int32_t org::apache::poi::poifs::filesystem::NDocumentInputStream::read(::int8_tArray* b)
+int32_t poi::poifs::filesystem::NDocumentInputStream::read(::int8_tArray* b)
 {
     return super::read(b);
 }
 
-void org::apache::poi::poifs::filesystem::NDocumentInputStream::readFully(::int8_tArray* buf)
+void poi::poifs::filesystem::NDocumentInputStream::readFully(::int8_tArray* buf)
 {
     super::readFully(buf);
 }
 
-java::lang::Class* org::apache::poi::poifs::filesystem::NDocumentInputStream::getClass0()
+java::lang::Class* poi::poifs::filesystem::NDocumentInputStream::getClass0()
 {
     return class_();
 }

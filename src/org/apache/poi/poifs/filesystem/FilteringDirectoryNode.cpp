@@ -36,19 +36,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::filesystem::FilteringDirectoryNode::FilteringDirectoryNode(const ::default_init_tag&)
+poi::poifs::filesystem::FilteringDirectoryNode::FilteringDirectoryNode(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::filesystem::FilteringDirectoryNode::FilteringDirectoryNode(DirectoryEntry* directory, ::java::util::Collection* excludes) 
+poi::poifs::filesystem::FilteringDirectoryNode::FilteringDirectoryNode(DirectoryEntry* directory, ::java::util::Collection* excludes) 
     : FilteringDirectoryNode(*static_cast< ::default_init_tag* >(0))
 {
     ctor(directory,excludes);
 }
 
-void org::apache::poi::poifs::filesystem::FilteringDirectoryNode::ctor(DirectoryEntry* directory, ::java::util::Collection* excludes)
+void poi::poifs::filesystem::FilteringDirectoryNode::ctor(DirectoryEntry* directory, ::java::util::Collection* excludes)
 {
     super::ctor();
     this->directory = directory;
@@ -72,32 +72,32 @@ void org::apache::poi::poifs::filesystem::FilteringDirectoryNode::ctor(Directory
     }
 }
 
-org::apache::poi::poifs::filesystem::DirectoryEntry* org::apache::poi::poifs::filesystem::FilteringDirectoryNode::createDirectory(::java::lang::String* name) /* throws(IOException) */
+poi::poifs::filesystem::DirectoryEntry* poi::poifs::filesystem::FilteringDirectoryNode::createDirectory(::java::lang::String* name) /* throws(IOException) */
 {
     return npc(directory)->createDirectory(name);
 }
 
-org::apache::poi::poifs::filesystem::DocumentEntry* org::apache::poi::poifs::filesystem::FilteringDirectoryNode::createDocument(::java::lang::String* name, ::java::io::InputStream* stream) /* throws(IOException) */
+poi::poifs::filesystem::DocumentEntry* poi::poifs::filesystem::FilteringDirectoryNode::createDocument(::java::lang::String* name, ::java::io::InputStream* stream) /* throws(IOException) */
 {
     return npc(directory)->createDocument(name, stream);
 }
 
-org::apache::poi::poifs::filesystem::DocumentEntry* org::apache::poi::poifs::filesystem::FilteringDirectoryNode::createDocument(::java::lang::String* name, int32_t size, POIFSWriterListener* writer) /* throws(IOException) */
+poi::poifs::filesystem::DocumentEntry* poi::poifs::filesystem::FilteringDirectoryNode::createDocument(::java::lang::String* name, int32_t size, POIFSWriterListener* writer) /* throws(IOException) */
 {
     return npc(directory)->createDocument(name, size, writer);
 }
 
-java::util::Iterator* org::apache::poi::poifs::filesystem::FilteringDirectoryNode::getEntries()
+java::util::Iterator* poi::poifs::filesystem::FilteringDirectoryNode::getEntries()
 {
     return new FilteringDirectoryNode_FilteringIterator(this);
 }
 
-java::util::Iterator* org::apache::poi::poifs::filesystem::FilteringDirectoryNode::iterator()
+java::util::Iterator* poi::poifs::filesystem::FilteringDirectoryNode::iterator()
 {
     return getEntries();
 }
 
-int32_t org::apache::poi::poifs::filesystem::FilteringDirectoryNode::getEntryCount()
+int32_t poi::poifs::filesystem::FilteringDirectoryNode::getEntryCount()
 {
     auto size = npc(directory)->getEntryCount();
     for (auto _i = npc(excludes)->iterator(); _i->hasNext(); ) {
@@ -111,7 +111,7 @@ int32_t org::apache::poi::poifs::filesystem::FilteringDirectoryNode::getEntryCou
     return size;
 }
 
-java::util::Set* org::apache::poi::poifs::filesystem::FilteringDirectoryNode::getEntryNames()
+java::util::Set* poi::poifs::filesystem::FilteringDirectoryNode::getEntryNames()
 {
     ::java::util::Set* names = new ::java::util::HashSet();
     for (auto _i = npc(npc(directory)->getEntryNames())->iterator(); _i->hasNext(); ) {
@@ -125,12 +125,12 @@ java::util::Set* org::apache::poi::poifs::filesystem::FilteringDirectoryNode::ge
     return names;
 }
 
-bool org::apache::poi::poifs::filesystem::FilteringDirectoryNode::isEmpty()
+bool poi::poifs::filesystem::FilteringDirectoryNode::isEmpty()
 {
     return (getEntryCount() == 0);
 }
 
-bool org::apache::poi::poifs::filesystem::FilteringDirectoryNode::hasEntry(::java::lang::String* name)
+bool poi::poifs::filesystem::FilteringDirectoryNode::hasEntry(::java::lang::String* name)
 {
     if(npc(excludes)->contains(static_cast< ::java::lang::Object* >(name))) {
         return false;
@@ -138,7 +138,7 @@ bool org::apache::poi::poifs::filesystem::FilteringDirectoryNode::hasEntry(::jav
     return npc(directory)->hasEntry(name);
 }
 
-org::apache::poi::poifs::filesystem::Entry* org::apache::poi::poifs::filesystem::FilteringDirectoryNode::getEntry(::java::lang::String* name) /* throws(FileNotFoundException) */
+poi::poifs::filesystem::Entry* poi::poifs::filesystem::FilteringDirectoryNode::getEntry(::java::lang::String* name) /* throws(FileNotFoundException) */
 {
     if(npc(excludes)->contains(static_cast< ::java::lang::Object* >(name))) {
         throw new ::java::io::FileNotFoundException(name);
@@ -147,7 +147,7 @@ org::apache::poi::poifs::filesystem::Entry* org::apache::poi::poifs::filesystem:
     return wrapEntry(entry);
 }
 
-org::apache::poi::poifs::filesystem::Entry* org::apache::poi::poifs::filesystem::FilteringDirectoryNode::wrapEntry(Entry* entry)
+poi::poifs::filesystem::Entry* poi::poifs::filesystem::FilteringDirectoryNode::wrapEntry(Entry* entry)
 {
     auto name = npc(entry)->getName();
     if(npc(childExcludes)->containsKey(name) && dynamic_cast< DirectoryEntry* >(entry) != nullptr) {
@@ -156,55 +156,55 @@ org::apache::poi::poifs::filesystem::Entry* org::apache::poi::poifs::filesystem:
     return entry;
 }
 
-org::apache::poi::hpsf::ClassID* org::apache::poi::poifs::filesystem::FilteringDirectoryNode::getStorageClsid()
+poi::hpsf::ClassID* poi::poifs::filesystem::FilteringDirectoryNode::getStorageClsid()
 {
     return npc(directory)->getStorageClsid();
 }
 
-void org::apache::poi::poifs::filesystem::FilteringDirectoryNode::setStorageClsid(::org::apache::poi::hpsf::ClassID* clsidStorage)
+void poi::poifs::filesystem::FilteringDirectoryNode::setStorageClsid(::poi::hpsf::ClassID* clsidStorage)
 {
     npc(directory)->setStorageClsid(clsidStorage);
 }
 
-bool org::apache::poi::poifs::filesystem::FilteringDirectoryNode::delete_()
+bool poi::poifs::filesystem::FilteringDirectoryNode::delete_()
 {
     return npc(directory)->delete_();
 }
 
-bool org::apache::poi::poifs::filesystem::FilteringDirectoryNode::renameTo(::java::lang::String* newName)
+bool poi::poifs::filesystem::FilteringDirectoryNode::renameTo(::java::lang::String* newName)
 {
     return npc(directory)->renameTo(newName);
 }
 
-java::lang::String* org::apache::poi::poifs::filesystem::FilteringDirectoryNode::getName()
+java::lang::String* poi::poifs::filesystem::FilteringDirectoryNode::getName()
 {
     return npc(directory)->getName();
 }
 
-org::apache::poi::poifs::filesystem::DirectoryEntry* org::apache::poi::poifs::filesystem::FilteringDirectoryNode::getParent()
+poi::poifs::filesystem::DirectoryEntry* poi::poifs::filesystem::FilteringDirectoryNode::getParent()
 {
     return npc(directory)->getParent();
 }
 
-bool org::apache::poi::poifs::filesystem::FilteringDirectoryNode::isDirectoryEntry()
+bool poi::poifs::filesystem::FilteringDirectoryNode::isDirectoryEntry()
 {
     return true;
 }
 
-bool org::apache::poi::poifs::filesystem::FilteringDirectoryNode::isDocumentEntry()
+bool poi::poifs::filesystem::FilteringDirectoryNode::isDocumentEntry()
 {
     return false;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::filesystem::FilteringDirectoryNode::class_()
+java::lang::Class* poi::poifs::filesystem::FilteringDirectoryNode::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.filesystem.FilteringDirectoryNode", 54);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::filesystem::FilteringDirectoryNode::getClass0()
+java::lang::Class* poi::poifs::filesystem::FilteringDirectoryNode::getClass0()
 {
     return class_();
 }

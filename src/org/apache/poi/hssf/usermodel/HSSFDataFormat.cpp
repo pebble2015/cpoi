@@ -51,57 +51,57 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::usermodel::HSSFDataFormat::HSSFDataFormat(const ::default_init_tag&)
+poi::hssf::usermodel::HSSFDataFormat::HSSFDataFormat(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::usermodel::HSSFDataFormat::HSSFDataFormat(::org::apache::poi::hssf::model::InternalWorkbook* workbook) 
+poi::hssf::usermodel::HSSFDataFormat::HSSFDataFormat(::poi::hssf::model::InternalWorkbook* workbook) 
     : HSSFDataFormat(*static_cast< ::default_init_tag* >(0))
 {
     ctor(workbook);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFDataFormat::init()
+void poi::hssf::usermodel::HSSFDataFormat::init()
 {
     _formats = new ::java::util::Vector();
     _movedBuiltins = false;
 }
 
-java::lang::StringArray*& org::apache::poi::hssf::usermodel::HSSFDataFormat::_builtinFormats()
+java::lang::StringArray*& poi::hssf::usermodel::HSSFDataFormat::_builtinFormats()
 {
     clinit();
     return _builtinFormats_;
 }
-java::lang::StringArray* org::apache::poi::hssf::usermodel::HSSFDataFormat::_builtinFormats_;
+java::lang::StringArray* poi::hssf::usermodel::HSSFDataFormat::_builtinFormats_;
 
-void org::apache::poi::hssf::usermodel::HSSFDataFormat::ctor(::org::apache::poi::hssf::model::InternalWorkbook* workbook)
+void poi::hssf::usermodel::HSSFDataFormat::ctor(::poi::hssf::model::InternalWorkbook* workbook)
 {
     super::ctor();
     init();
     _workbook = workbook;
     auto i = npc(npc(workbook)->getFormats())->iterator();
     while (npc(i)->hasNext()) {
-        auto r = java_cast< ::org::apache::poi::hssf::record::FormatRecord* >(npc(i)->next());
+        auto r = java_cast< ::poi::hssf::record::FormatRecord* >(npc(i)->next());
         ensureFormatsSize(npc(r)->getIndexCode());
         npc(_formats)->set(npc(r)->getIndexCode(), static_cast< ::java::lang::Object* >(npc(r)->getFormatString()));
     }
 }
 
-java::util::List* org::apache::poi::hssf::usermodel::HSSFDataFormat::getBuiltinFormats()
+java::util::List* poi::hssf::usermodel::HSSFDataFormat::getBuiltinFormats()
 {
     clinit();
     return ::java::util::Arrays::asList(_builtinFormats_);
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFDataFormat::getBuiltinFormat(::java::lang::String* format)
+int16_t poi::hssf::usermodel::HSSFDataFormat::getBuiltinFormat(::java::lang::String* format)
 {
     clinit();
-    return static_cast< int16_t >(::org::apache::poi::ss::usermodel::BuiltinFormats::getBuiltinFormat(format));
+    return static_cast< int16_t >(::poi::ss::usermodel::BuiltinFormats::getBuiltinFormat(format));
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFDataFormat::getFormat(::java::lang::String* pFormat)
+int16_t poi::hssf::usermodel::HSSFDataFormat::getFormat(::java::lang::String* pFormat)
 {
     ::java::lang::String* format;
     if(npc(pFormat)->equalsIgnoreCase(u"TEXT"_j)) {
@@ -130,7 +130,7 @@ int16_t org::apache::poi::hssf::usermodel::HSSFDataFormat::getFormat(::java::lan
     return index;
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HSSFDataFormat::getFormat(int16_t index)
+java::lang::String* poi::hssf::usermodel::HSSFDataFormat::getFormat(int16_t index)
 {
     if(_movedBuiltins) {
         return java_cast< ::java::lang::String* >(npc(_formats)->get(static_cast< int32_t >(index)));
@@ -149,19 +149,19 @@ java::lang::String* org::apache::poi::hssf::usermodel::HSSFDataFormat::getFormat
     return fmt;
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HSSFDataFormat::getBuiltinFormat(int16_t index)
+java::lang::String* poi::hssf::usermodel::HSSFDataFormat::getBuiltinFormat(int16_t index)
 {
     clinit();
-    return ::org::apache::poi::ss::usermodel::BuiltinFormats::getBuiltinFormat(static_cast< int32_t >(index));
+    return ::poi::ss::usermodel::BuiltinFormats::getBuiltinFormat(static_cast< int32_t >(index));
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFDataFormat::getNumberOfBuiltinBuiltinFormats()
+int32_t poi::hssf::usermodel::HSSFDataFormat::getNumberOfBuiltinBuiltinFormats()
 {
     clinit();
     return npc(_builtinFormats_)->length;
 }
 
-void org::apache::poi::hssf::usermodel::HSSFDataFormat::ensureFormatsSize(int32_t index)
+void poi::hssf::usermodel::HSSFDataFormat::ensureFormatsSize(int32_t index)
 {
     if(npc(_formats)->size() <= index) {
         npc(_formats)->setSize(index + int32_t(1));
@@ -170,20 +170,20 @@ void org::apache::poi::hssf::usermodel::HSSFDataFormat::ensureFormatsSize(int32_
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFDataFormat::class_()
+java::lang::Class* poi::hssf::usermodel::HSSFDataFormat::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.usermodel.HSSFDataFormat", 44);
     return c;
 }
 
-void org::apache::poi::hssf::usermodel::HSSFDataFormat::clinit()
+void poi::hssf::usermodel::HSSFDataFormat::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        _builtinFormats_ = ::org::apache::poi::ss::usermodel::BuiltinFormats::getAll();
+        _builtinFormats_ = ::poi::ss::usermodel::BuiltinFormats::getAll();
     }
 };
 
@@ -192,7 +192,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFDataFormat::getClass0()
+java::lang::Class* poi::hssf::usermodel::HSSFDataFormat::getClass0()
 {
     return class_();
 }

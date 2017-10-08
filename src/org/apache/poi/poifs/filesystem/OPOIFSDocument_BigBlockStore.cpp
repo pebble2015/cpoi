@@ -17,24 +17,18 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace poifs
     {
-        namespace poi
+        namespace storage
         {
-            namespace poifs
-            {
-                namespace storage
-                {
-typedef ::SubArray< ::org::apache::poi::poifs::storage::BlockWritable, ::java::lang::ObjectArray > BlockWritableArray;
-typedef ::SubArray< ::org::apache::poi::poifs::storage::BigBlock, ::java::lang::ObjectArray, BlockWritableArray > BigBlockArray;
-typedef ::SubArray< ::org::apache::poi::poifs::storage::DocumentBlock, BigBlockArray > DocumentBlockArray;
-                } // storage
-            } // poifs
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::poifs::storage::BlockWritable, ::java::lang::ObjectArray > BlockWritableArray;
+typedef ::SubArray< ::poi::poifs::storage::BigBlock, ::java::lang::ObjectArray, BlockWritableArray > BigBlockArray;
+typedef ::SubArray< ::poi::poifs::storage::DocumentBlock, BigBlockArray > DocumentBlockArray;
+        } // storage
+    } // poifs
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -43,25 +37,25 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::filesystem::OPOIFSDocument_BigBlockStore::OPOIFSDocument_BigBlockStore(const ::default_init_tag&)
+poi::poifs::filesystem::OPOIFSDocument_BigBlockStore::OPOIFSDocument_BigBlockStore(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::filesystem::OPOIFSDocument_BigBlockStore::OPOIFSDocument_BigBlockStore(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ::org::apache::poi::poifs::storage::DocumentBlockArray* blocks) 
+poi::poifs::filesystem::OPOIFSDocument_BigBlockStore::OPOIFSDocument_BigBlockStore(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ::poi::poifs::storage::DocumentBlockArray* blocks) 
     : OPOIFSDocument_BigBlockStore(*static_cast< ::default_init_tag* >(0))
 {
     ctor(bigBlockSize,blocks);
 }
 
-org::apache::poi::poifs::filesystem::OPOIFSDocument_BigBlockStore::OPOIFSDocument_BigBlockStore(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, POIFSDocumentPath* path, ::java::lang::String* name, int32_t size, POIFSWriterListener* writer) 
+poi::poifs::filesystem::OPOIFSDocument_BigBlockStore::OPOIFSDocument_BigBlockStore(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, POIFSDocumentPath* path, ::java::lang::String* name, int32_t size, POIFSWriterListener* writer) 
     : OPOIFSDocument_BigBlockStore(*static_cast< ::default_init_tag* >(0))
 {
     ctor(bigBlockSize,path,name,size,writer);
 }
 
-void org::apache::poi::poifs::filesystem::OPOIFSDocument_BigBlockStore::ctor(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ::org::apache::poi::poifs::storage::DocumentBlockArray* blocks)
+void poi::poifs::filesystem::OPOIFSDocument_BigBlockStore::ctor(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ::poi::poifs::storage::DocumentBlockArray* blocks)
 {
     super::ctor();
     _bigBlockSize = bigBlockSize;
@@ -72,40 +66,40 @@ void org::apache::poi::poifs::filesystem::OPOIFSDocument_BigBlockStore::ctor(::o
     _writer = nullptr;
 }
 
-void org::apache::poi::poifs::filesystem::OPOIFSDocument_BigBlockStore::ctor(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, POIFSDocumentPath* path, ::java::lang::String* name, int32_t size, POIFSWriterListener* writer)
+void poi::poifs::filesystem::OPOIFSDocument_BigBlockStore::ctor(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, POIFSDocumentPath* path, ::java::lang::String* name, int32_t size, POIFSWriterListener* writer)
 {
     super::ctor();
     _bigBlockSize = bigBlockSize;
-    bigBlocks = new ::org::apache::poi::poifs::storage::DocumentBlockArray(int32_t(0));
+    bigBlocks = new ::poi::poifs::storage::DocumentBlockArray(int32_t(0));
     _path = path;
     _name = name;
     _size = size;
     _writer = writer;
 }
 
-bool org::apache::poi::poifs::filesystem::OPOIFSDocument_BigBlockStore::isValid()
+bool poi::poifs::filesystem::OPOIFSDocument_BigBlockStore::isValid()
 {
     return npc(bigBlocks)->length > 0 || _writer != nullptr;
 }
 
-org::apache::poi::poifs::storage::DocumentBlockArray* org::apache::poi::poifs::filesystem::OPOIFSDocument_BigBlockStore::getBlocks()
+poi::poifs::storage::DocumentBlockArray* poi::poifs::filesystem::OPOIFSDocument_BigBlockStore::getBlocks()
 {
     if(isValid() && _writer != nullptr) {
         auto stream = new ::java::io::ByteArrayOutputStream(_size);
         auto dstream = new DocumentOutputStream(stream, _size);
         npc(_writer)->processPOIFSWriterEvent(new POIFSWriterEvent(dstream, _path, _name, _size));
-        bigBlocks = ::org::apache::poi::poifs::storage::DocumentBlock::convert(_bigBlockSize, npc(stream)->toByteArray_(), _size);
+        bigBlocks = ::poi::poifs::storage::DocumentBlock::convert(_bigBlockSize, npc(stream)->toByteArray_(), _size);
     }
     return bigBlocks;
 }
 
-void org::apache::poi::poifs::filesystem::OPOIFSDocument_BigBlockStore::writeBlocks(::java::io::OutputStream* stream) /* throws(IOException) */
+void poi::poifs::filesystem::OPOIFSDocument_BigBlockStore::writeBlocks(::java::io::OutputStream* stream) /* throws(IOException) */
 {
     if(isValid()) {
         if(_writer != nullptr) {
             auto dstream = new DocumentOutputStream(stream, _size);
             npc(_writer)->processPOIFSWriterEvent(new POIFSWriterEvent(dstream, _path, _name, _size));
-            npc(dstream)->writeFiller(countBlocks() * npc(_bigBlockSize)->getBigBlockSize(), ::org::apache::poi::poifs::storage::DocumentBlock::getFillByte());
+            npc(dstream)->writeFiller(countBlocks() * npc(_bigBlockSize)->getBigBlockSize(), ::poi::poifs::storage::DocumentBlock::getFillByte());
         } else {
             for (auto k = int32_t(0); k < npc(bigBlocks)->length; k++) {
                 npc((*bigBlocks)[k])->writeBlocks(stream);
@@ -114,7 +108,7 @@ void org::apache::poi::poifs::filesystem::OPOIFSDocument_BigBlockStore::writeBlo
     }
 }
 
-int32_t org::apache::poi::poifs::filesystem::OPOIFSDocument_BigBlockStore::countBlocks()
+int32_t poi::poifs::filesystem::OPOIFSDocument_BigBlockStore::countBlocks()
 {
     if(isValid()) {
         if(_writer == nullptr) {
@@ -127,13 +121,13 @@ int32_t org::apache::poi::poifs::filesystem::OPOIFSDocument_BigBlockStore::count
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::filesystem::OPOIFSDocument_BigBlockStore::class_()
+java::lang::Class* poi::poifs::filesystem::OPOIFSDocument_BigBlockStore::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.filesystem.OPOIFSDocument.BigBlockStore", 60);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::filesystem::OPOIFSDocument_BigBlockStore::getClass0()
+java::lang::Class* poi::poifs::filesystem::OPOIFSDocument_BigBlockStore::getClass0()
 {
     return class_();
 }

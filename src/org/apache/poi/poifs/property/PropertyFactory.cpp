@@ -17,22 +17,16 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace poifs
     {
-        namespace poi
+        namespace storage
         {
-            namespace poifs
-            {
-                namespace storage
-                {
-typedef ::SubArray< ::org::apache::poi::poifs::storage::ListManagedBlock, ::java::lang::ObjectArray > ListManagedBlockArray;
-                } // storage
-            } // poifs
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::poifs::storage::ListManagedBlock, ::java::lang::ObjectArray > ListManagedBlockArray;
+        } // storage
+    } // poifs
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -41,24 +35,24 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::property::PropertyFactory::PropertyFactory(const ::default_init_tag&)
+poi::poifs::property::PropertyFactory::PropertyFactory(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::property::PropertyFactory::PropertyFactory() 
+poi::poifs::property::PropertyFactory::PropertyFactory() 
     : PropertyFactory(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::poifs::property::PropertyFactory::ctor()
+void poi::poifs::property::PropertyFactory::ctor()
 {
     super::ctor();
 }
 
-java::util::List* org::apache::poi::poifs::property::PropertyFactory::convertToProperties(::org::apache::poi::poifs::storage::ListManagedBlockArray* blocks) /* throws(IOException) */
+java::util::List* poi::poifs::property::PropertyFactory::convertToProperties(::poi::poifs::storage::ListManagedBlockArray* blocks) /* throws(IOException) */
 {
     clinit();
     ::java::util::List* properties = new ::java::util::ArrayList();
@@ -69,10 +63,10 @@ java::util::List* org::apache::poi::poifs::property::PropertyFactory::convertToP
     return properties;
 }
 
-void org::apache::poi::poifs::property::PropertyFactory::convertToProperties(::int8_tArray* data, ::java::util::List* properties) /* throws(IOException) */
+void poi::poifs::property::PropertyFactory::convertToProperties(::int8_tArray* data, ::java::util::List* properties) /* throws(IOException) */
 {
     clinit();
-    auto property_count = npc(data)->length / ::org::apache::poi::poifs::common::POIFSConstants::PROPERTY_SIZE;
+    auto property_count = npc(data)->length / ::poi::poifs::common::POIFSConstants::PROPERTY_SIZE;
     auto offset = int32_t(0);
     for (auto k = int32_t(0); k < property_count; k++) {
         switch ((*data)[offset + PropertyConstants::PROPERTY_TYPE_OFFSET]) {
@@ -90,19 +84,19 @@ void org::apache::poi::poifs::property::PropertyFactory::convertToProperties(::i
             break;
         }
 
-        offset += ::org::apache::poi::poifs::common::POIFSConstants::PROPERTY_SIZE;
+        offset += ::poi::poifs::common::POIFSConstants::PROPERTY_SIZE;
     }
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::property::PropertyFactory::class_()
+java::lang::Class* poi::poifs::property::PropertyFactory::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.property.PropertyFactory", 45);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::property::PropertyFactory::getClass0()
+java::lang::Class* poi::poifs::property::PropertyFactory::getClass0()
 {
     return class_();
 }

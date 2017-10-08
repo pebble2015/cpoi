@@ -28,110 +28,110 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::usermodel::HSSFEvaluationCell::HSSFEvaluationCell(const ::default_init_tag&)
+poi::hssf::usermodel::HSSFEvaluationCell::HSSFEvaluationCell(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::usermodel::HSSFEvaluationCell::HSSFEvaluationCell(HSSFCell* cell, ::org::apache::poi::ss::formula::EvaluationSheet* evalSheet) 
+poi::hssf::usermodel::HSSFEvaluationCell::HSSFEvaluationCell(HSSFCell* cell, ::poi::ss::formula::EvaluationSheet* evalSheet) 
     : HSSFEvaluationCell(*static_cast< ::default_init_tag* >(0))
 {
     ctor(cell,evalSheet);
 }
 
-org::apache::poi::hssf::usermodel::HSSFEvaluationCell::HSSFEvaluationCell(HSSFCell* cell) 
+poi::hssf::usermodel::HSSFEvaluationCell::HSSFEvaluationCell(HSSFCell* cell) 
     : HSSFEvaluationCell(*static_cast< ::default_init_tag* >(0))
 {
     ctor(cell);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFEvaluationCell::ctor(HSSFCell* cell, ::org::apache::poi::ss::formula::EvaluationSheet* evalSheet)
+void poi::hssf::usermodel::HSSFEvaluationCell::ctor(HSSFCell* cell, ::poi::ss::formula::EvaluationSheet* evalSheet)
 {
     super::ctor();
     _cell = cell;
     _evalSheet = evalSheet;
 }
 
-void org::apache::poi::hssf::usermodel::HSSFEvaluationCell::ctor(HSSFCell* cell)
+void poi::hssf::usermodel::HSSFEvaluationCell::ctor(HSSFCell* cell)
 {
     ctor(cell, new HSSFEvaluationSheet(java_cast< HSSFSheet* >(npc(cell)->getSheet())));
 }
 
-java::lang::Object* org::apache::poi::hssf::usermodel::HSSFEvaluationCell::getIdentityKey()
+java::lang::Object* poi::hssf::usermodel::HSSFEvaluationCell::getIdentityKey()
 {
     return _cell;
 }
 
-org::apache::poi::hssf::usermodel::HSSFCell* org::apache::poi::hssf::usermodel::HSSFEvaluationCell::getHSSFCell()
+poi::hssf::usermodel::HSSFCell* poi::hssf::usermodel::HSSFEvaluationCell::getHSSFCell()
 {
     return _cell;
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFEvaluationCell::getBooleanCellValue()
+bool poi::hssf::usermodel::HSSFEvaluationCell::getBooleanCellValue()
 {
     return npc(_cell)->getBooleanCellValue();
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFEvaluationCell::getCellType()
+int32_t poi::hssf::usermodel::HSSFEvaluationCell::getCellType()
 {
     return npc(_cell)->getCellType();
 }
 
-org::apache::poi::ss::usermodel::CellType* org::apache::poi::hssf::usermodel::HSSFEvaluationCell::getCellTypeEnum()
+poi::ss::usermodel::CellType* poi::hssf::usermodel::HSSFEvaluationCell::getCellTypeEnum()
 {
     return npc(_cell)->getCellTypeEnum();
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFEvaluationCell::getColumnIndex()
+int32_t poi::hssf::usermodel::HSSFEvaluationCell::getColumnIndex()
 {
     return npc(_cell)->getColumnIndex();
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFEvaluationCell::getErrorCellValue()
+int32_t poi::hssf::usermodel::HSSFEvaluationCell::getErrorCellValue()
 {
     return npc(_cell)->getErrorCellValue();
 }
 
-double org::apache::poi::hssf::usermodel::HSSFEvaluationCell::getNumericCellValue()
+double poi::hssf::usermodel::HSSFEvaluationCell::getNumericCellValue()
 {
     return npc(_cell)->getNumericCellValue();
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFEvaluationCell::getRowIndex()
+int32_t poi::hssf::usermodel::HSSFEvaluationCell::getRowIndex()
 {
     return npc(_cell)->getRowIndex();
 }
 
-org::apache::poi::ss::formula::EvaluationSheet* org::apache::poi::hssf::usermodel::HSSFEvaluationCell::getSheet()
+poi::ss::formula::EvaluationSheet* poi::hssf::usermodel::HSSFEvaluationCell::getSheet()
 {
     return _evalSheet;
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HSSFEvaluationCell::getStringCellValue()
+java::lang::String* poi::hssf::usermodel::HSSFEvaluationCell::getStringCellValue()
 {
     return npc(npc(_cell)->getRichStringCellValue())->getString();
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFEvaluationCell::getCachedFormulaResultType()
+int32_t poi::hssf::usermodel::HSSFEvaluationCell::getCachedFormulaResultType()
 {
     return npc(_cell)->getCachedFormulaResultType();
 }
 
-org::apache::poi::ss::usermodel::CellType* org::apache::poi::hssf::usermodel::HSSFEvaluationCell::getCachedFormulaResultTypeEnum()
+poi::ss::usermodel::CellType* poi::hssf::usermodel::HSSFEvaluationCell::getCachedFormulaResultTypeEnum()
 {
     return npc(_cell)->getCachedFormulaResultTypeEnum();
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFEvaluationCell::class_()
+java::lang::Class* poi::hssf::usermodel::HSSFEvaluationCell::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.usermodel.HSSFEvaluationCell", 48);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFEvaluationCell::getClass0()
+java::lang::Class* poi::hssf::usermodel::HSSFEvaluationCell::getClass0()
 {
     return class_();
 }

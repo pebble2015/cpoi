@@ -18,25 +18,25 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::util::LittleEndianByteArrayOutputStream::LittleEndianByteArrayOutputStream(const ::default_init_tag&)
+poi::util::LittleEndianByteArrayOutputStream::LittleEndianByteArrayOutputStream(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::util::LittleEndianByteArrayOutputStream::LittleEndianByteArrayOutputStream(::int8_tArray* buf, int32_t startOffset, int32_t maxWriteLen) 
+poi::util::LittleEndianByteArrayOutputStream::LittleEndianByteArrayOutputStream(::int8_tArray* buf, int32_t startOffset, int32_t maxWriteLen) 
     : LittleEndianByteArrayOutputStream(*static_cast< ::default_init_tag* >(0))
 {
     ctor(buf,startOffset,maxWriteLen);
 }
 
-org::apache::poi::util::LittleEndianByteArrayOutputStream::LittleEndianByteArrayOutputStream(::int8_tArray* buf, int32_t startOffset) 
+poi::util::LittleEndianByteArrayOutputStream::LittleEndianByteArrayOutputStream(::int8_tArray* buf, int32_t startOffset) 
     : LittleEndianByteArrayOutputStream(*static_cast< ::default_init_tag* >(0))
 {
     ctor(buf,startOffset);
 }
 
-void org::apache::poi::util::LittleEndianByteArrayOutputStream::ctor(::int8_tArray* buf, int32_t startOffset, int32_t maxWriteLen)
+void poi::util::LittleEndianByteArrayOutputStream::ctor(::int8_tArray* buf, int32_t startOffset, int32_t maxWriteLen)
 {
     super::ctor();
     if(startOffset < 0 || startOffset > npc(buf)->length) {
@@ -58,30 +58,30 @@ void org::apache::poi::util::LittleEndianByteArrayOutputStream::ctor(::int8_tArr
     }
 }
 
-void org::apache::poi::util::LittleEndianByteArrayOutputStream::ctor(::int8_tArray* buf, int32_t startOffset)
+void poi::util::LittleEndianByteArrayOutputStream::ctor(::int8_tArray* buf, int32_t startOffset)
 {
     ctor(buf, startOffset, npc(buf)->length - startOffset);
 }
 
-void org::apache::poi::util::LittleEndianByteArrayOutputStream::checkPosition(int32_t i)
+void poi::util::LittleEndianByteArrayOutputStream::checkPosition(int32_t i)
 {
     if(i > _endIndex - _writeIndex) {
         throw new ::java::lang::RuntimeException(u"Buffer overrun"_j);
     }
 }
 
-void org::apache::poi::util::LittleEndianByteArrayOutputStream::writeByte(int32_t v)
+void poi::util::LittleEndianByteArrayOutputStream::writeByte(int32_t v)
 {
     checkPosition(1);
     (*_buf)[_writeIndex++] = static_cast< int8_t >(v);
 }
 
-void org::apache::poi::util::LittleEndianByteArrayOutputStream::writeDouble(double v)
+void poi::util::LittleEndianByteArrayOutputStream::writeDouble(double v)
 {
     writeLong(::java::lang::Double::doubleToLongBits(v));
 }
 
-void org::apache::poi::util::LittleEndianByteArrayOutputStream::writeInt(int32_t v)
+void poi::util::LittleEndianByteArrayOutputStream::writeInt(int32_t v)
 {
     checkPosition(4);
     auto i = _writeIndex;
@@ -92,13 +92,13 @@ void org::apache::poi::util::LittleEndianByteArrayOutputStream::writeInt(int32_t
     _writeIndex = i;
 }
 
-void org::apache::poi::util::LittleEndianByteArrayOutputStream::writeLong(int64_t v)
+void poi::util::LittleEndianByteArrayOutputStream::writeLong(int64_t v)
 {
     writeInt(static_cast< int32_t >((v >> int32_t(0))));
     writeInt(static_cast< int32_t >((v >> int32_t(32))));
 }
 
-void org::apache::poi::util::LittleEndianByteArrayOutputStream::writeShort(int32_t v)
+void poi::util::LittleEndianByteArrayOutputStream::writeShort(int32_t v)
 {
     checkPosition(2);
     auto i = _writeIndex;
@@ -107,12 +107,12 @@ void org::apache::poi::util::LittleEndianByteArrayOutputStream::writeShort(int32
     _writeIndex = i;
 }
 
-void org::apache::poi::util::LittleEndianByteArrayOutputStream::write(int32_t b)
+void poi::util::LittleEndianByteArrayOutputStream::write(int32_t b)
 {
     writeByte(b);
 }
 
-void org::apache::poi::util::LittleEndianByteArrayOutputStream::write(::int8_tArray* b)
+void poi::util::LittleEndianByteArrayOutputStream::write(::int8_tArray* b)
 {
     auto len = npc(b)->length;
     checkPosition(len);
@@ -120,19 +120,19 @@ void org::apache::poi::util::LittleEndianByteArrayOutputStream::write(::int8_tAr
     _writeIndex += len;
 }
 
-void org::apache::poi::util::LittleEndianByteArrayOutputStream::write(::int8_tArray* b, int32_t offset, int32_t len)
+void poi::util::LittleEndianByteArrayOutputStream::write(::int8_tArray* b, int32_t offset, int32_t len)
 {
     checkPosition(len);
     ::java::lang::System::arraycopy(b, offset, _buf, _writeIndex, len);
     _writeIndex += len;
 }
 
-int32_t org::apache::poi::util::LittleEndianByteArrayOutputStream::getWriteIndex()
+int32_t poi::util::LittleEndianByteArrayOutputStream::getWriteIndex()
 {
     return _writeIndex;
 }
 
-org::apache::poi::util::LittleEndianOutput* org::apache::poi::util::LittleEndianByteArrayOutputStream::createDelayedOutput(int32_t size)
+poi::util::LittleEndianOutput* poi::util::LittleEndianByteArrayOutputStream::createDelayedOutput(int32_t size)
 {
     checkPosition(size);
     LittleEndianOutput* result = new LittleEndianByteArrayOutputStream(_buf, _writeIndex, size);
@@ -142,13 +142,13 @@ org::apache::poi::util::LittleEndianOutput* org::apache::poi::util::LittleEndian
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::util::LittleEndianByteArrayOutputStream::class_()
+java::lang::Class* poi::util::LittleEndianByteArrayOutputStream::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.util.LittleEndianByteArrayOutputStream", 53);
     return c;
 }
 
-java::lang::Class* org::apache::poi::util::LittleEndianByteArrayOutputStream::getClass0()
+java::lang::Class* poi::util::LittleEndianByteArrayOutputStream::getClass0()
 {
     return class_();
 }

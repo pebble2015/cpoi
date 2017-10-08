@@ -23,26 +23,26 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::crypto::Biff8EncryptionKey::Biff8EncryptionKey(const ::default_init_tag&)
+poi::hssf::record::crypto::Biff8EncryptionKey::Biff8EncryptionKey(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::crypto::Biff8EncryptionKey::Biff8EncryptionKey()
+poi::hssf::record::crypto::Biff8EncryptionKey::Biff8EncryptionKey()
     : Biff8EncryptionKey(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-java::lang::ThreadLocal*& org::apache::poi::hssf::record::crypto::Biff8EncryptionKey::_userPasswordTLS()
+java::lang::ThreadLocal*& poi::hssf::record::crypto::Biff8EncryptionKey::_userPasswordTLS()
 {
     clinit();
     return _userPasswordTLS_;
 }
-java::lang::ThreadLocal* org::apache::poi::hssf::record::crypto::Biff8EncryptionKey::_userPasswordTLS_;
+java::lang::ThreadLocal* poi::hssf::record::crypto::Biff8EncryptionKey::_userPasswordTLS_;
 
-void org::apache::poi::hssf::record::crypto::Biff8EncryptionKey::setCurrentUserPassword(::java::lang::String* password)
+void poi::hssf::record::crypto::Biff8EncryptionKey::setCurrentUserPassword(::java::lang::String* password)
 {
     clinit();
     if(password == nullptr) {
@@ -52,7 +52,7 @@ void org::apache::poi::hssf::record::crypto::Biff8EncryptionKey::setCurrentUserP
     }
 }
 
-java::lang::String* org::apache::poi::hssf::record::crypto::Biff8EncryptionKey::getCurrentUserPassword()
+java::lang::String* poi::hssf::record::crypto::Biff8EncryptionKey::getCurrentUserPassword()
 {
     clinit();
     return java_cast< ::java::lang::String* >(npc(_userPasswordTLS_)->get());
@@ -60,13 +60,13 @@ java::lang::String* org::apache::poi::hssf::record::crypto::Biff8EncryptionKey::
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::crypto::Biff8EncryptionKey::class_()
+java::lang::Class* poi::hssf::record::crypto::Biff8EncryptionKey::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.crypto.Biff8EncryptionKey", 52);
     return c;
 }
 
-void org::apache::poi::hssf::record::crypto::Biff8EncryptionKey::clinit()
+void poi::hssf::record::crypto::Biff8EncryptionKey::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -82,7 +82,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::hssf::record::crypto::Biff8EncryptionKey::getClass0()
+java::lang::Class* poi::hssf::record::crypto::Biff8EncryptionKey::getClass0()
 {
     return class_();
 }

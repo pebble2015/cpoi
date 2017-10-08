@@ -9,37 +9,31 @@
 #include <org/apache/poi/ss/formula/functions/Fixed1ArgFunction.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::eval::UnaryMinusEval final
-    : public ::org::apache::poi::ss::formula::functions::Fixed1ArgFunction
+class poi::ss::formula::eval::UnaryMinusEval final
+    : public ::poi::ss::formula::functions::Fixed1ArgFunction
 {
 
 public:
-    typedef ::org::apache::poi::ss::formula::functions::Fixed1ArgFunction super;
+    typedef ::poi::ss::formula::functions::Fixed1ArgFunction super;
 
 private:
-    static ::org::apache::poi::ss::formula::functions::Function* instance_;
+    static ::poi::ss::formula::functions::Function* instance_;
 protected:
     void ctor();
 
@@ -58,7 +52,7 @@ public:
     static ::java::lang::Class *class_();
     static void clinit();
     ValueEval* evaluate(ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex);
-    static ::org::apache::poi::ss::formula::functions::Function*& instance();
+    static ::poi::ss::formula::functions::Function*& instance();
 
 private:
     virtual ::java::lang::Class* getClass0();

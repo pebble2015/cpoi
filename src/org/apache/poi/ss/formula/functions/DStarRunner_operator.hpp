@@ -22,29 +22,23 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace functions
             {
-                namespace formula
-                {
-                    namespace functions
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::functions::DStarRunner_operator, ::java::lang::EnumArray > DStarRunner_operatorArray;
-                    } // functions
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::functions::DStarRunner_operator, ::java::lang::EnumArray > DStarRunner_operatorArray;
+            } // functions
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::DStarRunner_operator final
+class poi::ss::formula::functions::DStarRunner_operator final
     : public ::java::lang::Enum
 {
 

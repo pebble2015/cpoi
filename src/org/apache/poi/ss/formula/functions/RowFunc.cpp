@@ -13,25 +13,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -49,57 +43,57 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::RowFunc::RowFunc(const ::default_init_tag&)
+poi::ss::formula::functions::RowFunc::RowFunc(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::RowFunc::RowFunc()
+poi::ss::formula::functions::RowFunc::RowFunc()
     : RowFunc(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::RowFunc::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::RowFunc::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex)
 {
-    return new ::org::apache::poi::ss::formula::eval::NumberEval(static_cast< double >(srcRowIndex + int32_t(1)));
+    return new ::poi::ss::formula::eval::NumberEval(static_cast< double >(srcRowIndex + int32_t(1)));
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::RowFunc::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* arg0)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::RowFunc::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::poi::ss::formula::eval::ValueEval* arg0)
 {
     int32_t rnum;
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::AreaEval* >(arg0) != nullptr) {
-        rnum = npc((java_cast< ::org::apache::poi::ss::formula::eval::AreaEval* >(arg0)))->getFirstRow();
-    } else if(dynamic_cast< ::org::apache::poi::ss::formula::eval::RefEval* >(arg0) != nullptr) {
-        rnum = npc((java_cast< ::org::apache::poi::ss::formula::eval::RefEval* >(arg0)))->getRow();
+    if(dynamic_cast< ::poi::ss::formula::eval::AreaEval* >(arg0) != nullptr) {
+        rnum = npc((java_cast< ::poi::ss::formula::eval::AreaEval* >(arg0)))->getFirstRow();
+    } else if(dynamic_cast< ::poi::ss::formula::eval::RefEval* >(arg0) != nullptr) {
+        rnum = npc((java_cast< ::poi::ss::formula::eval::RefEval* >(arg0)))->getRow();
     } else {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
-    return new ::org::apache::poi::ss::formula::eval::NumberEval(static_cast< double >(rnum + int32_t(1)));
+    return new ::poi::ss::formula::eval::NumberEval(static_cast< double >(rnum + int32_t(1)));
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::RowFunc::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::RowFunc::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
 {
     switch (npc(args)->length) {
     case int32_t(1):
         return evaluate(srcRowIndex, srcColumnIndex, (*args)[int32_t(0)]);
     case int32_t(0):
-        return new ::org::apache::poi::ss::formula::eval::NumberEval(static_cast< double >(srcRowIndex + int32_t(1)));
+        return new ::poi::ss::formula::eval::NumberEval(static_cast< double >(srcRowIndex + int32_t(1)));
     }
 
-    return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+    return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::RowFunc::class_()
+java::lang::Class* poi::ss::formula::functions::RowFunc::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.RowFunc", 43);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::RowFunc::getClass0()
+java::lang::Class* poi::ss::formula::functions::RowFunc::getClass0()
 {
     return class_();
 }

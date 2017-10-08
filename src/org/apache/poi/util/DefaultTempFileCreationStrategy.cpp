@@ -19,64 +19,64 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::util::DefaultTempFileCreationStrategy::DefaultTempFileCreationStrategy(const ::default_init_tag&)
+poi::util::DefaultTempFileCreationStrategy::DefaultTempFileCreationStrategy(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::util::DefaultTempFileCreationStrategy::DefaultTempFileCreationStrategy() 
+poi::util::DefaultTempFileCreationStrategy::DefaultTempFileCreationStrategy() 
     : DefaultTempFileCreationStrategy(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::util::DefaultTempFileCreationStrategy::DefaultTempFileCreationStrategy(::java::io::File* dir) 
+poi::util::DefaultTempFileCreationStrategy::DefaultTempFileCreationStrategy(::java::io::File* dir) 
     : DefaultTempFileCreationStrategy(*static_cast< ::default_init_tag* >(0))
 {
     ctor(dir);
 }
 
-java::lang::String*& org::apache::poi::util::DefaultTempFileCreationStrategy::JAVA_IO_TMPDIR()
+java::lang::String*& poi::util::DefaultTempFileCreationStrategy::JAVA_IO_TMPDIR()
 {
     clinit();
     return JAVA_IO_TMPDIR_;
 }
-java::lang::String* org::apache::poi::util::DefaultTempFileCreationStrategy::JAVA_IO_TMPDIR_;
+java::lang::String* poi::util::DefaultTempFileCreationStrategy::JAVA_IO_TMPDIR_;
 
-java::lang::String*& org::apache::poi::util::DefaultTempFileCreationStrategy::POIFILES()
+java::lang::String*& poi::util::DefaultTempFileCreationStrategy::POIFILES()
 {
     clinit();
     return POIFILES_;
 }
-java::lang::String* org::apache::poi::util::DefaultTempFileCreationStrategy::POIFILES_;
+java::lang::String* poi::util::DefaultTempFileCreationStrategy::POIFILES_;
 
-java::lang::String*& org::apache::poi::util::DefaultTempFileCreationStrategy::KEEP_FILES()
+java::lang::String*& poi::util::DefaultTempFileCreationStrategy::KEEP_FILES()
 {
     clinit();
     return KEEP_FILES_;
 }
-java::lang::String* org::apache::poi::util::DefaultTempFileCreationStrategy::KEEP_FILES_;
+java::lang::String* poi::util::DefaultTempFileCreationStrategy::KEEP_FILES_;
 
-java::security::SecureRandom*& org::apache::poi::util::DefaultTempFileCreationStrategy::random()
+java::security::SecureRandom*& poi::util::DefaultTempFileCreationStrategy::random()
 {
     clinit();
     return random_;
 }
-java::security::SecureRandom* org::apache::poi::util::DefaultTempFileCreationStrategy::random_;
+java::security::SecureRandom* poi::util::DefaultTempFileCreationStrategy::random_;
 
-void org::apache::poi::util::DefaultTempFileCreationStrategy::ctor()
+void poi::util::DefaultTempFileCreationStrategy::ctor()
 {
     ctor(nullptr);
 }
 
-void org::apache::poi::util::DefaultTempFileCreationStrategy::ctor(::java::io::File* dir)
+void poi::util::DefaultTempFileCreationStrategy::ctor(::java::io::File* dir)
 {
     super::ctor();
     this->dir = dir;
 }
 
-void org::apache::poi::util::DefaultTempFileCreationStrategy::createPOIFilesDirectory() /* throws(IOException) */
+void poi::util::DefaultTempFileCreationStrategy::createPOIFilesDirectory() /* throws(IOException) */
 {
     if(dir == nullptr) {
         auto tmpDir = ::java::lang::System::getProperty(JAVA_IO_TMPDIR_);
@@ -89,7 +89,7 @@ void org::apache::poi::util::DefaultTempFileCreationStrategy::createPOIFilesDire
     createTempDirectory(dir);
 }
 
-void org::apache::poi::util::DefaultTempFileCreationStrategy::createTempDirectory(::java::io::File* directory) /* throws(IOException) */
+void poi::util::DefaultTempFileCreationStrategy::createTempDirectory(::java::io::File* directory) /* throws(IOException) */
 {
     auto const dirExists = (npc(directory)->exists() || npc(directory)->mkdirs());
     if(!dirExists) {
@@ -101,7 +101,7 @@ void org::apache::poi::util::DefaultTempFileCreationStrategy::createTempDirector
     }
 }
 
-java::io::File* org::apache::poi::util::DefaultTempFileCreationStrategy::createTempFile(::java::lang::String* prefix, ::java::lang::String* suffix) /* throws(IOException) */
+java::io::File* poi::util::DefaultTempFileCreationStrategy::createTempFile(::java::lang::String* prefix, ::java::lang::String* suffix) /* throws(IOException) */
 {
     createPOIFilesDirectory();
     auto newFile = ::java::io::File::createTempFile(prefix, suffix, dir);
@@ -111,7 +111,7 @@ java::io::File* org::apache::poi::util::DefaultTempFileCreationStrategy::createT
     return newFile;
 }
 
-java::io::File* org::apache::poi::util::DefaultTempFileCreationStrategy::createTempDirectory(::java::lang::String* prefix) /* throws(IOException) */
+java::io::File* poi::util::DefaultTempFileCreationStrategy::createTempDirectory(::java::lang::String* prefix) /* throws(IOException) */
 {
     createPOIFilesDirectory();
     auto const n = npc(random_)->nextLong();
@@ -125,13 +125,13 @@ java::io::File* org::apache::poi::util::DefaultTempFileCreationStrategy::createT
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::util::DefaultTempFileCreationStrategy::class_()
+java::lang::Class* poi::util::DefaultTempFileCreationStrategy::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.util.DefaultTempFileCreationStrategy", 51);
     return c;
 }
 
-void org::apache::poi::util::DefaultTempFileCreationStrategy::clinit()
+void poi::util::DefaultTempFileCreationStrategy::clinit()
 {
 struct string_init_ {
     string_init_() {
@@ -157,7 +157,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::util::DefaultTempFileCreationStrategy::getClass0()
+java::lang::Class* poi::util::DefaultTempFileCreationStrategy::getClass0()
 {
     return class_();
 }

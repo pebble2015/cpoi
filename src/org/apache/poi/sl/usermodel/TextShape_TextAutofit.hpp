@@ -22,26 +22,20 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace sl
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace sl
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::sl::usermodel::TextShape_TextAutofit, ::java::lang::EnumArray > TextShape_TextAutofitArray;
-                } // usermodel
-            } // sl
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::sl::usermodel::TextShape_TextAutofit, ::java::lang::EnumArray > TextShape_TextAutofitArray;
+        } // usermodel
+    } // sl
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::sl::usermodel::TextShape_TextAutofit final
+class poi::sl::usermodel::TextShape_TextAutofit final
     : public ::java::lang::Enum
 {
 

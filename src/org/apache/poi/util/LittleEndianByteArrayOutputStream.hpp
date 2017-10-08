@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::util::LittleEndianByteArrayOutputStream final
+class poi::util::LittleEndianByteArrayOutputStream final
     : public ::java::io::OutputStream
     , public virtual LittleEndianOutput
     , public DelayableLittleEndianOutput

@@ -12,7 +12,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFShapeGroup
+class poi::hssf::usermodel::HSSFShapeGroup
     : public HSSFShape
     , public virtual HSSFShapeContainer
 {
@@ -22,14 +22,14 @@ public:
 
 private:
     ::java::util::List* shapes {  };
-    ::org::apache::poi::ddf::EscherSpgrRecord* _spgrRecord {  };
+    ::poi::ddf::EscherSpgrRecord* _spgrRecord {  };
 protected:
-    void ctor(::org::apache::poi::ddf::EscherContainerRecord* spgrContainer, ::org::apache::poi::hssf::record::ObjRecord* objRecord);
+    void ctor(::poi::ddf::EscherContainerRecord* spgrContainer, ::poi::hssf::record::ObjRecord* objRecord);
     void ctor(HSSFShape* parent, HSSFAnchor* anchor);
 
 public: /* protected */
-    ::org::apache::poi::ddf::EscherContainerRecord* createSpContainer() override;
-    ::org::apache::poi::hssf::record::ObjRecord* createObjRecord() override;
+    ::poi::ddf::EscherContainerRecord* createSpContainer() override;
+    ::poi::hssf::record::ObjRecord* createObjRecord() override;
     void afterRemove(HSSFPatriarch* patriarch) override;
 
 private:
@@ -65,7 +65,7 @@ public:
     ::java::util::Iterator* iterator() override;
 
     // Generated
-    HSSFShapeGroup(::org::apache::poi::ddf::EscherContainerRecord* spgrContainer, ::org::apache::poi::hssf::record::ObjRecord* objRecord);
+    HSSFShapeGroup(::poi::ddf::EscherContainerRecord* spgrContainer, ::poi::hssf::record::ObjRecord* objRecord);
     HSSFShapeGroup(HSSFShape* parent, HSSFAnchor* anchor);
 protected:
     HSSFShapeGroup(const ::default_init_tag&);

@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hpsf::Decimal
+class poi::hpsf::Decimal
     : public virtual ::java::lang::Object
 {
 
@@ -26,7 +26,7 @@ protected:
     void ctor();
 
 public: /* package */
-    virtual void read(::org::apache::poi::util::LittleEndianByteArrayInputStream* lei);
+    virtual void read(::poi::util::LittleEndianByteArrayInputStream* lei);
 
     // Generated
     Decimal();

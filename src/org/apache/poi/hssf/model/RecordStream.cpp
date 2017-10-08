@@ -26,25 +26,25 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::model::RecordStream::RecordStream(const ::default_init_tag&)
+poi::hssf::model::RecordStream::RecordStream(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::model::RecordStream::RecordStream(::java::util::List* inputList, int32_t startIndex, int32_t endIx) 
+poi::hssf::model::RecordStream::RecordStream(::java::util::List* inputList, int32_t startIndex, int32_t endIx) 
     : RecordStream(*static_cast< ::default_init_tag* >(0))
 {
     ctor(inputList,startIndex,endIx);
 }
 
-org::apache::poi::hssf::model::RecordStream::RecordStream(::java::util::List* records, int32_t startIx) 
+poi::hssf::model::RecordStream::RecordStream(::java::util::List* records, int32_t startIx) 
     : RecordStream(*static_cast< ::default_init_tag* >(0))
 {
     ctor(records,startIx);
 }
 
-void org::apache::poi::hssf::model::RecordStream::ctor(::java::util::List* inputList, int32_t startIndex, int32_t endIx)
+void poi::hssf::model::RecordStream::ctor(::java::util::List* inputList, int32_t startIndex, int32_t endIx)
 {
     super::ctor();
     _list = inputList;
@@ -53,55 +53,55 @@ void org::apache::poi::hssf::model::RecordStream::ctor(::java::util::List* input
     _countRead = 0;
 }
 
-void org::apache::poi::hssf::model::RecordStream::ctor(::java::util::List* records, int32_t startIx)
+void poi::hssf::model::RecordStream::ctor(::java::util::List* records, int32_t startIx)
 {
     ctor(records, startIx, npc(records)->size());
 }
 
-bool org::apache::poi::hssf::model::RecordStream::hasNext()
+bool poi::hssf::model::RecordStream::hasNext()
 {
     return _nextIndex < _endIx;
 }
 
-org::apache::poi::hssf::record::Record* org::apache::poi::hssf::model::RecordStream::getNext()
+poi::hssf::record::Record* poi::hssf::model::RecordStream::getNext()
 {
     if(!hasNext()) {
         throw new ::java::lang::RuntimeException(u"Attempt to read past end of record stream"_j);
     }
     _countRead++;
-    return java_cast< ::org::apache::poi::hssf::record::Record* >(npc(_list)->get(_nextIndex++));
+    return java_cast< ::poi::hssf::record::Record* >(npc(_list)->get(_nextIndex++));
 }
 
-java::lang::Class* org::apache::poi::hssf::model::RecordStream::peekNextClass()
+java::lang::Class* poi::hssf::model::RecordStream::peekNextClass()
 {
     if(!hasNext()) {
         return nullptr;
     }
-    return npc(java_cast< ::org::apache::poi::hssf::record::Record* >(npc(_list)->get(_nextIndex)))->getClass();
+    return npc(java_cast< ::poi::hssf::record::Record* >(npc(_list)->get(_nextIndex)))->getClass();
 }
 
-int32_t org::apache::poi::hssf::model::RecordStream::peekNextSid()
+int32_t poi::hssf::model::RecordStream::peekNextSid()
 {
     if(!hasNext()) {
         return -int32_t(1);
     }
-    return npc(java_cast< ::org::apache::poi::hssf::record::Record* >(npc(_list)->get(_nextIndex)))->getSid();
+    return npc(java_cast< ::poi::hssf::record::Record* >(npc(_list)->get(_nextIndex)))->getSid();
 }
 
-int32_t org::apache::poi::hssf::model::RecordStream::getCountRead()
+int32_t poi::hssf::model::RecordStream::getCountRead()
 {
     return _countRead;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::model::RecordStream::class_()
+java::lang::Class* poi::hssf::model::RecordStream::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.model.RecordStream", 38);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::model::RecordStream::getClass0()
+java::lang::Class* poi::hssf::model::RecordStream::getClass0()
 {
     return class_();
 }

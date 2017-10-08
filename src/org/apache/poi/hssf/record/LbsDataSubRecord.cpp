@@ -38,25 +38,19 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -65,27 +59,27 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::LbsDataSubRecord::LbsDataSubRecord(const ::default_init_tag&)
+poi::hssf::record::LbsDataSubRecord::LbsDataSubRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::LbsDataSubRecord::LbsDataSubRecord(::org::apache::poi::util::LittleEndianInput* in, int32_t cbFContinued, int32_t cmoOt) 
+poi::hssf::record::LbsDataSubRecord::LbsDataSubRecord(::poi::util::LittleEndianInput* in, int32_t cbFContinued, int32_t cmoOt) 
     : LbsDataSubRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in,cbFContinued,cmoOt);
 }
 
-org::apache::poi::hssf::record::LbsDataSubRecord::LbsDataSubRecord() 
+poi::hssf::record::LbsDataSubRecord::LbsDataSubRecord() 
     : LbsDataSubRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-constexpr int32_t org::apache::poi::hssf::record::LbsDataSubRecord::sid;
+constexpr int32_t poi::hssf::record::LbsDataSubRecord::sid;
 
-void org::apache::poi::hssf::record::LbsDataSubRecord::ctor(::org::apache::poi::util::LittleEndianInput* in, int32_t cbFContinued, int32_t cmoOt)
+void poi::hssf::record::LbsDataSubRecord::ctor(::poi::util::LittleEndianInput* in, int32_t cbFContinued, int32_t cmoOt)
 {
     super::ctor();
     _cbFContinued = cbFContinued;
@@ -93,9 +87,9 @@ void org::apache::poi::hssf::record::LbsDataSubRecord::ctor(::org::apache::poi::
     if(encodedTokenLen > 0) {
         auto formulaSize = npc(in)->readUShort();
         _unknownPreFormulaInt = npc(in)->readInt();
-        auto ptgs = ::org::apache::poi::ss::formula::ptg::Ptg::readTokens(formulaSize, in);
+        auto ptgs = ::poi::ss::formula::ptg::Ptg::readTokens(formulaSize, in);
         if(npc(ptgs)->length != 1) {
-            throw new ::org::apache::poi::util::RecordFormatException(::java::lang::StringBuilder().append(u"Read "_j)->append(npc(ptgs)->length)
+            throw new ::poi::util::RecordFormatException(::java::lang::StringBuilder().append(u"Read "_j)->append(npc(ptgs)->length)
                 ->append(u" tokens but expected exactly 1"_j)->toString());
         }
         _linkPtg = (*ptgs)[int32_t(0)];
@@ -107,7 +101,7 @@ void org::apache::poi::hssf::record::LbsDataSubRecord::ctor(::org::apache::poi::
             _unknownPostFormulaByte = nullptr;
             break;
         default:
-            throw new ::org::apache::poi::util::RecordFormatException(u"Unexpected leftover bytes"_j);
+            throw new ::poi::util::RecordFormatException(u"Unexpected leftover bytes"_j);
         }
 
     }
@@ -121,7 +115,7 @@ void org::apache::poi::hssf::record::LbsDataSubRecord::ctor(::org::apache::poi::
     if((_flags & int32_t(2)) != 0) {
         _rgLines = new ::java::lang::StringArray(_cLines);
         for (auto i = int32_t(0); i < _cLines; i++) {
-            _rgLines->set(i, ::org::apache::poi::util::StringUtil::readUnicodeString(in));
+            _rgLines->set(i, ::poi::util::StringUtil::readUnicodeString(in));
         }
     }
     if(((_flags >> int32_t(4)) & int32_t(2)) != 0) {
@@ -132,12 +126,12 @@ void org::apache::poi::hssf::record::LbsDataSubRecord::ctor(::org::apache::poi::
     }
 }
 
-void org::apache::poi::hssf::record::LbsDataSubRecord::ctor()
+void poi::hssf::record::LbsDataSubRecord::ctor()
 {
     super::ctor();
 }
 
-org::apache::poi::hssf::record::LbsDataSubRecord* org::apache::poi::hssf::record::LbsDataSubRecord::newAutoFilterInstance()
+poi::hssf::record::LbsDataSubRecord* poi::hssf::record::LbsDataSubRecord::newAutoFilterInstance()
 {
     clinit();
     auto lbs = new LbsDataSubRecord();
@@ -150,12 +144,12 @@ org::apache::poi::hssf::record::LbsDataSubRecord* org::apache::poi::hssf::record
     return lbs;
 }
 
-bool org::apache::poi::hssf::record::LbsDataSubRecord::isTerminating()
+bool poi::hssf::record::LbsDataSubRecord::isTerminating()
 {
     return true;
 }
 
-int32_t org::apache::poi::hssf::record::LbsDataSubRecord::getDataSize()
+int32_t poi::hssf::record::LbsDataSubRecord::getDataSize()
 {
     auto result = int32_t(2);
     if(_linkPtg != nullptr) {
@@ -172,7 +166,7 @@ int32_t org::apache::poi::hssf::record::LbsDataSubRecord::getDataSize()
     }
     if(_rgLines != nullptr) {
         for(auto str : *npc(_rgLines)) {
-            result += ::org::apache::poi::util::StringUtil::getEncodedSize(str);
+            result += ::poi::util::StringUtil::getEncodedSize(str);
         }
     }
     if(_bsels != nullptr) {
@@ -181,7 +175,7 @@ int32_t org::apache::poi::hssf::record::LbsDataSubRecord::getDataSize()
     return result;
 }
 
-void org::apache::poi::hssf::record::LbsDataSubRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::LbsDataSubRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(sid);
     npc(out)->writeShort(_cbFContinued);
@@ -210,7 +204,7 @@ void org::apache::poi::hssf::record::LbsDataSubRecord::serialize(::org::apache::
     }
     if(_rgLines != nullptr) {
         for(auto str : *npc(_rgLines)) {
-            ::org::apache::poi::util::StringUtil::writeUnicodeString(out, str);
+            ::poi::util::StringUtil::writeUnicodeString(out, str);
         }
     }
     if(_bsels != nullptr) {
@@ -220,24 +214,24 @@ void org::apache::poi::hssf::record::LbsDataSubRecord::serialize(::org::apache::
     }
 }
 
-org::apache::poi::hssf::record::LbsDataSubRecord* org::apache::poi::hssf::record::LbsDataSubRecord::clone()
+poi::hssf::record::LbsDataSubRecord* poi::hssf::record::LbsDataSubRecord::clone()
 {
     return this;
 }
 
-java::lang::String* org::apache::poi::hssf::record::LbsDataSubRecord::toString()
+java::lang::String* poi::hssf::record::LbsDataSubRecord::toString()
 {
     auto sb = new ::java::lang::StringBuffer(int32_t(256));
     npc(sb)->append(u"[ftLbsData]\n"_j);
-    npc(npc(npc(sb)->append(u"    .unknownShort1 ="_j))->append(::org::apache::poi::util::HexDump::shortToHex(_cbFContinued)))->append(u"\n"_j);
+    npc(npc(npc(sb)->append(u"    .unknownShort1 ="_j))->append(::poi::util::HexDump::shortToHex(_cbFContinued)))->append(u"\n"_j);
     npc(npc(sb)->append(u"    .formula        = "_j))->append(u'\u000a');
     if(_linkPtg != nullptr) {
         npc(npc(npc(sb)->append(static_cast< ::java::lang::Object* >(_linkPtg)))->append(npc(_linkPtg)->getRVAType()))->append(u'\u000a');
     }
-    npc(npc(npc(sb)->append(u"    .nEntryCount   ="_j))->append(::org::apache::poi::util::HexDump::shortToHex(_cLines)))->append(u"\n"_j);
-    npc(npc(npc(sb)->append(u"    .selEntryIx    ="_j))->append(::org::apache::poi::util::HexDump::shortToHex(_iSel)))->append(u"\n"_j);
-    npc(npc(npc(sb)->append(u"    .style         ="_j))->append(::org::apache::poi::util::HexDump::shortToHex(_flags)))->append(u"\n"_j);
-    npc(npc(npc(sb)->append(u"    .unknownShort10="_j))->append(::org::apache::poi::util::HexDump::shortToHex(_idEdit)))->append(u"\n"_j);
+    npc(npc(npc(sb)->append(u"    .nEntryCount   ="_j))->append(::poi::util::HexDump::shortToHex(_cLines)))->append(u"\n"_j);
+    npc(npc(npc(sb)->append(u"    .selEntryIx    ="_j))->append(::poi::util::HexDump::shortToHex(_iSel)))->append(u"\n"_j);
+    npc(npc(npc(sb)->append(u"    .style         ="_j))->append(::poi::util::HexDump::shortToHex(_flags)))->append(u"\n"_j);
+    npc(npc(npc(sb)->append(u"    .unknownShort10="_j))->append(::poi::util::HexDump::shortToHex(_idEdit)))->append(u"\n"_j);
     if(_dropData != nullptr) {
         npc(npc(sb)->append(u'\u000a'))->append(static_cast< ::java::lang::Object* >(_dropData));
     }
@@ -245,30 +239,30 @@ java::lang::String* org::apache::poi::hssf::record::LbsDataSubRecord::toString()
     return npc(sb)->toString();
 }
 
-org::apache::poi::ss::formula::ptg::Ptg* org::apache::poi::hssf::record::LbsDataSubRecord::getFormula()
+poi::ss::formula::ptg::Ptg* poi::hssf::record::LbsDataSubRecord::getFormula()
 {
     return _linkPtg;
 }
 
-int32_t org::apache::poi::hssf::record::LbsDataSubRecord::getNumberOfItems()
+int32_t poi::hssf::record::LbsDataSubRecord::getNumberOfItems()
 {
     return _cLines;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::LbsDataSubRecord::class_()
+java::lang::Class* poi::hssf::record::LbsDataSubRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.LbsDataSubRecord", 43);
     return c;
 }
 
-int8_tArray* org::apache::poi::hssf::record::LbsDataSubRecord::serialize()
+int8_tArray* poi::hssf::record::LbsDataSubRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::LbsDataSubRecord::getClass0()
+java::lang::Class* poi::hssf::record::LbsDataSubRecord::getClass0()
 {
     return class_();
 }

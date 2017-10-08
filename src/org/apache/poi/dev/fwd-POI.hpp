@@ -2,16 +2,10 @@
 #pragma once
 
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace dev
     {
-        namespace poi
-        {
-            namespace dev
-            {
-                class RecordGenerator;
-            } // dev
-        } // poi
-    } // apache
-} // org
+        class RecordGenerator;
+    } // dev
+} // poi

@@ -40,51 +40,45 @@ typedef ::SubArray< ::java::lang::Cloneable, ObjectArray > CloneableArray;
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
-            {
-                namespace record
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::Record, RecordBaseArray > RecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::StandardRecord, RecordArray > StandardRecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::CFRuleBase, StandardRecordArray, ::java::lang::CloneableArray > CFRuleBaseArray;
-                } // record
-            } // hssf
+typedef ::SubArray< ::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
+typedef ::SubArray< ::poi::hssf::record::Record, RecordBaseArray > RecordArray;
+typedef ::SubArray< ::poi::hssf::record::StandardRecord, RecordArray > StandardRecordArray;
+typedef ::SubArray< ::poi::hssf::record::CFRuleBase, StandardRecordArray, ::java::lang::CloneableArray > CFRuleBaseArray;
+        } // record
+    } // hssf
 
-            namespace ss
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::DifferentialStyleProvider, ::java::lang::ObjectArray > DifferentialStyleProviderArray;
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::ConditionalFormattingRule, ::java::lang::ObjectArray, DifferentialStyleProviderArray > ConditionalFormattingRuleArray;
-                } // usermodel
-            } // ss
+    namespace ss
+    {
+        namespace usermodel
+        {
+typedef ::SubArray< ::poi::ss::usermodel::DifferentialStyleProvider, ::java::lang::ObjectArray > DifferentialStyleProviderArray;
+typedef ::SubArray< ::poi::ss::usermodel::ConditionalFormattingRule, ::java::lang::ObjectArray, DifferentialStyleProviderArray > ConditionalFormattingRuleArray;
+        } // usermodel
+    } // ss
 
-            namespace hssf
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::usermodel::HSSFConditionalFormattingRule, ::java::lang::ObjectArray, ::org::apache::poi::ss::usermodel::ConditionalFormattingRuleArray > HSSFConditionalFormattingRuleArray;
-                } // usermodel
-            } // hssf
+    namespace hssf
+    {
+        namespace usermodel
+        {
+typedef ::SubArray< ::poi::hssf::usermodel::HSSFConditionalFormattingRule, ::java::lang::ObjectArray, ::poi::ss::usermodel::ConditionalFormattingRuleArray > HSSFConditionalFormattingRuleArray;
+        } // usermodel
+    } // hssf
 
-            namespace ss
-            {
-                namespace util
-                {
-typedef ::SubArray< ::org::apache::poi::ss::util::CellRangeAddressBase, ::java::lang::ObjectArray > CellRangeAddressBaseArray;
-typedef ::SubArray< ::org::apache::poi::ss::util::CellRangeAddress, CellRangeAddressBaseArray > CellRangeAddressArray;
-                } // util
-            } // ss
-        } // poi
-    } // apache
-} // org
+    namespace ss
+    {
+        namespace util
+        {
+typedef ::SubArray< ::poi::ss::util::CellRangeAddressBase, ::java::lang::ObjectArray > CellRangeAddressBaseArray;
+typedef ::SubArray< ::poi::ss::util::CellRangeAddress, CellRangeAddressBaseArray > CellRangeAddressArray;
+        } // util
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -102,84 +96,84 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::usermodel::HSSFSheetConditionalFormatting::HSSFSheetConditionalFormatting(const ::default_init_tag&)
+poi::hssf::usermodel::HSSFSheetConditionalFormatting::HSSFSheetConditionalFormatting(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::usermodel::HSSFSheetConditionalFormatting::HSSFSheetConditionalFormatting(HSSFSheet* sheet) 
+poi::hssf::usermodel::HSSFSheetConditionalFormatting::HSSFSheetConditionalFormatting(HSSFSheet* sheet) 
     : HSSFSheetConditionalFormatting(*static_cast< ::default_init_tag* >(0))
 {
     ctor(sheet);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheetConditionalFormatting::ctor(HSSFSheet* sheet)
+void poi::hssf::usermodel::HSSFSheetConditionalFormatting::ctor(HSSFSheet* sheet)
 {
     super::ctor();
     _sheet = sheet;
     _conditionalFormattingTable = npc(npc(sheet)->getSheet())->getConditionalFormattingTable();
 }
 
-org::apache::poi::hssf::usermodel::HSSFConditionalFormattingRule* org::apache::poi::hssf::usermodel::HSSFSheetConditionalFormatting::createConditionalFormattingRule(int8_t comparisonOperation, ::java::lang::String* formula1, ::java::lang::String* formula2)
+poi::hssf::usermodel::HSSFConditionalFormattingRule* poi::hssf::usermodel::HSSFSheetConditionalFormatting::createConditionalFormattingRule(int8_t comparisonOperation, ::java::lang::String* formula1, ::java::lang::String* formula2)
 {
-    auto rr = ::org::apache::poi::hssf::record::CFRuleRecord::create(_sheet, comparisonOperation, formula1, formula2);
+    auto rr = ::poi::hssf::record::CFRuleRecord::create(_sheet, comparisonOperation, formula1, formula2);
     return new HSSFConditionalFormattingRule(_sheet, rr);
 }
 
-org::apache::poi::hssf::usermodel::HSSFConditionalFormattingRule* org::apache::poi::hssf::usermodel::HSSFSheetConditionalFormatting::createConditionalFormattingRule(int8_t comparisonOperation, ::java::lang::String* formula1)
+poi::hssf::usermodel::HSSFConditionalFormattingRule* poi::hssf::usermodel::HSSFSheetConditionalFormatting::createConditionalFormattingRule(int8_t comparisonOperation, ::java::lang::String* formula1)
 {
-    auto rr = ::org::apache::poi::hssf::record::CFRuleRecord::create(_sheet, comparisonOperation, formula1, nullptr);
+    auto rr = ::poi::hssf::record::CFRuleRecord::create(_sheet, comparisonOperation, formula1, nullptr);
     return new HSSFConditionalFormattingRule(_sheet, rr);
 }
 
-org::apache::poi::hssf::usermodel::HSSFConditionalFormattingRule* org::apache::poi::hssf::usermodel::HSSFSheetConditionalFormatting::createConditionalFormattingRule(::java::lang::String* formula)
+poi::hssf::usermodel::HSSFConditionalFormattingRule* poi::hssf::usermodel::HSSFSheetConditionalFormatting::createConditionalFormattingRule(::java::lang::String* formula)
 {
-    auto rr = ::org::apache::poi::hssf::record::CFRuleRecord::create(_sheet, formula);
+    auto rr = ::poi::hssf::record::CFRuleRecord::create(_sheet, formula);
     return new HSSFConditionalFormattingRule(_sheet, rr);
 }
 
-org::apache::poi::hssf::usermodel::HSSFConditionalFormattingRule* org::apache::poi::hssf::usermodel::HSSFSheetConditionalFormatting::createConditionalFormattingRule(::org::apache::poi::ss::usermodel::IconMultiStateFormatting_IconSet* iconSet)
+poi::hssf::usermodel::HSSFConditionalFormattingRule* poi::hssf::usermodel::HSSFSheetConditionalFormatting::createConditionalFormattingRule(::poi::ss::usermodel::IconMultiStateFormatting_IconSet* iconSet)
 {
-    auto rr = ::org::apache::poi::hssf::record::CFRule12Record::create(_sheet, iconSet);
+    auto rr = ::poi::hssf::record::CFRule12Record::create(_sheet, iconSet);
     return new HSSFConditionalFormattingRule(_sheet, rr);
 }
 
-org::apache::poi::hssf::usermodel::HSSFConditionalFormattingRule* org::apache::poi::hssf::usermodel::HSSFSheetConditionalFormatting::createConditionalFormattingRule(HSSFExtendedColor* color)
+poi::hssf::usermodel::HSSFConditionalFormattingRule* poi::hssf::usermodel::HSSFSheetConditionalFormatting::createConditionalFormattingRule(HSSFExtendedColor* color)
 {
-    auto rr = ::org::apache::poi::hssf::record::CFRule12Record::create(_sheet, npc(color)->getExtendedColor());
+    auto rr = ::poi::hssf::record::CFRule12Record::create(_sheet, npc(color)->getExtendedColor());
     return new HSSFConditionalFormattingRule(_sheet, rr);
 }
 
-org::apache::poi::hssf::usermodel::HSSFConditionalFormattingRule* org::apache::poi::hssf::usermodel::HSSFSheetConditionalFormatting::createConditionalFormattingRule(::org::apache::poi::ss::usermodel::ExtendedColor* color)
+poi::hssf::usermodel::HSSFConditionalFormattingRule* poi::hssf::usermodel::HSSFSheetConditionalFormatting::createConditionalFormattingRule(::poi::ss::usermodel::ExtendedColor* color)
 {
     return createConditionalFormattingRule(java_cast< HSSFExtendedColor* >(color));
 }
 
-org::apache::poi::hssf::usermodel::HSSFConditionalFormattingRule* org::apache::poi::hssf::usermodel::HSSFSheetConditionalFormatting::createConditionalFormattingColorScaleRule()
+poi::hssf::usermodel::HSSFConditionalFormattingRule* poi::hssf::usermodel::HSSFSheetConditionalFormatting::createConditionalFormattingColorScaleRule()
 {
-    auto rr = ::org::apache::poi::hssf::record::CFRule12Record::createColorScale(_sheet);
+    auto rr = ::poi::hssf::record::CFRule12Record::createColorScale(_sheet);
     return new HSSFConditionalFormattingRule(_sheet, rr);
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFSheetConditionalFormatting::addConditionalFormatting(HSSFConditionalFormatting* cf)
+int32_t poi::hssf::usermodel::HSSFSheetConditionalFormatting::addConditionalFormatting(HSSFConditionalFormatting* cf)
 {
     auto cfraClone = npc(npc(cf)->getCFRecordsAggregate())->cloneCFAggregate();
     return npc(_conditionalFormattingTable)->add(cfraClone);
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFSheetConditionalFormatting::addConditionalFormatting(::org::apache::poi::ss::usermodel::ConditionalFormatting* cf)
+int32_t poi::hssf::usermodel::HSSFSheetConditionalFormatting::addConditionalFormatting(::poi::ss::usermodel::ConditionalFormatting* cf)
 {
     return addConditionalFormatting(java_cast< HSSFConditionalFormatting* >(cf));
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFSheetConditionalFormatting::addConditionalFormatting(::org::apache::poi::ss::util::CellRangeAddressArray* regions, HSSFConditionalFormattingRuleArray* cfRules)
+int32_t poi::hssf::usermodel::HSSFSheetConditionalFormatting::addConditionalFormatting(::poi::ss::util::CellRangeAddressArray* regions, HSSFConditionalFormattingRuleArray* cfRules)
 {
     if(regions == nullptr) {
         throw new ::java::lang::IllegalArgumentException(u"regions must not be null"_j);
     }
     for(auto range : *npc(regions)) 
-                npc(range)->validate(::org::apache::poi::ss::SpreadsheetVersion::EXCEL97);
+                npc(range)->validate(::poi::ss::SpreadsheetVersion::EXCEL97);
 
     if(cfRules == nullptr) {
         throw new ::java::lang::IllegalArgumentException(u"cfRules must not be null"_j);
@@ -190,15 +184,15 @@ int32_t org::apache::poi::hssf::usermodel::HSSFSheetConditionalFormatting::addCo
     if(npc(cfRules)->length > 3) {
         throw new ::java::lang::IllegalArgumentException(u"Number of rules must not exceed 3"_j);
     }
-    auto rules = new ::org::apache::poi::hssf::record::CFRuleBaseArray(npc(cfRules)->length);
+    auto rules = new ::poi::hssf::record::CFRuleBaseArray(npc(cfRules)->length);
     for (auto i = int32_t(0); i != npc(cfRules)->length; i++) {
         rules->set(i, npc((*cfRules)[i])->getCfRuleRecord());
     }
-    auto cfra = new ::org::apache::poi::hssf::record::aggregates::CFRecordsAggregate(regions, rules);
+    auto cfra = new ::poi::hssf::record::aggregates::CFRecordsAggregate(regions, rules);
     return npc(_conditionalFormattingTable)->add(cfra);
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFSheetConditionalFormatting::addConditionalFormatting(::org::apache::poi::ss::util::CellRangeAddressArray* regions, ::org::apache::poi::ss::usermodel::ConditionalFormattingRuleArray* cfRules)
+int32_t poi::hssf::usermodel::HSSFSheetConditionalFormatting::addConditionalFormatting(::poi::ss::util::CellRangeAddressArray* regions, ::poi::ss::usermodel::ConditionalFormattingRuleArray* cfRules)
 {
     HSSFConditionalFormattingRuleArray* hfRules;
     if(dynamic_cast< HSSFConditionalFormattingRuleArray* >(cfRules) != nullptr)
@@ -210,17 +204,17 @@ int32_t org::apache::poi::hssf::usermodel::HSSFSheetConditionalFormatting::addCo
     return addConditionalFormatting(regions, hfRules);
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFSheetConditionalFormatting::addConditionalFormatting(::org::apache::poi::ss::util::CellRangeAddressArray* regions, HSSFConditionalFormattingRule* rule1)
+int32_t poi::hssf::usermodel::HSSFSheetConditionalFormatting::addConditionalFormatting(::poi::ss::util::CellRangeAddressArray* regions, HSSFConditionalFormattingRule* rule1)
 {
     return addConditionalFormatting(regions, rule1 == nullptr ? static_cast< HSSFConditionalFormattingRuleArray* >(nullptr) : new HSSFConditionalFormattingRuleArray({rule1}));
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFSheetConditionalFormatting::addConditionalFormatting(::org::apache::poi::ss::util::CellRangeAddressArray* regions, ::org::apache::poi::ss::usermodel::ConditionalFormattingRule* rule1)
+int32_t poi::hssf::usermodel::HSSFSheetConditionalFormatting::addConditionalFormatting(::poi::ss::util::CellRangeAddressArray* regions, ::poi::ss::usermodel::ConditionalFormattingRule* rule1)
 {
     return addConditionalFormatting(regions, java_cast< HSSFConditionalFormattingRule* >(rule1));
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFSheetConditionalFormatting::addConditionalFormatting(::org::apache::poi::ss::util::CellRangeAddressArray* regions, HSSFConditionalFormattingRule* rule1, HSSFConditionalFormattingRule* rule2)
+int32_t poi::hssf::usermodel::HSSFSheetConditionalFormatting::addConditionalFormatting(::poi::ss::util::CellRangeAddressArray* regions, HSSFConditionalFormattingRule* rule1, HSSFConditionalFormattingRule* rule2)
 {
     return addConditionalFormatting(regions, new HSSFConditionalFormattingRuleArray({
         rule1
@@ -228,12 +222,12 @@ int32_t org::apache::poi::hssf::usermodel::HSSFSheetConditionalFormatting::addCo
     }));
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFSheetConditionalFormatting::addConditionalFormatting(::org::apache::poi::ss::util::CellRangeAddressArray* regions, ::org::apache::poi::ss::usermodel::ConditionalFormattingRule* rule1, ::org::apache::poi::ss::usermodel::ConditionalFormattingRule* rule2)
+int32_t poi::hssf::usermodel::HSSFSheetConditionalFormatting::addConditionalFormatting(::poi::ss::util::CellRangeAddressArray* regions, ::poi::ss::usermodel::ConditionalFormattingRule* rule1, ::poi::ss::usermodel::ConditionalFormattingRule* rule2)
 {
     return addConditionalFormatting(regions, java_cast< HSSFConditionalFormattingRule* >(rule1), java_cast< HSSFConditionalFormattingRule* >(rule2));
 }
 
-org::apache::poi::hssf::usermodel::HSSFConditionalFormatting* org::apache::poi::hssf::usermodel::HSSFSheetConditionalFormatting::getConditionalFormattingAt(int32_t index)
+poi::hssf::usermodel::HSSFConditionalFormatting* poi::hssf::usermodel::HSSFSheetConditionalFormatting::getConditionalFormattingAt(int32_t index)
 {
     auto cf = npc(_conditionalFormattingTable)->get(index);
     if(cf == nullptr) {
@@ -242,25 +236,25 @@ org::apache::poi::hssf::usermodel::HSSFConditionalFormatting* org::apache::poi::
     return new HSSFConditionalFormatting(_sheet, cf);
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFSheetConditionalFormatting::getNumConditionalFormattings()
+int32_t poi::hssf::usermodel::HSSFSheetConditionalFormatting::getNumConditionalFormattings()
 {
     return npc(_conditionalFormattingTable)->size();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheetConditionalFormatting::removeConditionalFormatting(int32_t index)
+void poi::hssf::usermodel::HSSFSheetConditionalFormatting::removeConditionalFormatting(int32_t index)
 {
     npc(_conditionalFormattingTable)->remove(index);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFSheetConditionalFormatting::class_()
+java::lang::Class* poi::hssf::usermodel::HSSFSheetConditionalFormatting::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.usermodel.HSSFSheetConditionalFormatting", 60);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFSheetConditionalFormatting::getClass0()
+java::lang::Class* poi::hssf::usermodel::HSSFSheetConditionalFormatting::getClass0()
 {
     return class_();
 }

@@ -11,12 +11,12 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::chart::PlotGrowthRecord final
-    : public ::org::apache::poi::hssf::record::StandardRecord
+class poi::hssf::record::chart::PlotGrowthRecord final
+    : public ::poi::hssf::record::StandardRecord
 {
 
 public:
-    typedef ::org::apache::poi::hssf::record::StandardRecord super;
+    typedef ::poi::hssf::record::StandardRecord super;
     static constexpr int16_t sid { int16_t(4196) };
 
 private:
@@ -24,11 +24,11 @@ private:
     int32_t field_2_verticalScale {  };
 protected:
     void ctor();
-    void ctor(::org::apache::poi::hssf::record::RecordInputStream* in);
+    void ctor(::poi::hssf::record::RecordInputStream* in);
 
 public:
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;
@@ -43,7 +43,7 @@ public:
 
     // Generated
     PlotGrowthRecord();
-    PlotGrowthRecord(::org::apache::poi::hssf::record::RecordInputStream* in);
+    PlotGrowthRecord(::poi::hssf::record::RecordInputStream* in);
 protected:
     PlotGrowthRecord(const ::default_init_tag&);
 

@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::crypt::EncryptionHeader
+class poi::poifs::crypt::EncryptionHeader
     : public virtual ::java::lang::Object
     , public virtual ::java::lang::Cloneable
 {

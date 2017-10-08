@@ -16,25 +16,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -43,65 +37,65 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::Dec2Bin::Dec2Bin(const ::default_init_tag&)
+poi::ss::formula::functions::Dec2Bin::Dec2Bin(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::Dec2Bin::Dec2Bin()
+poi::ss::formula::functions::Dec2Bin::Dec2Bin()
     : Dec2Bin(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::functions::FreeRefFunction*& org::apache::poi::ss::formula::functions::Dec2Bin::instance()
+poi::ss::formula::functions::FreeRefFunction*& poi::ss::formula::functions::Dec2Bin::instance()
 {
     clinit();
     return instance_;
 }
-org::apache::poi::ss::formula::functions::FreeRefFunction* org::apache::poi::ss::formula::functions::Dec2Bin::instance_;
+poi::ss::formula::functions::FreeRefFunction* poi::ss::formula::functions::Dec2Bin::instance_;
 
-constexpr int64_t org::apache::poi::ss::formula::functions::Dec2Bin::MIN_VALUE;
+constexpr int64_t poi::ss::formula::functions::Dec2Bin::MIN_VALUE;
 
-constexpr int64_t org::apache::poi::ss::formula::functions::Dec2Bin::MAX_VALUE;
+constexpr int64_t poi::ss::formula::functions::Dec2Bin::MAX_VALUE;
 
-constexpr int32_t org::apache::poi::ss::formula::functions::Dec2Bin::DEFAULT_PLACES_VALUE;
+constexpr int32_t poi::ss::formula::functions::Dec2Bin::DEFAULT_PLACES_VALUE;
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Dec2Bin::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* numberVE, ::org::apache::poi::ss::formula::eval::ValueEval* placesVE)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Dec2Bin::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::poi::ss::formula::eval::ValueEval* numberVE, ::poi::ss::formula::eval::ValueEval* placesVE)
 {
-    ::org::apache::poi::ss::formula::eval::ValueEval* veText1;
+    ::poi::ss::formula::eval::ValueEval* veText1;
     try {
-        veText1 = ::org::apache::poi::ss::formula::eval::OperandResolver::getSingleValue(numberVE, srcRowIndex, srcColumnIndex);
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+        veText1 = ::poi::ss::formula::eval::OperandResolver::getSingleValue(numberVE, srcRowIndex, srcColumnIndex);
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
         return npc(e)->getErrorEval();
     }
-    auto strText1 = ::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToString(veText1);
-    auto number = ::org::apache::poi::ss::formula::eval::OperandResolver::parseDouble(strText1);
+    auto strText1 = ::poi::ss::formula::eval::OperandResolver::coerceValueToString(veText1);
+    auto number = ::poi::ss::formula::eval::OperandResolver::parseDouble(strText1);
     if(number == nullptr) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
     if(npc(number)->longValue() < MIN_VALUE || npc(number)->longValue() > MAX_VALUE) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::NUM_ERROR();
+        return ::poi::ss::formula::eval::ErrorEval::NUM_ERROR();
     }
     int32_t placesNumber;
     if((npc(number))->doubleValue() < 0 || placesVE == nullptr) {
         placesNumber = DEFAULT_PLACES_VALUE;
     } else {
-        ::org::apache::poi::ss::formula::eval::ValueEval* placesValueEval;
+        ::poi::ss::formula::eval::ValueEval* placesValueEval;
         try {
-            placesValueEval = ::org::apache::poi::ss::formula::eval::OperandResolver::getSingleValue(placesVE, srcRowIndex, srcColumnIndex);
-        } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+            placesValueEval = ::poi::ss::formula::eval::OperandResolver::getSingleValue(placesVE, srcRowIndex, srcColumnIndex);
+        } catch (::poi::ss::formula::eval::EvaluationException* e) {
             return npc(e)->getErrorEval();
         }
-        auto placesStr = ::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToString(placesValueEval);
-        auto placesNumberDouble = ::org::apache::poi::ss::formula::eval::OperandResolver::parseDouble(placesStr);
+        auto placesStr = ::poi::ss::formula::eval::OperandResolver::coerceValueToString(placesValueEval);
+        auto placesNumberDouble = ::poi::ss::formula::eval::OperandResolver::parseDouble(placesStr);
         if(placesNumberDouble == nullptr) {
-            return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+            return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
         }
         placesNumber = npc(placesNumberDouble)->intValue();
         if(placesNumber < 0 || placesNumber == 0) {
-            return ::org::apache::poi::ss::formula::eval::ErrorEval::NUM_ERROR();
+            return ::poi::ss::formula::eval::ErrorEval::NUM_ERROR();
         }
     }
     auto binary = ::java::lang::Integer::toBinaryString(npc(number)->intValue());
@@ -109,17 +103,17 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::f
         binary = npc(binary)->substring(npc(binary)->length() - DEFAULT_PLACES_VALUE, npc(binary)->length());
     }
     if(npc(binary)->length() > placesNumber) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::NUM_ERROR();
+        return ::poi::ss::formula::eval::ErrorEval::NUM_ERROR();
     }
-    return new ::org::apache::poi::ss::formula::eval::StringEval(binary);
+    return new ::poi::ss::formula::eval::StringEval(binary);
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Dec2Bin::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* numberVE)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Dec2Bin::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::poi::ss::formula::eval::ValueEval* numberVE)
 {
-    return this->evaluate(srcRowIndex, srcColumnIndex, numberVE, static_cast< ::org::apache::poi::ss::formula::eval::ValueEval* >(nullptr));
+    return this->evaluate(srcRowIndex, srcColumnIndex, numberVE, static_cast< ::poi::ss::formula::eval::ValueEval* >(nullptr));
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Dec2Bin::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, ::org::apache::poi::ss::formula::OperationEvaluationContext* ec)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Dec2Bin::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, ::poi::ss::formula::OperationEvaluationContext* ec)
 {
     if(npc(args)->length == 1) {
         return evaluate(npc(ec)->getRowIndex(), npc(ec)->getColumnIndex(), (*args)[int32_t(0)]);
@@ -127,18 +121,18 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::f
     if(npc(args)->length == 2) {
         return evaluate(npc(ec)->getRowIndex(), npc(ec)->getColumnIndex(), (*args)[int32_t(0)], (*args)[int32_t(1)]);
     }
-    return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+    return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Dec2Bin::class_()
+java::lang::Class* poi::ss::formula::functions::Dec2Bin::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.Dec2Bin", 43);
     return c;
 }
 
-void org::apache::poi::ss::formula::functions::Dec2Bin::clinit()
+void poi::ss::formula::functions::Dec2Bin::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -154,12 +148,12 @@ struct clinit_ {
     }
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Dec2Bin::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Dec2Bin::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
 {
     return super::evaluate(args, srcRowIndex, srcColumnIndex);
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Dec2Bin::getClass0()
+java::lang::Class* poi::ss::formula::functions::Dec2Bin::getClass0()
 {
     return class_();
 }

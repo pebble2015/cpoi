@@ -15,26 +15,26 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::LookupUtils_SheetVector::LookupUtils_SheetVector(const ::default_init_tag&)
+poi::ss::formula::functions::LookupUtils_SheetVector::LookupUtils_SheetVector(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::LookupUtils_SheetVector::LookupUtils_SheetVector(::org::apache::poi::ss::formula::eval::RefEval* re) 
+poi::ss::formula::functions::LookupUtils_SheetVector::LookupUtils_SheetVector(::poi::ss::formula::eval::RefEval* re) 
     : LookupUtils_SheetVector(*static_cast< ::default_init_tag* >(0))
 {
     ctor(re);
 }
 
-void org::apache::poi::ss::formula::functions::LookupUtils_SheetVector::ctor(::org::apache::poi::ss::formula::eval::RefEval* re)
+void poi::ss::formula::functions::LookupUtils_SheetVector::ctor(::poi::ss::formula::eval::RefEval* re)
 {
     super::ctor();
     _size = npc(re)->getNumberOfSheets();
     _re = re;
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::LookupUtils_SheetVector::getItem(int32_t index)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::LookupUtils_SheetVector::getItem(int32_t index)
 {
     if(index >= _size) {
         throw new ::java::lang::ArrayIndexOutOfBoundsException(::java::lang::StringBuilder().append(u"Specified index ("_j)->append(index)
@@ -46,20 +46,20 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::f
     return npc(_re)->getInnerValueEval(sheetIndex);
 }
 
-int32_t org::apache::poi::ss::formula::functions::LookupUtils_SheetVector::getSize()
+int32_t poi::ss::formula::functions::LookupUtils_SheetVector::getSize()
 {
     return _size;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::LookupUtils_SheetVector::class_()
+java::lang::Class* poi::ss::formula::functions::LookupUtils_SheetVector::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.LookupUtils.SheetVector", 59);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::LookupUtils_SheetVector::getClass0()
+java::lang::Class* poi::ss::formula::functions::LookupUtils_SheetVector::getClass0()
 {
     return class_();
 }

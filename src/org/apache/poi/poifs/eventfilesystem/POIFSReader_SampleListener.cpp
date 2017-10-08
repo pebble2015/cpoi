@@ -36,34 +36,34 @@ namespace
 
     template<typename F> finally_<F> finally(F f) { return finally_<F>(f); }
 }
-org::apache::poi::poifs::eventfilesystem::POIFSReader_SampleListener::POIFSReader_SampleListener(const ::default_init_tag&)
+poi::poifs::eventfilesystem::POIFSReader_SampleListener::POIFSReader_SampleListener(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::eventfilesystem::POIFSReader_SampleListener::POIFSReader_SampleListener() 
+poi::poifs::eventfilesystem::POIFSReader_SampleListener::POIFSReader_SampleListener() 
     : POIFSReader_SampleListener(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::poifs::eventfilesystem::POIFSReader_SampleListener::ctor()
+void poi::poifs::eventfilesystem::POIFSReader_SampleListener::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::poifs::eventfilesystem::POIFSReader_SampleListener::processPOIFSReaderEvent(POIFSReaderEvent* event)
+void poi::poifs::eventfilesystem::POIFSReader_SampleListener::processPOIFSReaderEvent(POIFSReaderEvent* event)
 {
     auto istream = npc(event)->getStream();
     auto path = npc(event)->getPath();
     auto name = npc(event)->getName();
     {
         auto finally0 = finally([&] {
-            ::org::apache::poi::util::IOUtils::closeQuietly(istream);
+            ::poi::util::IOUtils::closeQuietly(istream);
         });
         try {
-            auto data = ::org::apache::poi::util::IOUtils::toByteArray_(istream);
+            auto data = ::poi::util::IOUtils::toByteArray_(istream);
             auto pathLength = npc(path)->length();
             for (auto k = int32_t(0); k < pathLength; k++) {
                 npc(::java::lang::System::out())->print(::java::lang::StringBuilder().append(u"/"_j)->append(npc(path)->getComponent(k))->toString());
@@ -79,13 +79,13 @@ void org::apache::poi::poifs::eventfilesystem::POIFSReader_SampleListener::proce
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::eventfilesystem::POIFSReader_SampleListener::class_()
+java::lang::Class* poi::poifs::eventfilesystem::POIFSReader_SampleListener::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.eventfilesystem.POIFSReader.SampleListener", 63);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::eventfilesystem::POIFSReader_SampleListener::getClass0()
+java::lang::Class* poi::poifs::eventfilesystem::POIFSReader_SampleListener::getClass0()
 {
     return class_();
 }

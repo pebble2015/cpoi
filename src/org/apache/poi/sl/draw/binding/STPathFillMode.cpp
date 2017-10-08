@@ -27,25 +27,19 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace sl
     {
-        namespace poi
+        namespace draw
         {
-            namespace sl
+            namespace binding
             {
-                namespace draw
-                {
-                    namespace binding
-                    {
-typedef ::SubArray< ::org::apache::poi::sl::draw::binding::STPathFillMode, ::java::lang::EnumArray > STPathFillModeArray;
-                    } // binding
-                } // draw
-            } // sl
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::sl::draw::binding::STPathFillMode, ::java::lang::EnumArray > STPathFillModeArray;
+            } // binding
+        } // draw
+    } // sl
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -54,36 +48,36 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::sl::draw::binding::STPathFillMode::STPathFillMode(const ::default_init_tag&)
+poi::sl::draw::binding::STPathFillMode::STPathFillMode(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::draw::binding::STPathFillMode::STPathFillMode(::java::lang::String* name, int ordinal, ::java::lang::String* v) 
+poi::sl::draw::binding::STPathFillMode::STPathFillMode(::java::lang::String* name, int ordinal, ::java::lang::String* v) 
     : STPathFillMode(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal, v);
 }
 
-org::apache::poi::sl::draw::binding::STPathFillMode* org::apache::poi::sl::draw::binding::STPathFillMode::NONE = new ::org::apache::poi::sl::draw::binding::STPathFillMode(u"NONE"_j, 0, u"none"_j);
-org::apache::poi::sl::draw::binding::STPathFillMode* org::apache::poi::sl::draw::binding::STPathFillMode::NORM = new ::org::apache::poi::sl::draw::binding::STPathFillMode(u"NORM"_j, 1, u"norm"_j);
-org::apache::poi::sl::draw::binding::STPathFillMode* org::apache::poi::sl::draw::binding::STPathFillMode::LIGHTEN = new ::org::apache::poi::sl::draw::binding::STPathFillMode(u"LIGHTEN"_j, 2, u"lighten"_j);
-org::apache::poi::sl::draw::binding::STPathFillMode* org::apache::poi::sl::draw::binding::STPathFillMode::LIGHTEN_LESS = new ::org::apache::poi::sl::draw::binding::STPathFillMode(u"LIGHTEN_LESS"_j, 3, u"lightenLess"_j);
-org::apache::poi::sl::draw::binding::STPathFillMode* org::apache::poi::sl::draw::binding::STPathFillMode::DARKEN = new ::org::apache::poi::sl::draw::binding::STPathFillMode(u"DARKEN"_j, 4, u"darken"_j);
-org::apache::poi::sl::draw::binding::STPathFillMode* org::apache::poi::sl::draw::binding::STPathFillMode::DARKEN_LESS = new ::org::apache::poi::sl::draw::binding::STPathFillMode(u"DARKEN_LESS"_j, 5, u"darkenLess"_j);
-void org::apache::poi::sl::draw::binding::STPathFillMode::ctor(::java::lang::String* name, int ordinal, ::java::lang::String* v)
+poi::sl::draw::binding::STPathFillMode* poi::sl::draw::binding::STPathFillMode::NONE = new ::poi::sl::draw::binding::STPathFillMode(u"NONE"_j, 0, u"none"_j);
+poi::sl::draw::binding::STPathFillMode* poi::sl::draw::binding::STPathFillMode::NORM = new ::poi::sl::draw::binding::STPathFillMode(u"NORM"_j, 1, u"norm"_j);
+poi::sl::draw::binding::STPathFillMode* poi::sl::draw::binding::STPathFillMode::LIGHTEN = new ::poi::sl::draw::binding::STPathFillMode(u"LIGHTEN"_j, 2, u"lighten"_j);
+poi::sl::draw::binding::STPathFillMode* poi::sl::draw::binding::STPathFillMode::LIGHTEN_LESS = new ::poi::sl::draw::binding::STPathFillMode(u"LIGHTEN_LESS"_j, 3, u"lightenLess"_j);
+poi::sl::draw::binding::STPathFillMode* poi::sl::draw::binding::STPathFillMode::DARKEN = new ::poi::sl::draw::binding::STPathFillMode(u"DARKEN"_j, 4, u"darken"_j);
+poi::sl::draw::binding::STPathFillMode* poi::sl::draw::binding::STPathFillMode::DARKEN_LESS = new ::poi::sl::draw::binding::STPathFillMode(u"DARKEN_LESS"_j, 5, u"darkenLess"_j);
+void poi::sl::draw::binding::STPathFillMode::ctor(::java::lang::String* name, int ordinal, ::java::lang::String* v)
 {
     super::ctor(name, ordinal);
     value_ = v;
 }
 
-java::lang::String* org::apache::poi::sl::draw::binding::STPathFillMode::value()
+java::lang::String* poi::sl::draw::binding::STPathFillMode::value()
 {
     return value_;
 }
 
-org::apache::poi::sl::draw::binding::STPathFillMode* org::apache::poi::sl::draw::binding::STPathFillMode::fromValue(::java::lang::String* v)
+poi::sl::draw::binding::STPathFillMode* poi::sl::draw::binding::STPathFillMode::fromValue(::java::lang::String* v)
 {
     clinit();
     for(auto c : *npc(STPathFillMode::values())) {
@@ -96,13 +90,13 @@ org::apache::poi::sl::draw::binding::STPathFillMode* org::apache::poi::sl::draw:
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::draw::binding::STPathFillMode::class_()
+java::lang::Class* poi::sl::draw::binding::STPathFillMode::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.draw.binding.STPathFillMode", 45);
     return c;
 }
 
-org::apache::poi::sl::draw::binding::STPathFillMode* org::apache::poi::sl::draw::binding::STPathFillMode::valueOf(::java::lang::String* a0)
+poi::sl::draw::binding::STPathFillMode* poi::sl::draw::binding::STPathFillMode::valueOf(::java::lang::String* a0)
 {
     if(DARKEN->toString()->equals(a0))
         return DARKEN;
@@ -119,9 +113,9 @@ org::apache::poi::sl::draw::binding::STPathFillMode* org::apache::poi::sl::draw:
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::sl::draw::binding::STPathFillModeArray* org::apache::poi::sl::draw::binding::STPathFillMode::values()
+poi::sl::draw::binding::STPathFillModeArray* poi::sl::draw::binding::STPathFillMode::values()
 {
-    return new org::apache::poi::sl::draw::binding::STPathFillModeArray({
+    return new poi::sl::draw::binding::STPathFillModeArray({
         DARKEN,
         DARKEN_LESS,
         LIGHTEN,
@@ -131,7 +125,7 @@ org::apache::poi::sl::draw::binding::STPathFillModeArray* org::apache::poi::sl::
     });
 }
 
-java::lang::Class* org::apache::poi::sl::draw::binding::STPathFillMode::getClass0()
+java::lang::Class* poi::sl::draw::binding::STPathFillMode::getClass0()
 {
     return class_();
 }

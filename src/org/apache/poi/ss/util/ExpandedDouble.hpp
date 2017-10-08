@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::util::ExpandedDouble final
+class poi::ss::util::ExpandedDouble final
     : public ::java::lang::Object
 {
 

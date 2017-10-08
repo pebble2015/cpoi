@@ -26,25 +26,19 @@ typedef ::SubArray< ::java::lang::Cloneable, ObjectArray > CloneableArray;
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
-            {
-                namespace record
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::Record, RecordBaseArray > RecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::StandardRecord, RecordArray > StandardRecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::NoteRecord, StandardRecordArray, ::java::lang::CloneableArray > NoteRecordArray;
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
+typedef ::SubArray< ::poi::hssf::record::Record, RecordBaseArray > RecordArray;
+typedef ::SubArray< ::poi::hssf::record::StandardRecord, RecordArray > StandardRecordArray;
+typedef ::SubArray< ::poi::hssf::record::NoteRecord, StandardRecordArray, ::java::lang::CloneableArray > NoteRecordArray;
+        } // record
+    } // hssf
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -53,45 +47,45 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::NoteRecord::NoteRecord(const ::default_init_tag&)
+poi::hssf::record::NoteRecord::NoteRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::NoteRecord::NoteRecord() 
+poi::hssf::record::NoteRecord::NoteRecord() 
     : NoteRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::NoteRecord::NoteRecord(RecordInputStream* in) 
+poi::hssf::record::NoteRecord::NoteRecord(RecordInputStream* in) 
     : NoteRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::NoteRecord::sid;
+constexpr int16_t poi::hssf::record::NoteRecord::sid;
 
-org::apache::poi::hssf::record::NoteRecordArray*& org::apache::poi::hssf::record::NoteRecord::EMPTY_ARRAY()
+poi::hssf::record::NoteRecordArray*& poi::hssf::record::NoteRecord::EMPTY_ARRAY()
 {
     clinit();
     return EMPTY_ARRAY_;
 }
-org::apache::poi::hssf::record::NoteRecordArray* org::apache::poi::hssf::record::NoteRecord::EMPTY_ARRAY_;
+poi::hssf::record::NoteRecordArray* poi::hssf::record::NoteRecord::EMPTY_ARRAY_;
 
-constexpr int16_t org::apache::poi::hssf::record::NoteRecord::NOTE_HIDDEN;
+constexpr int16_t poi::hssf::record::NoteRecord::NOTE_HIDDEN;
 
-constexpr int16_t org::apache::poi::hssf::record::NoteRecord::NOTE_VISIBLE;
+constexpr int16_t poi::hssf::record::NoteRecord::NOTE_VISIBLE;
 
-java::lang::Byte*& org::apache::poi::hssf::record::NoteRecord::DEFAULT_PADDING()
+java::lang::Byte*& poi::hssf::record::NoteRecord::DEFAULT_PADDING()
 {
     clinit();
     return DEFAULT_PADDING_;
 }
-java::lang::Byte* org::apache::poi::hssf::record::NoteRecord::DEFAULT_PADDING_;
+java::lang::Byte* poi::hssf::record::NoteRecord::DEFAULT_PADDING_;
 
-void org::apache::poi::hssf::record::NoteRecord::ctor()
+void poi::hssf::record::NoteRecord::ctor()
 {
     super::ctor();
     field_6_author = u""_j;
@@ -99,12 +93,12 @@ void org::apache::poi::hssf::record::NoteRecord::ctor()
     field_7_padding = DEFAULT_PADDING_;
 }
 
-int16_t org::apache::poi::hssf::record::NoteRecord::getSid()
+int16_t poi::hssf::record::NoteRecord::getSid()
 {
     return sid;
 }
 
-void org::apache::poi::hssf::record::NoteRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::NoteRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     field_1_row = npc(in)->readUShort();
@@ -114,9 +108,9 @@ void org::apache::poi::hssf::record::NoteRecord::ctor(RecordInputStream* in)
     int32_t length = npc(in)->readShort();
     field_5_hasMultibyte = npc(in)->readByte() != 0;
     if(field_5_hasMultibyte) {
-        field_6_author = ::org::apache::poi::util::StringUtil::readUnicodeLE(in, length);
+        field_6_author = ::poi::util::StringUtil::readUnicodeLE(in, length);
     } else {
-        field_6_author = ::org::apache::poi::util::StringUtil::readCompressedUnicode(in, length);
+        field_6_author = ::poi::util::StringUtil::readCompressedUnicode(in, length);
     }
     if(npc(in)->available() == 1) {
         field_7_padding = ::java::lang::Byte::valueOf(npc(in)->readByte());
@@ -126,7 +120,7 @@ void org::apache::poi::hssf::record::NoteRecord::ctor(RecordInputStream* in)
     }
 }
 
-void org::apache::poi::hssf::record::NoteRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::NoteRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(field_1_row);
     npc(out)->writeShort(field_2_col);
@@ -135,21 +129,21 @@ void org::apache::poi::hssf::record::NoteRecord::serialize(::org::apache::poi::u
     npc(out)->writeShort(npc(field_6_author)->length());
     npc(out)->writeByte(field_5_hasMultibyte ? int32_t(1) : int32_t(0));
     if(field_5_hasMultibyte) {
-        ::org::apache::poi::util::StringUtil::putUnicodeLE(field_6_author, out);
+        ::poi::util::StringUtil::putUnicodeLE(field_6_author, out);
     } else {
-        ::org::apache::poi::util::StringUtil::putCompressedUnicode(field_6_author, out);
+        ::poi::util::StringUtil::putCompressedUnicode(field_6_author, out);
     }
     if(field_7_padding != nullptr) {
         npc(out)->writeByte(npc(field_7_padding)->intValue());
     }
 }
 
-int32_t org::apache::poi::hssf::record::NoteRecord::getDataSize()
+int32_t poi::hssf::record::NoteRecord::getDataSize()
 {
     return int32_t(11) + npc(field_6_author)->length() * (field_5_hasMultibyte ? int32_t(2) : int32_t(1)) + (field_7_padding == nullptr ? int32_t(0) : int32_t(1));
 }
 
-java::lang::String* org::apache::poi::hssf::record::NoteRecord::toString()
+java::lang::String* poi::hssf::record::NoteRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[NOTE]\n"_j);
@@ -162,63 +156,63 @@ java::lang::String* org::apache::poi::hssf::record::NoteRecord::toString()
     return npc(buffer)->toString();
 }
 
-int32_t org::apache::poi::hssf::record::NoteRecord::getRow()
+int32_t poi::hssf::record::NoteRecord::getRow()
 {
     return field_1_row;
 }
 
-void org::apache::poi::hssf::record::NoteRecord::setRow(int32_t row)
+void poi::hssf::record::NoteRecord::setRow(int32_t row)
 {
     field_1_row = row;
 }
 
-int32_t org::apache::poi::hssf::record::NoteRecord::getColumn()
+int32_t poi::hssf::record::NoteRecord::getColumn()
 {
     return field_2_col;
 }
 
-void org::apache::poi::hssf::record::NoteRecord::setColumn(int32_t col)
+void poi::hssf::record::NoteRecord::setColumn(int32_t col)
 {
     field_2_col = col;
 }
 
-int16_t org::apache::poi::hssf::record::NoteRecord::getFlags()
+int16_t poi::hssf::record::NoteRecord::getFlags()
 {
     return field_3_flags;
 }
 
-void org::apache::poi::hssf::record::NoteRecord::setFlags(int16_t flags)
+void poi::hssf::record::NoteRecord::setFlags(int16_t flags)
 {
     field_3_flags = flags;
 }
 
-bool org::apache::poi::hssf::record::NoteRecord::authorIsMultibyte()
+bool poi::hssf::record::NoteRecord::authorIsMultibyte()
 {
     return field_5_hasMultibyte;
 }
 
-int32_t org::apache::poi::hssf::record::NoteRecord::getShapeId()
+int32_t poi::hssf::record::NoteRecord::getShapeId()
 {
     return field_4_shapeid;
 }
 
-void org::apache::poi::hssf::record::NoteRecord::setShapeId(int32_t id)
+void poi::hssf::record::NoteRecord::setShapeId(int32_t id)
 {
     field_4_shapeid = id;
 }
 
-java::lang::String* org::apache::poi::hssf::record::NoteRecord::getAuthor()
+java::lang::String* poi::hssf::record::NoteRecord::getAuthor()
 {
     return field_6_author;
 }
 
-void org::apache::poi::hssf::record::NoteRecord::setAuthor(::java::lang::String* author)
+void poi::hssf::record::NoteRecord::setAuthor(::java::lang::String* author)
 {
     field_6_author = author;
-    field_5_hasMultibyte = ::org::apache::poi::util::StringUtil::hasMultibyte(author);
+    field_5_hasMultibyte = ::poi::util::StringUtil::hasMultibyte(author);
 }
 
-org::apache::poi::hssf::record::NoteRecord* org::apache::poi::hssf::record::NoteRecord::clone()
+poi::hssf::record::NoteRecord* poi::hssf::record::NoteRecord::clone()
 {
     auto rec = new NoteRecord();
     npc(rec)->field_1_row = field_1_row;
@@ -231,20 +225,20 @@ org::apache::poi::hssf::record::NoteRecord* org::apache::poi::hssf::record::Note
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::NoteRecord::class_()
+java::lang::Class* poi::hssf::record::NoteRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.NoteRecord", 37);
     return c;
 }
 
-void org::apache::poi::hssf::record::NoteRecord::clinit()
+void poi::hssf::record::NoteRecord::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        EMPTY_ARRAY_ = (new ::org::apache::poi::hssf::record::NoteRecordArray({}));
+        EMPTY_ARRAY_ = (new ::poi::hssf::record::NoteRecordArray({}));
         DEFAULT_PADDING_ = ::java::lang::Byte::valueOf(static_cast< int8_t >(int32_t(0)));
     }
 };
@@ -254,17 +248,17 @@ struct clinit_ {
     }
 }
 
-int32_t org::apache::poi::hssf::record::NoteRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::NoteRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::NoteRecord::serialize()
+int8_tArray* poi::hssf::record::NoteRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::NoteRecord::getClass0()
+java::lang::Class* poi::hssf::record::NoteRecord::getClass0()
 {
     return class_();
 }

@@ -17,51 +17,51 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::ptg::RefPtgBase::RefPtgBase(const ::default_init_tag&)
+poi::ss::formula::ptg::RefPtgBase::RefPtgBase(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::ptg::RefPtgBase::RefPtgBase() 
+poi::ss::formula::ptg::RefPtgBase::RefPtgBase() 
     : RefPtgBase(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::ptg::RefPtgBase::RefPtgBase(::org::apache::poi::ss::util::CellReference* c) 
+poi::ss::formula::ptg::RefPtgBase::RefPtgBase(::poi::ss::util::CellReference* c) 
     : RefPtgBase(*static_cast< ::default_init_tag* >(0))
 {
     ctor(c);
 }
 
-org::apache::poi::util::BitField*& org::apache::poi::ss::formula::ptg::RefPtgBase::rowRelative()
+poi::util::BitField*& poi::ss::formula::ptg::RefPtgBase::rowRelative()
 {
     clinit();
     return rowRelative_;
 }
-org::apache::poi::util::BitField* org::apache::poi::ss::formula::ptg::RefPtgBase::rowRelative_;
+poi::util::BitField* poi::ss::formula::ptg::RefPtgBase::rowRelative_;
 
-org::apache::poi::util::BitField*& org::apache::poi::ss::formula::ptg::RefPtgBase::colRelative()
+poi::util::BitField*& poi::ss::formula::ptg::RefPtgBase::colRelative()
 {
     clinit();
     return colRelative_;
 }
-org::apache::poi::util::BitField* org::apache::poi::ss::formula::ptg::RefPtgBase::colRelative_;
+poi::util::BitField* poi::ss::formula::ptg::RefPtgBase::colRelative_;
 
-org::apache::poi::util::BitField*& org::apache::poi::ss::formula::ptg::RefPtgBase::column()
+poi::util::BitField*& poi::ss::formula::ptg::RefPtgBase::column()
 {
     clinit();
     return column_;
 }
-org::apache::poi::util::BitField* org::apache::poi::ss::formula::ptg::RefPtgBase::column_;
+poi::util::BitField* poi::ss::formula::ptg::RefPtgBase::column_;
 
-void org::apache::poi::ss::formula::ptg::RefPtgBase::ctor()
+void poi::ss::formula::ptg::RefPtgBase::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::ss::formula::ptg::RefPtgBase::ctor(::org::apache::poi::ss::util::CellReference* c)
+void poi::ss::formula::ptg::RefPtgBase::ctor(::poi::ss::util::CellReference* c)
 {
     super::ctor();
     setRow(npc(c)->getRow());
@@ -70,87 +70,87 @@ void org::apache::poi::ss::formula::ptg::RefPtgBase::ctor(::org::apache::poi::ss
     setRowRelative(!npc(c)->isRowAbsolute());
 }
 
-void org::apache::poi::ss::formula::ptg::RefPtgBase::readCoordinates(::org::apache::poi::util::LittleEndianInput* in)
+void poi::ss::formula::ptg::RefPtgBase::readCoordinates(::poi::util::LittleEndianInput* in)
 {
     field_1_row = npc(in)->readUShort();
     field_2_col = npc(in)->readUShort();
 }
 
-void org::apache::poi::ss::formula::ptg::RefPtgBase::writeCoordinates(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::ss::formula::ptg::RefPtgBase::writeCoordinates(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(field_1_row);
     npc(out)->writeShort(field_2_col);
 }
 
-void org::apache::poi::ss::formula::ptg::RefPtgBase::setRow(int32_t rowIndex)
+void poi::ss::formula::ptg::RefPtgBase::setRow(int32_t rowIndex)
 {
     field_1_row = rowIndex;
 }
 
-int32_t org::apache::poi::ss::formula::ptg::RefPtgBase::getRow()
+int32_t poi::ss::formula::ptg::RefPtgBase::getRow()
 {
     return field_1_row;
 }
 
-bool org::apache::poi::ss::formula::ptg::RefPtgBase::isRowRelative()
+bool poi::ss::formula::ptg::RefPtgBase::isRowRelative()
 {
     return npc(rowRelative_)->isSet(field_2_col);
 }
 
-void org::apache::poi::ss::formula::ptg::RefPtgBase::setRowRelative(bool rel)
+void poi::ss::formula::ptg::RefPtgBase::setRowRelative(bool rel)
 {
     field_2_col = npc(rowRelative_)->setBoolean(field_2_col, rel);
 }
 
-bool org::apache::poi::ss::formula::ptg::RefPtgBase::isColRelative()
+bool poi::ss::formula::ptg::RefPtgBase::isColRelative()
 {
     return npc(colRelative_)->isSet(field_2_col);
 }
 
-void org::apache::poi::ss::formula::ptg::RefPtgBase::setColRelative(bool rel)
+void poi::ss::formula::ptg::RefPtgBase::setColRelative(bool rel)
 {
     field_2_col = npc(colRelative_)->setBoolean(field_2_col, rel);
 }
 
-void org::apache::poi::ss::formula::ptg::RefPtgBase::setColumn(int32_t col)
+void poi::ss::formula::ptg::RefPtgBase::setColumn(int32_t col)
 {
     field_2_col = npc(column_)->setValue(field_2_col, col);
 }
 
-int32_t org::apache::poi::ss::formula::ptg::RefPtgBase::getColumn()
+int32_t poi::ss::formula::ptg::RefPtgBase::getColumn()
 {
     return npc(column_)->getValue(field_2_col);
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::RefPtgBase::formatReferenceAsString()
+java::lang::String* poi::ss::formula::ptg::RefPtgBase::formatReferenceAsString()
 {
-    auto cr = new ::org::apache::poi::ss::util::CellReference(getRow(), getColumn(), !isRowRelative(), !isColRelative());
+    auto cr = new ::poi::ss::util::CellReference(getRow(), getColumn(), !isRowRelative(), !isColRelative());
     return npc(cr)->formatAsString();
 }
 
-int8_t org::apache::poi::ss::formula::ptg::RefPtgBase::getDefaultOperandClass()
+int8_t poi::ss::formula::ptg::RefPtgBase::getDefaultOperandClass()
 {
     return Ptg::CLASS_REF;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::RefPtgBase::class_()
+java::lang::Class* poi::ss::formula::ptg::RefPtgBase::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.ptg.RefPtgBase", 40);
     return c;
 }
 
-void org::apache::poi::ss::formula::ptg::RefPtgBase::clinit()
+void poi::ss::formula::ptg::RefPtgBase::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        rowRelative_ = ::org::apache::poi::util::BitFieldFactory::getInstance(32768);
-        colRelative_ = ::org::apache::poi::util::BitFieldFactory::getInstance(16384);
-        column_ = ::org::apache::poi::util::BitFieldFactory::getInstance(16383);
+        rowRelative_ = ::poi::util::BitFieldFactory::getInstance(32768);
+        colRelative_ = ::poi::util::BitFieldFactory::getInstance(16384);
+        column_ = ::poi::util::BitFieldFactory::getInstance(16383);
     }
 };
 
@@ -159,7 +159,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::RefPtgBase::getClass0()
+java::lang::Class* poi::ss::formula::ptg::RefPtgBase::getClass0()
 {
     return class_();
 }

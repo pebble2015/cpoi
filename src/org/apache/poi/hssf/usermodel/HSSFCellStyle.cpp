@@ -44,30 +44,30 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::usermodel::HSSFCellStyle::HSSFCellStyle(const ::default_init_tag&)
+poi::hssf::usermodel::HSSFCellStyle::HSSFCellStyle(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::usermodel::HSSFCellStyle::HSSFCellStyle(int16_t index, ::org::apache::poi::hssf::record::ExtendedFormatRecord* rec, HSSFWorkbook* workbook) 
+poi::hssf::usermodel::HSSFCellStyle::HSSFCellStyle(int16_t index, ::poi::hssf::record::ExtendedFormatRecord* rec, HSSFWorkbook* workbook) 
     : HSSFCellStyle(*static_cast< ::default_init_tag* >(0))
 {
     ctor(index,rec,workbook);
 }
 
-org::apache::poi::hssf::usermodel::HSSFCellStyle::HSSFCellStyle(int16_t index, ::org::apache::poi::hssf::record::ExtendedFormatRecord* rec, ::org::apache::poi::hssf::model::InternalWorkbook* workbook) 
+poi::hssf::usermodel::HSSFCellStyle::HSSFCellStyle(int16_t index, ::poi::hssf::record::ExtendedFormatRecord* rec, ::poi::hssf::model::InternalWorkbook* workbook) 
     : HSSFCellStyle(*static_cast< ::default_init_tag* >(0))
 {
     ctor(index,rec,workbook);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFCellStyle::ctor(int16_t index, ::org::apache::poi::hssf::record::ExtendedFormatRecord* rec, HSSFWorkbook* workbook)
+void poi::hssf::usermodel::HSSFCellStyle::ctor(int16_t index, ::poi::hssf::record::ExtendedFormatRecord* rec, HSSFWorkbook* workbook)
 {
     ctor(index, rec, npc(workbook)->getWorkbook());
 }
 
-void org::apache::poi::hssf::usermodel::HSSFCellStyle::ctor(int16_t index, ::org::apache::poi::hssf::record::ExtendedFormatRecord* rec, ::org::apache::poi::hssf::model::InternalWorkbook* workbook)
+void poi::hssf::usermodel::HSSFCellStyle::ctor(int16_t index, ::poi::hssf::record::ExtendedFormatRecord* rec, ::poi::hssf::model::InternalWorkbook* workbook)
 {
     super::ctor();
     _workbook = workbook;
@@ -75,12 +75,12 @@ void org::apache::poi::hssf::usermodel::HSSFCellStyle::ctor(int16_t index, ::org
     _format = rec;
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFCellStyle::getIndex()
+int16_t poi::hssf::usermodel::HSSFCellStyle::getIndex()
 {
     return _index;
 }
 
-org::apache::poi::hssf::usermodel::HSSFCellStyle* org::apache::poi::hssf::usermodel::HSSFCellStyle::getParentStyle()
+poi::hssf::usermodel::HSSFCellStyle* poi::hssf::usermodel::HSSFCellStyle::getParentStyle()
 {
     auto parentIndex = npc(_format)->getParentIndex();
     if(parentIndex == 0 || parentIndex == 4095) {
@@ -89,38 +89,38 @@ org::apache::poi::hssf::usermodel::HSSFCellStyle* org::apache::poi::hssf::usermo
     return new HSSFCellStyle(parentIndex, npc(_workbook)->getExFormatAt(parentIndex), _workbook);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFCellStyle::setDataFormat(int16_t fmt)
+void poi::hssf::usermodel::HSSFCellStyle::setDataFormat(int16_t fmt)
 {
     npc(_format)->setFormatIndex(fmt);
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFCellStyle::getDataFormat()
+int16_t poi::hssf::usermodel::HSSFCellStyle::getDataFormat()
 {
     return npc(_format)->getFormatIndex();
 }
 
-java::lang::ThreadLocal*& org::apache::poi::hssf::usermodel::HSSFCellStyle::lastDateFormat()
+java::lang::ThreadLocal*& poi::hssf::usermodel::HSSFCellStyle::lastDateFormat()
 {
     clinit();
     return lastDateFormat_;
 }
-java::lang::ThreadLocal* org::apache::poi::hssf::usermodel::HSSFCellStyle::lastDateFormat_;
+java::lang::ThreadLocal* poi::hssf::usermodel::HSSFCellStyle::lastDateFormat_;
 
-java::lang::ThreadLocal*& org::apache::poi::hssf::usermodel::HSSFCellStyle::lastFormats()
+java::lang::ThreadLocal*& poi::hssf::usermodel::HSSFCellStyle::lastFormats()
 {
     clinit();
     return lastFormats_;
 }
-java::lang::ThreadLocal* org::apache::poi::hssf::usermodel::HSSFCellStyle::lastFormats_;
+java::lang::ThreadLocal* poi::hssf::usermodel::HSSFCellStyle::lastFormats_;
 
-java::lang::ThreadLocal*& org::apache::poi::hssf::usermodel::HSSFCellStyle::getDataFormatStringCache()
+java::lang::ThreadLocal*& poi::hssf::usermodel::HSSFCellStyle::getDataFormatStringCache()
 {
     clinit();
     return getDataFormatStringCache_;
 }
-java::lang::ThreadLocal* org::apache::poi::hssf::usermodel::HSSFCellStyle::getDataFormatStringCache_;
+java::lang::ThreadLocal* poi::hssf::usermodel::HSSFCellStyle::getDataFormatStringCache_;
 
-java::lang::String* org::apache::poi::hssf::usermodel::HSSFCellStyle::getDataFormatString()
+java::lang::String* poi::hssf::usermodel::HSSFCellStyle::getDataFormatString()
 {
     if(java_cast< ::java::lang::String* >(npc(getDataFormatStringCache_)->get()) != nullptr) {
         if((npc(java_cast< ::java::lang::Short* >(npc(lastDateFormat_)->get())))->shortValue() == getDataFormat() && npc(npc(_workbook)->getFormats())->equals(static_cast< ::java::lang::Object* >(java_cast< ::java::util::List* >(npc(lastFormats_)->get())))) {
@@ -133,116 +133,116 @@ java::lang::String* org::apache::poi::hssf::usermodel::HSSFCellStyle::getDataFor
     return java_cast< ::java::lang::String* >(npc(getDataFormatStringCache_)->get());
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HSSFCellStyle::getDataFormatString(::org::apache::poi::ss::usermodel::Workbook* workbook)
+java::lang::String* poi::hssf::usermodel::HSSFCellStyle::getDataFormatString(::poi::ss::usermodel::Workbook* workbook)
 {
     auto format = new HSSFDataFormat(npc((java_cast< HSSFWorkbook* >(workbook)))->getWorkbook());
     int32_t idx = getDataFormat();
     return idx == -int32_t(1) ? u"General"_j : npc(format)->getFormat(getDataFormat());
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HSSFCellStyle::getDataFormatString(::org::apache::poi::hssf::model::InternalWorkbook* workbook)
+java::lang::String* poi::hssf::usermodel::HSSFCellStyle::getDataFormatString(::poi::hssf::model::InternalWorkbook* workbook)
 {
     auto format = new HSSFDataFormat(workbook);
     return npc(format)->getFormat(getDataFormat());
 }
 
-void org::apache::poi::hssf::usermodel::HSSFCellStyle::setFont(::org::apache::poi::ss::usermodel::Font* font)
+void poi::hssf::usermodel::HSSFCellStyle::setFont(::poi::ss::usermodel::Font* font)
 {
     setFont(java_cast< HSSFFont* >(font));
 }
 
-void org::apache::poi::hssf::usermodel::HSSFCellStyle::setFont(HSSFFont* font)
+void poi::hssf::usermodel::HSSFCellStyle::setFont(HSSFFont* font)
 {
     npc(_format)->setIndentNotParentFont(true);
     auto fontindex = npc(font)->getIndex();
     npc(_format)->setFontIndex(fontindex);
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFCellStyle::getFontIndex()
+int16_t poi::hssf::usermodel::HSSFCellStyle::getFontIndex()
 {
     return npc(_format)->getFontIndex();
 }
 
-org::apache::poi::hssf::usermodel::HSSFFont* org::apache::poi::hssf::usermodel::HSSFCellStyle::getFont(::org::apache::poi::ss::usermodel::Workbook* parentWorkbook)
+poi::hssf::usermodel::HSSFFont* poi::hssf::usermodel::HSSFCellStyle::getFont(::poi::ss::usermodel::Workbook* parentWorkbook)
 {
     return npc((java_cast< HSSFWorkbook* >(parentWorkbook)))->getFontAt(getFontIndex());
 }
 
-void org::apache::poi::hssf::usermodel::HSSFCellStyle::setHidden(bool hidden)
+void poi::hssf::usermodel::HSSFCellStyle::setHidden(bool hidden)
 {
     npc(_format)->setIndentNotParentCellOptions(true);
     npc(_format)->setHidden(hidden);
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFCellStyle::getHidden()
+bool poi::hssf::usermodel::HSSFCellStyle::getHidden()
 {
     return npc(_format)->isHidden();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFCellStyle::setLocked(bool locked)
+void poi::hssf::usermodel::HSSFCellStyle::setLocked(bool locked)
 {
     npc(_format)->setIndentNotParentCellOptions(true);
     npc(_format)->setLocked(locked);
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFCellStyle::getLocked()
+bool poi::hssf::usermodel::HSSFCellStyle::getLocked()
 {
     return npc(_format)->isLocked();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFCellStyle::setQuotePrefixed(bool quotePrefix)
+void poi::hssf::usermodel::HSSFCellStyle::setQuotePrefixed(bool quotePrefix)
 {
     npc(_format)->set123Prefix(quotePrefix);
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFCellStyle::getQuotePrefixed()
+bool poi::hssf::usermodel::HSSFCellStyle::getQuotePrefixed()
 {
     return npc(_format)->get123Prefix();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFCellStyle::setAlignment(::org::apache::poi::ss::usermodel::HorizontalAlignment* align)
+void poi::hssf::usermodel::HSSFCellStyle::setAlignment(::poi::ss::usermodel::HorizontalAlignment* align)
 {
     npc(_format)->setIndentNotParentAlignment(true);
     npc(_format)->setAlignment(npc(align)->getCode());
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFCellStyle::getAlignment()
+int16_t poi::hssf::usermodel::HSSFCellStyle::getAlignment()
 {
     return npc(_format)->getAlignment();
 }
 
-org::apache::poi::ss::usermodel::HorizontalAlignment* org::apache::poi::hssf::usermodel::HSSFCellStyle::getAlignmentEnum()
+poi::ss::usermodel::HorizontalAlignment* poi::hssf::usermodel::HSSFCellStyle::getAlignmentEnum()
 {
-    return ::org::apache::poi::ss::usermodel::HorizontalAlignment::forInt(npc(_format)->getAlignment());
+    return ::poi::ss::usermodel::HorizontalAlignment::forInt(npc(_format)->getAlignment());
 }
 
-void org::apache::poi::hssf::usermodel::HSSFCellStyle::setWrapText(bool wrapped)
+void poi::hssf::usermodel::HSSFCellStyle::setWrapText(bool wrapped)
 {
     npc(_format)->setIndentNotParentAlignment(true);
     npc(_format)->setWrapText(wrapped);
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFCellStyle::getWrapText()
+bool poi::hssf::usermodel::HSSFCellStyle::getWrapText()
 {
     return npc(_format)->getWrapText();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFCellStyle::setVerticalAlignment(::org::apache::poi::ss::usermodel::VerticalAlignment* align)
+void poi::hssf::usermodel::HSSFCellStyle::setVerticalAlignment(::poi::ss::usermodel::VerticalAlignment* align)
 {
     npc(_format)->setVerticalAlignment(npc(align)->getCode());
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFCellStyle::getVerticalAlignment()
+int16_t poi::hssf::usermodel::HSSFCellStyle::getVerticalAlignment()
 {
     return npc(_format)->getVerticalAlignment();
 }
 
-org::apache::poi::ss::usermodel::VerticalAlignment* org::apache::poi::hssf::usermodel::HSSFCellStyle::getVerticalAlignmentEnum()
+poi::ss::usermodel::VerticalAlignment* poi::hssf::usermodel::HSSFCellStyle::getVerticalAlignmentEnum()
 {
-    return ::org::apache::poi::ss::usermodel::VerticalAlignment::forInt(npc(_format)->getVerticalAlignment());
+    return ::poi::ss::usermodel::VerticalAlignment::forInt(npc(_format)->getVerticalAlignment());
 }
 
-void org::apache::poi::hssf::usermodel::HSSFCellStyle::setRotation(int16_t rotation)
+void poi::hssf::usermodel::HSSFCellStyle::setRotation(int16_t rotation)
 {
     if(rotation == 255) {
     } else if((rotation < 0) && (rotation >= -int32_t(90))) {
@@ -254,7 +254,7 @@ void org::apache::poi::hssf::usermodel::HSSFCellStyle::setRotation(int16_t rotat
     npc(_format)->setRotation(rotation);
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFCellStyle::getRotation()
+int16_t poi::hssf::usermodel::HSSFCellStyle::getRotation()
 {
     auto rotation = npc(_format)->getRotation();
     if(rotation == 255) {
@@ -266,138 +266,138 @@ int16_t org::apache::poi::hssf::usermodel::HSSFCellStyle::getRotation()
     return rotation;
 }
 
-void org::apache::poi::hssf::usermodel::HSSFCellStyle::setIndention(int16_t indent)
+void poi::hssf::usermodel::HSSFCellStyle::setIndention(int16_t indent)
 {
     npc(_format)->setIndent(indent);
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFCellStyle::getIndention()
+int16_t poi::hssf::usermodel::HSSFCellStyle::getIndention()
 {
     return npc(_format)->getIndent();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFCellStyle::setBorderLeft(::org::apache::poi::ss::usermodel::BorderStyle* border)
+void poi::hssf::usermodel::HSSFCellStyle::setBorderLeft(::poi::ss::usermodel::BorderStyle* border)
 {
     npc(_format)->setIndentNotParentBorder(true);
     npc(_format)->setBorderLeft(npc(border)->getCode());
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFCellStyle::getBorderLeft()
+int16_t poi::hssf::usermodel::HSSFCellStyle::getBorderLeft()
 {
     return npc(_format)->getBorderLeft();
 }
 
-org::apache::poi::ss::usermodel::BorderStyle* org::apache::poi::hssf::usermodel::HSSFCellStyle::getBorderLeftEnum()
+poi::ss::usermodel::BorderStyle* poi::hssf::usermodel::HSSFCellStyle::getBorderLeftEnum()
 {
-    return ::org::apache::poi::ss::usermodel::BorderStyle::valueOf(npc(_format)->getBorderLeft());
+    return ::poi::ss::usermodel::BorderStyle::valueOf(npc(_format)->getBorderLeft());
 }
 
-void org::apache::poi::hssf::usermodel::HSSFCellStyle::setBorderRight(::org::apache::poi::ss::usermodel::BorderStyle* border)
+void poi::hssf::usermodel::HSSFCellStyle::setBorderRight(::poi::ss::usermodel::BorderStyle* border)
 {
     npc(_format)->setIndentNotParentBorder(true);
     npc(_format)->setBorderRight(npc(border)->getCode());
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFCellStyle::getBorderRight()
+int16_t poi::hssf::usermodel::HSSFCellStyle::getBorderRight()
 {
     return npc(_format)->getBorderRight();
 }
 
-org::apache::poi::ss::usermodel::BorderStyle* org::apache::poi::hssf::usermodel::HSSFCellStyle::getBorderRightEnum()
+poi::ss::usermodel::BorderStyle* poi::hssf::usermodel::HSSFCellStyle::getBorderRightEnum()
 {
-    return ::org::apache::poi::ss::usermodel::BorderStyle::valueOf(npc(_format)->getBorderRight());
+    return ::poi::ss::usermodel::BorderStyle::valueOf(npc(_format)->getBorderRight());
 }
 
-void org::apache::poi::hssf::usermodel::HSSFCellStyle::setBorderTop(::org::apache::poi::ss::usermodel::BorderStyle* border)
+void poi::hssf::usermodel::HSSFCellStyle::setBorderTop(::poi::ss::usermodel::BorderStyle* border)
 {
     npc(_format)->setIndentNotParentBorder(true);
     npc(_format)->setBorderTop(npc(border)->getCode());
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFCellStyle::getBorderTop()
+int16_t poi::hssf::usermodel::HSSFCellStyle::getBorderTop()
 {
     return npc(_format)->getBorderTop();
 }
 
-org::apache::poi::ss::usermodel::BorderStyle* org::apache::poi::hssf::usermodel::HSSFCellStyle::getBorderTopEnum()
+poi::ss::usermodel::BorderStyle* poi::hssf::usermodel::HSSFCellStyle::getBorderTopEnum()
 {
-    return ::org::apache::poi::ss::usermodel::BorderStyle::valueOf(npc(_format)->getBorderTop());
+    return ::poi::ss::usermodel::BorderStyle::valueOf(npc(_format)->getBorderTop());
 }
 
-void org::apache::poi::hssf::usermodel::HSSFCellStyle::setBorderBottom(::org::apache::poi::ss::usermodel::BorderStyle* border)
+void poi::hssf::usermodel::HSSFCellStyle::setBorderBottom(::poi::ss::usermodel::BorderStyle* border)
 {
     npc(_format)->setIndentNotParentBorder(true);
     npc(_format)->setBorderBottom(npc(border)->getCode());
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFCellStyle::getBorderBottom()
+int16_t poi::hssf::usermodel::HSSFCellStyle::getBorderBottom()
 {
     return npc(_format)->getBorderBottom();
 }
 
-org::apache::poi::ss::usermodel::BorderStyle* org::apache::poi::hssf::usermodel::HSSFCellStyle::getBorderBottomEnum()
+poi::ss::usermodel::BorderStyle* poi::hssf::usermodel::HSSFCellStyle::getBorderBottomEnum()
 {
-    return ::org::apache::poi::ss::usermodel::BorderStyle::valueOf(npc(_format)->getBorderBottom());
+    return ::poi::ss::usermodel::BorderStyle::valueOf(npc(_format)->getBorderBottom());
 }
 
-void org::apache::poi::hssf::usermodel::HSSFCellStyle::setLeftBorderColor(int16_t color)
+void poi::hssf::usermodel::HSSFCellStyle::setLeftBorderColor(int16_t color)
 {
     npc(_format)->setLeftBorderPaletteIdx(color);
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFCellStyle::getLeftBorderColor()
+int16_t poi::hssf::usermodel::HSSFCellStyle::getLeftBorderColor()
 {
     return npc(_format)->getLeftBorderPaletteIdx();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFCellStyle::setRightBorderColor(int16_t color)
+void poi::hssf::usermodel::HSSFCellStyle::setRightBorderColor(int16_t color)
 {
     npc(_format)->setRightBorderPaletteIdx(color);
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFCellStyle::getRightBorderColor()
+int16_t poi::hssf::usermodel::HSSFCellStyle::getRightBorderColor()
 {
     return npc(_format)->getRightBorderPaletteIdx();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFCellStyle::setTopBorderColor(int16_t color)
+void poi::hssf::usermodel::HSSFCellStyle::setTopBorderColor(int16_t color)
 {
     npc(_format)->setTopBorderPaletteIdx(color);
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFCellStyle::getTopBorderColor()
+int16_t poi::hssf::usermodel::HSSFCellStyle::getTopBorderColor()
 {
     return npc(_format)->getTopBorderPaletteIdx();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFCellStyle::setBottomBorderColor(int16_t color)
+void poi::hssf::usermodel::HSSFCellStyle::setBottomBorderColor(int16_t color)
 {
     npc(_format)->setBottomBorderPaletteIdx(color);
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFCellStyle::getBottomBorderColor()
+int16_t poi::hssf::usermodel::HSSFCellStyle::getBottomBorderColor()
 {
     return npc(_format)->getBottomBorderPaletteIdx();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFCellStyle::setFillPattern(::org::apache::poi::ss::usermodel::FillPatternType* fp)
+void poi::hssf::usermodel::HSSFCellStyle::setFillPattern(::poi::ss::usermodel::FillPatternType* fp)
 {
     npc(_format)->setAdtlFillPattern(npc(fp)->getCode());
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFCellStyle::getFillPattern()
+int16_t poi::hssf::usermodel::HSSFCellStyle::getFillPattern()
 {
     return npc(getFillPatternEnum())->getCode();
 }
 
-org::apache::poi::ss::usermodel::FillPatternType* org::apache::poi::hssf::usermodel::HSSFCellStyle::getFillPatternEnum()
+poi::ss::usermodel::FillPatternType* poi::hssf::usermodel::HSSFCellStyle::getFillPatternEnum()
 {
-    return ::org::apache::poi::ss::usermodel::FillPatternType::forInt(npc(_format)->getAdtlFillPattern());
+    return ::poi::ss::usermodel::FillPatternType::forInt(npc(_format)->getAdtlFillPattern());
 }
 
-void org::apache::poi::hssf::usermodel::HSSFCellStyle::checkDefaultBackgroundFills()
+void poi::hssf::usermodel::HSSFCellStyle::checkDefaultBackgroundFills()
 {
-    auto const autoIdx = npc(::org::apache::poi::hssf::util::HSSFColor_HSSFColorPredefined::AUTOMATIC)->getIndex();
+    auto const autoIdx = npc(::poi::hssf::util::HSSFColor_HSSFColorPredefined::AUTOMATIC)->getIndex();
     if(npc(_format)->getFillForeground() == autoIdx) {
         if(npc(_format)->getFillBackground() != autoIdx + int32_t(1)) {
             setFillBackgroundColor(static_cast< int16_t >((autoIdx + int32_t(1))));
@@ -409,15 +409,15 @@ void org::apache::poi::hssf::usermodel::HSSFCellStyle::checkDefaultBackgroundFil
     }
 }
 
-void org::apache::poi::hssf::usermodel::HSSFCellStyle::setFillBackgroundColor(int16_t bg)
+void poi::hssf::usermodel::HSSFCellStyle::setFillBackgroundColor(int16_t bg)
 {
     npc(_format)->setFillBackground(bg);
     checkDefaultBackgroundFills();
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFCellStyle::getFillBackgroundColor()
+int16_t poi::hssf::usermodel::HSSFCellStyle::getFillBackgroundColor()
 {
-    auto const autoIndex = npc(::org::apache::poi::hssf::util::HSSFColor_HSSFColorPredefined::AUTOMATIC)->getIndex();
+    auto const autoIndex = npc(::poi::hssf::util::HSSFColor_HSSFColorPredefined::AUTOMATIC)->getIndex();
     auto result = npc(_format)->getFillBackground();
     if(result == autoIndex + int32_t(1)) {
         return autoIndex;
@@ -425,30 +425,30 @@ int16_t org::apache::poi::hssf::usermodel::HSSFCellStyle::getFillBackgroundColor
     return result;
 }
 
-org::apache::poi::hssf::util::HSSFColor* org::apache::poi::hssf::usermodel::HSSFCellStyle::getFillBackgroundColorColor()
+poi::hssf::util::HSSFColor* poi::hssf::usermodel::HSSFCellStyle::getFillBackgroundColorColor()
 {
     auto pallette = new HSSFPalette(npc(_workbook)->getCustomPalette());
     return npc(pallette)->getColor(getFillBackgroundColor());
 }
 
-void org::apache::poi::hssf::usermodel::HSSFCellStyle::setFillForegroundColor(int16_t bg)
+void poi::hssf::usermodel::HSSFCellStyle::setFillForegroundColor(int16_t bg)
 {
     npc(_format)->setFillForeground(bg);
     checkDefaultBackgroundFills();
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFCellStyle::getFillForegroundColor()
+int16_t poi::hssf::usermodel::HSSFCellStyle::getFillForegroundColor()
 {
     return npc(_format)->getFillForeground();
 }
 
-org::apache::poi::hssf::util::HSSFColor* org::apache::poi::hssf::usermodel::HSSFCellStyle::getFillForegroundColorColor()
+poi::hssf::util::HSSFColor* poi::hssf::usermodel::HSSFCellStyle::getFillForegroundColorColor()
 {
     auto pallette = new HSSFPalette(npc(_workbook)->getCustomPalette());
     return npc(pallette)->getColor(getFillForegroundColor());
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HSSFCellStyle::getUserStyleName()
+java::lang::String* poi::hssf::usermodel::HSSFCellStyle::getUserStyleName()
 {
     auto sr = npc(_workbook)->getStyleRecord(_index);
     if(sr == nullptr) {
@@ -460,7 +460,7 @@ java::lang::String* org::apache::poi::hssf::usermodel::HSSFCellStyle::getUserSty
     return npc(sr)->getName();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFCellStyle::setUserStyleName(::java::lang::String* styleName)
+void poi::hssf::usermodel::HSSFCellStyle::setUserStyleName(::java::lang::String* styleName)
 {
     auto sr = npc(_workbook)->getStyleRecord(_index);
     if(sr == nullptr) {
@@ -472,34 +472,34 @@ void org::apache::poi::hssf::usermodel::HSSFCellStyle::setUserStyleName(::java::
     npc(sr)->setName(styleName);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFCellStyle::setShrinkToFit(bool shrinkToFit)
+void poi::hssf::usermodel::HSSFCellStyle::setShrinkToFit(bool shrinkToFit)
 {
     npc(_format)->setShrinkToFit(shrinkToFit);
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFCellStyle::getShrinkToFit()
+bool poi::hssf::usermodel::HSSFCellStyle::getShrinkToFit()
 {
     return npc(_format)->getShrinkToFit();
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFCellStyle::getReadingOrder()
+int16_t poi::hssf::usermodel::HSSFCellStyle::getReadingOrder()
 {
     return npc(_format)->getReadingOrder();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFCellStyle::setReadingOrder(int16_t order)
+void poi::hssf::usermodel::HSSFCellStyle::setReadingOrder(int16_t order)
 {
     npc(_format)->setReadingOrder(order);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFCellStyle::verifyBelongsToWorkbook(HSSFWorkbook* wb)
+void poi::hssf::usermodel::HSSFCellStyle::verifyBelongsToWorkbook(HSSFWorkbook* wb)
 {
     if(npc(wb)->getWorkbook() != _workbook) {
         throw new ::java::lang::IllegalArgumentException(u"This Style does not belong to the supplied Workbook. Are you trying to assign a style from one workbook to the cell of a differnt workbook?"_j);
     }
 }
 
-void org::apache::poi::hssf::usermodel::HSSFCellStyle::cloneStyleFrom(::org::apache::poi::ss::usermodel::CellStyle* source)
+void poi::hssf::usermodel::HSSFCellStyle::cloneStyleFrom(::poi::ss::usermodel::CellStyle* source)
 {
     if(dynamic_cast< HSSFCellStyle* >(source) != nullptr) {
         this->cloneStyleFrom(java_cast< HSSFCellStyle* >(source));
@@ -508,7 +508,7 @@ void org::apache::poi::hssf::usermodel::HSSFCellStyle::cloneStyleFrom(::org::apa
     }
 }
 
-void org::apache::poi::hssf::usermodel::HSSFCellStyle::cloneStyleFrom(HSSFCellStyle* source)
+void poi::hssf::usermodel::HSSFCellStyle::cloneStyleFrom(HSSFCellStyle* source)
 {
     npc(_format)->cloneStyleFrom(npc(source)->_format);
     if(_workbook != npc(source)->_workbook) {
@@ -524,7 +524,7 @@ void org::apache::poi::hssf::usermodel::HSSFCellStyle::cloneStyleFrom(HSSFCellSt
     }
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFCellStyle::hashCode()
+int32_t poi::hssf::usermodel::HSSFCellStyle::hashCode()
 {
     auto const prime = int32_t(31);
     auto result = int32_t(1);
@@ -533,7 +533,7 @@ int32_t org::apache::poi::hssf::usermodel::HSSFCellStyle::hashCode()
     return result;
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFCellStyle::equals(::java::lang::Object* obj)
+bool poi::hssf::usermodel::HSSFCellStyle::equals(::java::lang::Object* obj)
 {
     if(static_cast< ::java::lang::Object* >(this) == obj) {
         return true;
@@ -560,13 +560,13 @@ bool org::apache::poi::hssf::usermodel::HSSFCellStyle::equals(::java::lang::Obje
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFCellStyle::class_()
+java::lang::Class* poi::hssf::usermodel::HSSFCellStyle::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.usermodel.HSSFCellStyle", 43);
     return c;
 }
 
-void org::apache::poi::hssf::usermodel::HSSFCellStyle::clinit()
+void poi::hssf::usermodel::HSSFCellStyle::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -584,7 +584,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFCellStyle::getClass0()
+java::lang::Class* poi::hssf::usermodel::HSSFCellStyle::getClass0()
 {
     return class_();
 }

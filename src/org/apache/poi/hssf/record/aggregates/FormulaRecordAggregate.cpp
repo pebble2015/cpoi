@@ -27,25 +27,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -54,19 +48,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate::FormulaRecordAggregate(const ::default_init_tag&)
+poi::hssf::record::aggregates::FormulaRecordAggregate::FormulaRecordAggregate(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate::FormulaRecordAggregate(::org::apache::poi::hssf::record::FormulaRecord* formulaRec, ::org::apache::poi::hssf::record::StringRecord* stringRec, SharedValueManager* svm) 
+poi::hssf::record::aggregates::FormulaRecordAggregate::FormulaRecordAggregate(::poi::hssf::record::FormulaRecord* formulaRec, ::poi::hssf::record::StringRecord* stringRec, SharedValueManager* svm) 
     : FormulaRecordAggregate(*static_cast< ::default_init_tag* >(0))
 {
     ctor(formulaRec,stringRec,svm);
 }
 
-void org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate::ctor(::org::apache::poi::hssf::record::FormulaRecord* formulaRec, ::org::apache::poi::hssf::record::StringRecord* stringRec, SharedValueManager* svm)
+void poi::hssf::record::aggregates::FormulaRecordAggregate::ctor(::poi::hssf::record::FormulaRecord* formulaRec, ::poi::hssf::record::StringRecord* stringRec, SharedValueManager* svm)
 {
     super::ctor();
     if(svm == nullptr) {
@@ -74,7 +68,7 @@ void org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate::ctor(::
     }
     if(npc(formulaRec)->hasCachedResultString()) {
         if(stringRec == nullptr) {
-            throw new ::org::apache::poi::util::RecordFormatException(u"Formula record flag is set but String record was not found"_j);
+            throw new ::poi::util::RecordFormatException(u"Formula record flag is set but String record was not found"_j);
         }
         _stringRecord = stringRec;
     } else {
@@ -92,65 +86,65 @@ void org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate::ctor(::
     }
 }
 
-void org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate::handleMissingSharedFormulaRecord(::org::apache::poi::hssf::record::FormulaRecord* formula)
+void poi::hssf::record::aggregates::FormulaRecordAggregate::handleMissingSharedFormulaRecord(::poi::hssf::record::FormulaRecord* formula)
 {
     clinit();
     auto firstToken = (*npc(formula)->getParsedExpression())[int32_t(0)];
-    if(dynamic_cast< ::org::apache::poi::ss::formula::ptg::ExpPtg* >(firstToken) != nullptr) {
-        throw new ::org::apache::poi::util::RecordFormatException(u"SharedFormulaRecord not found for FormulaRecord with (isSharedFormula=true)"_j);
+    if(dynamic_cast< ::poi::ss::formula::ptg::ExpPtg* >(firstToken) != nullptr) {
+        throw new ::poi::util::RecordFormatException(u"SharedFormulaRecord not found for FormulaRecord with (isSharedFormula=true)"_j);
     }
     npc(formula)->setSharedFormula(false);
 }
 
-org::apache::poi::hssf::record::FormulaRecord* org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate::getFormulaRecord()
+poi::hssf::record::FormulaRecord* poi::hssf::record::aggregates::FormulaRecordAggregate::getFormulaRecord()
 {
     return _formulaRecord;
 }
 
-org::apache::poi::hssf::record::StringRecord* org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate::getStringRecord()
+poi::hssf::record::StringRecord* poi::hssf::record::aggregates::FormulaRecordAggregate::getStringRecord()
 {
     return _stringRecord;
 }
 
-int16_t org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate::getXFIndex()
+int16_t poi::hssf::record::aggregates::FormulaRecordAggregate::getXFIndex()
 {
     return npc(_formulaRecord)->getXFIndex();
 }
 
-void org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate::setXFIndex(int16_t xf)
+void poi::hssf::record::aggregates::FormulaRecordAggregate::setXFIndex(int16_t xf)
 {
     npc(_formulaRecord)->setXFIndex(xf);
 }
 
-void org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate::setColumn(int16_t col)
+void poi::hssf::record::aggregates::FormulaRecordAggregate::setColumn(int16_t col)
 {
     npc(_formulaRecord)->setColumn(col);
 }
 
-void org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate::setRow(int32_t row)
+void poi::hssf::record::aggregates::FormulaRecordAggregate::setRow(int32_t row)
 {
     npc(_formulaRecord)->setRow(row);
 }
 
-int16_t org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate::getColumn()
+int16_t poi::hssf::record::aggregates::FormulaRecordAggregate::getColumn()
 {
     return npc(_formulaRecord)->getColumn();
 }
 
-int32_t org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate::getRow()
+int32_t poi::hssf::record::aggregates::FormulaRecordAggregate::getRow()
 {
     return npc(_formulaRecord)->getRow();
 }
 
-java::lang::String* org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate::toString()
+java::lang::String* poi::hssf::record::aggregates::FormulaRecordAggregate::toString()
 {
     return npc(_formulaRecord)->toString();
 }
 
-void org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate::visitContainedRecords(RecordAggregate_RecordVisitor* rv)
+void poi::hssf::record::aggregates::FormulaRecordAggregate::visitContainedRecords(RecordAggregate_RecordVisitor* rv)
 {
     npc(rv)->visitRecord(_formulaRecord);
-    ::org::apache::poi::hssf::record::Record* sharedFormulaRecord = npc(_sharedValueManager)->getRecordForFirstCell(this);
+    ::poi::hssf::record::Record* sharedFormulaRecord = npc(_sharedValueManager)->getRecordForFirstCell(this);
     if(sharedFormulaRecord != nullptr) {
         npc(rv)->visitRecord(sharedFormulaRecord);
     }
@@ -159,7 +153,7 @@ void org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate::visitCo
     }
 }
 
-java::lang::String* org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate::getStringValue()
+java::lang::String* poi::hssf::record::aggregates::FormulaRecordAggregate::getStringValue()
 {
     if(_stringRecord == nullptr) {
         return nullptr;
@@ -167,10 +161,10 @@ java::lang::String* org::apache::poi::hssf::record::aggregates::FormulaRecordAgg
     return npc(_stringRecord)->getString();
 }
 
-void org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate::setCachedStringResult(::java::lang::String* value)
+void poi::hssf::record::aggregates::FormulaRecordAggregate::setCachedStringResult(::java::lang::String* value)
 {
     if(_stringRecord == nullptr) {
-        _stringRecord = new ::org::apache::poi::hssf::record::StringRecord();
+        _stringRecord = new ::poi::hssf::record::StringRecord();
     }
     npc(_stringRecord)->setString(value);
     if(npc(value)->length() < 1) {
@@ -180,30 +174,30 @@ void org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate::setCach
     }
 }
 
-void org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate::setCachedBooleanResult(bool value)
+void poi::hssf::record::aggregates::FormulaRecordAggregate::setCachedBooleanResult(bool value)
 {
     _stringRecord = nullptr;
     npc(_formulaRecord)->setCachedResultBoolean(value);
 }
 
-void org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate::setCachedErrorResult(int32_t errorCode)
+void poi::hssf::record::aggregates::FormulaRecordAggregate::setCachedErrorResult(int32_t errorCode)
 {
     _stringRecord = nullptr;
     npc(_formulaRecord)->setCachedResultErrorCode(errorCode);
 }
 
-void org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate::setCachedErrorResult(::org::apache::poi::ss::usermodel::FormulaError* error)
+void poi::hssf::record::aggregates::FormulaRecordAggregate::setCachedErrorResult(::poi::ss::usermodel::FormulaError* error)
 {
     setCachedErrorResult(static_cast< int32_t >(npc(error)->getCode()));
 }
 
-void org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate::setCachedDoubleResult(double value)
+void poi::hssf::record::aggregates::FormulaRecordAggregate::setCachedDoubleResult(double value)
 {
     _stringRecord = nullptr;
     npc(_formulaRecord)->setValue(value);
 }
 
-org::apache::poi::ss::formula::ptg::PtgArray* org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate::getFormulaTokens()
+poi::ss::formula::ptg::PtgArray* poi::hssf::record::aggregates::FormulaRecordAggregate::getFormulaTokens()
 {
     if(_sharedFormulaRecord != nullptr) {
         return npc(_sharedFormulaRecord)->getFormulaTokens(_formulaRecord);
@@ -216,13 +210,13 @@ org::apache::poi::ss::formula::ptg::PtgArray* org::apache::poi::hssf::record::ag
     return npc(_formulaRecord)->getParsedExpression();
 }
 
-void org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate::setParsedExpression(::org::apache::poi::ss::formula::ptg::PtgArray* ptgs)
+void poi::hssf::record::aggregates::FormulaRecordAggregate::setParsedExpression(::poi::ss::formula::ptg::PtgArray* ptgs)
 {
     notifyFormulaChanging();
     npc(_formulaRecord)->setParsedExpression(ptgs);
 }
 
-void org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate::unlinkSharedFormula()
+void poi::hssf::record::aggregates::FormulaRecordAggregate::unlinkSharedFormula()
 {
     auto sfr = _sharedFormulaRecord;
     if(sfr == nullptr) {
@@ -234,24 +228,24 @@ void org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate::unlinkS
     _sharedFormulaRecord = nullptr;
 }
 
-void org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate::notifyFormulaChanging()
+void poi::hssf::record::aggregates::FormulaRecordAggregate::notifyFormulaChanging()
 {
     if(_sharedFormulaRecord != nullptr) {
         npc(_sharedValueManager)->unlink(_sharedFormulaRecord);
     }
 }
 
-bool org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate::isPartOfArrayFormula()
+bool poi::hssf::record::aggregates::FormulaRecordAggregate::isPartOfArrayFormula()
 {
     if(_sharedFormulaRecord != nullptr) {
         return false;
     }
     auto expRef = npc(npc(_formulaRecord)->getFormula())->getExpReference();
-    auto arec = expRef == nullptr ? static_cast< ::org::apache::poi::hssf::record::ArrayRecord* >(nullptr) : npc(_sharedValueManager)->getArrayRecord(npc(expRef)->getRow(), npc(expRef)->getCol());
+    auto arec = expRef == nullptr ? static_cast< ::poi::hssf::record::ArrayRecord* >(nullptr) : npc(_sharedValueManager)->getArrayRecord(npc(expRef)->getRow(), npc(expRef)->getCol());
     return arec != nullptr;
 }
 
-org::apache::poi::ss::util::CellRangeAddress* org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate::getArrayFormulaRange()
+poi::ss::util::CellRangeAddress* poi::hssf::record::aggregates::FormulaRecordAggregate::getArrayFormulaRange()
 {
     if(_sharedFormulaRecord != nullptr) {
         throw new ::java::lang::IllegalStateException(u"not an array formula cell."_j);
@@ -265,31 +259,31 @@ org::apache::poi::ss::util::CellRangeAddress* org::apache::poi::hssf::record::ag
         throw new ::java::lang::IllegalStateException(::java::lang::StringBuilder().append(u"ArrayRecord was not found for the locator "_j)->append(npc(expRef)->formatAsString())->toString());
     }
     auto a = npc(arec)->getRange();
-    return new ::org::apache::poi::ss::util::CellRangeAddress(npc(a)->getFirstRow(), npc(a)->getLastRow(), npc(a)->getFirstColumn(), npc(a)->getLastColumn());
+    return new ::poi::ss::util::CellRangeAddress(npc(a)->getFirstRow(), npc(a)->getLastRow(), npc(a)->getFirstColumn(), npc(a)->getLastColumn());
 }
 
-void org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate::setArrayFormula(::org::apache::poi::ss::util::CellRangeAddress* r, ::org::apache::poi::ss::formula::ptg::PtgArray* ptgs)
+void poi::hssf::record::aggregates::FormulaRecordAggregate::setArrayFormula(::poi::ss::util::CellRangeAddress* r, ::poi::ss::formula::ptg::PtgArray* ptgs)
 {
-    auto arr = new ::org::apache::poi::hssf::record::ArrayRecord(::org::apache::poi::ss::formula::Formula::create(ptgs), new ::org::apache::poi::hssf::util::CellRangeAddress8Bit(npc(r)->getFirstRow(), npc(r)->getLastRow(), npc(r)->getFirstColumn(), npc(r)->getLastColumn()));
+    auto arr = new ::poi::hssf::record::ArrayRecord(::poi::ss::formula::Formula::create(ptgs), new ::poi::hssf::util::CellRangeAddress8Bit(npc(r)->getFirstRow(), npc(r)->getLastRow(), npc(r)->getFirstColumn(), npc(r)->getLastColumn()));
     npc(_sharedValueManager)->addArrayRecord(arr);
 }
 
-org::apache::poi::ss::util::CellRangeAddress* org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate::removeArrayFormula(int32_t rowIndex, int32_t columnIndex)
+poi::ss::util::CellRangeAddress* poi::hssf::record::aggregates::FormulaRecordAggregate::removeArrayFormula(int32_t rowIndex, int32_t columnIndex)
 {
     auto a = npc(_sharedValueManager)->removeArrayFormula(rowIndex, columnIndex);
     npc(_formulaRecord)->setParsedExpression(nullptr);
-    return new ::org::apache::poi::ss::util::CellRangeAddress(npc(a)->getFirstRow(), npc(a)->getLastRow(), npc(a)->getFirstColumn(), npc(a)->getLastColumn());
+    return new ::poi::ss::util::CellRangeAddress(npc(a)->getFirstRow(), npc(a)->getLastRow(), npc(a)->getFirstColumn(), npc(a)->getLastColumn());
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate::class_()
+java::lang::Class* poi::hssf::record::aggregates::FormulaRecordAggregate::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.aggregates.FormulaRecordAggregate", 60);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::record::aggregates::FormulaRecordAggregate::getClass0()
+java::lang::Class* poi::hssf::record::aggregates::FormulaRecordAggregate::getClass0()
 {
     return class_();
 }

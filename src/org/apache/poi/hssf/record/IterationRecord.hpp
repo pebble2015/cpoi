@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::IterationRecord final
+class poi::hssf::record::IterationRecord final
     : public StandardRecord
     , public ::java::lang::Cloneable
 {
@@ -21,7 +21,7 @@ public:
     static constexpr int16_t sid { int16_t(17) };
 
 private:
-    static ::org::apache::poi::util::BitField* iterationOn_;
+    static ::poi::util::BitField* iterationOn_;
     int32_t _flags {  };
 protected:
     void ctor(bool iterateOn);
@@ -31,7 +31,7 @@ public:
     void setIteration(bool iterate);
     bool getIteration();
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;
@@ -54,6 +54,6 @@ public:
     ::int8_tArray* serialize();
 
 private:
-    static ::org::apache::poi::util::BitField*& iterationOn();
+    static ::poi::util::BitField*& iterationOn();
     virtual ::java::lang::Class* getClass0();
 };

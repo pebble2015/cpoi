@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::util::SSCellRange_ArrayIterator final
+class poi::ss::util::SSCellRange_ArrayIterator final
     : public virtual ::java::lang::Object
     , public ::java::util::Iterator
 {

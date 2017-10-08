@@ -16,50 +16,50 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::CodepageRecord::CodepageRecord(const ::default_init_tag&)
+poi::hssf::record::CodepageRecord::CodepageRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::CodepageRecord::CodepageRecord() 
+poi::hssf::record::CodepageRecord::CodepageRecord() 
     : CodepageRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::CodepageRecord::CodepageRecord(RecordInputStream* in) 
+poi::hssf::record::CodepageRecord::CodepageRecord(RecordInputStream* in) 
     : CodepageRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::CodepageRecord::sid;
+constexpr int16_t poi::hssf::record::CodepageRecord::sid;
 
-constexpr int16_t org::apache::poi::hssf::record::CodepageRecord::CODEPAGE;
+constexpr int16_t poi::hssf::record::CodepageRecord::CODEPAGE;
 
-void org::apache::poi::hssf::record::CodepageRecord::ctor()
+void poi::hssf::record::CodepageRecord::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hssf::record::CodepageRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::CodepageRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     field_1_codepage = npc(in)->readShort();
 }
 
-void org::apache::poi::hssf::record::CodepageRecord::setCodepage(int16_t cp)
+void poi::hssf::record::CodepageRecord::setCodepage(int16_t cp)
 {
     field_1_codepage = cp;
 }
 
-int16_t org::apache::poi::hssf::record::CodepageRecord::getCodepage()
+int16_t poi::hssf::record::CodepageRecord::getCodepage()
 {
     return field_1_codepage;
 }
 
-java::lang::String* org::apache::poi::hssf::record::CodepageRecord::toString()
+java::lang::String* poi::hssf::record::CodepageRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[CODEPAGE]\n"_j);
@@ -68,40 +68,40 @@ java::lang::String* org::apache::poi::hssf::record::CodepageRecord::toString()
     return npc(buffer)->toString();
 }
 
-void org::apache::poi::hssf::record::CodepageRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::CodepageRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(getCodepage());
 }
 
-int32_t org::apache::poi::hssf::record::CodepageRecord::getDataSize()
+int32_t poi::hssf::record::CodepageRecord::getDataSize()
 {
     return 2;
 }
 
-int16_t org::apache::poi::hssf::record::CodepageRecord::getSid()
+int16_t poi::hssf::record::CodepageRecord::getSid()
 {
     return sid;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::CodepageRecord::class_()
+java::lang::Class* poi::hssf::record::CodepageRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.CodepageRecord", 41);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::CodepageRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::CodepageRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::CodepageRecord::serialize()
+int8_tArray* poi::hssf::record::CodepageRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::CodepageRecord::getClass0()
+java::lang::Class* poi::hssf::record::CodepageRecord::getClass0()
 {
     return class_();
 }

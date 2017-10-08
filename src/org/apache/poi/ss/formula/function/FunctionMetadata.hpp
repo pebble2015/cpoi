@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::function::FunctionMetadata final
+class poi::ss::formula::function::FunctionMetadata final
     : public ::java::lang::Object
 {
 

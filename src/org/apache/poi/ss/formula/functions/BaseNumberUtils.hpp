@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::BaseNumberUtils
+class poi::ss::formula::functions::BaseNumberUtils
     : public virtual ::java::lang::Object
 {
 

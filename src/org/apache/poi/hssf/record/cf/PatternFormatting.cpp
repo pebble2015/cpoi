@@ -17,133 +17,133 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::cf::PatternFormatting::PatternFormatting(const ::default_init_tag&)
+poi::hssf::record::cf::PatternFormatting::PatternFormatting(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::cf::PatternFormatting::PatternFormatting() 
+poi::hssf::record::cf::PatternFormatting::PatternFormatting() 
     : PatternFormatting(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::cf::PatternFormatting::PatternFormatting(::org::apache::poi::util::LittleEndianInput* in) 
+poi::hssf::record::cf::PatternFormatting::PatternFormatting(::poi::util::LittleEndianInput* in) 
     : PatternFormatting(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::cf::PatternFormatting::NO_FILL;
+constexpr int16_t poi::hssf::record::cf::PatternFormatting::NO_FILL;
 
-constexpr int16_t org::apache::poi::hssf::record::cf::PatternFormatting::SOLID_FOREGROUND;
+constexpr int16_t poi::hssf::record::cf::PatternFormatting::SOLID_FOREGROUND;
 
-constexpr int16_t org::apache::poi::hssf::record::cf::PatternFormatting::FINE_DOTS;
+constexpr int16_t poi::hssf::record::cf::PatternFormatting::FINE_DOTS;
 
-constexpr int16_t org::apache::poi::hssf::record::cf::PatternFormatting::ALT_BARS;
+constexpr int16_t poi::hssf::record::cf::PatternFormatting::ALT_BARS;
 
-constexpr int16_t org::apache::poi::hssf::record::cf::PatternFormatting::SPARSE_DOTS;
+constexpr int16_t poi::hssf::record::cf::PatternFormatting::SPARSE_DOTS;
 
-constexpr int16_t org::apache::poi::hssf::record::cf::PatternFormatting::THICK_HORZ_BANDS;
+constexpr int16_t poi::hssf::record::cf::PatternFormatting::THICK_HORZ_BANDS;
 
-constexpr int16_t org::apache::poi::hssf::record::cf::PatternFormatting::THICK_VERT_BANDS;
+constexpr int16_t poi::hssf::record::cf::PatternFormatting::THICK_VERT_BANDS;
 
-constexpr int16_t org::apache::poi::hssf::record::cf::PatternFormatting::THICK_BACKWARD_DIAG;
+constexpr int16_t poi::hssf::record::cf::PatternFormatting::THICK_BACKWARD_DIAG;
 
-constexpr int16_t org::apache::poi::hssf::record::cf::PatternFormatting::THICK_FORWARD_DIAG;
+constexpr int16_t poi::hssf::record::cf::PatternFormatting::THICK_FORWARD_DIAG;
 
-constexpr int16_t org::apache::poi::hssf::record::cf::PatternFormatting::BIG_SPOTS;
+constexpr int16_t poi::hssf::record::cf::PatternFormatting::BIG_SPOTS;
 
-constexpr int16_t org::apache::poi::hssf::record::cf::PatternFormatting::BRICKS;
+constexpr int16_t poi::hssf::record::cf::PatternFormatting::BRICKS;
 
-constexpr int16_t org::apache::poi::hssf::record::cf::PatternFormatting::THIN_HORZ_BANDS;
+constexpr int16_t poi::hssf::record::cf::PatternFormatting::THIN_HORZ_BANDS;
 
-constexpr int16_t org::apache::poi::hssf::record::cf::PatternFormatting::THIN_VERT_BANDS;
+constexpr int16_t poi::hssf::record::cf::PatternFormatting::THIN_VERT_BANDS;
 
-constexpr int16_t org::apache::poi::hssf::record::cf::PatternFormatting::THIN_BACKWARD_DIAG;
+constexpr int16_t poi::hssf::record::cf::PatternFormatting::THIN_BACKWARD_DIAG;
 
-constexpr int16_t org::apache::poi::hssf::record::cf::PatternFormatting::THIN_FORWARD_DIAG;
+constexpr int16_t poi::hssf::record::cf::PatternFormatting::THIN_FORWARD_DIAG;
 
-constexpr int16_t org::apache::poi::hssf::record::cf::PatternFormatting::SQUARES;
+constexpr int16_t poi::hssf::record::cf::PatternFormatting::SQUARES;
 
-constexpr int16_t org::apache::poi::hssf::record::cf::PatternFormatting::DIAMONDS;
+constexpr int16_t poi::hssf::record::cf::PatternFormatting::DIAMONDS;
 
-constexpr int16_t org::apache::poi::hssf::record::cf::PatternFormatting::LESS_DOTS;
+constexpr int16_t poi::hssf::record::cf::PatternFormatting::LESS_DOTS;
 
-constexpr int16_t org::apache::poi::hssf::record::cf::PatternFormatting::LEAST_DOTS;
+constexpr int16_t poi::hssf::record::cf::PatternFormatting::LEAST_DOTS;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::cf::PatternFormatting::fillPatternStyle()
+poi::util::BitField*& poi::hssf::record::cf::PatternFormatting::fillPatternStyle()
 {
     clinit();
     return fillPatternStyle_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::cf::PatternFormatting::fillPatternStyle_;
+poi::util::BitField* poi::hssf::record::cf::PatternFormatting::fillPatternStyle_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::cf::PatternFormatting::patternColorIndex()
+poi::util::BitField*& poi::hssf::record::cf::PatternFormatting::patternColorIndex()
 {
     clinit();
     return patternColorIndex_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::cf::PatternFormatting::patternColorIndex_;
+poi::util::BitField* poi::hssf::record::cf::PatternFormatting::patternColorIndex_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::cf::PatternFormatting::patternBackgroundColorIndex()
+poi::util::BitField*& poi::hssf::record::cf::PatternFormatting::patternBackgroundColorIndex()
 {
     clinit();
     return patternBackgroundColorIndex_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::cf::PatternFormatting::patternBackgroundColorIndex_;
+poi::util::BitField* poi::hssf::record::cf::PatternFormatting::patternBackgroundColorIndex_;
 
-void org::apache::poi::hssf::record::cf::PatternFormatting::ctor()
+void poi::hssf::record::cf::PatternFormatting::ctor()
 {
     super::ctor();
     field_15_pattern_style = 0;
     field_16_pattern_color_indexes = 0;
 }
 
-void org::apache::poi::hssf::record::cf::PatternFormatting::ctor(::org::apache::poi::util::LittleEndianInput* in)
+void poi::hssf::record::cf::PatternFormatting::ctor(::poi::util::LittleEndianInput* in)
 {
     super::ctor();
     field_15_pattern_style = npc(in)->readUShort();
     field_16_pattern_color_indexes = npc(in)->readUShort();
 }
 
-int32_t org::apache::poi::hssf::record::cf::PatternFormatting::getDataLength()
+int32_t poi::hssf::record::cf::PatternFormatting::getDataLength()
 {
     return 4;
 }
 
-void org::apache::poi::hssf::record::cf::PatternFormatting::setFillPattern(int32_t fp)
+void poi::hssf::record::cf::PatternFormatting::setFillPattern(int32_t fp)
 {
     field_15_pattern_style = npc(fillPatternStyle_)->setValue(field_15_pattern_style, fp);
 }
 
-int32_t org::apache::poi::hssf::record::cf::PatternFormatting::getFillPattern()
+int32_t poi::hssf::record::cf::PatternFormatting::getFillPattern()
 {
     return npc(fillPatternStyle_)->getValue(field_15_pattern_style);
 }
 
-void org::apache::poi::hssf::record::cf::PatternFormatting::setFillBackgroundColor(int32_t bg)
+void poi::hssf::record::cf::PatternFormatting::setFillBackgroundColor(int32_t bg)
 {
     field_16_pattern_color_indexes = npc(patternBackgroundColorIndex_)->setValue(field_16_pattern_color_indexes, bg);
 }
 
-int32_t org::apache::poi::hssf::record::cf::PatternFormatting::getFillBackgroundColor()
+int32_t poi::hssf::record::cf::PatternFormatting::getFillBackgroundColor()
 {
     return npc(patternBackgroundColorIndex_)->getValue(field_16_pattern_color_indexes);
 }
 
-void org::apache::poi::hssf::record::cf::PatternFormatting::setFillForegroundColor(int32_t fg)
+void poi::hssf::record::cf::PatternFormatting::setFillForegroundColor(int32_t fg)
 {
     field_16_pattern_color_indexes = npc(patternColorIndex_)->setValue(field_16_pattern_color_indexes, fg);
 }
 
-int32_t org::apache::poi::hssf::record::cf::PatternFormatting::getFillForegroundColor()
+int32_t poi::hssf::record::cf::PatternFormatting::getFillForegroundColor()
 {
     return npc(patternColorIndex_)->getValue(field_16_pattern_color_indexes);
 }
 
-java::lang::String* org::apache::poi::hssf::record::cf::PatternFormatting::toString()
+java::lang::String* poi::hssf::record::cf::PatternFormatting::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"    [Pattern Formatting]\n"_j);
@@ -154,7 +154,7 @@ java::lang::String* org::apache::poi::hssf::record::cf::PatternFormatting::toStr
     return npc(buffer)->toString();
 }
 
-java::lang::Object* org::apache::poi::hssf::record::cf::PatternFormatting::clone()
+java::lang::Object* poi::hssf::record::cf::PatternFormatting::clone()
 {
     auto rec = new PatternFormatting();
     npc(rec)->field_15_pattern_style = field_15_pattern_style;
@@ -162,7 +162,7 @@ java::lang::Object* org::apache::poi::hssf::record::cf::PatternFormatting::clone
     return rec;
 }
 
-void org::apache::poi::hssf::record::cf::PatternFormatting::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::cf::PatternFormatting::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(field_15_pattern_style);
     npc(out)->writeShort(field_16_pattern_color_indexes);
@@ -170,22 +170,22 @@ void org::apache::poi::hssf::record::cf::PatternFormatting::serialize(::org::apa
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::cf::PatternFormatting::class_()
+java::lang::Class* poi::hssf::record::cf::PatternFormatting::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.cf.PatternFormatting", 47);
     return c;
 }
 
-void org::apache::poi::hssf::record::cf::PatternFormatting::clinit()
+void poi::hssf::record::cf::PatternFormatting::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        fillPatternStyle_ = ::org::apache::poi::util::BitFieldFactory::getInstance(64512);
-        patternColorIndex_ = ::org::apache::poi::util::BitFieldFactory::getInstance(127);
-        patternBackgroundColorIndex_ = ::org::apache::poi::util::BitFieldFactory::getInstance(16256);
+        fillPatternStyle_ = ::poi::util::BitFieldFactory::getInstance(64512);
+        patternColorIndex_ = ::poi::util::BitFieldFactory::getInstance(127);
+        patternBackgroundColorIndex_ = ::poi::util::BitFieldFactory::getInstance(16256);
     }
 };
 
@@ -194,7 +194,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::hssf::record::cf::PatternFormatting::getClass0()
+java::lang::Class* poi::hssf::record::cf::PatternFormatting::getClass0()
 {
     return class_();
 }

@@ -10,9 +10,9 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFAnchor
+class poi::hssf::usermodel::HSSFAnchor
     : public virtual ::java::lang::Object
-    , public virtual ::org::apache::poi::ss::usermodel::ChildAnchor
+    , public virtual ::poi::ss::usermodel::ChildAnchor
 {
 
 public:
@@ -26,12 +26,12 @@ protected:
     void ctor(int32_t dx1, int32_t dy1, int32_t dx2, int32_t dy2);
 
 public:
-    static HSSFAnchor* createAnchorFromEscher(::org::apache::poi::ddf::EscherContainerRecord* container);
+    static HSSFAnchor* createAnchorFromEscher(::poi::ddf::EscherContainerRecord* container);
     virtual bool isHorizontallyFlipped() = 0;
     virtual bool isVerticallyFlipped() = 0;
 
 public: /* protected */
-    virtual ::org::apache::poi::ddf::EscherRecord* getEscherAnchor() = 0;
+    virtual ::poi::ddf::EscherRecord* getEscherAnchor() = 0;
     virtual void createEscherAnchor() = 0;
 
     // Generated

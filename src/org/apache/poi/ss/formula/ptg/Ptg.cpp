@@ -71,25 +71,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -107,37 +101,37 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::ptg::Ptg::Ptg(const ::default_init_tag&)
+poi::ss::formula::ptg::Ptg::Ptg(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::ptg::Ptg::Ptg()
+poi::ss::formula::ptg::Ptg::Ptg()
     : Ptg(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::ss::formula::ptg::Ptg::ctor()
+void poi::ss::formula::ptg::Ptg::ctor()
 {
     super::ctor();
     init();
 }
 
-void org::apache::poi::ss::formula::ptg::Ptg::init()
+void poi::ss::formula::ptg::Ptg::init()
 {
     ptgClass = Ptg::CLASS_REF;
 }
 
-org::apache::poi::ss::formula::ptg::PtgArray*& org::apache::poi::ss::formula::ptg::Ptg::EMPTY_PTG_ARRAY()
+poi::ss::formula::ptg::PtgArray*& poi::ss::formula::ptg::Ptg::EMPTY_PTG_ARRAY()
 {
     clinit();
     return EMPTY_PTG_ARRAY_;
 }
-org::apache::poi::ss::formula::ptg::PtgArray* org::apache::poi::ss::formula::ptg::Ptg::EMPTY_PTG_ARRAY_;
+poi::ss::formula::ptg::PtgArray* poi::ss::formula::ptg::Ptg::EMPTY_PTG_ARRAY_;
 
-org::apache::poi::ss::formula::ptg::PtgArray* org::apache::poi::ss::formula::ptg::Ptg::readTokens(int32_t size, ::org::apache::poi::util::LittleEndianInput* in)
+poi::ss::formula::ptg::PtgArray* poi::ss::formula::ptg::Ptg::readTokens(int32_t size, ::poi::util::LittleEndianInput* in)
 {
     clinit();
     ::java::util::List* temp = new ::java::util::ArrayList(int32_t(4) + size / int32_t(2));
@@ -166,7 +160,7 @@ org::apache::poi::ss::formula::ptg::PtgArray* org::apache::poi::ss::formula::ptg
     return toPtgArray_(temp);
 }
 
-org::apache::poi::ss::formula::ptg::Ptg* org::apache::poi::ss::formula::ptg::Ptg::createPtg(::org::apache::poi::util::LittleEndianInput* in)
+poi::ss::formula::ptg::Ptg* poi::ss::formula::ptg::Ptg::createPtg(::poi::util::LittleEndianInput* in)
 {
     clinit();
     auto id = npc(in)->readByte();
@@ -184,7 +178,7 @@ org::apache::poi::ss::formula::ptg::Ptg* org::apache::poi::ss::formula::ptg::Ptg
     return retval;
 }
 
-org::apache::poi::ss::formula::ptg::Ptg* org::apache::poi::ss::formula::ptg::Ptg::createClassifiedPtg(int8_t id, ::org::apache::poi::util::LittleEndianInput* in)
+poi::ss::formula::ptg::Ptg* poi::ss::formula::ptg::Ptg::createClassifiedPtg(int8_t id, ::poi::util::LittleEndianInput* in)
 {
     clinit();
     auto baseId = id & int32_t(31) | int32_t(32);
@@ -233,7 +227,7 @@ org::apache::poi::ss::formula::ptg::Ptg* org::apache::poi::ss::formula::ptg::Ptg
         ->append(u")"_j)->toString());
 }
 
-org::apache::poi::ss::formula::ptg::Ptg* org::apache::poi::ss::formula::ptg::Ptg::createBasePtg(int8_t id, ::org::apache::poi::util::LittleEndianInput* in)
+poi::ss::formula::ptg::Ptg* poi::ss::formula::ptg::Ptg::createBasePtg(int8_t id, ::poi::util::LittleEndianInput* in)
 {
     clinit();
     switch (id) {
@@ -301,7 +295,7 @@ org::apache::poi::ss::formula::ptg::Ptg* org::apache::poi::ss::formula::ptg::Ptg
         ->append(u")"_j)->toString());
 }
 
-org::apache::poi::ss::formula::ptg::PtgArray* org::apache::poi::ss::formula::ptg::Ptg::toPtgArray_(::java::util::List* l)
+poi::ss::formula::ptg::PtgArray* poi::ss::formula::ptg::Ptg::toPtgArray_(::java::util::List* l)
 {
     clinit();
     if(npc(l)->isEmpty()) {
@@ -312,7 +306,7 @@ org::apache::poi::ss::formula::ptg::PtgArray* org::apache::poi::ss::formula::ptg
     return result;
 }
 
-int32_t org::apache::poi::ss::formula::ptg::Ptg::getEncodedSize(PtgArray* ptgs)
+int32_t poi::ss::formula::ptg::Ptg::getEncodedSize(PtgArray* ptgs)
 {
     clinit();
     auto result = int32_t(0);
@@ -322,7 +316,7 @@ int32_t org::apache::poi::ss::formula::ptg::Ptg::getEncodedSize(PtgArray* ptgs)
     return result;
 }
 
-int32_t org::apache::poi::ss::formula::ptg::Ptg::getEncodedSizeWithoutArrayData(PtgArray* ptgs)
+int32_t poi::ss::formula::ptg::Ptg::getEncodedSizeWithoutArrayData(PtgArray* ptgs)
 {
     clinit();
     auto result = int32_t(0);
@@ -336,10 +330,10 @@ int32_t org::apache::poi::ss::formula::ptg::Ptg::getEncodedSizeWithoutArrayData(
     return result;
 }
 
-int32_t org::apache::poi::ss::formula::ptg::Ptg::serializePtgs(PtgArray* ptgs, ::int8_tArray* array, int32_t offset)
+int32_t poi::ss::formula::ptg::Ptg::serializePtgs(PtgArray* ptgs, ::int8_tArray* array, int32_t offset)
 {
     clinit();
-    auto out = new ::org::apache::poi::util::LittleEndianByteArrayOutputStream(array, offset);
+    auto out = new ::poi::util::LittleEndianByteArrayOutputStream(array, offset);
     ::java::util::List* arrayPtgs = nullptr;
     for(auto ptg : *npc(ptgs)) {
         npc(ptg)->write(out);
@@ -362,18 +356,18 @@ int32_t org::apache::poi::ss::formula::ptg::Ptg::serializePtgs(PtgArray* ptgs, :
     return npc(out)->getWriteIndex() - offset;
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::Ptg::toString()
+java::lang::String* poi::ss::formula::ptg::Ptg::toString()
 {
     return npc(this->getClass())->toString();
 }
 
-constexpr int8_t org::apache::poi::ss::formula::ptg::Ptg::CLASS_REF;
+constexpr int8_t poi::ss::formula::ptg::Ptg::CLASS_REF;
 
-constexpr int8_t org::apache::poi::ss::formula::ptg::Ptg::CLASS_VALUE;
+constexpr int8_t poi::ss::formula::ptg::Ptg::CLASS_VALUE;
 
-constexpr int8_t org::apache::poi::ss::formula::ptg::Ptg::CLASS_ARRAY;
+constexpr int8_t poi::ss::formula::ptg::Ptg::CLASS_ARRAY;
 
-void org::apache::poi::ss::formula::ptg::Ptg::setClass(int8_t thePtgClass)
+void poi::ss::formula::ptg::Ptg::setClass(int8_t thePtgClass)
 {
     if(isBaseToken()) {
         throw new ::java::lang::RuntimeException(u"setClass should not be called on a base token"_j);
@@ -381,12 +375,12 @@ void org::apache::poi::ss::formula::ptg::Ptg::setClass(int8_t thePtgClass)
     ptgClass = thePtgClass;
 }
 
-int8_t org::apache::poi::ss::formula::ptg::Ptg::getPtgClass()
+int8_t poi::ss::formula::ptg::Ptg::getPtgClass()
 {
     return ptgClass;
 }
 
-char16_t org::apache::poi::ss::formula::ptg::Ptg::getRVAType()
+char16_t poi::ss::formula::ptg::Ptg::getRVAType()
 {
     if(isBaseToken()) {
         return u'.';
@@ -404,7 +398,7 @@ char16_t org::apache::poi::ss::formula::ptg::Ptg::getRVAType()
         ->append(u")"_j)->toString());
 }
 
-bool org::apache::poi::ss::formula::ptg::Ptg::doesFormulaReferToDeletedCell(PtgArray* ptgs)
+bool poi::ss::formula::ptg::Ptg::doesFormulaReferToDeletedCell(PtgArray* ptgs)
 {
     clinit();
     for(auto ptg : *npc(ptgs)) {
@@ -415,7 +409,7 @@ bool org::apache::poi::ss::formula::ptg::Ptg::doesFormulaReferToDeletedCell(PtgA
     return false;
 }
 
-bool org::apache::poi::ss::formula::ptg::Ptg::isDeletedCellRef(Ptg* ptg)
+bool poi::ss::formula::ptg::Ptg::isDeletedCellRef(Ptg* ptg)
 {
     clinit();
     if(ptg == static_cast< Ptg* >(ErrPtg::REF_INVALID())) {
@@ -438,20 +432,20 @@ bool org::apache::poi::ss::formula::ptg::Ptg::isDeletedCellRef(Ptg* ptg)
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::Ptg::class_()
+java::lang::Class* poi::ss::formula::ptg::Ptg::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.ptg.Ptg", 33);
     return c;
 }
 
-void org::apache::poi::ss::formula::ptg::Ptg::clinit()
+void poi::ss::formula::ptg::Ptg::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        EMPTY_PTG_ARRAY_ = (new ::org::apache::poi::ss::formula::ptg::PtgArray({}));
+        EMPTY_PTG_ARRAY_ = (new ::poi::ss::formula::ptg::PtgArray({}));
     }
 };
 
@@ -460,7 +454,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::Ptg::getClass0()
+java::lang::Class* poi::ss::formula::ptg::Ptg::getClass0()
 {
     return class_();
 }

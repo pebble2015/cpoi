@@ -41,36 +41,36 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::sl::draw::DrawShape::DrawShape(const ::default_init_tag&)
+poi::sl::draw::DrawShape::DrawShape(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::draw::DrawShape::DrawShape(::org::apache::poi::sl::usermodel::Shape* shape) 
+poi::sl::draw::DrawShape::DrawShape(::poi::sl::usermodel::Shape* shape) 
     : DrawShape(*static_cast< ::default_init_tag* >(0))
 {
     ctor(shape);
 }
 
-void org::apache::poi::sl::draw::DrawShape::ctor(::org::apache::poi::sl::usermodel::Shape* shape)
+void poi::sl::draw::DrawShape::ctor(::poi::sl::usermodel::Shape* shape)
 {
     super::ctor();
     this->shape = shape;
 }
 
-bool org::apache::poi::sl::draw::DrawShape::isHSLF(::org::apache::poi::sl::usermodel::Shape* shape)
+bool poi::sl::draw::DrawShape::isHSLF(::poi::sl::usermodel::Shape* shape)
 {
     clinit();
     return npc(npc(npc(npc(shape)->getClass())->getCanonicalName())->toLowerCase(::java::util::Locale::ROOT()))->contains(u"hslf"_j);
 }
 
-void org::apache::poi::sl::draw::DrawShape::applyTransform(::java::awt::Graphics2D* graphics)
+void poi::sl::draw::DrawShape::applyTransform(::java::awt::Graphics2D* graphics)
 {
-    if(!(dynamic_cast< ::org::apache::poi::sl::usermodel::PlaceableShape* >(shape) != nullptr)) {
+    if(!(dynamic_cast< ::poi::sl::usermodel::PlaceableShape* >(shape) != nullptr)) {
         return;
     }
-    auto ps = java_cast< ::org::apache::poi::sl::usermodel::PlaceableShape* >(shape);
+    auto ps = java_cast< ::poi::sl::usermodel::PlaceableShape* >(shape);
     auto const isHSLF = DrawShape::isHSLF(shape);
     auto tx = java_cast< ::java::awt::geom::AffineTransform* >(npc(graphics)->getRenderingHint(Drawable::GROUP_TRANSFORM()));
     if(tx == nullptr) {
@@ -156,7 +156,7 @@ void org::apache::poi::sl::draw::DrawShape::applyTransform(::java::awt::Graphics
     }
 }
 
-double org::apache::poi::sl::draw::DrawShape::safeScale(double dim1, double dim2)
+double poi::sl::draw::DrawShape::safeScale(double dim1, double dim2)
 {
     clinit();
     if(dim1 == 0.0) {
@@ -165,21 +165,21 @@ double org::apache::poi::sl::draw::DrawShape::safeScale(double dim1, double dim2
     return (dim2 == 0.0) ? static_cast< double >(int32_t(1)) : dim1 / dim2;
 }
 
-void org::apache::poi::sl::draw::DrawShape::draw(::java::awt::Graphics2D* graphics)
+void poi::sl::draw::DrawShape::draw(::java::awt::Graphics2D* graphics)
 {
 }
 
-void org::apache::poi::sl::draw::DrawShape::drawContent(::java::awt::Graphics2D* graphics)
+void poi::sl::draw::DrawShape::drawContent(::java::awt::Graphics2D* graphics)
 {
 }
 
-java::awt::geom::Rectangle2D* org::apache::poi::sl::draw::DrawShape::getAnchor(::java::awt::Graphics2D* graphics, ::org::apache::poi::sl::usermodel::PlaceableShape* shape)
+java::awt::geom::Rectangle2D* poi::sl::draw::DrawShape::getAnchor(::java::awt::Graphics2D* graphics, ::poi::sl::usermodel::PlaceableShape* shape)
 {
     clinit();
     return getAnchor(graphics, npc(shape)->getAnchor());
 }
 
-java::awt::geom::Rectangle2D* org::apache::poi::sl::draw::DrawShape::getAnchor(::java::awt::Graphics2D* graphics, ::java::awt::geom::Rectangle2D* anchor)
+java::awt::geom::Rectangle2D* poi::sl::draw::DrawShape::getAnchor(::java::awt::Graphics2D* graphics, ::java::awt::geom::Rectangle2D* anchor)
 {
     clinit();
     if(graphics == nullptr) {
@@ -192,12 +192,12 @@ java::awt::geom::Rectangle2D* org::apache::poi::sl::draw::DrawShape::getAnchor(:
     return anchor;
 }
 
-org::apache::poi::sl::usermodel::Shape* org::apache::poi::sl::draw::DrawShape::getShape()
+poi::sl::usermodel::Shape* poi::sl::draw::DrawShape::getShape()
 {
     return shape;
 }
 
-java::awt::BasicStroke* org::apache::poi::sl::draw::DrawShape::getStroke(::org::apache::poi::sl::usermodel::StrokeStyle* strokeStyle)
+java::awt::BasicStroke* poi::sl::draw::DrawShape::getStroke(::poi::sl::usermodel::StrokeStyle* strokeStyle)
 {
     clinit();
     auto lineWidth = static_cast< float >(npc(strokeStyle)->getLineWidth());
@@ -206,7 +206,7 @@ java::awt::BasicStroke* org::apache::poi::sl::draw::DrawShape::getStroke(::org::
     }
     auto lineDash = npc(strokeStyle)->getLineDash();
     if(lineDash == nullptr) {
-        lineDash = ::org::apache::poi::sl::usermodel::StrokeStyle_LineDash::SOLID;
+        lineDash = ::poi::sl::usermodel::StrokeStyle_LineDash::SOLID;
     }
     auto dashPatI = npc(lineDash)->pattern;
     float const dash_phase = int32_t(0);
@@ -219,20 +219,20 @@ java::awt::BasicStroke* org::apache::poi::sl::draw::DrawShape::getStroke(::org::
     }
     auto lineCapE = npc(strokeStyle)->getLineCap();
     if(lineCapE == nullptr) {
-        lineCapE = ::org::apache::poi::sl::usermodel::StrokeStyle_LineCap::FLAT;
+        lineCapE = ::poi::sl::usermodel::StrokeStyle_LineCap::FLAT;
     }
     int32_t lineCap;
     {
         auto v = lineCapE;
-        if((v == ::org::apache::poi::sl::usermodel::StrokeStyle_LineCap::ROUND)) {
+        if((v == ::poi::sl::usermodel::StrokeStyle_LineCap::ROUND)) {
             lineCap = ::java::awt::BasicStroke::CAP_ROUND;
             goto end_switch0;;
         }
-        if((v == ::org::apache::poi::sl::usermodel::StrokeStyle_LineCap::SQUARE)) {
+        if((v == ::poi::sl::usermodel::StrokeStyle_LineCap::SQUARE)) {
             lineCap = ::java::awt::BasicStroke::CAP_SQUARE;
             goto end_switch0;;
         }
-        if((v == ::org::apache::poi::sl::usermodel::StrokeStyle_LineCap::FLAT)) {
+        if((v == ::poi::sl::usermodel::StrokeStyle_LineCap::FLAT)) {
             lineCap = ::java::awt::BasicStroke::CAP_BUTT;
             goto end_switch0;;
         }
@@ -245,13 +245,13 @@ end_switch0:;
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::draw::DrawShape::class_()
+java::lang::Class* poi::sl::draw::DrawShape::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.draw.DrawShape", 32);
     return c;
 }
 
-java::lang::Class* org::apache::poi::sl::draw::DrawShape::getClass0()
+java::lang::Class* poi::sl::draw::DrawShape::getClass0()
 {
     return class_();
 }

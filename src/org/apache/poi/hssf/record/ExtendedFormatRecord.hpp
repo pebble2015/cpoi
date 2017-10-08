@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::ExtendedFormatRecord final
+class poi::hssf::record::ExtendedFormatRecord final
     : public StandardRecord
 {
 
@@ -66,46 +66,46 @@ public:
 private:
     int16_t field_1_font_index {  };
     int16_t field_2_format_index {  };
-    static ::org::apache::poi::util::BitField* _locked_;
-    static ::org::apache::poi::util::BitField* _hidden_;
-    static ::org::apache::poi::util::BitField* _xf_type_;
-    static ::org::apache::poi::util::BitField* _123_prefix_;
-    static ::org::apache::poi::util::BitField* _parent_index_;
+    static ::poi::util::BitField* _locked_;
+    static ::poi::util::BitField* _hidden_;
+    static ::poi::util::BitField* _xf_type_;
+    static ::poi::util::BitField* _123_prefix_;
+    static ::poi::util::BitField* _parent_index_;
     int16_t field_3_cell_options {  };
-    static ::org::apache::poi::util::BitField* _alignment_;
-    static ::org::apache::poi::util::BitField* _wrap_text_;
-    static ::org::apache::poi::util::BitField* _vertical_alignment_;
-    static ::org::apache::poi::util::BitField* _justify_last_;
-    static ::org::apache::poi::util::BitField* _rotation_;
+    static ::poi::util::BitField* _alignment_;
+    static ::poi::util::BitField* _wrap_text_;
+    static ::poi::util::BitField* _vertical_alignment_;
+    static ::poi::util::BitField* _justify_last_;
+    static ::poi::util::BitField* _rotation_;
     int16_t field_4_alignment_options {  };
-    static ::org::apache::poi::util::BitField* _indent_;
-    static ::org::apache::poi::util::BitField* _shrink_to_fit_;
-    static ::org::apache::poi::util::BitField* _merge_cells_;
-    static ::org::apache::poi::util::BitField* _reading_order_;
-    static ::org::apache::poi::util::BitField* _indent_not_parent_format_;
-    static ::org::apache::poi::util::BitField* _indent_not_parent_font_;
-    static ::org::apache::poi::util::BitField* _indent_not_parent_alignment_;
-    static ::org::apache::poi::util::BitField* _indent_not_parent_border_;
-    static ::org::apache::poi::util::BitField* _indent_not_parent_pattern_;
-    static ::org::apache::poi::util::BitField* _indent_not_parent_cell_options_;
+    static ::poi::util::BitField* _indent_;
+    static ::poi::util::BitField* _shrink_to_fit_;
+    static ::poi::util::BitField* _merge_cells_;
+    static ::poi::util::BitField* _reading_order_;
+    static ::poi::util::BitField* _indent_not_parent_format_;
+    static ::poi::util::BitField* _indent_not_parent_font_;
+    static ::poi::util::BitField* _indent_not_parent_alignment_;
+    static ::poi::util::BitField* _indent_not_parent_border_;
+    static ::poi::util::BitField* _indent_not_parent_pattern_;
+    static ::poi::util::BitField* _indent_not_parent_cell_options_;
     int16_t field_5_indention_options {  };
-    static ::org::apache::poi::util::BitField* _border_left_;
-    static ::org::apache::poi::util::BitField* _border_right_;
-    static ::org::apache::poi::util::BitField* _border_top_;
-    static ::org::apache::poi::util::BitField* _border_bottom_;
+    static ::poi::util::BitField* _border_left_;
+    static ::poi::util::BitField* _border_right_;
+    static ::poi::util::BitField* _border_top_;
+    static ::poi::util::BitField* _border_bottom_;
     int16_t field_6_border_options {  };
-    static ::org::apache::poi::util::BitField* _left_border_palette_idx_;
-    static ::org::apache::poi::util::BitField* _right_border_palette_idx_;
-    static ::org::apache::poi::util::BitField* _diag_;
+    static ::poi::util::BitField* _left_border_palette_idx_;
+    static ::poi::util::BitField* _right_border_palette_idx_;
+    static ::poi::util::BitField* _diag_;
     int16_t field_7_palette_options {  };
-    static ::org::apache::poi::util::BitField* _top_border_palette_idx_;
-    static ::org::apache::poi::util::BitField* _bottom_border_palette_idx_;
-    static ::org::apache::poi::util::BitField* _adtl_diag_;
-    static ::org::apache::poi::util::BitField* _adtl_diag_line_style_;
-    static ::org::apache::poi::util::BitField* _adtl_fill_pattern_;
+    static ::poi::util::BitField* _top_border_palette_idx_;
+    static ::poi::util::BitField* _bottom_border_palette_idx_;
+    static ::poi::util::BitField* _adtl_diag_;
+    static ::poi::util::BitField* _adtl_diag_line_style_;
+    static ::poi::util::BitField* _adtl_fill_pattern_;
     int32_t field_8_adtl_palette_options {  };
-    static ::org::apache::poi::util::BitField* _fill_foreground_;
-    static ::org::apache::poi::util::BitField* _fill_background_;
+    static ::poi::util::BitField* _fill_foreground_;
+    static ::poi::util::BitField* _fill_background_;
     int16_t field_9_fill_palette_options {  };
 protected:
     void ctor();
@@ -199,7 +199,7 @@ public:
     int16_t getFillForeground();
     int16_t getFillBackground();
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;
@@ -225,39 +225,39 @@ public:
     ::int8_tArray* serialize();
 
 private:
-    static ::org::apache::poi::util::BitField*& _locked();
-    static ::org::apache::poi::util::BitField*& _hidden();
-    static ::org::apache::poi::util::BitField*& _xf_type();
-    static ::org::apache::poi::util::BitField*& _123_prefix();
-    static ::org::apache::poi::util::BitField*& _parent_index();
-    static ::org::apache::poi::util::BitField*& _alignment();
-    static ::org::apache::poi::util::BitField*& _wrap_text();
-    static ::org::apache::poi::util::BitField*& _vertical_alignment();
-    static ::org::apache::poi::util::BitField*& _justify_last();
-    static ::org::apache::poi::util::BitField*& _rotation();
-    static ::org::apache::poi::util::BitField*& _indent();
-    static ::org::apache::poi::util::BitField*& _shrink_to_fit();
-    static ::org::apache::poi::util::BitField*& _merge_cells();
-    static ::org::apache::poi::util::BitField*& _reading_order();
-    static ::org::apache::poi::util::BitField*& _indent_not_parent_format();
-    static ::org::apache::poi::util::BitField*& _indent_not_parent_font();
-    static ::org::apache::poi::util::BitField*& _indent_not_parent_alignment();
-    static ::org::apache::poi::util::BitField*& _indent_not_parent_border();
-    static ::org::apache::poi::util::BitField*& _indent_not_parent_pattern();
-    static ::org::apache::poi::util::BitField*& _indent_not_parent_cell_options();
-    static ::org::apache::poi::util::BitField*& _border_left();
-    static ::org::apache::poi::util::BitField*& _border_right();
-    static ::org::apache::poi::util::BitField*& _border_top();
-    static ::org::apache::poi::util::BitField*& _border_bottom();
-    static ::org::apache::poi::util::BitField*& _left_border_palette_idx();
-    static ::org::apache::poi::util::BitField*& _right_border_palette_idx();
-    static ::org::apache::poi::util::BitField*& _diag();
-    static ::org::apache::poi::util::BitField*& _top_border_palette_idx();
-    static ::org::apache::poi::util::BitField*& _bottom_border_palette_idx();
-    static ::org::apache::poi::util::BitField*& _adtl_diag();
-    static ::org::apache::poi::util::BitField*& _adtl_diag_line_style();
-    static ::org::apache::poi::util::BitField*& _adtl_fill_pattern();
-    static ::org::apache::poi::util::BitField*& _fill_foreground();
-    static ::org::apache::poi::util::BitField*& _fill_background();
+    static ::poi::util::BitField*& _locked();
+    static ::poi::util::BitField*& _hidden();
+    static ::poi::util::BitField*& _xf_type();
+    static ::poi::util::BitField*& _123_prefix();
+    static ::poi::util::BitField*& _parent_index();
+    static ::poi::util::BitField*& _alignment();
+    static ::poi::util::BitField*& _wrap_text();
+    static ::poi::util::BitField*& _vertical_alignment();
+    static ::poi::util::BitField*& _justify_last();
+    static ::poi::util::BitField*& _rotation();
+    static ::poi::util::BitField*& _indent();
+    static ::poi::util::BitField*& _shrink_to_fit();
+    static ::poi::util::BitField*& _merge_cells();
+    static ::poi::util::BitField*& _reading_order();
+    static ::poi::util::BitField*& _indent_not_parent_format();
+    static ::poi::util::BitField*& _indent_not_parent_font();
+    static ::poi::util::BitField*& _indent_not_parent_alignment();
+    static ::poi::util::BitField*& _indent_not_parent_border();
+    static ::poi::util::BitField*& _indent_not_parent_pattern();
+    static ::poi::util::BitField*& _indent_not_parent_cell_options();
+    static ::poi::util::BitField*& _border_left();
+    static ::poi::util::BitField*& _border_right();
+    static ::poi::util::BitField*& _border_top();
+    static ::poi::util::BitField*& _border_bottom();
+    static ::poi::util::BitField*& _left_border_palette_idx();
+    static ::poi::util::BitField*& _right_border_palette_idx();
+    static ::poi::util::BitField*& _diag();
+    static ::poi::util::BitField*& _top_border_palette_idx();
+    static ::poi::util::BitField*& _bottom_border_palette_idx();
+    static ::poi::util::BitField*& _adtl_diag();
+    static ::poi::util::BitField*& _adtl_diag_line_style();
+    static ::poi::util::BitField*& _adtl_fill_pattern();
+    static ::poi::util::BitField*& _fill_foreground();
+    static ::poi::util::BitField*& _fill_background();
     virtual ::java::lang::Class* getClass0();
 };

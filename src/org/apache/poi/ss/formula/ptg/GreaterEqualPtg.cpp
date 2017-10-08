@@ -34,45 +34,45 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::ptg::GreaterEqualPtg::GreaterEqualPtg(const ::default_init_tag&)
+poi::ss::formula::ptg::GreaterEqualPtg::GreaterEqualPtg(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::ptg::GreaterEqualPtg::GreaterEqualPtg() 
+poi::ss::formula::ptg::GreaterEqualPtg::GreaterEqualPtg() 
     : GreaterEqualPtg(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-constexpr int32_t org::apache::poi::ss::formula::ptg::GreaterEqualPtg::SIZE;
+constexpr int32_t poi::ss::formula::ptg::GreaterEqualPtg::SIZE;
 
-constexpr int8_t org::apache::poi::ss::formula::ptg::GreaterEqualPtg::sid;
+constexpr int8_t poi::ss::formula::ptg::GreaterEqualPtg::sid;
 
-org::apache::poi::ss::formula::ptg::ValueOperatorPtg*& org::apache::poi::ss::formula::ptg::GreaterEqualPtg::instance()
+poi::ss::formula::ptg::ValueOperatorPtg*& poi::ss::formula::ptg::GreaterEqualPtg::instance()
 {
     clinit();
     return instance_;
 }
-org::apache::poi::ss::formula::ptg::ValueOperatorPtg* org::apache::poi::ss::formula::ptg::GreaterEqualPtg::instance_;
+poi::ss::formula::ptg::ValueOperatorPtg* poi::ss::formula::ptg::GreaterEqualPtg::instance_;
 
-void org::apache::poi::ss::formula::ptg::GreaterEqualPtg::ctor()
+void poi::ss::formula::ptg::GreaterEqualPtg::ctor()
 {
     super::ctor();
 }
 
-int8_t org::apache::poi::ss::formula::ptg::GreaterEqualPtg::getSid()
+int8_t poi::ss::formula::ptg::GreaterEqualPtg::getSid()
 {
     return sid;
 }
 
-int32_t org::apache::poi::ss::formula::ptg::GreaterEqualPtg::getNumberOfOperands()
+int32_t poi::ss::formula::ptg::GreaterEqualPtg::getNumberOfOperands()
 {
     return 2;
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::GreaterEqualPtg::toFormulaString(::java::lang::StringArray* operands)
+java::lang::String* poi::ss::formula::ptg::GreaterEqualPtg::toFormulaString(::java::lang::StringArray* operands)
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append((*operands)[int32_t(0)]);
@@ -83,13 +83,13 @@ java::lang::String* org::apache::poi::ss::formula::ptg::GreaterEqualPtg::toFormu
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::GreaterEqualPtg::class_()
+java::lang::Class* poi::ss::formula::ptg::GreaterEqualPtg::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.ptg.GreaterEqualPtg", 45);
     return c;
 }
 
-void org::apache::poi::ss::formula::ptg::GreaterEqualPtg::clinit()
+void poi::ss::formula::ptg::GreaterEqualPtg::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -105,12 +105,12 @@ struct clinit_ {
     }
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::GreaterEqualPtg::toFormulaString()
+java::lang::String* poi::ss::formula::ptg::GreaterEqualPtg::toFormulaString()
 {
     return super::toFormulaString();
 }
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::GreaterEqualPtg::getClass0()
+java::lang::Class* poi::ss::formula::ptg::GreaterEqualPtg::getClass0()
 {
     return class_();
 }

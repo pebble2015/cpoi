@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::filesystem::POIFSWriterEvent
+class poi::poifs::filesystem::POIFSWriterEvent
     : public virtual ::java::lang::Object
 {
 

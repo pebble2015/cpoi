@@ -10,9 +10,9 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::DrawPaint_SimpleSolidPaint_SimpleSolidPaint_1
+class poi::sl::draw::DrawPaint_SimpleSolidPaint_SimpleSolidPaint_1
     : public virtual ::java::lang::Object
-    , public virtual ::org::apache::poi::sl::usermodel::ColorStyle
+    , public virtual ::poi::sl::usermodel::ColorStyle
 {
 
 public:

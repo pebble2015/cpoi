@@ -10,26 +10,20 @@
 #include <org/apache/poi/hssf/record/StandardRecord.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
-            {
-                namespace record
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::record::PaletteRecord_PColor, ::java::lang::ObjectArray > PaletteRecord_PColorArray;
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hssf::record::PaletteRecord_PColor, ::java::lang::ObjectArray > PaletteRecord_PColorArray;
+        } // record
+    } // hssf
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::PaletteRecord final
+class poi::hssf::record::PaletteRecord final
     : public StandardRecord
 {
 
@@ -47,7 +41,7 @@ protected:
 
 public:
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;

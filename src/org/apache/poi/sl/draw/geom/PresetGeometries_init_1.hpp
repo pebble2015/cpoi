@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::geom::PresetGeometries_init_1
+class poi::sl::draw::geom::PresetGeometries_init_1
     : public virtual ::java::lang::Object
     , public virtual ::javax::xml::stream::EventFilter
 {

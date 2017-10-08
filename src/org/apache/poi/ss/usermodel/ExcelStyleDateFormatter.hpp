@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::usermodel::ExcelStyleDateFormatter
+class poi::ss::usermodel::ExcelStyleDateFormatter
     : public ::java::text::SimpleDateFormat
 {
 

@@ -19,55 +19,55 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::LazyAreaEval::LazyAreaEval(const ::default_init_tag&)
+poi::ss::formula::LazyAreaEval::LazyAreaEval(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::LazyAreaEval::LazyAreaEval(::org::apache::poi::ss::formula::ptg::AreaI* ptg, SheetRangeEvaluator* evaluator) 
+poi::ss::formula::LazyAreaEval::LazyAreaEval(::poi::ss::formula::ptg::AreaI* ptg, SheetRangeEvaluator* evaluator) 
     : LazyAreaEval(*static_cast< ::default_init_tag* >(0))
 {
     ctor(ptg,evaluator);
 }
 
-org::apache::poi::ss::formula::LazyAreaEval::LazyAreaEval(int32_t firstRowIndex, int32_t firstColumnIndex, int32_t lastRowIndex, int32_t lastColumnIndex, SheetRangeEvaluator* evaluator) 
+poi::ss::formula::LazyAreaEval::LazyAreaEval(int32_t firstRowIndex, int32_t firstColumnIndex, int32_t lastRowIndex, int32_t lastColumnIndex, SheetRangeEvaluator* evaluator) 
     : LazyAreaEval(*static_cast< ::default_init_tag* >(0))
 {
     ctor(firstRowIndex,firstColumnIndex,lastRowIndex,lastColumnIndex,evaluator);
 }
 
-void org::apache::poi::ss::formula::LazyAreaEval::ctor(::org::apache::poi::ss::formula::ptg::AreaI* ptg, SheetRangeEvaluator* evaluator)
+void poi::ss::formula::LazyAreaEval::ctor(::poi::ss::formula::ptg::AreaI* ptg, SheetRangeEvaluator* evaluator)
 {
     super::ctor(ptg, evaluator);
     _evaluator = evaluator;
 }
 
-void org::apache::poi::ss::formula::LazyAreaEval::ctor(int32_t firstRowIndex, int32_t firstColumnIndex, int32_t lastRowIndex, int32_t lastColumnIndex, SheetRangeEvaluator* evaluator)
+void poi::ss::formula::LazyAreaEval::ctor(int32_t firstRowIndex, int32_t firstColumnIndex, int32_t lastRowIndex, int32_t lastColumnIndex, SheetRangeEvaluator* evaluator)
 {
     super::ctor(evaluator, firstRowIndex, firstColumnIndex, lastRowIndex, lastColumnIndex);
     _evaluator = evaluator;
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::LazyAreaEval::getRelativeValue(int32_t relativeRowIndex, int32_t relativeColumnIndex)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::LazyAreaEval::getRelativeValue(int32_t relativeRowIndex, int32_t relativeColumnIndex)
 {
     return getRelativeValue(getFirstSheetIndex(), relativeRowIndex, relativeColumnIndex);
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::LazyAreaEval::getRelativeValue(int32_t sheetIndex, int32_t relativeRowIndex, int32_t relativeColumnIndex)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::LazyAreaEval::getRelativeValue(int32_t sheetIndex, int32_t relativeRowIndex, int32_t relativeColumnIndex)
 {
     auto rowIx = (relativeRowIndex + getFirstRow());
     auto colIx = (relativeColumnIndex + getFirstColumn());
     return npc(_evaluator)->getEvalForCell(sheetIndex, rowIx, colIx);
 }
 
-org::apache::poi::ss::formula::eval::AreaEval* org::apache::poi::ss::formula::LazyAreaEval::offset(int32_t relFirstRowIx, int32_t relLastRowIx, int32_t relFirstColIx, int32_t relLastColIx)
+poi::ss::formula::eval::AreaEval* poi::ss::formula::LazyAreaEval::offset(int32_t relFirstRowIx, int32_t relLastRowIx, int32_t relFirstColIx, int32_t relLastColIx)
 {
-    ::org::apache::poi::ss::formula::ptg::AreaI* area = new ::org::apache::poi::ss::formula::ptg::AreaI_OffsetArea(getFirstRow(), getFirstColumn(), relFirstRowIx, relLastRowIx, relFirstColIx, relLastColIx);
+    ::poi::ss::formula::ptg::AreaI* area = new ::poi::ss::formula::ptg::AreaI_OffsetArea(getFirstRow(), getFirstColumn(), relFirstRowIx, relLastRowIx, relFirstColIx, relLastColIx);
     return new LazyAreaEval(area, _evaluator);
 }
 
-org::apache::poi::ss::formula::LazyAreaEval* org::apache::poi::ss::formula::LazyAreaEval::getRow(int32_t rowIndex)
+poi::ss::formula::LazyAreaEval* poi::ss::formula::LazyAreaEval::getRow(int32_t rowIndex)
 {
     if(rowIndex >= getHeight()) {
         throw new ::java::lang::IllegalArgumentException(::java::lang::StringBuilder().append(u"Invalid rowIndex "_j)->append(rowIndex)
@@ -79,7 +79,7 @@ org::apache::poi::ss::formula::LazyAreaEval* org::apache::poi::ss::formula::Lazy
     return new LazyAreaEval(absRowIx, getFirstColumn(), absRowIx, getLastColumn(), _evaluator);
 }
 
-org::apache::poi::ss::formula::LazyAreaEval* org::apache::poi::ss::formula::LazyAreaEval::getColumn(int32_t columnIndex)
+poi::ss::formula::LazyAreaEval* poi::ss::formula::LazyAreaEval::getColumn(int32_t columnIndex)
 {
     if(columnIndex >= getWidth()) {
         throw new ::java::lang::IllegalArgumentException(::java::lang::StringBuilder().append(u"Invalid columnIndex "_j)->append(columnIndex)
@@ -91,10 +91,10 @@ org::apache::poi::ss::formula::LazyAreaEval* org::apache::poi::ss::formula::Lazy
     return new LazyAreaEval(getFirstRow(), absColIx, getLastRow(), absColIx, _evaluator);
 }
 
-java::lang::String* org::apache::poi::ss::formula::LazyAreaEval::toString()
+java::lang::String* poi::ss::formula::LazyAreaEval::toString()
 {
-    auto crA = new ::org::apache::poi::ss::util::CellReference(getFirstRow(), getFirstColumn());
-    auto crB = new ::org::apache::poi::ss::util::CellReference(getLastRow(), getLastColumn());
+    auto crA = new ::poi::ss::util::CellReference(getFirstRow(), getFirstColumn());
+    auto crB = new ::poi::ss::util::CellReference(getLastRow(), getLastColumn());
     return ::java::lang::StringBuilder().append(npc(getClass())->getName())->append(u"["_j)
         ->append(npc(_evaluator)->getSheetNameRange())
         ->append(u'!')
@@ -104,7 +104,7 @@ java::lang::String* org::apache::poi::ss::formula::LazyAreaEval::toString()
         ->append(u"]"_j)->toString();
 }
 
-bool org::apache::poi::ss::formula::LazyAreaEval::isSubTotal(int32_t rowIndex, int32_t columnIndex)
+bool poi::ss::formula::LazyAreaEval::isSubTotal(int32_t rowIndex, int32_t columnIndex)
 {
     auto _sre = npc(_evaluator)->getSheetEvaluator(npc(_evaluator)->getFirstSheetIndex());
     return npc(_sre)->isSubTotal(getFirstRow() + rowIndex, getFirstColumn() + columnIndex);
@@ -112,13 +112,13 @@ bool org::apache::poi::ss::formula::LazyAreaEval::isSubTotal(int32_t rowIndex, i
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::LazyAreaEval::class_()
+java::lang::Class* poi::ss::formula::LazyAreaEval::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.LazyAreaEval", 38);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::LazyAreaEval::getClass0()
+java::lang::Class* poi::ss::formula::LazyAreaEval::getClass0()
 {
     return class_();
 }

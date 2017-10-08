@@ -11,20 +11,20 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::cont::ContinuableRecordOutput final
+class poi::hssf::record::cont::ContinuableRecordOutput final
     : public virtual ::java::lang::Object
-    , public ::org::apache::poi::util::LittleEndianOutput
+    , public ::poi::util::LittleEndianOutput
 {
 
 public:
     typedef ::java::lang::Object super;
 
 private:
-    ::org::apache::poi::util::LittleEndianOutput* _out {  };
+    ::poi::util::LittleEndianOutput* _out {  };
     UnknownLengthRecordOutput* _ulrOutput {  };
     int32_t _totalPreviousRecordsSize {  };
 protected:
-    void ctor(::org::apache::poi::util::LittleEndianOutput* out, int32_t sid);
+    void ctor(::poi::util::LittleEndianOutput* out, int32_t sid);
 
 public:
     static ContinuableRecordOutput* createForCountingOnly();
@@ -53,12 +53,12 @@ public:
     void writeShort(int32_t v) override;
 
 private:
-    static ::org::apache::poi::util::LittleEndianOutput* NOPOutput_;
+    static ::poi::util::LittleEndianOutput* NOPOutput_;
 
     // Generated
 
 public:
-    ContinuableRecordOutput(::org::apache::poi::util::LittleEndianOutput* out, int32_t sid);
+    ContinuableRecordOutput(::poi::util::LittleEndianOutput* out, int32_t sid);
 protected:
     ContinuableRecordOutput(const ::default_init_tag&);
 
@@ -68,7 +68,7 @@ public:
     static void clinit();
 
 private:
-    static ::org::apache::poi::util::LittleEndianOutput*& NOPOutput();
+    static ::poi::util::LittleEndianOutput*& NOPOutput();
     virtual ::java::lang::Class* getClass0();
     friend class ContinuableRecordOutput_1;
 };

@@ -25,29 +25,23 @@ typedef ::SubArray< ::java::lang::Cloneable, ObjectArray > CloneableArray;
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace ss
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::Cell, ::java::lang::ObjectArray > CellArray;
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::CellArray, ::java::lang::CloneableArray, ::java::io::SerializableArray > CellArrayArray;
-                } // usermodel
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::usermodel::Cell, ::java::lang::ObjectArray > CellArray;
+typedef ::SubArray< ::poi::ss::usermodel::CellArray, ::java::lang::CloneableArray, ::java::io::SerializableArray > CellArrayArray;
+        } // usermodel
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::util::SSCellRange final
+class poi::ss::util::SSCellRange final
     : public virtual ::java::lang::Object
-    , public ::org::apache::poi::ss::usermodel::CellRange
+    , public ::poi::ss::usermodel::CellRange
 {
 
 public:
@@ -56,11 +50,11 @@ public:
 private:
     int32_t _height {  };
     int32_t _width {  };
-    ::org::apache::poi::ss::usermodel::CellArray* _flattenedArray_ {  };
+    ::poi::ss::usermodel::CellArray* _flattenedArray_ {  };
     int32_t _firstRow {  };
     int32_t _firstColumn {  };
 protected:
-    void ctor(int32_t firstRow, int32_t firstColumn, int32_t height, int32_t width, ::org::apache::poi::ss::usermodel::CellArray* flattenedArray_);
+    void ctor(int32_t firstRow, int32_t firstColumn, int32_t height, int32_t width, ::poi::ss::usermodel::CellArray* flattenedArray_);
 
 public:
     static /* <B extends Cell> */SSCellRange* create(int32_t firstRow, int32_t firstColumn, int32_t height, int32_t width, ::java::util::List* flattenedList, ::java::lang::Class* cellClass);
@@ -68,16 +62,16 @@ public:
     int32_t getWidth() override;
     int32_t size() override;
     ::java::lang::String* getReferenceText() override;
-    ::org::apache::poi::ss::usermodel::Cell* getTopLeftCell() override;
-    ::org::apache::poi::ss::usermodel::Cell* getCell(int32_t relativeRowIndex, int32_t relativeColumnIndex) override;
-    ::org::apache::poi::ss::usermodel::CellArray* getFlattenedCells() override;
-    ::org::apache::poi::ss::usermodel::CellArrayArray* getCells() override;
+    ::poi::ss::usermodel::Cell* getTopLeftCell() override;
+    ::poi::ss::usermodel::Cell* getCell(int32_t relativeRowIndex, int32_t relativeColumnIndex) override;
+    ::poi::ss::usermodel::CellArray* getFlattenedCells() override;
+    ::poi::ss::usermodel::CellArrayArray* getCells() override;
     ::java::util::Iterator* iterator() override;
 
     // Generated
 
 private:
-    SSCellRange(int32_t firstRow, int32_t firstColumn, int32_t height, int32_t width, ::org::apache::poi::ss::usermodel::CellArray* flattenedArray_);
+    SSCellRange(int32_t firstRow, int32_t firstColumn, int32_t height, int32_t width, ::poi::ss::usermodel::CellArray* flattenedArray_);
 protected:
     SSCellRange(const ::default_init_tag&);
 

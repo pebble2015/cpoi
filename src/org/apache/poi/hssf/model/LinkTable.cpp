@@ -57,42 +57,36 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace model
         {
-            namespace hssf
-            {
-                namespace model
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::model::LinkTable_ExternalBookBlock, ::java::lang::ObjectArray > LinkTable_ExternalBookBlockArray;
-                } // model
+typedef ::SubArray< ::poi::hssf::model::LinkTable_ExternalBookBlock, ::java::lang::ObjectArray > LinkTable_ExternalBookBlockArray;
+        } // model
 
-                namespace record
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::Record, RecordBaseArray > RecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::StandardRecord, RecordArray > StandardRecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::ExternSheetRecord, StandardRecordArray > ExternSheetRecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::ExternalNameRecord, StandardRecordArray > ExternalNameRecordArray;
-                } // record
-            } // hssf
+        namespace record
+        {
+typedef ::SubArray< ::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
+typedef ::SubArray< ::poi::hssf::record::Record, RecordBaseArray > RecordArray;
+typedef ::SubArray< ::poi::hssf::record::StandardRecord, RecordArray > StandardRecordArray;
+typedef ::SubArray< ::poi::hssf::record::ExternSheetRecord, StandardRecordArray > ExternSheetRecordArray;
+typedef ::SubArray< ::poi::hssf::record::ExternalNameRecord, StandardRecordArray > ExternalNameRecordArray;
+        } // record
+    } // hssf
 
-            namespace ss
+    namespace ss
+    {
+        namespace formula
+        {
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -110,38 +104,38 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::model::LinkTable::LinkTable(const ::default_init_tag&)
+poi::hssf::model::LinkTable::LinkTable(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::model::LinkTable::LinkTable(::java::util::List* inputList, int32_t startIndex, WorkbookRecordList* workbookRecordList, ::java::util::Map* commentRecords) 
+poi::hssf::model::LinkTable::LinkTable(::java::util::List* inputList, int32_t startIndex, WorkbookRecordList* workbookRecordList, ::java::util::Map* commentRecords) 
     : LinkTable(*static_cast< ::default_init_tag* >(0))
 {
     ctor(inputList,startIndex,workbookRecordList,commentRecords);
 }
 
-org::apache::poi::hssf::model::LinkTable::LinkTable(int32_t numberOfSheets, WorkbookRecordList* workbookRecordList) 
+poi::hssf::model::LinkTable::LinkTable(int32_t numberOfSheets, WorkbookRecordList* workbookRecordList) 
     : LinkTable(*static_cast< ::default_init_tag* >(0))
 {
     ctor(numberOfSheets,workbookRecordList);
 }
 
-void org::apache::poi::hssf::model::LinkTable::ctor(::java::util::List* inputList, int32_t startIndex, WorkbookRecordList* workbookRecordList, ::java::util::Map* commentRecords)
+void poi::hssf::model::LinkTable::ctor(::java::util::List* inputList, int32_t startIndex, WorkbookRecordList* workbookRecordList, ::java::util::Map* commentRecords)
 {
     super::ctor();
     _workbookRecordList = workbookRecordList;
     auto rs = new RecordStream(inputList, startIndex);
     ::java::util::List* temp = new ::java::util::ArrayList();
-    while (static_cast< ::java::lang::Object* >(npc(rs)->peekNextClass()) == static_cast< ::java::lang::Object* >(::org::apache::poi::hssf::record::SupBookRecord::class_())) {
+    while (static_cast< ::java::lang::Object* >(npc(rs)->peekNextClass()) == static_cast< ::java::lang::Object* >(::poi::hssf::record::SupBookRecord::class_())) {
         npc(temp)->add(static_cast< ::java::lang::Object* >(new LinkTable_ExternalBookBlock(rs)));
     }
     _externalBookBlocks = new LinkTable_ExternalBookBlockArray(npc(temp)->size());
     npc(temp)->toArray_(static_cast< ::java::lang::ObjectArray* >(_externalBookBlocks));
     npc(temp)->clear();
     if(npc(_externalBookBlocks)->length > 0) {
-        if(static_cast< ::java::lang::Object* >(npc(rs)->peekNextClass()) != static_cast< ::java::lang::Object* >(::org::apache::poi::hssf::record::ExternSheetRecord::class_())) {
+        if(static_cast< ::java::lang::Object* >(npc(rs)->peekNextClass()) != static_cast< ::java::lang::Object* >(::poi::hssf::record::ExternSheetRecord::class_())) {
             _externSheetRecord = nullptr;
         } else {
             _externSheetRecord = readExtSheetRecord(rs);
@@ -152,11 +146,11 @@ void org::apache::poi::hssf::model::LinkTable::ctor(::java::util::List* inputLis
     _definedNames = new ::java::util::ArrayList();
     while (true) {
         auto nextClass = npc(rs)->peekNextClass();
-        if(static_cast< ::java::lang::Object* >(nextClass) == static_cast< ::java::lang::Object* >(::org::apache::poi::hssf::record::NameRecord::class_())) {
-            auto nr = java_cast< ::org::apache::poi::hssf::record::NameRecord* >(npc(rs)->getNext());
+        if(static_cast< ::java::lang::Object* >(nextClass) == static_cast< ::java::lang::Object* >(::poi::hssf::record::NameRecord::class_())) {
+            auto nr = java_cast< ::poi::hssf::record::NameRecord* >(npc(rs)->getNext());
             npc(_definedNames)->add(static_cast< ::java::lang::Object* >(nr));
-        } else if(static_cast< ::java::lang::Object* >(nextClass) == static_cast< ::java::lang::Object* >(::org::apache::poi::hssf::record::NameCommentRecord::class_())) {
-            auto ncr = java_cast< ::org::apache::poi::hssf::record::NameCommentRecord* >(npc(rs)->getNext());
+        } else if(static_cast< ::java::lang::Object* >(nextClass) == static_cast< ::java::lang::Object* >(::poi::hssf::record::NameCommentRecord::class_())) {
+            auto ncr = java_cast< ::poi::hssf::record::NameCommentRecord* >(npc(rs)->getNext());
             npc(commentRecords)->put(npc(ncr)->getNameText(), ncr);
         } else {
             break;
@@ -166,12 +160,12 @@ void org::apache::poi::hssf::model::LinkTable::ctor(::java::util::List* inputLis
     npc(npc(_workbookRecordList)->getRecords())->addAll(static_cast< ::java::util::Collection* >(npc(inputList)->subList(startIndex, startIndex + _recordCount)));
 }
 
-org::apache::poi::hssf::record::ExternSheetRecord* org::apache::poi::hssf::model::LinkTable::readExtSheetRecord(RecordStream* rs)
+poi::hssf::record::ExternSheetRecord* poi::hssf::model::LinkTable::readExtSheetRecord(RecordStream* rs)
 {
     clinit();
     ::java::util::List* temp = new ::java::util::ArrayList(int32_t(2));
-    while (static_cast< ::java::lang::Object* >(npc(rs)->peekNextClass()) == static_cast< ::java::lang::Object* >(::org::apache::poi::hssf::record::ExternSheetRecord::class_())) {
-        npc(temp)->add(static_cast< ::java::lang::Object* >(java_cast< ::org::apache::poi::hssf::record::ExternSheetRecord* >(npc(rs)->getNext())));
+    while (static_cast< ::java::lang::Object* >(npc(rs)->peekNextClass()) == static_cast< ::java::lang::Object* >(::poi::hssf::record::ExternSheetRecord::class_())) {
+        npc(temp)->add(static_cast< ::java::lang::Object* >(java_cast< ::poi::hssf::record::ExternSheetRecord* >(npc(rs)->getNext())));
     }
     auto nItems = npc(temp)->size();
     if(nItems < 1) {
@@ -179,23 +173,23 @@ org::apache::poi::hssf::record::ExternSheetRecord* org::apache::poi::hssf::model
             ->append(u")"_j)->toString());
     }
     if(nItems == 1) {
-        return java_cast< ::org::apache::poi::hssf::record::ExternSheetRecord* >(npc(temp)->get(0));
+        return java_cast< ::poi::hssf::record::ExternSheetRecord* >(npc(temp)->get(0));
     }
-    auto esrs = new ::org::apache::poi::hssf::record::ExternSheetRecordArray(nItems);
+    auto esrs = new ::poi::hssf::record::ExternSheetRecordArray(nItems);
     npc(temp)->toArray_(static_cast< ::java::lang::ObjectArray* >(esrs));
-    return ::org::apache::poi::hssf::record::ExternSheetRecord::combine(esrs);
+    return ::poi::hssf::record::ExternSheetRecord::combine(esrs);
 }
 
-void org::apache::poi::hssf::model::LinkTable::ctor(int32_t numberOfSheets, WorkbookRecordList* workbookRecordList)
+void poi::hssf::model::LinkTable::ctor(int32_t numberOfSheets, WorkbookRecordList* workbookRecordList)
 {
     super::ctor();
     _workbookRecordList = workbookRecordList;
     _definedNames = new ::java::util::ArrayList();
     _externalBookBlocks = new LinkTable_ExternalBookBlockArray({new LinkTable_ExternalBookBlock(numberOfSheets)});
-    _externSheetRecord = new ::org::apache::poi::hssf::record::ExternSheetRecord();
+    _externSheetRecord = new ::poi::hssf::record::ExternSheetRecord();
     _recordCount = 2;
     auto supbook = npc((*_externalBookBlocks)[int32_t(0)])->getExternalBookRecord();
-    auto idx = findFirstRecordLocBySid(::org::apache::poi::hssf::record::CountryRecord::sid);
+    auto idx = findFirstRecordLocBySid(::poi::hssf::record::CountryRecord::sid);
     if(idx < 0) {
         throw new ::java::lang::RuntimeException(u"CountryRecord not found"_j);
     }
@@ -203,16 +197,16 @@ void org::apache::poi::hssf::model::LinkTable::ctor(int32_t numberOfSheets, Work
     npc(_workbookRecordList)->add(idx + int32_t(1), supbook);
 }
 
-int32_t org::apache::poi::hssf::model::LinkTable::getRecordCount()
+int32_t poi::hssf::model::LinkTable::getRecordCount()
 {
     return _recordCount;
 }
 
-org::apache::poi::hssf::record::NameRecord* org::apache::poi::hssf::model::LinkTable::getSpecificBuiltinRecord(int8_t builtInCode, int32_t sheetNumber)
+poi::hssf::record::NameRecord* poi::hssf::model::LinkTable::getSpecificBuiltinRecord(int8_t builtInCode, int32_t sheetNumber)
 {
     auto iterator = npc(_definedNames)->iterator();
     while (npc(iterator)->hasNext()) {
-        auto record = java_cast< ::org::apache::poi::hssf::record::NameRecord* >(npc(iterator)->next());
+        auto record = java_cast< ::poi::hssf::record::NameRecord* >(npc(iterator)->next());
         if(npc(record)->getBuiltInName() == builtInCode && npc(record)->getSheetNumber() == sheetNumber) {
             return record;
         }
@@ -220,7 +214,7 @@ org::apache::poi::hssf::record::NameRecord* org::apache::poi::hssf::model::LinkT
     return nullptr;
 }
 
-void org::apache::poi::hssf::model::LinkTable::removeBuiltinRecord(int8_t name, int32_t sheetIndex)
+void poi::hssf::model::LinkTable::removeBuiltinRecord(int8_t name, int32_t sheetIndex)
 {
     auto record = getSpecificBuiltinRecord(name, sheetIndex);
     if(record != nullptr) {
@@ -228,36 +222,36 @@ void org::apache::poi::hssf::model::LinkTable::removeBuiltinRecord(int8_t name, 
     }
 }
 
-int32_t org::apache::poi::hssf::model::LinkTable::getNumNames()
+int32_t poi::hssf::model::LinkTable::getNumNames()
 {
     return npc(_definedNames)->size();
 }
 
-org::apache::poi::hssf::record::NameRecord* org::apache::poi::hssf::model::LinkTable::getNameRecord(int32_t index)
+poi::hssf::record::NameRecord* poi::hssf::model::LinkTable::getNameRecord(int32_t index)
 {
-    return java_cast< ::org::apache::poi::hssf::record::NameRecord* >(npc(_definedNames)->get(index));
+    return java_cast< ::poi::hssf::record::NameRecord* >(npc(_definedNames)->get(index));
 }
 
-void org::apache::poi::hssf::model::LinkTable::addName(::org::apache::poi::hssf::record::NameRecord* name)
+void poi::hssf::model::LinkTable::addName(::poi::hssf::record::NameRecord* name)
 {
     npc(_definedNames)->add(static_cast< ::java::lang::Object* >(name));
-    auto idx = findFirstRecordLocBySid(::org::apache::poi::hssf::record::ExternSheetRecord::sid);
+    auto idx = findFirstRecordLocBySid(::poi::hssf::record::ExternSheetRecord::sid);
     if(idx == -int32_t(1))
-        idx = findFirstRecordLocBySid(::org::apache::poi::hssf::record::SupBookRecord::sid);
+        idx = findFirstRecordLocBySid(::poi::hssf::record::SupBookRecord::sid);
 
     if(idx == -int32_t(1))
-        idx = findFirstRecordLocBySid(::org::apache::poi::hssf::record::CountryRecord::sid);
+        idx = findFirstRecordLocBySid(::poi::hssf::record::CountryRecord::sid);
 
     auto countNames = npc(_definedNames)->size();
     npc(_workbookRecordList)->add(idx + countNames, name);
 }
 
-void org::apache::poi::hssf::model::LinkTable::removeName(int32_t namenum)
+void poi::hssf::model::LinkTable::removeName(int32_t namenum)
 {
     npc(_definedNames)->remove(namenum);
 }
 
-bool org::apache::poi::hssf::model::LinkTable::nameAlreadyExists(::org::apache::poi::hssf::record::NameRecord* name)
+bool poi::hssf::model::LinkTable::nameAlreadyExists(::poi::hssf::record::NameRecord* name)
 {
     for (auto i = getNumNames() - int32_t(1); i >= 0; i--) {
         auto rec = getNameRecord(i);
@@ -270,19 +264,19 @@ bool org::apache::poi::hssf::model::LinkTable::nameAlreadyExists(::org::apache::
     return false;
 }
 
-bool org::apache::poi::hssf::model::LinkTable::isDuplicatedNames(::org::apache::poi::hssf::record::NameRecord* firstName, ::org::apache::poi::hssf::record::NameRecord* lastName)
+bool poi::hssf::model::LinkTable::isDuplicatedNames(::poi::hssf::record::NameRecord* firstName, ::poi::hssf::record::NameRecord* lastName)
 {
     clinit();
     return npc(npc(lastName)->getNameText())->equalsIgnoreCase(npc(firstName)->getNameText()) && isSameSheetNames(firstName, lastName);
 }
 
-bool org::apache::poi::hssf::model::LinkTable::isSameSheetNames(::org::apache::poi::hssf::record::NameRecord* firstName, ::org::apache::poi::hssf::record::NameRecord* lastName)
+bool poi::hssf::model::LinkTable::isSameSheetNames(::poi::hssf::record::NameRecord* firstName, ::poi::hssf::record::NameRecord* lastName)
 {
     clinit();
     return npc(lastName)->getSheetNumber() == npc(firstName)->getSheetNumber();
 }
 
-java::lang::StringArray* org::apache::poi::hssf::model::LinkTable::getExternalBookAndSheetName(int32_t extRefIndex)
+java::lang::StringArray* poi::hssf::model::LinkTable::getExternalBookAndSheetName(int32_t extRefIndex)
 {
     auto ebIx = npc(_externSheetRecord)->getExtbookIndexFromRefIndex(extRefIndex);
     auto ebr = npc((*_externalBookBlocks)[ebIx])->getExternalBookRecord();
@@ -313,7 +307,7 @@ java::lang::StringArray* org::apache::poi::hssf::model::LinkTable::getExternalBo
     }
 }
 
-int32_t org::apache::poi::hssf::model::LinkTable::getExternalWorkbookIndex(::java::lang::String* workbookName)
+int32_t poi::hssf::model::LinkTable::getExternalWorkbookIndex(::java::lang::String* workbookName)
 {
     for (auto i = int32_t(0); i < npc(_externalBookBlocks)->length; i++) {
         auto ebr = npc((*_externalBookBlocks)[i])->getExternalBookRecord();
@@ -327,7 +321,7 @@ int32_t org::apache::poi::hssf::model::LinkTable::getExternalWorkbookIndex(::jav
     return -int32_t(1);
 }
 
-int32_t org::apache::poi::hssf::model::LinkTable::linkExternalWorkbook(::java::lang::String* name, ::org::apache::poi::ss::usermodel::Workbook* externalWorkbook)
+int32_t poi::hssf::model::LinkTable::linkExternalWorkbook(::java::lang::String* name, ::poi::ss::usermodel::Workbook* externalWorkbook)
 {
     auto extBookIndex = getExternalWorkbookIndex(name);
     if(extBookIndex != -int32_t(1)) {
@@ -340,7 +334,7 @@ int32_t org::apache::poi::hssf::model::LinkTable::linkExternalWorkbook(::java::l
     auto url = ::java::lang::StringBuilder().append(u"\000"_j)->append(name)->toString();
     auto block = new LinkTable_ExternalBookBlock(url, sheetNames);
     extBookIndex = extendExternalBookBlocks(block);
-    auto idx = findFirstRecordLocBySid(::org::apache::poi::hssf::record::ExternSheetRecord::sid);
+    auto idx = findFirstRecordLocBySid(::poi::hssf::record::ExternSheetRecord::sid);
     if(idx == -int32_t(1)) {
         idx = npc(_workbookRecordList)->size();
     }
@@ -351,7 +345,7 @@ int32_t org::apache::poi::hssf::model::LinkTable::linkExternalWorkbook(::java::l
     return extBookIndex;
 }
 
-int32_t org::apache::poi::hssf::model::LinkTable::getExternalSheetIndex(::java::lang::String* workbookName, ::java::lang::String* firstSheetName, ::java::lang::String* lastSheetName)
+int32_t poi::hssf::model::LinkTable::getExternalSheetIndex(::java::lang::String* workbookName, ::java::lang::String* firstSheetName, ::java::lang::String* lastSheetName)
 {
     auto externalBookIndex = getExternalWorkbookIndex(workbookName);
     if(externalBookIndex == -int32_t(1)) {
@@ -368,7 +362,7 @@ int32_t org::apache::poi::hssf::model::LinkTable::getExternalSheetIndex(::java::
     return result;
 }
 
-int32_t org::apache::poi::hssf::model::LinkTable::getSheetIndex(::java::lang::StringArray* sheetNames, ::java::lang::String* sheetName)
+int32_t poi::hssf::model::LinkTable::getSheetIndex(::java::lang::StringArray* sheetNames, ::java::lang::String* sheetName)
 {
     clinit();
     for (auto i = int32_t(0); i < npc(sheetNames)->length; i++) {
@@ -380,7 +374,7 @@ int32_t org::apache::poi::hssf::model::LinkTable::getSheetIndex(::java::lang::St
         ->append(u"'"_j)->toString());
 }
 
-int32_t org::apache::poi::hssf::model::LinkTable::getFirstInternalSheetIndexForExtIndex(int32_t extRefIndex)
+int32_t poi::hssf::model::LinkTable::getFirstInternalSheetIndexForExtIndex(int32_t extRefIndex)
 {
     if(extRefIndex >= npc(_externSheetRecord)->getNumOfRefs() || extRefIndex < 0) {
         return -int32_t(1);
@@ -388,7 +382,7 @@ int32_t org::apache::poi::hssf::model::LinkTable::getFirstInternalSheetIndexForE
     return npc(_externSheetRecord)->getFirstSheetIndexFromRefIndex(extRefIndex);
 }
 
-int32_t org::apache::poi::hssf::model::LinkTable::getLastInternalSheetIndexForExtIndex(int32_t extRefIndex)
+int32_t poi::hssf::model::LinkTable::getLastInternalSheetIndexForExtIndex(int32_t extRefIndex)
 {
     if(extRefIndex >= npc(_externSheetRecord)->getNumOfRefs() || extRefIndex < 0) {
         return -int32_t(1);
@@ -396,17 +390,17 @@ int32_t org::apache::poi::hssf::model::LinkTable::getLastInternalSheetIndexForEx
     return npc(_externSheetRecord)->getLastSheetIndexFromRefIndex(extRefIndex);
 }
 
-void org::apache::poi::hssf::model::LinkTable::removeSheet(int32_t sheetIdx)
+void poi::hssf::model::LinkTable::removeSheet(int32_t sheetIdx)
 {
     npc(_externSheetRecord)->removeSheet(sheetIdx);
 }
 
-int32_t org::apache::poi::hssf::model::LinkTable::checkExternSheet(int32_t sheetIndex)
+int32_t poi::hssf::model::LinkTable::checkExternSheet(int32_t sheetIndex)
 {
     return checkExternSheet(sheetIndex, sheetIndex);
 }
 
-int32_t org::apache::poi::hssf::model::LinkTable::checkExternSheet(int32_t firstSheetIndex, int32_t lastSheetIndex)
+int32_t poi::hssf::model::LinkTable::checkExternSheet(int32_t firstSheetIndex, int32_t lastSheetIndex)
 {
     auto thisWbIndex = -int32_t(1);
     for (auto i = int32_t(0); i < npc(_externalBookBlocks)->length; i++) {
@@ -426,11 +420,11 @@ int32_t org::apache::poi::hssf::model::LinkTable::checkExternSheet(int32_t first
     return npc(_externSheetRecord)->addRef(thisWbIndex, firstSheetIndex, lastSheetIndex);
 }
 
-int32_t org::apache::poi::hssf::model::LinkTable::findFirstRecordLocBySid(int16_t sid)
+int32_t poi::hssf::model::LinkTable::findFirstRecordLocBySid(int16_t sid)
 {
     auto index = int32_t(0);
     for (auto _i = npc(npc(_workbookRecordList)->getRecords())->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::hssf::record::Record* record = java_cast< ::org::apache::poi::hssf::record::Record* >(_i->next());
+        ::poi::hssf::record::Record* record = java_cast< ::poi::hssf::record::Record* >(_i->next());
         {
             if(npc(record)->getSid() == sid) {
                 return index;
@@ -441,7 +435,7 @@ int32_t org::apache::poi::hssf::model::LinkTable::findFirstRecordLocBySid(int16_
     return -int32_t(1);
 }
 
-java::lang::String* org::apache::poi::hssf::model::LinkTable::resolveNameXText(int32_t refIndex, int32_t definedNameIndex, InternalWorkbook* workbook)
+java::lang::String* poi::hssf::model::LinkTable::resolveNameXText(int32_t refIndex, int32_t definedNameIndex, InternalWorkbook* workbook)
 {
     auto extBookIndex = npc(_externSheetRecord)->getExtbookIndexFromRefIndex(refIndex);
     auto firstTabIndex = npc(_externSheetRecord)->getFirstSheetIndexFromRefIndex(refIndex);
@@ -457,7 +451,7 @@ java::lang::String* org::apache::poi::hssf::model::LinkTable::resolveNameXText(i
         auto text = new ::java::lang::StringBuffer();
         if(sheetNumber > 0) {
             auto sheetName = npc(workbook)->getSheetName(sheetNumber - int32_t(1));
-            ::org::apache::poi::ss::formula::SheetNameFormatter::appendFormat(text, sheetName);
+            ::poi::ss::formula::SheetNameFormatter::appendFormat(text, sheetName);
             npc(text)->append(u"!"_j);
         }
         npc(text)->append(npc(nr)->getNameText());
@@ -469,13 +463,13 @@ java::lang::String* org::apache::poi::hssf::model::LinkTable::resolveNameXText(i
     }
 }
 
-int32_t org::apache::poi::hssf::model::LinkTable::resolveNameXIx(int32_t refIndex, int32_t definedNameIndex)
+int32_t poi::hssf::model::LinkTable::resolveNameXIx(int32_t refIndex, int32_t definedNameIndex)
 {
     auto extBookIndex = npc(_externSheetRecord)->getExtbookIndexFromRefIndex(refIndex);
     return npc((*_externalBookBlocks)[extBookIndex])->getNameIx(definedNameIndex);
 }
 
-org::apache::poi::ss::formula::ptg::NameXPtg* org::apache::poi::hssf::model::LinkTable::getNameXPtg(::java::lang::String* name, int32_t sheetRefIndex)
+poi::ss::formula::ptg::NameXPtg* poi::hssf::model::LinkTable::getNameXPtg(::java::lang::String* name, int32_t sheetRefIndex)
 {
     for (auto i = int32_t(0); i < npc(_externalBookBlocks)->length; i++) {
         auto definedNameIndex = npc((*_externalBookBlocks)[i])->getIndexOfName(name);
@@ -485,14 +479,14 @@ org::apache::poi::ss::formula::ptg::NameXPtg* org::apache::poi::hssf::model::Lin
         auto thisSheetRefIndex = findRefIndexFromExtBookIndex(i);
         if(thisSheetRefIndex >= 0) {
             if(sheetRefIndex == -int32_t(1) || thisSheetRefIndex == sheetRefIndex) {
-                return new ::org::apache::poi::ss::formula::ptg::NameXPtg(thisSheetRefIndex, definedNameIndex);
+                return new ::poi::ss::formula::ptg::NameXPtg(thisSheetRefIndex, definedNameIndex);
             }
         }
     }
     return nullptr;
 }
 
-org::apache::poi::ss::formula::ptg::NameXPtg* org::apache::poi::hssf::model::LinkTable::addNameXPtg(::java::lang::String* name)
+poi::ss::formula::ptg::NameXPtg* poi::hssf::model::LinkTable::addNameXPtg(::java::lang::String* name)
 {
     auto extBlockIndex = -int32_t(1);
     LinkTable_ExternalBookBlock* extBlock = nullptr;
@@ -507,19 +501,19 @@ org::apache::poi::ss::formula::ptg::NameXPtg* org::apache::poi::hssf::model::Lin
     if(extBlock == nullptr) {
         extBlock = new LinkTable_ExternalBookBlock();
         extBlockIndex = extendExternalBookBlocks(extBlock);
-        auto idx = findFirstRecordLocBySid(::org::apache::poi::hssf::record::ExternSheetRecord::sid);
+        auto idx = findFirstRecordLocBySid(::poi::hssf::record::ExternSheetRecord::sid);
         npc(_workbookRecordList)->add(idx, npc(extBlock)->getExternalBookRecord());
         npc(_externSheetRecord)->addRef(npc(_externalBookBlocks)->length - int32_t(1), -int32_t(2), -int32_t(2));
     }
-    auto extNameRecord = new ::org::apache::poi::hssf::record::ExternalNameRecord();
+    auto extNameRecord = new ::poi::hssf::record::ExternalNameRecord();
     npc(extNameRecord)->setText(name);
-    npc(extNameRecord)->setParsedExpression(new ::org::apache::poi::ss::formula::ptg::PtgArray({static_cast< ::org::apache::poi::ss::formula::ptg::Ptg* >(::org::apache::poi::ss::formula::ptg::ErrPtg::REF_INVALID())}));
+    npc(extNameRecord)->setParsedExpression(new ::poi::ss::formula::ptg::PtgArray({static_cast< ::poi::ss::formula::ptg::Ptg* >(::poi::ss::formula::ptg::ErrPtg::REF_INVALID())}));
     auto nameIndex = npc(extBlock)->addExternalName(extNameRecord);
     auto supLinkIndex = int32_t(0);
     for (auto _i = npc(npc(_workbookRecordList)->getRecords())->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::hssf::record::Record* record = java_cast< ::org::apache::poi::hssf::record::Record* >(_i->next());
+        ::poi::hssf::record::Record* record = java_cast< ::poi::hssf::record::Record* >(_i->next());
         {
-            if(dynamic_cast< ::org::apache::poi::hssf::record::SupBookRecord* >(record) != nullptr && npc((java_cast< ::org::apache::poi::hssf::record::SupBookRecord* >(record)))->isAddInFunctions()) {
+            if(dynamic_cast< ::poi::hssf::record::SupBookRecord* >(record) != nullptr && npc((java_cast< ::poi::hssf::record::SupBookRecord* >(record)))->isAddInFunctions()) {
                 break;
             }
             supLinkIndex++;
@@ -529,10 +523,10 @@ org::apache::poi::ss::formula::ptg::NameXPtg* org::apache::poi::hssf::model::Lin
     npc(_workbookRecordList)->add(supLinkIndex + numberOfNames, extNameRecord);
     auto fakeSheetIdx = -int32_t(2);
     auto ix = npc(_externSheetRecord)->getRefIxForSheet(extBlockIndex, fakeSheetIdx, fakeSheetIdx);
-    return new ::org::apache::poi::ss::formula::ptg::NameXPtg(ix, nameIndex);
+    return new ::poi::ss::formula::ptg::NameXPtg(ix, nameIndex);
 }
 
-int32_t org::apache::poi::hssf::model::LinkTable::extendExternalBookBlocks(LinkTable_ExternalBookBlock* newBlock)
+int32_t poi::hssf::model::LinkTable::extendExternalBookBlocks(LinkTable_ExternalBookBlock* newBlock)
 {
     auto tmp = new LinkTable_ExternalBookBlockArray(npc(_externalBookBlocks)->length + int32_t(1));
     ::java::lang::System::arraycopy(_externalBookBlocks, 0, tmp, 0, npc(_externalBookBlocks)->length);
@@ -541,12 +535,12 @@ int32_t org::apache::poi::hssf::model::LinkTable::extendExternalBookBlocks(LinkT
     return (npc(_externalBookBlocks)->length - int32_t(1));
 }
 
-int32_t org::apache::poi::hssf::model::LinkTable::findRefIndexFromExtBookIndex(int32_t extBookIndex)
+int32_t poi::hssf::model::LinkTable::findRefIndexFromExtBookIndex(int32_t extBookIndex)
 {
     return npc(_externSheetRecord)->findRefIndexFromExtBookIndex(extBookIndex);
 }
 
-bool org::apache::poi::hssf::model::LinkTable::changeExternalReference(::java::lang::String* oldUrl, ::java::lang::String* newUrl)
+bool poi::hssf::model::LinkTable::changeExternalReference(::java::lang::String* oldUrl, ::java::lang::String* newUrl)
 {
     for(auto ex : *npc(_externalBookBlocks)) {
         auto externalRecord = npc(ex)->getExternalBookRecord();
@@ -560,13 +554,13 @@ bool org::apache::poi::hssf::model::LinkTable::changeExternalReference(::java::l
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::model::LinkTable::class_()
+java::lang::Class* poi::hssf::model::LinkTable::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.model.LinkTable", 35);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::model::LinkTable::getClass0()
+java::lang::Class* poi::hssf::model::LinkTable::getClass0()
 {
     return class_();
 }

@@ -30,26 +30,20 @@
 #include <Array.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
-            {
-                namespace record
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::Record, RecordBaseArray > RecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::StandardRecord, RecordArray > StandardRecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::ExtendedFormatRecord, StandardRecordArray > ExtendedFormatRecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::FontRecord, StandardRecordArray > FontRecordArray;
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
+typedef ::SubArray< ::poi::hssf::record::Record, RecordBaseArray > RecordArray;
+typedef ::SubArray< ::poi::hssf::record::StandardRecord, RecordArray > StandardRecordArray;
+typedef ::SubArray< ::poi::hssf::record::ExtendedFormatRecord, StandardRecordArray > ExtendedFormatRecordArray;
+typedef ::SubArray< ::poi::hssf::record::FontRecord, StandardRecordArray > FontRecordArray;
+        } // record
+    } // hssf
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -67,19 +61,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::usermodel::HSSFOptimiser::HSSFOptimiser(const ::default_init_tag&)
+poi::hssf::usermodel::HSSFOptimiser::HSSFOptimiser(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::usermodel::HSSFOptimiser::HSSFOptimiser()
+poi::hssf::usermodel::HSSFOptimiser::HSSFOptimiser()
     : HSSFOptimiser(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFOptimiser::optimiseFonts(HSSFWorkbook* workbook)
+void poi::hssf::usermodel::HSSFOptimiser::optimiseFonts(HSSFWorkbook* workbook)
 {
     clinit();
     auto newPos = new ::int16_tArray(npc(npc(workbook)->getWorkbook())->getNumberOfFontRecords() + int32_t(1));
@@ -88,7 +82,7 @@ void org::apache::poi::hssf::usermodel::HSSFOptimiser::optimiseFonts(HSSFWorkboo
         (*newPos)[i] = static_cast< int16_t >(i);
         (*zapRecords)[i] = false;
     }
-    auto frecs = new ::org::apache::poi::hssf::record::FontRecordArray(npc(newPos)->length);
+    auto frecs = new ::poi::hssf::record::FontRecordArray(npc(newPos)->length);
     for (auto i = int32_t(0); i < npc(newPos)->length; i++) {
         if(i == 4)
             continue;
@@ -135,12 +129,12 @@ void org::apache::poi::hssf::usermodel::HSSFOptimiser::optimiseFonts(HSSFWorkboo
     for (auto sheetNum = int32_t(0); sheetNum < npc(workbook)->getNumberOfSheets(); sheetNum++) {
         auto s = java_cast< HSSFSheet* >(npc(workbook)->getSheetAt(sheetNum));
         for (auto _i = npc(s)->iterator(); _i->hasNext(); ) {
-            ::org::apache::poi::ss::usermodel::Row* row = java_cast< ::org::apache::poi::ss::usermodel::Row* >(_i->next());
+            ::poi::ss::usermodel::Row* row = java_cast< ::poi::ss::usermodel::Row* >(_i->next());
             {
                 for (auto _i = npc(row)->iterator(); _i->hasNext(); ) {
-                    ::org::apache::poi::ss::usermodel::Cell* cell = java_cast< ::org::apache::poi::ss::usermodel::Cell* >(_i->next());
+                    ::poi::ss::usermodel::Cell* cell = java_cast< ::poi::ss::usermodel::Cell* >(_i->next());
                     {
-                        if(npc(cell)->getCellTypeEnum() == ::org::apache::poi::ss::usermodel::CellType::STRING) {
+                        if(npc(cell)->getCellTypeEnum() == ::poi::ss::usermodel::CellType::STRING) {
                             auto rtr = java_cast< HSSFRichTextString* >(npc(cell)->getRichStringCellValue());
                             auto u = npc(rtr)->getRawUnicodeString();
                             if(!npc(doneUnicodeStrings)->contains(static_cast< ::java::lang::Object* >(u))) {
@@ -159,7 +153,7 @@ void org::apache::poi::hssf::usermodel::HSSFOptimiser::optimiseFonts(HSSFWorkboo
     }
 }
 
-void org::apache::poi::hssf::usermodel::HSSFOptimiser::optimiseCellStyles(HSSFWorkbook* workbook)
+void poi::hssf::usermodel::HSSFOptimiser::optimiseCellStyles(HSSFWorkbook* workbook)
 {
     clinit();
     auto newPos = new ::int16_tArray(npc(npc(workbook)->getWorkbook())->getNumExFormats());
@@ -170,7 +164,7 @@ void org::apache::poi::hssf::usermodel::HSSFOptimiser::optimiseCellStyles(HSSFWo
         (*newPos)[i] = static_cast< int16_t >(i);
         (*zapRecords)[i] = false;
     }
-    auto xfrs = new ::org::apache::poi::hssf::record::ExtendedFormatRecordArray(npc(newPos)->length);
+    auto xfrs = new ::poi::hssf::record::ExtendedFormatRecordArray(npc(newPos)->length);
     for (auto i = int32_t(0); i < npc(newPos)->length; i++) {
         xfrs->set(i, npc(npc(workbook)->getWorkbook())->getExFormatAt(i));
     }
@@ -193,10 +187,10 @@ void org::apache::poi::hssf::usermodel::HSSFOptimiser::optimiseCellStyles(HSSFWo
     for (auto sheetNum = int32_t(0); sheetNum < npc(workbook)->getNumberOfSheets(); sheetNum++) {
         auto s = java_cast< HSSFSheet* >(npc(workbook)->getSheetAt(sheetNum));
         for (auto _i = npc(s)->iterator(); _i->hasNext(); ) {
-            ::org::apache::poi::ss::usermodel::Row* row = java_cast< ::org::apache::poi::ss::usermodel::Row* >(_i->next());
+            ::poi::ss::usermodel::Row* row = java_cast< ::poi::ss::usermodel::Row* >(_i->next());
             {
                 for (auto _i = npc(row)->iterator(); _i->hasNext(); ) {
-                    ::org::apache::poi::ss::usermodel::Cell* cellI = java_cast< ::org::apache::poi::ss::usermodel::Cell* >(_i->next());
+                    ::poi::ss::usermodel::Cell* cellI = java_cast< ::poi::ss::usermodel::Cell* >(_i->next());
                     {
                         auto cell = java_cast< HSSFCell* >(cellI);
                         auto oldXf = npc(npc(cell)->getCellValueRecord())->getXFIndex();
@@ -235,10 +229,10 @@ void org::apache::poi::hssf::usermodel::HSSFOptimiser::optimiseCellStyles(HSSFWo
     for (auto sheetNum = int32_t(0); sheetNum < npc(workbook)->getNumberOfSheets(); sheetNum++) {
         auto s = java_cast< HSSFSheet* >(npc(workbook)->getSheetAt(sheetNum));
         for (auto _i = npc(s)->iterator(); _i->hasNext(); ) {
-            ::org::apache::poi::ss::usermodel::Row* row = java_cast< ::org::apache::poi::ss::usermodel::Row* >(_i->next());
+            ::poi::ss::usermodel::Row* row = java_cast< ::poi::ss::usermodel::Row* >(_i->next());
             {
                 for (auto _i = npc(row)->iterator(); _i->hasNext(); ) {
-                    ::org::apache::poi::ss::usermodel::Cell* cellI = java_cast< ::org::apache::poi::ss::usermodel::Cell* >(_i->next());
+                    ::poi::ss::usermodel::Cell* cellI = java_cast< ::poi::ss::usermodel::Cell* >(_i->next());
                     {
                         auto cell = java_cast< HSSFCell* >(cellI);
                         auto oldXf = npc(npc(cell)->getCellValueRecord())->getXFIndex();
@@ -253,13 +247,13 @@ void org::apache::poi::hssf::usermodel::HSSFOptimiser::optimiseCellStyles(HSSFWo
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFOptimiser::class_()
+java::lang::Class* poi::hssf::usermodel::HSSFOptimiser::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.usermodel.HSSFOptimiser", 43);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFOptimiser::getClass0()
+java::lang::Class* poi::hssf::usermodel::HSSFOptimiser::getClass0()
 {
     return class_();
 }

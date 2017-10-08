@@ -15,25 +15,25 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::util::WorkbookUtil::WorkbookUtil(const ::default_init_tag&)
+poi::ss::util::WorkbookUtil::WorkbookUtil(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::util::WorkbookUtil::WorkbookUtil()
+poi::ss::util::WorkbookUtil::WorkbookUtil()
     : WorkbookUtil(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-java::lang::String* org::apache::poi::ss::util::WorkbookUtil::createSafeSheetName(::java::lang::String* nameProposal)
+java::lang::String* poi::ss::util::WorkbookUtil::createSafeSheetName(::java::lang::String* nameProposal)
 {
     clinit();
     return createSafeSheetName(nameProposal, u' ');
 }
 
-java::lang::String* org::apache::poi::ss::util::WorkbookUtil::createSafeSheetName(::java::lang::String* nameProposal, char16_t replaceChar)
+java::lang::String* poi::ss::util::WorkbookUtil::createSafeSheetName(::java::lang::String* nameProposal, char16_t replaceChar)
 {
     clinit();
     if(nameProposal == nullptr) {
@@ -71,7 +71,7 @@ java::lang::String* org::apache::poi::ss::util::WorkbookUtil::createSafeSheetNam
     return npc(result)->toString();
 }
 
-void org::apache::poi::ss::util::WorkbookUtil::validateSheetName(::java::lang::String* sheetName)
+void poi::ss::util::WorkbookUtil::validateSheetName(::java::lang::String* sheetName)
 {
     clinit();
     if(sheetName == nullptr) {
@@ -110,15 +110,15 @@ void org::apache::poi::ss::util::WorkbookUtil::validateSheetName(::java::lang::S
     }
 }
 
-void org::apache::poi::ss::util::WorkbookUtil::validateSheetState(int32_t state)
+void poi::ss::util::WorkbookUtil::validateSheetState(int32_t state)
 {
     clinit();
     switch (state) {
-    case ::org::apache::poi::ss::usermodel::Workbook::SHEET_STATE_VISIBLE:
+    case ::poi::ss::usermodel::Workbook::SHEET_STATE_VISIBLE:
         break;
-    case ::org::apache::poi::ss::usermodel::Workbook::SHEET_STATE_HIDDEN:
+    case ::poi::ss::usermodel::Workbook::SHEET_STATE_HIDDEN:
         break;
-    case ::org::apache::poi::ss::usermodel::Workbook::SHEET_STATE_VERY_HIDDEN:
+    case ::poi::ss::usermodel::Workbook::SHEET_STATE_VERY_HIDDEN:
         break;
     default:
         throw new ::java::lang::IllegalArgumentException(::java::lang::StringBuilder().append(u"Invalid sheet state : "_j)->append(state)
@@ -130,13 +130,13 @@ void org::apache::poi::ss::util::WorkbookUtil::validateSheetState(int32_t state)
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::util::WorkbookUtil::class_()
+java::lang::Class* poi::ss::util::WorkbookUtil::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.util.WorkbookUtil", 35);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::util::WorkbookUtil::getClass0()
+java::lang::Class* poi::ss::util::WorkbookUtil::getClass0()
 {
     return class_();
 }

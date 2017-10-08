@@ -5,7 +5,7 @@
 #include <org/apache/poi/sl/usermodel/fwd-POI.hpp>
 #include <org/apache/poi/sl/usermodel/AutoShape.hpp>
 
-struct org::apache::poi::sl::usermodel::TextBox
+struct poi::sl::usermodel::TextBox
     : public virtual AutoShape
 {
 

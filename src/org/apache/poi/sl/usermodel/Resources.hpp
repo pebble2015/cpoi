@@ -8,24 +8,18 @@
 #include <java/lang/Object.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace sl
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace sl
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::sl::usermodel::PictureData, ::java::lang::ObjectArray > PictureDataArray;
-                } // usermodel
-            } // sl
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::sl::usermodel::PictureData, ::java::lang::ObjectArray > PictureDataArray;
+        } // usermodel
+    } // sl
+} // poi
 
-struct org::apache::poi::sl::usermodel::Resources
+struct poi::sl::usermodel::Resources
     : public virtual ::java::lang::Object
 {
     virtual FontCollection* getFontCollection() = 0;

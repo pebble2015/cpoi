@@ -11,12 +11,12 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::pivottable::ExtendedPivotTableViewFieldsRecord final
-    : public ::org::apache::poi::hssf::record::StandardRecord
+class poi::hssf::record::pivottable::ExtendedPivotTableViewFieldsRecord final
+    : public ::poi::hssf::record::StandardRecord
 {
 
 public:
-    typedef ::org::apache::poi::hssf::record::StandardRecord super;
+    typedef ::poi::hssf::record::StandardRecord super;
     static constexpr int16_t sid { int16_t(256) };
 
 private:
@@ -30,10 +30,10 @@ private:
     int32_t _reserved2 {  };
     ::java::lang::String* _subtotalName {  };
 protected:
-    void ctor(::org::apache::poi::hssf::record::RecordInputStream* in);
+    void ctor(::poi::hssf::record::RecordInputStream* in);
 
 public: /* protected */
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
     int32_t getDataSize() override;
 
 public:
@@ -41,7 +41,7 @@ public:
     ::java::lang::String* toString() override;
 
     // Generated
-    ExtendedPivotTableViewFieldsRecord(::org::apache::poi::hssf::record::RecordInputStream* in);
+    ExtendedPivotTableViewFieldsRecord(::poi::hssf::record::RecordInputStream* in);
 protected:
     ExtendedPivotTableViewFieldsRecord(const ::default_init_tag&);
 

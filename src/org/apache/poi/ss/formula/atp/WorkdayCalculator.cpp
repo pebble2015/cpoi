@@ -16,31 +16,31 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::atp::WorkdayCalculator::WorkdayCalculator(const ::default_init_tag&)
+poi::ss::formula::atp::WorkdayCalculator::WorkdayCalculator(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::atp::WorkdayCalculator::WorkdayCalculator() 
+poi::ss::formula::atp::WorkdayCalculator::WorkdayCalculator() 
     : WorkdayCalculator(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::atp::WorkdayCalculator*& org::apache::poi::ss::formula::atp::WorkdayCalculator::instance()
+poi::ss::formula::atp::WorkdayCalculator*& poi::ss::formula::atp::WorkdayCalculator::instance()
 {
     clinit();
     return instance_;
 }
-org::apache::poi::ss::formula::atp::WorkdayCalculator* org::apache::poi::ss::formula::atp::WorkdayCalculator::instance_;
+poi::ss::formula::atp::WorkdayCalculator* poi::ss::formula::atp::WorkdayCalculator::instance_;
 
-void org::apache::poi::ss::formula::atp::WorkdayCalculator::ctor()
+void poi::ss::formula::atp::WorkdayCalculator::ctor()
 {
     super::ctor();
 }
 
-int32_t org::apache::poi::ss::formula::atp::WorkdayCalculator::calculateWorkdays(double start, double end, ::doubleArray* holidays)
+int32_t poi::ss::formula::atp::WorkdayCalculator::calculateWorkdays(double start, double end, ::doubleArray* holidays)
 {
     auto saturdaysPast = this->pastDaysOfWeek(start, end, ::java::util::Calendar::SATURDAY);
     auto sundaysPast = this->pastDaysOfWeek(start, end, ::java::util::Calendar::SUNDAY);
@@ -48,13 +48,13 @@ int32_t org::apache::poi::ss::formula::atp::WorkdayCalculator::calculateWorkdays
     return static_cast< int32_t >((end - start + int32_t(1))) - saturdaysPast - sundaysPast- nonWeekendHolidays;
 }
 
-java::util::Date* org::apache::poi::ss::formula::atp::WorkdayCalculator::calculateWorkdays(double start, int32_t workdays, ::doubleArray* holidays)
+java::util::Date* poi::ss::formula::atp::WorkdayCalculator::calculateWorkdays(double start, int32_t workdays, ::doubleArray* holidays)
 {
-    auto startDate = ::org::apache::poi::ss::usermodel::DateUtil::getJavaDate(start);
+    auto startDate = ::poi::ss::usermodel::DateUtil::getJavaDate(start);
     auto direction = workdays < 0 ? -int32_t(1) : int32_t(1);
-    auto endDate = ::org::apache::poi::util::LocaleUtil::getLocaleCalendar();
+    auto endDate = ::poi::util::LocaleUtil::getLocaleCalendar();
     npc(endDate)->setTime(startDate);
-    auto excelEndDate = ::org::apache::poi::ss::usermodel::DateUtil::getExcelDate(npc(endDate)->getTime());
+    auto excelEndDate = ::poi::ss::usermodel::DateUtil::getExcelDate(npc(endDate)->getTime());
     while (workdays != 0) {
         npc(endDate)->add(::java::util::Calendar::DAY_OF_YEAR, direction);
         excelEndDate += direction;
@@ -65,14 +65,14 @@ java::util::Date* org::apache::poi::ss::formula::atp::WorkdayCalculator::calcula
     return npc(endDate)->getTime();
 }
 
-int32_t org::apache::poi::ss::formula::atp::WorkdayCalculator::pastDaysOfWeek(double start, double end, int32_t dayOfWeek)
+int32_t poi::ss::formula::atp::WorkdayCalculator::pastDaysOfWeek(double start, double end, int32_t dayOfWeek)
 {
     auto pastDaysOfWeek = int32_t(0);
     auto startDay = static_cast< int32_t >(::java::lang::Math::floor(start < end ? start : end));
     auto endDay = static_cast< int32_t >(::java::lang::Math::floor(end > start ? end : start));
     for (; startDay <= endDay; startDay++) {
-        auto today = ::org::apache::poi::util::LocaleUtil::getLocaleCalendar();
-        npc(today)->setTime(::org::apache::poi::ss::usermodel::DateUtil::getJavaDate(startDay));
+        auto today = ::poi::util::LocaleUtil::getLocaleCalendar();
+        npc(today)->setTime(::poi::ss::usermodel::DateUtil::getJavaDate(startDay));
         if(npc(today)->get(::java::util::Calendar::DAY_OF_WEEK) == dayOfWeek) {
             pastDaysOfWeek++;
         }
@@ -80,7 +80,7 @@ int32_t org::apache::poi::ss::formula::atp::WorkdayCalculator::pastDaysOfWeek(do
     return start <= end ? pastDaysOfWeek : -pastDaysOfWeek;
 }
 
-int32_t org::apache::poi::ss::formula::atp::WorkdayCalculator::calculateNonWeekendHolidays(double start, double end, ::doubleArray* holidays)
+int32_t poi::ss::formula::atp::WorkdayCalculator::calculateNonWeekendHolidays(double start, double end, ::doubleArray* holidays)
 {
     auto nonWeekendHolidays = int32_t(0);
     auto startDay = start < end ? start : end;
@@ -95,14 +95,14 @@ int32_t org::apache::poi::ss::formula::atp::WorkdayCalculator::calculateNonWeeke
     return start <= end ? nonWeekendHolidays : -nonWeekendHolidays;
 }
 
-bool org::apache::poi::ss::formula::atp::WorkdayCalculator::isWeekend(double aDate)
+bool poi::ss::formula::atp::WorkdayCalculator::isWeekend(double aDate)
 {
-    auto date = ::org::apache::poi::util::LocaleUtil::getLocaleCalendar();
-    npc(date)->setTime(::org::apache::poi::ss::usermodel::DateUtil::getJavaDate(aDate));
+    auto date = ::poi::util::LocaleUtil::getLocaleCalendar();
+    npc(date)->setTime(::poi::ss::usermodel::DateUtil::getJavaDate(aDate));
     return npc(date)->get(::java::util::Calendar::DAY_OF_WEEK) == ::java::util::Calendar::SATURDAY || npc(date)->get(::java::util::Calendar::DAY_OF_WEEK) == ::java::util::Calendar::SUNDAY;
 }
 
-bool org::apache::poi::ss::formula::atp::WorkdayCalculator::isHoliday(double aDate, ::doubleArray* holidays)
+bool poi::ss::formula::atp::WorkdayCalculator::isHoliday(double aDate, ::doubleArray* holidays)
 {
     for(auto holiday : *npc(holidays)) {
         if(::java::lang::Math::round(holiday) == ::java::lang::Math::round(aDate)) {
@@ -112,25 +112,25 @@ bool org::apache::poi::ss::formula::atp::WorkdayCalculator::isHoliday(double aDa
     return false;
 }
 
-int32_t org::apache::poi::ss::formula::atp::WorkdayCalculator::isNonWorkday(double aDate, ::doubleArray* holidays)
+int32_t poi::ss::formula::atp::WorkdayCalculator::isNonWorkday(double aDate, ::doubleArray* holidays)
 {
     return isWeekend(aDate) || isHoliday(aDate, holidays) ? int32_t(1) : int32_t(0);
 }
 
-bool org::apache::poi::ss::formula::atp::WorkdayCalculator::isInARange(double start, double end, double aDate)
+bool poi::ss::formula::atp::WorkdayCalculator::isInARange(double start, double end, double aDate)
 {
     return aDate >= start && aDate <= end;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::atp::WorkdayCalculator::class_()
+java::lang::Class* poi::ss::formula::atp::WorkdayCalculator::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.atp.WorkdayCalculator", 47);
     return c;
 }
 
-void org::apache::poi::ss::formula::atp::WorkdayCalculator::clinit()
+void poi::ss::formula::atp::WorkdayCalculator::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -146,7 +146,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::formula::atp::WorkdayCalculator::getClass0()
+java::lang::Class* poi::ss::formula::atp::WorkdayCalculator::getClass0()
 {
     return class_();
 }

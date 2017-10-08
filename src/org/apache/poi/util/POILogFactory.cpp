@@ -29,51 +29,51 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::util::POILogFactory::POILogFactory(const ::default_init_tag&)
+poi::util::POILogFactory::POILogFactory(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::util::POILogFactory::POILogFactory() 
+poi::util::POILogFactory::POILogFactory() 
     : POILogFactory(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-java::util::Map*& org::apache::poi::util::POILogFactory::_loggers()
+java::util::Map*& poi::util::POILogFactory::_loggers()
 {
     clinit();
     return _loggers_;
 }
-java::util::Map* org::apache::poi::util::POILogFactory::_loggers_;
+java::util::Map* poi::util::POILogFactory::_loggers_;
 
-org::apache::poi::util::POILogger*& org::apache::poi::util::POILogFactory::_nullLogger()
+poi::util::POILogger*& poi::util::POILogFactory::_nullLogger()
 {
     clinit();
     return _nullLogger_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::util::POILogFactory::_nullLogger_;
+poi::util::POILogger* poi::util::POILogFactory::_nullLogger_;
 
-java::lang::String*& org::apache::poi::util::POILogFactory::_loggerClassName()
+java::lang::String*& poi::util::POILogFactory::_loggerClassName()
 {
     clinit();
     return _loggerClassName_;
 }
-java::lang::String* org::apache::poi::util::POILogFactory::_loggerClassName_;
+java::lang::String* poi::util::POILogFactory::_loggerClassName_;
 
-void org::apache::poi::util::POILogFactory::ctor()
+void poi::util::POILogFactory::ctor()
 {
     super::ctor();
 }
 
-org::apache::poi::util::POILogger* org::apache::poi::util::POILogFactory::getLogger(::java::lang::Class* theclass)
+poi::util::POILogger* poi::util::POILogFactory::getLogger(::java::lang::Class* theclass)
 {
     clinit();
     return getLogger(npc(theclass)->getName());
 }
 
-org::apache::poi::util::POILogger* org::apache::poi::util::POILogFactory::getLogger(::java::lang::String* cat)
+poi::util::POILogger* poi::util::POILogFactory::getLogger(::java::lang::String* cat)
 {
     clinit();
     if(_loggerClassName_ == nullptr) {
@@ -105,13 +105,13 @@ org::apache::poi::util::POILogger* org::apache::poi::util::POILogFactory::getLog
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::util::POILogFactory::class_()
+java::lang::Class* poi::util::POILogFactory::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.util.POILogFactory", 33);
     return c;
 }
 
-void org::apache::poi::util::POILogFactory::clinit()
+void poi::util::POILogFactory::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -129,7 +129,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::util::POILogFactory::getClass0()
+java::lang::Class* poi::util::POILogFactory::getClass0()
 {
     return class_();
 }

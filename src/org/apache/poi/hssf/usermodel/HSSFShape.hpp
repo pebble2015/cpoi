@@ -14,16 +14,16 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFShape
+class poi::hssf::usermodel::HSSFShape
     : public virtual ::java::lang::Object
-    , public virtual ::org::apache::poi::ss::usermodel::Shape
+    , public virtual ::poi::ss::usermodel::Shape
 {
 
 public:
     typedef ::java::lang::Object super;
 
 private:
-    static ::org::apache::poi::util::POILogger* LOG_;
+    static ::poi::util::POILogger* LOG_;
 
 public:
     static constexpr int32_t LINEWIDTH_ONE_PT { int32_t(12700) };
@@ -53,20 +53,20 @@ public: /* package */
 
 private:
     HSSFPatriarch* _patriarch {  };
-    ::org::apache::poi::ddf::EscherContainerRecord* _escherContainer {  };
-    ::org::apache::poi::hssf::record::ObjRecord* _objRecord {  };
-    ::org::apache::poi::ddf::EscherOptRecord* _optRecord {  };
+    ::poi::ddf::EscherContainerRecord* _escherContainer {  };
+    ::poi::hssf::record::ObjRecord* _objRecord {  };
+    ::poi::ddf::EscherOptRecord* _optRecord {  };
 
 public:
     static constexpr int32_t NO_FILLHITTEST_TRUE { int32_t(1114112) };
     static constexpr int32_t NO_FILLHITTEST_FALSE { int32_t(65536) };
 protected:
-    void ctor(::org::apache::poi::ddf::EscherContainerRecord* spContainer, ::org::apache::poi::hssf::record::ObjRecord* objRecord);
+    void ctor(::poi::ddf::EscherContainerRecord* spContainer, ::poi::hssf::record::ObjRecord* objRecord);
     void ctor(HSSFShape* parent, HSSFAnchor* anchor);
 
 public: /* protected */
-    virtual ::org::apache::poi::ddf::EscherContainerRecord* createSpContainer() = 0;
-    virtual ::org::apache::poi::hssf::record::ObjRecord* createObjRecord() = 0;
+    virtual ::poi::ddf::EscherContainerRecord* createSpContainer() = 0;
+    virtual ::poi::hssf::record::ObjRecord* createObjRecord() = 0;
     virtual void afterRemove(HSSFPatriarch* patriarch) = 0;
 
 public: /* package */
@@ -75,11 +75,11 @@ public: /* package */
     virtual void afterInsert(HSSFPatriarch* patriarch) = 0;
 
 public: /* protected */
-    virtual ::org::apache::poi::ddf::EscherContainerRecord* getEscherContainer();
-    virtual ::org::apache::poi::hssf::record::ObjRecord* getObjRecord();
+    virtual ::poi::ddf::EscherContainerRecord* getEscherContainer();
+    virtual ::poi::hssf::record::ObjRecord* getObjRecord();
 
 public:
-    virtual ::org::apache::poi::ddf::EscherOptRecord* getOptRecord();
+    virtual ::poi::ddf::EscherOptRecord* getOptRecord();
     HSSFShape* getParent() override;
     HSSFAnchor* getAnchor() override;
     virtual void setAnchor(HSSFAnchor* anchor);
@@ -97,7 +97,7 @@ public:
     void setNoFill(bool noFill) override;
 
 public: /* protected */
-    virtual void setPropertyValue(::org::apache::poi::ddf::EscherProperty* property);
+    virtual void setPropertyValue(::poi::ddf::EscherProperty* property);
 
 public:
     virtual void setFlipVertical(bool value);
@@ -122,7 +122,7 @@ public:
     ::java::lang::String* getShapeName() override;
 
     // Generated
-    HSSFShape(::org::apache::poi::ddf::EscherContainerRecord* spContainer, ::org::apache::poi::hssf::record::ObjRecord* objRecord);
+    HSSFShape(::poi::ddf::EscherContainerRecord* spContainer, ::poi::hssf::record::ObjRecord* objRecord);
     HSSFShape(HSSFShape* parent, HSSFAnchor* anchor);
 protected:
     HSSFShape(const ::default_init_tag&);
@@ -133,6 +133,6 @@ public:
     static void clinit();
 
 private:
-    static ::org::apache::poi::util::POILogger*& LOG();
+    static ::poi::util::POILogger*& LOG();
     virtual ::java::lang::Class* getClass0();
 };

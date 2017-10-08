@@ -25,47 +25,41 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace poifs
     {
-        namespace poi
+        namespace filesystem
         {
-            namespace poifs
-            {
-                namespace filesystem
-                {
-typedef ::SubArray< ::org::apache::poi::poifs::filesystem::Ole10Native_EncodingMode, ::java::lang::EnumArray > Ole10Native_EncodingModeArray;
-                } // filesystem
-            } // poifs
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::poifs::filesystem::Ole10Native_EncodingMode, ::java::lang::EnumArray > Ole10Native_EncodingModeArray;
+        } // filesystem
+    } // poifs
+} // poi
 
-org::apache::poi::poifs::filesystem::Ole10Native_EncodingMode::Ole10Native_EncodingMode(const ::default_init_tag&)
+poi::poifs::filesystem::Ole10Native_EncodingMode::Ole10Native_EncodingMode(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::filesystem::Ole10Native_EncodingMode::Ole10Native_EncodingMode(::java::lang::String* name, int ordinal)
+poi::poifs::filesystem::Ole10Native_EncodingMode::Ole10Native_EncodingMode(::java::lang::String* name, int ordinal)
     : Ole10Native_EncodingMode(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal);
 }
 
-org::apache::poi::poifs::filesystem::Ole10Native_EncodingMode* org::apache::poi::poifs::filesystem::Ole10Native_EncodingMode::parsed = new ::org::apache::poi::poifs::filesystem::Ole10Native_EncodingMode(u"parsed"_j, 0);
-org::apache::poi::poifs::filesystem::Ole10Native_EncodingMode* org::apache::poi::poifs::filesystem::Ole10Native_EncodingMode::unparsed = new ::org::apache::poi::poifs::filesystem::Ole10Native_EncodingMode(u"unparsed"_j, 1);
-org::apache::poi::poifs::filesystem::Ole10Native_EncodingMode* org::apache::poi::poifs::filesystem::Ole10Native_EncodingMode::compact = new ::org::apache::poi::poifs::filesystem::Ole10Native_EncodingMode(u"compact"_j, 2);
+poi::poifs::filesystem::Ole10Native_EncodingMode* poi::poifs::filesystem::Ole10Native_EncodingMode::parsed = new ::poi::poifs::filesystem::Ole10Native_EncodingMode(u"parsed"_j, 0);
+poi::poifs::filesystem::Ole10Native_EncodingMode* poi::poifs::filesystem::Ole10Native_EncodingMode::unparsed = new ::poi::poifs::filesystem::Ole10Native_EncodingMode(u"unparsed"_j, 1);
+poi::poifs::filesystem::Ole10Native_EncodingMode* poi::poifs::filesystem::Ole10Native_EncodingMode::compact = new ::poi::poifs::filesystem::Ole10Native_EncodingMode(u"compact"_j, 2);
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::filesystem::Ole10Native_EncodingMode::class_()
+java::lang::Class* poi::poifs::filesystem::Ole10Native_EncodingMode::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.filesystem.Ole10Native.EncodingMode", 56);
     return c;
 }
 
-org::apache::poi::poifs::filesystem::Ole10Native_EncodingMode* org::apache::poi::poifs::filesystem::Ole10Native_EncodingMode::valueOf(::java::lang::String* a0)
+poi::poifs::filesystem::Ole10Native_EncodingMode* poi::poifs::filesystem::Ole10Native_EncodingMode::valueOf(::java::lang::String* a0)
 {
     if(compact->toString()->equals(a0))
         return compact;
@@ -76,16 +70,16 @@ org::apache::poi::poifs::filesystem::Ole10Native_EncodingMode* org::apache::poi:
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::poifs::filesystem::Ole10Native_EncodingModeArray* org::apache::poi::poifs::filesystem::Ole10Native_EncodingMode::values()
+poi::poifs::filesystem::Ole10Native_EncodingModeArray* poi::poifs::filesystem::Ole10Native_EncodingMode::values()
 {
-    return new org::apache::poi::poifs::filesystem::Ole10Native_EncodingModeArray({
+    return new poi::poifs::filesystem::Ole10Native_EncodingModeArray({
         compact,
         parsed,
         unparsed,
     });
 }
 
-java::lang::Class* org::apache::poi::poifs::filesystem::Ole10Native_EncodingMode::getClass0()
+java::lang::Class* poi::poifs::filesystem::Ole10Native_EncodingMode::getClass0()
 {
     return class_();
 }

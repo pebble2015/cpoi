@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hpsf::VariantBool
+class poi::hpsf::VariantBool
     : public virtual ::java::lang::Object
 {
 
@@ -17,7 +17,7 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    static ::org::apache::poi::util::POILogger* LOG_;
+    static ::poi::util::POILogger* LOG_;
 
 public: /* package */
     static constexpr int32_t SIZE { int32_t(2) };
@@ -28,7 +28,7 @@ protected:
     void ctor();
 
 public: /* package */
-    virtual void read(::org::apache::poi::util::LittleEndianByteArrayInputStream* lei);
+    virtual void read(::poi::util::LittleEndianByteArrayInputStream* lei);
     virtual bool getValue();
     virtual void setValue(bool value);
 
@@ -43,6 +43,6 @@ public:
     static void clinit();
 
 private:
-    static ::org::apache::poi::util::POILogger*& LOG();
+    static ::poi::util::POILogger*& LOG();
     virtual ::java::lang::Class* getClass0();
 };

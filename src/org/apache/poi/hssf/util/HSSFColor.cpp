@@ -85,44 +85,44 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::util::HSSFColor::HSSFColor(const ::default_init_tag&)
+poi::hssf::util::HSSFColor::HSSFColor(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::util::HSSFColor::HSSFColor() 
+poi::hssf::util::HSSFColor::HSSFColor() 
     : HSSFColor(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::util::HSSFColor::HSSFColor(int32_t index, int32_t index2, ::java::awt::Color* color) 
+poi::hssf::util::HSSFColor::HSSFColor(int32_t index, int32_t index2, ::java::awt::Color* color) 
     : HSSFColor(*static_cast< ::default_init_tag* >(0))
 {
     ctor(index,index2,color);
 }
 
-java::util::Map*& org::apache::poi::hssf::util::HSSFColor::indexHash()
+java::util::Map*& poi::hssf::util::HSSFColor::indexHash()
 {
     clinit();
     return indexHash_;
 }
-java::util::Map* org::apache::poi::hssf::util::HSSFColor::indexHash_;
+java::util::Map* poi::hssf::util::HSSFColor::indexHash_;
 
-java::util::Map*& org::apache::poi::hssf::util::HSSFColor::enumList()
+java::util::Map*& poi::hssf::util::HSSFColor::enumList()
 {
     clinit();
     return enumList_;
 }
-java::util::Map* org::apache::poi::hssf::util::HSSFColor::enumList_;
+java::util::Map* poi::hssf::util::HSSFColor::enumList_;
 
-void org::apache::poi::hssf::util::HSSFColor::ctor()
+void poi::hssf::util::HSSFColor::ctor()
 {
     ctor(int32_t(64), -int32_t(1), ::java::awt::Color::BLACK());
 }
 
-void org::apache::poi::hssf::util::HSSFColor::ctor(int32_t index, int32_t index2, ::java::awt::Color* color)
+void poi::hssf::util::HSSFColor::ctor(int32_t index, int32_t index2, ::java::awt::Color* color)
 {
     super::ctor();
     this->index = index;
@@ -130,7 +130,7 @@ void org::apache::poi::hssf::util::HSSFColor::ctor(int32_t index, int32_t index2
     this->color = color;
 }
 
-java::util::Map* org::apache::poi::hssf::util::HSSFColor::getIndexHash()
+java::util::Map* poi::hssf::util::HSSFColor::getIndexHash()
 {
     clinit();
     if(indexHash_ == nullptr) {
@@ -139,13 +139,13 @@ java::util::Map* org::apache::poi::hssf::util::HSSFColor::getIndexHash()
     return indexHash_;
 }
 
-java::util::Map* org::apache::poi::hssf::util::HSSFColor::getMutableIndexHash()
+java::util::Map* poi::hssf::util::HSSFColor::getMutableIndexHash()
 {
     clinit();
     return createColorsByIndexMap();
 }
 
-java::util::Map* org::apache::poi::hssf::util::HSSFColor::createColorsByIndexMap()
+java::util::Map* poi::hssf::util::HSSFColor::createColorsByIndexMap()
 {
     clinit();
     auto eList = mapEnumToColorClass();
@@ -166,13 +166,13 @@ java::util::Map* org::apache::poi::hssf::util::HSSFColor::createColorsByIndexMap
     return result;
 }
 
-java::util::Map* org::apache::poi::hssf::util::HSSFColor::getTripletHash()
+java::util::Map* poi::hssf::util::HSSFColor::getTripletHash()
 {
     clinit();
     return createColorsByHexStringMap();
 }
 
-java::util::Map* org::apache::poi::hssf::util::HSSFColor::createColorsByHexStringMap()
+java::util::Map* poi::hssf::util::HSSFColor::createColorsByHexStringMap()
 {
     clinit();
     auto eList = mapEnumToColorClass();
@@ -189,7 +189,7 @@ java::util::Map* org::apache::poi::hssf::util::HSSFColor::createColorsByHexStrin
     return result;
 }
 
-java::util::Map* org::apache::poi::hssf::util::HSSFColor::mapEnumToColorClass()
+java::util::Map* poi::hssf::util::HSSFColor::mapEnumToColorClass()
 {
     clinit();
     if(enumList_ == nullptr) {
@@ -245,17 +245,17 @@ java::util::Map* org::apache::poi::hssf::util::HSSFColor::mapEnumToColorClass()
     return enumList_;
 }
 
-int16_t org::apache::poi::hssf::util::HSSFColor::getIndex()
+int16_t poi::hssf::util::HSSFColor::getIndex()
 {
     return static_cast< int16_t >(index);
 }
 
-int16_t org::apache::poi::hssf::util::HSSFColor::getIndex2()
+int16_t poi::hssf::util::HSSFColor::getIndex2()
 {
     return static_cast< int16_t >(index2);
 }
 
-int16_tArray* org::apache::poi::hssf::util::HSSFColor::getTriplet()
+int16_tArray* poi::hssf::util::HSSFColor::getTriplet()
 {
     return new ::int16_tArray({
         static_cast< int16_t >(npc(color)->getRed())
@@ -264,7 +264,7 @@ int16_tArray* org::apache::poi::hssf::util::HSSFColor::getTriplet()
     });
 }
 
-java::lang::String* org::apache::poi::hssf::util::HSSFColor::getHexString()
+java::lang::String* poi::hssf::util::HSSFColor::getHexString()
 {
     return npc((::java::lang::StringBuilder().append(::java::lang::Integer::toHexString(npc(color)->getRed() * int32_t(257)))->append(u":"_j)
         ->append(::java::lang::Integer::toHexString(npc(color)->getGreen() * int32_t(257)))
@@ -272,7 +272,7 @@ java::lang::String* org::apache::poi::hssf::util::HSSFColor::getHexString()
         ->append(::java::lang::Integer::toHexString(npc(color)->getBlue() * int32_t(257)))->toString()))->toUpperCase(::java::util::Locale::ROOT());
 }
 
-org::apache::poi::hssf::util::HSSFColor* org::apache::poi::hssf::util::HSSFColor::toHSSFColor(::org::apache::poi::ss::usermodel::Color* color)
+poi::hssf::util::HSSFColor* poi::hssf::util::HSSFColor::toHSSFColor(::poi::ss::usermodel::Color* color)
 {
     clinit();
     if(color != nullptr && !(dynamic_cast< HSSFColor* >(color) != nullptr)) {
@@ -283,13 +283,13 @@ org::apache::poi::hssf::util::HSSFColor* org::apache::poi::hssf::util::HSSFColor
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::util::HSSFColor::class_()
+java::lang::Class* poi::hssf::util::HSSFColor::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.util.HSSFColor", 34);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::util::HSSFColor::getClass0()
+java::lang::Class* poi::hssf::util::HSSFColor::getClass0()
 {
     return class_();
 }

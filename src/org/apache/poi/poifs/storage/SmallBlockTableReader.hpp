@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::storage::SmallBlockTableReader final
+class poi::poifs::storage::SmallBlockTableReader final
     : public ::java::lang::Object
 {
 
@@ -18,12 +18,12 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    static BlockList* prepareSmallDocumentBlocks(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, RawDataBlockList* blockList, ::org::apache::poi::poifs::property::RootProperty* root, int32_t sbatStart) /* throws(IOException) */;
-    static BlockAllocationTableReader* prepareReader(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, RawDataBlockList* blockList, BlockList* list, ::org::apache::poi::poifs::property::RootProperty* root, int32_t sbatStart) /* throws(IOException) */;
+    static BlockList* prepareSmallDocumentBlocks(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, RawDataBlockList* blockList, ::poi::poifs::property::RootProperty* root, int32_t sbatStart) /* throws(IOException) */;
+    static BlockAllocationTableReader* prepareReader(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, RawDataBlockList* blockList, BlockList* list, ::poi::poifs::property::RootProperty* root, int32_t sbatStart) /* throws(IOException) */;
 
 public:
-    static BlockAllocationTableReader* _getSmallDocumentBlockReader(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, RawDataBlockList* blockList, ::org::apache::poi::poifs::property::RootProperty* root, int32_t sbatStart) /* throws(IOException) */;
-    static BlockList* getSmallDocumentBlocks(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, RawDataBlockList* blockList, ::org::apache::poi::poifs::property::RootProperty* root, int32_t sbatStart) /* throws(IOException) */;
+    static BlockAllocationTableReader* _getSmallDocumentBlockReader(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, RawDataBlockList* blockList, ::poi::poifs::property::RootProperty* root, int32_t sbatStart) /* throws(IOException) */;
+    static BlockList* getSmallDocumentBlocks(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, RawDataBlockList* blockList, ::poi::poifs::property::RootProperty* root, int32_t sbatStart) /* throws(IOException) */;
 
     // Generated
     SmallBlockTableReader();

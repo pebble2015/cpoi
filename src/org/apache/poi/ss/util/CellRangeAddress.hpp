@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::util::CellRangeAddress
+class poi::ss::util::CellRangeAddress
     : public CellRangeAddressBase
 {
 
@@ -22,12 +22,12 @@ protected:
     void ctor(int32_t firstRow, int32_t lastRow, int32_t firstCol, int32_t lastCol);
 
 public:
-    virtual void serialize(::org::apache::poi::util::LittleEndianOutput* out);
+    virtual void serialize(::poi::util::LittleEndianOutput* out);
 protected:
-    void ctor(::org::apache::poi::hssf::record::RecordInputStream* in);
+    void ctor(::poi::hssf::record::RecordInputStream* in);
 
 private:
-    static int32_t readUShortAndCheck(::org::apache::poi::hssf::record::RecordInputStream* in);
+    static int32_t readUShortAndCheck(::poi::hssf::record::RecordInputStream* in);
 
 public:
     virtual CellRangeAddress* copy();
@@ -38,7 +38,7 @@ public:
 
     // Generated
     CellRangeAddress(int32_t firstRow, int32_t lastRow, int32_t firstCol, int32_t lastCol);
-    CellRangeAddress(::org::apache::poi::hssf::record::RecordInputStream* in);
+    CellRangeAddress(::poi::hssf::record::RecordInputStream* in);
 protected:
     CellRangeAddress(const ::default_init_tag&);
 

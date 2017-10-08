@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::geom::ClosePathCommand
+class poi::sl::draw::geom::ClosePathCommand
     : public virtual ::java::lang::Object
     , public virtual PathCommand
 {

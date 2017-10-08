@@ -8,12 +8,12 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::cont::ContinuableRecord
-    : public ::org::apache::poi::hssf::record::Record
+class poi::hssf::record::cont::ContinuableRecord
+    : public ::poi::hssf::record::Record
 {
 
 public:
-    typedef ::org::apache::poi::hssf::record::Record super;
+    typedef ::poi::hssf::record::Record super;
 protected:
     void ctor();
 

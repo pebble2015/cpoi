@@ -32,31 +32,25 @@ typedef ::SubArray< ::java::lang::Cloneable, ObjectArray > CloneableArray;
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
+            namespace cf
             {
-                namespace record
-                {
-                    namespace cf
-                    {
-typedef ::SubArray< ::org::apache::poi::hssf::record::cf::Threshold, ::java::lang::ObjectArray > ThresholdArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::cf::ColorGradientThreshold, ThresholdArray, ::java::lang::CloneableArray > ColorGradientThresholdArray;
-                    } // cf
+typedef ::SubArray< ::poi::hssf::record::cf::Threshold, ::java::lang::ObjectArray > ThresholdArray;
+typedef ::SubArray< ::poi::hssf::record::cf::ColorGradientThreshold, ThresholdArray, ::java::lang::CloneableArray > ColorGradientThresholdArray;
+            } // cf
 
-                    namespace common
-                    {
-typedef ::SubArray< ::org::apache::poi::hssf::record::common::ExtendedColor, ::java::lang::ObjectArray, ::java::lang::CloneableArray > ExtendedColorArray;
-                    } // common
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+            namespace common
+            {
+typedef ::SubArray< ::poi::hssf::record::common::ExtendedColor, ::java::lang::ObjectArray, ::java::lang::CloneableArray > ExtendedColorArray;
+            } // common
+        } // record
+    } // hssf
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -65,60 +59,60 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::cf::ColorGradientFormatting::ColorGradientFormatting(const ::default_init_tag&)
+poi::hssf::record::cf::ColorGradientFormatting::ColorGradientFormatting(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::cf::ColorGradientFormatting::ColorGradientFormatting() 
+poi::hssf::record::cf::ColorGradientFormatting::ColorGradientFormatting() 
     : ColorGradientFormatting(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::cf::ColorGradientFormatting::ColorGradientFormatting(::org::apache::poi::util::LittleEndianInput* in) 
+poi::hssf::record::cf::ColorGradientFormatting::ColorGradientFormatting(::poi::util::LittleEndianInput* in) 
     : ColorGradientFormatting(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-void org::apache::poi::hssf::record::cf::ColorGradientFormatting::init()
+void poi::hssf::record::cf::ColorGradientFormatting::init()
 {
     options = int32_t(0);
 }
 
-org::apache::poi::util::POILogger*& org::apache::poi::hssf::record::cf::ColorGradientFormatting::log()
+poi::util::POILogger*& poi::hssf::record::cf::ColorGradientFormatting::log()
 {
     clinit();
     return log_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::hssf::record::cf::ColorGradientFormatting::log_;
+poi::util::POILogger* poi::hssf::record::cf::ColorGradientFormatting::log_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::cf::ColorGradientFormatting::clamp()
+poi::util::BitField*& poi::hssf::record::cf::ColorGradientFormatting::clamp()
 {
     clinit();
     return clamp_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::cf::ColorGradientFormatting::clamp_;
+poi::util::BitField* poi::hssf::record::cf::ColorGradientFormatting::clamp_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::cf::ColorGradientFormatting::background()
+poi::util::BitField*& poi::hssf::record::cf::ColorGradientFormatting::background()
 {
     clinit();
     return background_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::cf::ColorGradientFormatting::background_;
+poi::util::BitField* poi::hssf::record::cf::ColorGradientFormatting::background_;
 
-void org::apache::poi::hssf::record::cf::ColorGradientFormatting::ctor()
+void poi::hssf::record::cf::ColorGradientFormatting::ctor()
 {
     super::ctor();
     init();
     options = 3;
     thresholds = new ColorGradientThresholdArray(int32_t(3));
-    colors = new ::org::apache::poi::hssf::record::common::ExtendedColorArray(int32_t(3));
+    colors = new ::poi::hssf::record::common::ExtendedColorArray(int32_t(3));
 }
 
-void org::apache::poi::hssf::record::cf::ColorGradientFormatting::ctor(::org::apache::poi::util::LittleEndianInput* in)
+void poi::hssf::record::cf::ColorGradientFormatting::ctor(::poi::util::LittleEndianInput* in)
 {
     super::ctor();
     init();
@@ -127,7 +121,7 @@ void org::apache::poi::hssf::record::cf::ColorGradientFormatting::ctor(::org::ap
     int32_t numI = npc(in)->readByte();
     int32_t numG = npc(in)->readByte();
     if(numI != numG) {
-        npc(log_)->log(::org::apache::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Inconsistent Color Gradient defintion, found "_j)->append(numI)
+        npc(log_)->log(::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Inconsistent Color Gradient defintion, found "_j)->append(numI)
             ->append(u" vs "_j)
             ->append(numG)
             ->append(u" entries"_j)->toString())}));
@@ -137,23 +131,23 @@ void org::apache::poi::hssf::record::cf::ColorGradientFormatting::ctor(::org::ap
     for (auto i = int32_t(0); i < npc(thresholds)->length; i++) {
         thresholds->set(i, new ColorGradientThreshold(in));
     }
-    colors = new ::org::apache::poi::hssf::record::common::ExtendedColorArray(numG);
+    colors = new ::poi::hssf::record::common::ExtendedColorArray(numG);
     for (auto i = int32_t(0); i < npc(colors)->length; i++) {
         npc(in)->readDouble();
-        colors->set(i, new ::org::apache::poi::hssf::record::common::ExtendedColor(in));
+        colors->set(i, new ::poi::hssf::record::common::ExtendedColor(in));
     }
 }
 
-int32_t org::apache::poi::hssf::record::cf::ColorGradientFormatting::getNumControlPoints()
+int32_t poi::hssf::record::cf::ColorGradientFormatting::getNumControlPoints()
 {
     return npc(thresholds)->length;
 }
 
-void org::apache::poi::hssf::record::cf::ColorGradientFormatting::setNumControlPoints(int32_t num)
+void poi::hssf::record::cf::ColorGradientFormatting::setNumControlPoints(int32_t num)
 {
     if(num != npc(thresholds)->length) {
         auto nt = new ColorGradientThresholdArray(num);
-        auto nc = new ::org::apache::poi::hssf::record::common::ExtendedColorArray(num);
+        auto nc = new ::poi::hssf::record::common::ExtendedColorArray(num);
         auto copy = ::java::lang::Math::min(npc(thresholds)->length, num);
         ::java::lang::System::arraycopy(thresholds, 0, nt, 0, copy);
         ::java::lang::System::arraycopy(colors, 0, nc, 0, copy);
@@ -163,44 +157,44 @@ void org::apache::poi::hssf::record::cf::ColorGradientFormatting::setNumControlP
     }
 }
 
-org::apache::poi::hssf::record::cf::ColorGradientThresholdArray* org::apache::poi::hssf::record::cf::ColorGradientFormatting::getThresholds()
+poi::hssf::record::cf::ColorGradientThresholdArray* poi::hssf::record::cf::ColorGradientFormatting::getThresholds()
 {
     return thresholds;
 }
 
-void org::apache::poi::hssf::record::cf::ColorGradientFormatting::setThresholds(ColorGradientThresholdArray* thresholds)
+void poi::hssf::record::cf::ColorGradientFormatting::setThresholds(ColorGradientThresholdArray* thresholds)
 {
     this->thresholds = (thresholds == nullptr) ? static_cast< ColorGradientThresholdArray* >(nullptr) : npc(thresholds)->clone();
     updateThresholdPositions();
 }
 
-org::apache::poi::hssf::record::common::ExtendedColorArray* org::apache::poi::hssf::record::cf::ColorGradientFormatting::getColors()
+poi::hssf::record::common::ExtendedColorArray* poi::hssf::record::cf::ColorGradientFormatting::getColors()
 {
     return colors;
 }
 
-void org::apache::poi::hssf::record::cf::ColorGradientFormatting::setColors(::org::apache::poi::hssf::record::common::ExtendedColorArray* colors)
+void poi::hssf::record::cf::ColorGradientFormatting::setColors(::poi::hssf::record::common::ExtendedColorArray* colors)
 {
-    this->colors = (colors == nullptr) ? static_cast< ::org::apache::poi::hssf::record::common::ExtendedColorArray* >(nullptr) : npc(colors)->clone();
+    this->colors = (colors == nullptr) ? static_cast< ::poi::hssf::record::common::ExtendedColorArray* >(nullptr) : npc(colors)->clone();
 }
 
-bool org::apache::poi::hssf::record::cf::ColorGradientFormatting::isClampToCurve()
+bool poi::hssf::record::cf::ColorGradientFormatting::isClampToCurve()
 {
     return getOptionFlag(clamp_);
 }
 
-bool org::apache::poi::hssf::record::cf::ColorGradientFormatting::isAppliesToBackground()
+bool poi::hssf::record::cf::ColorGradientFormatting::isAppliesToBackground()
 {
     return getOptionFlag(background_);
 }
 
-bool org::apache::poi::hssf::record::cf::ColorGradientFormatting::getOptionFlag(::org::apache::poi::util::BitField* field)
+bool poi::hssf::record::cf::ColorGradientFormatting::getOptionFlag(::poi::util::BitField* field)
 {
     auto value = npc(field)->getValue(options);
     return value == 0 ? false : true;
 }
 
-void org::apache::poi::hssf::record::cf::ColorGradientFormatting::updateThresholdPositions()
+void poi::hssf::record::cf::ColorGradientFormatting::updateThresholdPositions()
 {
     auto step = 1.0 / (npc(thresholds)->length - int32_t(1));
     for (auto i = int32_t(0); i < npc(thresholds)->length; i++) {
@@ -208,7 +202,7 @@ void org::apache::poi::hssf::record::cf::ColorGradientFormatting::updateThreshol
     }
 }
 
-java::lang::String* org::apache::poi::hssf::record::cf::ColorGradientFormatting::toString()
+java::lang::String* poi::hssf::record::cf::ColorGradientFormatting::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"    [Color Gradient Formatting]\n"_j);
@@ -224,18 +218,18 @@ java::lang::String* org::apache::poi::hssf::record::cf::ColorGradientFormatting:
     return npc(buffer)->toString();
 }
 
-java::lang::Object* org::apache::poi::hssf::record::cf::ColorGradientFormatting::clone()
+java::lang::Object* poi::hssf::record::cf::ColorGradientFormatting::clone()
 {
     auto rec = new ColorGradientFormatting();
     npc(rec)->options = options;
     npc(rec)->thresholds = new ColorGradientThresholdArray(npc(thresholds)->length);
-    npc(rec)->colors = new ::org::apache::poi::hssf::record::common::ExtendedColorArray(npc(colors)->length);
+    npc(rec)->colors = new ::poi::hssf::record::common::ExtendedColorArray(npc(colors)->length);
     ::java::lang::System::arraycopy(thresholds, 0, npc(rec)->thresholds, 0, npc(thresholds)->length);
     ::java::lang::System::arraycopy(colors, 0, npc(rec)->colors, 0, npc(colors)->length);
     return rec;
 }
 
-int32_t org::apache::poi::hssf::record::cf::ColorGradientFormatting::getDataLength()
+int32_t poi::hssf::record::cf::ColorGradientFormatting::getDataLength()
 {
     auto len = int32_t(6);
     for(auto t : *npc(thresholds)) {
@@ -248,7 +242,7 @@ int32_t org::apache::poi::hssf::record::cf::ColorGradientFormatting::getDataLeng
     return len;
 }
 
-void org::apache::poi::hssf::record::cf::ColorGradientFormatting::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::cf::ColorGradientFormatting::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(0);
     npc(out)->writeByte(0);
@@ -268,22 +262,22 @@ void org::apache::poi::hssf::record::cf::ColorGradientFormatting::serialize(::or
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::cf::ColorGradientFormatting::class_()
+java::lang::Class* poi::hssf::record::cf::ColorGradientFormatting::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.cf.ColorGradientFormatting", 53);
     return c;
 }
 
-void org::apache::poi::hssf::record::cf::ColorGradientFormatting::clinit()
+void poi::hssf::record::cf::ColorGradientFormatting::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        log_ = ::org::apache::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(ColorGradientFormatting::class_()));
-        clamp_ = ::org::apache::poi::util::BitFieldFactory::getInstance(1);
-        background_ = ::org::apache::poi::util::BitFieldFactory::getInstance(2);
+        log_ = ::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(ColorGradientFormatting::class_()));
+        clamp_ = ::poi::util::BitFieldFactory::getInstance(1);
+        background_ = ::poi::util::BitFieldFactory::getInstance(2);
     }
 };
 
@@ -292,7 +286,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::hssf::record::cf::ColorGradientFormatting::getClass0()
+java::lang::Class* poi::hssf::record::cf::ColorGradientFormatting::getClass0()
 {
     return class_();
 }

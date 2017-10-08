@@ -34,7 +34,7 @@ typedef ::SubArray< ::java::awt::Color, ::java::lang::ObjectArray, PaintArray, :
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::PathGradientPaint
+class poi::sl::draw::PathGradientPaint
     : public virtual ::java::lang::Object
     , public virtual ::java::awt::Paint
 {

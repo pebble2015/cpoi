@@ -5,7 +5,7 @@
 #include <org/apache/poi/ss/usermodel/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::usermodel::AutoFilter
+struct poi::ss::usermodel::AutoFilter
     : public virtual ::java::lang::Object
 {
 

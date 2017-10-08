@@ -14,19 +14,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::util::LZWDecompresser::LZWDecompresser(const ::default_init_tag&)
+poi::util::LZWDecompresser::LZWDecompresser(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::util::LZWDecompresser::LZWDecompresser(bool maskMeansCompressed, int32_t codeLengthIncrease, bool positionIsBigEndian) 
+poi::util::LZWDecompresser::LZWDecompresser(bool maskMeansCompressed, int32_t codeLengthIncrease, bool positionIsBigEndian) 
     : LZWDecompresser(*static_cast< ::default_init_tag* >(0))
 {
     ctor(maskMeansCompressed,codeLengthIncrease,positionIsBigEndian);
 }
 
-void org::apache::poi::util::LZWDecompresser::ctor(bool maskMeansCompressed, int32_t codeLengthIncrease, bool positionIsBigEndian)
+void poi::util::LZWDecompresser::ctor(bool maskMeansCompressed, int32_t codeLengthIncrease, bool positionIsBigEndian)
 {
     super::ctor();
     this->maskMeansCompressed = maskMeansCompressed;
@@ -34,14 +34,14 @@ void org::apache::poi::util::LZWDecompresser::ctor(bool maskMeansCompressed, int
     this->positionIsBigEndian = positionIsBigEndian;
 }
 
-int8_tArray* org::apache::poi::util::LZWDecompresser::decompress(::java::io::InputStream* src) /* throws(IOException) */
+int8_tArray* poi::util::LZWDecompresser::decompress(::java::io::InputStream* src) /* throws(IOException) */
 {
     auto res = new ::java::io::ByteArrayOutputStream();
     decompress(src, res);
     return npc(res)->toByteArray_();
 }
 
-void org::apache::poi::util::LZWDecompresser::decompress(::java::io::InputStream* src, ::java::io::OutputStream* res) /* throws(IOException) */
+void poi::util::LZWDecompresser::decompress(::java::io::InputStream* src, ::java::io::OutputStream* res) /* throws(IOException) */
 {
     int32_t pos;
     int32_t flag;
@@ -85,7 +85,7 @@ void org::apache::poi::util::LZWDecompresser::decompress(::java::io::InputStream
     }
 }
 
-int8_t org::apache::poi::util::LZWDecompresser::fromInt(int32_t b)
+int8_t poi::util::LZWDecompresser::fromInt(int32_t b)
 {
     clinit();
     if(b < 128)
@@ -94,7 +94,7 @@ int8_t org::apache::poi::util::LZWDecompresser::fromInt(int32_t b)
     return static_cast< int8_t >((b - int32_t(256)));
 }
 
-int32_t org::apache::poi::util::LZWDecompresser::fromByte(int8_t b)
+int32_t poi::util::LZWDecompresser::fromByte(int8_t b)
 {
     clinit();
     if(b >= 0) {
@@ -105,13 +105,13 @@ int32_t org::apache::poi::util::LZWDecompresser::fromByte(int8_t b)
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::util::LZWDecompresser::class_()
+java::lang::Class* poi::util::LZWDecompresser::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.util.LZWDecompresser", 35);
     return c;
 }
 
-java::lang::Class* org::apache::poi::util::LZWDecompresser::getClass0()
+java::lang::Class* poi::util::LZWDecompresser::getClass0()
 {
     return class_();
 }

@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::EvaluationCache final
+class poi::ss::formula::EvaluationCache final
     : public ::java::lang::Object
 {
 
@@ -32,10 +32,10 @@ private:
     void updateAnyBlankReferencingFormulas(int32_t bookIndex, int32_t sheetIndex, int32_t rowIndex, int32_t columnIndex);
 
 public:
-    PlainValueCellCacheEntry* getPlainValueEntry(int32_t bookIndex, int32_t sheetIndex, int32_t rowIndex, int32_t columnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* value);
+    PlainValueCellCacheEntry* getPlainValueEntry(int32_t bookIndex, int32_t sheetIndex, int32_t rowIndex, int32_t columnIndex, ::poi::ss::formula::eval::ValueEval* value);
 
 private:
-    bool areValuesEqual(::org::apache::poi::ss::formula::eval::ValueEval* a, ::org::apache::poi::ss::formula::eval::ValueEval* b);
+    bool areValuesEqual(::poi::ss::formula::eval::ValueEval* a, ::poi::ss::formula::eval::ValueEval* b);
 
 public:
     FormulaCellCacheEntry* getOrCreateFormulaCellEntry(EvaluationCell* cell);

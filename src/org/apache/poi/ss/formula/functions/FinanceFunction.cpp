@@ -21,25 +21,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -48,48 +42,48 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::FinanceFunction::FinanceFunction(const ::default_init_tag&)
+poi::ss::formula::functions::FinanceFunction::FinanceFunction(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::FinanceFunction::FinanceFunction() 
+poi::ss::formula::functions::FinanceFunction::FinanceFunction() 
     : FinanceFunction(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::eval::ValueEval*& org::apache::poi::ss::formula::functions::FinanceFunction::DEFAULT_ARG3()
+poi::ss::formula::eval::ValueEval*& poi::ss::formula::functions::FinanceFunction::DEFAULT_ARG3()
 {
     clinit();
     return DEFAULT_ARG3_;
 }
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::FinanceFunction::DEFAULT_ARG3_;
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::FinanceFunction::DEFAULT_ARG3_;
 
-org::apache::poi::ss::formula::eval::ValueEval*& org::apache::poi::ss::formula::functions::FinanceFunction::DEFAULT_ARG4()
+poi::ss::formula::eval::ValueEval*& poi::ss::formula::functions::FinanceFunction::DEFAULT_ARG4()
 {
     clinit();
     return DEFAULT_ARG4_;
 }
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::FinanceFunction::DEFAULT_ARG4_;
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::FinanceFunction::DEFAULT_ARG4_;
 
-void org::apache::poi::ss::formula::functions::FinanceFunction::ctor()
+void poi::ss::formula::functions::FinanceFunction::ctor()
 {
     super::ctor();
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::FinanceFunction::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* arg0, ::org::apache::poi::ss::formula::eval::ValueEval* arg1, ::org::apache::poi::ss::formula::eval::ValueEval* arg2)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::FinanceFunction::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::poi::ss::formula::eval::ValueEval* arg0, ::poi::ss::formula::eval::ValueEval* arg1, ::poi::ss::formula::eval::ValueEval* arg2)
 {
     return evaluate(srcRowIndex, srcColumnIndex, arg0, arg1, arg2, DEFAULT_ARG3_);
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::FinanceFunction::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* arg0, ::org::apache::poi::ss::formula::eval::ValueEval* arg1, ::org::apache::poi::ss::formula::eval::ValueEval* arg2, ::org::apache::poi::ss::formula::eval::ValueEval* arg3)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::FinanceFunction::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::poi::ss::formula::eval::ValueEval* arg0, ::poi::ss::formula::eval::ValueEval* arg1, ::poi::ss::formula::eval::ValueEval* arg2, ::poi::ss::formula::eval::ValueEval* arg3)
 {
     return evaluate(srcRowIndex, srcColumnIndex, arg0, arg1, arg2, arg3, DEFAULT_ARG4_);
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::FinanceFunction::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* arg0, ::org::apache::poi::ss::formula::eval::ValueEval* arg1, ::org::apache::poi::ss::formula::eval::ValueEval* arg2, ::org::apache::poi::ss::formula::eval::ValueEval* arg3, ::org::apache::poi::ss::formula::eval::ValueEval* arg4)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::FinanceFunction::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::poi::ss::formula::eval::ValueEval* arg0, ::poi::ss::formula::eval::ValueEval* arg1, ::poi::ss::formula::eval::ValueEval* arg2, ::poi::ss::formula::eval::ValueEval* arg3, ::poi::ss::formula::eval::ValueEval* arg4)
 {
     double result;
     try {
@@ -100,42 +94,42 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::f
         auto d4 = NumericFunction::singleOperandEvaluate(arg4, srcRowIndex, srcColumnIndex);
         result = evaluate(d0, d1, d2, d3, d4 != 0.0);
         NumericFunction::checkValue(result);
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
         return npc(e)->getErrorEval();
     }
-    return new ::org::apache::poi::ss::formula::eval::NumberEval(result);
+    return new ::poi::ss::formula::eval::NumberEval(result);
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::FinanceFunction::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::FinanceFunction::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
 {
     switch (npc(args)->length) {
     case int32_t(3):
         return evaluate(srcRowIndex, srcColumnIndex, (*args)[int32_t(0)], (*args)[int32_t(1)], (*args)[int32_t(2)], DEFAULT_ARG3_, DEFAULT_ARG4_);
     case int32_t(4): {
             auto arg3 = (*args)[int32_t(3)];
-            if(arg3 == static_cast< ::org::apache::poi::ss::formula::eval::ValueEval* >(::org::apache::poi::ss::formula::eval::MissingArgEval::instance())) {
+            if(arg3 == static_cast< ::poi::ss::formula::eval::ValueEval* >(::poi::ss::formula::eval::MissingArgEval::instance())) {
                 arg3 = DEFAULT_ARG3_;
             }
             return evaluate(srcRowIndex, srcColumnIndex, (*args)[int32_t(0)], (*args)[int32_t(1)], (*args)[int32_t(2)], arg3, DEFAULT_ARG4_);
         }
     case int32_t(5): {
             auto arg3 = (*args)[int32_t(3)];
-            if(arg3 == static_cast< ::org::apache::poi::ss::formula::eval::ValueEval* >(::org::apache::poi::ss::formula::eval::MissingArgEval::instance())) {
+            if(arg3 == static_cast< ::poi::ss::formula::eval::ValueEval* >(::poi::ss::formula::eval::MissingArgEval::instance())) {
                 arg3 = DEFAULT_ARG3_;
             }
             auto arg4 = (*args)[int32_t(4)];
-            if(arg4 == static_cast< ::org::apache::poi::ss::formula::eval::ValueEval* >(::org::apache::poi::ss::formula::eval::MissingArgEval::instance())) {
+            if(arg4 == static_cast< ::poi::ss::formula::eval::ValueEval* >(::poi::ss::formula::eval::MissingArgEval::instance())) {
                 arg4 = DEFAULT_ARG4_;
             }
             return evaluate(srcRowIndex, srcColumnIndex, (*args)[int32_t(0)], (*args)[int32_t(1)], (*args)[int32_t(2)], arg3, arg4);
         }
     default:
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
 
 }
 
-double org::apache::poi::ss::formula::functions::FinanceFunction::evaluate(::doubleArray* ds) /* throws(EvaluationException) */
+double poi::ss::formula::functions::FinanceFunction::evaluate(::doubleArray* ds) /* throws(EvaluationException) */
 {
     auto arg3 = 0.0;
     auto arg4 = 0.0;
@@ -153,51 +147,51 @@ double org::apache::poi::ss::formula::functions::FinanceFunction::evaluate(::dou
     return evaluate((*ds)[int32_t(0)], (*ds)[int32_t(1)], (*ds)[int32_t(2)], arg3, arg4 != 0.0);
 }
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::FinanceFunction::FV()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::FinanceFunction::FV()
 {
     clinit();
     return FV_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::FinanceFunction::FV_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::FinanceFunction::FV_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::FinanceFunction::NPER()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::FinanceFunction::NPER()
 {
     clinit();
     return NPER_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::FinanceFunction::NPER_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::FinanceFunction::NPER_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::FinanceFunction::PMT()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::FinanceFunction::PMT()
 {
     clinit();
     return PMT_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::FinanceFunction::PMT_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::FinanceFunction::PMT_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::FinanceFunction::PV()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::FinanceFunction::PV()
 {
     clinit();
     return PV_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::FinanceFunction::PV_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::FinanceFunction::PV_;
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::FinanceFunction::class_()
+java::lang::Class* poi::ss::formula::functions::FinanceFunction::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.FinanceFunction", 51);
     return c;
 }
 
-void org::apache::poi::ss::formula::functions::FinanceFunction::clinit()
+void poi::ss::formula::functions::FinanceFunction::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        DEFAULT_ARG3_ = ::org::apache::poi::ss::formula::eval::NumberEval::ZERO();
-        DEFAULT_ARG4_ = ::org::apache::poi::ss::formula::eval::BoolEval::FALSE();
+        DEFAULT_ARG3_ = ::poi::ss::formula::eval::NumberEval::ZERO();
+        DEFAULT_ARG4_ = ::poi::ss::formula::eval::BoolEval::FALSE();
         FV_ = new FinanceFunction_1();
         NPER_ = new FinanceFunction_2();
         PMT_ = new FinanceFunction_3();
@@ -210,7 +204,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::FinanceFunction::getClass0()
+java::lang::Class* poi::ss::formula::functions::FinanceFunction::getClass0()
 {
     return class_();
 }

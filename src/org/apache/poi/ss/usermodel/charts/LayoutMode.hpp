@@ -22,29 +22,23 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace ss
+            namespace charts
             {
-                namespace usermodel
-                {
-                    namespace charts
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::charts::LayoutMode, ::java::lang::EnumArray > LayoutModeArray;
-                    } // charts
-                } // usermodel
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::usermodel::charts::LayoutMode, ::java::lang::EnumArray > LayoutModeArray;
+            } // charts
+        } // usermodel
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::usermodel::charts::LayoutMode final
+class poi::ss::usermodel::charts::LayoutMode final
     : public ::java::lang::Enum
 {
 

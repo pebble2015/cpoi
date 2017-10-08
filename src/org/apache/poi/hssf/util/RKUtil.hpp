@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::util::RKUtil final
+class poi::hssf::util::RKUtil final
     : public ::java::lang::Object
 {
 

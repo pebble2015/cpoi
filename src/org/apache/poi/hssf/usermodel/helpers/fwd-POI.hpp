@@ -2,22 +2,16 @@
 #pragma once
 
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace hssf
+            namespace helpers
             {
-                namespace usermodel
-                {
-                    namespace helpers
-                    {
-                        class HSSFRowShifter;
-                    } // helpers
-                } // usermodel
-            } // hssf
-        } // poi
-    } // apache
-} // org
+                class HSSFRowShifter;
+            } // helpers
+        } // usermodel
+    } // hssf
+} // poi

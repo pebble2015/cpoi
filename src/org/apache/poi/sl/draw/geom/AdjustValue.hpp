@@ -9,20 +9,20 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::geom::AdjustValue
+class poi::sl::draw::geom::AdjustValue
     : public Guide
 {
 
 public:
     typedef Guide super;
 protected:
-    void ctor(::org::apache::poi::sl::draw::binding::CTGeomGuide* gd);
+    void ctor(::poi::sl::draw::binding::CTGeomGuide* gd);
 
 public:
     double evaluate(Context* ctx) override;
 
     // Generated
-    AdjustValue(::org::apache::poi::sl::draw::binding::CTGeomGuide* gd);
+    AdjustValue(::poi::sl::draw::binding::CTGeomGuide* gd);
 protected:
     AdjustValue(const ::default_init_tag&);
 

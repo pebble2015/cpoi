@@ -6,7 +6,7 @@
 #include <org/apache/poi/ss/formula/eval/fwd-POI.hpp>
 #include <org/apache/poi/ss/formula/eval/ValueEval.hpp>
 
-struct org::apache::poi::ss::formula::eval::StringValueEval
+struct poi::ss::formula::eval::StringValueEval
     : public virtual ValueEval
 {
     virtual ::java::lang::String* getStringValue() = 0;

@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum_6 final
+class poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum_6 final
     : public EvaluationConditionalFormatRule_OperatorEnum
 {
 

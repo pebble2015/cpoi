@@ -17,25 +17,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -44,29 +38,29 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::EOMonth::EOMonth(const ::default_init_tag&)
+poi::ss::formula::functions::EOMonth::EOMonth(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::EOMonth::EOMonth()
+poi::ss::formula::functions::EOMonth::EOMonth()
     : EOMonth(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::functions::FreeRefFunction*& org::apache::poi::ss::formula::functions::EOMonth::instance()
+poi::ss::formula::functions::FreeRefFunction*& poi::ss::formula::functions::EOMonth::instance()
 {
     clinit();
     return instance_;
 }
-org::apache::poi::ss::formula::functions::FreeRefFunction* org::apache::poi::ss::formula::functions::EOMonth::instance_;
+poi::ss::formula::functions::FreeRefFunction* poi::ss::formula::functions::EOMonth::instance_;
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::EOMonth::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, ::org::apache::poi::ss::formula::OperationEvaluationContext* ec)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::EOMonth::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, ::poi::ss::formula::OperationEvaluationContext* ec)
 {
     if(npc(args)->length != 2) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
     try {
         auto startDateAsNumber = NumericFunction::singleOperandEvaluate((*args)[int32_t(0)], npc(ec)->getRowIndex(), npc(ec)->getColumnIndex());
@@ -74,8 +68,8 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::f
         if(startDateAsNumber >= 0.0 && startDateAsNumber < 1.0) {
             startDateAsNumber = 1.0;
         }
-        auto startDate = ::org::apache::poi::ss::usermodel::DateUtil::getJavaDate(startDateAsNumber, false);
-        auto cal = ::org::apache::poi::util::LocaleUtil::getLocaleCalendar();
+        auto startDate = ::poi::ss::usermodel::DateUtil::getJavaDate(startDateAsNumber, false);
+        auto cal = ::poi::util::LocaleUtil::getLocaleCalendar();
         npc(cal)->setTime(startDate);
         npc(cal)->clear(::java::util::Calendar::HOUR);
         npc(cal)->set(::java::util::Calendar::HOUR_OF_DAY, 0);
@@ -85,21 +79,21 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::f
         npc(cal)->add(::java::util::Calendar::MONTH, months + int32_t(1));
         npc(cal)->set(::java::util::Calendar::DAY_OF_MONTH, 1);
         npc(cal)->add(::java::util::Calendar::DAY_OF_MONTH, -int32_t(1));
-        return new ::org::apache::poi::ss::formula::eval::NumberEval(::org::apache::poi::ss::usermodel::DateUtil::getExcelDate(npc(cal)->getTime()));
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+        return new ::poi::ss::formula::eval::NumberEval(::poi::ss::usermodel::DateUtil::getExcelDate(npc(cal)->getTime()));
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
         return npc(e)->getErrorEval();
     }
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::EOMonth::class_()
+java::lang::Class* poi::ss::formula::functions::EOMonth::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.EOMonth", 43);
     return c;
 }
 
-void org::apache::poi::ss::formula::functions::EOMonth::clinit()
+void poi::ss::formula::functions::EOMonth::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -115,7 +109,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::EOMonth::getClass0()
+java::lang::Class* poi::ss::formula::functions::EOMonth::getClass0()
 {
     return class_();
 }

@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ddf::NullEscherSerializationListener
+class poi::ddf::NullEscherSerializationListener
     : public virtual ::java::lang::Object
     , public virtual EscherSerializationListener
 {

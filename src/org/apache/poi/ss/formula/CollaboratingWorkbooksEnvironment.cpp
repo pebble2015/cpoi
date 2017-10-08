@@ -48,23 +48,17 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
-            {
-                namespace formula
-                {
-typedef ::SubArray< ::org::apache::poi::ss::formula::CollaboratingWorkbooksEnvironment, ::java::lang::ObjectArray > CollaboratingWorkbooksEnvironmentArray;
-typedef ::SubArray< ::org::apache::poi::ss::formula::WorkbookEvaluator, ::java::lang::ObjectArray > WorkbookEvaluatorArray;
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::CollaboratingWorkbooksEnvironment, ::java::lang::ObjectArray > CollaboratingWorkbooksEnvironmentArray;
+typedef ::SubArray< ::poi::ss::formula::WorkbookEvaluator, ::java::lang::ObjectArray > WorkbookEvaluatorArray;
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -82,45 +76,45 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::CollaboratingWorkbooksEnvironment::CollaboratingWorkbooksEnvironment(const ::default_init_tag&)
+poi::ss::formula::CollaboratingWorkbooksEnvironment::CollaboratingWorkbooksEnvironment(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::CollaboratingWorkbooksEnvironment::CollaboratingWorkbooksEnvironment() 
+poi::ss::formula::CollaboratingWorkbooksEnvironment::CollaboratingWorkbooksEnvironment() 
     : CollaboratingWorkbooksEnvironment(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::CollaboratingWorkbooksEnvironment::CollaboratingWorkbooksEnvironment(::java::lang::StringArray* workbookNames, WorkbookEvaluatorArray* evaluators, int32_t nItems) 
+poi::ss::formula::CollaboratingWorkbooksEnvironment::CollaboratingWorkbooksEnvironment(::java::lang::StringArray* workbookNames, WorkbookEvaluatorArray* evaluators, int32_t nItems) 
     : CollaboratingWorkbooksEnvironment(*static_cast< ::default_init_tag* >(0))
 {
     ctor(workbookNames,evaluators,nItems);
 }
 
-org::apache::poi::ss::formula::CollaboratingWorkbooksEnvironment::CollaboratingWorkbooksEnvironment(::java::util::Map* evaluatorsByName, WorkbookEvaluatorArray* evaluators) 
+poi::ss::formula::CollaboratingWorkbooksEnvironment::CollaboratingWorkbooksEnvironment(::java::util::Map* evaluatorsByName, WorkbookEvaluatorArray* evaluators) 
     : CollaboratingWorkbooksEnvironment(*static_cast< ::default_init_tag* >(0))
 {
     ctor(evaluatorsByName,evaluators);
 }
 
-org::apache::poi::ss::formula::CollaboratingWorkbooksEnvironment*& org::apache::poi::ss::formula::CollaboratingWorkbooksEnvironment::EMPTY()
+poi::ss::formula::CollaboratingWorkbooksEnvironment*& poi::ss::formula::CollaboratingWorkbooksEnvironment::EMPTY()
 {
     clinit();
     return EMPTY_;
 }
-org::apache::poi::ss::formula::CollaboratingWorkbooksEnvironment* org::apache::poi::ss::formula::CollaboratingWorkbooksEnvironment::EMPTY_;
+poi::ss::formula::CollaboratingWorkbooksEnvironment* poi::ss::formula::CollaboratingWorkbooksEnvironment::EMPTY_;
 
-void org::apache::poi::ss::formula::CollaboratingWorkbooksEnvironment::ctor()
+void poi::ss::formula::CollaboratingWorkbooksEnvironment::ctor()
 {
     super::ctor();
     _evaluatorsByName = ::java::util::Collections::emptyMap();
     _evaluators = new WorkbookEvaluatorArray(int32_t(0));
 }
 
-void org::apache::poi::ss::formula::CollaboratingWorkbooksEnvironment::setup(::java::lang::StringArray* workbookNames, WorkbookEvaluatorArray* evaluators)
+void poi::ss::formula::CollaboratingWorkbooksEnvironment::setup(::java::lang::StringArray* workbookNames, WorkbookEvaluatorArray* evaluators)
 {
     clinit();
     auto nItems = npc(workbookNames)->length;
@@ -135,7 +129,7 @@ void org::apache::poi::ss::formula::CollaboratingWorkbooksEnvironment::setup(::j
     new CollaboratingWorkbooksEnvironment(workbookNames, evaluators, nItems);
 }
 
-void org::apache::poi::ss::formula::CollaboratingWorkbooksEnvironment::setup(::java::util::Map* evaluatorsByName)
+void poi::ss::formula::CollaboratingWorkbooksEnvironment::setup(::java::util::Map* evaluatorsByName)
 {
     clinit();
     if(npc(evaluatorsByName)->size() < 1) {
@@ -145,7 +139,7 @@ void org::apache::poi::ss::formula::CollaboratingWorkbooksEnvironment::setup(::j
     new CollaboratingWorkbooksEnvironment(evaluatorsByName, evaluators);
 }
 
-void org::apache::poi::ss::formula::CollaboratingWorkbooksEnvironment::setupFormulaEvaluator(::java::util::Map* evaluators)
+void poi::ss::formula::CollaboratingWorkbooksEnvironment::setupFormulaEvaluator(::java::util::Map* evaluators)
 {
     clinit();
     ::java::util::Map* evaluatorsByName = new ::java::util::HashMap(npc(evaluators)->size());
@@ -153,7 +147,7 @@ void org::apache::poi::ss::formula::CollaboratingWorkbooksEnvironment::setupForm
         ::java::util::Map_Entry* swb = java_cast< ::java::util::Map_Entry* >(_i->next());
         {
             auto wbName = java_cast< ::java::lang::String* >(npc(swb)->getKey());
-            auto eval = java_cast< ::org::apache::poi::ss::usermodel::FormulaEvaluator* >(npc(swb)->getValue());
+            auto eval = java_cast< ::poi::ss::usermodel::FormulaEvaluator* >(npc(swb)->getValue());
             if(dynamic_cast< WorkbookEvaluatorProvider* >(eval) != nullptr) {
                 npc(evaluatorsByName)->put(wbName, npc((java_cast< WorkbookEvaluatorProvider* >(eval)))->_getWorkbookEvaluator());
             } else {
@@ -165,12 +159,12 @@ void org::apache::poi::ss::formula::CollaboratingWorkbooksEnvironment::setupForm
     setup(evaluatorsByName);
 }
 
-void org::apache::poi::ss::formula::CollaboratingWorkbooksEnvironment::ctor(::java::lang::StringArray* workbookNames, WorkbookEvaluatorArray* evaluators, int32_t nItems)
+void poi::ss::formula::CollaboratingWorkbooksEnvironment::ctor(::java::lang::StringArray* workbookNames, WorkbookEvaluatorArray* evaluators, int32_t nItems)
 {
     ctor(toUniqueMap(workbookNames, evaluators, nItems), evaluators);
 }
 
-java::util::Map* org::apache::poi::ss::formula::CollaboratingWorkbooksEnvironment::toUniqueMap(::java::lang::StringArray* workbookNames, WorkbookEvaluatorArray* evaluators, int32_t nItems)
+java::util::Map* poi::ss::formula::CollaboratingWorkbooksEnvironment::toUniqueMap(::java::lang::StringArray* workbookNames, WorkbookEvaluatorArray* evaluators, int32_t nItems)
 {
     clinit();
     ::java::util::Map* evaluatorsByName = new ::java::util::HashMap(nItems * int32_t(3) / int32_t(2));
@@ -186,7 +180,7 @@ java::util::Map* org::apache::poi::ss::formula::CollaboratingWorkbooksEnvironmen
     return evaluatorsByName;
 }
 
-void org::apache::poi::ss::formula::CollaboratingWorkbooksEnvironment::ctor(::java::util::Map* evaluatorsByName, WorkbookEvaluatorArray* evaluators)
+void poi::ss::formula::CollaboratingWorkbooksEnvironment::ctor(::java::util::Map* evaluatorsByName, WorkbookEvaluatorArray* evaluators)
 {
     super::ctor();
     auto uniqueEvals = new ::java::util::IdentityHashMap(npc(evaluators)->length);
@@ -210,7 +204,7 @@ void org::apache::poi::ss::formula::CollaboratingWorkbooksEnvironment::ctor(::ja
     _evaluatorsByName = evaluatorsByName;
 }
 
-void org::apache::poi::ss::formula::CollaboratingWorkbooksEnvironment::hookNewEnvironment(WorkbookEvaluatorArray* evaluators, CollaboratingWorkbooksEnvironment* env)
+void poi::ss::formula::CollaboratingWorkbooksEnvironment::hookNewEnvironment(WorkbookEvaluatorArray* evaluators, CollaboratingWorkbooksEnvironment* env)
 {
     clinit();
     auto nItems = npc(evaluators)->length;
@@ -226,7 +220,7 @@ void org::apache::poi::ss::formula::CollaboratingWorkbooksEnvironment::hookNewEn
     }
 }
 
-void org::apache::poi::ss::formula::CollaboratingWorkbooksEnvironment::unhookOldEnvironments(WorkbookEvaluatorArray* evaluators)
+void poi::ss::formula::CollaboratingWorkbooksEnvironment::unhookOldEnvironments(WorkbookEvaluatorArray* evaluators)
 {
     ::java::util::Set* oldEnvs = new ::java::util::HashSet();
     for (auto i = int32_t(0); i < npc(evaluators)->length; i++) {
@@ -239,7 +233,7 @@ void org::apache::poi::ss::formula::CollaboratingWorkbooksEnvironment::unhookOld
     }
 }
 
-void org::apache::poi::ss::formula::CollaboratingWorkbooksEnvironment::unhook()
+void poi::ss::formula::CollaboratingWorkbooksEnvironment::unhook()
 {
     if(npc(_evaluators)->length < 1) {
         return;
@@ -250,7 +244,7 @@ void org::apache::poi::ss::formula::CollaboratingWorkbooksEnvironment::unhook()
     _unhooked = true;
 }
 
-org::apache::poi::ss::formula::WorkbookEvaluator* org::apache::poi::ss::formula::CollaboratingWorkbooksEnvironment::getWorkbookEvaluator(::java::lang::String* workbookName) /* throws(WorkbookNotFoundException) */
+poi::ss::formula::WorkbookEvaluator* poi::ss::formula::CollaboratingWorkbooksEnvironment::getWorkbookEvaluator(::java::lang::String* workbookName) /* throws(WorkbookNotFoundException) */
 {
     if(_unhooked) {
         throw new ::java::lang::IllegalStateException(u"This environment has been unhooked"_j);
@@ -280,13 +274,13 @@ org::apache::poi::ss::formula::WorkbookEvaluator* org::apache::poi::ss::formula:
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::CollaboratingWorkbooksEnvironment::class_()
+java::lang::Class* poi::ss::formula::CollaboratingWorkbooksEnvironment::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.CollaboratingWorkbooksEnvironment", 59);
     return c;
 }
 
-void org::apache::poi::ss::formula::CollaboratingWorkbooksEnvironment::clinit()
+void poi::ss::formula::CollaboratingWorkbooksEnvironment::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -302,7 +296,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::formula::CollaboratingWorkbooksEnvironment::getClass0()
+java::lang::Class* poi::ss::formula::CollaboratingWorkbooksEnvironment::getClass0()
 {
     return class_();
 }

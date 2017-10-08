@@ -7,7 +7,7 @@
 #include <org/apache/poi/ss/usermodel/fwd-POI.hpp>
 #include <java/lang/Iterable.hpp>
 
-struct org::apache::poi::ss::usermodel::Row
+struct poi::ss::usermodel::Row
     : public virtual ::java::lang::Iterable
 {
     virtual Cell* createCell(int32_t column) = 0;

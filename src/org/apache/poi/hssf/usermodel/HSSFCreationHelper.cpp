@@ -19,73 +19,73 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::usermodel::HSSFCreationHelper::HSSFCreationHelper(const ::default_init_tag&)
+poi::hssf::usermodel::HSSFCreationHelper::HSSFCreationHelper(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::usermodel::HSSFCreationHelper::HSSFCreationHelper(HSSFWorkbook* wb) 
+poi::hssf::usermodel::HSSFCreationHelper::HSSFCreationHelper(HSSFWorkbook* wb) 
     : HSSFCreationHelper(*static_cast< ::default_init_tag* >(0))
 {
     ctor(wb);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFCreationHelper::ctor(HSSFWorkbook* wb)
+void poi::hssf::usermodel::HSSFCreationHelper::ctor(HSSFWorkbook* wb)
 {
     super::ctor();
     workbook = wb;
 }
 
-org::apache::poi::hssf::usermodel::HSSFRichTextString* org::apache::poi::hssf::usermodel::HSSFCreationHelper::createRichTextString(::java::lang::String* text)
+poi::hssf::usermodel::HSSFRichTextString* poi::hssf::usermodel::HSSFCreationHelper::createRichTextString(::java::lang::String* text)
 {
     return new HSSFRichTextString(text);
 }
 
-org::apache::poi::hssf::usermodel::HSSFDataFormat* org::apache::poi::hssf::usermodel::HSSFCreationHelper::createDataFormat()
+poi::hssf::usermodel::HSSFDataFormat* poi::hssf::usermodel::HSSFCreationHelper::createDataFormat()
 {
     return npc(workbook)->createDataFormat();
 }
 
-org::apache::poi::hssf::usermodel::HSSFHyperlink* org::apache::poi::hssf::usermodel::HSSFCreationHelper::createHyperlink(::org::apache::poi::common::usermodel::HyperlinkType* type)
+poi::hssf::usermodel::HSSFHyperlink* poi::hssf::usermodel::HSSFCreationHelper::createHyperlink(::poi::common::usermodel::HyperlinkType* type)
 {
     return new HSSFHyperlink(type);
 }
 
-org::apache::poi::hssf::usermodel::HSSFExtendedColor* org::apache::poi::hssf::usermodel::HSSFCreationHelper::createExtendedColor()
+poi::hssf::usermodel::HSSFExtendedColor* poi::hssf::usermodel::HSSFCreationHelper::createExtendedColor()
 {
-    return new HSSFExtendedColor(new ::org::apache::poi::hssf::record::common::ExtendedColor());
+    return new HSSFExtendedColor(new ::poi::hssf::record::common::ExtendedColor());
 }
 
-org::apache::poi::ss::usermodel::FormulaEvaluator* org::apache::poi::hssf::usermodel::HSSFCreationHelper::createFormulaEvaluator()
+poi::ss::usermodel::FormulaEvaluator* poi::hssf::usermodel::HSSFCreationHelper::createFormulaEvaluator()
 {
     return new HSSFFormulaEvaluator(workbook);
 }
 
-org::apache::poi::hssf::usermodel::HSSFClientAnchor* org::apache::poi::hssf::usermodel::HSSFCreationHelper::createClientAnchor()
+poi::hssf::usermodel::HSSFClientAnchor* poi::hssf::usermodel::HSSFCreationHelper::createClientAnchor()
 {
     return new HSSFClientAnchor();
 }
 
-org::apache::poi::ss::util::AreaReference* org::apache::poi::hssf::usermodel::HSSFCreationHelper::createAreaReference(::java::lang::String* reference)
+poi::ss::util::AreaReference* poi::hssf::usermodel::HSSFCreationHelper::createAreaReference(::java::lang::String* reference)
 {
-    return new ::org::apache::poi::ss::util::AreaReference(reference, npc(workbook)->getSpreadsheetVersion());
+    return new ::poi::ss::util::AreaReference(reference, npc(workbook)->getSpreadsheetVersion());
 }
 
-org::apache::poi::ss::util::AreaReference* org::apache::poi::hssf::usermodel::HSSFCreationHelper::createAreaReference(::org::apache::poi::ss::util::CellReference* topLeft, ::org::apache::poi::ss::util::CellReference* bottomRight)
+poi::ss::util::AreaReference* poi::hssf::usermodel::HSSFCreationHelper::createAreaReference(::poi::ss::util::CellReference* topLeft, ::poi::ss::util::CellReference* bottomRight)
 {
-    return new ::org::apache::poi::ss::util::AreaReference(topLeft, bottomRight, npc(workbook)->getSpreadsheetVersion());
+    return new ::poi::ss::util::AreaReference(topLeft, bottomRight, npc(workbook)->getSpreadsheetVersion());
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFCreationHelper::class_()
+java::lang::Class* poi::hssf::usermodel::HSSFCreationHelper::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.usermodel.HSSFCreationHelper", 48);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFCreationHelper::getClass0()
+java::lang::Class* poi::hssf::usermodel::HSSFCreationHelper::getClass0()
 {
     return class_();
 }

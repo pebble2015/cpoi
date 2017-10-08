@@ -22,19 +22,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::sl::draw::binding::CTColorMRU::CTColorMRU(const ::default_init_tag&)
+poi::sl::draw::binding::CTColorMRU::CTColorMRU(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::draw::binding::CTColorMRU::CTColorMRU()
+poi::sl::draw::binding::CTColorMRU::CTColorMRU()
     : CTColorMRU(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-java::util::List* org::apache::poi::sl::draw::binding::CTColorMRU::getEGColorChoice()
+java::util::List* poi::sl::draw::binding::CTColorMRU::getEGColorChoice()
 {
     if(egColorChoice == nullptr) {
         egColorChoice = new ::java::util::ArrayList();
@@ -42,25 +42,25 @@ java::util::List* org::apache::poi::sl::draw::binding::CTColorMRU::getEGColorCho
     return java_cast< ::java::util::List* >(this->egColorChoice);
 }
 
-bool org::apache::poi::sl::draw::binding::CTColorMRU::isSetEGColorChoice()
+bool poi::sl::draw::binding::CTColorMRU::isSetEGColorChoice()
 {
     return ((java_cast< ::java::util::List* >(this->egColorChoice) != nullptr) && (!npc(java_cast< ::java::util::List* >(this->egColorChoice))->isEmpty()));
 }
 
-void org::apache::poi::sl::draw::binding::CTColorMRU::unsetEGColorChoice()
+void poi::sl::draw::binding::CTColorMRU::unsetEGColorChoice()
 {
     this->egColorChoice = nullptr;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::draw::binding::CTColorMRU::class_()
+java::lang::Class* poi::sl::draw::binding::CTColorMRU::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.draw.binding.CTColorMRU", 41);
     return c;
 }
 
-java::lang::Class* org::apache::poi::sl::draw::binding::CTColorMRU::getClass0()
+java::lang::Class* poi::sl::draw::binding::CTColorMRU::getClass0()
 {
     return class_();
 }

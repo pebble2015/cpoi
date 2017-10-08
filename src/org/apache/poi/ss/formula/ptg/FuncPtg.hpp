@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::ptg::FuncPtg final
+class poi::ss::formula::ptg::FuncPtg final
     : public AbstractFunctionPtg
 {
 
@@ -18,19 +18,19 @@ public:
     typedef AbstractFunctionPtg super;
     static constexpr int8_t sid { int8_t(33) };
     static constexpr int32_t SIZE { int32_t(3) };
-    static FuncPtg* create(::org::apache::poi::util::LittleEndianInput* in);
+    static FuncPtg* create(::poi::util::LittleEndianInput* in);
 protected:
-    void ctor(int32_t funcIndex, ::org::apache::poi::ss::formula::function::FunctionMetadata* fm);
+    void ctor(int32_t funcIndex, ::poi::ss::formula::function::FunctionMetadata* fm);
 
 public:
     static FuncPtg* create(int32_t functionIndex);
-    void write(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void write(::poi::util::LittleEndianOutput* out) override;
     int32_t getSize() override;
 
     // Generated
 
 private:
-    FuncPtg(int32_t funcIndex, ::org::apache::poi::ss::formula::function::FunctionMetadata* fm);
+    FuncPtg(int32_t funcIndex, ::poi::ss::formula::function::FunctionMetadata* fm);
 protected:
     FuncPtg(const ::default_init_tag&);
 

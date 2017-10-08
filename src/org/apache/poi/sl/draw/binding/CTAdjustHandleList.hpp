@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::binding::CTAdjustHandleList
+class poi::sl::draw::binding::CTAdjustHandleList
     : public virtual ::java::lang::Object
 {
 

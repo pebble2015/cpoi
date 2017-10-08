@@ -33,7 +33,7 @@ typedef ::SubArray< ::java::lang::Class, ObjectArray, ::java::io::SerializableAr
 
 struct default_init_tag;
 
-class org::apache::poi::ddf::DefaultEscherRecordFactory
+class poi::ddf::DefaultEscherRecordFactory
     : public virtual ::java::lang::Object
     , public virtual EscherRecordFactory
 {

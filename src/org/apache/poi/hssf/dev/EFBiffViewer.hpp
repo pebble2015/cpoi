@@ -25,7 +25,7 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::dev::EFBiffViewer
+class poi::hssf::dev::EFBiffViewer
     : public virtual ::java::lang::Object
 {
 

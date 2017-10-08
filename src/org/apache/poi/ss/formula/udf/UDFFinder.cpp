@@ -8,36 +8,30 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace udf
             {
-                namespace formula
-                {
-                    namespace udf
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::udf::UDFFinder, ::java::lang::ObjectArray > UDFFinderArray;
-                    } // udf
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::udf::UDFFinder, ::java::lang::ObjectArray > UDFFinderArray;
+            } // udf
+        } // formula
+    } // ss
+} // poi
 
-org::apache::poi::ss::formula::udf::UDFFinder*& org::apache::poi::ss::formula::udf::UDFFinder::DEFAULT()
+poi::ss::formula::udf::UDFFinder*& poi::ss::formula::udf::UDFFinder::DEFAULT()
 {
     clinit();
     return DEFAULT_;
 }
-org::apache::poi::ss::formula::udf::UDFFinder* org::apache::poi::ss::formula::udf::UDFFinder::DEFAULT_;
+poi::ss::formula::udf::UDFFinder* poi::ss::formula::udf::UDFFinder::DEFAULT_;
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::udf::UDFFinder::class_()
+java::lang::Class* poi::ss::formula::udf::UDFFinder::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.udf.UDFFinder", 39);
     return c;

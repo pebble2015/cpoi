@@ -12,7 +12,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::usermodel::FractionFormat
+class poi::ss::usermodel::FractionFormat
     : public ::java::text::Format
 {
 
@@ -20,7 +20,7 @@ public:
     typedef ::java::text::Format super;
 
 private:
-    static ::org::apache::poi::util::POILogger* LOGGER_;
+    static ::poi::util::POILogger* LOGGER_;
     static ::java::util::regex::Pattern* DENOM_FORMAT_PATTERN_;
     static constexpr int32_t MAX_DENOM_POW { int32_t(4) };
     int32_t exactDenom {  };
@@ -47,7 +47,7 @@ public:
     virtual ::java::lang::Object* parseObject(::java::lang::String* source);
 
 private:
-    static ::org::apache::poi::util::POILogger*& LOGGER();
+    static ::poi::util::POILogger*& LOGGER();
     static ::java::util::regex::Pattern*& DENOM_FORMAT_PATTERN();
     virtual ::java::lang::Class* getClass0();
 };

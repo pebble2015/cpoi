@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::eventfilesystem::POIFSReader_SampleListener
+class poi::poifs::eventfilesystem::POIFSReader_SampleListener
     : public virtual ::java::lang::Object
     , public virtual POIFSReaderListener
 {

@@ -2,30 +2,24 @@
 #pragma once
 
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
+            namespace pivottable
             {
-                namespace record
-                {
-                    namespace pivottable
-                    {
-                        class DataItemRecord;
-                        class ExtendedPivotTableViewFieldsRecord;
-                        class PageItemRecord;
-                        class PageItemRecord_FieldInfo;
-                        class StreamIDRecord;
-                        class ViewDefinitionRecord;
-                        class ViewFieldsRecord;
-                        class ViewFieldsRecord_Axis;
-                        class ViewSourceRecord;
-                    } // pivottable
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+                class DataItemRecord;
+                class ExtendedPivotTableViewFieldsRecord;
+                class PageItemRecord;
+                class PageItemRecord_FieldInfo;
+                class StreamIDRecord;
+                class ViewDefinitionRecord;
+                class ViewFieldsRecord;
+                class ViewFieldsRecord_Axis;
+                class ViewSourceRecord;
+            } // pivottable
+        } // record
+    } // hssf
+} // poi

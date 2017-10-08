@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::usermodel::Insets2D final
+class poi::sl::usermodel::Insets2D final
     : public virtual ::java::lang::Object
     , public ::java::lang::Cloneable
 {

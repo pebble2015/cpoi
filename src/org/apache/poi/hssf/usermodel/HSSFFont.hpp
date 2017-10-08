@@ -12,9 +12,9 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFFont final
+class poi::hssf::usermodel::HSSFFont final
     : public virtual ::java::lang::Object
-    , public ::org::apache::poi::ss::usermodel::Font
+    , public ::poi::ss::usermodel::Font
 {
 
 public:
@@ -26,10 +26,10 @@ public: /* package */
 
 private:
     static ::java::lang::String* FONT_ARIAL_;
-    ::org::apache::poi::hssf::record::FontRecord* font {  };
+    ::poi::hssf::record::FontRecord* font {  };
     int16_t index {  };
 protected:
-    void ctor(int16_t index, ::org::apache::poi::hssf::record::FontRecord* rec);
+    void ctor(int16_t index, ::poi::hssf::record::FontRecord* rec);
 
 public:
     void setFontName(::java::lang::String* name) override;
@@ -45,7 +45,7 @@ public:
     bool getStrikeout() override;
     void setColor(int16_t color) override;
     int16_t getColor() override;
-    ::org::apache::poi::hssf::util::HSSFColor* getHSSFColor(HSSFWorkbook* wb);
+    ::poi::hssf::util::HSSFColor* getHSSFColor(HSSFWorkbook* wb);
     void setBold(bool bold) override;
     bool getBold() override;
     void setTypeOffset(int16_t offset) override;
@@ -62,7 +62,7 @@ public:
     // Generated
 
 public: /* protected */
-    HSSFFont(int16_t index, ::org::apache::poi::hssf::record::FontRecord* rec);
+    HSSFFont(int16_t index, ::poi::hssf::record::FontRecord* rec);
 protected:
     HSSFFont(const ::default_init_tag&);
 

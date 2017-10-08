@@ -29,19 +29,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::eventfilesystem::POIFSReaderRegistry::POIFSReaderRegistry(const ::default_init_tag&)
+poi::poifs::eventfilesystem::POIFSReaderRegistry::POIFSReaderRegistry(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::eventfilesystem::POIFSReaderRegistry::POIFSReaderRegistry() 
+poi::poifs::eventfilesystem::POIFSReaderRegistry::POIFSReaderRegistry() 
     : POIFSReaderRegistry(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::poifs::eventfilesystem::POIFSReaderRegistry::ctor()
+void poi::poifs::eventfilesystem::POIFSReaderRegistry::ctor()
 {
     super::ctor();
     omnivorousListeners = new ::java::util::HashSet();
@@ -49,7 +49,7 @@ void org::apache::poi::poifs::eventfilesystem::POIFSReaderRegistry::ctor()
     chosenDocumentDescriptors = new ::java::util::HashMap();
 }
 
-void org::apache::poi::poifs::eventfilesystem::POIFSReaderRegistry::registerListener(POIFSReaderListener* listener, ::org::apache::poi::poifs::filesystem::POIFSDocumentPath* path, ::java::lang::String* documentName)
+void poi::poifs::eventfilesystem::POIFSReaderRegistry::registerListener(POIFSReaderListener* listener, ::poi::poifs::filesystem::POIFSDocumentPath* path, ::java::lang::String* documentName)
 {
     if(!npc(omnivorousListeners)->contains(static_cast< ::java::lang::Object* >(listener))) {
         auto descriptors = java_cast< ::java::util::Set* >(npc(selectiveListeners)->get(listener));
@@ -57,7 +57,7 @@ void org::apache::poi::poifs::eventfilesystem::POIFSReaderRegistry::registerList
             descriptors = new ::java::util::HashSet();
             npc(selectiveListeners)->put(listener, descriptors);
         }
-        auto descriptor = new ::org::apache::poi::poifs::filesystem::DocumentDescriptor(path, documentName);
+        auto descriptor = new ::poi::poifs::filesystem::DocumentDescriptor(path, documentName);
         if(npc(descriptors)->add(static_cast< ::java::lang::Object* >(descriptor))) {
             auto listeners = java_cast< ::java::util::Set* >(npc(chosenDocumentDescriptors)->get(descriptor));
             if(listeners == nullptr) {
@@ -69,7 +69,7 @@ void org::apache::poi::poifs::eventfilesystem::POIFSReaderRegistry::registerList
     }
 }
 
-void org::apache::poi::poifs::eventfilesystem::POIFSReaderRegistry::registerListener(POIFSReaderListener* listener)
+void poi::poifs::eventfilesystem::POIFSReaderRegistry::registerListener(POIFSReaderListener* listener)
 {
     if(!npc(omnivorousListeners)->contains(static_cast< ::java::lang::Object* >(listener))) {
         removeSelectiveListener(listener);
@@ -77,28 +77,28 @@ void org::apache::poi::poifs::eventfilesystem::POIFSReaderRegistry::registerList
     }
 }
 
-java::util::Iterator* org::apache::poi::poifs::eventfilesystem::POIFSReaderRegistry::getListeners(::org::apache::poi::poifs::filesystem::POIFSDocumentPath* path, ::java::lang::String* name)
+java::util::Iterator* poi::poifs::eventfilesystem::POIFSReaderRegistry::getListeners(::poi::poifs::filesystem::POIFSDocumentPath* path, ::java::lang::String* name)
 {
     ::java::util::Set* rval = new ::java::util::HashSet(static_cast< ::java::util::Collection* >(omnivorousListeners));
-    auto selectiveListenersInner = java_cast< ::java::util::Set* >(npc(chosenDocumentDescriptors)->get(new ::org::apache::poi::poifs::filesystem::DocumentDescriptor(path, name)));
+    auto selectiveListenersInner = java_cast< ::java::util::Set* >(npc(chosenDocumentDescriptors)->get(new ::poi::poifs::filesystem::DocumentDescriptor(path, name)));
     if(selectiveListenersInner != nullptr) {
         npc(rval)->addAll(static_cast< ::java::util::Collection* >(selectiveListenersInner));
     }
     return npc(rval)->iterator();
 }
 
-void org::apache::poi::poifs::eventfilesystem::POIFSReaderRegistry::removeSelectiveListener(POIFSReaderListener* listener)
+void poi::poifs::eventfilesystem::POIFSReaderRegistry::removeSelectiveListener(POIFSReaderListener* listener)
 {
     auto selectedDescriptors = java_cast< ::java::util::Set* >(npc(selectiveListeners)->remove(listener));
     if(selectedDescriptors != nullptr) {
         auto iter = npc(selectedDescriptors)->iterator();
         while (npc(iter)->hasNext()) {
-            dropDocument(listener, java_cast< ::org::apache::poi::poifs::filesystem::DocumentDescriptor* >(npc(iter)->next()));
+            dropDocument(listener, java_cast< ::poi::poifs::filesystem::DocumentDescriptor* >(npc(iter)->next()));
         }
     }
 }
 
-void org::apache::poi::poifs::eventfilesystem::POIFSReaderRegistry::dropDocument(POIFSReaderListener* listener, ::org::apache::poi::poifs::filesystem::DocumentDescriptor* descriptor)
+void poi::poifs::eventfilesystem::POIFSReaderRegistry::dropDocument(POIFSReaderListener* listener, ::poi::poifs::filesystem::DocumentDescriptor* descriptor)
 {
     auto listeners = java_cast< ::java::util::Set* >(npc(chosenDocumentDescriptors)->get(descriptor));
     npc(listeners)->remove(static_cast< ::java::lang::Object* >(listener));
@@ -109,13 +109,13 @@ void org::apache::poi::poifs::eventfilesystem::POIFSReaderRegistry::dropDocument
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::eventfilesystem::POIFSReaderRegistry::class_()
+java::lang::Class* poi::poifs::eventfilesystem::POIFSReaderRegistry::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.eventfilesystem.POIFSReaderRegistry", 56);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::eventfilesystem::POIFSReaderRegistry::getClass0()
+java::lang::Class* poi::poifs::eventfilesystem::POIFSReaderRegistry::getClass0()
 {
     return class_();
 }

@@ -69,31 +69,31 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::extractor::ExcelExtractor::ExcelExtractor(const ::default_init_tag&)
+poi::hssf::extractor::ExcelExtractor::ExcelExtractor(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::extractor::ExcelExtractor::ExcelExtractor(::org::apache::poi::hssf::usermodel::HSSFWorkbook* wb) 
+poi::hssf::extractor::ExcelExtractor::ExcelExtractor(::poi::hssf::usermodel::HSSFWorkbook* wb) 
     : ExcelExtractor(*static_cast< ::default_init_tag* >(0))
 {
     ctor(wb);
 }
 
-org::apache::poi::hssf::extractor::ExcelExtractor::ExcelExtractor(::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs)  /* throws(IOException) */
+poi::hssf::extractor::ExcelExtractor::ExcelExtractor(::poi::poifs::filesystem::POIFSFileSystem* fs)  /* throws(IOException) */
     : ExcelExtractor(*static_cast< ::default_init_tag* >(0))
 {
     ctor(fs);
 }
 
-org::apache::poi::hssf::extractor::ExcelExtractor::ExcelExtractor(::org::apache::poi::poifs::filesystem::DirectoryNode* dir)  /* throws(IOException) */
+poi::hssf::extractor::ExcelExtractor::ExcelExtractor(::poi::poifs::filesystem::DirectoryNode* dir)  /* throws(IOException) */
     : ExcelExtractor(*static_cast< ::default_init_tag* >(0))
 {
     ctor(dir);
 }
 
-void org::apache::poi::hssf::extractor::ExcelExtractor::init()
+void poi::hssf::extractor::ExcelExtractor::init()
 {
     _includeSheetNames = true;
     _shouldEvaluateFormulas = true;
@@ -102,29 +102,29 @@ void org::apache::poi::hssf::extractor::ExcelExtractor::init()
     _includeHeadersFooters = true;
 }
 
-void org::apache::poi::hssf::extractor::ExcelExtractor::ctor(::org::apache::poi::hssf::usermodel::HSSFWorkbook* wb)
+void poi::hssf::extractor::ExcelExtractor::ctor(::poi::hssf::usermodel::HSSFWorkbook* wb)
 {
-    super::ctor(static_cast< ::org::apache::poi::POIDocument* >(wb));
+    super::ctor(static_cast< ::poi::POIDocument* >(wb));
     init();
     _wb = wb;
-    _formatter = new ::org::apache::poi::hssf::usermodel::HSSFDataFormatter();
+    _formatter = new ::poi::hssf::usermodel::HSSFDataFormatter();
 }
 
-void org::apache::poi::hssf::extractor::ExcelExtractor::ctor(::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs) /* throws(IOException) */
+void poi::hssf::extractor::ExcelExtractor::ctor(::poi::poifs::filesystem::POIFSFileSystem* fs) /* throws(IOException) */
 {
     ctor(npc(fs)->getRoot());
 }
 
-void org::apache::poi::hssf::extractor::ExcelExtractor::ctor(::org::apache::poi::poifs::filesystem::DirectoryNode* dir) /* throws(IOException) */
+void poi::hssf::extractor::ExcelExtractor::ctor(::poi::poifs::filesystem::DirectoryNode* dir) /* throws(IOException) */
 {
-    ctor(new ::org::apache::poi::hssf::usermodel::HSSFWorkbook(dir, true));
+    ctor(new ::poi::hssf::usermodel::HSSFWorkbook(dir, true));
 }
 
-void org::apache::poi::hssf::extractor::ExcelExtractor::printUsageMessage(::java::io::PrintStream* ps)
+void poi::hssf::extractor::ExcelExtractor::printUsageMessage(::java::io::PrintStream* ps)
 {
     clinit();
     npc(ps)->println(u"Use:"_j);
-    npc(ps)->println(::java::lang::StringBuilder().append(u"    "_j)->append(npc(::org::apache::poi::hssf::extractor::ExcelExtractor::class_())->getName())
+    npc(ps)->println(::java::lang::StringBuilder().append(u"    "_j)->append(npc(::poi::hssf::extractor::ExcelExtractor::class_())->getName())
         ->append(u" [<flag> <value> [<flag> <value> [...]]] [-i <filename.xls>]"_j)->toString());
     npc(ps)->println(u"       -i <filename.xls> specifies input file (default is to use stdin)"_j);
     npc(ps)->println(u"       Flags can be set on or off by using the values 'Y' or 'N'."_j);
@@ -136,7 +136,7 @@ void org::apache::poi::hssf::extractor::ExcelExtractor::printUsageMessage(::java
     npc(ps)->println(u"       --headers-footers   Y"_j);
 }
 
-void org::apache::poi::hssf::extractor::ExcelExtractor::main(::java::lang::StringArray* args) /* throws(IOException) */
+void poi::hssf::extractor::ExcelExtractor::main(::java::lang::StringArray* args) /* throws(IOException) */
 {
     clinit();
     ExcelExtractor_CommandArgs* cmdArgs;
@@ -158,9 +158,9 @@ void org::apache::poi::hssf::extractor::ExcelExtractor::main(::java::lang::Strin
     } else {
         is = new ::java::io::FileInputStream(npc(cmdArgs)->getInputFile());
     }
-    auto wb = new ::org::apache::poi::hssf::usermodel::HSSFWorkbook(is);
+    auto wb = new ::poi::hssf::usermodel::HSSFWorkbook(is);
     npc(is)->close();
-    auto extractor = new ::org::apache::poi::hssf::extractor::ExcelExtractor(wb);
+    auto extractor = new ::poi::hssf::extractor::ExcelExtractor(wb);
     npc(extractor)->setIncludeSheetNames(npc(cmdArgs)->shouldShowSheetNames());
     npc(extractor)->setFormulasNotResults(!npc(cmdArgs)->shouldEvaluateFormulas());
     npc(extractor)->setIncludeCellComments(npc(cmdArgs)->shouldShowCellComments());
@@ -171,37 +171,37 @@ void org::apache::poi::hssf::extractor::ExcelExtractor::main(::java::lang::Strin
     npc(wb)->close();
 }
 
-void org::apache::poi::hssf::extractor::ExcelExtractor::setIncludeSheetNames(bool includeSheetNames)
+void poi::hssf::extractor::ExcelExtractor::setIncludeSheetNames(bool includeSheetNames)
 {
     _includeSheetNames = includeSheetNames;
 }
 
-void org::apache::poi::hssf::extractor::ExcelExtractor::setFormulasNotResults(bool formulasNotResults)
+void poi::hssf::extractor::ExcelExtractor::setFormulasNotResults(bool formulasNotResults)
 {
     _shouldEvaluateFormulas = !formulasNotResults;
 }
 
-void org::apache::poi::hssf::extractor::ExcelExtractor::setIncludeCellComments(bool includeCellComments)
+void poi::hssf::extractor::ExcelExtractor::setIncludeCellComments(bool includeCellComments)
 {
     _includeCellComments = includeCellComments;
 }
 
-void org::apache::poi::hssf::extractor::ExcelExtractor::setIncludeBlankCells(bool includeBlankCells)
+void poi::hssf::extractor::ExcelExtractor::setIncludeBlankCells(bool includeBlankCells)
 {
     _includeBlankCells = includeBlankCells;
 }
 
-void org::apache::poi::hssf::extractor::ExcelExtractor::setIncludeHeadersFooters(bool includeHeadersFooters)
+void poi::hssf::extractor::ExcelExtractor::setIncludeHeadersFooters(bool includeHeadersFooters)
 {
     _includeHeadersFooters = includeHeadersFooters;
 }
 
-java::lang::String* org::apache::poi::hssf::extractor::ExcelExtractor::getText()
+java::lang::String* poi::hssf::extractor::ExcelExtractor::getText()
 {
     auto text = new ::java::lang::StringBuffer();
-    npc(_wb)->setMissingCellPolicy(::org::apache::poi::ss::usermodel::Row_MissingCellPolicy::RETURN_BLANK_AS_NULL);
+    npc(_wb)->setMissingCellPolicy(::poi::ss::usermodel::Row_MissingCellPolicy::RETURN_BLANK_AS_NULL);
     for (auto i = int32_t(0); i < npc(_wb)->getNumberOfSheets(); i++) {
-        auto sheet = java_cast< ::org::apache::poi::hssf::usermodel::HSSFSheet* >(npc(_wb)->getSheetAt(i));
+        auto sheet = java_cast< ::poi::hssf::usermodel::HSSFSheet* >(npc(_wb)->getSheetAt(i));
         if(sheet == nullptr) {
             continue;
         }
@@ -218,7 +218,7 @@ java::lang::String* org::apache::poi::hssf::extractor::ExcelExtractor::getText()
         auto firstRow = npc(sheet)->getFirstRowNum();
         auto lastRow = npc(sheet)->getLastRowNum();
         for (auto j = firstRow; j <= lastRow; j++) {
-            auto row = java_cast< ::org::apache::poi::hssf::usermodel::HSSFRow* >(npc(sheet)->getRow(j));
+            auto row = java_cast< ::poi::hssf::usermodel::HSSFRow* >(npc(sheet)->getRow(j));
             if(row == nullptr) {
                 continue;
             }
@@ -228,49 +228,49 @@ java::lang::String* org::apache::poi::hssf::extractor::ExcelExtractor::getText()
                 firstCell = 0;
             }
             for (auto k = firstCell; k < lastCell; k++) {
-                auto cell = java_cast< ::org::apache::poi::hssf::usermodel::HSSFCell* >(npc(row)->getCell(k));
+                auto cell = java_cast< ::poi::hssf::usermodel::HSSFCell* >(npc(row)->getCell(k));
                 auto outputContents = true;
                 if(cell == nullptr) {
                     outputContents = _includeBlankCells;
                 } else {
                     {
                         auto v = npc(cell)->getCellTypeEnum();
-                        if((v == ::org::apache::poi::ss::usermodel::CellType::STRING)) {
+                        if((v == ::poi::ss::usermodel::CellType::STRING)) {
                             npc(text)->append(npc(npc(cell)->getRichStringCellValue())->getString());
                             goto end_switch0;;
                         }
-                        if((v == ::org::apache::poi::ss::usermodel::CellType::NUMERIC)) {
+                        if((v == ::poi::ss::usermodel::CellType::NUMERIC)) {
                             npc(text)->append(npc(_formatter)->formatCellValue(cell));
                             goto end_switch0;;
                         }
-                        if((v == ::org::apache::poi::ss::usermodel::CellType::BOOLEAN)) {
+                        if((v == ::poi::ss::usermodel::CellType::BOOLEAN)) {
                             npc(text)->append(npc(cell)->getBooleanCellValue());
                             goto end_switch0;;
                         }
-                        if((v == ::org::apache::poi::ss::usermodel::CellType::ERROR)) {
-                            npc(text)->append(::org::apache::poi::ss::formula::eval::ErrorEval::getText(npc(cell)->getErrorCellValue()));
+                        if((v == ::poi::ss::usermodel::CellType::ERROR)) {
+                            npc(text)->append(::poi::ss::formula::eval::ErrorEval::getText(npc(cell)->getErrorCellValue()));
                             goto end_switch0;;
                         }
-                        if((v == ::org::apache::poi::ss::usermodel::CellType::FORMULA)) {
+                        if((v == ::poi::ss::usermodel::CellType::FORMULA)) {
                             if(!_shouldEvaluateFormulas) {
                                 npc(text)->append(npc(cell)->getCellFormula());
                             } else {
                                 {
-                                    ::org::apache::poi::hssf::usermodel::HSSFRichTextString* str;
-                                    ::org::apache::poi::hssf::usermodel::HSSFCellStyle* style;
+                                    ::poi::hssf::usermodel::HSSFRichTextString* str;
+                                    ::poi::hssf::usermodel::HSSFCellStyle* style;
                                     double nVal;
                                     int16_t df;
                                     ::java::lang::String* dfs;
                                     {
                                         auto v_ = npc(cell)->getCachedFormulaResultTypeEnum();
-                                        if((v_ == ::org::apache::poi::ss::usermodel::CellType::STRING)) {
+                                        if((v_ == ::poi::ss::usermodel::CellType::STRING)) {
                                             auto str = npc(cell)->getRichStringCellValue();
                                             if(str != nullptr && npc(str)->length() > 0) {
                                                 npc(text)->append(static_cast< ::java::lang::Object* >(str));
                                             }
                                             goto end_switch1;;
                                         }
-                                        if((v_ == ::org::apache::poi::ss::usermodel::CellType::NUMERIC)) {
+                                        if((v_ == ::poi::ss::usermodel::CellType::NUMERIC)) {
                                             auto style = npc(cell)->getCellStyle();
                                             auto nVal = npc(cell)->getNumericCellValue();
                                             auto df = npc(style)->getDataFormat();
@@ -278,15 +278,15 @@ java::lang::String* org::apache::poi::hssf::extractor::ExcelExtractor::getText()
                                             npc(text)->append(npc(_formatter)->formatRawCellContents(nVal, df, dfs));
                                             goto end_switch1;;
                                         }
-                                        if((v_ == ::org::apache::poi::ss::usermodel::CellType::BOOLEAN)) {
+                                        if((v_ == ::poi::ss::usermodel::CellType::BOOLEAN)) {
                                             npc(text)->append(npc(cell)->getBooleanCellValue());
                                             goto end_switch1;;
                                         }
-                                        if((v_ == ::org::apache::poi::ss::usermodel::CellType::ERROR)) {
-                                            npc(text)->append(::org::apache::poi::ss::formula::eval::ErrorEval::getText(npc(cell)->getErrorCellValue()));
+                                        if((v_ == ::poi::ss::usermodel::CellType::ERROR)) {
+                                            npc(text)->append(::poi::ss::formula::eval::ErrorEval::getText(npc(cell)->getErrorCellValue()));
                                             goto end_switch1;;
                                         }
-                                        if((((v_ != ::org::apache::poi::ss::usermodel::CellType::STRING) && (v_ != ::org::apache::poi::ss::usermodel::CellType::NUMERIC) && (v_ != ::org::apache::poi::ss::usermodel::CellType::BOOLEAN) && (v_ != ::org::apache::poi::ss::usermodel::CellType::ERROR)))) {
+                                        if((((v_ != ::poi::ss::usermodel::CellType::STRING) && (v_ != ::poi::ss::usermodel::CellType::NUMERIC) && (v_ != ::poi::ss::usermodel::CellType::BOOLEAN) && (v_ != ::poi::ss::usermodel::CellType::ERROR)))) {
                                             throw new ::java::lang::IllegalStateException(::java::lang::StringBuilder().append(u"Unexpected cell cached formula result type: "_j)->append(static_cast< ::java::lang::Object* >(npc(cell)->getCachedFormulaResultTypeEnum()))->toString());
                                         }
 end_switch1:;
@@ -296,7 +296,7 @@ end_switch1:;
                             }
                             goto end_switch0;;
                         }
-                        if((((v != ::org::apache::poi::ss::usermodel::CellType::STRING) && (v != ::org::apache::poi::ss::usermodel::CellType::NUMERIC) && (v != ::org::apache::poi::ss::usermodel::CellType::BOOLEAN) && (v != ::org::apache::poi::ss::usermodel::CellType::ERROR) && (v != ::org::apache::poi::ss::usermodel::CellType::FORMULA)))) {
+                        if((((v != ::poi::ss::usermodel::CellType::STRING) && (v != ::poi::ss::usermodel::CellType::NUMERIC) && (v != ::poi::ss::usermodel::CellType::BOOLEAN) && (v != ::poi::ss::usermodel::CellType::ERROR) && (v != ::poi::ss::usermodel::CellType::FORMULA)))) {
                             throw new ::java::lang::RuntimeException(::java::lang::StringBuilder().append(u"Unexpected cell type ("_j)->append(static_cast< ::java::lang::Object* >(npc(cell)->getCellTypeEnum()))
                                 ->append(u")"_j)->toString());
                         }
@@ -324,7 +324,7 @@ end_switch0:;
     return npc(text)->toString();
 }
 
-java::lang::String* org::apache::poi::hssf::extractor::ExcelExtractor::_extractHeaderFooter(::org::apache::poi::ss::usermodel::HeaderFooter* hf)
+java::lang::String* poi::hssf::extractor::ExcelExtractor::_extractHeaderFooter(::poi::ss::usermodel::HeaderFooter* hf)
 {
     clinit();
     auto text = new ::java::lang::StringBuffer();
@@ -351,13 +351,13 @@ java::lang::String* org::apache::poi::hssf::extractor::ExcelExtractor::_extractH
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::extractor::ExcelExtractor::class_()
+java::lang::Class* poi::hssf::extractor::ExcelExtractor::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.extractor.ExcelExtractor", 44);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::extractor::ExcelExtractor::getClass0()
+java::lang::Class* poi::hssf::extractor::ExcelExtractor::getClass0()
 {
     return class_();
 }

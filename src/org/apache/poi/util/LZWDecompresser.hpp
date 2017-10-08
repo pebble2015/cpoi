@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::util::LZWDecompresser
+class poi::util::LZWDecompresser
     : public virtual ::java::lang::Object
 {
 

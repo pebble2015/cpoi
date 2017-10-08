@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::RecordInputStream_SimpleHeaderInput final
+class poi::hssf::record::RecordInputStream_SimpleHeaderInput final
     : public virtual ::java::lang::Object
     , public BiffHeaderInput
 {
@@ -20,7 +20,7 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    ::org::apache::poi::util::LittleEndianInput* _lei {  };
+    ::poi::util::LittleEndianInput* _lei {  };
 protected:
     void ctor(::java::io::InputStream* in);
 

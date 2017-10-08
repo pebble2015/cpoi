@@ -23,30 +23,30 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::OldLabelRecord::OldLabelRecord(const ::default_init_tag&)
+poi::hssf::record::OldLabelRecord::OldLabelRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::OldLabelRecord::OldLabelRecord(RecordInputStream* in) 
+poi::hssf::record::OldLabelRecord::OldLabelRecord(RecordInputStream* in) 
     : OldLabelRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-org::apache::poi::util::POILogger*& org::apache::poi::hssf::record::OldLabelRecord::logger()
+poi::util::POILogger*& poi::hssf::record::OldLabelRecord::logger()
 {
     clinit();
     return logger_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::hssf::record::OldLabelRecord::logger_;
+poi::util::POILogger* poi::hssf::record::OldLabelRecord::logger_;
 
-constexpr int16_t org::apache::poi::hssf::record::OldLabelRecord::biff2_sid;
+constexpr int16_t poi::hssf::record::OldLabelRecord::biff2_sid;
 
-constexpr int16_t org::apache::poi::hssf::record::OldLabelRecord::biff345_sid;
+constexpr int16_t poi::hssf::record::OldLabelRecord::biff345_sid;
 
-void org::apache::poi::hssf::record::OldLabelRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::OldLabelRecord::ctor(RecordInputStream* in)
 {
     super::ctor(in, npc(in)->getSid() == biff2_sid);
     if(isBiff2()) {
@@ -57,64 +57,64 @@ void org::apache::poi::hssf::record::OldLabelRecord::ctor(RecordInputStream* in)
     field_5_bytes = new ::int8_tArray(field_4_string_len);
     npc(in)->read(field_5_bytes, 0, field_4_string_len);
     if(npc(in)->remaining() > 0) {
-        npc(logger_)->log(::org::apache::poi::util::POILogger::INFO, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"LabelRecord data remains: "_j)->append(npc(in)->remaining())
+        npc(logger_)->log(::poi::util::POILogger::INFO, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"LabelRecord data remains: "_j)->append(npc(in)->remaining())
             ->append(u" : "_j)
-            ->append(::org::apache::poi::util::HexDump::toHex(npc(in)->readRemainder()))->toString())}));
+            ->append(::poi::util::HexDump::toHex(npc(in)->readRemainder()))->toString())}));
     }
 }
 
-void org::apache::poi::hssf::record::OldLabelRecord::setCodePage(CodepageRecord* codepage)
+void poi::hssf::record::OldLabelRecord::setCodePage(CodepageRecord* codepage)
 {
     this->codepage = codepage;
 }
 
-int16_t org::apache::poi::hssf::record::OldLabelRecord::getStringLength()
+int16_t poi::hssf::record::OldLabelRecord::getStringLength()
 {
     return field_4_string_len;
 }
 
-java::lang::String* org::apache::poi::hssf::record::OldLabelRecord::getValue()
+java::lang::String* poi::hssf::record::OldLabelRecord::getValue()
 {
     return OldStringRecord::getString(field_5_bytes, codepage);
 }
 
-int32_t org::apache::poi::hssf::record::OldLabelRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::OldLabelRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
-    throw new ::org::apache::poi::util::RecordFormatException(u"Old Label Records are supported READ ONLY"_j);
+    throw new ::poi::util::RecordFormatException(u"Old Label Records are supported READ ONLY"_j);
 }
 
-int32_t org::apache::poi::hssf::record::OldLabelRecord::getRecordSize()
+int32_t poi::hssf::record::OldLabelRecord::getRecordSize()
 {
-    throw new ::org::apache::poi::util::RecordFormatException(u"Old Label Records are supported READ ONLY"_j);
+    throw new ::poi::util::RecordFormatException(u"Old Label Records are supported READ ONLY"_j);
 }
 
-void org::apache::poi::hssf::record::OldLabelRecord::appendValueText(::java::lang::StringBuilder* sb)
+void poi::hssf::record::OldLabelRecord::appendValueText(::java::lang::StringBuilder* sb)
 {
-    npc(npc(npc(sb)->append(u"    .string_len= "_j))->append(::org::apache::poi::util::HexDump::shortToHex(field_4_string_len)))->append(u"\n"_j);
+    npc(npc(npc(sb)->append(u"    .string_len= "_j))->append(::poi::util::HexDump::shortToHex(field_4_string_len)))->append(u"\n"_j);
     npc(npc(npc(sb)->append(u"    .value       = "_j))->append(getValue()))->append(u"\n"_j);
 }
 
-java::lang::String* org::apache::poi::hssf::record::OldLabelRecord::getRecordName()
+java::lang::String* poi::hssf::record::OldLabelRecord::getRecordName()
 {
     return u"OLD LABEL"_j;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::OldLabelRecord::class_()
+java::lang::Class* poi::hssf::record::OldLabelRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.OldLabelRecord", 41);
     return c;
 }
 
-void org::apache::poi::hssf::record::OldLabelRecord::clinit()
+void poi::hssf::record::OldLabelRecord::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        logger_ = ::org::apache::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(OldLabelRecord::class_()));
+        logger_ = ::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(OldLabelRecord::class_()));
     }
 };
 
@@ -123,7 +123,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::hssf::record::OldLabelRecord::getClass0()
+java::lang::Class* poi::hssf::record::OldLabelRecord::getClass0()
 {
     return class_();
 }

@@ -36,28 +36,22 @@ typedef ::SubArray< ::java::lang::Cloneable, ObjectArray > CloneableArray;
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
-            {
-                namespace record
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::Record, RecordBaseArray > RecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::StandardRecord, RecordArray > StandardRecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::CellValueRecordInterface, ::java::lang::ObjectArray > CellValueRecordInterfaceArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::BlankRecord, StandardRecordArray, CellValueRecordInterfaceArray, ::java::lang::CloneableArray > BlankRecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::CellRecord, StandardRecordArray, CellValueRecordInterfaceArray > CellRecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::NumberRecord, CellRecordArray, ::java::lang::CloneableArray > NumberRecordArray;
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
+typedef ::SubArray< ::poi::hssf::record::Record, RecordBaseArray > RecordArray;
+typedef ::SubArray< ::poi::hssf::record::StandardRecord, RecordArray > StandardRecordArray;
+typedef ::SubArray< ::poi::hssf::record::CellValueRecordInterface, ::java::lang::ObjectArray > CellValueRecordInterfaceArray;
+typedef ::SubArray< ::poi::hssf::record::BlankRecord, StandardRecordArray, CellValueRecordInterfaceArray, ::java::lang::CloneableArray > BlankRecordArray;
+typedef ::SubArray< ::poi::hssf::record::CellRecord, StandardRecordArray, CellValueRecordInterfaceArray > CellRecordArray;
+typedef ::SubArray< ::poi::hssf::record::NumberRecord, CellRecordArray, ::java::lang::CloneableArray > NumberRecordArray;
+        } // record
+    } // hssf
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -75,78 +69,78 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::eventusermodel::MissingRecordAwareHSSFListener::MissingRecordAwareHSSFListener(const ::default_init_tag&)
+poi::hssf::eventusermodel::MissingRecordAwareHSSFListener::MissingRecordAwareHSSFListener(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::eventusermodel::MissingRecordAwareHSSFListener::MissingRecordAwareHSSFListener(HSSFListener* listener) 
+poi::hssf::eventusermodel::MissingRecordAwareHSSFListener::MissingRecordAwareHSSFListener(HSSFListener* listener) 
     : MissingRecordAwareHSSFListener(*static_cast< ::default_init_tag* >(0))
 {
     ctor(listener);
 }
 
-void org::apache::poi::hssf::eventusermodel::MissingRecordAwareHSSFListener::ctor(HSSFListener* listener)
+void poi::hssf::eventusermodel::MissingRecordAwareHSSFListener::ctor(HSSFListener* listener)
 {
     super::ctor();
     resetCounts();
     childListener = listener;
 }
 
-void org::apache::poi::hssf::eventusermodel::MissingRecordAwareHSSFListener::processRecord(::org::apache::poi::hssf::record::Record* record)
+void poi::hssf::eventusermodel::MissingRecordAwareHSSFListener::processRecord(::poi::hssf::record::Record* record)
 {
     int32_t thisRow;
     int32_t thisColumn;
-    ::org::apache::poi::hssf::record::CellValueRecordInterfaceArray* expandedRecords = nullptr;
-    if(dynamic_cast< ::org::apache::poi::hssf::record::CellValueRecordInterface* >(record) != nullptr) {
-        auto valueRec = java_cast< ::org::apache::poi::hssf::record::CellValueRecordInterface* >(record);
+    ::poi::hssf::record::CellValueRecordInterfaceArray* expandedRecords = nullptr;
+    if(dynamic_cast< ::poi::hssf::record::CellValueRecordInterface* >(record) != nullptr) {
+        auto valueRec = java_cast< ::poi::hssf::record::CellValueRecordInterface* >(record);
         thisRow = npc(valueRec)->getRow();
         thisColumn = npc(valueRec)->getColumn();
     } else {
-        if(dynamic_cast< ::org::apache::poi::hssf::record::StringRecord* >(record) != nullptr) {
+        if(dynamic_cast< ::poi::hssf::record::StringRecord* >(record) != nullptr) {
             npc(childListener)->processRecord(record);
             return;
         }
         thisRow = -int32_t(1);
         thisColumn = -int32_t(1);
         {
-            ::org::apache::poi::hssf::record::BOFRecord* bof;
-            ::org::apache::poi::hssf::record::RowRecord* rowrec;
-            ::org::apache::poi::hssf::record::MulBlankRecord* mbr;
-            ::org::apache::poi::hssf::record::MulRKRecord* mrk;
-            ::org::apache::poi::hssf::record::NoteRecord* nrec;
+            ::poi::hssf::record::BOFRecord* bof;
+            ::poi::hssf::record::RowRecord* rowrec;
+            ::poi::hssf::record::MulBlankRecord* mbr;
+            ::poi::hssf::record::MulRKRecord* mrk;
+            ::poi::hssf::record::NoteRecord* nrec;
             switch (npc(record)->getSid()) {
-            case ::org::apache::poi::hssf::record::BOFRecord::sid:
-                bof = java_cast< ::org::apache::poi::hssf::record::BOFRecord* >(record);
-                if(npc(bof)->getType() == ::org::apache::poi::hssf::record::BOFRecord::TYPE_WORKBOOK || npc(bof)->getType() == ::org::apache::poi::hssf::record::BOFRecord::TYPE_WORKSHEET) {
+            case ::poi::hssf::record::BOFRecord::sid:
+                bof = java_cast< ::poi::hssf::record::BOFRecord* >(record);
+                if(npc(bof)->getType() == ::poi::hssf::record::BOFRecord::TYPE_WORKBOOK || npc(bof)->getType() == ::poi::hssf::record::BOFRecord::TYPE_WORKSHEET) {
                     resetCounts();
                 }
                 break;
-            case ::org::apache::poi::hssf::record::RowRecord::sid:
-                rowrec = java_cast< ::org::apache::poi::hssf::record::RowRecord* >(record);
+            case ::poi::hssf::record::RowRecord::sid:
+                rowrec = java_cast< ::poi::hssf::record::RowRecord* >(record);
                 if(lastRowRow + int32_t(1) < npc(rowrec)->getRowNumber()) {
                     for (auto i = (lastRowRow + int32_t(1)); i < npc(rowrec)->getRowNumber(); i++) {
-                        auto dr = new ::org::apache::poi::hssf::eventusermodel::dummyrecord::MissingRowDummyRecord(i);
+                        auto dr = new ::poi::hssf::eventusermodel::dummyrecord::MissingRowDummyRecord(i);
                         npc(childListener)->processRecord(dr);
                     }
                 }
                 lastRowRow = npc(rowrec)->getRowNumber();
                 lastCellColumn = -int32_t(1);
                 break;
-            case ::org::apache::poi::hssf::record::SharedFormulaRecord::sid:
+            case ::poi::hssf::record::SharedFormulaRecord::sid:
                 npc(childListener)->processRecord(record);
                 return;
-            case ::org::apache::poi::hssf::record::MulBlankRecord::sid:
-                mbr = java_cast< ::org::apache::poi::hssf::record::MulBlankRecord* >(record);
-                expandedRecords = ::org::apache::poi::hssf::record::RecordFactory::convertBlankRecords(mbr);
+            case ::poi::hssf::record::MulBlankRecord::sid:
+                mbr = java_cast< ::poi::hssf::record::MulBlankRecord* >(record);
+                expandedRecords = ::poi::hssf::record::RecordFactory::convertBlankRecords(mbr);
                 break;
-            case ::org::apache::poi::hssf::record::MulRKRecord::sid:
-                mrk = java_cast< ::org::apache::poi::hssf::record::MulRKRecord* >(record);
-                expandedRecords = ::org::apache::poi::hssf::record::RecordFactory::convertRKRecords(mrk);
+            case ::poi::hssf::record::MulRKRecord::sid:
+                mrk = java_cast< ::poi::hssf::record::MulRKRecord* >(record);
+                expandedRecords = ::poi::hssf::record::RecordFactory::convertRKRecords(mrk);
                 break;
-            case ::org::apache::poi::hssf::record::NoteRecord::sid:
-                nrec = java_cast< ::org::apache::poi::hssf::record::NoteRecord* >(record);
+            case ::poi::hssf::record::NoteRecord::sid:
+                nrec = java_cast< ::poi::hssf::record::NoteRecord* >(record);
                 thisRow = npc(nrec)->getRow();
                 thisColumn = npc(nrec)->getColumn();
                 break;
@@ -169,11 +163,11 @@ void org::apache::poi::hssf::eventusermodel::MissingRecordAwareHSSFListener::pro
             if(i == lastCellRow) {
                 cols = lastCellColumn;
             }
-            npc(childListener)->processRecord(new ::org::apache::poi::hssf::eventusermodel::dummyrecord::LastCellOfRowDummyRecord(i, cols));
+            npc(childListener)->processRecord(new ::poi::hssf::eventusermodel::dummyrecord::LastCellOfRowDummyRecord(i, cols));
         }
     }
     if(lastCellRow != -int32_t(1) && lastCellColumn != -int32_t(1) && thisRow == -int32_t(1)) {
-        npc(childListener)->processRecord(new ::org::apache::poi::hssf::eventusermodel::dummyrecord::LastCellOfRowDummyRecord(lastCellRow, lastCellColumn));
+        npc(childListener)->processRecord(new ::poi::hssf::eventusermodel::dummyrecord::LastCellOfRowDummyRecord(lastCellRow, lastCellColumn));
         lastCellRow = -int32_t(1);
         lastCellColumn = -int32_t(1);
     }
@@ -182,7 +176,7 @@ void org::apache::poi::hssf::eventusermodel::MissingRecordAwareHSSFListener::pro
     }
     if(lastCellColumn != thisColumn - int32_t(1)) {
         for (auto i = lastCellColumn + int32_t(1); i < thisColumn; i++) {
-            npc(childListener)->processRecord(new ::org::apache::poi::hssf::eventusermodel::dummyrecord::MissingCellDummyRecord(thisRow, i));
+            npc(childListener)->processRecord(new ::poi::hssf::eventusermodel::dummyrecord::MissingCellDummyRecord(thisRow, i));
         }
     }
     if(expandedRecords != nullptr && npc(expandedRecords)->length > 0) {
@@ -194,14 +188,14 @@ void org::apache::poi::hssf::eventusermodel::MissingRecordAwareHSSFListener::pro
     }
     if(expandedRecords != nullptr && npc(expandedRecords)->length > 0) {
         for(auto r : *npc(expandedRecords)) {
-            npc(childListener)->processRecord(java_cast< ::org::apache::poi::hssf::record::Record* >(r));
+            npc(childListener)->processRecord(java_cast< ::poi::hssf::record::Record* >(r));
         }
     } else {
         npc(childListener)->processRecord(record);
     }
 }
 
-void org::apache::poi::hssf::eventusermodel::MissingRecordAwareHSSFListener::resetCounts()
+void poi::hssf::eventusermodel::MissingRecordAwareHSSFListener::resetCounts()
 {
     lastRowRow = -int32_t(1);
     lastCellRow = -int32_t(1);
@@ -210,13 +204,13 @@ void org::apache::poi::hssf::eventusermodel::MissingRecordAwareHSSFListener::res
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::eventusermodel::MissingRecordAwareHSSFListener::class_()
+java::lang::Class* poi::hssf::eventusermodel::MissingRecordAwareHSSFListener::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.eventusermodel.MissingRecordAwareHSSFListener", 65);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::eventusermodel::MissingRecordAwareHSSFListener::getClass0()
+java::lang::Class* poi::hssf::eventusermodel::MissingRecordAwareHSSFListener::getClass0()
 {
     return class_();
 }

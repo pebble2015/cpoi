@@ -11,7 +11,7 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::filesystem::DocumentFactoryHelper_getDecryptedStream_1::DocumentFactoryHelper_getDecryptedStream_1(NPOIFSFileSystem* fs, ::java::io::InputStream* in)
+poi::poifs::filesystem::DocumentFactoryHelper_getDecryptedStream_1::DocumentFactoryHelper_getDecryptedStream_1(NPOIFSFileSystem* fs, ::java::io::InputStream* in)
     : super(*static_cast< ::default_init_tag* >(0))
     , fs(fs)
 {
@@ -19,7 +19,7 @@ org::apache::poi::poifs::filesystem::DocumentFactoryHelper_getDecryptedStream_1:
     ctor(in);
 }
 
-void org::apache::poi::poifs::filesystem::DocumentFactoryHelper_getDecryptedStream_1::close() /* throws(IOException) */
+void poi::poifs::filesystem::DocumentFactoryHelper_getDecryptedStream_1::close() /* throws(IOException) */
 {
     npc(fs)->close();
     super::close();
@@ -27,13 +27,13 @@ void org::apache::poi::poifs::filesystem::DocumentFactoryHelper_getDecryptedStre
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::filesystem::DocumentFactoryHelper_getDecryptedStream_1::class_()
+java::lang::Class* poi::poifs::filesystem::DocumentFactoryHelper_getDecryptedStream_1::class_()
 {
     static ::java::lang::Class* c = ::class_(u"", 0);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::filesystem::DocumentFactoryHelper_getDecryptedStream_1::getClass0()
+java::lang::Class* poi::poifs::filesystem::DocumentFactoryHelper_getDecryptedStream_1::getClass0()
 {
     return class_();
 }

@@ -18,106 +18,106 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::ProtectionRev4Record::ProtectionRev4Record(const ::default_init_tag&)
+poi::hssf::record::ProtectionRev4Record::ProtectionRev4Record(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::ProtectionRev4Record::ProtectionRev4Record(int32_t options) 
+poi::hssf::record::ProtectionRev4Record::ProtectionRev4Record(int32_t options) 
     : ProtectionRev4Record(*static_cast< ::default_init_tag* >(0))
 {
     ctor(options);
 }
 
-org::apache::poi::hssf::record::ProtectionRev4Record::ProtectionRev4Record(bool protect) 
+poi::hssf::record::ProtectionRev4Record::ProtectionRev4Record(bool protect) 
     : ProtectionRev4Record(*static_cast< ::default_init_tag* >(0))
 {
     ctor(protect);
 }
 
-org::apache::poi::hssf::record::ProtectionRev4Record::ProtectionRev4Record(RecordInputStream* in) 
+poi::hssf::record::ProtectionRev4Record::ProtectionRev4Record(RecordInputStream* in) 
     : ProtectionRev4Record(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::ProtectionRev4Record::sid;
+constexpr int16_t poi::hssf::record::ProtectionRev4Record::sid;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::ProtectionRev4Record::protectedFlag()
+poi::util::BitField*& poi::hssf::record::ProtectionRev4Record::protectedFlag()
 {
     clinit();
     return protectedFlag_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::ProtectionRev4Record::protectedFlag_;
+poi::util::BitField* poi::hssf::record::ProtectionRev4Record::protectedFlag_;
 
-void org::apache::poi::hssf::record::ProtectionRev4Record::ctor(int32_t options)
+void poi::hssf::record::ProtectionRev4Record::ctor(int32_t options)
 {
     super::ctor();
     _options = options;
 }
 
-void org::apache::poi::hssf::record::ProtectionRev4Record::ctor(bool protect)
+void poi::hssf::record::ProtectionRev4Record::ctor(bool protect)
 {
     ctor(int32_t(0));
     setProtect(protect);
 }
 
-void org::apache::poi::hssf::record::ProtectionRev4Record::ctor(RecordInputStream* in)
+void poi::hssf::record::ProtectionRev4Record::ctor(RecordInputStream* in)
 {
     ctor(npc(in)->readUShort());
 }
 
-void org::apache::poi::hssf::record::ProtectionRev4Record::setProtect(bool protect)
+void poi::hssf::record::ProtectionRev4Record::setProtect(bool protect)
 {
     _options = npc(protectedFlag_)->setBoolean(_options, protect);
 }
 
-bool org::apache::poi::hssf::record::ProtectionRev4Record::getProtect()
+bool poi::hssf::record::ProtectionRev4Record::getProtect()
 {
     return npc(protectedFlag_)->isSet(_options);
 }
 
-java::lang::String* org::apache::poi::hssf::record::ProtectionRev4Record::toString()
+java::lang::String* poi::hssf::record::ProtectionRev4Record::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[PROT4REV]\n"_j);
-    npc(npc(npc(buffer)->append(u"    .options = "_j))->append(::org::apache::poi::util::HexDump::shortToHex(_options)))->append(u"\n"_j);
+    npc(npc(npc(buffer)->append(u"    .options = "_j))->append(::poi::util::HexDump::shortToHex(_options)))->append(u"\n"_j);
     npc(buffer)->append(u"[/PROT4REV]\n"_j);
     return npc(buffer)->toString();
 }
 
-void org::apache::poi::hssf::record::ProtectionRev4Record::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::ProtectionRev4Record::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(_options);
 }
 
-int32_t org::apache::poi::hssf::record::ProtectionRev4Record::getDataSize()
+int32_t poi::hssf::record::ProtectionRev4Record::getDataSize()
 {
     return 2;
 }
 
-int16_t org::apache::poi::hssf::record::ProtectionRev4Record::getSid()
+int16_t poi::hssf::record::ProtectionRev4Record::getSid()
 {
     return sid;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::ProtectionRev4Record::class_()
+java::lang::Class* poi::hssf::record::ProtectionRev4Record::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.ProtectionRev4Record", 47);
     return c;
 }
 
-void org::apache::poi::hssf::record::ProtectionRev4Record::clinit()
+void poi::hssf::record::ProtectionRev4Record::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        protectedFlag_ = ::org::apache::poi::util::BitFieldFactory::getInstance(1);
+        protectedFlag_ = ::poi::util::BitFieldFactory::getInstance(1);
     }
 };
 
@@ -126,17 +126,17 @@ struct clinit_ {
     }
 }
 
-int32_t org::apache::poi::hssf::record::ProtectionRev4Record::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::ProtectionRev4Record::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::ProtectionRev4Record::serialize()
+int8_tArray* poi::hssf::record::ProtectionRev4Record::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::ProtectionRev4Record::getClass0()
+java::lang::Class* poi::hssf::record::ProtectionRev4Record::getClass0()
 {
     return class_();
 }

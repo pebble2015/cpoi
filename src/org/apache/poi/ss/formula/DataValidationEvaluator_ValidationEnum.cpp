@@ -49,23 +49,17 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
-            {
-                namespace formula
-                {
-typedef ::SubArray< ::org::apache::poi::ss::formula::DataValidationEvaluator_OperatorEnum, ::java::lang::EnumArray > DataValidationEvaluator_OperatorEnumArray;
-typedef ::SubArray< ::org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum, ::java::lang::EnumArray > DataValidationEvaluator_ValidationEnumArray;
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::DataValidationEvaluator_OperatorEnum, ::java::lang::EnumArray > DataValidationEvaluator_OperatorEnumArray;
+typedef ::SubArray< ::poi::ss::formula::DataValidationEvaluator_ValidationEnum, ::java::lang::EnumArray > DataValidationEvaluator_ValidationEnumArray;
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -83,41 +77,41 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum::DataValidationEvaluator_ValidationEnum(const ::default_init_tag&)
+poi::ss::formula::DataValidationEvaluator_ValidationEnum::DataValidationEvaluator_ValidationEnum(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum::DataValidationEvaluator_ValidationEnum(::java::lang::String* name, int ordinal)
+poi::ss::formula::DataValidationEvaluator_ValidationEnum::DataValidationEvaluator_ValidationEnum(::java::lang::String* name, int ordinal)
     : DataValidationEvaluator_ValidationEnum(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal);
 }
 
-org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum* org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum::ANY = new ::org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum_1(u"ANY"_j, 0);
-org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum* org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum::INTEGER = new ::org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum_2(u"INTEGER"_j, 1);
-org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum* org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum::DECIMAL = new ::org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum(u"DECIMAL"_j, 2);
-org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum* org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum::LIST = new ::org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum_3(u"LIST"_j, 3);
-org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum* org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum::DATE = new ::org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum(u"DATE"_j, 4);
-org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum* org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum::TIME = new ::org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum(u"TIME"_j, 5);
-org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum* org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum::TEXT_LENGTH = new ::org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum_4(u"TEXT_LENGTH"_j, 6);
-org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum* org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum::FORMULA = new ::org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum_5(u"FORMULA"_j, 7);
-bool org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum::isValidValue(::org::apache::poi::ss::usermodel::Cell* cell, DataValidationEvaluator_DataValidationContext* context)
+poi::ss::formula::DataValidationEvaluator_ValidationEnum* poi::ss::formula::DataValidationEvaluator_ValidationEnum::ANY = new ::poi::ss::formula::DataValidationEvaluator_ValidationEnum_1(u"ANY"_j, 0);
+poi::ss::formula::DataValidationEvaluator_ValidationEnum* poi::ss::formula::DataValidationEvaluator_ValidationEnum::INTEGER = new ::poi::ss::formula::DataValidationEvaluator_ValidationEnum_2(u"INTEGER"_j, 1);
+poi::ss::formula::DataValidationEvaluator_ValidationEnum* poi::ss::formula::DataValidationEvaluator_ValidationEnum::DECIMAL = new ::poi::ss::formula::DataValidationEvaluator_ValidationEnum(u"DECIMAL"_j, 2);
+poi::ss::formula::DataValidationEvaluator_ValidationEnum* poi::ss::formula::DataValidationEvaluator_ValidationEnum::LIST = new ::poi::ss::formula::DataValidationEvaluator_ValidationEnum_3(u"LIST"_j, 3);
+poi::ss::formula::DataValidationEvaluator_ValidationEnum* poi::ss::formula::DataValidationEvaluator_ValidationEnum::DATE = new ::poi::ss::formula::DataValidationEvaluator_ValidationEnum(u"DATE"_j, 4);
+poi::ss::formula::DataValidationEvaluator_ValidationEnum* poi::ss::formula::DataValidationEvaluator_ValidationEnum::TIME = new ::poi::ss::formula::DataValidationEvaluator_ValidationEnum(u"TIME"_j, 5);
+poi::ss::formula::DataValidationEvaluator_ValidationEnum* poi::ss::formula::DataValidationEvaluator_ValidationEnum::TEXT_LENGTH = new ::poi::ss::formula::DataValidationEvaluator_ValidationEnum_4(u"TEXT_LENGTH"_j, 6);
+poi::ss::formula::DataValidationEvaluator_ValidationEnum* poi::ss::formula::DataValidationEvaluator_ValidationEnum::FORMULA = new ::poi::ss::formula::DataValidationEvaluator_ValidationEnum_5(u"FORMULA"_j, 7);
+bool poi::ss::formula::DataValidationEvaluator_ValidationEnum::isValidValue(::poi::ss::usermodel::Cell* cell, DataValidationEvaluator_DataValidationContext* context)
 {
     return isValidNumericCell(cell, context);
 }
 
-bool org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum::isValidNumericCell(::org::apache::poi::ss::usermodel::Cell* cell, DataValidationEvaluator_DataValidationContext* context)
+bool poi::ss::formula::DataValidationEvaluator_ValidationEnum::isValidNumericCell(::poi::ss::usermodel::Cell* cell, DataValidationEvaluator_DataValidationContext* context)
 {
-    if(!DataValidationEvaluator::isType(cell, ::org::apache::poi::ss::usermodel::CellType::NUMERIC))
+    if(!DataValidationEvaluator::isType(cell, ::poi::ss::usermodel::CellType::NUMERIC))
         return false;
 
     auto value = ::java::lang::Double::valueOf(npc(cell)->getNumericCellValue());
     return isValidNumericValue(value, context);
 }
 
-bool org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum::isValidNumericValue(::java::lang::Double* value, DataValidationEvaluator_DataValidationContext* context)
+bool poi::ss::formula::DataValidationEvaluator_ValidationEnum::isValidNumericValue(::java::lang::Double* value, DataValidationEvaluator_DataValidationContext* context)
 {
     try {
         auto t1 = evalOrConstant(npc(context)->getFormula1(), context);
@@ -125,7 +119,7 @@ bool org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum::isVa
             return true;
 
         ::java::lang::Double* t2 = nullptr;
-        if(npc(context)->getOperator() == ::org::apache::poi::ss::usermodel::DataValidationConstraint_OperatorType::BETWEEN || npc(context)->getOperator() == ::org::apache::poi::ss::usermodel::DataValidationConstraint_OperatorType::NOT_BETWEEN) {
+        if(npc(context)->getOperator() == ::poi::ss::usermodel::DataValidationConstraint_OperatorType::BETWEEN || npc(context)->getOperator() == ::poi::ss::usermodel::DataValidationConstraint_OperatorType::NOT_BETWEEN) {
             t2 = evalOrConstant(npc(context)->getFormula2(), context);
             if(t2 == nullptr)
                 return true;
@@ -137,7 +131,7 @@ bool org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum::isVa
     }
 }
 
-java::lang::Double* org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum::evalOrConstant(::java::lang::String* formula, DataValidationEvaluator_DataValidationContext* context) /* throws(NumberFormatException) */
+java::lang::Double* poi::ss::formula::DataValidationEvaluator_ValidationEnum::evalOrConstant(::java::lang::String* formula, DataValidationEvaluator_DataValidationContext* context) /* throws(NumberFormatException) */
 {
     if(formula == nullptr || npc(npc(formula)->trim())->isEmpty())
         return nullptr;
@@ -147,17 +141,17 @@ java::lang::Double* org::apache::poi::ss::formula::DataValidationEvaluator_Valid
     } catch (::java::lang::NumberFormatException* e) {
     }
     auto eval = npc(npc(npc(context)->getEvaluator())->getWorkbookEvaluator())->evaluate(formula, npc(context)->getTarget(), npc(context)->getRegion());
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::RefEval* >(eval) != nullptr) {
-        eval = npc((java_cast< ::org::apache::poi::ss::formula::eval::RefEval* >(eval)))->getInnerValueEval(npc((java_cast< ::org::apache::poi::ss::formula::eval::RefEval* >(eval)))->getFirstSheetIndex());
+    if(dynamic_cast< ::poi::ss::formula::eval::RefEval* >(eval) != nullptr) {
+        eval = npc((java_cast< ::poi::ss::formula::eval::RefEval* >(eval)))->getInnerValueEval(npc((java_cast< ::poi::ss::formula::eval::RefEval* >(eval)))->getFirstSheetIndex());
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::BlankEval* >(eval) != nullptr)
+    if(dynamic_cast< ::poi::ss::formula::eval::BlankEval* >(eval) != nullptr)
         return nullptr;
 
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::NumberEval* >(eval) != nullptr)
-        return ::java::lang::Double::valueOf(npc((java_cast< ::org::apache::poi::ss::formula::eval::NumberEval* >(eval)))->getNumberValue());
+    if(dynamic_cast< ::poi::ss::formula::eval::NumberEval* >(eval) != nullptr)
+        return ::java::lang::Double::valueOf(npc((java_cast< ::poi::ss::formula::eval::NumberEval* >(eval)))->getNumberValue());
 
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::StringEval* >(eval) != nullptr) {
-        auto const value = npc((java_cast< ::org::apache::poi::ss::formula::eval::StringEval* >(eval)))->getStringValue();
+    if(dynamic_cast< ::poi::ss::formula::eval::StringEval* >(eval) != nullptr) {
+        auto const value = npc((java_cast< ::poi::ss::formula::eval::StringEval* >(eval)))->getStringValue();
         if(value == nullptr || npc(npc(value)->trim())->isEmpty())
             return nullptr;
 
@@ -167,7 +161,7 @@ java::lang::Double* org::apache::poi::ss::formula::DataValidationEvaluator_Valid
         ->append(u"' evaluates to something other than a number"_j)->toString());
 }
 
-bool org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum::isValid(::org::apache::poi::ss::usermodel::Cell* cell, DataValidationEvaluator_DataValidationContext* context)
+bool poi::ss::formula::DataValidationEvaluator_ValidationEnum::isValid(::poi::ss::usermodel::Cell* cell, DataValidationEvaluator_DataValidationContext* context)
 {
     clinit();
     return npc((*values())[npc(npc(npc(context)->getValidation())->getValidationConstraint())->getValidationType()])->isValidValue(cell, context);
@@ -175,13 +169,13 @@ bool org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum::isVa
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum::class_()
+java::lang::Class* poi::ss::formula::DataValidationEvaluator_ValidationEnum::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.DataValidationEvaluator.ValidationEnum", 64);
     return c;
 }
 
-org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum* org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum::valueOf(::java::lang::String* a0)
+poi::ss::formula::DataValidationEvaluator_ValidationEnum* poi::ss::formula::DataValidationEvaluator_ValidationEnum::valueOf(::java::lang::String* a0)
 {
     if(ANY->toString()->equals(a0))
         return ANY;
@@ -202,9 +196,9 @@ org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum* org::apac
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnumArray* org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum::values()
+poi::ss::formula::DataValidationEvaluator_ValidationEnumArray* poi::ss::formula::DataValidationEvaluator_ValidationEnum::values()
 {
-    return new org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnumArray({
+    return new poi::ss::formula::DataValidationEvaluator_ValidationEnumArray({
         ANY,
         DATE,
         DECIMAL,
@@ -216,7 +210,7 @@ org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnumArray* org:
     });
 }
 
-java::lang::Class* org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum::getClass0()
+java::lang::Class* poi::ss::formula::DataValidationEvaluator_ValidationEnum::getClass0()
 {
     return class_();
 }

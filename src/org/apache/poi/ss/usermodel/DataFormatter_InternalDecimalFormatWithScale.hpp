@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::usermodel::DataFormatter_InternalDecimalFormatWithScale
+class poi::ss::usermodel::DataFormatter_InternalDecimalFormatWithScale
     : public ::java::text::Format
 {
 

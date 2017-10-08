@@ -26,22 +26,16 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace ss
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::FontScheme, ::java::lang::EnumArray > FontSchemeArray;
-                } // usermodel
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::usermodel::FontScheme, ::java::lang::EnumArray > FontSchemeArray;
+        } // usermodel
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -50,40 +44,40 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::usermodel::FontScheme::FontScheme(const ::default_init_tag&)
+poi::ss::usermodel::FontScheme::FontScheme(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::usermodel::FontScheme::FontScheme(::java::lang::String* name, int ordinal, int32_t val) 
+poi::ss::usermodel::FontScheme::FontScheme(::java::lang::String* name, int ordinal, int32_t val) 
     : FontScheme(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal, val);
 }
 
-org::apache::poi::ss::usermodel::FontScheme* org::apache::poi::ss::usermodel::FontScheme::NONE = new ::org::apache::poi::ss::usermodel::FontScheme(u"NONE"_j, 0, int32_t(1));
-org::apache::poi::ss::usermodel::FontScheme* org::apache::poi::ss::usermodel::FontScheme::MAJOR = new ::org::apache::poi::ss::usermodel::FontScheme(u"MAJOR"_j, 1, int32_t(2));
-org::apache::poi::ss::usermodel::FontScheme* org::apache::poi::ss::usermodel::FontScheme::MINOR = new ::org::apache::poi::ss::usermodel::FontScheme(u"MINOR"_j, 2, int32_t(3));
-void org::apache::poi::ss::usermodel::FontScheme::ctor(::java::lang::String* name, int ordinal, int32_t val)
+poi::ss::usermodel::FontScheme* poi::ss::usermodel::FontScheme::NONE = new ::poi::ss::usermodel::FontScheme(u"NONE"_j, 0, int32_t(1));
+poi::ss::usermodel::FontScheme* poi::ss::usermodel::FontScheme::MAJOR = new ::poi::ss::usermodel::FontScheme(u"MAJOR"_j, 1, int32_t(2));
+poi::ss::usermodel::FontScheme* poi::ss::usermodel::FontScheme::MINOR = new ::poi::ss::usermodel::FontScheme(u"MINOR"_j, 2, int32_t(3));
+void poi::ss::usermodel::FontScheme::ctor(::java::lang::String* name, int ordinal, int32_t val)
 {
     super::ctor(name, ordinal);
     value = val;
 }
 
-int32_t org::apache::poi::ss::usermodel::FontScheme::getValue()
+int32_t poi::ss::usermodel::FontScheme::getValue()
 {
     return value;
 }
 
-org::apache::poi::ss::usermodel::FontSchemeArray*& org::apache::poi::ss::usermodel::FontScheme::_table()
+poi::ss::usermodel::FontSchemeArray*& poi::ss::usermodel::FontScheme::_table()
 {
     clinit();
     return _table_;
 }
-org::apache::poi::ss::usermodel::FontSchemeArray* org::apache::poi::ss::usermodel::FontScheme::_table_;
+poi::ss::usermodel::FontSchemeArray* poi::ss::usermodel::FontScheme::_table_;
 
-org::apache::poi::ss::usermodel::FontScheme* org::apache::poi::ss::usermodel::FontScheme::valueOf(int32_t value)
+poi::ss::usermodel::FontScheme* poi::ss::usermodel::FontScheme::valueOf(int32_t value)
 {
     clinit();
     return (*_table_)[value];
@@ -91,13 +85,13 @@ org::apache::poi::ss::usermodel::FontScheme* org::apache::poi::ss::usermodel::Fo
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::usermodel::FontScheme::class_()
+java::lang::Class* poi::ss::usermodel::FontScheme::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.usermodel.FontScheme", 38);
     return c;
 }
 
-void org::apache::poi::ss::usermodel::FontScheme::clinit()
+void poi::ss::usermodel::FontScheme::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -118,12 +112,12 @@ struct clinit_ {
     }
 }
 
-java::lang::Enum* org::apache::poi::ss::usermodel::FontScheme::valueOf(::java::lang::Class* enumType, ::java::lang::String* name)
+java::lang::Enum* poi::ss::usermodel::FontScheme::valueOf(::java::lang::Class* enumType, ::java::lang::String* name)
 {
     return super::valueOf(enumType, name);
 }
 
-org::apache::poi::ss::usermodel::FontScheme* org::apache::poi::ss::usermodel::FontScheme::valueOf(::java::lang::String* a0)
+poi::ss::usermodel::FontScheme* poi::ss::usermodel::FontScheme::valueOf(::java::lang::String* a0)
 {
     if(MAJOR->toString()->equals(a0))
         return MAJOR;
@@ -134,16 +128,16 @@ org::apache::poi::ss::usermodel::FontScheme* org::apache::poi::ss::usermodel::Fo
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::ss::usermodel::FontSchemeArray* org::apache::poi::ss::usermodel::FontScheme::values()
+poi::ss::usermodel::FontSchemeArray* poi::ss::usermodel::FontScheme::values()
 {
-    return new org::apache::poi::ss::usermodel::FontSchemeArray({
+    return new poi::ss::usermodel::FontSchemeArray({
         MAJOR,
         MINOR,
         NONE,
     });
 }
 
-java::lang::Class* org::apache::poi::ss::usermodel::FontScheme::getClass0()
+java::lang::Class* poi::ss::usermodel::FontScheme::getClass0()
 {
     return class_();
 }

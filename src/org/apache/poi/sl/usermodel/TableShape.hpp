@@ -11,7 +11,7 @@
 #include <org/apache/poi/sl/usermodel/ShapeContainer.hpp>
 #include <org/apache/poi/sl/usermodel/Sheet.hpp>
 
-struct org::apache::poi::sl::usermodel::TableShape
+struct poi::sl::usermodel::TableShape
     : public virtual Shape
     , public virtual PlaceableShape
 {

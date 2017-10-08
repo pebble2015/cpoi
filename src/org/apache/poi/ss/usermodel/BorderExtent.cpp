@@ -25,58 +25,52 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace ss
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::BorderExtent, ::java::lang::EnumArray > BorderExtentArray;
-                } // usermodel
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::usermodel::BorderExtent, ::java::lang::EnumArray > BorderExtentArray;
+        } // usermodel
+    } // ss
+} // poi
 
-org::apache::poi::ss::usermodel::BorderExtent::BorderExtent(const ::default_init_tag&)
+poi::ss::usermodel::BorderExtent::BorderExtent(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::usermodel::BorderExtent::BorderExtent(::java::lang::String* name, int ordinal)
+poi::ss::usermodel::BorderExtent::BorderExtent(::java::lang::String* name, int ordinal)
     : BorderExtent(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal);
 }
 
-org::apache::poi::ss::usermodel::BorderExtent* org::apache::poi::ss::usermodel::BorderExtent::NONE = new ::org::apache::poi::ss::usermodel::BorderExtent(u"NONE"_j, 0);
-org::apache::poi::ss::usermodel::BorderExtent* org::apache::poi::ss::usermodel::BorderExtent::ALL = new ::org::apache::poi::ss::usermodel::BorderExtent(u"ALL"_j, 1);
-org::apache::poi::ss::usermodel::BorderExtent* org::apache::poi::ss::usermodel::BorderExtent::INSIDE = new ::org::apache::poi::ss::usermodel::BorderExtent(u"INSIDE"_j, 2);
-org::apache::poi::ss::usermodel::BorderExtent* org::apache::poi::ss::usermodel::BorderExtent::OUTSIDE = new ::org::apache::poi::ss::usermodel::BorderExtent(u"OUTSIDE"_j, 3);
-org::apache::poi::ss::usermodel::BorderExtent* org::apache::poi::ss::usermodel::BorderExtent::TOP = new ::org::apache::poi::ss::usermodel::BorderExtent(u"TOP"_j, 4);
-org::apache::poi::ss::usermodel::BorderExtent* org::apache::poi::ss::usermodel::BorderExtent::BOTTOM = new ::org::apache::poi::ss::usermodel::BorderExtent(u"BOTTOM"_j, 5);
-org::apache::poi::ss::usermodel::BorderExtent* org::apache::poi::ss::usermodel::BorderExtent::LEFT = new ::org::apache::poi::ss::usermodel::BorderExtent(u"LEFT"_j, 6);
-org::apache::poi::ss::usermodel::BorderExtent* org::apache::poi::ss::usermodel::BorderExtent::RIGHT = new ::org::apache::poi::ss::usermodel::BorderExtent(u"RIGHT"_j, 7);
-org::apache::poi::ss::usermodel::BorderExtent* org::apache::poi::ss::usermodel::BorderExtent::HORIZONTAL = new ::org::apache::poi::ss::usermodel::BorderExtent(u"HORIZONTAL"_j, 8);
-org::apache::poi::ss::usermodel::BorderExtent* org::apache::poi::ss::usermodel::BorderExtent::INSIDE_HORIZONTAL = new ::org::apache::poi::ss::usermodel::BorderExtent(u"INSIDE_HORIZONTAL"_j, 9);
-org::apache::poi::ss::usermodel::BorderExtent* org::apache::poi::ss::usermodel::BorderExtent::OUTSIDE_HORIZONTAL = new ::org::apache::poi::ss::usermodel::BorderExtent(u"OUTSIDE_HORIZONTAL"_j, 10);
-org::apache::poi::ss::usermodel::BorderExtent* org::apache::poi::ss::usermodel::BorderExtent::VERTICAL = new ::org::apache::poi::ss::usermodel::BorderExtent(u"VERTICAL"_j, 11);
-org::apache::poi::ss::usermodel::BorderExtent* org::apache::poi::ss::usermodel::BorderExtent::INSIDE_VERTICAL = new ::org::apache::poi::ss::usermodel::BorderExtent(u"INSIDE_VERTICAL"_j, 12);
-org::apache::poi::ss::usermodel::BorderExtent* org::apache::poi::ss::usermodel::BorderExtent::OUTSIDE_VERTICAL = new ::org::apache::poi::ss::usermodel::BorderExtent(u"OUTSIDE_VERTICAL"_j, 13);
+poi::ss::usermodel::BorderExtent* poi::ss::usermodel::BorderExtent::NONE = new ::poi::ss::usermodel::BorderExtent(u"NONE"_j, 0);
+poi::ss::usermodel::BorderExtent* poi::ss::usermodel::BorderExtent::ALL = new ::poi::ss::usermodel::BorderExtent(u"ALL"_j, 1);
+poi::ss::usermodel::BorderExtent* poi::ss::usermodel::BorderExtent::INSIDE = new ::poi::ss::usermodel::BorderExtent(u"INSIDE"_j, 2);
+poi::ss::usermodel::BorderExtent* poi::ss::usermodel::BorderExtent::OUTSIDE = new ::poi::ss::usermodel::BorderExtent(u"OUTSIDE"_j, 3);
+poi::ss::usermodel::BorderExtent* poi::ss::usermodel::BorderExtent::TOP = new ::poi::ss::usermodel::BorderExtent(u"TOP"_j, 4);
+poi::ss::usermodel::BorderExtent* poi::ss::usermodel::BorderExtent::BOTTOM = new ::poi::ss::usermodel::BorderExtent(u"BOTTOM"_j, 5);
+poi::ss::usermodel::BorderExtent* poi::ss::usermodel::BorderExtent::LEFT = new ::poi::ss::usermodel::BorderExtent(u"LEFT"_j, 6);
+poi::ss::usermodel::BorderExtent* poi::ss::usermodel::BorderExtent::RIGHT = new ::poi::ss::usermodel::BorderExtent(u"RIGHT"_j, 7);
+poi::ss::usermodel::BorderExtent* poi::ss::usermodel::BorderExtent::HORIZONTAL = new ::poi::ss::usermodel::BorderExtent(u"HORIZONTAL"_j, 8);
+poi::ss::usermodel::BorderExtent* poi::ss::usermodel::BorderExtent::INSIDE_HORIZONTAL = new ::poi::ss::usermodel::BorderExtent(u"INSIDE_HORIZONTAL"_j, 9);
+poi::ss::usermodel::BorderExtent* poi::ss::usermodel::BorderExtent::OUTSIDE_HORIZONTAL = new ::poi::ss::usermodel::BorderExtent(u"OUTSIDE_HORIZONTAL"_j, 10);
+poi::ss::usermodel::BorderExtent* poi::ss::usermodel::BorderExtent::VERTICAL = new ::poi::ss::usermodel::BorderExtent(u"VERTICAL"_j, 11);
+poi::ss::usermodel::BorderExtent* poi::ss::usermodel::BorderExtent::INSIDE_VERTICAL = new ::poi::ss::usermodel::BorderExtent(u"INSIDE_VERTICAL"_j, 12);
+poi::ss::usermodel::BorderExtent* poi::ss::usermodel::BorderExtent::OUTSIDE_VERTICAL = new ::poi::ss::usermodel::BorderExtent(u"OUTSIDE_VERTICAL"_j, 13);
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::usermodel::BorderExtent::class_()
+java::lang::Class* poi::ss::usermodel::BorderExtent::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.usermodel.BorderExtent", 40);
     return c;
 }
 
-org::apache::poi::ss::usermodel::BorderExtent* org::apache::poi::ss::usermodel::BorderExtent::valueOf(::java::lang::String* a0)
+poi::ss::usermodel::BorderExtent* poi::ss::usermodel::BorderExtent::valueOf(::java::lang::String* a0)
 {
     if(ALL->toString()->equals(a0))
         return ALL;
@@ -109,9 +103,9 @@ org::apache::poi::ss::usermodel::BorderExtent* org::apache::poi::ss::usermodel::
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::ss::usermodel::BorderExtentArray* org::apache::poi::ss::usermodel::BorderExtent::values()
+poi::ss::usermodel::BorderExtentArray* poi::ss::usermodel::BorderExtent::values()
 {
-    return new org::apache::poi::ss::usermodel::BorderExtentArray({
+    return new poi::ss::usermodel::BorderExtentArray({
         ALL,
         BOTTOM,
         HORIZONTAL,
@@ -129,7 +123,7 @@ org::apache::poi::ss::usermodel::BorderExtentArray* org::apache::poi::ss::usermo
     });
 }
 
-java::lang::Class* org::apache::poi::ss::usermodel::BorderExtent::getClass0()
+java::lang::Class* poi::ss::usermodel::BorderExtent::getClass0()
 {
     return class_();
 }

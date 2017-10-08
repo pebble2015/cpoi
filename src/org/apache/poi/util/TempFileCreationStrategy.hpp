@@ -7,7 +7,7 @@
 #include <org/apache/poi/util/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::util::TempFileCreationStrategy
+struct poi::util::TempFileCreationStrategy
     : public virtual ::java::lang::Object
 {
     virtual ::java::io::File* createTempFile(::java::lang::String* prefix, ::java::lang::String* suffix) /* throws(IOException) */ = 0;

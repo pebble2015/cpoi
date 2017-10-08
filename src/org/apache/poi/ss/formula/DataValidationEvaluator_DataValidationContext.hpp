@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::DataValidationEvaluator_DataValidationContext
+class poi::ss::formula::DataValidationEvaluator_DataValidationContext
     : public virtual ::java::lang::Object
 {
 
@@ -19,18 +19,18 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    ::org::apache::poi::ss::usermodel::DataValidation* dv {  };
+    ::poi::ss::usermodel::DataValidation* dv {  };
     DataValidationEvaluator* dve {  };
-    ::org::apache::poi::ss::util::CellRangeAddressBase* region {  };
-    ::org::apache::poi::ss::util::CellReference* target {  };
+    ::poi::ss::util::CellRangeAddressBase* region {  };
+    ::poi::ss::util::CellReference* target {  };
 protected:
-    void ctor(::org::apache::poi::ss::usermodel::DataValidation* dv, DataValidationEvaluator* dve, ::org::apache::poi::ss::util::CellRangeAddressBase* region, ::org::apache::poi::ss::util::CellReference* target);
+    void ctor(::poi::ss::usermodel::DataValidation* dv, DataValidationEvaluator* dve, ::poi::ss::util::CellRangeAddressBase* region, ::poi::ss::util::CellReference* target);
 
 public:
-    virtual ::org::apache::poi::ss::usermodel::DataValidation* getValidation();
+    virtual ::poi::ss::usermodel::DataValidation* getValidation();
     virtual DataValidationEvaluator* getEvaluator();
-    virtual ::org::apache::poi::ss::util::CellRangeAddressBase* getRegion();
-    virtual ::org::apache::poi::ss::util::CellReference* getTarget();
+    virtual ::poi::ss::util::CellRangeAddressBase* getRegion();
+    virtual ::poi::ss::util::CellReference* getTarget();
     virtual int32_t getOffsetColumns();
     virtual int32_t getOffsetRows();
     virtual int32_t getSheetIndex();
@@ -39,7 +39,7 @@ public:
     virtual int32_t getOperator();
 
     // Generated
-    DataValidationEvaluator_DataValidationContext(::org::apache::poi::ss::usermodel::DataValidation* dv, DataValidationEvaluator* dve, ::org::apache::poi::ss::util::CellRangeAddressBase* region, ::org::apache::poi::ss::util::CellReference* target);
+    DataValidationEvaluator_DataValidationContext(::poi::ss::usermodel::DataValidation* dv, DataValidationEvaluator* dve, ::poi::ss::util::CellRangeAddressBase* region, ::poi::ss::util::CellReference* target);
 protected:
     DataValidationEvaluator_DataValidationContext(const ::default_init_tag&);
 

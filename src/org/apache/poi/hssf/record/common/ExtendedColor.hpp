@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::common::ExtendedColor final
+class poi::hssf::record::common::ExtendedColor final
     : public virtual ::java::lang::Object
     , public ::java::lang::Cloneable
 {
@@ -44,7 +44,7 @@ private:
     double tint {  };
 protected:
     void ctor();
-    void ctor(::org::apache::poi::util::LittleEndianInput* in);
+    void ctor(::poi::util::LittleEndianInput* in);
 
 public:
     int32_t getType();
@@ -60,11 +60,11 @@ public:
     ::java::lang::String* toString() override;
     ExtendedColor* clone() override;
     int32_t getDataLength();
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out);
+    void serialize(::poi::util::LittleEndianOutput* out);
 
     // Generated
     ExtendedColor();
-    ExtendedColor(::org::apache::poi::util::LittleEndianInput* in);
+    ExtendedColor(::poi::util::LittleEndianInput* in);
 protected:
     ExtendedColor(const ::default_init_tag&);
 

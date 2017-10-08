@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hpsf::ReadingNotSupportedException
+class poi::hpsf::ReadingNotSupportedException
     : public UnsupportedVariantTypeException
 {
 

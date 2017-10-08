@@ -25,44 +25,44 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::LookupUtils_NumberLookupComparer::LookupUtils_NumberLookupComparer(const ::default_init_tag&)
+poi::ss::formula::functions::LookupUtils_NumberLookupComparer::LookupUtils_NumberLookupComparer(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::LookupUtils_NumberLookupComparer::LookupUtils_NumberLookupComparer(::org::apache::poi::ss::formula::eval::NumberEval* ne) 
+poi::ss::formula::functions::LookupUtils_NumberLookupComparer::LookupUtils_NumberLookupComparer(::poi::ss::formula::eval::NumberEval* ne) 
     : LookupUtils_NumberLookupComparer(*static_cast< ::default_init_tag* >(0))
 {
     ctor(ne);
 }
 
-void org::apache::poi::ss::formula::functions::LookupUtils_NumberLookupComparer::ctor(::org::apache::poi::ss::formula::eval::NumberEval* ne)
+void poi::ss::formula::functions::LookupUtils_NumberLookupComparer::ctor(::poi::ss::formula::eval::NumberEval* ne)
 {
     super::ctor(ne);
     _value = npc(ne)->getNumberValue();
 }
 
-org::apache::poi::ss::formula::functions::LookupUtils_CompareResult* org::apache::poi::ss::formula::functions::LookupUtils_NumberLookupComparer::compareSameType(::org::apache::poi::ss::formula::eval::ValueEval* other)
+poi::ss::formula::functions::LookupUtils_CompareResult* poi::ss::formula::functions::LookupUtils_NumberLookupComparer::compareSameType(::poi::ss::formula::eval::ValueEval* other)
 {
-    auto ne = java_cast< ::org::apache::poi::ss::formula::eval::NumberEval* >(other);
+    auto ne = java_cast< ::poi::ss::formula::eval::NumberEval* >(other);
     return LookupUtils_CompareResult::valueOf(::java::lang::Double::compare(_value, npc(ne)->getNumberValue()));
 }
 
-java::lang::String* org::apache::poi::ss::formula::functions::LookupUtils_NumberLookupComparer::getValueAsString()
+java::lang::String* poi::ss::formula::functions::LookupUtils_NumberLookupComparer::getValueAsString()
 {
     return ::java::lang::String::valueOf(_value);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::LookupUtils_NumberLookupComparer::class_()
+java::lang::Class* poi::ss::formula::functions::LookupUtils_NumberLookupComparer::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.LookupUtils.NumberLookupComparer", 68);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::LookupUtils_NumberLookupComparer::getClass0()
+java::lang::Class* poi::ss::formula::functions::LookupUtils_NumberLookupComparer::getClass0()
 {
     return class_();
 }

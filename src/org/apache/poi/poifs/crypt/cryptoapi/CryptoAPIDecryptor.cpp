@@ -45,25 +45,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace poifs
     {
-        namespace poi
+        namespace crypt
         {
-            namespace poifs
+            namespace cryptoapi
             {
-                namespace crypt
-                {
-                    namespace cryptoapi
-                    {
-typedef ::SubArray< ::org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor_StreamDescriptorEntry, ::java::lang::ObjectArray > CryptoAPIDecryptor_StreamDescriptorEntryArray;
-                    } // cryptoapi
-                } // crypt
-            } // poifs
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor_StreamDescriptorEntry, ::java::lang::ObjectArray > CryptoAPIDecryptor_StreamDescriptorEntryArray;
+            } // cryptoapi
+        } // crypt
+    } // poifs
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -97,31 +91,31 @@ namespace
 
     template<typename F> finally_<F> finally(F f) { return finally_<F>(f); }
 }
-org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor::CryptoAPIDecryptor(const ::default_init_tag&)
+poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor::CryptoAPIDecryptor(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor::CryptoAPIDecryptor() 
+poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor::CryptoAPIDecryptor() 
     : CryptoAPIDecryptor(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor::init()
+void poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor::init()
 {
     length = -int64_t(1LL);
     chunkSize = -int32_t(1);
 }
 
-void org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor::ctor()
+void poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor::ctor()
 {
     super::ctor();
     init();
 }
 
-bool org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor::verifyPassword(::java::lang::String* password)
+bool poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor::verifyPassword(::java::lang::String* password)
 {
     auto ver = npc(getEncryptionInfo())->getVerifier();
     auto skey = generateSecretKey(password, ver);
@@ -134,88 +128,88 @@ bool org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor::verifyPasswo
         auto encryptedVerifierHash = npc(ver)->getEncryptedVerifierHash();
         auto verifierHash = npc(cipher)->doFinal(encryptedVerifierHash);
         auto hashAlgo = npc(ver)->getHashAlgorithm();
-        auto hashAlg = ::org::apache::poi::poifs::crypt::CryptoFunctions::getMessageDigest(hashAlgo);
+        auto hashAlg = ::poi::poifs::crypt::CryptoFunctions::getMessageDigest(hashAlgo);
         auto calcVerifierHash = npc(hashAlg)->digest(verifier);
         if(::java::util::Arrays::equals(calcVerifierHash, verifierHash)) {
             setSecretKey(skey);
             return true;
         }
     } catch (::java::security::GeneralSecurityException* e) {
-        throw new ::org::apache::poi::EncryptedDocumentException(static_cast< ::java::lang::Throwable* >(e));
+        throw new ::poi::EncryptedDocumentException(static_cast< ::java::lang::Throwable* >(e));
     }
     return false;
 }
 
-javax::crypto::Cipher* org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor::initCipherForBlock(::javax::crypto::Cipher* cipher, int32_t block) /* throws(GeneralSecurityException) */
+javax::crypto::Cipher* poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor::initCipherForBlock(::javax::crypto::Cipher* cipher, int32_t block) /* throws(GeneralSecurityException) */
 {
     auto ei = getEncryptionInfo();
     auto sk = getSecretKey();
     return initCipherForBlock(cipher, block, ei, sk, ::javax::crypto::Cipher::DECRYPT_MODE);
 }
 
-javax::crypto::Cipher* org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor::initCipherForBlock(::javax::crypto::Cipher* cipher, int32_t block, ::org::apache::poi::poifs::crypt::EncryptionInfo* encryptionInfo, ::javax::crypto::SecretKey* skey, int32_t encryptMode) /* throws(GeneralSecurityException) */
+javax::crypto::Cipher* poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor::initCipherForBlock(::javax::crypto::Cipher* cipher, int32_t block, ::poi::poifs::crypt::EncryptionInfo* encryptionInfo, ::javax::crypto::SecretKey* skey, int32_t encryptMode) /* throws(GeneralSecurityException) */
 {
     clinit();
     auto ver = npc(encryptionInfo)->getVerifier();
     auto hashAlgo = npc(ver)->getHashAlgorithm();
     auto blockKey = new ::int8_tArray(int32_t(4));
-    ::org::apache::poi::util::LittleEndian::putUInt(blockKey, 0, block);
-    auto hashAlg = ::org::apache::poi::poifs::crypt::CryptoFunctions::getMessageDigest(hashAlgo);
+    ::poi::util::LittleEndian::putUInt(blockKey, 0, block);
+    auto hashAlg = ::poi::poifs::crypt::CryptoFunctions::getMessageDigest(hashAlgo);
     npc(hashAlg)->update(npc(skey)->getEncoded());
     auto encKey = npc(hashAlg)->digest(blockKey);
     auto header = npc(encryptionInfo)->getHeader();
     auto keyBits = npc(header)->getKeySize();
-    encKey = ::org::apache::poi::poifs::crypt::CryptoFunctions::getBlock0(encKey, keyBits / int32_t(8));
+    encKey = ::poi::poifs::crypt::CryptoFunctions::getBlock0(encKey, keyBits / int32_t(8));
     if(keyBits == 40) {
-        encKey = ::org::apache::poi::poifs::crypt::CryptoFunctions::getBlock0(encKey, 16);
+        encKey = ::poi::poifs::crypt::CryptoFunctions::getBlock0(encKey, 16);
     }
     ::javax::crypto::SecretKey* key = new ::javax::crypto::spec::SecretKeySpec(encKey, npc(skey)->getAlgorithm());
     if(cipher == nullptr) {
-        cipher = ::org::apache::poi::poifs::crypt::CryptoFunctions::getCipher(key, npc(header)->getCipherAlgorithm(), nullptr, nullptr, encryptMode);
+        cipher = ::poi::poifs::crypt::CryptoFunctions::getCipher(key, npc(header)->getCipherAlgorithm(), nullptr, nullptr, encryptMode);
     } else {
         npc(cipher)->init_(encryptMode, static_cast< ::java::security::Key* >(key));
     }
     return cipher;
 }
 
-javax::crypto::SecretKey* org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor::generateSecretKey(::java::lang::String* password, ::org::apache::poi::poifs::crypt::EncryptionVerifier* ver)
+javax::crypto::SecretKey* poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor::generateSecretKey(::java::lang::String* password, ::poi::poifs::crypt::EncryptionVerifier* ver)
 {
     clinit();
     if(npc(password)->length() > 255) {
         password = npc(password)->substring(0, 255);
     }
     auto hashAlgo = npc(ver)->getHashAlgorithm();
-    auto hashAlg = ::org::apache::poi::poifs::crypt::CryptoFunctions::getMessageDigest(hashAlgo);
+    auto hashAlg = ::poi::poifs::crypt::CryptoFunctions::getMessageDigest(hashAlgo);
     npc(hashAlg)->update(npc(ver)->getSalt());
-    auto hash = npc(hashAlg)->digest(::org::apache::poi::util::StringUtil::getToUnicodeLE(password));
+    auto hash = npc(hashAlg)->digest(::poi::util::StringUtil::getToUnicodeLE(password));
     ::javax::crypto::SecretKey* skey = new ::javax::crypto::spec::SecretKeySpec(hash, npc(npc(ver)->getCipherAlgorithm())->jceId);
     return skey;
 }
 
-org::apache::poi::poifs::crypt::ChunkedCipherInputStream* org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor::getDataStream(::org::apache::poi::poifs::filesystem::DirectoryNode* dir) /* throws(IOException, GeneralSecurityException) */
+poi::poifs::crypt::ChunkedCipherInputStream* poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor::getDataStream(::poi::poifs::filesystem::DirectoryNode* dir) /* throws(IOException, GeneralSecurityException) */
 {
     throw new ::java::io::IOException(u"not supported"_j);
 }
 
-org::apache::poi::poifs::crypt::ChunkedCipherInputStream* org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor::getDataStream(::java::io::InputStream* stream, int32_t size, int32_t initialPos) /* throws(IOException, GeneralSecurityException) */
+poi::poifs::crypt::ChunkedCipherInputStream* poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor::getDataStream(::java::io::InputStream* stream, int32_t size, int32_t initialPos) /* throws(IOException, GeneralSecurityException) */
 {
     return new CryptoAPIDecryptor_CryptoAPICipherInputStream(this, stream, size, initialPos);
 }
 
-org::apache::poi::poifs::filesystem::POIFSFileSystem* org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor::getSummaryEntries(::org::apache::poi::poifs::filesystem::DirectoryNode* root, ::java::lang::String* encryptedStream) /* throws(IOException, GeneralSecurityException) */
+poi::poifs::filesystem::POIFSFileSystem* poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor::getSummaryEntries(::poi::poifs::filesystem::DirectoryNode* root, ::java::lang::String* encryptedStream) /* throws(IOException, GeneralSecurityException) */
 {
-    auto es = java_cast< ::org::apache::poi::poifs::filesystem::DocumentNode* >(npc(root)->getEntry(encryptedStream));
-    auto dis = npc(root)->createDocumentInputStream(static_cast< ::org::apache::poi::poifs::filesystem::Entry* >(es));
+    auto es = java_cast< ::poi::poifs::filesystem::DocumentNode* >(npc(root)->getEntry(encryptedStream));
+    auto dis = npc(root)->createDocumentInputStream(static_cast< ::poi::poifs::filesystem::Entry* >(es));
     auto bos = new ::java::io::ByteArrayOutputStream();
-    ::org::apache::poi::util::IOUtils::copy(dis, bos);
+    ::poi::util::IOUtils::copy(dis, bos);
     npc(dis)->close();
     auto sbis = new CryptoAPIDocumentInputStream(this, npc(bos)->toByteArray_());
-    auto leis = new ::org::apache::poi::util::LittleEndianInputStream(sbis);
-    ::org::apache::poi::poifs::filesystem::POIFSFileSystem* fsOut = nullptr;
+    auto leis = new ::poi::util::LittleEndianInputStream(sbis);
+    ::poi::poifs::filesystem::POIFSFileSystem* fsOut = nullptr;
     {
         auto finally0 = finally([&] {
-            ::org::apache::poi::util::IOUtils::closeQuietly(leis);
-            ::org::apache::poi::util::IOUtils::closeQuietly(sbis);
+            ::poi::util::IOUtils::closeQuietly(leis);
+            ::poi::util::IOUtils::closeQuietly(sbis);
         });
         try {
             auto streamDescriptorArrayOffset = static_cast< int32_t >(npc(leis)->readUInt());
@@ -236,20 +230,20 @@ org::apache::poi::poifs::filesystem::POIFSFileSystem* org::apache::poi::poifs::c
                 auto nameSize = npc(leis)->readUByte();
                 npc(entry)->flags = npc(leis)->readUByte();
                 npc(entry)->reserved2 = npc(leis)->readInt();
-                npc(entry)->streamName = ::org::apache::poi::util::StringUtil::readUnicodeLE(leis, nameSize);
+                npc(entry)->streamName = ::poi::util::StringUtil::readUnicodeLE(leis, nameSize);
                 npc(leis)->readShort();
                 /* assert((npc(npc(entry)->streamName)->length() == nameSize)) */ ;
             }
-            fsOut = new ::org::apache::poi::poifs::filesystem::POIFSFileSystem();
+            fsOut = new ::poi::poifs::filesystem::POIFSFileSystem();
             for(auto entry : *npc(entries)) {
                 npc(sbis)->seek(npc(entry)->streamOffset);
                 npc(sbis)->setBlock(npc(entry)->block);
-                ::java::io::InputStream* is = new ::org::apache::poi::util::BoundedInputStream(sbis, npc(entry)->streamSize);
+                ::java::io::InputStream* is = new ::poi::util::BoundedInputStream(sbis, npc(entry)->streamSize);
                 npc(fsOut)->createDocument(is, npc(entry)->streamName);
                 npc(is)->close();
             }
         } catch (::java::lang::Exception* e) {
-            ::org::apache::poi::util::IOUtils::closeQuietly(fsOut);
+            ::poi::util::IOUtils::closeQuietly(fsOut);
             if(dynamic_cast< ::java::security::GeneralSecurityException* >(e) != nullptr) {
                 throw java_cast< ::java::security::GeneralSecurityException* >(e);
             } else if(dynamic_cast< ::java::io::IOException* >(e) != nullptr) {
@@ -262,7 +256,7 @@ org::apache::poi::poifs::filesystem::POIFSFileSystem* org::apache::poi::poifs::c
     return fsOut;
 }
 
-int64_t org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor::getLength()
+int64_t poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor::getLength()
 {
     if(length == -int64_t(1LL)) {
         throw new ::java::lang::IllegalStateException(u"Decryptor.getDataStream() was not called"_j);
@@ -270,40 +264,40 @@ int64_t org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor::getLength
     return length;
 }
 
-void org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor::setChunkSize(int32_t chunkSize)
+void poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor::setChunkSize(int32_t chunkSize)
 {
     this->chunkSize = chunkSize;
 }
 
-org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor* org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor::clone() /* throws(CloneNotSupportedException) */
+poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor* poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor::clone() /* throws(CloneNotSupportedException) */
 {
     return java_cast< CryptoAPIDecryptor* >(super::clone());
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor::class_()
+java::lang::Class* poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.crypt.cryptoapi.CryptoAPIDecryptor", 55);
     return c;
 }
 
-java::io::InputStream* org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor::getDataStream(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs)
+java::io::InputStream* poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor::getDataStream(::poi::poifs::filesystem::NPOIFSFileSystem* fs)
 {
     return super::getDataStream(fs);
 }
 
-java::io::InputStream* org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor::getDataStream(::org::apache::poi::poifs::filesystem::OPOIFSFileSystem* fs)
+java::io::InputStream* poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor::getDataStream(::poi::poifs::filesystem::OPOIFSFileSystem* fs)
 {
     return super::getDataStream(fs);
 }
 
-java::io::InputStream* org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor::getDataStream(::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs)
+java::io::InputStream* poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor::getDataStream(::poi::poifs::filesystem::POIFSFileSystem* fs)
 {
     return super::getDataStream(fs);
 }
 
-java::lang::Class* org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor::getClass0()
+java::lang::Class* poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor::getClass0()
 {
     return class_();
 }

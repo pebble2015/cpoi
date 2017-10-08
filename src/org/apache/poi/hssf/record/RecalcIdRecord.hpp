@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::RecalcIdRecord final
+class poi::hssf::record::RecalcIdRecord final
     : public StandardRecord
 {
 
@@ -30,7 +30,7 @@ public:
     void setEngineId(int32_t val);
     int32_t getEngineId();
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;

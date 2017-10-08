@@ -10,9 +10,9 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFSheet_getDataValidations_1
+class poi::hssf::usermodel::HSSFSheet_getDataValidations_1
     : public virtual ::java::lang::Object
-    , public virtual ::org::apache::poi::hssf::record::aggregates::RecordAggregate_RecordVisitor
+    , public virtual ::poi::hssf::record::aggregates::RecordAggregate_RecordVisitor
 {
 
 public:
@@ -22,7 +22,7 @@ private:
     HSSFEvaluationWorkbook* book {  };
 
 public:
-    void visitRecord(::org::apache::poi::hssf::record::Record* r) override;
+    void visitRecord(::poi::hssf::record::Record* r) override;
 
     // Generated
     HSSFSheet_getDataValidations_1(HSSFSheet *HSSFSheet_this, ::java::util::List* hssfValidations);

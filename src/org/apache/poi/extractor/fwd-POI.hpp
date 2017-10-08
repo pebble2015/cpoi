@@ -2,17 +2,11 @@
 #pragma once
 
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace extractor
     {
-        namespace poi
-        {
-            namespace extractor
-            {
-                class OLE2ExtractorFactory;
-                class OLE2ExtractorFactory_1;
-            } // extractor
-        } // poi
-    } // apache
-} // org
+        class OLE2ExtractorFactory;
+        class OLE2ExtractorFactory_1;
+    } // extractor
+} // poi

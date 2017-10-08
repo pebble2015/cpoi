@@ -11,19 +11,19 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::chart::TickRecord final
-    : public ::org::apache::poi::hssf::record::StandardRecord
+class poi::hssf::record::chart::TickRecord final
+    : public ::poi::hssf::record::StandardRecord
 {
 
 public:
-    typedef ::org::apache::poi::hssf::record::StandardRecord super;
+    typedef ::poi::hssf::record::StandardRecord super;
     static constexpr int16_t sid { int16_t(4126) };
 
 private:
-    static ::org::apache::poi::util::BitField* autoTextColor_;
-    static ::org::apache::poi::util::BitField* autoTextBackground_;
-    static ::org::apache::poi::util::BitField* rotation_;
-    static ::org::apache::poi::util::BitField* autorotate_;
+    static ::poi::util::BitField* autoTextColor_;
+    static ::poi::util::BitField* autoTextBackground_;
+    static ::poi::util::BitField* rotation_;
+    static ::poi::util::BitField* autorotate_;
     int8_t field_1_majorTickType {  };
     int8_t field_2_minorTickType {  };
     int8_t field_3_labelPosition {  };
@@ -38,11 +38,11 @@ private:
     int16_t field_12_zero5 {  };
 protected:
     void ctor();
-    void ctor(::org::apache::poi::hssf::record::RecordInputStream* in);
+    void ctor(::poi::hssf::record::RecordInputStream* in);
 
 public:
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;
@@ -81,7 +81,7 @@ public:
 
     // Generated
     TickRecord();
-    TickRecord(::org::apache::poi::hssf::record::RecordInputStream* in);
+    TickRecord(::poi::hssf::record::RecordInputStream* in);
 protected:
     TickRecord(const ::default_init_tag&);
 
@@ -93,9 +93,9 @@ public:
     ::int8_tArray* serialize();
 
 private:
-    static ::org::apache::poi::util::BitField*& autoTextColor();
-    static ::org::apache::poi::util::BitField*& autoTextBackground();
-    static ::org::apache::poi::util::BitField*& rotation();
-    static ::org::apache::poi::util::BitField*& autorotate();
+    static ::poi::util::BitField*& autoTextColor();
+    static ::poi::util::BitField*& autoTextBackground();
+    static ::poi::util::BitField*& rotation();
+    static ::poi::util::BitField*& autorotate();
     virtual ::java::lang::Class* getClass0();
 };

@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::ptg::AreaErrPtg final
+class poi::ss::formula::ptg::AreaErrPtg final
     : public OperandPtg
 {
 
@@ -23,17 +23,17 @@ private:
     int32_t unused2 {  };
 protected:
     void ctor();
-    void ctor(::org::apache::poi::util::LittleEndianInput* in);
+    void ctor(::poi::util::LittleEndianInput* in);
 
 public:
-    void write(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void write(::poi::util::LittleEndianOutput* out) override;
     ::java::lang::String* toFormulaString() override;
     int8_t getDefaultOperandClass() override;
     int32_t getSize() override;
 
     // Generated
     AreaErrPtg();
-    AreaErrPtg(::org::apache::poi::util::LittleEndianInput* in);
+    AreaErrPtg(::poi::util::LittleEndianInput* in);
 protected:
     AreaErrPtg(const ::default_init_tag&);
 

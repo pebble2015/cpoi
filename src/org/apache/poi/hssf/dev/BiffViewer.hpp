@@ -27,27 +27,21 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
-            {
-                namespace record
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::Record, RecordBaseArray > RecordArray;
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
+typedef ::SubArray< ::poi::hssf::record::Record, RecordBaseArray > RecordArray;
+        } // record
+    } // hssf
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::dev::BiffViewer final
+class poi::hssf::dev::BiffViewer final
     : public ::java::lang::Object
 {
 
@@ -56,21 +50,21 @@ public:
 
 private:
     static ::char16_tArray* NEW_LINE_CHARS_;
-    static ::org::apache::poi::util::POILogger* logger_;
+    static ::poi::util::POILogger* logger_;
 protected:
     void ctor();
 
 public:
-    static ::org::apache::poi::hssf::record::RecordArray* createRecords(::java::io::InputStream* is, ::java::io::PrintWriter* ps, BiffViewer_BiffRecordListener* recListener, bool dumpInterpretedRecords) /* throws(org.apache.poi.util.RecordFormatException) */;
+    static ::poi::hssf::record::RecordArray* createRecords(::java::io::InputStream* is, ::java::io::PrintWriter* ps, BiffViewer_BiffRecordListener* recListener, bool dumpInterpretedRecords) /* throws(org.apache.poi.util.RecordFormatException) */;
 
 private:
-    static ::org::apache::poi::hssf::record::Record* createRecord(::org::apache::poi::hssf::record::RecordInputStream* in);
+    static ::poi::hssf::record::Record* createRecord(::poi::hssf::record::RecordInputStream* in);
 
 public:
     static void main(::java::lang::StringArray* args) /* throws(IOException, CommandParseException) */;
 
 public: /* protected */
-    static ::java::io::InputStream* getPOIFSInputStream(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs) /* throws(IOException, FileNotFoundException) */;
+    static ::java::io::InputStream* getPOIFSInputStream(::poi::poifs::filesystem::NPOIFSFileSystem* fs) /* throws(IOException, FileNotFoundException) */;
     static void runBiffViewer(::java::io::PrintWriter* pw, ::java::io::InputStream* is, bool dumpInterpretedRecords, bool dumpHex, bool zeroAlignHexDump, bool suppressHeader);
 
 private:
@@ -98,7 +92,7 @@ public:
 
 private:
     static ::char16_tArray*& NEW_LINE_CHARS();
-    static ::org::apache::poi::util::POILogger*& logger();
+    static ::poi::util::POILogger*& logger();
     static ::char16_tArray*& COLUMN_SEPARATOR();
     virtual ::java::lang::Class* getClass0();
     friend class BiffViewer_CommandArgs;

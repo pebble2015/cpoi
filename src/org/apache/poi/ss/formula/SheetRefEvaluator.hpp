@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::SheetRefEvaluator final
+class poi::ss::formula::SheetRefEvaluator final
     : public ::java::lang::Object
 {
 
@@ -27,7 +27,7 @@ protected:
 
 public:
     ::java::lang::String* getSheetName();
-    ::org::apache::poi::ss::formula::eval::ValueEval* getEvalForCell(int32_t rowIndex, int32_t columnIndex);
+    ::poi::ss::formula::eval::ValueEval* getEvalForCell(int32_t rowIndex, int32_t columnIndex);
 
 private:
     EvaluationSheet* getSheet();

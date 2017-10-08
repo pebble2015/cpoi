@@ -16,32 +16,32 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::chart::ChartEndBlockRecord::ChartEndBlockRecord(const ::default_init_tag&)
+poi::hssf::record::chart::ChartEndBlockRecord::ChartEndBlockRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::chart::ChartEndBlockRecord::ChartEndBlockRecord() 
+poi::hssf::record::chart::ChartEndBlockRecord::ChartEndBlockRecord() 
     : ChartEndBlockRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::chart::ChartEndBlockRecord::ChartEndBlockRecord(::org::apache::poi::hssf::record::RecordInputStream* in) 
+poi::hssf::record::chart::ChartEndBlockRecord::ChartEndBlockRecord(::poi::hssf::record::RecordInputStream* in) 
     : ChartEndBlockRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::chart::ChartEndBlockRecord::sid;
+constexpr int16_t poi::hssf::record::chart::ChartEndBlockRecord::sid;
 
-void org::apache::poi::hssf::record::chart::ChartEndBlockRecord::ctor()
+void poi::hssf::record::chart::ChartEndBlockRecord::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hssf::record::chart::ChartEndBlockRecord::ctor(::org::apache::poi::hssf::record::RecordInputStream* in)
+void poi::hssf::record::chart::ChartEndBlockRecord::ctor(::poi::hssf::record::RecordInputStream* in)
 {
     super::ctor();
     rt = npc(in)->readShort();
@@ -55,17 +55,17 @@ void org::apache::poi::hssf::record::chart::ChartEndBlockRecord::ctor(::org::apa
     }
 }
 
-int32_t org::apache::poi::hssf::record::chart::ChartEndBlockRecord::getDataSize()
+int32_t poi::hssf::record::chart::ChartEndBlockRecord::getDataSize()
 {
     return int32_t(2) + int32_t(2) + int32_t(2)+ npc(unused)->length;
 }
 
-int16_t org::apache::poi::hssf::record::chart::ChartEndBlockRecord::getSid()
+int16_t poi::hssf::record::chart::ChartEndBlockRecord::getSid()
 {
     return sid;
 }
 
-void org::apache::poi::hssf::record::chart::ChartEndBlockRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::chart::ChartEndBlockRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(rt);
     npc(out)->writeShort(grbitFrt);
@@ -73,19 +73,19 @@ void org::apache::poi::hssf::record::chart::ChartEndBlockRecord::serialize(::org
     npc(out)->write(unused);
 }
 
-java::lang::String* org::apache::poi::hssf::record::chart::ChartEndBlockRecord::toString()
+java::lang::String* poi::hssf::record::chart::ChartEndBlockRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[ENDBLOCK]\n"_j);
-    npc(npc(npc(buffer)->append(u"    .rt         ="_j))->append(::org::apache::poi::util::HexDump::shortToHex(rt)))->append(u'\u000a');
-    npc(npc(npc(buffer)->append(u"    .grbitFrt   ="_j))->append(::org::apache::poi::util::HexDump::shortToHex(grbitFrt)))->append(u'\u000a');
-    npc(npc(npc(buffer)->append(u"    .iObjectKind="_j))->append(::org::apache::poi::util::HexDump::shortToHex(iObjectKind)))->append(u'\u000a');
-    npc(npc(npc(buffer)->append(u"    .unused     ="_j))->append(::org::apache::poi::util::HexDump::toHex(unused)))->append(u'\u000a');
+    npc(npc(npc(buffer)->append(u"    .rt         ="_j))->append(::poi::util::HexDump::shortToHex(rt)))->append(u'\u000a');
+    npc(npc(npc(buffer)->append(u"    .grbitFrt   ="_j))->append(::poi::util::HexDump::shortToHex(grbitFrt)))->append(u'\u000a');
+    npc(npc(npc(buffer)->append(u"    .iObjectKind="_j))->append(::poi::util::HexDump::shortToHex(iObjectKind)))->append(u'\u000a');
+    npc(npc(npc(buffer)->append(u"    .unused     ="_j))->append(::poi::util::HexDump::toHex(unused)))->append(u'\u000a');
     npc(buffer)->append(u"[/ENDBLOCK]\n"_j);
     return npc(buffer)->toString();
 }
 
-org::apache::poi::hssf::record::chart::ChartEndBlockRecord* org::apache::poi::hssf::record::chart::ChartEndBlockRecord::clone()
+poi::hssf::record::chart::ChartEndBlockRecord* poi::hssf::record::chart::ChartEndBlockRecord::clone()
 {
     auto record = new ChartEndBlockRecord();
     npc(record)->rt = rt;
@@ -97,23 +97,23 @@ org::apache::poi::hssf::record::chart::ChartEndBlockRecord* org::apache::poi::hs
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::chart::ChartEndBlockRecord::class_()
+java::lang::Class* poi::hssf::record::chart::ChartEndBlockRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.chart.ChartEndBlockRecord", 52);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::chart::ChartEndBlockRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::chart::ChartEndBlockRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::chart::ChartEndBlockRecord::serialize()
+int8_tArray* poi::hssf::record::chart::ChartEndBlockRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::chart::ChartEndBlockRecord::getClass0()
+java::lang::Class* poi::hssf::record::chart::ChartEndBlockRecord::getClass0()
 {
     return class_();
 }

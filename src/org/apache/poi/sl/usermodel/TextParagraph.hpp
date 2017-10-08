@@ -8,7 +8,7 @@
 #include <org/apache/poi/sl/usermodel/fwd-POI.hpp>
 #include <java/lang/Iterable.hpp>
 
-struct org::apache::poi::sl::usermodel::TextParagraph
+struct poi::sl::usermodel::TextParagraph
     : public virtual ::java::lang::Iterable
 {
     virtual ::java::lang::Double* getSpaceBefore() = 0;

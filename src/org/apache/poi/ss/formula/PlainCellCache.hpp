@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::PlainCellCache final
+class poi::ss::formula::PlainCellCache final
     : public ::java::lang::Object
 {
 

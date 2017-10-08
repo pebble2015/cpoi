@@ -9,12 +9,12 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFDateUtil
-    : public ::org::apache::poi::ss::usermodel::DateUtil
+class poi::hssf::usermodel::HSSFDateUtil
+    : public ::poi::ss::usermodel::DateUtil
 {
 
 public:
-    typedef ::org::apache::poi::ss::usermodel::DateUtil super;
+    typedef ::poi::ss::usermodel::DateUtil super;
 
 public: /* protected */
     static int32_t absoluteDay(::java::util::Calendar* cal, bool use1904windowing);

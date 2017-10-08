@@ -19,26 +19,26 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::util::JvmBugs::JvmBugs(const ::default_init_tag&)
+poi::util::JvmBugs::JvmBugs(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::util::JvmBugs::JvmBugs()
+poi::util::JvmBugs::JvmBugs()
     : JvmBugs(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::util::POILogger*& org::apache::poi::util::JvmBugs::LOG()
+poi::util::POILogger*& poi::util::JvmBugs::LOG()
 {
     clinit();
     return LOG_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::util::JvmBugs::LOG_;
+poi::util::POILogger* poi::util::JvmBugs::LOG_;
 
-bool org::apache::poi::util::JvmBugs::hasLineBreakMeasurerBug()
+bool poi::util::JvmBugs::hasLineBreakMeasurerBug()
 {
     clinit();
     auto version = ::java::lang::System::getProperty(u"java.version"_j);
@@ -53,13 +53,13 @@ bool org::apache::poi::util::JvmBugs::hasLineBreakMeasurerBug()
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::util::JvmBugs::class_()
+java::lang::Class* poi::util::JvmBugs::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.util.JvmBugs", 27);
     return c;
 }
 
-void org::apache::poi::util::JvmBugs::clinit()
+void poi::util::JvmBugs::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -75,7 +75,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::util::JvmBugs::getClass0()
+java::lang::Class* poi::util::JvmBugs::getClass0()
 {
     return class_();
 }

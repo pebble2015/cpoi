@@ -12,29 +12,23 @@
 #include <java/lang/Cloneable.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::CFRuleRecord final
+class poi::hssf::record::CFRuleRecord final
     : public CFRuleBase
     , public virtual ::java::lang::Cloneable
 {
@@ -44,20 +38,20 @@ public:
     static constexpr int16_t sid { int16_t(433) };
 protected:
     void ctor(int8_t conditionType, int8_t comparisonOperation);
-    void ctor(int8_t conditionType, int8_t comparisonOperation, ::org::apache::poi::ss::formula::ptg::PtgArray* formula1, ::org::apache::poi::ss::formula::ptg::PtgArray* formula2);
+    void ctor(int8_t conditionType, int8_t comparisonOperation, ::poi::ss::formula::ptg::PtgArray* formula1, ::poi::ss::formula::ptg::PtgArray* formula2);
 
 private:
     void setDefaults();
 
 public:
-    static CFRuleRecord* create(::org::apache::poi::hssf::usermodel::HSSFSheet* sheet, ::java::lang::String* formulaText);
-    static CFRuleRecord* create(::org::apache::poi::hssf::usermodel::HSSFSheet* sheet, int8_t comparisonOperation, ::java::lang::String* formulaText1, ::java::lang::String* formulaText2);
+    static CFRuleRecord* create(::poi::hssf::usermodel::HSSFSheet* sheet, ::java::lang::String* formulaText);
+    static CFRuleRecord* create(::poi::hssf::usermodel::HSSFSheet* sheet, int8_t comparisonOperation, ::java::lang::String* formulaText1, ::java::lang::String* formulaText2);
 protected:
     void ctor(RecordInputStream* in);
 
 public:
     int16_t getSid() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;
@@ -70,7 +64,7 @@ public:
 
 private:
     CFRuleRecord(int8_t conditionType, int8_t comparisonOperation);
-    CFRuleRecord(int8_t conditionType, int8_t comparisonOperation, ::org::apache::poi::ss::formula::ptg::PtgArray* formula1, ::org::apache::poi::ss::formula::ptg::PtgArray* formula2);
+    CFRuleRecord(int8_t conditionType, int8_t comparisonOperation, ::poi::ss::formula::ptg::PtgArray* formula1, ::poi::ss::formula::ptg::PtgArray* formula2);
 
 public:
     CFRuleRecord(RecordInputStream* in);

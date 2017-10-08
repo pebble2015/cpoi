@@ -37,30 +37,24 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace model
         {
-            namespace hssf
-            {
-                namespace model
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::model::LinkTable_CRNBlock, ::java::lang::ObjectArray > LinkTable_CRNBlockArray;
-                } // model
+typedef ::SubArray< ::poi::hssf::model::LinkTable_CRNBlock, ::java::lang::ObjectArray > LinkTable_CRNBlockArray;
+        } // model
 
-                namespace record
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::Record, RecordBaseArray > RecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::StandardRecord, RecordArray > StandardRecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::ExternalNameRecord, StandardRecordArray > ExternalNameRecordArray;
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+        namespace record
+        {
+typedef ::SubArray< ::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
+typedef ::SubArray< ::poi::hssf::record::Record, RecordBaseArray > RecordArray;
+typedef ::SubArray< ::poi::hssf::record::StandardRecord, RecordArray > StandardRecordArray;
+typedef ::SubArray< ::poi::hssf::record::ExternalNameRecord, StandardRecordArray > ExternalNameRecordArray;
+        } // record
+    } // hssf
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -78,93 +72,93 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::model::LinkTable_ExternalBookBlock::LinkTable_ExternalBookBlock(const ::default_init_tag&)
+poi::hssf::model::LinkTable_ExternalBookBlock::LinkTable_ExternalBookBlock(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::model::LinkTable_ExternalBookBlock::LinkTable_ExternalBookBlock(RecordStream* rs) 
+poi::hssf::model::LinkTable_ExternalBookBlock::LinkTable_ExternalBookBlock(RecordStream* rs) 
     : LinkTable_ExternalBookBlock(*static_cast< ::default_init_tag* >(0))
 {
     ctor(rs);
 }
 
-org::apache::poi::hssf::model::LinkTable_ExternalBookBlock::LinkTable_ExternalBookBlock(::java::lang::String* url, ::java::lang::StringArray* sheetNames) 
+poi::hssf::model::LinkTable_ExternalBookBlock::LinkTable_ExternalBookBlock(::java::lang::String* url, ::java::lang::StringArray* sheetNames) 
     : LinkTable_ExternalBookBlock(*static_cast< ::default_init_tag* >(0))
 {
     ctor(url,sheetNames);
 }
 
-org::apache::poi::hssf::model::LinkTable_ExternalBookBlock::LinkTable_ExternalBookBlock(int32_t numberOfSheets) 
+poi::hssf::model::LinkTable_ExternalBookBlock::LinkTable_ExternalBookBlock(int32_t numberOfSheets) 
     : LinkTable_ExternalBookBlock(*static_cast< ::default_init_tag* >(0))
 {
     ctor(numberOfSheets);
 }
 
-org::apache::poi::hssf::model::LinkTable_ExternalBookBlock::LinkTable_ExternalBookBlock() 
+poi::hssf::model::LinkTable_ExternalBookBlock::LinkTable_ExternalBookBlock() 
     : LinkTable_ExternalBookBlock(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::hssf::model::LinkTable_ExternalBookBlock::ctor(RecordStream* rs)
+void poi::hssf::model::LinkTable_ExternalBookBlock::ctor(RecordStream* rs)
 {
     super::ctor();
-    _externalBookRecord = java_cast< ::org::apache::poi::hssf::record::SupBookRecord* >(npc(rs)->getNext());
+    _externalBookRecord = java_cast< ::poi::hssf::record::SupBookRecord* >(npc(rs)->getNext());
     ::java::util::List* temp = new ::java::util::ArrayList();
-    while (static_cast< ::java::lang::Object* >(npc(rs)->peekNextClass()) == static_cast< ::java::lang::Object* >(::org::apache::poi::hssf::record::ExternalNameRecord::class_())) {
+    while (static_cast< ::java::lang::Object* >(npc(rs)->peekNextClass()) == static_cast< ::java::lang::Object* >(::poi::hssf::record::ExternalNameRecord::class_())) {
         npc(temp)->add(static_cast< ::java::lang::Object* >(npc(rs)->getNext()));
     }
-    _externalNameRecords = new ::org::apache::poi::hssf::record::ExternalNameRecordArray(npc(temp)->size());
+    _externalNameRecords = new ::poi::hssf::record::ExternalNameRecordArray(npc(temp)->size());
     npc(temp)->toArray_(static_cast< ::java::lang::ObjectArray* >(_externalNameRecords));
     npc(temp)->clear();
-    while (static_cast< ::java::lang::Object* >(npc(rs)->peekNextClass()) == static_cast< ::java::lang::Object* >(::org::apache::poi::hssf::record::CRNCountRecord::class_())) {
+    while (static_cast< ::java::lang::Object* >(npc(rs)->peekNextClass()) == static_cast< ::java::lang::Object* >(::poi::hssf::record::CRNCountRecord::class_())) {
         npc(temp)->add(static_cast< ::java::lang::Object* >(new LinkTable_CRNBlock(rs)));
     }
     _crnBlocks = new LinkTable_CRNBlockArray(npc(temp)->size());
     npc(temp)->toArray_(static_cast< ::java::lang::ObjectArray* >(_crnBlocks));
 }
 
-void org::apache::poi::hssf::model::LinkTable_ExternalBookBlock::ctor(::java::lang::String* url, ::java::lang::StringArray* sheetNames)
+void poi::hssf::model::LinkTable_ExternalBookBlock::ctor(::java::lang::String* url, ::java::lang::StringArray* sheetNames)
 {
     super::ctor();
-    _externalBookRecord = ::org::apache::poi::hssf::record::SupBookRecord::createExternalReferences(url, sheetNames);
+    _externalBookRecord = ::poi::hssf::record::SupBookRecord::createExternalReferences(url, sheetNames);
     _crnBlocks = new LinkTable_CRNBlockArray(int32_t(0));
 }
 
-void org::apache::poi::hssf::model::LinkTable_ExternalBookBlock::ctor(int32_t numberOfSheets)
+void poi::hssf::model::LinkTable_ExternalBookBlock::ctor(int32_t numberOfSheets)
 {
     super::ctor();
-    _externalBookRecord = ::org::apache::poi::hssf::record::SupBookRecord::createInternalReferences(static_cast< int16_t >(numberOfSheets));
-    _externalNameRecords = new ::org::apache::poi::hssf::record::ExternalNameRecordArray(int32_t(0));
+    _externalBookRecord = ::poi::hssf::record::SupBookRecord::createInternalReferences(static_cast< int16_t >(numberOfSheets));
+    _externalNameRecords = new ::poi::hssf::record::ExternalNameRecordArray(int32_t(0));
     _crnBlocks = new LinkTable_CRNBlockArray(int32_t(0));
 }
 
-void org::apache::poi::hssf::model::LinkTable_ExternalBookBlock::ctor()
+void poi::hssf::model::LinkTable_ExternalBookBlock::ctor()
 {
     super::ctor();
-    _externalBookRecord = ::org::apache::poi::hssf::record::SupBookRecord::createAddInFunctions();
-    _externalNameRecords = new ::org::apache::poi::hssf::record::ExternalNameRecordArray(int32_t(0));
+    _externalBookRecord = ::poi::hssf::record::SupBookRecord::createAddInFunctions();
+    _externalNameRecords = new ::poi::hssf::record::ExternalNameRecordArray(int32_t(0));
     _crnBlocks = new LinkTable_CRNBlockArray(int32_t(0));
 }
 
-org::apache::poi::hssf::record::SupBookRecord* org::apache::poi::hssf::model::LinkTable_ExternalBookBlock::getExternalBookRecord()
+poi::hssf::record::SupBookRecord* poi::hssf::model::LinkTable_ExternalBookBlock::getExternalBookRecord()
 {
     return _externalBookRecord;
 }
 
-java::lang::String* org::apache::poi::hssf::model::LinkTable_ExternalBookBlock::getNameText(int32_t definedNameIndex)
+java::lang::String* poi::hssf::model::LinkTable_ExternalBookBlock::getNameText(int32_t definedNameIndex)
 {
     return npc((*_externalNameRecords)[definedNameIndex])->getText();
 }
 
-int32_t org::apache::poi::hssf::model::LinkTable_ExternalBookBlock::getNameIx(int32_t definedNameIndex)
+int32_t poi::hssf::model::LinkTable_ExternalBookBlock::getNameIx(int32_t definedNameIndex)
 {
     return npc((*_externalNameRecords)[definedNameIndex])->getIx();
 }
 
-int32_t org::apache::poi::hssf::model::LinkTable_ExternalBookBlock::getIndexOfName(::java::lang::String* name)
+int32_t poi::hssf::model::LinkTable_ExternalBookBlock::getIndexOfName(::java::lang::String* name)
 {
     for (auto i = int32_t(0); i < npc(_externalNameRecords)->length; i++) {
         if(npc(npc((*_externalNameRecords)[i])->getText())->equalsIgnoreCase(name)) {
@@ -174,14 +168,14 @@ int32_t org::apache::poi::hssf::model::LinkTable_ExternalBookBlock::getIndexOfNa
     return -int32_t(1);
 }
 
-int32_t org::apache::poi::hssf::model::LinkTable_ExternalBookBlock::getNumberOfNames()
+int32_t poi::hssf::model::LinkTable_ExternalBookBlock::getNumberOfNames()
 {
     return npc(_externalNameRecords)->length;
 }
 
-int32_t org::apache::poi::hssf::model::LinkTable_ExternalBookBlock::addExternalName(::org::apache::poi::hssf::record::ExternalNameRecord* rec)
+int32_t poi::hssf::model::LinkTable_ExternalBookBlock::addExternalName(::poi::hssf::record::ExternalNameRecord* rec)
 {
-    auto tmp = new ::org::apache::poi::hssf::record::ExternalNameRecordArray(npc(_externalNameRecords)->length + int32_t(1));
+    auto tmp = new ::poi::hssf::record::ExternalNameRecordArray(npc(_externalNameRecords)->length + int32_t(1));
     ::java::lang::System::arraycopy(_externalNameRecords, 0, tmp, 0, npc(_externalNameRecords)->length);
     tmp->set(npc(tmp)->length - int32_t(1), rec);
     _externalNameRecords = tmp;
@@ -190,13 +184,13 @@ int32_t org::apache::poi::hssf::model::LinkTable_ExternalBookBlock::addExternalN
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::model::LinkTable_ExternalBookBlock::class_()
+java::lang::Class* poi::hssf::model::LinkTable_ExternalBookBlock::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.model.LinkTable.ExternalBookBlock", 53);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::model::LinkTable_ExternalBookBlock::getClass0()
+java::lang::Class* poi::hssf::model::LinkTable_ExternalBookBlock::getClass0()
 {
     return class_();
 }

@@ -11,27 +11,21 @@
 #include <java/lang/Object.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace util
         {
-            namespace ss
-            {
-                namespace util
-                {
-typedef ::SubArray< ::org::apache::poi::ss::util::CellRangeAddressBase, ::java::lang::ObjectArray > CellRangeAddressBaseArray;
-typedef ::SubArray< ::org::apache::poi::ss::util::CellRangeAddress, CellRangeAddressBaseArray > CellRangeAddressArray;
-                } // util
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::util::CellRangeAddressBase, ::java::lang::ObjectArray > CellRangeAddressBaseArray;
+typedef ::SubArray< ::poi::ss::util::CellRangeAddress, CellRangeAddressBaseArray > CellRangeAddressArray;
+        } // util
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::util::CellRangeAddressList
+class poi::ss::util::CellRangeAddressList
     : public virtual ::java::lang::Object
 {
 
@@ -43,7 +37,7 @@ public: /* protected */
 protected:
     void ctor();
     void ctor(int32_t firstRow, int32_t lastRow, int32_t firstCol, int32_t lastCol);
-    void ctor(::org::apache::poi::hssf::record::RecordInputStream* in);
+    void ctor(::poi::hssf::record::RecordInputStream* in);
 
 public:
     virtual int32_t countRanges();
@@ -54,14 +48,14 @@ public:
     virtual int32_t getSize();
     static int32_t getEncodedSize(int32_t numberOfRanges);
     virtual int32_t serialize(int32_t offset, ::int8_tArray* data);
-    virtual void serialize(::org::apache::poi::util::LittleEndianOutput* out);
+    virtual void serialize(::poi::util::LittleEndianOutput* out);
     virtual CellRangeAddressList* copy();
     virtual CellRangeAddressArray* getCellRangeAddresses();
 
     // Generated
     CellRangeAddressList();
     CellRangeAddressList(int32_t firstRow, int32_t lastRow, int32_t firstCol, int32_t lastCol);
-    CellRangeAddressList(::org::apache::poi::hssf::record::RecordInputStream* in);
+    CellRangeAddressList(::poi::hssf::record::RecordInputStream* in);
 protected:
     CellRangeAddressList(const ::default_init_tag&);
 

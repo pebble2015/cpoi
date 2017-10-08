@@ -7,7 +7,7 @@
 #include <org/apache/poi/poifs/property/Child.hpp>
 #include <java/lang/Iterable.hpp>
 
-struct org::apache::poi::poifs::property::Parent
+struct poi::poifs::property::Parent
     : public virtual Child
     , public virtual ::java::lang::Iterable
 {

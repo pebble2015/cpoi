@@ -12,7 +12,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hpsf::SummaryInformation final
+class poi::hpsf::SummaryInformation final
     : public SpecialPropertySet
 {
 
@@ -23,7 +23,7 @@ private:
     static ::java::lang::String* DEFAULT_STREAM_NAME_;
 
 public:
-    ::org::apache::poi::hpsf::wellknown::PropertyIDMap* getPropertySetIDMap() override;
+    ::poi::hpsf::wellknown::PropertyIDMap* getPropertySetIDMap() override;
 protected:
     void ctor();
     void ctor(PropertySet* ps) /* throws(UnexpectedPropertySetTypeException) */;

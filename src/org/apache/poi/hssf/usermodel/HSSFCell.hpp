@@ -19,9 +19,9 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFCell
+class poi::hssf::usermodel::HSSFCell
     : public virtual ::java::lang::Object
-    , public virtual ::org::apache::poi::ss::usermodel::Cell
+    , public virtual ::poi::ss::usermodel::Cell
 {
 
 public:
@@ -40,25 +40,25 @@ public:
 private:
     HSSFWorkbook* _book {  };
     HSSFSheet* _sheet {  };
-    ::org::apache::poi::ss::usermodel::CellType* _cellType {  };
+    ::poi::ss::usermodel::CellType* _cellType {  };
     HSSFRichTextString* _stringValue {  };
-    ::org::apache::poi::hssf::record::CellValueRecordInterface* _record {  };
+    ::poi::hssf::record::CellValueRecordInterface* _record {  };
     HSSFComment* _comment {  };
 protected:
     void ctor(HSSFWorkbook* book, HSSFSheet* sheet, int32_t row, int16_t col);
 
 public:
-    ::org::apache::poi::ss::usermodel::Sheet* getSheet() override;
-    ::org::apache::poi::ss::usermodel::Row* getRow() override;
+    ::poi::ss::usermodel::Sheet* getSheet() override;
+    ::poi::ss::usermodel::Row* getRow() override;
 protected:
-    void ctor(HSSFWorkbook* book, HSSFSheet* sheet, int32_t row, int16_t col, ::org::apache::poi::ss::usermodel::CellType* type);
-    void ctor(HSSFWorkbook* book, HSSFSheet* sheet, ::org::apache::poi::hssf::record::CellValueRecordInterface* cval);
+    void ctor(HSSFWorkbook* book, HSSFSheet* sheet, int32_t row, int16_t col, ::poi::ss::usermodel::CellType* type);
+    void ctor(HSSFWorkbook* book, HSSFSheet* sheet, ::poi::hssf::record::CellValueRecordInterface* cval);
 
 private:
-    static ::org::apache::poi::ss::usermodel::CellType* determineType(::org::apache::poi::hssf::record::CellValueRecordInterface* cval);
+    static ::poi::ss::usermodel::CellType* determineType(::poi::hssf::record::CellValueRecordInterface* cval);
 
 public: /* protected */
-    virtual ::org::apache::poi::hssf::model::InternalWorkbook* getBoundWorkbook();
+    virtual ::poi::hssf::model::InternalWorkbook* getBoundWorkbook();
 
 public:
     int32_t getRowIndex() override;
@@ -68,21 +68,21 @@ public: /* protected */
 
 public:
     int32_t getColumnIndex() override;
-    ::org::apache::poi::ss::util::CellAddress* getAddress() override;
+    ::poi::ss::util::CellAddress* getAddress() override;
     void setCellType(int32_t cellType) override;
-    void setCellType(::org::apache::poi::ss::usermodel::CellType* cellType) override;
+    void setCellType(::poi::ss::usermodel::CellType* cellType) override;
 
 private:
-    void setCellType(::org::apache::poi::ss::usermodel::CellType* cellType, bool setValue, int32_t row, int16_t col, int16_t styleIndex);
+    void setCellType(::poi::ss::usermodel::CellType* cellType, bool setValue, int32_t row, int16_t col, int16_t styleIndex);
 
 public:
     int32_t getCellType() override;
-    ::org::apache::poi::ss::usermodel::CellType* getCellTypeEnum() override;
+    ::poi::ss::usermodel::CellType* getCellTypeEnum() override;
     void setCellValue(double value) override;
     void setCellValue(::java::util::Date* value) override;
     void setCellValue(::java::util::Calendar* value) override;
     void setCellValue(::java::lang::String* value) override;
-    void setCellValue(::org::apache::poi::ss::usermodel::RichTextString* value) override;
+    void setCellValue(::poi::ss::usermodel::RichTextString* value) override;
     void setCellFormula(::java::lang::String* formula) override;
 
 private:
@@ -92,8 +92,8 @@ public:
     ::java::lang::String* getCellFormula() override;
 
 private:
-    static ::java::lang::RuntimeException* typeMismatch(::org::apache::poi::ss::usermodel::CellType* expectedTypeCode, ::org::apache::poi::ss::usermodel::CellType* actualTypeCode, bool isFormulaCell);
-    static void checkFormulaCachedValueType(::org::apache::poi::ss::usermodel::CellType* expectedTypeCode, ::org::apache::poi::hssf::record::FormulaRecord* fr);
+    static ::java::lang::RuntimeException* typeMismatch(::poi::ss::usermodel::CellType* expectedTypeCode, ::poi::ss::usermodel::CellType* actualTypeCode, bool isFormulaCell);
+    static void checkFormulaCachedValueType(::poi::ss::usermodel::CellType* expectedTypeCode, ::poi::hssf::record::FormulaRecord* fr);
 
 public:
     double getNumericCellValue() override;
@@ -102,7 +102,7 @@ public:
     HSSFRichTextString* getRichStringCellValue() override;
     void setCellValue(bool value) override;
     void setCellErrorValue(int8_t errorCode) override;
-    virtual void setCellErrorValue(::org::apache::poi::ss::usermodel::FormulaError* error);
+    virtual void setCellErrorValue(::poi::ss::usermodel::FormulaError* error);
 
 private:
     bool convertCellValueToBoolean();
@@ -111,12 +111,12 @@ private:
 public:
     bool getBooleanCellValue() override;
     int8_t getErrorCellValue() override;
-    void setCellStyle(::org::apache::poi::ss::usermodel::CellStyle* style) override;
+    void setCellStyle(::poi::ss::usermodel::CellStyle* style) override;
     virtual void setCellStyle(HSSFCellStyle* style);
     HSSFCellStyle* getCellStyle() override;
 
 public: /* protected */
-    virtual ::org::apache::poi::hssf::record::CellValueRecordInterface* getCellValueRecord();
+    virtual ::poi::hssf::record::CellValueRecordInterface* getCellValueRecord();
 
 private:
     static void checkBounds(int32_t cellIndex);
@@ -124,20 +124,20 @@ private:
 public:
     void setAsActiveCell() override;
     ::java::lang::String* toString() override;
-    void setCellComment(::org::apache::poi::ss::usermodel::Comment* comment) override;
+    void setCellComment(::poi::ss::usermodel::Comment* comment) override;
     HSSFComment* getCellComment() override;
     void removeCellComment() override;
     HSSFHyperlink* getHyperlink() override;
-    void setHyperlink(::org::apache::poi::ss::usermodel::Hyperlink* hyperlink) override;
+    void setHyperlink(::poi::ss::usermodel::Hyperlink* hyperlink) override;
     void removeHyperlink() override;
     int32_t getCachedFormulaResultType() override;
-    ::org::apache::poi::ss::usermodel::CellType* getCachedFormulaResultTypeEnum() override;
+    ::poi::ss::usermodel::CellType* getCachedFormulaResultTypeEnum() override;
 
 public: /* package */
-    virtual void setCellArrayFormula(::org::apache::poi::ss::util::CellRangeAddress* range);
+    virtual void setCellArrayFormula(::poi::ss::util::CellRangeAddress* range);
 
 public:
-    ::org::apache::poi::ss::util::CellRangeAddress* getArrayFormulaRange() override;
+    ::poi::ss::util::CellRangeAddress* getArrayFormulaRange() override;
     bool isPartOfArrayFormulaGroup() override;
 
 public: /* package */
@@ -151,8 +151,8 @@ private:
 
 public: /* protected */
     HSSFCell(HSSFWorkbook* book, HSSFSheet* sheet, int32_t row, int16_t col);
-    HSSFCell(HSSFWorkbook* book, HSSFSheet* sheet, int32_t row, int16_t col, ::org::apache::poi::ss::usermodel::CellType* type);
-    HSSFCell(HSSFWorkbook* book, HSSFSheet* sheet, ::org::apache::poi::hssf::record::CellValueRecordInterface* cval);
+    HSSFCell(HSSFWorkbook* book, HSSFSheet* sheet, int32_t row, int16_t col, ::poi::ss::usermodel::CellType* type);
+    HSSFCell(HSSFWorkbook* book, HSSFSheet* sheet, ::poi::hssf::record::CellValueRecordInterface* cval);
 protected:
     HSSFCell(const ::default_init_tag&);
 

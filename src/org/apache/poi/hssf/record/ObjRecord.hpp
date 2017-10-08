@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::ObjRecord final
+class poi::hssf::record::ObjRecord final
     : public Record
     , public ::java::lang::Cloneable
 {

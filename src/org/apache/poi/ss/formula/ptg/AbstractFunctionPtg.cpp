@@ -42,28 +42,28 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::ptg::AbstractFunctionPtg::AbstractFunctionPtg(const ::default_init_tag&)
+poi::ss::formula::ptg::AbstractFunctionPtg::AbstractFunctionPtg(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::ptg::AbstractFunctionPtg::AbstractFunctionPtg(int32_t functionIndex, int32_t pReturnClass, ::int8_tArray* paramTypes, int32_t nParams) 
+poi::ss::formula::ptg::AbstractFunctionPtg::AbstractFunctionPtg(int32_t functionIndex, int32_t pReturnClass, ::int8_tArray* paramTypes, int32_t nParams) 
     : AbstractFunctionPtg(*static_cast< ::default_init_tag* >(0))
 {
     ctor(functionIndex,pReturnClass,paramTypes,nParams);
 }
 
-java::lang::String*& org::apache::poi::ss::formula::ptg::AbstractFunctionPtg::FUNCTION_NAME_IF()
+java::lang::String*& poi::ss::formula::ptg::AbstractFunctionPtg::FUNCTION_NAME_IF()
 {
     clinit();
     return FUNCTION_NAME_IF_;
 }
-java::lang::String* org::apache::poi::ss::formula::ptg::AbstractFunctionPtg::FUNCTION_NAME_IF_;
+java::lang::String* poi::ss::formula::ptg::AbstractFunctionPtg::FUNCTION_NAME_IF_;
 
-constexpr int16_t org::apache::poi::ss::formula::ptg::AbstractFunctionPtg::FUNCTION_INDEX_EXTERNAL;
+constexpr int16_t poi::ss::formula::ptg::AbstractFunctionPtg::FUNCTION_INDEX_EXTERNAL;
 
-void org::apache::poi::ss::formula::ptg::AbstractFunctionPtg::ctor(int32_t functionIndex, int32_t pReturnClass, ::int8_tArray* paramTypes, int32_t nParams)
+void poi::ss::formula::ptg::AbstractFunctionPtg::ctor(int32_t functionIndex, int32_t pReturnClass, ::int8_tArray* paramTypes, int32_t nParams)
 {
     super::ctor();
     _numberOfArgs = nParams;
@@ -80,12 +80,12 @@ void org::apache::poi::ss::formula::ptg::AbstractFunctionPtg::ctor(int32_t funct
     paramClass = paramTypes;
 }
 
-bool org::apache::poi::ss::formula::ptg::AbstractFunctionPtg::isBaseToken()
+bool poi::ss::formula::ptg::AbstractFunctionPtg::isBaseToken()
 {
     return false;
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::AbstractFunctionPtg::toString()
+java::lang::String* poi::ss::formula::ptg::AbstractFunctionPtg::toString()
 {
     auto sb = new ::java::lang::StringBuilder(int32_t(64));
     npc(npc(sb)->append(npc(getClass())->getName()))->append(u" ["_j);
@@ -95,32 +95,32 @@ java::lang::String* org::apache::poi::ss::formula::ptg::AbstractFunctionPtg::toS
     return npc(sb)->toString();
 }
 
-int16_t org::apache::poi::ss::formula::ptg::AbstractFunctionPtg::getFunctionIndex()
+int16_t poi::ss::formula::ptg::AbstractFunctionPtg::getFunctionIndex()
 {
     return _functionIndex;
 }
 
-int32_t org::apache::poi::ss::formula::ptg::AbstractFunctionPtg::getNumberOfOperands()
+int32_t poi::ss::formula::ptg::AbstractFunctionPtg::getNumberOfOperands()
 {
     return _numberOfArgs;
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::AbstractFunctionPtg::getName()
+java::lang::String* poi::ss::formula::ptg::AbstractFunctionPtg::getName()
 {
     return lookupName(_functionIndex);
 }
 
-bool org::apache::poi::ss::formula::ptg::AbstractFunctionPtg::isExternalFunction()
+bool poi::ss::formula::ptg::AbstractFunctionPtg::isExternalFunction()
 {
     return _functionIndex == FUNCTION_INDEX_EXTERNAL;
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::AbstractFunctionPtg::toFormulaString()
+java::lang::String* poi::ss::formula::ptg::AbstractFunctionPtg::toFormulaString()
 {
     return getName();
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::AbstractFunctionPtg::toFormulaString(::java::lang::StringArray* operands)
+java::lang::String* poi::ss::formula::ptg::AbstractFunctionPtg::toFormulaString(::java::lang::StringArray* operands)
 {
     auto buf = new ::java::lang::StringBuilder();
     if(isExternalFunction()) {
@@ -133,7 +133,7 @@ java::lang::String* org::apache::poi::ss::formula::ptg::AbstractFunctionPtg::toF
     return npc(buf)->toString();
 }
 
-void org::apache::poi::ss::formula::ptg::AbstractFunctionPtg::appendArgs(::java::lang::StringBuilder* buf, int32_t firstArgIx, ::java::lang::StringArray* operands)
+void poi::ss::formula::ptg::AbstractFunctionPtg::appendArgs(::java::lang::StringBuilder* buf, int32_t firstArgIx, ::java::lang::StringArray* operands)
 {
     clinit();
     npc(buf)->append(u'(');
@@ -146,19 +146,19 @@ void org::apache::poi::ss::formula::ptg::AbstractFunctionPtg::appendArgs(::java:
     npc(buf)->append(u")"_j);
 }
 
-bool org::apache::poi::ss::formula::ptg::AbstractFunctionPtg::isBuiltInFunctionName(::java::lang::String* name)
+bool poi::ss::formula::ptg::AbstractFunctionPtg::isBuiltInFunctionName(::java::lang::String* name)
 {
     clinit();
-    auto ix = ::org::apache::poi::ss::formula::function::FunctionMetadataRegistry::lookupIndexByName(npc(name)->toUpperCase(::java::util::Locale::ROOT()));
+    auto ix = ::poi::ss::formula::function::FunctionMetadataRegistry::lookupIndexByName(npc(name)->toUpperCase(::java::util::Locale::ROOT()));
     return ix >= 0;
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::AbstractFunctionPtg::lookupName(int16_t index)
+java::lang::String* poi::ss::formula::ptg::AbstractFunctionPtg::lookupName(int16_t index)
 {
-    if(index == ::org::apache::poi::ss::formula::function::FunctionMetadataRegistry::FUNCTION_INDEX_EXTERNAL) {
+    if(index == ::poi::ss::formula::function::FunctionMetadataRegistry::FUNCTION_INDEX_EXTERNAL) {
         return u"#external#"_j;
     }
-    auto fm = ::org::apache::poi::ss::formula::function::FunctionMetadataRegistry::getFunctionByIndex(index);
+    auto fm = ::poi::ss::formula::function::FunctionMetadataRegistry::getFunctionByIndex(index);
     if(fm == nullptr) {
         throw new ::java::lang::RuntimeException(::java::lang::StringBuilder().append(u"bad function index ("_j)->append(index)
             ->append(u")"_j)->toString());
@@ -166,22 +166,22 @@ java::lang::String* org::apache::poi::ss::formula::ptg::AbstractFunctionPtg::loo
     return npc(fm)->getName();
 }
 
-int16_t org::apache::poi::ss::formula::ptg::AbstractFunctionPtg::lookupIndex(::java::lang::String* name)
+int16_t poi::ss::formula::ptg::AbstractFunctionPtg::lookupIndex(::java::lang::String* name)
 {
     clinit();
-    auto ix = ::org::apache::poi::ss::formula::function::FunctionMetadataRegistry::lookupIndexByName(npc(name)->toUpperCase(::java::util::Locale::ROOT()));
+    auto ix = ::poi::ss::formula::function::FunctionMetadataRegistry::lookupIndexByName(npc(name)->toUpperCase(::java::util::Locale::ROOT()));
     if(ix < 0) {
         return FUNCTION_INDEX_EXTERNAL;
     }
     return ix;
 }
 
-int8_t org::apache::poi::ss::formula::ptg::AbstractFunctionPtg::getDefaultOperandClass()
+int8_t poi::ss::formula::ptg::AbstractFunctionPtg::getDefaultOperandClass()
 {
     return returnClass;
 }
 
-int8_t org::apache::poi::ss::formula::ptg::AbstractFunctionPtg::getParameterClass(int32_t index)
+int8_t poi::ss::formula::ptg::AbstractFunctionPtg::getParameterClass(int32_t index)
 {
     if(index >= npc(paramClass)->length) {
         return (*paramClass)[npc(paramClass)->length - int32_t(1)];
@@ -191,13 +191,13 @@ int8_t org::apache::poi::ss::formula::ptg::AbstractFunctionPtg::getParameterClas
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::AbstractFunctionPtg::class_()
+java::lang::Class* poi::ss::formula::ptg::AbstractFunctionPtg::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.ptg.AbstractFunctionPtg", 49);
     return c;
 }
 
-void org::apache::poi::ss::formula::ptg::AbstractFunctionPtg::clinit()
+void poi::ss::formula::ptg::AbstractFunctionPtg::clinit()
 {
 struct string_init_ {
     string_init_() {
@@ -210,7 +210,7 @@ struct string_init_ {
     super::clinit();
 }
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::AbstractFunctionPtg::getClass0()
+java::lang::Class* poi::ss::formula::ptg::AbstractFunctionPtg::getClass0()
 {
     return class_();
 }

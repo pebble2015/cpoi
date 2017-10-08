@@ -75,25 +75,19 @@ typedef ::SubArray< ::java::lang::reflect::Constructor, ExecutableArray > Constr
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -111,55 +105,55 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::OperationEvaluatorFactory::OperationEvaluatorFactory(const ::default_init_tag&)
+poi::ss::formula::OperationEvaluatorFactory::OperationEvaluatorFactory(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::OperationEvaluatorFactory::OperationEvaluatorFactory() 
+poi::ss::formula::OperationEvaluatorFactory::OperationEvaluatorFactory() 
     : OperationEvaluatorFactory(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-java::util::Map*& org::apache::poi::ss::formula::OperationEvaluatorFactory::_instancesByPtgClass()
+java::util::Map*& poi::ss::formula::OperationEvaluatorFactory::_instancesByPtgClass()
 {
     clinit();
     return _instancesByPtgClass_;
 }
-java::util::Map* org::apache::poi::ss::formula::OperationEvaluatorFactory::_instancesByPtgClass_;
+java::util::Map* poi::ss::formula::OperationEvaluatorFactory::_instancesByPtgClass_;
 
-void org::apache::poi::ss::formula::OperationEvaluatorFactory::ctor()
+void poi::ss::formula::OperationEvaluatorFactory::ctor()
 {
     super::ctor();
 }
 
-java::util::Map* org::apache::poi::ss::formula::OperationEvaluatorFactory::initialiseInstancesMap()
+java::util::Map* poi::ss::formula::OperationEvaluatorFactory::initialiseInstancesMap()
 {
     clinit();
     ::java::util::Map* m = new ::java::util::HashMap(int32_t(32));
-    put(m, ::org::apache::poi::ss::formula::ptg::EqualPtg::instance(), ::org::apache::poi::ss::formula::eval::RelationalOperationEval::EqualEval());
-    put(m, ::org::apache::poi::ss::formula::ptg::GreaterEqualPtg::instance(), ::org::apache::poi::ss::formula::eval::RelationalOperationEval::GreaterEqualEval());
-    put(m, ::org::apache::poi::ss::formula::ptg::GreaterThanPtg::instance(), ::org::apache::poi::ss::formula::eval::RelationalOperationEval::GreaterThanEval());
-    put(m, ::org::apache::poi::ss::formula::ptg::LessEqualPtg::instance(), ::org::apache::poi::ss::formula::eval::RelationalOperationEval::LessEqualEval());
-    put(m, ::org::apache::poi::ss::formula::ptg::LessThanPtg::instance(), ::org::apache::poi::ss::formula::eval::RelationalOperationEval::LessThanEval());
-    put(m, ::org::apache::poi::ss::formula::ptg::NotEqualPtg::instance(), ::org::apache::poi::ss::formula::eval::RelationalOperationEval::NotEqualEval());
-    put(m, ::org::apache::poi::ss::formula::ptg::ConcatPtg::instance(), ::org::apache::poi::ss::formula::eval::ConcatEval::instance());
-    put(m, ::org::apache::poi::ss::formula::ptg::AddPtg::instance(), ::org::apache::poi::ss::formula::eval::TwoOperandNumericOperation::AddEval());
-    put(m, ::org::apache::poi::ss::formula::ptg::DividePtg::instance(), ::org::apache::poi::ss::formula::eval::TwoOperandNumericOperation::DivideEval());
-    put(m, ::org::apache::poi::ss::formula::ptg::MultiplyPtg::instance(), ::org::apache::poi::ss::formula::eval::TwoOperandNumericOperation::MultiplyEval());
-    put(m, ::org::apache::poi::ss::formula::ptg::PercentPtg::instance(), ::org::apache::poi::ss::formula::eval::PercentEval::instance());
-    put(m, ::org::apache::poi::ss::formula::ptg::PowerPtg::instance(), ::org::apache::poi::ss::formula::eval::TwoOperandNumericOperation::PowerEval());
-    put(m, ::org::apache::poi::ss::formula::ptg::SubtractPtg::instance(), ::org::apache::poi::ss::formula::eval::TwoOperandNumericOperation::SubtractEval());
-    put(m, ::org::apache::poi::ss::formula::ptg::UnaryMinusPtg::instance(), ::org::apache::poi::ss::formula::eval::UnaryMinusEval::instance());
-    put(m, ::org::apache::poi::ss::formula::ptg::UnaryPlusPtg::instance(), ::org::apache::poi::ss::formula::eval::UnaryPlusEval::instance());
-    put(m, ::org::apache::poi::ss::formula::ptg::RangePtg::instance(), ::org::apache::poi::ss::formula::eval::RangeEval::instance());
-    put(m, ::org::apache::poi::ss::formula::ptg::IntersectionPtg::instance(), ::org::apache::poi::ss::formula::eval::IntersectionEval::instance());
+    put(m, ::poi::ss::formula::ptg::EqualPtg::instance(), ::poi::ss::formula::eval::RelationalOperationEval::EqualEval());
+    put(m, ::poi::ss::formula::ptg::GreaterEqualPtg::instance(), ::poi::ss::formula::eval::RelationalOperationEval::GreaterEqualEval());
+    put(m, ::poi::ss::formula::ptg::GreaterThanPtg::instance(), ::poi::ss::formula::eval::RelationalOperationEval::GreaterThanEval());
+    put(m, ::poi::ss::formula::ptg::LessEqualPtg::instance(), ::poi::ss::formula::eval::RelationalOperationEval::LessEqualEval());
+    put(m, ::poi::ss::formula::ptg::LessThanPtg::instance(), ::poi::ss::formula::eval::RelationalOperationEval::LessThanEval());
+    put(m, ::poi::ss::formula::ptg::NotEqualPtg::instance(), ::poi::ss::formula::eval::RelationalOperationEval::NotEqualEval());
+    put(m, ::poi::ss::formula::ptg::ConcatPtg::instance(), ::poi::ss::formula::eval::ConcatEval::instance());
+    put(m, ::poi::ss::formula::ptg::AddPtg::instance(), ::poi::ss::formula::eval::TwoOperandNumericOperation::AddEval());
+    put(m, ::poi::ss::formula::ptg::DividePtg::instance(), ::poi::ss::formula::eval::TwoOperandNumericOperation::DivideEval());
+    put(m, ::poi::ss::formula::ptg::MultiplyPtg::instance(), ::poi::ss::formula::eval::TwoOperandNumericOperation::MultiplyEval());
+    put(m, ::poi::ss::formula::ptg::PercentPtg::instance(), ::poi::ss::formula::eval::PercentEval::instance());
+    put(m, ::poi::ss::formula::ptg::PowerPtg::instance(), ::poi::ss::formula::eval::TwoOperandNumericOperation::PowerEval());
+    put(m, ::poi::ss::formula::ptg::SubtractPtg::instance(), ::poi::ss::formula::eval::TwoOperandNumericOperation::SubtractEval());
+    put(m, ::poi::ss::formula::ptg::UnaryMinusPtg::instance(), ::poi::ss::formula::eval::UnaryMinusEval::instance());
+    put(m, ::poi::ss::formula::ptg::UnaryPlusPtg::instance(), ::poi::ss::formula::eval::UnaryPlusEval::instance());
+    put(m, ::poi::ss::formula::ptg::RangePtg::instance(), ::poi::ss::formula::eval::RangeEval::instance());
+    put(m, ::poi::ss::formula::ptg::IntersectionPtg::instance(), ::poi::ss::formula::eval::IntersectionEval::instance());
     return m;
 }
 
-void org::apache::poi::ss::formula::OperationEvaluatorFactory::put(::java::util::Map* m, ::org::apache::poi::ss::formula::ptg::OperationPtg* ptgKey, ::org::apache::poi::ss::formula::functions::Function* instance)
+void poi::ss::formula::OperationEvaluatorFactory::put(::java::util::Map* m, ::poi::ss::formula::ptg::OperationPtg* ptgKey, ::poi::ss::formula::functions::Function* instance)
 {
     clinit();
     auto cc = npc(npc(ptgKey)->getClass())->getDeclaredConstructors();
@@ -170,27 +164,27 @@ void org::apache::poi::ss::formula::OperationEvaluatorFactory::put(::java::util:
     npc(m)->put(ptgKey, instance);
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::OperationEvaluatorFactory::evaluate(::org::apache::poi::ss::formula::ptg::OperationPtg* ptg, ::org::apache::poi::ss::formula::eval::ValueEvalArray* args, OperationEvaluationContext* ec)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::OperationEvaluatorFactory::evaluate(::poi::ss::formula::ptg::OperationPtg* ptg, ::poi::ss::formula::eval::ValueEvalArray* args, OperationEvaluationContext* ec)
 {
     clinit();
     if(ptg == nullptr) {
         throw new ::java::lang::IllegalArgumentException(u"ptg must not be null"_j);
     }
-    auto result = java_cast< ::org::apache::poi::ss::formula::functions::Function* >(npc(_instancesByPtgClass_)->get(ptg));
+    auto result = java_cast< ::poi::ss::formula::functions::Function* >(npc(_instancesByPtgClass_)->get(ptg));
     if(result != nullptr) {
         return npc(result)->evaluate(args, npc(ec)->getRowIndex(), static_cast< int16_t >(npc(ec)->getColumnIndex()));
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::ptg::AbstractFunctionPtg* >(ptg) != nullptr) {
-        auto fptg = java_cast< ::org::apache::poi::ss::formula::ptg::AbstractFunctionPtg* >(ptg);
+    if(dynamic_cast< ::poi::ss::formula::ptg::AbstractFunctionPtg* >(ptg) != nullptr) {
+        auto fptg = java_cast< ::poi::ss::formula::ptg::AbstractFunctionPtg* >(ptg);
         int32_t functionIndex = npc(fptg)->getFunctionIndex();
         switch (functionIndex) {
-        case ::org::apache::poi::ss::formula::function::FunctionMetadataRegistry::FUNCTION_INDEX_INDIRECT:
-            return npc(::org::apache::poi::ss::formula::functions::Indirect::instance())->evaluate(args, ec);
-        case ::org::apache::poi::ss::formula::function::FunctionMetadataRegistry::FUNCTION_INDEX_EXTERNAL:
+        case ::poi::ss::formula::function::FunctionMetadataRegistry::FUNCTION_INDEX_INDIRECT:
+            return npc(::poi::ss::formula::functions::Indirect::instance())->evaluate(args, ec);
+        case ::poi::ss::formula::function::FunctionMetadataRegistry::FUNCTION_INDEX_EXTERNAL:
             return npc(UserDefinedFunction::instance())->evaluate(args, ec);
         }
 
-        return npc(::org::apache::poi::ss::formula::eval::FunctionEval::getBasicFunction(functionIndex))->evaluate(args, npc(ec)->getRowIndex(), static_cast< int16_t >(npc(ec)->getColumnIndex()));
+        return npc(::poi::ss::formula::eval::FunctionEval::getBasicFunction(functionIndex))->evaluate(args, npc(ec)->getRowIndex(), static_cast< int16_t >(npc(ec)->getColumnIndex()));
     }
     throw new ::java::lang::RuntimeException(::java::lang::StringBuilder().append(u"Unexpected operation ptg class ("_j)->append(npc(npc(ptg)->getClass())->getName())
         ->append(u")"_j)->toString());
@@ -198,13 +192,13 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::O
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::OperationEvaluatorFactory::class_()
+java::lang::Class* poi::ss::formula::OperationEvaluatorFactory::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.OperationEvaluatorFactory", 51);
     return c;
 }
 
-void org::apache::poi::ss::formula::OperationEvaluatorFactory::clinit()
+void poi::ss::formula::OperationEvaluatorFactory::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -220,7 +214,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::formula::OperationEvaluatorFactory::getClass0()
+java::lang::Class* poi::ss::formula::OperationEvaluatorFactory::getClass0()
 {
     return class_();
 }

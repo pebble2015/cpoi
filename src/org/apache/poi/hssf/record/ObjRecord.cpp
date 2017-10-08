@@ -37,54 +37,54 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::ObjRecord::ObjRecord(const ::default_init_tag&)
+poi::hssf::record::ObjRecord::ObjRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::ObjRecord::ObjRecord() 
+poi::hssf::record::ObjRecord::ObjRecord() 
     : ObjRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::ObjRecord::ObjRecord(RecordInputStream* in) 
+poi::hssf::record::ObjRecord::ObjRecord(RecordInputStream* in) 
     : ObjRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::ObjRecord::sid;
+constexpr int16_t poi::hssf::record::ObjRecord::sid;
 
-constexpr int32_t org::apache::poi::hssf::record::ObjRecord::NORMAL_PAD_ALIGNMENT;
+constexpr int32_t poi::hssf::record::ObjRecord::NORMAL_PAD_ALIGNMENT;
 
-int32_t& org::apache::poi::hssf::record::ObjRecord::MAX_PAD_ALIGNMENT()
+int32_t& poi::hssf::record::ObjRecord::MAX_PAD_ALIGNMENT()
 {
     clinit();
     return MAX_PAD_ALIGNMENT_;
 }
-int32_t org::apache::poi::hssf::record::ObjRecord::MAX_PAD_ALIGNMENT_;
+int32_t poi::hssf::record::ObjRecord::MAX_PAD_ALIGNMENT_;
 
-void org::apache::poi::hssf::record::ObjRecord::ctor()
+void poi::hssf::record::ObjRecord::ctor()
 {
     super::ctor();
     subrecords = new ::java::util::ArrayList(int32_t(2));
     _uninterpretedData = nullptr;
 }
 
-void org::apache::poi::hssf::record::ObjRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::ObjRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     auto subRecordData = npc(in)->readRemainder();
-    if(::org::apache::poi::util::LittleEndian::getUShort(subRecordData, 0) != CommonObjectDataSubRecord::sid) {
+    if(::poi::util::LittleEndian::getUShort(subRecordData, 0) != CommonObjectDataSubRecord::sid) {
         _uninterpretedData = subRecordData;
         subrecords = nullptr;
         return;
     }
     subrecords = new ::java::util::ArrayList();
     auto bais = new ::java::io::ByteArrayInputStream(subRecordData);
-    auto subRecStream = new ::org::apache::poi::util::LittleEndianInputStream(bais);
+    auto subRecStream = new ::poi::util::LittleEndianInputStream(bais);
     auto cmo = java_cast< CommonObjectDataSubRecord* >(SubRecord::createSubRecord(subRecStream, 0));
     npc(subrecords)->add(static_cast< ::java::lang::Object* >(cmo));
     while (true) {
@@ -101,8 +101,8 @@ void org::apache::poi::hssf::record::ObjRecord::ctor(RecordInputStream* in)
             if(!canPaddingBeDiscarded(subRecordData, nRemainingBytes)) {
                 auto msg = ::java::lang::StringBuilder().append(u"Leftover "_j)->append(nRemainingBytes)
                     ->append(u" bytes in subrecord data "_j)
-                    ->append(::org::apache::poi::util::HexDump::toHex(subRecordData))->toString();
-                throw new ::org::apache::poi::util::RecordFormatException(msg);
+                    ->append(::poi::util::HexDump::toHex(subRecordData))->toString();
+                throw new ::poi::util::RecordFormatException(msg);
             }
             _isPaddedToQuadByteMultiple = false;
         }
@@ -112,7 +112,7 @@ void org::apache::poi::hssf::record::ObjRecord::ctor(RecordInputStream* in)
     _uninterpretedData = nullptr;
 }
 
-bool org::apache::poi::hssf::record::ObjRecord::canPaddingBeDiscarded(::int8_tArray* data, int32_t nRemainingBytes)
+bool poi::hssf::record::ObjRecord::canPaddingBeDiscarded(::int8_tArray* data, int32_t nRemainingBytes)
 {
     clinit();
     for (auto i = npc(data)->length - nRemainingBytes; i < npc(data)->length; i++) {
@@ -123,7 +123,7 @@ bool org::apache::poi::hssf::record::ObjRecord::canPaddingBeDiscarded(::int8_tAr
     return true;
 }
 
-java::lang::String* org::apache::poi::hssf::record::ObjRecord::toString()
+java::lang::String* poi::hssf::record::ObjRecord::toString()
 {
     auto sb = new ::java::lang::StringBuffer();
     npc(sb)->append(u"[OBJ]\n"_j);
@@ -139,7 +139,7 @@ java::lang::String* org::apache::poi::hssf::record::ObjRecord::toString()
     return npc(sb)->toString();
 }
 
-int32_t org::apache::poi::hssf::record::ObjRecord::getRecordSize()
+int32_t poi::hssf::record::ObjRecord::getRecordSize()
 {
     if(_uninterpretedData != nullptr) {
         return npc(_uninterpretedData)->length + int32_t(4);
@@ -163,11 +163,11 @@ int32_t org::apache::poi::hssf::record::ObjRecord::getRecordSize()
     return size + int32_t(4);
 }
 
-int32_t org::apache::poi::hssf::record::ObjRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::ObjRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     auto recSize = getRecordSize();
     auto dataSize = recSize - int32_t(4);
-    auto out = new ::org::apache::poi::util::LittleEndianByteArrayOutputStream(data, offset, recSize);
+    auto out = new ::poi::util::LittleEndianByteArrayOutputStream(data, offset, recSize);
     npc(out)->writeShort(static_cast< int32_t >(sid));
     npc(out)->writeShort(dataSize);
     if(_uninterpretedData == nullptr) {
@@ -185,32 +185,32 @@ int32_t org::apache::poi::hssf::record::ObjRecord::serialize(int32_t offset, ::i
     return recSize;
 }
 
-int16_t org::apache::poi::hssf::record::ObjRecord::getSid()
+int16_t poi::hssf::record::ObjRecord::getSid()
 {
     return sid;
 }
 
-java::util::List* org::apache::poi::hssf::record::ObjRecord::getSubRecords()
+java::util::List* poi::hssf::record::ObjRecord::getSubRecords()
 {
     return subrecords;
 }
 
-void org::apache::poi::hssf::record::ObjRecord::clearSubRecords()
+void poi::hssf::record::ObjRecord::clearSubRecords()
 {
     npc(subrecords)->clear();
 }
 
-void org::apache::poi::hssf::record::ObjRecord::addSubRecord(int32_t index, SubRecord* element)
+void poi::hssf::record::ObjRecord::addSubRecord(int32_t index, SubRecord* element)
 {
     npc(subrecords)->add(index, element);
 }
 
-bool org::apache::poi::hssf::record::ObjRecord::addSubRecord(SubRecord* o)
+bool poi::hssf::record::ObjRecord::addSubRecord(SubRecord* o)
 {
     return npc(subrecords)->add(static_cast< ::java::lang::Object* >(o));
 }
 
-org::apache::poi::hssf::record::ObjRecord* org::apache::poi::hssf::record::ObjRecord::clone()
+poi::hssf::record::ObjRecord* poi::hssf::record::ObjRecord::clone()
 {
     auto rec = new ObjRecord();
     for (auto _i = npc(subrecords)->iterator(); _i->hasNext(); ) {
@@ -224,13 +224,13 @@ org::apache::poi::hssf::record::ObjRecord* org::apache::poi::hssf::record::ObjRe
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::ObjRecord::class_()
+java::lang::Class* poi::hssf::record::ObjRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.ObjRecord", 36);
     return c;
 }
 
-void org::apache::poi::hssf::record::ObjRecord::clinit()
+void poi::hssf::record::ObjRecord::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -246,12 +246,12 @@ struct clinit_ {
     }
 }
 
-int8_tArray* org::apache::poi::hssf::record::ObjRecord::serialize()
+int8_tArray* poi::hssf::record::ObjRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::ObjRecord::getClass0()
+java::lang::Class* poi::hssf::record::ObjRecord::getClass0()
 {
     return class_();
 }

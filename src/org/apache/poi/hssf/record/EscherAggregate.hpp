@@ -12,7 +12,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::EscherAggregate final
+class poi::hssf::record::EscherAggregate final
     : public AbstractEscherHolderRecord
 {
 
@@ -21,7 +21,7 @@ public:
     static constexpr int16_t sid_ { int16_t(9876) };
 
 private:
-    static ::org::apache::poi::util::POILogger* log_;
+    static ::poi::util::POILogger* log_;
 
 public:
     static constexpr int16_t ST_MIN { int16_t(0) };
@@ -254,8 +254,8 @@ private:
 
 public:
     int32_t getRecordSize() override;
-    void associateShapeToObjRecord(::org::apache::poi::ddf::EscherRecord* r, Record* objRecord);
-    void removeShapeToObjRecord(::org::apache::poi::ddf::EscherRecord* rec);
+    void associateShapeToObjRecord(::poi::ddf::EscherRecord* r, Record* objRecord);
+    void removeShapeToObjRecord(::poi::ddf::EscherRecord* rec);
 
 public: /* protected */
     ::java::lang::String* getRecordName() override;
@@ -295,7 +295,7 @@ public:
     ::int8_tArray* serialize();
 
 private:
-    static ::org::apache::poi::util::POILogger*& log();
+    static ::poi::util::POILogger*& log();
     virtual ::java::lang::Class* getClass0();
     friend class EscherAggregate_createAggregate_1;
     friend class EscherAggregate_serialize_2;

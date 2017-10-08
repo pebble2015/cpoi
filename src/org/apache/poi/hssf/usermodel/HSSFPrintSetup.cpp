@@ -11,223 +11,223 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::usermodel::HSSFPrintSetup::HSSFPrintSetup(const ::default_init_tag&)
+poi::hssf::usermodel::HSSFPrintSetup::HSSFPrintSetup(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::usermodel::HSSFPrintSetup::HSSFPrintSetup(::org::apache::poi::hssf::record::PrintSetupRecord* printSetupRecord) 
+poi::hssf::usermodel::HSSFPrintSetup::HSSFPrintSetup(::poi::hssf::record::PrintSetupRecord* printSetupRecord) 
     : HSSFPrintSetup(*static_cast< ::default_init_tag* >(0))
 {
     ctor(printSetupRecord);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPrintSetup::ctor(::org::apache::poi::hssf::record::PrintSetupRecord* printSetupRecord)
+void poi::hssf::usermodel::HSSFPrintSetup::ctor(::poi::hssf::record::PrintSetupRecord* printSetupRecord)
 {
     super::ctor();
     this->printSetupRecord = printSetupRecord;
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPrintSetup::setPaperSize(int16_t size)
+void poi::hssf::usermodel::HSSFPrintSetup::setPaperSize(int16_t size)
 {
     npc(printSetupRecord)->setPaperSize(size);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPrintSetup::setScale(int16_t scale)
+void poi::hssf::usermodel::HSSFPrintSetup::setScale(int16_t scale)
 {
     npc(printSetupRecord)->setScale(scale);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPrintSetup::setPageStart(int16_t start)
+void poi::hssf::usermodel::HSSFPrintSetup::setPageStart(int16_t start)
 {
     npc(printSetupRecord)->setPageStart(start);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPrintSetup::setFitWidth(int16_t width)
+void poi::hssf::usermodel::HSSFPrintSetup::setFitWidth(int16_t width)
 {
     npc(printSetupRecord)->setFitWidth(width);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPrintSetup::setFitHeight(int16_t height)
+void poi::hssf::usermodel::HSSFPrintSetup::setFitHeight(int16_t height)
 {
     npc(printSetupRecord)->setFitHeight(height);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPrintSetup::setOptions(int16_t options)
+void poi::hssf::usermodel::HSSFPrintSetup::setOptions(int16_t options)
 {
     npc(printSetupRecord)->setOptions(options);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPrintSetup::setLeftToRight(bool ltor)
+void poi::hssf::usermodel::HSSFPrintSetup::setLeftToRight(bool ltor)
 {
     npc(printSetupRecord)->setLeftToRight(ltor);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPrintSetup::setLandscape(bool ls)
+void poi::hssf::usermodel::HSSFPrintSetup::setLandscape(bool ls)
 {
     npc(printSetupRecord)->setLandscape(!ls);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPrintSetup::setValidSettings(bool valid)
+void poi::hssf::usermodel::HSSFPrintSetup::setValidSettings(bool valid)
 {
     npc(printSetupRecord)->setValidSettings(valid);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPrintSetup::setNoColor(bool mono)
+void poi::hssf::usermodel::HSSFPrintSetup::setNoColor(bool mono)
 {
     npc(printSetupRecord)->setNoColor(mono);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPrintSetup::setDraft(bool d)
+void poi::hssf::usermodel::HSSFPrintSetup::setDraft(bool d)
 {
     npc(printSetupRecord)->setDraft(d);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPrintSetup::setNotes(bool printnotes)
+void poi::hssf::usermodel::HSSFPrintSetup::setNotes(bool printnotes)
 {
     npc(printSetupRecord)->setNotes(printnotes);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPrintSetup::setNoOrientation(bool orientation)
+void poi::hssf::usermodel::HSSFPrintSetup::setNoOrientation(bool orientation)
 {
     npc(printSetupRecord)->setNoOrientation(orientation);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPrintSetup::setUsePage(bool page)
+void poi::hssf::usermodel::HSSFPrintSetup::setUsePage(bool page)
 {
     npc(printSetupRecord)->setUsePage(page);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPrintSetup::setHResolution(int16_t resolution)
+void poi::hssf::usermodel::HSSFPrintSetup::setHResolution(int16_t resolution)
 {
     npc(printSetupRecord)->setHResolution(resolution);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPrintSetup::setVResolution(int16_t resolution)
+void poi::hssf::usermodel::HSSFPrintSetup::setVResolution(int16_t resolution)
 {
     npc(printSetupRecord)->setVResolution(resolution);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPrintSetup::setHeaderMargin(double headermargin)
+void poi::hssf::usermodel::HSSFPrintSetup::setHeaderMargin(double headermargin)
 {
     npc(printSetupRecord)->setHeaderMargin(headermargin);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPrintSetup::setFooterMargin(double footermargin)
+void poi::hssf::usermodel::HSSFPrintSetup::setFooterMargin(double footermargin)
 {
     npc(printSetupRecord)->setFooterMargin(footermargin);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPrintSetup::setCopies(int16_t copies)
+void poi::hssf::usermodel::HSSFPrintSetup::setCopies(int16_t copies)
 {
     npc(printSetupRecord)->setCopies(copies);
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFPrintSetup::getPaperSize()
+int16_t poi::hssf::usermodel::HSSFPrintSetup::getPaperSize()
 {
     return npc(printSetupRecord)->getPaperSize();
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFPrintSetup::getScale()
+int16_t poi::hssf::usermodel::HSSFPrintSetup::getScale()
 {
     return npc(printSetupRecord)->getScale();
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFPrintSetup::getPageStart()
+int16_t poi::hssf::usermodel::HSSFPrintSetup::getPageStart()
 {
     return npc(printSetupRecord)->getPageStart();
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFPrintSetup::getFitWidth()
+int16_t poi::hssf::usermodel::HSSFPrintSetup::getFitWidth()
 {
     return npc(printSetupRecord)->getFitWidth();
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFPrintSetup::getFitHeight()
+int16_t poi::hssf::usermodel::HSSFPrintSetup::getFitHeight()
 {
     return npc(printSetupRecord)->getFitHeight();
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFPrintSetup::getOptions()
+int16_t poi::hssf::usermodel::HSSFPrintSetup::getOptions()
 {
     return npc(printSetupRecord)->getOptions();
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFPrintSetup::getLeftToRight()
+bool poi::hssf::usermodel::HSSFPrintSetup::getLeftToRight()
 {
     return npc(printSetupRecord)->getLeftToRight();
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFPrintSetup::getLandscape()
+bool poi::hssf::usermodel::HSSFPrintSetup::getLandscape()
 {
     return !npc(printSetupRecord)->getLandscape();
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFPrintSetup::getValidSettings()
+bool poi::hssf::usermodel::HSSFPrintSetup::getValidSettings()
 {
     return npc(printSetupRecord)->getValidSettings();
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFPrintSetup::getNoColor()
+bool poi::hssf::usermodel::HSSFPrintSetup::getNoColor()
 {
     return npc(printSetupRecord)->getNoColor();
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFPrintSetup::getDraft()
+bool poi::hssf::usermodel::HSSFPrintSetup::getDraft()
 {
     return npc(printSetupRecord)->getDraft();
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFPrintSetup::getNotes()
+bool poi::hssf::usermodel::HSSFPrintSetup::getNotes()
 {
     return npc(printSetupRecord)->getNotes();
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFPrintSetup::getNoOrientation()
+bool poi::hssf::usermodel::HSSFPrintSetup::getNoOrientation()
 {
     return npc(printSetupRecord)->getNoOrientation();
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFPrintSetup::getUsePage()
+bool poi::hssf::usermodel::HSSFPrintSetup::getUsePage()
 {
     return npc(printSetupRecord)->getUsePage();
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFPrintSetup::getHResolution()
+int16_t poi::hssf::usermodel::HSSFPrintSetup::getHResolution()
 {
     return npc(printSetupRecord)->getHResolution();
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFPrintSetup::getVResolution()
+int16_t poi::hssf::usermodel::HSSFPrintSetup::getVResolution()
 {
     return npc(printSetupRecord)->getVResolution();
 }
 
-double org::apache::poi::hssf::usermodel::HSSFPrintSetup::getHeaderMargin()
+double poi::hssf::usermodel::HSSFPrintSetup::getHeaderMargin()
 {
     return npc(printSetupRecord)->getHeaderMargin();
 }
 
-double org::apache::poi::hssf::usermodel::HSSFPrintSetup::getFooterMargin()
+double poi::hssf::usermodel::HSSFPrintSetup::getFooterMargin()
 {
     return npc(printSetupRecord)->getFooterMargin();
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFPrintSetup::getCopies()
+int16_t poi::hssf::usermodel::HSSFPrintSetup::getCopies()
 {
     return npc(printSetupRecord)->getCopies();
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFPrintSetup::class_()
+java::lang::Class* poi::hssf::usermodel::HSSFPrintSetup::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.usermodel.HSSFPrintSetup", 44);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFPrintSetup::getClass0()
+java::lang::Class* poi::hssf::usermodel::HSSFPrintSetup::getClass0()
 {
     return class_();
 }

@@ -12,27 +12,27 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::extractor::EventBasedExcelExtractor
-    : public ::org::apache::poi::POIOLE2TextExtractor
-    , public virtual ::org::apache::poi::ss::extractor::ExcelExtractor
+class poi::hssf::extractor::EventBasedExcelExtractor
+    : public ::poi::POIOLE2TextExtractor
+    , public virtual ::poi::ss::extractor::ExcelExtractor
 {
 
 public:
-    typedef ::org::apache::poi::POIOLE2TextExtractor super;
+    typedef ::poi::POIOLE2TextExtractor super;
 
 private:
-    ::org::apache::poi::poifs::filesystem::DirectoryNode* _dir {  };
+    ::poi::poifs::filesystem::DirectoryNode* _dir {  };
 
 public: /* package */
     bool _includeSheetNames {  };
     bool _formulasNotResults {  };
 protected:
-    void ctor(::org::apache::poi::poifs::filesystem::DirectoryNode* dir);
-    void ctor(::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs);
+    void ctor(::poi::poifs::filesystem::DirectoryNode* dir);
+    void ctor(::poi::poifs::filesystem::POIFSFileSystem* fs);
 
 public:
-    ::org::apache::poi::hpsf::DocumentSummaryInformation* getDocSummaryInformation() override;
-    ::org::apache::poi::hpsf::SummaryInformation* getSummaryInformation() override;
+    ::poi::hpsf::DocumentSummaryInformation* getDocSummaryInformation() override;
+    ::poi::hpsf::SummaryInformation* getSummaryInformation() override;
     void setIncludeCellComments(bool includeComments) override;
     void setIncludeHeadersFooters(bool includeHeadersFooters) override;
     void setIncludeSheetNames(bool includeSheetNames) override;
@@ -45,8 +45,8 @@ private:
     // Generated
 
 public:
-    EventBasedExcelExtractor(::org::apache::poi::poifs::filesystem::DirectoryNode* dir);
-    EventBasedExcelExtractor(::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs);
+    EventBasedExcelExtractor(::poi::poifs::filesystem::DirectoryNode* dir);
+    EventBasedExcelExtractor(::poi::poifs::filesystem::POIFSFileSystem* fs);
 protected:
     EventBasedExcelExtractor(const ::default_init_tag&);
 

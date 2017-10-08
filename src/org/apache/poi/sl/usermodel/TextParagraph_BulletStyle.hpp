@@ -7,7 +7,7 @@
 #include <org/apache/poi/sl/usermodel/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::sl::usermodel::TextParagraph_BulletStyle
+struct poi::sl::usermodel::TextParagraph_BulletStyle
     : public virtual ::java::lang::Object
 {
     virtual ::java::lang::String* getBulletCharacter() = 0;

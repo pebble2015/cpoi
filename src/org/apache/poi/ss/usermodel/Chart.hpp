@@ -9,35 +9,29 @@
 #include <org/apache/poi/ss/usermodel/charts/ManuallyPositionable.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace ss
+            namespace charts
             {
-                namespace usermodel
-                {
-                    namespace charts
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::charts::ChartAxis, ::java::lang::ObjectArray > ChartAxisArray;
-                    } // charts
-                } // usermodel
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::usermodel::charts::ChartAxis, ::java::lang::ObjectArray > ChartAxisArray;
+            } // charts
+        } // usermodel
+    } // ss
+} // poi
 
-struct org::apache::poi::ss::usermodel::Chart
-    : public virtual ::org::apache::poi::ss::usermodel::charts::ManuallyPositionable
+struct poi::ss::usermodel::Chart
+    : public virtual ::poi::ss::usermodel::charts::ManuallyPositionable
 {
-    virtual ::org::apache::poi::ss::usermodel::charts::ChartDataFactory* getChartDataFactory() = 0;
-    virtual ::org::apache::poi::ss::usermodel::charts::ChartAxisFactory* getChartAxisFactory() = 0;
-    virtual ::org::apache::poi::ss::usermodel::charts::ChartLegend* getOrCreateLegend() = 0;
+    virtual ::poi::ss::usermodel::charts::ChartDataFactory* getChartDataFactory() = 0;
+    virtual ::poi::ss::usermodel::charts::ChartAxisFactory* getChartAxisFactory() = 0;
+    virtual ::poi::ss::usermodel::charts::ChartLegend* getOrCreateLegend() = 0;
     virtual void deleteLegend() = 0;
     virtual ::java::util::List* getAxis() = 0;
-    virtual void plot(::org::apache::poi::ss::usermodel::charts::ChartData* data, ::org::apache::poi::ss::usermodel::charts::ChartAxisArray*/*...*/ axis) = 0;
+    virtual void plot(::poi::ss::usermodel::charts::ChartData* data, ::poi::ss::usermodel::charts::ChartAxisArray*/*...*/ axis) = 0;
 
     // Generated
     static ::java::lang::Class *class_();

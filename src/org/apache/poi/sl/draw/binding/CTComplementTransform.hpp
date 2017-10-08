@@ -7,7 +7,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::binding::CTComplementTransform
+class poi::sl::draw::binding::CTComplementTransform
     : public virtual ::java::lang::Object
 {
 

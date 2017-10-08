@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::ptg::AreaNPtg final
+class poi::ss::formula::ptg::AreaNPtg final
     : public Area2DPtgBase
 {
 
@@ -17,7 +17,7 @@ public:
     typedef Area2DPtgBase super;
     static constexpr int16_t sid { int16_t(45) };
 protected:
-    void ctor(::org::apache::poi::util::LittleEndianInput* in);
+    void ctor(::poi::util::LittleEndianInput* in);
 
 public: /* protected */
     int8_t getSid() override;
@@ -25,7 +25,7 @@ public: /* protected */
     // Generated
 
 public:
-    AreaNPtg(::org::apache::poi::util::LittleEndianInput* in);
+    AreaNPtg(::poi::util::LittleEndianInput* in);
 protected:
     AreaNPtg(const ::default_init_tag&);
 

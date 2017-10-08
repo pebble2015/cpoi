@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::eval::forked::ForkedEvaluationSheet_RowColKey final
+class poi::ss::formula::eval::forked::ForkedEvaluationSheet_RowColKey final
     : public virtual ::java::lang::Object
     , public ::java::lang::Comparable
 {

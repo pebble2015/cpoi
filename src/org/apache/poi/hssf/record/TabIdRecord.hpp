@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::TabIdRecord final
+class poi::hssf::record::TabIdRecord final
     : public StandardRecord
 {
 
@@ -30,7 +30,7 @@ protected:
 public:
     void setTabIdArray_(::int16_tArray* array);
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;

@@ -24,26 +24,26 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::FormulaUsedBlankCellSet_BlankCellSheetGroup::FormulaUsedBlankCellSet_BlankCellSheetGroup(const ::default_init_tag&)
+poi::ss::formula::FormulaUsedBlankCellSet_BlankCellSheetGroup::FormulaUsedBlankCellSet_BlankCellSheetGroup(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::FormulaUsedBlankCellSet_BlankCellSheetGroup::FormulaUsedBlankCellSet_BlankCellSheetGroup() 
+poi::ss::formula::FormulaUsedBlankCellSet_BlankCellSheetGroup::FormulaUsedBlankCellSet_BlankCellSheetGroup() 
     : FormulaUsedBlankCellSet_BlankCellSheetGroup(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::ss::formula::FormulaUsedBlankCellSet_BlankCellSheetGroup::ctor()
+void poi::ss::formula::FormulaUsedBlankCellSet_BlankCellSheetGroup::ctor()
 {
     super::ctor();
     _rectangleGroups = new ::java::util::ArrayList();
     _currentRowIndex = -int32_t(1);
 }
 
-void org::apache::poi::ss::formula::FormulaUsedBlankCellSet_BlankCellSheetGroup::addCell(int32_t rowIndex, int32_t columnIndex)
+void poi::ss::formula::FormulaUsedBlankCellSet_BlankCellSheetGroup::addCell(int32_t rowIndex, int32_t columnIndex)
 {
     if(_currentRowIndex == -int32_t(1)) {
         _currentRowIndex = rowIndex;
@@ -68,7 +68,7 @@ void org::apache::poi::ss::formula::FormulaUsedBlankCellSet_BlankCellSheetGroup:
     }
 }
 
-bool org::apache::poi::ss::formula::FormulaUsedBlankCellSet_BlankCellSheetGroup::containsCell(int32_t rowIndex, int32_t columnIndex)
+bool poi::ss::formula::FormulaUsedBlankCellSet_BlankCellSheetGroup::containsCell(int32_t rowIndex, int32_t columnIndex)
 {
     for (auto i = npc(_rectangleGroups)->size() - int32_t(1); i >= 0; i--) {
         auto bcrg = java_cast< FormulaUsedBlankCellSet_BlankCellRectangleGroup* >(npc(_rectangleGroups)->get(i));
@@ -89,13 +89,13 @@ bool org::apache::poi::ss::formula::FormulaUsedBlankCellSet_BlankCellSheetGroup:
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::FormulaUsedBlankCellSet_BlankCellSheetGroup::class_()
+java::lang::Class* poi::ss::formula::FormulaUsedBlankCellSet_BlankCellSheetGroup::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.FormulaUsedBlankCellSet.BlankCellSheetGroup", 69);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::FormulaUsedBlankCellSet_BlankCellSheetGroup::getClass0()
+java::lang::Class* poi::ss::formula::FormulaUsedBlankCellSet_BlankCellSheetGroup::getClass0()
 {
     return class_();
 }

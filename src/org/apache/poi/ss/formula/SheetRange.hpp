@@ -6,7 +6,7 @@
 #include <org/apache/poi/ss/formula/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::formula::SheetRange
+struct poi::ss::formula::SheetRange
     : public virtual ::java::lang::Object
 {
     virtual int32_t getFirstSheetIndex() = 0;

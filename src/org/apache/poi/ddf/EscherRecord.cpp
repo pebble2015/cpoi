@@ -62,116 +62,116 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ddf::EscherRecord::EscherRecord(const ::default_init_tag&)
+poi::ddf::EscherRecord::EscherRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ddf::EscherRecord::EscherRecord() 
+poi::ddf::EscherRecord::EscherRecord() 
     : EscherRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::util::BitField*& org::apache::poi::ddf::EscherRecord::fInstance()
+poi::util::BitField*& poi::ddf::EscherRecord::fInstance()
 {
     clinit();
     return fInstance_;
 }
-org::apache::poi::util::BitField* org::apache::poi::ddf::EscherRecord::fInstance_;
+poi::util::BitField* poi::ddf::EscherRecord::fInstance_;
 
-org::apache::poi::util::BitField*& org::apache::poi::ddf::EscherRecord::fVersion()
+poi::util::BitField*& poi::ddf::EscherRecord::fVersion()
 {
     clinit();
     return fVersion_;
 }
-org::apache::poi::util::BitField* org::apache::poi::ddf::EscherRecord::fVersion_;
+poi::util::BitField* poi::ddf::EscherRecord::fVersion_;
 
-void org::apache::poi::ddf::EscherRecord::ctor()
+void poi::ddf::EscherRecord::ctor()
 {
     super::ctor();
 }
 
-int32_t org::apache::poi::ddf::EscherRecord::fillFields(::int8_tArray* data, EscherRecordFactory* f)
+int32_t poi::ddf::EscherRecord::fillFields(::int8_tArray* data, EscherRecordFactory* f)
 {
     return fillFields(data, 0, f);
 }
 
-int32_t org::apache::poi::ddf::EscherRecord::readHeader(::int8_tArray* data, int32_t offset)
+int32_t poi::ddf::EscherRecord::readHeader(::int8_tArray* data, int32_t offset)
 {
-    _options = ::org::apache::poi::util::LittleEndian::getShort(data, offset);
-    _recordId = ::org::apache::poi::util::LittleEndian::getShort(data, offset + int32_t(2));
-    return ::org::apache::poi::util::LittleEndian::getInt(data, offset + int32_t(4));
+    _options = ::poi::util::LittleEndian::getShort(data, offset);
+    _recordId = ::poi::util::LittleEndian::getShort(data, offset + int32_t(2));
+    return ::poi::util::LittleEndian::getInt(data, offset + int32_t(4));
 }
 
-int16_t org::apache::poi::ddf::EscherRecord::readInstance(::int8_tArray* data, int32_t offset)
+int16_t poi::ddf::EscherRecord::readInstance(::int8_tArray* data, int32_t offset)
 {
     clinit();
-    auto const options = ::org::apache::poi::util::LittleEndian::getShort(data, offset);
+    auto const options = ::poi::util::LittleEndian::getShort(data, offset);
     return npc(fInstance_)->getShortValue(options);
 }
 
-bool org::apache::poi::ddf::EscherRecord::isContainerRecord()
+bool poi::ddf::EscherRecord::isContainerRecord()
 {
     return getVersion() == static_cast< int16_t >(int32_t(15));
 }
 
-int16_t org::apache::poi::ddf::EscherRecord::getOptions()
+int16_t poi::ddf::EscherRecord::getOptions()
 {
     return _options;
 }
 
-void org::apache::poi::ddf::EscherRecord::setOptions(int16_t options)
+void poi::ddf::EscherRecord::setOptions(int16_t options)
 {
     setVersion(npc(fVersion_)->getShortValue(options));
     setInstance(npc(fInstance_)->getShortValue(options));
     _options = options;
 }
 
-int8_tArray* org::apache::poi::ddf::EscherRecord::serialize()
+int8_tArray* poi::ddf::EscherRecord::serialize()
 {
     auto retval = new ::int8_tArray(getRecordSize());
     serialize(0, retval);
     return retval;
 }
 
-int32_t org::apache::poi::ddf::EscherRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::ddf::EscherRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return serialize(offset, data, new NullEscherSerializationListener());
 }
 
-int16_t org::apache::poi::ddf::EscherRecord::getRecordId()
+int16_t poi::ddf::EscherRecord::getRecordId()
 {
     return _recordId;
 }
 
-void org::apache::poi::ddf::EscherRecord::setRecordId(int16_t recordId)
+void poi::ddf::EscherRecord::setRecordId(int16_t recordId)
 {
     _recordId = recordId;
 }
 
-java::util::List* org::apache::poi::ddf::EscherRecord::getChildRecords()
+java::util::List* poi::ddf::EscherRecord::getChildRecords()
 {
     return ::java::util::Collections::emptyList();
 }
 
-void org::apache::poi::ddf::EscherRecord::setChildRecords(::java::util::List* childRecords)
+void poi::ddf::EscherRecord::setChildRecords(::java::util::List* childRecords)
 {
     throw new ::java::lang::UnsupportedOperationException(u"This record does not support child records."_j);
 }
 
-org::apache::poi::ddf::EscherRecord* org::apache::poi::ddf::EscherRecord::clone() /* throws(CloneNotSupportedException) */
+poi::ddf::EscherRecord* poi::ddf::EscherRecord::clone() /* throws(CloneNotSupportedException) */
 {
     return java_cast< EscherRecord* >(super::clone());
 }
 
-org::apache::poi::ddf::EscherRecord* org::apache::poi::ddf::EscherRecord::getChild(int32_t index)
+poi::ddf::EscherRecord* poi::ddf::EscherRecord::getChild(int32_t index)
 {
     return java_cast< EscherRecord* >(npc(getChildRecords())->get(index));
 }
 
-void org::apache::poi::ddf::EscherRecord::display(::java::io::PrintWriter* w, int32_t indent)
+void poi::ddf::EscherRecord::display(::java::io::PrintWriter* w, int32_t indent)
 {
     for (auto i = int32_t(0); i < indent * int32_t(4); i++) {
         npc(w)->print(u' ');
@@ -179,37 +179,37 @@ void org::apache::poi::ddf::EscherRecord::display(::java::io::PrintWriter* w, in
     npc(w)->println(getRecordName());
 }
 
-int16_t org::apache::poi::ddf::EscherRecord::getInstance()
+int16_t poi::ddf::EscherRecord::getInstance()
 {
     return npc(fInstance_)->getShortValue(_options);
 }
 
-void org::apache::poi::ddf::EscherRecord::setInstance(int16_t value)
+void poi::ddf::EscherRecord::setInstance(int16_t value)
 {
     _options = npc(fInstance_)->setShortValue(_options, value);
 }
 
-int16_t org::apache::poi::ddf::EscherRecord::getVersion()
+int16_t poi::ddf::EscherRecord::getVersion()
 {
     return npc(fVersion_)->getShortValue(_options);
 }
 
-void org::apache::poi::ddf::EscherRecord::setVersion(int16_t value)
+void poi::ddf::EscherRecord::setVersion(int16_t value)
 {
     _options = npc(fVersion_)->setShortValue(_options, value);
 }
 
-java::lang::String* org::apache::poi::ddf::EscherRecord::toXml()
+java::lang::String* poi::ddf::EscherRecord::toXml()
 {
     return toXml(u""_j);
 }
 
-java::lang::String* org::apache::poi::ddf::EscherRecord::toXml(::java::lang::String* tab)
+java::lang::String* poi::ddf::EscherRecord::toXml(::java::lang::String* tab)
 {
     auto const nl = ::java::lang::System::getProperty(u"line.separator"_j);
     auto clsNm = npc(getClass())->getSimpleName();
     auto sb = new ::java::lang::StringBuilder(int32_t(1000));
-    npc(npc(npc(npc(npc(npc(npc(npc(npc(npc(npc(npc(npc(sb)->append(tab))->append(u"<"_j))->append(clsNm))->append(u" recordId=\"0x"_j))->append(::org::apache::poi::util::HexDump::toHex(getRecordId())))->append(u"\" version=\"0x"_j))->append(::org::apache::poi::util::HexDump::toHex(getVersion())))->append(u"\" instance=\"0x"_j))->append(::org::apache::poi::util::HexDump::toHex(getInstance())))->append(u"\" options=\"0x"_j))->append(::org::apache::poi::util::HexDump::toHex(getOptions())))->append(u"\" recordSize=\""_j))->append(getRecordSize());
+    npc(npc(npc(npc(npc(npc(npc(npc(npc(npc(npc(npc(npc(sb)->append(tab))->append(u"<"_j))->append(clsNm))->append(u" recordId=\"0x"_j))->append(::poi::util::HexDump::toHex(getRecordId())))->append(u"\" version=\"0x"_j))->append(::poi::util::HexDump::toHex(getVersion())))->append(u"\" instance=\"0x"_j))->append(::poi::util::HexDump::toHex(getInstance())))->append(u"\" options=\"0x"_j))->append(::poi::util::HexDump::toHex(getOptions())))->append(u"\" recordSize=\""_j))->append(getRecordSize());
     auto attrList = getAttributeMap();
     if(attrList == nullptr || npc(attrList)->length == 0) {
         npc(npc(sb)->append(u"\" />"_j))->append(nl);
@@ -250,11 +250,11 @@ java::lang::String* org::apache::poi::ddf::EscherRecord::toXml(::java::lang::Str
     return npc(sb)->toString();
 }
 
-java::lang::String* org::apache::poi::ddf::EscherRecord::toString()
+java::lang::String* poi::ddf::EscherRecord::toString()
 {
     auto const nl = ::java::lang::System::getProperty(u"line.separator"_j);
     auto sb = new ::java::lang::StringBuilder(int32_t(1000));
-    npc(npc(npc(npc(npc(npc(npc(npc(npc(npc(npc(npc(npc(npc(npc(npc(npc(npc(npc(sb)->append(npc(getClass())->getName()))->append(u" ("_j))->append(getRecordName()))->append(u"):"_j))->append(nl))->append(u"  RecordId: 0x"_j))->append(::org::apache::poi::util::HexDump::toHex(getRecordId())))->append(nl))->append(u"  Version: 0x"_j))->append(::org::apache::poi::util::HexDump::toHex(getVersion())))->append(nl))->append(u"  Instance: 0x"_j))->append(::org::apache::poi::util::HexDump::toHex(getInstance())))->append(nl))->append(u"  Options: 0x"_j))->append(::org::apache::poi::util::HexDump::toHex(getOptions())))->append(nl))->append(u"  Record Size: "_j))->append(getRecordSize());
+    npc(npc(npc(npc(npc(npc(npc(npc(npc(npc(npc(npc(npc(npc(npc(npc(npc(npc(npc(sb)->append(npc(getClass())->getName()))->append(u" ("_j))->append(getRecordName()))->append(u"):"_j))->append(nl))->append(u"  RecordId: 0x"_j))->append(::poi::util::HexDump::toHex(getRecordId())))->append(nl))->append(u"  Version: 0x"_j))->append(::poi::util::HexDump::toHex(getVersion())))->append(nl))->append(u"  Instance: 0x"_j))->append(::poi::util::HexDump::toHex(getInstance())))->append(nl))->append(u"  Options: 0x"_j))->append(::poi::util::HexDump::toHex(getOptions())))->append(nl))->append(u"  Record Size: "_j))->append(getRecordSize());
     auto attrList = getAttributeMap();
     if(attrList != nullptr && npc(attrList)->length > 0) {
         auto childTab = u"  "_j;
@@ -273,7 +273,7 @@ java::lang::String* org::apache::poi::ddf::EscherRecord::toString()
     return npc(sb)->toString();
 }
 
-bool org::apache::poi::ddf::EscherRecord::appendValue(::java::lang::StringBuilder* sb, ::java::lang::Object* value, bool toXML, ::java::lang::String* childTab)
+bool poi::ddf::EscherRecord::appendValue(::java::lang::StringBuilder* sb, ::java::lang::Object* value, bool toXML, ::java::lang::String* childTab)
 {
     clinit();
     auto const nl = ::java::lang::System::getProperty(u"line.separator"_j);
@@ -285,13 +285,13 @@ bool org::apache::poi::ddf::EscherRecord::appendValue(::java::lang::StringBuilde
             npc(sb)->append(java_cast< ::java::lang::String* >(value));
         }
     } else if(dynamic_cast< ::java::lang::Byte* >(value) != nullptr) {
-        npc(npc(sb)->append(u"0x"_j))->append(::org::apache::poi::util::HexDump::toHex((npc(java_cast< ::java::lang::Byte* >(value)))->byteValue()));
+        npc(npc(sb)->append(u"0x"_j))->append(::poi::util::HexDump::toHex((npc(java_cast< ::java::lang::Byte* >(value)))->byteValue()));
     } else if(dynamic_cast< ::java::lang::Short* >(value) != nullptr) {
-        npc(npc(sb)->append(u"0x"_j))->append(::org::apache::poi::util::HexDump::toHex((npc(java_cast< ::java::lang::Short* >(value)))->shortValue()));
+        npc(npc(sb)->append(u"0x"_j))->append(::poi::util::HexDump::toHex((npc(java_cast< ::java::lang::Short* >(value)))->shortValue()));
     } else if(dynamic_cast< ::java::lang::Integer* >(value) != nullptr) {
-        npc(npc(sb)->append(u"0x"_j))->append(::org::apache::poi::util::HexDump::toHex((npc(java_cast< ::java::lang::Integer* >(value)))->intValue()));
+        npc(npc(sb)->append(u"0x"_j))->append(::poi::util::HexDump::toHex((npc(java_cast< ::java::lang::Integer* >(value)))->intValue()));
     } else if(dynamic_cast< ::int8_tArray* >(value) != nullptr) {
-        npc(npc(sb)->append(nl))->append(npc(::org::apache::poi::util::HexDump::toHex(java_cast< ::int8_tArray* >(value), 32))->replaceAll(u"(?m)^"_j, ::java::lang::StringBuilder().append(childTab)->append(u"   "_j)->toString()));
+        npc(npc(sb)->append(nl))->append(npc(::poi::util::HexDump::toHex(java_cast< ::int8_tArray* >(value), 32))->replaceAll(u"(?m)^"_j, ::java::lang::StringBuilder().append(childTab)->append(u"   "_j)->toString()));
     } else if(dynamic_cast< ::java::lang::Boolean* >(value) != nullptr) {
         npc(sb)->append(npc((java_cast< ::java::lang::Boolean* >(value)))->booleanValue());
     } else if(dynamic_cast< EscherRecord* >(value) != nullptr) {
@@ -316,7 +316,7 @@ bool org::apache::poi::ddf::EscherRecord::appendValue(::java::lang::StringBuilde
     return isComplex;
 }
 
-java::lang::String* org::apache::poi::ddf::EscherRecord::capitalizeAndTrim(::java::lang::String* str)
+java::lang::String* poi::ddf::EscherRecord::capitalizeAndTrim(::java::lang::String* str)
 {
     clinit();
     if(str == nullptr || npc(str)->length() == 0) {
@@ -342,7 +342,7 @@ java::lang::String* org::apache::poi::ddf::EscherRecord::capitalizeAndTrim(::jav
     return npc(sb)->toString();
 }
 
-void org::apache::poi::ddf::EscherRecord::escapeXML(::java::lang::String* s, ::java::lang::StringBuilder* out)
+void poi::ddf::EscherRecord::escapeXML(::java::lang::String* s, ::java::lang::StringBuilder* out)
 {
     clinit();
     if(s == nullptr || npc(s)->isEmpty()) {
@@ -361,21 +361,21 @@ void org::apache::poi::ddf::EscherRecord::escapeXML(::java::lang::String* s, ::j
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ddf::EscherRecord::class_()
+java::lang::Class* poi::ddf::EscherRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ddf.EscherRecord", 31);
     return c;
 }
 
-void org::apache::poi::ddf::EscherRecord::clinit()
+void poi::ddf::EscherRecord::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        fInstance_ = ::org::apache::poi::util::BitFieldFactory::getInstance(65520);
-        fVersion_ = ::org::apache::poi::util::BitFieldFactory::getInstance(15);
+        fInstance_ = ::poi::util::BitFieldFactory::getInstance(65520);
+        fVersion_ = ::poi::util::BitFieldFactory::getInstance(15);
     }
 };
 
@@ -384,7 +384,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ddf::EscherRecord::getClass0()
+java::lang::Class* poi::ddf::EscherRecord::getClass0()
 {
     return class_();
 }

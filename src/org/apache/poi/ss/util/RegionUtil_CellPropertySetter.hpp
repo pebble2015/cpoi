@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::util::RegionUtil_CellPropertySetter final
+class poi::ss::util::RegionUtil_CellPropertySetter final
     : public ::java::lang::Object
 {
 
@@ -22,14 +22,14 @@ private:
     ::java::lang::Object* _propertyValue {  };
 protected:
     void ctor(::java::lang::String* propertyName, int32_t value);
-    void ctor(::java::lang::String* propertyName, ::org::apache::poi::ss::usermodel::BorderStyle* value);
+    void ctor(::java::lang::String* propertyName, ::poi::ss::usermodel::BorderStyle* value);
 
 public:
-    void setProperty(::org::apache::poi::ss::usermodel::Row* row, int32_t column);
+    void setProperty(::poi::ss::usermodel::Row* row, int32_t column);
 
     // Generated
     RegionUtil_CellPropertySetter(::java::lang::String* propertyName, int32_t value);
-    RegionUtil_CellPropertySetter(::java::lang::String* propertyName, ::org::apache::poi::ss::usermodel::BorderStyle* value);
+    RegionUtil_CellPropertySetter(::java::lang::String* propertyName, ::poi::ss::usermodel::BorderStyle* value);
 protected:
     RegionUtil_CellPropertySetter(const ::default_init_tag&);
 

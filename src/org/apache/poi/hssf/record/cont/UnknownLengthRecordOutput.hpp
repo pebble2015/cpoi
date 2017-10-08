@@ -10,9 +10,9 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::cont::UnknownLengthRecordOutput final
+class poi::hssf::record::cont::UnknownLengthRecordOutput final
     : public virtual ::java::lang::Object
-    , public ::org::apache::poi::util::LittleEndianOutput
+    , public ::poi::util::LittleEndianOutput
 {
 
 public:
@@ -20,13 +20,13 @@ public:
 
 private:
     static constexpr int32_t MAX_DATA_SIZE { int32_t(8224) };
-    ::org::apache::poi::util::LittleEndianOutput* _originalOut {  };
-    ::org::apache::poi::util::LittleEndianOutput* _dataSizeOutput {  };
+    ::poi::util::LittleEndianOutput* _originalOut {  };
+    ::poi::util::LittleEndianOutput* _dataSizeOutput {  };
     ::int8_tArray* _byteBuffer {  };
-    ::org::apache::poi::util::LittleEndianOutput* _out {  };
+    ::poi::util::LittleEndianOutput* _out {  };
     int32_t _size {  };
 protected:
-    void ctor(::org::apache::poi::util::LittleEndianOutput* out, int32_t sid);
+    void ctor(::poi::util::LittleEndianOutput* out, int32_t sid);
 
 public:
     int32_t getTotalSize();
@@ -41,7 +41,7 @@ public:
     void writeShort(int32_t v) override;
 
     // Generated
-    UnknownLengthRecordOutput(::org::apache::poi::util::LittleEndianOutput* out, int32_t sid);
+    UnknownLengthRecordOutput(::poi::util::LittleEndianOutput* out, int32_t sid);
 protected:
     UnknownLengthRecordOutput(const ::default_init_tag&);
 

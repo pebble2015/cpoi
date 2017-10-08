@@ -11,28 +11,22 @@
 #include <java/lang/Object.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace poifs
     {
-        namespace poi
+        namespace storage
         {
-            namespace poifs
-            {
-                namespace storage
-                {
-typedef ::SubArray< ::org::apache::poi::poifs::storage::BlockWritable, ::java::lang::ObjectArray > BlockWritableArray;
-typedef ::SubArray< ::org::apache::poi::poifs::storage::BigBlock, ::java::lang::ObjectArray, BlockWritableArray > BigBlockArray;
-typedef ::SubArray< ::org::apache::poi::poifs::storage::DocumentBlock, BigBlockArray > DocumentBlockArray;
-                } // storage
-            } // poifs
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::poifs::storage::BlockWritable, ::java::lang::ObjectArray > BlockWritableArray;
+typedef ::SubArray< ::poi::poifs::storage::BigBlock, ::java::lang::ObjectArray, BlockWritableArray > BigBlockArray;
+typedef ::SubArray< ::poi::poifs::storage::DocumentBlock, BigBlockArray > DocumentBlockArray;
+        } // storage
+    } // poifs
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::filesystem::OPOIFSDocument_BigBlockStore final
+class poi::poifs::filesystem::OPOIFSDocument_BigBlockStore final
     : public ::java::lang::Object
 {
 
@@ -40,25 +34,25 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    ::org::apache::poi::poifs::storage::DocumentBlockArray* bigBlocks {  };
+    ::poi::poifs::storage::DocumentBlockArray* bigBlocks {  };
     POIFSDocumentPath* _path {  };
     ::java::lang::String* _name {  };
     int32_t _size {  };
     POIFSWriterListener* _writer {  };
-    ::org::apache::poi::poifs::common::POIFSBigBlockSize* _bigBlockSize {  };
+    ::poi::poifs::common::POIFSBigBlockSize* _bigBlockSize {  };
 protected:
-    void ctor(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ::org::apache::poi::poifs::storage::DocumentBlockArray* blocks);
-    void ctor(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, POIFSDocumentPath* path, ::java::lang::String* name, int32_t size, POIFSWriterListener* writer);
+    void ctor(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ::poi::poifs::storage::DocumentBlockArray* blocks);
+    void ctor(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, POIFSDocumentPath* path, ::java::lang::String* name, int32_t size, POIFSWriterListener* writer);
 
 public: /* package */
     bool isValid();
-    ::org::apache::poi::poifs::storage::DocumentBlockArray* getBlocks();
+    ::poi::poifs::storage::DocumentBlockArray* getBlocks();
     void writeBlocks(::java::io::OutputStream* stream) /* throws(IOException) */;
     int32_t countBlocks();
 
     // Generated
-    OPOIFSDocument_BigBlockStore(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ::org::apache::poi::poifs::storage::DocumentBlockArray* blocks);
-    OPOIFSDocument_BigBlockStore(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, POIFSDocumentPath* path, ::java::lang::String* name, int32_t size, POIFSWriterListener* writer);
+    OPOIFSDocument_BigBlockStore(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ::poi::poifs::storage::DocumentBlockArray* blocks);
+    OPOIFSDocument_BigBlockStore(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, POIFSDocumentPath* path, ::java::lang::String* name, int32_t size, POIFSWriterListener* writer);
 protected:
     OPOIFSDocument_BigBlockStore(const ::default_init_tag&);
 

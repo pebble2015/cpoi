@@ -16,54 +16,54 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::CalcModeRecord::CalcModeRecord(const ::default_init_tag&)
+poi::hssf::record::CalcModeRecord::CalcModeRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::CalcModeRecord::CalcModeRecord() 
+poi::hssf::record::CalcModeRecord::CalcModeRecord() 
     : CalcModeRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::CalcModeRecord::CalcModeRecord(RecordInputStream* in) 
+poi::hssf::record::CalcModeRecord::CalcModeRecord(RecordInputStream* in) 
     : CalcModeRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::CalcModeRecord::sid;
+constexpr int16_t poi::hssf::record::CalcModeRecord::sid;
 
-constexpr int16_t org::apache::poi::hssf::record::CalcModeRecord::MANUAL;
+constexpr int16_t poi::hssf::record::CalcModeRecord::MANUAL;
 
-constexpr int16_t org::apache::poi::hssf::record::CalcModeRecord::AUTOMATIC;
+constexpr int16_t poi::hssf::record::CalcModeRecord::AUTOMATIC;
 
-constexpr int16_t org::apache::poi::hssf::record::CalcModeRecord::AUTOMATIC_EXCEPT_TABLES;
+constexpr int16_t poi::hssf::record::CalcModeRecord::AUTOMATIC_EXCEPT_TABLES;
 
-void org::apache::poi::hssf::record::CalcModeRecord::ctor()
+void poi::hssf::record::CalcModeRecord::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hssf::record::CalcModeRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::CalcModeRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     field_1_calcmode = npc(in)->readShort();
 }
 
-void org::apache::poi::hssf::record::CalcModeRecord::setCalcMode(int16_t calcmode)
+void poi::hssf::record::CalcModeRecord::setCalcMode(int16_t calcmode)
 {
     field_1_calcmode = calcmode;
 }
 
-int16_t org::apache::poi::hssf::record::CalcModeRecord::getCalcMode()
+int16_t poi::hssf::record::CalcModeRecord::getCalcMode()
 {
     return field_1_calcmode;
 }
 
-java::lang::String* org::apache::poi::hssf::record::CalcModeRecord::toString()
+java::lang::String* poi::hssf::record::CalcModeRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[CALCMODE]\n"_j);
@@ -72,22 +72,22 @@ java::lang::String* org::apache::poi::hssf::record::CalcModeRecord::toString()
     return npc(buffer)->toString();
 }
 
-void org::apache::poi::hssf::record::CalcModeRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::CalcModeRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(getCalcMode());
 }
 
-int32_t org::apache::poi::hssf::record::CalcModeRecord::getDataSize()
+int32_t poi::hssf::record::CalcModeRecord::getDataSize()
 {
     return 2;
 }
 
-int16_t org::apache::poi::hssf::record::CalcModeRecord::getSid()
+int16_t poi::hssf::record::CalcModeRecord::getSid()
 {
     return sid;
 }
 
-org::apache::poi::hssf::record::CalcModeRecord* org::apache::poi::hssf::record::CalcModeRecord::clone()
+poi::hssf::record::CalcModeRecord* poi::hssf::record::CalcModeRecord::clone()
 {
     auto rec = new CalcModeRecord();
     npc(rec)->field_1_calcmode = field_1_calcmode;
@@ -96,23 +96,23 @@ org::apache::poi::hssf::record::CalcModeRecord* org::apache::poi::hssf::record::
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::CalcModeRecord::class_()
+java::lang::Class* poi::hssf::record::CalcModeRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.CalcModeRecord", 41);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::CalcModeRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::CalcModeRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::CalcModeRecord::serialize()
+int8_tArray* poi::hssf::record::CalcModeRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::CalcModeRecord::getClass0()
+java::lang::Class* poi::hssf::record::CalcModeRecord::getClass0()
 {
     return class_();
 }

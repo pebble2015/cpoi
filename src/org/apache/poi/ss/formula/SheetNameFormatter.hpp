@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::SheetNameFormatter final
+class poi::ss::formula::SheetNameFormatter final
     : public ::java::lang::Object
 {
 

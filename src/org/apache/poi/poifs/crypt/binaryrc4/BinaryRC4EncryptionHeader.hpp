@@ -10,19 +10,19 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::crypt::binaryrc4::BinaryRC4EncryptionHeader
-    : public ::org::apache::poi::poifs::crypt::EncryptionHeader
-    , public virtual ::org::apache::poi::poifs::crypt::standard::EncryptionRecord
+class poi::poifs::crypt::binaryrc4::BinaryRC4EncryptionHeader
+    : public ::poi::poifs::crypt::EncryptionHeader
+    , public virtual ::poi::poifs::crypt::standard::EncryptionRecord
     , public virtual ::java::lang::Cloneable
 {
 
 public:
-    typedef ::org::apache::poi::poifs::crypt::EncryptionHeader super;
+    typedef ::poi::poifs::crypt::EncryptionHeader super;
 protected:
     void ctor();
 
 public:
-    void write(::org::apache::poi::util::LittleEndianByteArrayOutputStream* littleendianbytearrayoutputstream) override;
+    void write(::poi::util::LittleEndianByteArrayOutputStream* littleendianbytearrayoutputstream) override;
     BinaryRC4EncryptionHeader* clone() /* throws(CloneNotSupportedException) */ override;
 
     // Generated

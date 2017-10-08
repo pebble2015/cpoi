@@ -22,25 +22,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -58,46 +52,46 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::BooleanFunction::BooleanFunction(const ::default_init_tag&)
+poi::ss::formula::functions::BooleanFunction::BooleanFunction(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::BooleanFunction::BooleanFunction()
+poi::ss::formula::functions::BooleanFunction::BooleanFunction()
     : BooleanFunction(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::BooleanFunction::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRow, int32_t srcCol)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::BooleanFunction::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRow, int32_t srcCol)
 {
     if(npc(args)->length < 1) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
     bool boolResult;
     try {
         boolResult = calculate(args);
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
         return npc(e)->getErrorEval();
     }
-    return ::org::apache::poi::ss::formula::eval::BoolEval::valueOf(boolResult);
+    return ::poi::ss::formula::eval::BoolEval::valueOf(boolResult);
 }
 
-bool org::apache::poi::ss::formula::functions::BooleanFunction::calculate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args) /* throws(EvaluationException) */
+bool poi::ss::formula::functions::BooleanFunction::calculate(::poi::ss::formula::eval::ValueEvalArray* args) /* throws(EvaluationException) */
 {
     auto result = getInitialResultValue();
     auto atleastOneNonBlank = false;
     for(auto arg : *npc(args)) {
         ::java::lang::Boolean* tempVe;
-        if(dynamic_cast< ::org::apache::poi::ss::formula::TwoDEval* >(arg) != nullptr) {
-            auto ae = java_cast< ::org::apache::poi::ss::formula::TwoDEval* >(arg);
+        if(dynamic_cast< ::poi::ss::formula::TwoDEval* >(arg) != nullptr) {
+            auto ae = java_cast< ::poi::ss::formula::TwoDEval* >(arg);
             auto height = npc(ae)->getHeight();
             auto width = npc(ae)->getWidth();
             for (auto rrIx = int32_t(0); rrIx < height; rrIx++) {
                 for (auto rcIx = int32_t(0); rcIx < width; rcIx++) {
                     auto ve = npc(ae)->getValue(rrIx, rcIx);
-                    tempVe = ::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToBoolean(ve, true);
+                    tempVe = ::poi::ss::formula::eval::OperandResolver::coerceValueToBoolean(ve, true);
                     if(tempVe != nullptr) {
                         result = partialEvaluate(result, npc(tempVe)->booleanValue());
                         atleastOneNonBlank = true;
@@ -106,13 +100,13 @@ bool org::apache::poi::ss::formula::functions::BooleanFunction::calculate(::org:
             }
             continue;
         }
-        if(dynamic_cast< ::org::apache::poi::ss::formula::eval::RefEval* >(arg) != nullptr) {
-            auto re = java_cast< ::org::apache::poi::ss::formula::eval::RefEval* >(arg);
+        if(dynamic_cast< ::poi::ss::formula::eval::RefEval* >(arg) != nullptr) {
+            auto re = java_cast< ::poi::ss::formula::eval::RefEval* >(arg);
             auto const firstSheetIndex = npc(re)->getFirstSheetIndex();
             auto const lastSheetIndex = npc(re)->getLastSheetIndex();
             for (auto sIx = firstSheetIndex; sIx <= lastSheetIndex; sIx++) {
                 auto ve = npc(re)->getInnerValueEval(sIx);
-                tempVe = ::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToBoolean(ve, true);
+                tempVe = ::poi::ss::formula::eval::OperandResolver::coerceValueToBoolean(ve, true);
                 if(tempVe != nullptr) {
                     result = partialEvaluate(result, npc(tempVe)->booleanValue());
                     atleastOneNonBlank = true;
@@ -120,10 +114,10 @@ bool org::apache::poi::ss::formula::functions::BooleanFunction::calculate(::org:
             }
             continue;
         }
-        if(arg == static_cast< ::org::apache::poi::ss::formula::eval::ValueEval* >(::org::apache::poi::ss::formula::eval::MissingArgEval::instance())) {
+        if(arg == static_cast< ::poi::ss::formula::eval::ValueEval* >(::poi::ss::formula::eval::MissingArgEval::instance())) {
             tempVe = nullptr;
         } else {
-            tempVe = ::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToBoolean(arg, false);
+            tempVe = ::poi::ss::formula::eval::OperandResolver::coerceValueToBoolean(arg, false);
         }
         if(tempVe != nullptr) {
             result = partialEvaluate(result, npc(tempVe)->booleanValue());
@@ -131,55 +125,55 @@ bool org::apache::poi::ss::formula::functions::BooleanFunction::calculate(::org:
         }
     }
     if(!atleastOneNonBlank) {
-        throw new ::org::apache::poi::ss::formula::eval::EvaluationException(::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID());
+        throw new ::poi::ss::formula::eval::EvaluationException(::poi::ss::formula::eval::ErrorEval::VALUE_INVALID());
     }
     return result;
 }
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::BooleanFunction::AND()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::BooleanFunction::AND()
 {
     clinit();
     return AND_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::BooleanFunction::AND_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::BooleanFunction::AND_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::BooleanFunction::OR()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::BooleanFunction::OR()
 {
     clinit();
     return OR_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::BooleanFunction::OR_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::BooleanFunction::OR_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::BooleanFunction::FALSE()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::BooleanFunction::FALSE()
 {
     clinit();
     return FALSE_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::BooleanFunction::FALSE_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::BooleanFunction::FALSE_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::BooleanFunction::TRUE()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::BooleanFunction::TRUE()
 {
     clinit();
     return TRUE_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::BooleanFunction::TRUE_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::BooleanFunction::TRUE_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::BooleanFunction::NOT()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::BooleanFunction::NOT()
 {
     clinit();
     return NOT_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::BooleanFunction::NOT_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::BooleanFunction::NOT_;
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::BooleanFunction::class_()
+java::lang::Class* poi::ss::formula::functions::BooleanFunction::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.BooleanFunction", 51);
     return c;
 }
 
-void org::apache::poi::ss::formula::functions::BooleanFunction::clinit()
+void poi::ss::formula::functions::BooleanFunction::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -199,7 +193,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::BooleanFunction::getClass0()
+java::lang::Class* poi::ss::formula::functions::BooleanFunction::getClass0()
 {
     return class_();
 }

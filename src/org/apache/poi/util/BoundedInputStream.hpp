@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::util::BoundedInputStream
+class poi::util::BoundedInputStream
     : public ::java::io::InputStream
 {
 

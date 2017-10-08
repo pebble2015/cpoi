@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::POIOLE2TextExtractor
+class poi::POIOLE2TextExtractor
     : public POITextExtractor
 {
 
@@ -23,10 +23,10 @@ protected:
     void ctor(POIOLE2TextExtractor* otherExtractor);
 
 public:
-    virtual ::org::apache::poi::hpsf::DocumentSummaryInformation* getDocSummaryInformation();
-    virtual ::org::apache::poi::hpsf::SummaryInformation* getSummaryInformation();
+    virtual ::poi::hpsf::DocumentSummaryInformation* getDocSummaryInformation();
+    virtual ::poi::hpsf::SummaryInformation* getSummaryInformation();
     POITextExtractor* getMetadataTextExtractor() override;
-    virtual ::org::apache::poi::poifs::filesystem::DirectoryEntry* getRoot();
+    virtual ::poi::poifs::filesystem::DirectoryEntry* getRoot();
     virtual POIDocument* getDocument();
 
     // Generated

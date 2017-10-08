@@ -5,7 +5,7 @@
 #include <org/apache/poi/ss/usermodel/charts/fwd-POI.hpp>
 #include <org/apache/poi/ss/usermodel/charts/ChartSeries.hpp>
 
-struct org::apache::poi::ss::usermodel::charts::ScatterChartSeries
+struct poi::ss::usermodel::charts::ScatterChartSeries
     : public virtual ChartSeries
 {
     virtual ChartDataSource* getXValues() = 0;

@@ -18,39 +18,39 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::chart::ChartFormatRecord::ChartFormatRecord(const ::default_init_tag&)
+poi::hssf::record::chart::ChartFormatRecord::ChartFormatRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::chart::ChartFormatRecord::ChartFormatRecord() 
+poi::hssf::record::chart::ChartFormatRecord::ChartFormatRecord() 
     : ChartFormatRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::chart::ChartFormatRecord::ChartFormatRecord(::org::apache::poi::hssf::record::RecordInputStream* in) 
+poi::hssf::record::chart::ChartFormatRecord::ChartFormatRecord(::poi::hssf::record::RecordInputStream* in) 
     : ChartFormatRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::chart::ChartFormatRecord::sid;
+constexpr int16_t poi::hssf::record::chart::ChartFormatRecord::sid;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::chart::ChartFormatRecord::varyDisplayPattern()
+poi::util::BitField*& poi::hssf::record::chart::ChartFormatRecord::varyDisplayPattern()
 {
     clinit();
     return varyDisplayPattern_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::chart::ChartFormatRecord::varyDisplayPattern_;
+poi::util::BitField* poi::hssf::record::chart::ChartFormatRecord::varyDisplayPattern_;
 
-void org::apache::poi::hssf::record::chart::ChartFormatRecord::ctor()
+void poi::hssf::record::chart::ChartFormatRecord::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hssf::record::chart::ChartFormatRecord::ctor(::org::apache::poi::hssf::record::RecordInputStream* in)
+void poi::hssf::record::chart::ChartFormatRecord::ctor(::poi::hssf::record::RecordInputStream* in)
 {
     super::ctor();
     field1_x_position = npc(in)->readInt();
@@ -61,7 +61,7 @@ void org::apache::poi::hssf::record::chart::ChartFormatRecord::ctor(::org::apach
     field6_unknown = npc(in)->readUShort();
 }
 
-java::lang::String* org::apache::poi::hssf::record::chart::ChartFormatRecord::toString()
+java::lang::String* poi::hssf::record::chart::ChartFormatRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[CHARTFORMAT]\n"_j);
@@ -69,12 +69,12 @@ java::lang::String* org::apache::poi::hssf::record::chart::ChartFormatRecord::to
     npc(npc(npc(buffer)->append(u"    .yPosition       = "_j))->append(getYPosition()))->append(u"\n"_j);
     npc(npc(npc(buffer)->append(u"    .width           = "_j))->append(getWidth()))->append(u"\n"_j);
     npc(npc(npc(buffer)->append(u"    .height          = "_j))->append(getHeight()))->append(u"\n"_j);
-    npc(npc(npc(buffer)->append(u"    .grBit           = "_j))->append(::org::apache::poi::util::HexDump::intToHex(field5_grbit)))->append(u"\n"_j);
+    npc(npc(npc(buffer)->append(u"    .grBit           = "_j))->append(::poi::util::HexDump::intToHex(field5_grbit)))->append(u"\n"_j);
     npc(buffer)->append(u"[/CHARTFORMAT]\n"_j);
     return npc(buffer)->toString();
 }
 
-void org::apache::poi::hssf::record::chart::ChartFormatRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::chart::ChartFormatRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeInt(getXPosition());
     npc(out)->writeInt(getYPosition());
@@ -84,82 +84,82 @@ void org::apache::poi::hssf::record::chart::ChartFormatRecord::serialize(::org::
     npc(out)->writeShort(field6_unknown);
 }
 
-int32_t org::apache::poi::hssf::record::chart::ChartFormatRecord::getDataSize()
+int32_t poi::hssf::record::chart::ChartFormatRecord::getDataSize()
 {
     return 20;
 }
 
-int16_t org::apache::poi::hssf::record::chart::ChartFormatRecord::getSid()
+int16_t poi::hssf::record::chart::ChartFormatRecord::getSid()
 {
     return sid;
 }
 
-int32_t org::apache::poi::hssf::record::chart::ChartFormatRecord::getXPosition()
+int32_t poi::hssf::record::chart::ChartFormatRecord::getXPosition()
 {
     return field1_x_position;
 }
 
-void org::apache::poi::hssf::record::chart::ChartFormatRecord::setXPosition(int32_t xPosition)
+void poi::hssf::record::chart::ChartFormatRecord::setXPosition(int32_t xPosition)
 {
     field1_x_position = xPosition;
 }
 
-int32_t org::apache::poi::hssf::record::chart::ChartFormatRecord::getYPosition()
+int32_t poi::hssf::record::chart::ChartFormatRecord::getYPosition()
 {
     return field2_y_position;
 }
 
-void org::apache::poi::hssf::record::chart::ChartFormatRecord::setYPosition(int32_t yPosition)
+void poi::hssf::record::chart::ChartFormatRecord::setYPosition(int32_t yPosition)
 {
     field2_y_position = yPosition;
 }
 
-int32_t org::apache::poi::hssf::record::chart::ChartFormatRecord::getWidth()
+int32_t poi::hssf::record::chart::ChartFormatRecord::getWidth()
 {
     return field3_width;
 }
 
-void org::apache::poi::hssf::record::chart::ChartFormatRecord::setWidth(int32_t width)
+void poi::hssf::record::chart::ChartFormatRecord::setWidth(int32_t width)
 {
     field3_width = width;
 }
 
-int32_t org::apache::poi::hssf::record::chart::ChartFormatRecord::getHeight()
+int32_t poi::hssf::record::chart::ChartFormatRecord::getHeight()
 {
     return field4_height;
 }
 
-void org::apache::poi::hssf::record::chart::ChartFormatRecord::setHeight(int32_t height)
+void poi::hssf::record::chart::ChartFormatRecord::setHeight(int32_t height)
 {
     field4_height = height;
 }
 
-bool org::apache::poi::hssf::record::chart::ChartFormatRecord::getVaryDisplayPattern()
+bool poi::hssf::record::chart::ChartFormatRecord::getVaryDisplayPattern()
 {
     return npc(varyDisplayPattern_)->isSet(field5_grbit);
 }
 
-void org::apache::poi::hssf::record::chart::ChartFormatRecord::setVaryDisplayPattern(bool value)
+void poi::hssf::record::chart::ChartFormatRecord::setVaryDisplayPattern(bool value)
 {
     field5_grbit = npc(varyDisplayPattern_)->setBoolean(field5_grbit, value);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::chart::ChartFormatRecord::class_()
+java::lang::Class* poi::hssf::record::chart::ChartFormatRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.chart.ChartFormatRecord", 50);
     return c;
 }
 
-void org::apache::poi::hssf::record::chart::ChartFormatRecord::clinit()
+void poi::hssf::record::chart::ChartFormatRecord::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        varyDisplayPattern_ = ::org::apache::poi::util::BitFieldFactory::getInstance(1);
+        varyDisplayPattern_ = ::poi::util::BitFieldFactory::getInstance(1);
     }
 };
 
@@ -168,17 +168,17 @@ struct clinit_ {
     }
 }
 
-int32_t org::apache::poi::hssf::record::chart::ChartFormatRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::chart::ChartFormatRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::chart::ChartFormatRecord::serialize()
+int8_tArray* poi::hssf::record::chart::ChartFormatRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::chart::ChartFormatRecord::getClass0()
+java::lang::Class* poi::hssf::record::chart::ChartFormatRecord::getClass0()
 {
     return class_();
 }

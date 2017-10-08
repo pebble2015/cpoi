@@ -60,26 +60,26 @@ namespace
 
     template<typename F> finally_<F> finally(F f) { return finally_<F>(f); }
 }
-org::apache::poi::hssf::dev::EFBiffViewer::EFBiffViewer(const ::default_init_tag&)
+poi::hssf::dev::EFBiffViewer::EFBiffViewer(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::dev::EFBiffViewer::EFBiffViewer() 
+poi::hssf::dev::EFBiffViewer::EFBiffViewer() 
     : EFBiffViewer(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::hssf::dev::EFBiffViewer::ctor()
+void poi::hssf::dev::EFBiffViewer::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hssf::dev::EFBiffViewer::run() /* throws(IOException) */
+void poi::hssf::dev::EFBiffViewer::run() /* throws(IOException) */
 {
-    auto fs = new ::org::apache::poi::poifs::filesystem::NPOIFSFileSystem(new ::java::io::File(file), true);
+    auto fs = new ::poi::poifs::filesystem::NPOIFSFileSystem(new ::java::io::File(file), true);
     {
         auto finally0 = finally([&] {
             npc(fs)->close();
@@ -91,9 +91,9 @@ void org::apache::poi::hssf::dev::EFBiffViewer::run() /* throws(IOException) */
                     npc(din)->close();
                 });
                 {
-                    auto req = new ::org::apache::poi::hssf::eventusermodel::HSSFRequest();
+                    auto req = new ::poi::hssf::eventusermodel::HSSFRequest();
                     npc(req)->addListenerForAllRecords(new EFBiffViewer_run_1(this));
-                    auto factory = new ::org::apache::poi::hssf::eventusermodel::HSSFEventFactory();
+                    auto factory = new ::poi::hssf::eventusermodel::HSSFEventFactory();
                     npc(factory)->processEvents(req, din);
                 }
             }
@@ -103,12 +103,12 @@ void org::apache::poi::hssf::dev::EFBiffViewer::run() /* throws(IOException) */
 
 }
 
-void org::apache::poi::hssf::dev::EFBiffViewer::setFile(::java::lang::String* file)
+void poi::hssf::dev::EFBiffViewer::setFile(::java::lang::String* file)
 {
     this->file = file;
 }
 
-void org::apache::poi::hssf::dev::EFBiffViewer::main(::java::lang::StringArray* args) /* throws(IOException) */
+void poi::hssf::dev::EFBiffViewer::main(::java::lang::StringArray* args) /* throws(IOException) */
 {
     clinit();
     if((npc(args)->length == 1) && !npc((*args)[int32_t(0)])->equals(static_cast< ::java::lang::Object* >(u"--help"_j))) {
@@ -124,13 +124,13 @@ void org::apache::poi::hssf::dev::EFBiffViewer::main(::java::lang::StringArray* 
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::dev::EFBiffViewer::class_()
+java::lang::Class* poi::hssf::dev::EFBiffViewer::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.dev.EFBiffViewer", 36);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::dev::EFBiffViewer::getClass0()
+java::lang::Class* poi::hssf::dev::EFBiffViewer::getClass0()
 {
     return class_();
 }

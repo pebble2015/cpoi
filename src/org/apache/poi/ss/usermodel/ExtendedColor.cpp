@@ -18,19 +18,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::usermodel::ExtendedColor::ExtendedColor(const ::default_init_tag&)
+poi::ss::usermodel::ExtendedColor::ExtendedColor(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::usermodel::ExtendedColor::ExtendedColor()
+poi::ss::usermodel::ExtendedColor::ExtendedColor()
     : ExtendedColor(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::ss::usermodel::ExtendedColor::setColor(::java::awt::Color* clr)
+void poi::ss::usermodel::ExtendedColor::setColor(::java::awt::Color* clr)
 {
     setRGB(new ::int8_tArray({
         static_cast< int8_t >(npc(clr)->getRed())
@@ -39,7 +39,7 @@ void org::apache::poi::ss::usermodel::ExtendedColor::setColor(::java::awt::Color
     }));
 }
 
-int8_tArray* org::apache::poi::ss::usermodel::ExtendedColor::getRGBOrARGB()
+int8_tArray* poi::ss::usermodel::ExtendedColor::getRGBOrARGB()
 {
     if(isIndexed() && getIndex() > 0) {
         auto rgb = getIndexedRGB();
@@ -50,7 +50,7 @@ int8_tArray* org::apache::poi::ss::usermodel::ExtendedColor::getRGBOrARGB()
     return getStoredRBG();
 }
 
-int8_tArray* org::apache::poi::ss::usermodel::ExtendedColor::getRGBWithTint()
+int8_tArray* poi::ss::usermodel::ExtendedColor::getRGBWithTint()
 {
     auto rgb = getStoredRBG();
     if(rgb != nullptr) {
@@ -67,7 +67,7 @@ int8_tArray* org::apache::poi::ss::usermodel::ExtendedColor::getRGBWithTint()
     return rgb;
 }
 
-java::lang::String* org::apache::poi::ss::usermodel::ExtendedColor::getARGBHex()
+java::lang::String* poi::ss::usermodel::ExtendedColor::getARGBHex()
 {
     auto rgb = getARGB();
     if(rgb == nullptr) {
@@ -85,7 +85,7 @@ java::lang::String* org::apache::poi::ss::usermodel::ExtendedColor::getARGBHex()
     return npc(npc(sb)->toString())->toUpperCase(::java::util::Locale::ROOT());
 }
 
-void org::apache::poi::ss::usermodel::ExtendedColor::setARGBHex(::java::lang::String* argb)
+void poi::ss::usermodel::ExtendedColor::setARGBHex(::java::lang::String* argb)
 {
     if(npc(argb)->length() == 6 || npc(argb)->length() == 8) {
         auto rgb = new ::int8_tArray(npc(argb)->length() / int32_t(2));
@@ -99,7 +99,7 @@ void org::apache::poi::ss::usermodel::ExtendedColor::setARGBHex(::java::lang::St
     }
 }
 
-int8_t org::apache::poi::ss::usermodel::ExtendedColor::applyTint(int32_t lum, double tint)
+int8_t poi::ss::usermodel::ExtendedColor::applyTint(int32_t lum, double tint)
 {
     clinit();
     if(tint > 0) {
@@ -113,13 +113,13 @@ int8_t org::apache::poi::ss::usermodel::ExtendedColor::applyTint(int32_t lum, do
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::usermodel::ExtendedColor::class_()
+java::lang::Class* poi::ss::usermodel::ExtendedColor::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.usermodel.ExtendedColor", 41);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::usermodel::ExtendedColor::getClass0()
+java::lang::Class* poi::ss::usermodel::ExtendedColor::getClass0()
 {
     return class_();
 }

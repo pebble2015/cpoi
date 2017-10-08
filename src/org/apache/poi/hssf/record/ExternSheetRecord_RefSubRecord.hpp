@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::ExternSheetRecord_RefSubRecord final
+class poi::hssf::record::ExternSheetRecord_RefSubRecord final
     : public ::java::lang::Object
 {
 
@@ -34,7 +34,7 @@ public:
     int32_t getFirstSheetIndex();
     int32_t getLastSheetIndex();
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out);
+    void serialize(::poi::util::LittleEndianOutput* out);
 
     // Generated
     ExternSheetRecord_RefSubRecord(int32_t extBookIndex, int32_t firstSheetIndex, int32_t lastSheetIndex);

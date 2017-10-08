@@ -10,9 +10,9 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::model::InternalSheet_RecordCloner final
+class poi::hssf::model::InternalSheet_RecordCloner final
     : public virtual ::java::lang::Object
-    , public ::org::apache::poi::hssf::record::aggregates::RecordAggregate_RecordVisitor
+    , public ::poi::hssf::record::aggregates::RecordAggregate_RecordVisitor
 {
 
 public:
@@ -24,7 +24,7 @@ protected:
     void ctor(::java::util::List* destList);
 
 public:
-    void visitRecord(::org::apache::poi::hssf::record::Record* r) override;
+    void visitRecord(::poi::hssf::record::Record* r) override;
 
     // Generated
     InternalSheet_RecordCloner(::java::util::List* destList);

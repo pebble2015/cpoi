@@ -10,7 +10,7 @@
 #include <java/awt/geom/Rectangle2D.hpp>
 #include <org/apache/poi/sl/usermodel/Sheet.hpp>
 
-struct org::apache::poi::sl::usermodel::GroupShape
+struct poi::sl::usermodel::GroupShape
     : public virtual Shape
     , public virtual ShapeContainer
     , public virtual PlaceableShape

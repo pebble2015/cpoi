@@ -9,23 +9,17 @@
 #include <java/lang/Object.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hpsf
     {
-        namespace poi
-        {
-            namespace hpsf
-            {
-typedef ::SubArray< ::org::apache::poi::hpsf::ClassID, ::java::lang::ObjectArray > ClassIDArray;
-            } // hpsf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hpsf::ClassID, ::java::lang::ObjectArray > ClassIDArray;
+    } // hpsf
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hpsf::wellknown::SectionIDMap
+class poi::hpsf::wellknown::SectionIDMap
     : public virtual ::java::lang::Object
 {
 
@@ -34,17 +28,17 @@ public:
 
 private:
     static ::java::lang::ThreadLocal* defaultMap_;
-    static ::org::apache::poi::hpsf::ClassID* SUMMARY_INFORMATION_ID_;
-    static ::org::apache::poi::hpsf::ClassID* DOC_SUMMARY_INFORMATION_;
-    static ::org::apache::poi::hpsf::ClassID* USER_DEFINED_PROPERTIES_;
-    static ::org::apache::poi::hpsf::ClassIDArray* DOCUMENT_SUMMARY_INFORMATION_ID_;
+    static ::poi::hpsf::ClassID* SUMMARY_INFORMATION_ID_;
+    static ::poi::hpsf::ClassID* DOC_SUMMARY_INFORMATION_;
+    static ::poi::hpsf::ClassID* USER_DEFINED_PROPERTIES_;
+    static ::poi::hpsf::ClassIDArray* DOCUMENT_SUMMARY_INFORMATION_ID_;
     static ::java::lang::String* UNDEFINED_;
 
 public:
     static SectionIDMap* getInstance();
-    static ::java::lang::String* getPIDString(::org::apache::poi::hpsf::ClassID* sectionFormatID, int64_t pid);
-    virtual PropertyIDMap* get(::org::apache::poi::hpsf::ClassID* sectionFormatID);
-    virtual PropertyIDMap* put(::org::apache::poi::hpsf::ClassID* sectionFormatID, PropertyIDMap* propertyIDMap);
+    static ::java::lang::String* getPIDString(::poi::hpsf::ClassID* sectionFormatID, int64_t pid);
+    virtual PropertyIDMap* get(::poi::hpsf::ClassID* sectionFormatID);
+    virtual PropertyIDMap* put(::poi::hpsf::ClassID* sectionFormatID, PropertyIDMap* propertyIDMap);
 
 public: /* protected */
     virtual PropertyIDMap* put(::java::lang::String* key, PropertyIDMap* value);
@@ -65,14 +59,14 @@ private:
     static ::java::lang::ThreadLocal*& defaultMap();
 
 public:
-    static ::org::apache::poi::hpsf::ClassID*& SUMMARY_INFORMATION_ID();
+    static ::poi::hpsf::ClassID*& SUMMARY_INFORMATION_ID();
 
 private:
-    static ::org::apache::poi::hpsf::ClassID*& DOC_SUMMARY_INFORMATION();
-    static ::org::apache::poi::hpsf::ClassID*& USER_DEFINED_PROPERTIES();
+    static ::poi::hpsf::ClassID*& DOC_SUMMARY_INFORMATION();
+    static ::poi::hpsf::ClassID*& USER_DEFINED_PROPERTIES();
 
 public:
-    static ::org::apache::poi::hpsf::ClassIDArray*& DOCUMENT_SUMMARY_INFORMATION_ID();
+    static ::poi::hpsf::ClassIDArray*& DOCUMENT_SUMMARY_INFORMATION_ID();
     static ::java::lang::String*& UNDEFINED();
 
 private:

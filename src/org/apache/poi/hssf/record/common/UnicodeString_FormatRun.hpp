@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::common::UnicodeString_FormatRun
+class poi::hssf::record::common::UnicodeString_FormatRun
     : public virtual ::java::lang::Object
     , public virtual ::java::lang::Comparable
 {
@@ -24,7 +24,7 @@ public: /* package */
     int16_t _fontIndex {  };
 protected:
     void ctor(int16_t character, int16_t fontIndex);
-    void ctor(::org::apache::poi::util::LittleEndianInput* in);
+    void ctor(::poi::util::LittleEndianInput* in);
 
 public:
     virtual int16_t getCharacterPos();
@@ -33,11 +33,11 @@ public:
     virtual int32_t compareTo(UnicodeString_FormatRun* r);
     int32_t hashCode() override;
     ::java::lang::String* toString() override;
-    virtual void serialize(::org::apache::poi::util::LittleEndianOutput* out);
+    virtual void serialize(::poi::util::LittleEndianOutput* out);
 
     // Generated
     UnicodeString_FormatRun(int16_t character, int16_t fontIndex);
-    UnicodeString_FormatRun(::org::apache::poi::util::LittleEndianInput* in);
+    UnicodeString_FormatRun(::poi::util::LittleEndianInput* in);
 protected:
     UnicodeString_FormatRun(const ::default_init_tag&);
 

@@ -12,7 +12,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::cf::FontFormatting final
+class poi::hssf::record::cf::FontFormatting final
     : public virtual ::java::lang::Object
     , public ::java::lang::Cloneable
 {
@@ -43,14 +43,14 @@ public:
     static constexpr int32_t FONT_CELL_HEIGHT_PRESERVED { int32_t(-1) };
 
 private:
-    static ::org::apache::poi::util::BitField* posture_;
-    static ::org::apache::poi::util::BitField* outline_;
-    static ::org::apache::poi::util::BitField* shadow_;
-    static ::org::apache::poi::util::BitField* cancellation_;
-    static ::org::apache::poi::util::BitField* styleModified_;
-    static ::org::apache::poi::util::BitField* outlineModified_;
-    static ::org::apache::poi::util::BitField* shadowModified_;
-    static ::org::apache::poi::util::BitField* cancellationModified_;
+    static ::poi::util::BitField* posture_;
+    static ::poi::util::BitField* outline_;
+    static ::poi::util::BitField* shadow_;
+    static ::poi::util::BitField* cancellation_;
+    static ::poi::util::BitField* styleModified_;
+    static ::poi::util::BitField* outlineModified_;
+    static ::poi::util::BitField* shadowModified_;
+    static ::poi::util::BitField* cancellationModified_;
 
 public:
     static constexpr int16_t SS_NONE { int16_t(0) };
@@ -67,7 +67,7 @@ private:
     static constexpr int16_t FONT_WEIGHT_BOLD { int16_t(700) };
 protected:
     void ctor();
-    void ctor(::org::apache::poi::hssf::record::RecordInputStream* in);
+    void ctor(::poi::hssf::record::RecordInputStream* in);
 
 private:
     int16_t getShort(int32_t offset);
@@ -82,8 +82,8 @@ public:
     int32_t getFontHeight();
 
 private:
-    void setFontOption(bool option, ::org::apache::poi::util::BitField* field);
-    bool getFontOption(::org::apache::poi::util::BitField* field);
+    void setFontOption(bool option, ::poi::util::BitField* field);
+    bool getFontOption(::poi::util::BitField* field);
 
 public:
     void setItalic(bool italic);
@@ -110,8 +110,8 @@ public:
     void setFontColorIndex(int16_t fci);
 
 private:
-    bool getOptionFlag(::org::apache::poi::util::BitField* field);
-    void setOptionFlag(bool modified, ::org::apache::poi::util::BitField* field);
+    bool getOptionFlag(::poi::util::BitField* field);
+    void setOptionFlag(bool modified, ::poi::util::BitField* field);
 
 public:
     bool isFontStyleModified();
@@ -133,7 +133,7 @@ public:
 
     // Generated
     FontFormatting();
-    FontFormatting(::org::apache::poi::hssf::record::RecordInputStream* in);
+    FontFormatting(::poi::hssf::record::RecordInputStream* in);
 protected:
     FontFormatting(const ::default_init_tag&);
 
@@ -144,13 +144,13 @@ public:
 
 private:
     void init();
-    static ::org::apache::poi::util::BitField*& posture();
-    static ::org::apache::poi::util::BitField*& outline();
-    static ::org::apache::poi::util::BitField*& shadow();
-    static ::org::apache::poi::util::BitField*& cancellation();
-    static ::org::apache::poi::util::BitField*& styleModified();
-    static ::org::apache::poi::util::BitField*& outlineModified();
-    static ::org::apache::poi::util::BitField*& shadowModified();
-    static ::org::apache::poi::util::BitField*& cancellationModified();
+    static ::poi::util::BitField*& posture();
+    static ::poi::util::BitField*& outline();
+    static ::poi::util::BitField*& shadow();
+    static ::poi::util::BitField*& cancellation();
+    static ::poi::util::BitField*& styleModified();
+    static ::poi::util::BitField*& outlineModified();
+    static ::poi::util::BitField*& shadowModified();
+    static ::poi::util::BitField*& cancellationModified();
     virtual ::java::lang::Class* getClass0();
 };

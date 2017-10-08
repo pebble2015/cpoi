@@ -21,39 +21,33 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+typedef ::SubArray< ::poi::ss::formula::SheetRange, ::java::lang::ObjectArray > SheetRangeArray;
+
+            namespace eval
             {
-                namespace formula
-                {
-typedef ::SubArray< ::org::apache::poi::ss::formula::SheetRange, ::java::lang::ObjectArray > SheetRangeArray;
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+typedef ::SubArray< ::poi::ss::formula::TwoDEval, ::java::lang::ObjectArray, ::poi::ss::formula::eval::ValueEvalArray > TwoDEvalArray;
+typedef ::SubArray< ::poi::ss::formula::ThreeDEval, ::java::lang::ObjectArray, TwoDEvalArray, SheetRangeArray > ThreeDEvalArray;
 
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-typedef ::SubArray< ::org::apache::poi::ss::formula::TwoDEval, ::java::lang::ObjectArray, ::org::apache::poi::ss::formula::eval::ValueEvalArray > TwoDEvalArray;
-typedef ::SubArray< ::org::apache::poi::ss::formula::ThreeDEval, ::java::lang::ObjectArray, TwoDEvalArray, SheetRangeArray > ThreeDEvalArray;
+            namespace eval
+            {
+typedef ::SubArray< ::poi::ss::formula::eval::AreaEval, ::java::lang::ObjectArray, ::poi::ss::formula::TwoDEvalArray, ::poi::ss::formula::ThreeDEvalArray > AreaEvalArray;
+            } // eval
 
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::AreaEval, ::java::lang::ObjectArray, ::org::apache::poi::ss::formula::TwoDEvalArray, ::org::apache::poi::ss::formula::ThreeDEvalArray > AreaEvalArray;
-                    } // eval
-
-                    namespace functions
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::functions::CountUtils_I_MatchPredicate, ::java::lang::ObjectArray > CountUtils_I_MatchPredicateArray;
-                    } // functions
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+            namespace functions
+            {
+typedef ::SubArray< ::poi::ss::formula::functions::CountUtils_I_MatchPredicate, ::java::lang::ObjectArray > CountUtils_I_MatchPredicateArray;
+            } // functions
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -71,31 +65,31 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::Baseifs::Baseifs(const ::default_init_tag&)
+poi::ss::formula::functions::Baseifs::Baseifs(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::Baseifs::Baseifs()
+poi::ss::formula::functions::Baseifs::Baseifs()
     : Baseifs(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Baseifs::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, ::org::apache::poi::ss::formula::OperationEvaluationContext* ec)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Baseifs::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, ::poi::ss::formula::OperationEvaluationContext* ec)
 {
     auto const hasInitialRange = this->hasInitialRange();
     auto const firstCriteria = hasInitialRange ? int32_t(1) : int32_t(0);
     if(npc(args)->length < (int32_t(2) + firstCriteria) || npc(args)->length % int32_t(2) != firstCriteria) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
     try {
-        ::org::apache::poi::ss::formula::eval::AreaEval* sumRange = nullptr;
+        ::poi::ss::formula::eval::AreaEval* sumRange = nullptr;
         if(hasInitialRange) {
             sumRange = convertRangeArg((*args)[int32_t(0)]);
         }
-        auto ae = new ::org::apache::poi::ss::formula::eval::AreaEvalArray((npc(args)->length - firstCriteria) / int32_t(2));
+        auto ae = new ::poi::ss::formula::eval::AreaEvalArray((npc(args)->length - firstCriteria) / int32_t(2));
         auto mp = new CountUtils_I_MatchPredicateArray(npc(ae)->length);
         for (int32_t i = firstCriteria, k = int32_t(0); i < npc(args)->length; i += 2, k++) {
             ae->set(k, convertRangeArg((*args)[i]));
@@ -104,38 +98,38 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::f
         validateCriteriaRanges(sumRange, ae);
         validateCriteria(mp);
         auto result = aggregateMatchingCells(sumRange, ae, mp);
-        return new ::org::apache::poi::ss::formula::eval::NumberEval(result);
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+        return new ::poi::ss::formula::eval::NumberEval(result);
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
         return npc(e)->getErrorEval();
     }
 }
 
-void org::apache::poi::ss::formula::functions::Baseifs::validateCriteriaRanges(::org::apache::poi::ss::formula::eval::AreaEval* sumRange, ::org::apache::poi::ss::formula::eval::AreaEvalArray* criteriaRanges) /* throws(EvaluationException) */
+void poi::ss::formula::functions::Baseifs::validateCriteriaRanges(::poi::ss::formula::eval::AreaEval* sumRange, ::poi::ss::formula::eval::AreaEvalArray* criteriaRanges) /* throws(EvaluationException) */
 {
     clinit();
     auto h = npc((*criteriaRanges)[int32_t(0)])->getHeight();
     auto w = npc((*criteriaRanges)[int32_t(0)])->getWidth();
     if(sumRange != nullptr && (npc(sumRange)->getHeight() != h || npc(sumRange)->getWidth() != w)) {
-        throw ::org::apache::poi::ss::formula::eval::EvaluationException::invalidValue();
+        throw ::poi::ss::formula::eval::EvaluationException::invalidValue();
     }
     for(auto r : *npc(criteriaRanges)) {
         if(npc(r)->getHeight() != h || npc(r)->getWidth() != w) {
-            throw ::org::apache::poi::ss::formula::eval::EvaluationException::invalidValue();
+            throw ::poi::ss::formula::eval::EvaluationException::invalidValue();
         }
     }
 }
 
-void org::apache::poi::ss::formula::functions::Baseifs::validateCriteria(CountUtils_I_MatchPredicateArray* criteria) /* throws(EvaluationException) */
+void poi::ss::formula::functions::Baseifs::validateCriteria(CountUtils_I_MatchPredicateArray* criteria) /* throws(EvaluationException) */
 {
     clinit();
     for(auto predicate : *npc(criteria)) {
         if(dynamic_cast< Countif_ErrorMatcher* >(predicate) != nullptr) {
-            throw new ::org::apache::poi::ss::formula::eval::EvaluationException(::org::apache::poi::ss::formula::eval::ErrorEval::valueOf(npc((java_cast< Countif_ErrorMatcher* >(predicate)))->getValue()));
+            throw new ::poi::ss::formula::eval::EvaluationException(::poi::ss::formula::eval::ErrorEval::valueOf(npc((java_cast< Countif_ErrorMatcher* >(predicate)))->getValue()));
         }
     }
 }
 
-double org::apache::poi::ss::formula::functions::Baseifs::aggregateMatchingCells(::org::apache::poi::ss::formula::eval::AreaEval* sumRange, ::org::apache::poi::ss::formula::eval::AreaEvalArray* ranges, CountUtils_I_MatchPredicateArray* predicates)
+double poi::ss::formula::functions::Baseifs::aggregateMatchingCells(::poi::ss::formula::eval::AreaEval* sumRange, ::poi::ss::formula::eval::AreaEvalArray* ranges, CountUtils_I_MatchPredicateArray* predicates)
 {
     clinit();
     auto height = npc((*ranges)[int32_t(0)])->getHeight();
@@ -160,40 +154,40 @@ double org::apache::poi::ss::formula::functions::Baseifs::aggregateMatchingCells
     return result;
 }
 
-double org::apache::poi::ss::formula::functions::Baseifs::accumulate(::org::apache::poi::ss::formula::eval::AreaEval* sumRange, int32_t relRowIndex, int32_t relColIndex)
+double poi::ss::formula::functions::Baseifs::accumulate(::poi::ss::formula::eval::AreaEval* sumRange, int32_t relRowIndex, int32_t relColIndex)
 {
     clinit();
     if(sumRange == nullptr)
         return 1.0;
 
     auto addend = npc(sumRange)->getRelativeValue(relRowIndex, relColIndex);
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::NumberEval* >(addend) != nullptr) {
-        return npc((java_cast< ::org::apache::poi::ss::formula::eval::NumberEval* >(addend)))->getNumberValue();
+    if(dynamic_cast< ::poi::ss::formula::eval::NumberEval* >(addend) != nullptr) {
+        return npc((java_cast< ::poi::ss::formula::eval::NumberEval* >(addend)))->getNumberValue();
     }
     return 0.0;
 }
 
-org::apache::poi::ss::formula::eval::AreaEval* org::apache::poi::ss::formula::functions::Baseifs::convertRangeArg(::org::apache::poi::ss::formula::eval::ValueEval* eval) /* throws(EvaluationException) */
+poi::ss::formula::eval::AreaEval* poi::ss::formula::functions::Baseifs::convertRangeArg(::poi::ss::formula::eval::ValueEval* eval) /* throws(EvaluationException) */
 {
     clinit();
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::AreaEval* >(eval) != nullptr) {
-        return java_cast< ::org::apache::poi::ss::formula::eval::AreaEval* >(eval);
+    if(dynamic_cast< ::poi::ss::formula::eval::AreaEval* >(eval) != nullptr) {
+        return java_cast< ::poi::ss::formula::eval::AreaEval* >(eval);
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::RefEval* >(eval) != nullptr) {
-        return npc((java_cast< ::org::apache::poi::ss::formula::eval::RefEval* >(eval)))->offset(0, 0, 0, 0);
+    if(dynamic_cast< ::poi::ss::formula::eval::RefEval* >(eval) != nullptr) {
+        return npc((java_cast< ::poi::ss::formula::eval::RefEval* >(eval)))->offset(0, 0, 0, 0);
     }
-    throw new ::org::apache::poi::ss::formula::eval::EvaluationException(::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID());
+    throw new ::poi::ss::formula::eval::EvaluationException(::poi::ss::formula::eval::ErrorEval::VALUE_INVALID());
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Baseifs::class_()
+java::lang::Class* poi::ss::formula::functions::Baseifs::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.Baseifs", 43);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Baseifs::getClass0()
+java::lang::Class* poi::ss::formula::functions::Baseifs::getClass0()
 {
     return class_();
 }

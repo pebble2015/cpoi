@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::ptg::UnknownPtg
+class poi::ss::formula::ptg::UnknownPtg
     : public Ptg
 {
 
@@ -25,7 +25,7 @@ protected:
 
 public:
     bool isBaseToken() override;
-    void write(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void write(::poi::util::LittleEndianOutput* out) override;
     int32_t getSize() override;
     ::java::lang::String* toFormulaString() override;
     int8_t getDefaultOperandClass() override;

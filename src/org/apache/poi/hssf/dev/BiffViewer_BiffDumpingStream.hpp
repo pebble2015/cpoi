@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::dev::BiffViewer_BiffDumpingStream final
+class poi::hssf::dev::BiffViewer_BiffDumpingStream final
     : public ::java::io::InputStream
 {
 

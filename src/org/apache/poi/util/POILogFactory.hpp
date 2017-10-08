@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::util::POILogFactory final
+class poi::util::POILogFactory final
     : public ::java::lang::Object
 {
 

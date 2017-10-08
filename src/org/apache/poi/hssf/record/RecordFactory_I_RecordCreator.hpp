@@ -6,7 +6,7 @@
 #include <org/apache/poi/hssf/record/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::hssf::record::RecordFactory_I_RecordCreator
+struct poi::hssf::record::RecordFactory_I_RecordCreator
     : public virtual ::java::lang::Object
 {
     virtual Record* create(RecordInputStream* in) = 0;

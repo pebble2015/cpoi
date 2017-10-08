@@ -15,29 +15,23 @@
 #include <java/lang/Object.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::WorkbookEvaluator final
+class poi::ss::formula::WorkbookEvaluator final
     : public ::java::lang::Object
 {
 
@@ -45,7 +39,7 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    static ::org::apache::poi::util::POILogger* LOG_;
+    static ::poi::util::POILogger* LOG_;
     EvaluationWorkbook* _workbook {  };
     EvaluationCache* _cache {  };
     int32_t _workbookIx {  };
@@ -54,14 +48,14 @@ private:
     ::java::util::Map* _sheetIndexesByName {  };
     CollaboratingWorkbooksEnvironment* _collaboratingWorkbookEnvironment {  };
     IStabilityClassifier* _stabilityClassifier {  };
-    ::org::apache::poi::ss::formula::udf::AggregatingUDFFinder* _udfFinder {  };
+    ::poi::ss::formula::udf::AggregatingUDFFinder* _udfFinder {  };
     bool _ignoreMissingWorkbooks {  };
     bool dbgEvaluationOutputForNextEval {  };
-    ::org::apache::poi::util::POILogger* EVAL_LOG {  };
+    ::poi::util::POILogger* EVAL_LOG {  };
     int32_t dbgEvaluationOutputIndent {  };
 protected:
-    void ctor(EvaluationWorkbook* workbook, IStabilityClassifier* stabilityClassifier, ::org::apache::poi::ss::formula::udf::UDFFinder* udfFinder);
-    void ctor(EvaluationWorkbook* workbook, IEvaluationListener* evaluationListener, IStabilityClassifier* stabilityClassifier, ::org::apache::poi::ss::formula::udf::UDFFinder* udfFinder);
+    void ctor(EvaluationWorkbook* workbook, IStabilityClassifier* stabilityClassifier, ::poi::ss::formula::udf::UDFFinder* udfFinder);
+    void ctor(EvaluationWorkbook* workbook, IEvaluationListener* evaluationListener, IStabilityClassifier* stabilityClassifier, ::poi::ss::formula::udf::UDFFinder* udfFinder);
 
 public: /* package */
     ::java::lang::String* getSheetName(int32_t sheetIndex);
@@ -91,63 +85,63 @@ private:
     int32_t getSheetIndex(EvaluationSheet* sheet);
 
 public:
-    ::org::apache::poi::ss::formula::eval::ValueEval* evaluate(EvaluationCell* srcCell);
+    ::poi::ss::formula::eval::ValueEval* evaluate(EvaluationCell* srcCell);
 
 public: /* package */
     int32_t getSheetIndex(::java::lang::String* sheetName);
     int32_t getSheetIndexByExternIndex(int32_t externSheetIndex);
 
 private:
-    ::org::apache::poi::ss::formula::eval::ValueEval* evaluateAny(EvaluationCell* srcCell, int32_t sheetIndex, int32_t rowIndex, int32_t columnIndex, EvaluationTracker* tracker);
-    ::org::apache::poi::ss::formula::eval::NotImplementedException* addExceptionInfo(::org::apache::poi::ss::formula::eval::NotImplementedException* inner, int32_t sheetIndex, int32_t rowIndex, int32_t columnIndex);
+    ::poi::ss::formula::eval::ValueEval* evaluateAny(EvaluationCell* srcCell, int32_t sheetIndex, int32_t rowIndex, int32_t columnIndex, EvaluationTracker* tracker);
+    ::poi::ss::formula::eval::NotImplementedException* addExceptionInfo(::poi::ss::formula::eval::NotImplementedException* inner, int32_t sheetIndex, int32_t rowIndex, int32_t columnIndex);
 
 public: /* package */
-    static ::org::apache::poi::ss::formula::eval::ValueEval* getValueFromNonFormulaCell(EvaluationCell* cell);
-    ::org::apache::poi::ss::formula::eval::ValueEval* evaluateFormula(OperationEvaluationContext* ec, ::org::apache::poi::ss::formula::ptg::PtgArray* ptgs);
+    static ::poi::ss::formula::eval::ValueEval* getValueFromNonFormulaCell(EvaluationCell* cell);
+    ::poi::ss::formula::eval::ValueEval* evaluateFormula(OperationEvaluationContext* ec, ::poi::ss::formula::ptg::PtgArray* ptgs);
 
 private:
-    static int32_t countTokensToBeSkipped(::org::apache::poi::ss::formula::ptg::PtgArray* ptgs, int32_t startIndex, int32_t distInBytes);
+    static int32_t countTokensToBeSkipped(::poi::ss::formula::ptg::PtgArray* ptgs, int32_t startIndex, int32_t distInBytes);
 
 public:
-    static ::org::apache::poi::ss::formula::eval::ValueEval* dereferenceResult(::org::apache::poi::ss::formula::eval::ValueEval* evaluationResult, int32_t srcRowNum, int32_t srcColNum);
+    static ::poi::ss::formula::eval::ValueEval* dereferenceResult(::poi::ss::formula::eval::ValueEval* evaluationResult, int32_t srcRowNum, int32_t srcColNum);
 
 private:
-    ::org::apache::poi::ss::formula::eval::ValueEval* getEvalForPtg(::org::apache::poi::ss::formula::ptg::Ptg* ptg, OperationEvaluationContext* ec);
-    ::org::apache::poi::ss::formula::eval::ValueEval* processNameEval(::org::apache::poi::ss::formula::eval::ValueEval* eval, OperationEvaluationContext* ec);
-    ::org::apache::poi::ss::formula::eval::ValueEval* getEvalForNameRecord(EvaluationName* nameRecord, OperationEvaluationContext* ec);
+    ::poi::ss::formula::eval::ValueEval* getEvalForPtg(::poi::ss::formula::ptg::Ptg* ptg, OperationEvaluationContext* ec);
+    ::poi::ss::formula::eval::ValueEval* processNameEval(::poi::ss::formula::eval::ValueEval* eval, OperationEvaluationContext* ec);
+    ::poi::ss::formula::eval::ValueEval* getEvalForNameRecord(EvaluationName* nameRecord, OperationEvaluationContext* ec);
 
 public: /* package */
-    ::org::apache::poi::ss::formula::eval::ValueEval* evaluateNameFormula(::org::apache::poi::ss::formula::ptg::PtgArray* ptgs, OperationEvaluationContext* ec);
-    ::org::apache::poi::ss::formula::eval::ValueEval* evaluateReference(EvaluationSheet* sheet, int32_t sheetIndex, int32_t rowIndex, int32_t columnIndex, EvaluationTracker* tracker);
+    ::poi::ss::formula::eval::ValueEval* evaluateNameFormula(::poi::ss::formula::ptg::PtgArray* ptgs, OperationEvaluationContext* ec);
+    ::poi::ss::formula::eval::ValueEval* evaluateReference(EvaluationSheet* sheet, int32_t sheetIndex, int32_t rowIndex, int32_t columnIndex, EvaluationTracker* tracker);
 
 public:
-    ::org::apache::poi::ss::formula::functions::FreeRefFunction* findUserDefinedFunction(::java::lang::String* functionName);
-    ::org::apache::poi::ss::formula::eval::ValueEval* evaluate(::java::lang::String* formula, ::org::apache::poi::ss::util::CellReference* ref);
-    ::org::apache::poi::ss::formula::eval::ValueEval* evaluate(::java::lang::String* formula, ::org::apache::poi::ss::util::CellReference* target, ::org::apache::poi::ss::util::CellRangeAddressBase* region);
-    ::org::apache::poi::ss::formula::eval::ValueEval* evaluateList(::java::lang::String* formula, ::org::apache::poi::ss::util::CellReference* target, ::org::apache::poi::ss::util::CellRangeAddressBase* region);
+    ::poi::ss::formula::functions::FreeRefFunction* findUserDefinedFunction(::java::lang::String* functionName);
+    ::poi::ss::formula::eval::ValueEval* evaluate(::java::lang::String* formula, ::poi::ss::util::CellReference* ref);
+    ::poi::ss::formula::eval::ValueEval* evaluate(::java::lang::String* formula, ::poi::ss::util::CellReference* target, ::poi::ss::util::CellRangeAddressBase* region);
+    ::poi::ss::formula::eval::ValueEval* evaluateList(::java::lang::String* formula, ::poi::ss::util::CellReference* target, ::poi::ss::util::CellRangeAddressBase* region);
 
 private:
-    ::org::apache::poi::ss::formula::eval::ValueEval* evaluate(::java::lang::String* formula, ::org::apache::poi::ss::util::CellReference* target, ::org::apache::poi::ss::util::CellRangeAddressBase* region, FormulaType* formulaType);
+    ::poi::ss::formula::eval::ValueEval* evaluate(::java::lang::String* formula, ::poi::ss::util::CellReference* target, ::poi::ss::util::CellRangeAddressBase* region, FormulaType* formulaType);
 
 public: /* protected */
-    bool adjustRegionRelativeReference(::org::apache::poi::ss::formula::ptg::PtgArray* ptgs, ::org::apache::poi::ss::util::CellReference* target, ::org::apache::poi::ss::util::CellRangeAddressBase* region);
-    bool adjustRegionRelativeReference(::org::apache::poi::ss::formula::ptg::PtgArray* ptgs, int32_t deltaRow, int32_t deltaColumn);
+    bool adjustRegionRelativeReference(::poi::ss::formula::ptg::PtgArray* ptgs, ::poi::ss::util::CellReference* target, ::poi::ss::util::CellRangeAddressBase* region);
+    bool adjustRegionRelativeReference(::poi::ss::formula::ptg::PtgArray* ptgs, int32_t deltaRow, int32_t deltaColumn);
 
 public:
     void setIgnoreMissingWorkbooks(bool ignore);
     bool isIgnoreMissingWorkbooks();
     static ::java::util::Collection* getSupportedFunctionNames();
     static ::java::util::Collection* getNotSupportedFunctionNames();
-    static void registerFunction(::java::lang::String* name, ::org::apache::poi::ss::formula::functions::FreeRefFunction* func);
-    static void registerFunction(::java::lang::String* name, ::org::apache::poi::ss::formula::functions::Function* func);
+    static void registerFunction(::java::lang::String* name, ::poi::ss::formula::functions::FreeRefFunction* func);
+    static void registerFunction(::java::lang::String* name, ::poi::ss::formula::functions::Function* func);
     void setDebugEvaluationOutputForNextEval(bool value);
     bool isDebugEvaluationOutputForNextEval();
 
     // Generated
-    WorkbookEvaluator(EvaluationWorkbook* workbook, IStabilityClassifier* stabilityClassifier, ::org::apache::poi::ss::formula::udf::UDFFinder* udfFinder);
+    WorkbookEvaluator(EvaluationWorkbook* workbook, IStabilityClassifier* stabilityClassifier, ::poi::ss::formula::udf::UDFFinder* udfFinder);
 
 public: /* package */
-    WorkbookEvaluator(EvaluationWorkbook* workbook, IEvaluationListener* evaluationListener, IStabilityClassifier* stabilityClassifier, ::org::apache::poi::ss::formula::udf::UDFFinder* udfFinder);
+    WorkbookEvaluator(EvaluationWorkbook* workbook, IEvaluationListener* evaluationListener, IStabilityClassifier* stabilityClassifier, ::poi::ss::formula::udf::UDFFinder* udfFinder);
 protected:
     WorkbookEvaluator(const ::default_init_tag&);
 
@@ -158,6 +152,6 @@ public:
 
 private:
     void init();
-    static ::org::apache::poi::util::POILogger*& LOG();
+    static ::poi::util::POILogger*& LOG();
     virtual ::java::lang::Class* getClass0();
 };

@@ -20,19 +20,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::usermodel::charts::DataSources_AbstractCellRangeDataSource::DataSources_AbstractCellRangeDataSource(const ::default_init_tag&)
+poi::ss::usermodel::charts::DataSources_AbstractCellRangeDataSource::DataSources_AbstractCellRangeDataSource(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::usermodel::charts::DataSources_AbstractCellRangeDataSource::DataSources_AbstractCellRangeDataSource(::org::apache::poi::ss::usermodel::Sheet* sheet, ::org::apache::poi::ss::util::CellRangeAddress* cellRangeAddress) 
+poi::ss::usermodel::charts::DataSources_AbstractCellRangeDataSource::DataSources_AbstractCellRangeDataSource(::poi::ss::usermodel::Sheet* sheet, ::poi::ss::util::CellRangeAddress* cellRangeAddress) 
     : DataSources_AbstractCellRangeDataSource(*static_cast< ::default_init_tag* >(0))
 {
     ctor(sheet,cellRangeAddress);
 }
 
-void org::apache::poi::ss::usermodel::charts::DataSources_AbstractCellRangeDataSource::ctor(::org::apache::poi::ss::usermodel::Sheet* sheet, ::org::apache::poi::ss::util::CellRangeAddress* cellRangeAddress)
+void poi::ss::usermodel::charts::DataSources_AbstractCellRangeDataSource::ctor(::poi::ss::usermodel::Sheet* sheet, ::poi::ss::util::CellRangeAddress* cellRangeAddress)
 {
     super::ctor();
     this->sheet = sheet;
@@ -41,22 +41,22 @@ void org::apache::poi::ss::usermodel::charts::DataSources_AbstractCellRangeDataS
     this->evaluator = npc(npc(npc(sheet)->getWorkbook())->getCreationHelper())->createFormulaEvaluator();
 }
 
-int32_t org::apache::poi::ss::usermodel::charts::DataSources_AbstractCellRangeDataSource::getPointCount()
+int32_t poi::ss::usermodel::charts::DataSources_AbstractCellRangeDataSource::getPointCount()
 {
     return numOfCells;
 }
 
-bool org::apache::poi::ss::usermodel::charts::DataSources_AbstractCellRangeDataSource::isReference()
+bool poi::ss::usermodel::charts::DataSources_AbstractCellRangeDataSource::isReference()
 {
     return true;
 }
 
-java::lang::String* org::apache::poi::ss::usermodel::charts::DataSources_AbstractCellRangeDataSource::getFormulaString()
+java::lang::String* poi::ss::usermodel::charts::DataSources_AbstractCellRangeDataSource::getFormulaString()
 {
     return npc(cellRangeAddress)->formatAsString(npc(sheet)->getSheetName(), true);
 }
 
-org::apache::poi::ss::usermodel::CellValue* org::apache::poi::ss::usermodel::charts::DataSources_AbstractCellRangeDataSource::getCellValueAt(int32_t index)
+poi::ss::usermodel::CellValue* poi::ss::usermodel::charts::DataSources_AbstractCellRangeDataSource::getCellValueAt(int32_t index)
 {
     if(index < 0 || index >= numOfCells) {
         throw new ::java::lang::IndexOutOfBoundsException(::java::lang::StringBuilder().append(u"Index must be between 0 and "_j)->append((numOfCells - int32_t(1)))
@@ -70,18 +70,18 @@ org::apache::poi::ss::usermodel::CellValue* org::apache::poi::ss::usermodel::cha
     auto rowIndex = firstRow + index / width;
     auto cellIndex = firstCol + index % width;
     auto row = npc(sheet)->getRow(rowIndex);
-    return (row == nullptr) ? static_cast< ::org::apache::poi::ss::usermodel::CellValue* >(nullptr) : npc(evaluator)->evaluate(npc(row)->getCell(cellIndex));
+    return (row == nullptr) ? static_cast< ::poi::ss::usermodel::CellValue* >(nullptr) : npc(evaluator)->evaluate(npc(row)->getCell(cellIndex));
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::usermodel::charts::DataSources_AbstractCellRangeDataSource::class_()
+java::lang::Class* poi::ss::usermodel::charts::DataSources_AbstractCellRangeDataSource::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.usermodel.charts.DataSources.AbstractCellRangeDataSource", 74);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::usermodel::charts::DataSources_AbstractCellRangeDataSource::getClass0()
+java::lang::Class* poi::ss::usermodel::charts::DataSources_AbstractCellRangeDataSource::getClass0()
 {
     return class_();
 }

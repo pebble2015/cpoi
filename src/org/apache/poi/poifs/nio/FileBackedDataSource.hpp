@@ -14,7 +14,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::nio::FileBackedDataSource
+class poi::poifs::nio::FileBackedDataSource
     : public DataSource
 {
 
@@ -22,7 +22,7 @@ public:
     typedef DataSource super;
 
 private:
-    static ::org::apache::poi::util::POILogger* logger_;
+    static ::poi::util::POILogger* logger_;
     ::java::nio::channels::FileChannel* channel {  };
     bool writable {  };
     ::java::io::RandomAccessFile* srcFile {  };
@@ -63,7 +63,7 @@ public:
 
 private:
     void init();
-    static ::org::apache::poi::util::POILogger*& logger();
+    static ::poi::util::POILogger*& logger();
     virtual ::java::lang::Class* getClass0();
     friend class FileBackedDataSource_unmap_1;
 };

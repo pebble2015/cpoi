@@ -12,29 +12,23 @@
 #include <org/apache/poi/hssf/record/aggregates/RecordAggregate.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
-            {
-                namespace record
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::Record, RecordBaseArray > RecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::StandardRecord, RecordArray > StandardRecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::RowRecord, StandardRecordArray > RowRecordArray;
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
+typedef ::SubArray< ::poi::hssf::record::Record, RecordBaseArray > RecordArray;
+typedef ::SubArray< ::poi::hssf::record::StandardRecord, RecordArray > StandardRecordArray;
+typedef ::SubArray< ::poi::hssf::record::RowRecord, StandardRecordArray > RowRecordArray;
+        } // record
+    } // hssf
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::aggregates::RowRecordsAggregate final
+class poi::hssf::record::aggregates::RowRecordsAggregate final
     : public RecordAggregate
 {
 
@@ -48,19 +42,19 @@ private:
     ValueRecordsAggregate* _valuesAgg {  };
     ::java::util::List* _unknownRecords {  };
     SharedValueManager* _sharedValueManager {  };
-    ::org::apache::poi::hssf::record::RowRecordArray* _rowRecordValues {  };
+    ::poi::hssf::record::RowRecordArray* _rowRecordValues {  };
 protected:
     void ctor();
     void ctor(SharedValueManager* svm);
-    void ctor(::org::apache::poi::hssf::model::RecordStream* rs, SharedValueManager* svm);
+    void ctor(::poi::hssf::model::RecordStream* rs, SharedValueManager* svm);
 
 private:
-    void addUnknownRecord(::org::apache::poi::hssf::record::Record* rec);
+    void addUnknownRecord(::poi::hssf::record::Record* rec);
 
 public:
-    void insertRow(::org::apache::poi::hssf::record::RowRecord* row);
-    void removeRow(::org::apache::poi::hssf::record::RowRecord* row);
-    ::org::apache::poi::hssf::record::RowRecord* getRow(int32_t rowIndex);
+    void insertRow(::poi::hssf::record::RowRecord* row);
+    void removeRow(::poi::hssf::record::RowRecord* row);
+    ::poi::hssf::record::RowRecord* getRow(int32_t rowIndex);
     int32_t getPhysicalNumberOfRows();
     int32_t getFirstRowNum();
     int32_t getLastRowNum();
@@ -84,21 +78,21 @@ public:
     int32_t findEndOfRowOutlineGroup(int32_t row);
 
 private:
-    int32_t writeHidden(::org::apache::poi::hssf::record::RowRecord* pRowRecord, int32_t row);
+    int32_t writeHidden(::poi::hssf::record::RowRecord* pRowRecord, int32_t row);
 
 public:
     void collapseRow(int32_t rowNumber);
-    static ::org::apache::poi::hssf::record::RowRecord* createRow(int32_t rowNumber);
+    static ::poi::hssf::record::RowRecord* createRow(int32_t rowNumber);
     bool isRowGroupCollapsed(int32_t row);
     void expandRow(int32_t rowNumber);
     bool isRowGroupHiddenByParent(int32_t row);
     ::java::util::Iterator* getCellValueIterator();
-    ::org::apache::poi::hssf::record::IndexRecord* createIndexRecord(int32_t indexRecordOffset, int32_t sizeOfInitialSheetRecords);
-    void insertCell(::org::apache::poi::hssf::record::CellValueRecordInterface* cvRec);
-    void removeCell(::org::apache::poi::hssf::record::CellValueRecordInterface* cvRec);
+    ::poi::hssf::record::IndexRecord* createIndexRecord(int32_t indexRecordOffset, int32_t sizeOfInitialSheetRecords);
+    void insertCell(::poi::hssf::record::CellValueRecordInterface* cvRec);
+    void removeCell(::poi::hssf::record::CellValueRecordInterface* cvRec);
     FormulaRecordAggregate* createFormula(int32_t row, int32_t col);
-    void updateFormulasAfterRowShift(::org::apache::poi::ss::formula::FormulaShifter* formulaShifter, int32_t currentExternSheetIndex);
-    ::org::apache::poi::hssf::record::DimensionsRecord* createDimensions();
+    void updateFormulasAfterRowShift(::poi::ss::formula::FormulaShifter* formulaShifter, int32_t currentExternSheetIndex);
+    ::poi::hssf::record::DimensionsRecord* createDimensions();
 
     // Generated
     RowRecordsAggregate();
@@ -107,7 +101,7 @@ private:
     RowRecordsAggregate(SharedValueManager* svm);
 
 public:
-    RowRecordsAggregate(::org::apache::poi::hssf::model::RecordStream* rs, SharedValueManager* svm);
+    RowRecordsAggregate(::poi::hssf::model::RecordStream* rs, SharedValueManager* svm);
 protected:
     RowRecordsAggregate(const ::default_init_tag&);
 

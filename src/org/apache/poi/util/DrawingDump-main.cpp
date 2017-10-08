@@ -7,7 +7,7 @@ int main(int argc, char** argv)
 {
     init_jvm();
     
-    ::org::apache::poi::util::DrawingDump::main(make_args(argc, argv));
+    ::poi::util::DrawingDump::main(make_args(argc, argv));
     
     return 0;
 }

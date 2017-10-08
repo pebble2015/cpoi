@@ -25,7 +25,7 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
     } // lang
 } // java
 
-struct org::apache::poi::ss::usermodel::DataValidationHelper
+struct poi::ss::usermodel::DataValidationHelper
     : public virtual ::java::lang::Object
 {
     virtual DataValidationConstraint* createFormulaListConstraint(::java::lang::String* listFormula) = 0;
@@ -37,7 +37,7 @@ struct org::apache::poi::ss::usermodel::DataValidationHelper
     virtual DataValidationConstraint* createDateConstraint(int32_t operatorType, ::java::lang::String* formula1, ::java::lang::String* formula2, ::java::lang::String* dateFormat) = 0;
     virtual DataValidationConstraint* createTimeConstraint(int32_t operatorType, ::java::lang::String* formula1, ::java::lang::String* formula2) = 0;
     virtual DataValidationConstraint* createCustomConstraint(::java::lang::String* formula) = 0;
-    virtual DataValidation* createValidation(DataValidationConstraint* constraint, ::org::apache::poi::ss::util::CellRangeAddressList* cellRangeAddressList) = 0;
+    virtual DataValidation* createValidation(DataValidationConstraint* constraint, ::poi::ss::util::CellRangeAddressList* cellRangeAddressList) = 0;
 
     // Generated
     static ::java::lang::Class *class_();

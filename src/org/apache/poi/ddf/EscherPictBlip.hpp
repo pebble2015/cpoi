@@ -27,7 +27,7 @@ typedef ::SubArray< ::java::lang::ObjectArray, CloneableArray, ::java::io::Seria
 
 struct default_init_tag;
 
-class org::apache::poi::ddf::EscherPictBlip final
+class poi::ddf::EscherPictBlip final
     : public EscherBlipRecord
 {
 
@@ -35,7 +35,7 @@ public:
     typedef EscherBlipRecord super;
 
 private:
-    static ::org::apache::poi::util::POILogger* log_;
+    static ::poi::util::POILogger* log_;
 
 public:
     static constexpr int16_t RECORD_ID_EMF { int16_t(-4070) };
@@ -108,6 +108,6 @@ public:
     virtual int32_t serialize(int32_t offset, ::int8_tArray* data);
 
 private:
-    static ::org::apache::poi::util::POILogger*& log();
+    static ::poi::util::POILogger*& log();
     virtual ::java::lang::Class* getClass0();
 };

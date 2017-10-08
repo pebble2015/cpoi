@@ -27,25 +27,19 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace sl
     {
-        namespace poi
+        namespace draw
         {
-            namespace sl
+            namespace binding
             {
-                namespace draw
-                {
-                    namespace binding
-                    {
-typedef ::SubArray< ::org::apache::poi::sl::draw::binding::STShapeType, ::java::lang::EnumArray > STShapeTypeArray;
-                    } // binding
-                } // draw
-            } // sl
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::sl::draw::binding::STShapeType, ::java::lang::EnumArray > STShapeTypeArray;
+            } // binding
+        } // draw
+    } // sl
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -54,217 +48,217 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::sl::draw::binding::STShapeType::STShapeType(const ::default_init_tag&)
+poi::sl::draw::binding::STShapeType::STShapeType(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::draw::binding::STShapeType::STShapeType(::java::lang::String* name, int ordinal, ::java::lang::String* v) 
+poi::sl::draw::binding::STShapeType::STShapeType(::java::lang::String* name, int ordinal, ::java::lang::String* v) 
     : STShapeType(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal, v);
 }
 
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::LINE = new ::org::apache::poi::sl::draw::binding::STShapeType(u"LINE"_j, 0, u"line"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::LINE_INV = new ::org::apache::poi::sl::draw::binding::STShapeType(u"LINE_INV"_j, 1, u"lineInv"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::TRIANGLE = new ::org::apache::poi::sl::draw::binding::STShapeType(u"TRIANGLE"_j, 2, u"triangle"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::RT_TRIANGLE = new ::org::apache::poi::sl::draw::binding::STShapeType(u"RT_TRIANGLE"_j, 3, u"rtTriangle"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::RECT = new ::org::apache::poi::sl::draw::binding::STShapeType(u"RECT"_j, 4, u"rect"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::DIAMOND = new ::org::apache::poi::sl::draw::binding::STShapeType(u"DIAMOND"_j, 5, u"diamond"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::PARALLELOGRAM = new ::org::apache::poi::sl::draw::binding::STShapeType(u"PARALLELOGRAM"_j, 6, u"parallelogram"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::TRAPEZOID = new ::org::apache::poi::sl::draw::binding::STShapeType(u"TRAPEZOID"_j, 7, u"trapezoid"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::NON_ISOSCELES_TRAPEZOID = new ::org::apache::poi::sl::draw::binding::STShapeType(u"NON_ISOSCELES_TRAPEZOID"_j, 8, u"nonIsoscelesTrapezoid"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::PENTAGON = new ::org::apache::poi::sl::draw::binding::STShapeType(u"PENTAGON"_j, 9, u"pentagon"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::HEXAGON = new ::org::apache::poi::sl::draw::binding::STShapeType(u"HEXAGON"_j, 10, u"hexagon"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::HEPTAGON = new ::org::apache::poi::sl::draw::binding::STShapeType(u"HEPTAGON"_j, 11, u"heptagon"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::OCTAGON = new ::org::apache::poi::sl::draw::binding::STShapeType(u"OCTAGON"_j, 12, u"octagon"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::DECAGON = new ::org::apache::poi::sl::draw::binding::STShapeType(u"DECAGON"_j, 13, u"decagon"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::DODECAGON = new ::org::apache::poi::sl::draw::binding::STShapeType(u"DODECAGON"_j, 14, u"dodecagon"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::STAR_4 = new ::org::apache::poi::sl::draw::binding::STShapeType(u"STAR_4"_j, 15, u"star4"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::STAR_5 = new ::org::apache::poi::sl::draw::binding::STShapeType(u"STAR_5"_j, 16, u"star5"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::STAR_6 = new ::org::apache::poi::sl::draw::binding::STShapeType(u"STAR_6"_j, 17, u"star6"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::STAR_7 = new ::org::apache::poi::sl::draw::binding::STShapeType(u"STAR_7"_j, 18, u"star7"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::STAR_8 = new ::org::apache::poi::sl::draw::binding::STShapeType(u"STAR_8"_j, 19, u"star8"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::STAR_10 = new ::org::apache::poi::sl::draw::binding::STShapeType(u"STAR_10"_j, 20, u"star10"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::STAR_12 = new ::org::apache::poi::sl::draw::binding::STShapeType(u"STAR_12"_j, 21, u"star12"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::STAR_16 = new ::org::apache::poi::sl::draw::binding::STShapeType(u"STAR_16"_j, 22, u"star16"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::STAR_24 = new ::org::apache::poi::sl::draw::binding::STShapeType(u"STAR_24"_j, 23, u"star24"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::STAR_32 = new ::org::apache::poi::sl::draw::binding::STShapeType(u"STAR_32"_j, 24, u"star32"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::ROUND_RECT = new ::org::apache::poi::sl::draw::binding::STShapeType(u"ROUND_RECT"_j, 25, u"roundRect"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::ROUND_1_RECT = new ::org::apache::poi::sl::draw::binding::STShapeType(u"ROUND_1_RECT"_j, 26, u"round1Rect"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::ROUND_2_SAME_RECT = new ::org::apache::poi::sl::draw::binding::STShapeType(u"ROUND_2_SAME_RECT"_j, 27, u"round2SameRect"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::ROUND_2_DIAG_RECT = new ::org::apache::poi::sl::draw::binding::STShapeType(u"ROUND_2_DIAG_RECT"_j, 28, u"round2DiagRect"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::SNIP_ROUND_RECT = new ::org::apache::poi::sl::draw::binding::STShapeType(u"SNIP_ROUND_RECT"_j, 29, u"snipRoundRect"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::SNIP_1_RECT = new ::org::apache::poi::sl::draw::binding::STShapeType(u"SNIP_1_RECT"_j, 30, u"snip1Rect"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::SNIP_2_SAME_RECT = new ::org::apache::poi::sl::draw::binding::STShapeType(u"SNIP_2_SAME_RECT"_j, 31, u"snip2SameRect"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::SNIP_2_DIAG_RECT = new ::org::apache::poi::sl::draw::binding::STShapeType(u"SNIP_2_DIAG_RECT"_j, 32, u"snip2DiagRect"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::PLAQUE = new ::org::apache::poi::sl::draw::binding::STShapeType(u"PLAQUE"_j, 33, u"plaque"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::ELLIPSE = new ::org::apache::poi::sl::draw::binding::STShapeType(u"ELLIPSE"_j, 34, u"ellipse"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::TEARDROP = new ::org::apache::poi::sl::draw::binding::STShapeType(u"TEARDROP"_j, 35, u"teardrop"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::HOME_PLATE = new ::org::apache::poi::sl::draw::binding::STShapeType(u"HOME_PLATE"_j, 36, u"homePlate"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::CHEVRON = new ::org::apache::poi::sl::draw::binding::STShapeType(u"CHEVRON"_j, 37, u"chevron"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::PIE_WEDGE = new ::org::apache::poi::sl::draw::binding::STShapeType(u"PIE_WEDGE"_j, 38, u"pieWedge"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::PIE = new ::org::apache::poi::sl::draw::binding::STShapeType(u"PIE"_j, 39, u"pie"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::BLOCK_ARC = new ::org::apache::poi::sl::draw::binding::STShapeType(u"BLOCK_ARC"_j, 40, u"blockArc"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::DONUT = new ::org::apache::poi::sl::draw::binding::STShapeType(u"DONUT"_j, 41, u"donut"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::NO_SMOKING = new ::org::apache::poi::sl::draw::binding::STShapeType(u"NO_SMOKING"_j, 42, u"noSmoking"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::RIGHT_ARROW = new ::org::apache::poi::sl::draw::binding::STShapeType(u"RIGHT_ARROW"_j, 43, u"rightArrow"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::LEFT_ARROW = new ::org::apache::poi::sl::draw::binding::STShapeType(u"LEFT_ARROW"_j, 44, u"leftArrow"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::UP_ARROW = new ::org::apache::poi::sl::draw::binding::STShapeType(u"UP_ARROW"_j, 45, u"upArrow"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::DOWN_ARROW = new ::org::apache::poi::sl::draw::binding::STShapeType(u"DOWN_ARROW"_j, 46, u"downArrow"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::STRIPED_RIGHT_ARROW = new ::org::apache::poi::sl::draw::binding::STShapeType(u"STRIPED_RIGHT_ARROW"_j, 47, u"stripedRightArrow"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::NOTCHED_RIGHT_ARROW = new ::org::apache::poi::sl::draw::binding::STShapeType(u"NOTCHED_RIGHT_ARROW"_j, 48, u"notchedRightArrow"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::BENT_UP_ARROW = new ::org::apache::poi::sl::draw::binding::STShapeType(u"BENT_UP_ARROW"_j, 49, u"bentUpArrow"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::LEFT_RIGHT_ARROW = new ::org::apache::poi::sl::draw::binding::STShapeType(u"LEFT_RIGHT_ARROW"_j, 50, u"leftRightArrow"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::UP_DOWN_ARROW = new ::org::apache::poi::sl::draw::binding::STShapeType(u"UP_DOWN_ARROW"_j, 51, u"upDownArrow"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::LEFT_UP_ARROW = new ::org::apache::poi::sl::draw::binding::STShapeType(u"LEFT_UP_ARROW"_j, 52, u"leftUpArrow"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::LEFT_RIGHT_UP_ARROW = new ::org::apache::poi::sl::draw::binding::STShapeType(u"LEFT_RIGHT_UP_ARROW"_j, 53, u"leftRightUpArrow"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::QUAD_ARROW = new ::org::apache::poi::sl::draw::binding::STShapeType(u"QUAD_ARROW"_j, 54, u"quadArrow"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::LEFT_ARROW_CALLOUT = new ::org::apache::poi::sl::draw::binding::STShapeType(u"LEFT_ARROW_CALLOUT"_j, 55, u"leftArrowCallout"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::RIGHT_ARROW_CALLOUT = new ::org::apache::poi::sl::draw::binding::STShapeType(u"RIGHT_ARROW_CALLOUT"_j, 56, u"rightArrowCallout"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::UP_ARROW_CALLOUT = new ::org::apache::poi::sl::draw::binding::STShapeType(u"UP_ARROW_CALLOUT"_j, 57, u"upArrowCallout"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::DOWN_ARROW_CALLOUT = new ::org::apache::poi::sl::draw::binding::STShapeType(u"DOWN_ARROW_CALLOUT"_j, 58, u"downArrowCallout"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::LEFT_RIGHT_ARROW_CALLOUT = new ::org::apache::poi::sl::draw::binding::STShapeType(u"LEFT_RIGHT_ARROW_CALLOUT"_j, 59, u"leftRightArrowCallout"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::UP_DOWN_ARROW_CALLOUT = new ::org::apache::poi::sl::draw::binding::STShapeType(u"UP_DOWN_ARROW_CALLOUT"_j, 60, u"upDownArrowCallout"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::QUAD_ARROW_CALLOUT = new ::org::apache::poi::sl::draw::binding::STShapeType(u"QUAD_ARROW_CALLOUT"_j, 61, u"quadArrowCallout"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::BENT_ARROW = new ::org::apache::poi::sl::draw::binding::STShapeType(u"BENT_ARROW"_j, 62, u"bentArrow"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::UTURN_ARROW = new ::org::apache::poi::sl::draw::binding::STShapeType(u"UTURN_ARROW"_j, 63, u"uturnArrow"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::CIRCULAR_ARROW = new ::org::apache::poi::sl::draw::binding::STShapeType(u"CIRCULAR_ARROW"_j, 64, u"circularArrow"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::LEFT_CIRCULAR_ARROW = new ::org::apache::poi::sl::draw::binding::STShapeType(u"LEFT_CIRCULAR_ARROW"_j, 65, u"leftCircularArrow"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::LEFT_RIGHT_CIRCULAR_ARROW = new ::org::apache::poi::sl::draw::binding::STShapeType(u"LEFT_RIGHT_CIRCULAR_ARROW"_j, 66, u"leftRightCircularArrow"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::CURVED_RIGHT_ARROW = new ::org::apache::poi::sl::draw::binding::STShapeType(u"CURVED_RIGHT_ARROW"_j, 67, u"curvedRightArrow"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::CURVED_LEFT_ARROW = new ::org::apache::poi::sl::draw::binding::STShapeType(u"CURVED_LEFT_ARROW"_j, 68, u"curvedLeftArrow"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::CURVED_UP_ARROW = new ::org::apache::poi::sl::draw::binding::STShapeType(u"CURVED_UP_ARROW"_j, 69, u"curvedUpArrow"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::CURVED_DOWN_ARROW = new ::org::apache::poi::sl::draw::binding::STShapeType(u"CURVED_DOWN_ARROW"_j, 70, u"curvedDownArrow"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::SWOOSH_ARROW = new ::org::apache::poi::sl::draw::binding::STShapeType(u"SWOOSH_ARROW"_j, 71, u"swooshArrow"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::CUBE = new ::org::apache::poi::sl::draw::binding::STShapeType(u"CUBE"_j, 72, u"cube"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::CAN = new ::org::apache::poi::sl::draw::binding::STShapeType(u"CAN"_j, 73, u"can"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::LIGHTNING_BOLT = new ::org::apache::poi::sl::draw::binding::STShapeType(u"LIGHTNING_BOLT"_j, 74, u"lightningBolt"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::HEART = new ::org::apache::poi::sl::draw::binding::STShapeType(u"HEART"_j, 75, u"heart"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::SUN = new ::org::apache::poi::sl::draw::binding::STShapeType(u"SUN"_j, 76, u"sun"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::MOON = new ::org::apache::poi::sl::draw::binding::STShapeType(u"MOON"_j, 77, u"moon"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::SMILEY_FACE = new ::org::apache::poi::sl::draw::binding::STShapeType(u"SMILEY_FACE"_j, 78, u"smileyFace"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::IRREGULAR_SEAL_1 = new ::org::apache::poi::sl::draw::binding::STShapeType(u"IRREGULAR_SEAL_1"_j, 79, u"irregularSeal1"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::IRREGULAR_SEAL_2 = new ::org::apache::poi::sl::draw::binding::STShapeType(u"IRREGULAR_SEAL_2"_j, 80, u"irregularSeal2"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::FOLDED_CORNER = new ::org::apache::poi::sl::draw::binding::STShapeType(u"FOLDED_CORNER"_j, 81, u"foldedCorner"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::BEVEL = new ::org::apache::poi::sl::draw::binding::STShapeType(u"BEVEL"_j, 82, u"bevel"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::FRAME = new ::org::apache::poi::sl::draw::binding::STShapeType(u"FRAME"_j, 83, u"frame"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::HALF_FRAME = new ::org::apache::poi::sl::draw::binding::STShapeType(u"HALF_FRAME"_j, 84, u"halfFrame"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::CORNER = new ::org::apache::poi::sl::draw::binding::STShapeType(u"CORNER"_j, 85, u"corner"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::DIAG_STRIPE = new ::org::apache::poi::sl::draw::binding::STShapeType(u"DIAG_STRIPE"_j, 86, u"diagStripe"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::CHORD = new ::org::apache::poi::sl::draw::binding::STShapeType(u"CHORD"_j, 87, u"chord"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::ARC = new ::org::apache::poi::sl::draw::binding::STShapeType(u"ARC"_j, 88, u"arc"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::LEFT_BRACKET = new ::org::apache::poi::sl::draw::binding::STShapeType(u"LEFT_BRACKET"_j, 89, u"leftBracket"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::RIGHT_BRACKET = new ::org::apache::poi::sl::draw::binding::STShapeType(u"RIGHT_BRACKET"_j, 90, u"rightBracket"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::LEFT_BRACE = new ::org::apache::poi::sl::draw::binding::STShapeType(u"LEFT_BRACE"_j, 91, u"leftBrace"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::RIGHT_BRACE = new ::org::apache::poi::sl::draw::binding::STShapeType(u"RIGHT_BRACE"_j, 92, u"rightBrace"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::BRACKET_PAIR = new ::org::apache::poi::sl::draw::binding::STShapeType(u"BRACKET_PAIR"_j, 93, u"bracketPair"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::BRACE_PAIR = new ::org::apache::poi::sl::draw::binding::STShapeType(u"BRACE_PAIR"_j, 94, u"bracePair"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::STRAIGHT_CONNECTOR_1 = new ::org::apache::poi::sl::draw::binding::STShapeType(u"STRAIGHT_CONNECTOR_1"_j, 95, u"straightConnector1"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::BENT_CONNECTOR_2 = new ::org::apache::poi::sl::draw::binding::STShapeType(u"BENT_CONNECTOR_2"_j, 96, u"bentConnector2"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::BENT_CONNECTOR_3 = new ::org::apache::poi::sl::draw::binding::STShapeType(u"BENT_CONNECTOR_3"_j, 97, u"bentConnector3"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::BENT_CONNECTOR_4 = new ::org::apache::poi::sl::draw::binding::STShapeType(u"BENT_CONNECTOR_4"_j, 98, u"bentConnector4"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::BENT_CONNECTOR_5 = new ::org::apache::poi::sl::draw::binding::STShapeType(u"BENT_CONNECTOR_5"_j, 99, u"bentConnector5"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::CURVED_CONNECTOR_2 = new ::org::apache::poi::sl::draw::binding::STShapeType(u"CURVED_CONNECTOR_2"_j, 100, u"curvedConnector2"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::CURVED_CONNECTOR_3 = new ::org::apache::poi::sl::draw::binding::STShapeType(u"CURVED_CONNECTOR_3"_j, 101, u"curvedConnector3"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::CURVED_CONNECTOR_4 = new ::org::apache::poi::sl::draw::binding::STShapeType(u"CURVED_CONNECTOR_4"_j, 102, u"curvedConnector4"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::CURVED_CONNECTOR_5 = new ::org::apache::poi::sl::draw::binding::STShapeType(u"CURVED_CONNECTOR_5"_j, 103, u"curvedConnector5"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::CALLOUT_1 = new ::org::apache::poi::sl::draw::binding::STShapeType(u"CALLOUT_1"_j, 104, u"callout1"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::CALLOUT_2 = new ::org::apache::poi::sl::draw::binding::STShapeType(u"CALLOUT_2"_j, 105, u"callout2"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::CALLOUT_3 = new ::org::apache::poi::sl::draw::binding::STShapeType(u"CALLOUT_3"_j, 106, u"callout3"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::ACCENT_CALLOUT_1 = new ::org::apache::poi::sl::draw::binding::STShapeType(u"ACCENT_CALLOUT_1"_j, 107, u"accentCallout1"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::ACCENT_CALLOUT_2 = new ::org::apache::poi::sl::draw::binding::STShapeType(u"ACCENT_CALLOUT_2"_j, 108, u"accentCallout2"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::ACCENT_CALLOUT_3 = new ::org::apache::poi::sl::draw::binding::STShapeType(u"ACCENT_CALLOUT_3"_j, 109, u"accentCallout3"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::BORDER_CALLOUT_1 = new ::org::apache::poi::sl::draw::binding::STShapeType(u"BORDER_CALLOUT_1"_j, 110, u"borderCallout1"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::BORDER_CALLOUT_2 = new ::org::apache::poi::sl::draw::binding::STShapeType(u"BORDER_CALLOUT_2"_j, 111, u"borderCallout2"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::BORDER_CALLOUT_3 = new ::org::apache::poi::sl::draw::binding::STShapeType(u"BORDER_CALLOUT_3"_j, 112, u"borderCallout3"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::ACCENT_BORDER_CALLOUT_1 = new ::org::apache::poi::sl::draw::binding::STShapeType(u"ACCENT_BORDER_CALLOUT_1"_j, 113, u"accentBorderCallout1"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::ACCENT_BORDER_CALLOUT_2 = new ::org::apache::poi::sl::draw::binding::STShapeType(u"ACCENT_BORDER_CALLOUT_2"_j, 114, u"accentBorderCallout2"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::ACCENT_BORDER_CALLOUT_3 = new ::org::apache::poi::sl::draw::binding::STShapeType(u"ACCENT_BORDER_CALLOUT_3"_j, 115, u"accentBorderCallout3"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::WEDGE_RECT_CALLOUT = new ::org::apache::poi::sl::draw::binding::STShapeType(u"WEDGE_RECT_CALLOUT"_j, 116, u"wedgeRectCallout"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::WEDGE_ROUND_RECT_CALLOUT = new ::org::apache::poi::sl::draw::binding::STShapeType(u"WEDGE_ROUND_RECT_CALLOUT"_j, 117, u"wedgeRoundRectCallout"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::WEDGE_ELLIPSE_CALLOUT = new ::org::apache::poi::sl::draw::binding::STShapeType(u"WEDGE_ELLIPSE_CALLOUT"_j, 118, u"wedgeEllipseCallout"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::CLOUD_CALLOUT = new ::org::apache::poi::sl::draw::binding::STShapeType(u"CLOUD_CALLOUT"_j, 119, u"cloudCallout"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::CLOUD = new ::org::apache::poi::sl::draw::binding::STShapeType(u"CLOUD"_j, 120, u"cloud"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::RIBBON = new ::org::apache::poi::sl::draw::binding::STShapeType(u"RIBBON"_j, 121, u"ribbon"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::RIBBON_2 = new ::org::apache::poi::sl::draw::binding::STShapeType(u"RIBBON_2"_j, 122, u"ribbon2"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::ELLIPSE_RIBBON = new ::org::apache::poi::sl::draw::binding::STShapeType(u"ELLIPSE_RIBBON"_j, 123, u"ellipseRibbon"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::ELLIPSE_RIBBON_2 = new ::org::apache::poi::sl::draw::binding::STShapeType(u"ELLIPSE_RIBBON_2"_j, 124, u"ellipseRibbon2"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::LEFT_RIGHT_RIBBON = new ::org::apache::poi::sl::draw::binding::STShapeType(u"LEFT_RIGHT_RIBBON"_j, 125, u"leftRightRibbon"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::VERTICAL_SCROLL = new ::org::apache::poi::sl::draw::binding::STShapeType(u"VERTICAL_SCROLL"_j, 126, u"verticalScroll"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::HORIZONTAL_SCROLL = new ::org::apache::poi::sl::draw::binding::STShapeType(u"HORIZONTAL_SCROLL"_j, 127, u"horizontalScroll"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::WAVE = new ::org::apache::poi::sl::draw::binding::STShapeType(u"WAVE"_j, 128, u"wave"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::DOUBLE_WAVE = new ::org::apache::poi::sl::draw::binding::STShapeType(u"DOUBLE_WAVE"_j, 129, u"doubleWave"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::PLUS = new ::org::apache::poi::sl::draw::binding::STShapeType(u"PLUS"_j, 130, u"plus"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::FLOW_CHART_PROCESS = new ::org::apache::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_PROCESS"_j, 131, u"flowChartProcess"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::FLOW_CHART_DECISION = new ::org::apache::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_DECISION"_j, 132, u"flowChartDecision"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::FLOW_CHART_INPUT_OUTPUT = new ::org::apache::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_INPUT_OUTPUT"_j, 133, u"flowChartInputOutput"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::FLOW_CHART_PREDEFINED_PROCESS = new ::org::apache::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_PREDEFINED_PROCESS"_j, 134, u"flowChartPredefinedProcess"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::FLOW_CHART_INTERNAL_STORAGE = new ::org::apache::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_INTERNAL_STORAGE"_j, 135, u"flowChartInternalStorage"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::FLOW_CHART_DOCUMENT = new ::org::apache::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_DOCUMENT"_j, 136, u"flowChartDocument"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::FLOW_CHART_MULTIDOCUMENT = new ::org::apache::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_MULTIDOCUMENT"_j, 137, u"flowChartMultidocument"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::FLOW_CHART_TERMINATOR = new ::org::apache::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_TERMINATOR"_j, 138, u"flowChartTerminator"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::FLOW_CHART_PREPARATION = new ::org::apache::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_PREPARATION"_j, 139, u"flowChartPreparation"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::FLOW_CHART_MANUAL_INPUT = new ::org::apache::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_MANUAL_INPUT"_j, 140, u"flowChartManualInput"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::FLOW_CHART_MANUAL_OPERATION = new ::org::apache::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_MANUAL_OPERATION"_j, 141, u"flowChartManualOperation"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::FLOW_CHART_CONNECTOR = new ::org::apache::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_CONNECTOR"_j, 142, u"flowChartConnector"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::FLOW_CHART_PUNCHED_CARD = new ::org::apache::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_PUNCHED_CARD"_j, 143, u"flowChartPunchedCard"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::FLOW_CHART_PUNCHED_TAPE = new ::org::apache::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_PUNCHED_TAPE"_j, 144, u"flowChartPunchedTape"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::FLOW_CHART_SUMMING_JUNCTION = new ::org::apache::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_SUMMING_JUNCTION"_j, 145, u"flowChartSummingJunction"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::FLOW_CHART_OR = new ::org::apache::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_OR"_j, 146, u"flowChartOr"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::FLOW_CHART_COLLATE = new ::org::apache::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_COLLATE"_j, 147, u"flowChartCollate"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::FLOW_CHART_SORT = new ::org::apache::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_SORT"_j, 148, u"flowChartSort"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::FLOW_CHART_EXTRACT = new ::org::apache::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_EXTRACT"_j, 149, u"flowChartExtract"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::FLOW_CHART_MERGE = new ::org::apache::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_MERGE"_j, 150, u"flowChartMerge"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::FLOW_CHART_OFFLINE_STORAGE = new ::org::apache::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_OFFLINE_STORAGE"_j, 151, u"flowChartOfflineStorage"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::FLOW_CHART_ONLINE_STORAGE = new ::org::apache::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_ONLINE_STORAGE"_j, 152, u"flowChartOnlineStorage"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::FLOW_CHART_MAGNETIC_TAPE = new ::org::apache::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_MAGNETIC_TAPE"_j, 153, u"flowChartMagneticTape"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::FLOW_CHART_MAGNETIC_DISK = new ::org::apache::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_MAGNETIC_DISK"_j, 154, u"flowChartMagneticDisk"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::FLOW_CHART_MAGNETIC_DRUM = new ::org::apache::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_MAGNETIC_DRUM"_j, 155, u"flowChartMagneticDrum"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::FLOW_CHART_DISPLAY = new ::org::apache::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_DISPLAY"_j, 156, u"flowChartDisplay"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::FLOW_CHART_DELAY = new ::org::apache::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_DELAY"_j, 157, u"flowChartDelay"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::FLOW_CHART_ALTERNATE_PROCESS = new ::org::apache::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_ALTERNATE_PROCESS"_j, 158, u"flowChartAlternateProcess"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::FLOW_CHART_OFFPAGE_CONNECTOR = new ::org::apache::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_OFFPAGE_CONNECTOR"_j, 159, u"flowChartOffpageConnector"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::ACTION_BUTTON_BLANK = new ::org::apache::poi::sl::draw::binding::STShapeType(u"ACTION_BUTTON_BLANK"_j, 160, u"actionButtonBlank"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::ACTION_BUTTON_HOME = new ::org::apache::poi::sl::draw::binding::STShapeType(u"ACTION_BUTTON_HOME"_j, 161, u"actionButtonHome"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::ACTION_BUTTON_HELP = new ::org::apache::poi::sl::draw::binding::STShapeType(u"ACTION_BUTTON_HELP"_j, 162, u"actionButtonHelp"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::ACTION_BUTTON_INFORMATION = new ::org::apache::poi::sl::draw::binding::STShapeType(u"ACTION_BUTTON_INFORMATION"_j, 163, u"actionButtonInformation"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::ACTION_BUTTON_FORWARD_NEXT = new ::org::apache::poi::sl::draw::binding::STShapeType(u"ACTION_BUTTON_FORWARD_NEXT"_j, 164, u"actionButtonForwardNext"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::ACTION_BUTTON_BACK_PREVIOUS = new ::org::apache::poi::sl::draw::binding::STShapeType(u"ACTION_BUTTON_BACK_PREVIOUS"_j, 165, u"actionButtonBackPrevious"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::ACTION_BUTTON_END = new ::org::apache::poi::sl::draw::binding::STShapeType(u"ACTION_BUTTON_END"_j, 166, u"actionButtonEnd"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::ACTION_BUTTON_BEGINNING = new ::org::apache::poi::sl::draw::binding::STShapeType(u"ACTION_BUTTON_BEGINNING"_j, 167, u"actionButtonBeginning"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::ACTION_BUTTON_RETURN = new ::org::apache::poi::sl::draw::binding::STShapeType(u"ACTION_BUTTON_RETURN"_j, 168, u"actionButtonReturn"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::ACTION_BUTTON_DOCUMENT = new ::org::apache::poi::sl::draw::binding::STShapeType(u"ACTION_BUTTON_DOCUMENT"_j, 169, u"actionButtonDocument"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::ACTION_BUTTON_SOUND = new ::org::apache::poi::sl::draw::binding::STShapeType(u"ACTION_BUTTON_SOUND"_j, 170, u"actionButtonSound"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::ACTION_BUTTON_MOVIE = new ::org::apache::poi::sl::draw::binding::STShapeType(u"ACTION_BUTTON_MOVIE"_j, 171, u"actionButtonMovie"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::GEAR_6 = new ::org::apache::poi::sl::draw::binding::STShapeType(u"GEAR_6"_j, 172, u"gear6"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::GEAR_9 = new ::org::apache::poi::sl::draw::binding::STShapeType(u"GEAR_9"_j, 173, u"gear9"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::FUNNEL = new ::org::apache::poi::sl::draw::binding::STShapeType(u"FUNNEL"_j, 174, u"funnel"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::MATH_PLUS = new ::org::apache::poi::sl::draw::binding::STShapeType(u"MATH_PLUS"_j, 175, u"mathPlus"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::MATH_MINUS = new ::org::apache::poi::sl::draw::binding::STShapeType(u"MATH_MINUS"_j, 176, u"mathMinus"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::MATH_MULTIPLY = new ::org::apache::poi::sl::draw::binding::STShapeType(u"MATH_MULTIPLY"_j, 177, u"mathMultiply"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::MATH_DIVIDE = new ::org::apache::poi::sl::draw::binding::STShapeType(u"MATH_DIVIDE"_j, 178, u"mathDivide"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::MATH_EQUAL = new ::org::apache::poi::sl::draw::binding::STShapeType(u"MATH_EQUAL"_j, 179, u"mathEqual"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::MATH_NOT_EQUAL = new ::org::apache::poi::sl::draw::binding::STShapeType(u"MATH_NOT_EQUAL"_j, 180, u"mathNotEqual"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::CORNER_TABS = new ::org::apache::poi::sl::draw::binding::STShapeType(u"CORNER_TABS"_j, 181, u"cornerTabs"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::SQUARE_TABS = new ::org::apache::poi::sl::draw::binding::STShapeType(u"SQUARE_TABS"_j, 182, u"squareTabs"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::PLAQUE_TABS = new ::org::apache::poi::sl::draw::binding::STShapeType(u"PLAQUE_TABS"_j, 183, u"plaqueTabs"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::CHART_X = new ::org::apache::poi::sl::draw::binding::STShapeType(u"CHART_X"_j, 184, u"chartX"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::CHART_STAR = new ::org::apache::poi::sl::draw::binding::STShapeType(u"CHART_STAR"_j, 185, u"chartStar"_j);
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::CHART_PLUS = new ::org::apache::poi::sl::draw::binding::STShapeType(u"CHART_PLUS"_j, 186, u"chartPlus"_j);
-void org::apache::poi::sl::draw::binding::STShapeType::ctor(::java::lang::String* name, int ordinal, ::java::lang::String* v)
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::LINE = new ::poi::sl::draw::binding::STShapeType(u"LINE"_j, 0, u"line"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::LINE_INV = new ::poi::sl::draw::binding::STShapeType(u"LINE_INV"_j, 1, u"lineInv"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::TRIANGLE = new ::poi::sl::draw::binding::STShapeType(u"TRIANGLE"_j, 2, u"triangle"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::RT_TRIANGLE = new ::poi::sl::draw::binding::STShapeType(u"RT_TRIANGLE"_j, 3, u"rtTriangle"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::RECT = new ::poi::sl::draw::binding::STShapeType(u"RECT"_j, 4, u"rect"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::DIAMOND = new ::poi::sl::draw::binding::STShapeType(u"DIAMOND"_j, 5, u"diamond"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::PARALLELOGRAM = new ::poi::sl::draw::binding::STShapeType(u"PARALLELOGRAM"_j, 6, u"parallelogram"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::TRAPEZOID = new ::poi::sl::draw::binding::STShapeType(u"TRAPEZOID"_j, 7, u"trapezoid"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::NON_ISOSCELES_TRAPEZOID = new ::poi::sl::draw::binding::STShapeType(u"NON_ISOSCELES_TRAPEZOID"_j, 8, u"nonIsoscelesTrapezoid"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::PENTAGON = new ::poi::sl::draw::binding::STShapeType(u"PENTAGON"_j, 9, u"pentagon"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::HEXAGON = new ::poi::sl::draw::binding::STShapeType(u"HEXAGON"_j, 10, u"hexagon"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::HEPTAGON = new ::poi::sl::draw::binding::STShapeType(u"HEPTAGON"_j, 11, u"heptagon"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::OCTAGON = new ::poi::sl::draw::binding::STShapeType(u"OCTAGON"_j, 12, u"octagon"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::DECAGON = new ::poi::sl::draw::binding::STShapeType(u"DECAGON"_j, 13, u"decagon"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::DODECAGON = new ::poi::sl::draw::binding::STShapeType(u"DODECAGON"_j, 14, u"dodecagon"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::STAR_4 = new ::poi::sl::draw::binding::STShapeType(u"STAR_4"_j, 15, u"star4"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::STAR_5 = new ::poi::sl::draw::binding::STShapeType(u"STAR_5"_j, 16, u"star5"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::STAR_6 = new ::poi::sl::draw::binding::STShapeType(u"STAR_6"_j, 17, u"star6"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::STAR_7 = new ::poi::sl::draw::binding::STShapeType(u"STAR_7"_j, 18, u"star7"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::STAR_8 = new ::poi::sl::draw::binding::STShapeType(u"STAR_8"_j, 19, u"star8"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::STAR_10 = new ::poi::sl::draw::binding::STShapeType(u"STAR_10"_j, 20, u"star10"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::STAR_12 = new ::poi::sl::draw::binding::STShapeType(u"STAR_12"_j, 21, u"star12"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::STAR_16 = new ::poi::sl::draw::binding::STShapeType(u"STAR_16"_j, 22, u"star16"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::STAR_24 = new ::poi::sl::draw::binding::STShapeType(u"STAR_24"_j, 23, u"star24"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::STAR_32 = new ::poi::sl::draw::binding::STShapeType(u"STAR_32"_j, 24, u"star32"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::ROUND_RECT = new ::poi::sl::draw::binding::STShapeType(u"ROUND_RECT"_j, 25, u"roundRect"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::ROUND_1_RECT = new ::poi::sl::draw::binding::STShapeType(u"ROUND_1_RECT"_j, 26, u"round1Rect"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::ROUND_2_SAME_RECT = new ::poi::sl::draw::binding::STShapeType(u"ROUND_2_SAME_RECT"_j, 27, u"round2SameRect"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::ROUND_2_DIAG_RECT = new ::poi::sl::draw::binding::STShapeType(u"ROUND_2_DIAG_RECT"_j, 28, u"round2DiagRect"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::SNIP_ROUND_RECT = new ::poi::sl::draw::binding::STShapeType(u"SNIP_ROUND_RECT"_j, 29, u"snipRoundRect"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::SNIP_1_RECT = new ::poi::sl::draw::binding::STShapeType(u"SNIP_1_RECT"_j, 30, u"snip1Rect"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::SNIP_2_SAME_RECT = new ::poi::sl::draw::binding::STShapeType(u"SNIP_2_SAME_RECT"_j, 31, u"snip2SameRect"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::SNIP_2_DIAG_RECT = new ::poi::sl::draw::binding::STShapeType(u"SNIP_2_DIAG_RECT"_j, 32, u"snip2DiagRect"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::PLAQUE = new ::poi::sl::draw::binding::STShapeType(u"PLAQUE"_j, 33, u"plaque"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::ELLIPSE = new ::poi::sl::draw::binding::STShapeType(u"ELLIPSE"_j, 34, u"ellipse"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::TEARDROP = new ::poi::sl::draw::binding::STShapeType(u"TEARDROP"_j, 35, u"teardrop"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::HOME_PLATE = new ::poi::sl::draw::binding::STShapeType(u"HOME_PLATE"_j, 36, u"homePlate"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::CHEVRON = new ::poi::sl::draw::binding::STShapeType(u"CHEVRON"_j, 37, u"chevron"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::PIE_WEDGE = new ::poi::sl::draw::binding::STShapeType(u"PIE_WEDGE"_j, 38, u"pieWedge"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::PIE = new ::poi::sl::draw::binding::STShapeType(u"PIE"_j, 39, u"pie"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::BLOCK_ARC = new ::poi::sl::draw::binding::STShapeType(u"BLOCK_ARC"_j, 40, u"blockArc"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::DONUT = new ::poi::sl::draw::binding::STShapeType(u"DONUT"_j, 41, u"donut"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::NO_SMOKING = new ::poi::sl::draw::binding::STShapeType(u"NO_SMOKING"_j, 42, u"noSmoking"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::RIGHT_ARROW = new ::poi::sl::draw::binding::STShapeType(u"RIGHT_ARROW"_j, 43, u"rightArrow"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::LEFT_ARROW = new ::poi::sl::draw::binding::STShapeType(u"LEFT_ARROW"_j, 44, u"leftArrow"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::UP_ARROW = new ::poi::sl::draw::binding::STShapeType(u"UP_ARROW"_j, 45, u"upArrow"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::DOWN_ARROW = new ::poi::sl::draw::binding::STShapeType(u"DOWN_ARROW"_j, 46, u"downArrow"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::STRIPED_RIGHT_ARROW = new ::poi::sl::draw::binding::STShapeType(u"STRIPED_RIGHT_ARROW"_j, 47, u"stripedRightArrow"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::NOTCHED_RIGHT_ARROW = new ::poi::sl::draw::binding::STShapeType(u"NOTCHED_RIGHT_ARROW"_j, 48, u"notchedRightArrow"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::BENT_UP_ARROW = new ::poi::sl::draw::binding::STShapeType(u"BENT_UP_ARROW"_j, 49, u"bentUpArrow"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::LEFT_RIGHT_ARROW = new ::poi::sl::draw::binding::STShapeType(u"LEFT_RIGHT_ARROW"_j, 50, u"leftRightArrow"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::UP_DOWN_ARROW = new ::poi::sl::draw::binding::STShapeType(u"UP_DOWN_ARROW"_j, 51, u"upDownArrow"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::LEFT_UP_ARROW = new ::poi::sl::draw::binding::STShapeType(u"LEFT_UP_ARROW"_j, 52, u"leftUpArrow"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::LEFT_RIGHT_UP_ARROW = new ::poi::sl::draw::binding::STShapeType(u"LEFT_RIGHT_UP_ARROW"_j, 53, u"leftRightUpArrow"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::QUAD_ARROW = new ::poi::sl::draw::binding::STShapeType(u"QUAD_ARROW"_j, 54, u"quadArrow"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::LEFT_ARROW_CALLOUT = new ::poi::sl::draw::binding::STShapeType(u"LEFT_ARROW_CALLOUT"_j, 55, u"leftArrowCallout"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::RIGHT_ARROW_CALLOUT = new ::poi::sl::draw::binding::STShapeType(u"RIGHT_ARROW_CALLOUT"_j, 56, u"rightArrowCallout"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::UP_ARROW_CALLOUT = new ::poi::sl::draw::binding::STShapeType(u"UP_ARROW_CALLOUT"_j, 57, u"upArrowCallout"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::DOWN_ARROW_CALLOUT = new ::poi::sl::draw::binding::STShapeType(u"DOWN_ARROW_CALLOUT"_j, 58, u"downArrowCallout"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::LEFT_RIGHT_ARROW_CALLOUT = new ::poi::sl::draw::binding::STShapeType(u"LEFT_RIGHT_ARROW_CALLOUT"_j, 59, u"leftRightArrowCallout"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::UP_DOWN_ARROW_CALLOUT = new ::poi::sl::draw::binding::STShapeType(u"UP_DOWN_ARROW_CALLOUT"_j, 60, u"upDownArrowCallout"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::QUAD_ARROW_CALLOUT = new ::poi::sl::draw::binding::STShapeType(u"QUAD_ARROW_CALLOUT"_j, 61, u"quadArrowCallout"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::BENT_ARROW = new ::poi::sl::draw::binding::STShapeType(u"BENT_ARROW"_j, 62, u"bentArrow"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::UTURN_ARROW = new ::poi::sl::draw::binding::STShapeType(u"UTURN_ARROW"_j, 63, u"uturnArrow"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::CIRCULAR_ARROW = new ::poi::sl::draw::binding::STShapeType(u"CIRCULAR_ARROW"_j, 64, u"circularArrow"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::LEFT_CIRCULAR_ARROW = new ::poi::sl::draw::binding::STShapeType(u"LEFT_CIRCULAR_ARROW"_j, 65, u"leftCircularArrow"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::LEFT_RIGHT_CIRCULAR_ARROW = new ::poi::sl::draw::binding::STShapeType(u"LEFT_RIGHT_CIRCULAR_ARROW"_j, 66, u"leftRightCircularArrow"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::CURVED_RIGHT_ARROW = new ::poi::sl::draw::binding::STShapeType(u"CURVED_RIGHT_ARROW"_j, 67, u"curvedRightArrow"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::CURVED_LEFT_ARROW = new ::poi::sl::draw::binding::STShapeType(u"CURVED_LEFT_ARROW"_j, 68, u"curvedLeftArrow"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::CURVED_UP_ARROW = new ::poi::sl::draw::binding::STShapeType(u"CURVED_UP_ARROW"_j, 69, u"curvedUpArrow"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::CURVED_DOWN_ARROW = new ::poi::sl::draw::binding::STShapeType(u"CURVED_DOWN_ARROW"_j, 70, u"curvedDownArrow"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::SWOOSH_ARROW = new ::poi::sl::draw::binding::STShapeType(u"SWOOSH_ARROW"_j, 71, u"swooshArrow"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::CUBE = new ::poi::sl::draw::binding::STShapeType(u"CUBE"_j, 72, u"cube"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::CAN = new ::poi::sl::draw::binding::STShapeType(u"CAN"_j, 73, u"can"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::LIGHTNING_BOLT = new ::poi::sl::draw::binding::STShapeType(u"LIGHTNING_BOLT"_j, 74, u"lightningBolt"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::HEART = new ::poi::sl::draw::binding::STShapeType(u"HEART"_j, 75, u"heart"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::SUN = new ::poi::sl::draw::binding::STShapeType(u"SUN"_j, 76, u"sun"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::MOON = new ::poi::sl::draw::binding::STShapeType(u"MOON"_j, 77, u"moon"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::SMILEY_FACE = new ::poi::sl::draw::binding::STShapeType(u"SMILEY_FACE"_j, 78, u"smileyFace"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::IRREGULAR_SEAL_1 = new ::poi::sl::draw::binding::STShapeType(u"IRREGULAR_SEAL_1"_j, 79, u"irregularSeal1"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::IRREGULAR_SEAL_2 = new ::poi::sl::draw::binding::STShapeType(u"IRREGULAR_SEAL_2"_j, 80, u"irregularSeal2"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::FOLDED_CORNER = new ::poi::sl::draw::binding::STShapeType(u"FOLDED_CORNER"_j, 81, u"foldedCorner"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::BEVEL = new ::poi::sl::draw::binding::STShapeType(u"BEVEL"_j, 82, u"bevel"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::FRAME = new ::poi::sl::draw::binding::STShapeType(u"FRAME"_j, 83, u"frame"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::HALF_FRAME = new ::poi::sl::draw::binding::STShapeType(u"HALF_FRAME"_j, 84, u"halfFrame"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::CORNER = new ::poi::sl::draw::binding::STShapeType(u"CORNER"_j, 85, u"corner"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::DIAG_STRIPE = new ::poi::sl::draw::binding::STShapeType(u"DIAG_STRIPE"_j, 86, u"diagStripe"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::CHORD = new ::poi::sl::draw::binding::STShapeType(u"CHORD"_j, 87, u"chord"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::ARC = new ::poi::sl::draw::binding::STShapeType(u"ARC"_j, 88, u"arc"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::LEFT_BRACKET = new ::poi::sl::draw::binding::STShapeType(u"LEFT_BRACKET"_j, 89, u"leftBracket"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::RIGHT_BRACKET = new ::poi::sl::draw::binding::STShapeType(u"RIGHT_BRACKET"_j, 90, u"rightBracket"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::LEFT_BRACE = new ::poi::sl::draw::binding::STShapeType(u"LEFT_BRACE"_j, 91, u"leftBrace"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::RIGHT_BRACE = new ::poi::sl::draw::binding::STShapeType(u"RIGHT_BRACE"_j, 92, u"rightBrace"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::BRACKET_PAIR = new ::poi::sl::draw::binding::STShapeType(u"BRACKET_PAIR"_j, 93, u"bracketPair"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::BRACE_PAIR = new ::poi::sl::draw::binding::STShapeType(u"BRACE_PAIR"_j, 94, u"bracePair"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::STRAIGHT_CONNECTOR_1 = new ::poi::sl::draw::binding::STShapeType(u"STRAIGHT_CONNECTOR_1"_j, 95, u"straightConnector1"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::BENT_CONNECTOR_2 = new ::poi::sl::draw::binding::STShapeType(u"BENT_CONNECTOR_2"_j, 96, u"bentConnector2"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::BENT_CONNECTOR_3 = new ::poi::sl::draw::binding::STShapeType(u"BENT_CONNECTOR_3"_j, 97, u"bentConnector3"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::BENT_CONNECTOR_4 = new ::poi::sl::draw::binding::STShapeType(u"BENT_CONNECTOR_4"_j, 98, u"bentConnector4"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::BENT_CONNECTOR_5 = new ::poi::sl::draw::binding::STShapeType(u"BENT_CONNECTOR_5"_j, 99, u"bentConnector5"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::CURVED_CONNECTOR_2 = new ::poi::sl::draw::binding::STShapeType(u"CURVED_CONNECTOR_2"_j, 100, u"curvedConnector2"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::CURVED_CONNECTOR_3 = new ::poi::sl::draw::binding::STShapeType(u"CURVED_CONNECTOR_3"_j, 101, u"curvedConnector3"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::CURVED_CONNECTOR_4 = new ::poi::sl::draw::binding::STShapeType(u"CURVED_CONNECTOR_4"_j, 102, u"curvedConnector4"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::CURVED_CONNECTOR_5 = new ::poi::sl::draw::binding::STShapeType(u"CURVED_CONNECTOR_5"_j, 103, u"curvedConnector5"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::CALLOUT_1 = new ::poi::sl::draw::binding::STShapeType(u"CALLOUT_1"_j, 104, u"callout1"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::CALLOUT_2 = new ::poi::sl::draw::binding::STShapeType(u"CALLOUT_2"_j, 105, u"callout2"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::CALLOUT_3 = new ::poi::sl::draw::binding::STShapeType(u"CALLOUT_3"_j, 106, u"callout3"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::ACCENT_CALLOUT_1 = new ::poi::sl::draw::binding::STShapeType(u"ACCENT_CALLOUT_1"_j, 107, u"accentCallout1"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::ACCENT_CALLOUT_2 = new ::poi::sl::draw::binding::STShapeType(u"ACCENT_CALLOUT_2"_j, 108, u"accentCallout2"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::ACCENT_CALLOUT_3 = new ::poi::sl::draw::binding::STShapeType(u"ACCENT_CALLOUT_3"_j, 109, u"accentCallout3"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::BORDER_CALLOUT_1 = new ::poi::sl::draw::binding::STShapeType(u"BORDER_CALLOUT_1"_j, 110, u"borderCallout1"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::BORDER_CALLOUT_2 = new ::poi::sl::draw::binding::STShapeType(u"BORDER_CALLOUT_2"_j, 111, u"borderCallout2"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::BORDER_CALLOUT_3 = new ::poi::sl::draw::binding::STShapeType(u"BORDER_CALLOUT_3"_j, 112, u"borderCallout3"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::ACCENT_BORDER_CALLOUT_1 = new ::poi::sl::draw::binding::STShapeType(u"ACCENT_BORDER_CALLOUT_1"_j, 113, u"accentBorderCallout1"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::ACCENT_BORDER_CALLOUT_2 = new ::poi::sl::draw::binding::STShapeType(u"ACCENT_BORDER_CALLOUT_2"_j, 114, u"accentBorderCallout2"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::ACCENT_BORDER_CALLOUT_3 = new ::poi::sl::draw::binding::STShapeType(u"ACCENT_BORDER_CALLOUT_3"_j, 115, u"accentBorderCallout3"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::WEDGE_RECT_CALLOUT = new ::poi::sl::draw::binding::STShapeType(u"WEDGE_RECT_CALLOUT"_j, 116, u"wedgeRectCallout"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::WEDGE_ROUND_RECT_CALLOUT = new ::poi::sl::draw::binding::STShapeType(u"WEDGE_ROUND_RECT_CALLOUT"_j, 117, u"wedgeRoundRectCallout"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::WEDGE_ELLIPSE_CALLOUT = new ::poi::sl::draw::binding::STShapeType(u"WEDGE_ELLIPSE_CALLOUT"_j, 118, u"wedgeEllipseCallout"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::CLOUD_CALLOUT = new ::poi::sl::draw::binding::STShapeType(u"CLOUD_CALLOUT"_j, 119, u"cloudCallout"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::CLOUD = new ::poi::sl::draw::binding::STShapeType(u"CLOUD"_j, 120, u"cloud"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::RIBBON = new ::poi::sl::draw::binding::STShapeType(u"RIBBON"_j, 121, u"ribbon"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::RIBBON_2 = new ::poi::sl::draw::binding::STShapeType(u"RIBBON_2"_j, 122, u"ribbon2"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::ELLIPSE_RIBBON = new ::poi::sl::draw::binding::STShapeType(u"ELLIPSE_RIBBON"_j, 123, u"ellipseRibbon"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::ELLIPSE_RIBBON_2 = new ::poi::sl::draw::binding::STShapeType(u"ELLIPSE_RIBBON_2"_j, 124, u"ellipseRibbon2"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::LEFT_RIGHT_RIBBON = new ::poi::sl::draw::binding::STShapeType(u"LEFT_RIGHT_RIBBON"_j, 125, u"leftRightRibbon"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::VERTICAL_SCROLL = new ::poi::sl::draw::binding::STShapeType(u"VERTICAL_SCROLL"_j, 126, u"verticalScroll"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::HORIZONTAL_SCROLL = new ::poi::sl::draw::binding::STShapeType(u"HORIZONTAL_SCROLL"_j, 127, u"horizontalScroll"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::WAVE = new ::poi::sl::draw::binding::STShapeType(u"WAVE"_j, 128, u"wave"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::DOUBLE_WAVE = new ::poi::sl::draw::binding::STShapeType(u"DOUBLE_WAVE"_j, 129, u"doubleWave"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::PLUS = new ::poi::sl::draw::binding::STShapeType(u"PLUS"_j, 130, u"plus"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::FLOW_CHART_PROCESS = new ::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_PROCESS"_j, 131, u"flowChartProcess"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::FLOW_CHART_DECISION = new ::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_DECISION"_j, 132, u"flowChartDecision"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::FLOW_CHART_INPUT_OUTPUT = new ::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_INPUT_OUTPUT"_j, 133, u"flowChartInputOutput"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::FLOW_CHART_PREDEFINED_PROCESS = new ::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_PREDEFINED_PROCESS"_j, 134, u"flowChartPredefinedProcess"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::FLOW_CHART_INTERNAL_STORAGE = new ::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_INTERNAL_STORAGE"_j, 135, u"flowChartInternalStorage"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::FLOW_CHART_DOCUMENT = new ::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_DOCUMENT"_j, 136, u"flowChartDocument"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::FLOW_CHART_MULTIDOCUMENT = new ::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_MULTIDOCUMENT"_j, 137, u"flowChartMultidocument"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::FLOW_CHART_TERMINATOR = new ::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_TERMINATOR"_j, 138, u"flowChartTerminator"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::FLOW_CHART_PREPARATION = new ::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_PREPARATION"_j, 139, u"flowChartPreparation"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::FLOW_CHART_MANUAL_INPUT = new ::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_MANUAL_INPUT"_j, 140, u"flowChartManualInput"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::FLOW_CHART_MANUAL_OPERATION = new ::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_MANUAL_OPERATION"_j, 141, u"flowChartManualOperation"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::FLOW_CHART_CONNECTOR = new ::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_CONNECTOR"_j, 142, u"flowChartConnector"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::FLOW_CHART_PUNCHED_CARD = new ::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_PUNCHED_CARD"_j, 143, u"flowChartPunchedCard"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::FLOW_CHART_PUNCHED_TAPE = new ::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_PUNCHED_TAPE"_j, 144, u"flowChartPunchedTape"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::FLOW_CHART_SUMMING_JUNCTION = new ::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_SUMMING_JUNCTION"_j, 145, u"flowChartSummingJunction"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::FLOW_CHART_OR = new ::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_OR"_j, 146, u"flowChartOr"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::FLOW_CHART_COLLATE = new ::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_COLLATE"_j, 147, u"flowChartCollate"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::FLOW_CHART_SORT = new ::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_SORT"_j, 148, u"flowChartSort"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::FLOW_CHART_EXTRACT = new ::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_EXTRACT"_j, 149, u"flowChartExtract"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::FLOW_CHART_MERGE = new ::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_MERGE"_j, 150, u"flowChartMerge"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::FLOW_CHART_OFFLINE_STORAGE = new ::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_OFFLINE_STORAGE"_j, 151, u"flowChartOfflineStorage"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::FLOW_CHART_ONLINE_STORAGE = new ::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_ONLINE_STORAGE"_j, 152, u"flowChartOnlineStorage"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::FLOW_CHART_MAGNETIC_TAPE = new ::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_MAGNETIC_TAPE"_j, 153, u"flowChartMagneticTape"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::FLOW_CHART_MAGNETIC_DISK = new ::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_MAGNETIC_DISK"_j, 154, u"flowChartMagneticDisk"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::FLOW_CHART_MAGNETIC_DRUM = new ::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_MAGNETIC_DRUM"_j, 155, u"flowChartMagneticDrum"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::FLOW_CHART_DISPLAY = new ::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_DISPLAY"_j, 156, u"flowChartDisplay"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::FLOW_CHART_DELAY = new ::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_DELAY"_j, 157, u"flowChartDelay"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::FLOW_CHART_ALTERNATE_PROCESS = new ::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_ALTERNATE_PROCESS"_j, 158, u"flowChartAlternateProcess"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::FLOW_CHART_OFFPAGE_CONNECTOR = new ::poi::sl::draw::binding::STShapeType(u"FLOW_CHART_OFFPAGE_CONNECTOR"_j, 159, u"flowChartOffpageConnector"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::ACTION_BUTTON_BLANK = new ::poi::sl::draw::binding::STShapeType(u"ACTION_BUTTON_BLANK"_j, 160, u"actionButtonBlank"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::ACTION_BUTTON_HOME = new ::poi::sl::draw::binding::STShapeType(u"ACTION_BUTTON_HOME"_j, 161, u"actionButtonHome"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::ACTION_BUTTON_HELP = new ::poi::sl::draw::binding::STShapeType(u"ACTION_BUTTON_HELP"_j, 162, u"actionButtonHelp"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::ACTION_BUTTON_INFORMATION = new ::poi::sl::draw::binding::STShapeType(u"ACTION_BUTTON_INFORMATION"_j, 163, u"actionButtonInformation"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::ACTION_BUTTON_FORWARD_NEXT = new ::poi::sl::draw::binding::STShapeType(u"ACTION_BUTTON_FORWARD_NEXT"_j, 164, u"actionButtonForwardNext"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::ACTION_BUTTON_BACK_PREVIOUS = new ::poi::sl::draw::binding::STShapeType(u"ACTION_BUTTON_BACK_PREVIOUS"_j, 165, u"actionButtonBackPrevious"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::ACTION_BUTTON_END = new ::poi::sl::draw::binding::STShapeType(u"ACTION_BUTTON_END"_j, 166, u"actionButtonEnd"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::ACTION_BUTTON_BEGINNING = new ::poi::sl::draw::binding::STShapeType(u"ACTION_BUTTON_BEGINNING"_j, 167, u"actionButtonBeginning"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::ACTION_BUTTON_RETURN = new ::poi::sl::draw::binding::STShapeType(u"ACTION_BUTTON_RETURN"_j, 168, u"actionButtonReturn"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::ACTION_BUTTON_DOCUMENT = new ::poi::sl::draw::binding::STShapeType(u"ACTION_BUTTON_DOCUMENT"_j, 169, u"actionButtonDocument"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::ACTION_BUTTON_SOUND = new ::poi::sl::draw::binding::STShapeType(u"ACTION_BUTTON_SOUND"_j, 170, u"actionButtonSound"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::ACTION_BUTTON_MOVIE = new ::poi::sl::draw::binding::STShapeType(u"ACTION_BUTTON_MOVIE"_j, 171, u"actionButtonMovie"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::GEAR_6 = new ::poi::sl::draw::binding::STShapeType(u"GEAR_6"_j, 172, u"gear6"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::GEAR_9 = new ::poi::sl::draw::binding::STShapeType(u"GEAR_9"_j, 173, u"gear9"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::FUNNEL = new ::poi::sl::draw::binding::STShapeType(u"FUNNEL"_j, 174, u"funnel"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::MATH_PLUS = new ::poi::sl::draw::binding::STShapeType(u"MATH_PLUS"_j, 175, u"mathPlus"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::MATH_MINUS = new ::poi::sl::draw::binding::STShapeType(u"MATH_MINUS"_j, 176, u"mathMinus"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::MATH_MULTIPLY = new ::poi::sl::draw::binding::STShapeType(u"MATH_MULTIPLY"_j, 177, u"mathMultiply"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::MATH_DIVIDE = new ::poi::sl::draw::binding::STShapeType(u"MATH_DIVIDE"_j, 178, u"mathDivide"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::MATH_EQUAL = new ::poi::sl::draw::binding::STShapeType(u"MATH_EQUAL"_j, 179, u"mathEqual"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::MATH_NOT_EQUAL = new ::poi::sl::draw::binding::STShapeType(u"MATH_NOT_EQUAL"_j, 180, u"mathNotEqual"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::CORNER_TABS = new ::poi::sl::draw::binding::STShapeType(u"CORNER_TABS"_j, 181, u"cornerTabs"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::SQUARE_TABS = new ::poi::sl::draw::binding::STShapeType(u"SQUARE_TABS"_j, 182, u"squareTabs"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::PLAQUE_TABS = new ::poi::sl::draw::binding::STShapeType(u"PLAQUE_TABS"_j, 183, u"plaqueTabs"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::CHART_X = new ::poi::sl::draw::binding::STShapeType(u"CHART_X"_j, 184, u"chartX"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::CHART_STAR = new ::poi::sl::draw::binding::STShapeType(u"CHART_STAR"_j, 185, u"chartStar"_j);
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::CHART_PLUS = new ::poi::sl::draw::binding::STShapeType(u"CHART_PLUS"_j, 186, u"chartPlus"_j);
+void poi::sl::draw::binding::STShapeType::ctor(::java::lang::String* name, int ordinal, ::java::lang::String* v)
 {
     super::ctor(name, ordinal);
     value_ = v;
 }
 
-java::lang::String* org::apache::poi::sl::draw::binding::STShapeType::value()
+java::lang::String* poi::sl::draw::binding::STShapeType::value()
 {
     return value_;
 }
 
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::fromValue(::java::lang::String* v)
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::fromValue(::java::lang::String* v)
 {
     clinit();
     for(auto c : *npc(STShapeType::values())) {
@@ -277,13 +271,13 @@ org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::bi
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::draw::binding::STShapeType::class_()
+java::lang::Class* poi::sl::draw::binding::STShapeType::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.draw.binding.STShapeType", 42);
     return c;
 }
 
-org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::binding::STShapeType::valueOf(::java::lang::String* a0)
+poi::sl::draw::binding::STShapeType* poi::sl::draw::binding::STShapeType::valueOf(::java::lang::String* a0)
 {
     if(ACCENT_BORDER_CALLOUT_1->toString()->equals(a0))
         return ACCENT_BORDER_CALLOUT_1;
@@ -662,9 +656,9 @@ org::apache::poi::sl::draw::binding::STShapeType* org::apache::poi::sl::draw::bi
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::sl::draw::binding::STShapeTypeArray* org::apache::poi::sl::draw::binding::STShapeType::values()
+poi::sl::draw::binding::STShapeTypeArray* poi::sl::draw::binding::STShapeType::values()
 {
-    return new org::apache::poi::sl::draw::binding::STShapeTypeArray({
+    return new poi::sl::draw::binding::STShapeTypeArray({
         ACCENT_BORDER_CALLOUT_1,
         ACCENT_BORDER_CALLOUT_2,
         ACCENT_BORDER_CALLOUT_3,
@@ -855,7 +849,7 @@ org::apache::poi::sl::draw::binding::STShapeTypeArray* org::apache::poi::sl::dra
     });
 }
 
-java::lang::Class* org::apache::poi::sl::draw::binding::STShapeType::getClass0()
+java::lang::Class* poi::sl::draw::binding::STShapeType::getClass0()
 {
     return class_();
 }

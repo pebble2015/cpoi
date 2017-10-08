@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::Countif_NumberMatcher final
+class poi::ss::formula::functions::Countif_NumberMatcher final
     : public Countif_MatcherBase
 {
 
@@ -26,7 +26,7 @@ public: /* protected */
     ::java::lang::String* getValueText() override;
 
 public:
-    bool matches(::org::apache::poi::ss::formula::eval::ValueEval* x) override;
+    bool matches(::poi::ss::formula::eval::ValueEval* x) override;
 
     // Generated
     Countif_NumberMatcher(double value, Countif_CmpOp* operator_);

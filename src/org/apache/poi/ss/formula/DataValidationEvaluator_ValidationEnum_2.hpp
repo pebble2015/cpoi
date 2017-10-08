@@ -10,13 +10,13 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum_2 final
+class poi::ss::formula::DataValidationEvaluator_ValidationEnum_2 final
     : public DataValidationEvaluator_ValidationEnum
 {
 
 public:
     typedef DataValidationEvaluator_ValidationEnum super;
-    bool isValidValue(::org::apache::poi::ss::usermodel::Cell* cell, DataValidationEvaluator_DataValidationContext* context) override;
+    bool isValidValue(::poi::ss::usermodel::Cell* cell, DataValidationEvaluator_DataValidationContext* context) override;
 
     // Generated
     DataValidationEvaluator_ValidationEnum_2(::java::lang::String* name, int ordinal);

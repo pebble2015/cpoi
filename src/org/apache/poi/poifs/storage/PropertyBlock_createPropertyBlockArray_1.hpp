@@ -8,12 +8,12 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::storage::PropertyBlock_createPropertyBlockArray_1
-    : public ::org::apache::poi::poifs::property::Property
+class poi::poifs::storage::PropertyBlock_createPropertyBlockArray_1
+    : public ::poi::poifs::property::Property
 {
 
 public:
-    typedef ::org::apache::poi::poifs::property::Property super;
+    typedef ::poi::poifs::property::Property super;
 
 public: /* protected */
     void preWrite() override;

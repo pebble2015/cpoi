@@ -39,44 +39,44 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::AbstractEscherHolderRecord::AbstractEscherHolderRecord(const ::default_init_tag&)
+poi::hssf::record::AbstractEscherHolderRecord::AbstractEscherHolderRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::AbstractEscherHolderRecord::AbstractEscherHolderRecord() 
+poi::hssf::record::AbstractEscherHolderRecord::AbstractEscherHolderRecord() 
     : AbstractEscherHolderRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::AbstractEscherHolderRecord::AbstractEscherHolderRecord(RecordInputStream* in) 
+poi::hssf::record::AbstractEscherHolderRecord::AbstractEscherHolderRecord(RecordInputStream* in) 
     : AbstractEscherHolderRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-void org::apache::poi::hssf::record::AbstractEscherHolderRecord::init()
+void poi::hssf::record::AbstractEscherHolderRecord::init()
 {
-    rawDataContainer = new ::org::apache::poi::hssf::util::LazilyConcatenatedByteArray_();
+    rawDataContainer = new ::poi::hssf::util::LazilyConcatenatedByteArray_();
 }
 
-bool& org::apache::poi::hssf::record::AbstractEscherHolderRecord::DESERIALISE()
+bool& poi::hssf::record::AbstractEscherHolderRecord::DESERIALISE()
 {
     clinit();
     return DESERIALISE_;
 }
-bool org::apache::poi::hssf::record::AbstractEscherHolderRecord::DESERIALISE_;
+bool poi::hssf::record::AbstractEscherHolderRecord::DESERIALISE_;
 
-void org::apache::poi::hssf::record::AbstractEscherHolderRecord::ctor()
+void poi::hssf::record::AbstractEscherHolderRecord::ctor()
 {
     super::ctor();
     init();
     escherRecords = new ::java::util::ArrayList();
 }
 
-void org::apache::poi::hssf::record::AbstractEscherHolderRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::AbstractEscherHolderRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     init();
@@ -89,7 +89,7 @@ void org::apache::poi::hssf::record::AbstractEscherHolderRecord::ctor(RecordInpu
     }
 }
 
-void org::apache::poi::hssf::record::AbstractEscherHolderRecord::convertRawBytesToEscherRecords()
+void poi::hssf::record::AbstractEscherHolderRecord::convertRawBytesToEscherRecords()
 {
     if(!DESERIALISE_) {
         auto rawData = getRawData();
@@ -97,10 +97,10 @@ void org::apache::poi::hssf::record::AbstractEscherHolderRecord::convertRawBytes
     }
 }
 
-void org::apache::poi::hssf::record::AbstractEscherHolderRecord::convertToEscherRecords(int32_t offset, int32_t size, ::int8_tArray* data)
+void poi::hssf::record::AbstractEscherHolderRecord::convertToEscherRecords(int32_t offset, int32_t size, ::int8_tArray* data)
 {
     npc(escherRecords)->clear();
-    ::org::apache::poi::ddf::EscherRecordFactory* recordFactory = new ::org::apache::poi::ddf::DefaultEscherRecordFactory();
+    ::poi::ddf::EscherRecordFactory* recordFactory = new ::poi::ddf::DefaultEscherRecordFactory();
     auto pos = offset;
     while (pos < offset + size) {
         auto r = npc(recordFactory)->createRecord(data, pos);
@@ -110,7 +110,7 @@ void org::apache::poi::hssf::record::AbstractEscherHolderRecord::convertToEscher
     }
 }
 
-java::lang::String* org::apache::poi::hssf::record::AbstractEscherHolderRecord::toString()
+java::lang::String* poi::hssf::record::AbstractEscherHolderRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     auto const nl = ::java::lang::System::getProperty(u"line.separator"_j);
@@ -121,7 +121,7 @@ java::lang::String* org::apache::poi::hssf::record::AbstractEscherHolderRecord::
         npc(buffer)->append(::java::lang::StringBuilder().append(u"No Escher Records Decoded"_j)->append(nl)->toString());
 
     for (auto _i = npc(escherRecords)->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::ddf::EscherRecord* r = java_cast< ::org::apache::poi::ddf::EscherRecord* >(_i->next());
+        ::poi::ddf::EscherRecord* r = java_cast< ::poi::ddf::EscherRecord* >(_i->next());
         {
             npc(buffer)->append(static_cast< ::java::lang::Object* >(r));
         }
@@ -132,30 +132,30 @@ java::lang::String* org::apache::poi::hssf::record::AbstractEscherHolderRecord::
     return npc(buffer)->toString();
 }
 
-int32_t org::apache::poi::hssf::record::AbstractEscherHolderRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::AbstractEscherHolderRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
-    ::org::apache::poi::util::LittleEndian::putShort(data, int32_t(0) + offset, getSid());
-    ::org::apache::poi::util::LittleEndian::putShort(data, int32_t(2) + offset, static_cast< int16_t >((getRecordSize() - int32_t(4))));
+    ::poi::util::LittleEndian::putShort(data, int32_t(0) + offset, getSid());
+    ::poi::util::LittleEndian::putShort(data, int32_t(2) + offset, static_cast< int16_t >((getRecordSize() - int32_t(4))));
     auto rawData = getRawData();
     if(npc(escherRecords)->size() == 0 && rawData != nullptr) {
-        ::org::apache::poi::util::LittleEndian::putShort(data, int32_t(0) + offset, getSid());
-        ::org::apache::poi::util::LittleEndian::putShort(data, int32_t(2) + offset, static_cast< int16_t >((getRecordSize() - int32_t(4))));
+        ::poi::util::LittleEndian::putShort(data, int32_t(0) + offset, getSid());
+        ::poi::util::LittleEndian::putShort(data, int32_t(2) + offset, static_cast< int16_t >((getRecordSize() - int32_t(4))));
         ::java::lang::System::arraycopy(rawData, 0, data, int32_t(4) + offset, npc(rawData)->length);
         return npc(rawData)->length + int32_t(4);
     }
-    ::org::apache::poi::util::LittleEndian::putShort(data, int32_t(0) + offset, getSid());
-    ::org::apache::poi::util::LittleEndian::putShort(data, int32_t(2) + offset, static_cast< int16_t >((getRecordSize() - int32_t(4))));
+    ::poi::util::LittleEndian::putShort(data, int32_t(0) + offset, getSid());
+    ::poi::util::LittleEndian::putShort(data, int32_t(2) + offset, static_cast< int16_t >((getRecordSize() - int32_t(4))));
     auto pos = offset + int32_t(4);
     for (auto _i = npc(escherRecords)->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::ddf::EscherRecord* r = java_cast< ::org::apache::poi::ddf::EscherRecord* >(_i->next());
+        ::poi::ddf::EscherRecord* r = java_cast< ::poi::ddf::EscherRecord* >(_i->next());
         {
-            pos += npc(r)->serialize(pos, data, new ::org::apache::poi::ddf::NullEscherSerializationListener());
+            pos += npc(r)->serialize(pos, data, new ::poi::ddf::NullEscherSerializationListener());
         }
     }
     return getRecordSize();
 }
 
-int32_t org::apache::poi::hssf::record::AbstractEscherHolderRecord::getRecordSize()
+int32_t poi::hssf::record::AbstractEscherHolderRecord::getRecordSize()
 {
     auto rawData = getRawData();
     if(npc(escherRecords)->size() == 0 && rawData != nullptr) {
@@ -163,7 +163,7 @@ int32_t org::apache::poi::hssf::record::AbstractEscherHolderRecord::getRecordSiz
     }
     auto size = int32_t(0);
     for (auto _i = npc(escherRecords)->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::ddf::EscherRecord* r = java_cast< ::org::apache::poi::ddf::EscherRecord* >(_i->next());
+        ::poi::ddf::EscherRecord* r = java_cast< ::poi::ddf::EscherRecord* >(_i->next());
         {
             size += npc(r)->getRecordSize();
         }
@@ -171,53 +171,53 @@ int32_t org::apache::poi::hssf::record::AbstractEscherHolderRecord::getRecordSiz
     return size;
 }
 
-org::apache::poi::hssf::record::AbstractEscherHolderRecord* org::apache::poi::hssf::record::AbstractEscherHolderRecord::clone()
+poi::hssf::record::AbstractEscherHolderRecord* poi::hssf::record::AbstractEscherHolderRecord::clone()
 {
     return java_cast< AbstractEscherHolderRecord* >(cloneViaReserialise());
 }
 
-void org::apache::poi::hssf::record::AbstractEscherHolderRecord::addEscherRecord(int32_t index, ::org::apache::poi::ddf::EscherRecord* element)
+void poi::hssf::record::AbstractEscherHolderRecord::addEscherRecord(int32_t index, ::poi::ddf::EscherRecord* element)
 {
     npc(escherRecords)->add(index, element);
 }
 
-bool org::apache::poi::hssf::record::AbstractEscherHolderRecord::addEscherRecord(::org::apache::poi::ddf::EscherRecord* element)
+bool poi::hssf::record::AbstractEscherHolderRecord::addEscherRecord(::poi::ddf::EscherRecord* element)
 {
     return npc(escherRecords)->add(static_cast< ::java::lang::Object* >(element));
 }
 
-java::util::List* org::apache::poi::hssf::record::AbstractEscherHolderRecord::getEscherRecords()
+java::util::List* poi::hssf::record::AbstractEscherHolderRecord::getEscherRecords()
 {
     return escherRecords;
 }
 
-void org::apache::poi::hssf::record::AbstractEscherHolderRecord::clearEscherRecords()
+void poi::hssf::record::AbstractEscherHolderRecord::clearEscherRecords()
 {
     npc(escherRecords)->clear();
 }
 
-org::apache::poi::ddf::EscherContainerRecord* org::apache::poi::hssf::record::AbstractEscherHolderRecord::getEscherContainer()
+poi::ddf::EscherContainerRecord* poi::hssf::record::AbstractEscherHolderRecord::getEscherContainer()
 {
     for (auto _i = npc(escherRecords)->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::ddf::EscherRecord* er = java_cast< ::org::apache::poi::ddf::EscherRecord* >(_i->next());
+        ::poi::ddf::EscherRecord* er = java_cast< ::poi::ddf::EscherRecord* >(_i->next());
         {
-            if(dynamic_cast< ::org::apache::poi::ddf::EscherContainerRecord* >(er) != nullptr) {
-                return java_cast< ::org::apache::poi::ddf::EscherContainerRecord* >(er);
+            if(dynamic_cast< ::poi::ddf::EscherContainerRecord* >(er) != nullptr) {
+                return java_cast< ::poi::ddf::EscherContainerRecord* >(er);
             }
         }
     }
     return nullptr;
 }
 
-org::apache::poi::ddf::EscherRecord* org::apache::poi::hssf::record::AbstractEscherHolderRecord::findFirstWithId(int16_t id)
+poi::ddf::EscherRecord* poi::hssf::record::AbstractEscherHolderRecord::findFirstWithId(int16_t id)
 {
     return findFirstWithId(id, getEscherRecords());
 }
 
-org::apache::poi::ddf::EscherRecord* org::apache::poi::hssf::record::AbstractEscherHolderRecord::findFirstWithId(int16_t id, ::java::util::List* records)
+poi::ddf::EscherRecord* poi::hssf::record::AbstractEscherHolderRecord::findFirstWithId(int16_t id, ::java::util::List* records)
 {
     for (auto _i = npc(records)->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::ddf::EscherRecord* r = java_cast< ::org::apache::poi::ddf::EscherRecord* >(_i->next());
+        ::poi::ddf::EscherRecord* r = java_cast< ::poi::ddf::EscherRecord* >(_i->next());
         {
             if(npc(r)->getRecordId() == id) {
                 return r;
@@ -225,7 +225,7 @@ org::apache::poi::ddf::EscherRecord* org::apache::poi::hssf::record::AbstractEsc
         }
     }
     for (auto _i = npc(records)->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::ddf::EscherRecord* r = java_cast< ::org::apache::poi::ddf::EscherRecord* >(_i->next());
+        ::poi::ddf::EscherRecord* r = java_cast< ::poi::ddf::EscherRecord* >(_i->next());
         {
             if(npc(r)->isContainerRecord()) {
                 auto found = findFirstWithId(id, npc(r)->getChildRecords());
@@ -238,33 +238,33 @@ org::apache::poi::ddf::EscherRecord* org::apache::poi::hssf::record::AbstractEsc
     return nullptr;
 }
 
-org::apache::poi::ddf::EscherRecord* org::apache::poi::hssf::record::AbstractEscherHolderRecord::getEscherRecord(int32_t index)
+poi::ddf::EscherRecord* poi::hssf::record::AbstractEscherHolderRecord::getEscherRecord(int32_t index)
 {
-    return java_cast< ::org::apache::poi::ddf::EscherRecord* >(npc(escherRecords)->get(index));
+    return java_cast< ::poi::ddf::EscherRecord* >(npc(escherRecords)->get(index));
 }
 
-void org::apache::poi::hssf::record::AbstractEscherHolderRecord::join(AbstractEscherHolderRecord* record)
+void poi::hssf::record::AbstractEscherHolderRecord::join(AbstractEscherHolderRecord* record)
 {
     npc(rawDataContainer)->concatenate(npc(record)->getRawData());
 }
 
-void org::apache::poi::hssf::record::AbstractEscherHolderRecord::processContinueRecord(::int8_tArray* record)
+void poi::hssf::record::AbstractEscherHolderRecord::processContinueRecord(::int8_tArray* record)
 {
     npc(rawDataContainer)->concatenate(record);
 }
 
-int8_tArray* org::apache::poi::hssf::record::AbstractEscherHolderRecord::getRawData()
+int8_tArray* poi::hssf::record::AbstractEscherHolderRecord::getRawData()
 {
     return npc(rawDataContainer)->toArray_();
 }
 
-void org::apache::poi::hssf::record::AbstractEscherHolderRecord::setRawData(::int8_tArray* rawData)
+void poi::hssf::record::AbstractEscherHolderRecord::setRawData(::int8_tArray* rawData)
 {
     npc(rawDataContainer)->clear();
     npc(rawDataContainer)->concatenate(rawData);
 }
 
-void org::apache::poi::hssf::record::AbstractEscherHolderRecord::decode()
+void poi::hssf::record::AbstractEscherHolderRecord::decode()
 {
     if(nullptr == escherRecords || 0 == npc(escherRecords)->size()) {
         auto rawData = getRawData();
@@ -274,13 +274,13 @@ void org::apache::poi::hssf::record::AbstractEscherHolderRecord::decode()
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::AbstractEscherHolderRecord::class_()
+java::lang::Class* poi::hssf::record::AbstractEscherHolderRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.AbstractEscherHolderRecord", 53);
     return c;
 }
 
-void org::apache::poi::hssf::record::AbstractEscherHolderRecord::clinit()
+void poi::hssf::record::AbstractEscherHolderRecord::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -302,12 +302,12 @@ struct clinit_ {
     }
 }
 
-int8_tArray* org::apache::poi::hssf::record::AbstractEscherHolderRecord::serialize()
+int8_tArray* poi::hssf::record::AbstractEscherHolderRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::AbstractEscherHolderRecord::getClass0()
+java::lang::Class* poi::hssf::record::AbstractEscherHolderRecord::getClass0()
 {
     return class_();
 }

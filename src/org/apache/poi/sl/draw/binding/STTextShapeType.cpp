@@ -27,25 +27,19 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace sl
     {
-        namespace poi
+        namespace draw
         {
-            namespace sl
+            namespace binding
             {
-                namespace draw
-                {
-                    namespace binding
-                    {
-typedef ::SubArray< ::org::apache::poi::sl::draw::binding::STTextShapeType, ::java::lang::EnumArray > STTextShapeTypeArray;
-                    } // binding
-                } // draw
-            } // sl
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::sl::draw::binding::STTextShapeType, ::java::lang::EnumArray > STTextShapeTypeArray;
+            } // binding
+        } // draw
+    } // sl
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -54,71 +48,71 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::sl::draw::binding::STTextShapeType::STTextShapeType(const ::default_init_tag&)
+poi::sl::draw::binding::STTextShapeType::STTextShapeType(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::draw::binding::STTextShapeType::STTextShapeType(::java::lang::String* name, int ordinal, ::java::lang::String* v) 
+poi::sl::draw::binding::STTextShapeType::STTextShapeType(::java::lang::String* name, int ordinal, ::java::lang::String* v) 
     : STTextShapeType(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal, v);
 }
 
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_NO_SHAPE = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_NO_SHAPE"_j, 0, u"textNoShape"_j);
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_PLAIN = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_PLAIN"_j, 1, u"textPlain"_j);
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_STOP = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_STOP"_j, 2, u"textStop"_j);
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_TRIANGLE = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_TRIANGLE"_j, 3, u"textTriangle"_j);
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_TRIANGLE_INVERTED = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_TRIANGLE_INVERTED"_j, 4, u"textTriangleInverted"_j);
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_CHEVRON = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_CHEVRON"_j, 5, u"textChevron"_j);
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_CHEVRON_INVERTED = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_CHEVRON_INVERTED"_j, 6, u"textChevronInverted"_j);
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_RING_INSIDE = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_RING_INSIDE"_j, 7, u"textRingInside"_j);
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_RING_OUTSIDE = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_RING_OUTSIDE"_j, 8, u"textRingOutside"_j);
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_ARCH_UP = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_ARCH_UP"_j, 9, u"textArchUp"_j);
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_ARCH_DOWN = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_ARCH_DOWN"_j, 10, u"textArchDown"_j);
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_CIRCLE = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_CIRCLE"_j, 11, u"textCircle"_j);
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_BUTTON = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_BUTTON"_j, 12, u"textButton"_j);
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_ARCH_UP_POUR = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_ARCH_UP_POUR"_j, 13, u"textArchUpPour"_j);
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_ARCH_DOWN_POUR = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_ARCH_DOWN_POUR"_j, 14, u"textArchDownPour"_j);
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_CIRCLE_POUR = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_CIRCLE_POUR"_j, 15, u"textCirclePour"_j);
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_BUTTON_POUR = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_BUTTON_POUR"_j, 16, u"textButtonPour"_j);
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_CURVE_UP = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_CURVE_UP"_j, 17, u"textCurveUp"_j);
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_CURVE_DOWN = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_CURVE_DOWN"_j, 18, u"textCurveDown"_j);
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_CAN_UP = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_CAN_UP"_j, 19, u"textCanUp"_j);
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_CAN_DOWN = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_CAN_DOWN"_j, 20, u"textCanDown"_j);
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_WAVE_1 = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_WAVE_1"_j, 21, u"textWave1"_j);
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_WAVE_2 = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_WAVE_2"_j, 22, u"textWave2"_j);
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_DOUBLE_WAVE_1 = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_DOUBLE_WAVE_1"_j, 23, u"textDoubleWave1"_j);
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_WAVE_4 = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_WAVE_4"_j, 24, u"textWave4"_j);
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_INFLATE = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_INFLATE"_j, 25, u"textInflate"_j);
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_DEFLATE = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_DEFLATE"_j, 26, u"textDeflate"_j);
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_INFLATE_BOTTOM = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_INFLATE_BOTTOM"_j, 27, u"textInflateBottom"_j);
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_DEFLATE_BOTTOM = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_DEFLATE_BOTTOM"_j, 28, u"textDeflateBottom"_j);
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_INFLATE_TOP = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_INFLATE_TOP"_j, 29, u"textInflateTop"_j);
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_DEFLATE_TOP = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_DEFLATE_TOP"_j, 30, u"textDeflateTop"_j);
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_DEFLATE_INFLATE = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_DEFLATE_INFLATE"_j, 31, u"textDeflateInflate"_j);
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_DEFLATE_INFLATE_DEFLATE = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_DEFLATE_INFLATE_DEFLATE"_j, 32, u"textDeflateInflateDeflate"_j);
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_FADE_RIGHT = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_FADE_RIGHT"_j, 33, u"textFadeRight"_j);
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_FADE_LEFT = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_FADE_LEFT"_j, 34, u"textFadeLeft"_j);
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_FADE_UP = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_FADE_UP"_j, 35, u"textFadeUp"_j);
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_FADE_DOWN = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_FADE_DOWN"_j, 36, u"textFadeDown"_j);
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_SLANT_UP = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_SLANT_UP"_j, 37, u"textSlantUp"_j);
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_SLANT_DOWN = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_SLANT_DOWN"_j, 38, u"textSlantDown"_j);
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_CASCADE_UP = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_CASCADE_UP"_j, 39, u"textCascadeUp"_j);
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::TEXT_CASCADE_DOWN = new ::org::apache::poi::sl::draw::binding::STTextShapeType(u"TEXT_CASCADE_DOWN"_j, 40, u"textCascadeDown"_j);
-void org::apache::poi::sl::draw::binding::STTextShapeType::ctor(::java::lang::String* name, int ordinal, ::java::lang::String* v)
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_NO_SHAPE = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_NO_SHAPE"_j, 0, u"textNoShape"_j);
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_PLAIN = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_PLAIN"_j, 1, u"textPlain"_j);
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_STOP = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_STOP"_j, 2, u"textStop"_j);
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_TRIANGLE = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_TRIANGLE"_j, 3, u"textTriangle"_j);
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_TRIANGLE_INVERTED = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_TRIANGLE_INVERTED"_j, 4, u"textTriangleInverted"_j);
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_CHEVRON = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_CHEVRON"_j, 5, u"textChevron"_j);
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_CHEVRON_INVERTED = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_CHEVRON_INVERTED"_j, 6, u"textChevronInverted"_j);
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_RING_INSIDE = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_RING_INSIDE"_j, 7, u"textRingInside"_j);
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_RING_OUTSIDE = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_RING_OUTSIDE"_j, 8, u"textRingOutside"_j);
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_ARCH_UP = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_ARCH_UP"_j, 9, u"textArchUp"_j);
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_ARCH_DOWN = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_ARCH_DOWN"_j, 10, u"textArchDown"_j);
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_CIRCLE = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_CIRCLE"_j, 11, u"textCircle"_j);
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_BUTTON = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_BUTTON"_j, 12, u"textButton"_j);
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_ARCH_UP_POUR = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_ARCH_UP_POUR"_j, 13, u"textArchUpPour"_j);
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_ARCH_DOWN_POUR = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_ARCH_DOWN_POUR"_j, 14, u"textArchDownPour"_j);
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_CIRCLE_POUR = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_CIRCLE_POUR"_j, 15, u"textCirclePour"_j);
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_BUTTON_POUR = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_BUTTON_POUR"_j, 16, u"textButtonPour"_j);
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_CURVE_UP = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_CURVE_UP"_j, 17, u"textCurveUp"_j);
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_CURVE_DOWN = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_CURVE_DOWN"_j, 18, u"textCurveDown"_j);
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_CAN_UP = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_CAN_UP"_j, 19, u"textCanUp"_j);
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_CAN_DOWN = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_CAN_DOWN"_j, 20, u"textCanDown"_j);
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_WAVE_1 = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_WAVE_1"_j, 21, u"textWave1"_j);
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_WAVE_2 = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_WAVE_2"_j, 22, u"textWave2"_j);
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_DOUBLE_WAVE_1 = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_DOUBLE_WAVE_1"_j, 23, u"textDoubleWave1"_j);
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_WAVE_4 = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_WAVE_4"_j, 24, u"textWave4"_j);
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_INFLATE = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_INFLATE"_j, 25, u"textInflate"_j);
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_DEFLATE = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_DEFLATE"_j, 26, u"textDeflate"_j);
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_INFLATE_BOTTOM = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_INFLATE_BOTTOM"_j, 27, u"textInflateBottom"_j);
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_DEFLATE_BOTTOM = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_DEFLATE_BOTTOM"_j, 28, u"textDeflateBottom"_j);
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_INFLATE_TOP = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_INFLATE_TOP"_j, 29, u"textInflateTop"_j);
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_DEFLATE_TOP = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_DEFLATE_TOP"_j, 30, u"textDeflateTop"_j);
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_DEFLATE_INFLATE = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_DEFLATE_INFLATE"_j, 31, u"textDeflateInflate"_j);
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_DEFLATE_INFLATE_DEFLATE = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_DEFLATE_INFLATE_DEFLATE"_j, 32, u"textDeflateInflateDeflate"_j);
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_FADE_RIGHT = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_FADE_RIGHT"_j, 33, u"textFadeRight"_j);
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_FADE_LEFT = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_FADE_LEFT"_j, 34, u"textFadeLeft"_j);
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_FADE_UP = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_FADE_UP"_j, 35, u"textFadeUp"_j);
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_FADE_DOWN = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_FADE_DOWN"_j, 36, u"textFadeDown"_j);
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_SLANT_UP = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_SLANT_UP"_j, 37, u"textSlantUp"_j);
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_SLANT_DOWN = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_SLANT_DOWN"_j, 38, u"textSlantDown"_j);
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_CASCADE_UP = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_CASCADE_UP"_j, 39, u"textCascadeUp"_j);
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::TEXT_CASCADE_DOWN = new ::poi::sl::draw::binding::STTextShapeType(u"TEXT_CASCADE_DOWN"_j, 40, u"textCascadeDown"_j);
+void poi::sl::draw::binding::STTextShapeType::ctor(::java::lang::String* name, int ordinal, ::java::lang::String* v)
 {
     super::ctor(name, ordinal);
     value_ = v;
 }
 
-java::lang::String* org::apache::poi::sl::draw::binding::STTextShapeType::value()
+java::lang::String* poi::sl::draw::binding::STTextShapeType::value()
 {
     return value_;
 }
 
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::fromValue(::java::lang::String* v)
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::fromValue(::java::lang::String* v)
 {
     clinit();
     for(auto c : *npc(STTextShapeType::values())) {
@@ -131,13 +125,13 @@ org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::draw::binding::STTextShapeType::class_()
+java::lang::Class* poi::sl::draw::binding::STTextShapeType::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.draw.binding.STTextShapeType", 46);
     return c;
 }
 
-org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw::binding::STTextShapeType::valueOf(::java::lang::String* a0)
+poi::sl::draw::binding::STTextShapeType* poi::sl::draw::binding::STTextShapeType::valueOf(::java::lang::String* a0)
 {
     if(TEXT_ARCH_DOWN->toString()->equals(a0))
         return TEXT_ARCH_DOWN;
@@ -224,9 +218,9 @@ org::apache::poi::sl::draw::binding::STTextShapeType* org::apache::poi::sl::draw
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::sl::draw::binding::STTextShapeTypeArray* org::apache::poi::sl::draw::binding::STTextShapeType::values()
+poi::sl::draw::binding::STTextShapeTypeArray* poi::sl::draw::binding::STTextShapeType::values()
 {
-    return new org::apache::poi::sl::draw::binding::STTextShapeTypeArray({
+    return new poi::sl::draw::binding::STTextShapeTypeArray({
         TEXT_ARCH_DOWN,
         TEXT_ARCH_DOWN_POUR,
         TEXT_ARCH_UP,
@@ -271,7 +265,7 @@ org::apache::poi::sl::draw::binding::STTextShapeTypeArray* org::apache::poi::sl:
     });
 }
 
-java::lang::Class* org::apache::poi::sl::draw::binding::STTextShapeType::getClass0()
+java::lang::Class* poi::sl::draw::binding::STTextShapeType::getClass0()
 {
     return class_();
 }

@@ -11,29 +11,23 @@
 #include <java/lang/Object.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::OperationEvaluatorFactory final
+class poi::ss::formula::OperationEvaluatorFactory final
     : public ::java::lang::Object
 {
 
@@ -47,10 +41,10 @@ protected:
 
 private:
     static ::java::util::Map* initialiseInstancesMap();
-    static void put(::java::util::Map* m, ::org::apache::poi::ss::formula::ptg::OperationPtg* ptgKey, ::org::apache::poi::ss::formula::functions::Function* instance);
+    static void put(::java::util::Map* m, ::poi::ss::formula::ptg::OperationPtg* ptgKey, ::poi::ss::formula::functions::Function* instance);
 
 public:
-    static ::org::apache::poi::ss::formula::eval::ValueEval* evaluate(::org::apache::poi::ss::formula::ptg::OperationPtg* ptg, ::org::apache::poi::ss::formula::eval::ValueEvalArray* args, OperationEvaluationContext* ec);
+    static ::poi::ss::formula::eval::ValueEval* evaluate(::poi::ss::formula::ptg::OperationPtg* ptg, ::poi::ss::formula::eval::ValueEvalArray* args, OperationEvaluationContext* ec);
 
     // Generated
 

@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hpsf::UnicodeString
+class poi::hpsf::UnicodeString
     : public virtual ::java::lang::Object
 {
 
@@ -19,13 +19,13 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    static ::org::apache::poi::util::POILogger* LOG_;
+    static ::poi::util::POILogger* LOG_;
     ::int8_tArray* _value {  };
 protected:
     void ctor();
 
 public: /* package */
-    virtual void read(::org::apache::poi::util::LittleEndianByteArrayInputStream* lei);
+    virtual void read(::poi::util::LittleEndianByteArrayInputStream* lei);
     virtual ::int8_tArray* getValue();
     virtual ::java::lang::String* toJavaString();
     virtual void setJavaValue(::java::lang::String* string) /* throws(UnsupportedEncodingException) */;
@@ -42,6 +42,6 @@ public:
     static void clinit();
 
 private:
-    static ::org::apache::poi::util::POILogger*& LOG();
+    static ::poi::util::POILogger*& LOG();
     virtual ::java::lang::Class* getClass0();
 };

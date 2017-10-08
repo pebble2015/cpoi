@@ -10,25 +10,25 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::DrawBackground
+class poi::sl::draw::DrawBackground
     : public DrawShape
 {
 
 public:
     typedef DrawShape super;
 protected:
-    void ctor(::org::apache::poi::sl::usermodel::Background* shape);
+    void ctor(::poi::sl::usermodel::Background* shape);
 
 public:
     void draw(::java::awt::Graphics2D* graphics) override;
 
 public: /* protected */
-    ::org::apache::poi::sl::usermodel::Background* getShape() override;
+    ::poi::sl::usermodel::Background* getShape() override;
 
     // Generated
 
 public:
-    DrawBackground(::org::apache::poi::sl::usermodel::Background* shape);
+    DrawBackground(::poi::sl::usermodel::Background* shape);
 protected:
     DrawBackground(const ::default_init_tag&);
 

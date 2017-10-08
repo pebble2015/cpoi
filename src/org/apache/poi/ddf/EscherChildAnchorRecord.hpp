@@ -25,7 +25,7 @@ typedef ::SubArray< ::java::lang::ObjectArray, CloneableArray, ::java::io::Seria
 
 struct default_init_tag;
 
-class org::apache::poi::ddf::EscherChildAnchorRecord
+class poi::ddf::EscherChildAnchorRecord
     : public EscherRecord
 {
 

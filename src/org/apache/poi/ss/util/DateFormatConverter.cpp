@@ -34,40 +34,40 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::util::DateFormatConverter::DateFormatConverter(const ::default_init_tag&)
+poi::ss::util::DateFormatConverter::DateFormatConverter(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::util::DateFormatConverter::DateFormatConverter()
+poi::ss::util::DateFormatConverter::DateFormatConverter()
     : DateFormatConverter(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::util::POILogger*& org::apache::poi::ss::util::DateFormatConverter::logger()
+poi::util::POILogger*& poi::ss::util::DateFormatConverter::logger()
 {
     clinit();
     return logger_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::ss::util::DateFormatConverter::logger_;
+poi::util::POILogger* poi::ss::util::DateFormatConverter::logger_;
 
-java::util::Map*& org::apache::poi::ss::util::DateFormatConverter::tokenConversions()
+java::util::Map*& poi::ss::util::DateFormatConverter::tokenConversions()
 {
     clinit();
     return tokenConversions_;
 }
-java::util::Map* org::apache::poi::ss::util::DateFormatConverter::tokenConversions_;
+java::util::Map* poi::ss::util::DateFormatConverter::tokenConversions_;
 
-java::util::Map*& org::apache::poi::ss::util::DateFormatConverter::localePrefixes()
+java::util::Map*& poi::ss::util::DateFormatConverter::localePrefixes()
 {
     clinit();
     return localePrefixes_;
 }
-java::util::Map* org::apache::poi::ss::util::DateFormatConverter::localePrefixes_;
+java::util::Map* poi::ss::util::DateFormatConverter::localePrefixes_;
 
-java::util::Map* org::apache::poi::ss::util::DateFormatConverter::prepareTokenConversions()
+java::util::Map* poi::ss::util::DateFormatConverter::prepareTokenConversions()
 {
     clinit();
     ::java::util::Map* result = new ::java::util::HashMap();
@@ -89,7 +89,7 @@ java::util::Map* org::apache::poi::ss::util::DateFormatConverter::prepareTokenCo
     return result;
 }
 
-java::util::Map* org::apache::poi::ss::util::DateFormatConverter::prepareLocalePrefixes()
+java::util::Map* poi::ss::util::DateFormatConverter::prepareLocalePrefixes()
 {
     clinit();
     ::java::util::Map* result = new ::java::util::HashMap();
@@ -280,7 +280,7 @@ java::util::Map* org::apache::poi::ss::util::DateFormatConverter::prepareLocaleP
     return result;
 }
 
-java::lang::String* org::apache::poi::ss::util::DateFormatConverter::getPrefixForLocale(::java::util::Locale* locale)
+java::lang::String* poi::ss::util::DateFormatConverter::getPrefixForLocale(::java::util::Locale* locale)
 {
     clinit();
     auto localeString = npc(npc(locale)->toString())->toLowerCase(locale);
@@ -289,7 +289,7 @@ java::lang::String* org::apache::poi::ss::util::DateFormatConverter::getPrefixFo
         result = java_cast< ::java::lang::String* >(npc(localePrefixes_)->get(npc(localeString)->substring(0, 2)));
         if(result == nullptr) {
             auto parentLocale = new ::java::util::Locale(npc(localeString)->substring(0, 2));
-            npc(logger_)->log(::org::apache::poi::util::POILogger::ERROR, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Unable to find prefix for "_j)->append(static_cast< ::java::lang::Object* >(locale))
+            npc(logger_)->log(::poi::util::POILogger::ERROR, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Unable to find prefix for "_j)->append(static_cast< ::java::lang::Object* >(locale))
                 ->append(u"("_j)
                 ->append(npc(locale)->getDisplayName(::java::util::Locale::ROOT()))
                 ->append(u") or "_j)
@@ -303,14 +303,14 @@ java::lang::String* org::apache::poi::ss::util::DateFormatConverter::getPrefixFo
     return result;
 }
 
-java::lang::String* org::apache::poi::ss::util::DateFormatConverter::convert(::java::util::Locale* locale, ::java::text::DateFormat* df)
+java::lang::String* poi::ss::util::DateFormatConverter::convert(::java::util::Locale* locale, ::java::text::DateFormat* df)
 {
     clinit();
     auto ptrn = npc((java_cast< ::java::text::SimpleDateFormat* >(df)))->toPattern();
     return convert(locale, ptrn);
 }
 
-java::lang::String* org::apache::poi::ss::util::DateFormatConverter::convert(::java::util::Locale* locale, ::java::lang::String* format)
+java::lang::String* poi::ss::util::DateFormatConverter::convert(::java::util::Locale* locale, ::java::lang::String* format)
 {
     clinit();
     auto result = new ::java::lang::StringBuilder();
@@ -331,7 +331,7 @@ java::lang::String* org::apache::poi::ss::util::DateFormatConverter::convert(::j
     return npc(npc(result)->toString())->trim();
 }
 
-java::lang::String* org::apache::poi::ss::util::DateFormatConverter::getJavaDatePattern(int32_t style, ::java::util::Locale* locale)
+java::lang::String* poi::ss::util::DateFormatConverter::getJavaDatePattern(int32_t style, ::java::util::Locale* locale)
 {
     clinit();
     auto df = ::java::text::DateFormat::getDateInstance(style, locale);
@@ -354,7 +354,7 @@ java::lang::String* org::apache::poi::ss::util::DateFormatConverter::getJavaDate
     }
 }
 
-java::lang::String* org::apache::poi::ss::util::DateFormatConverter::getJavaTimePattern(int32_t style, ::java::util::Locale* locale)
+java::lang::String* poi::ss::util::DateFormatConverter::getJavaTimePattern(int32_t style, ::java::util::Locale* locale)
 {
     clinit();
     auto df = ::java::text::DateFormat::getTimeInstance(style, locale);
@@ -377,7 +377,7 @@ java::lang::String* org::apache::poi::ss::util::DateFormatConverter::getJavaTime
     }
 }
 
-java::lang::String* org::apache::poi::ss::util::DateFormatConverter::getJavaDateTimePattern(int32_t style, ::java::util::Locale* locale)
+java::lang::String* poi::ss::util::DateFormatConverter::getJavaDateTimePattern(int32_t style, ::java::util::Locale* locale)
 {
     clinit();
     auto df = ::java::text::DateFormat::getDateTimeInstance(style, style, locale);
@@ -402,20 +402,20 @@ java::lang::String* org::apache::poi::ss::util::DateFormatConverter::getJavaDate
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::util::DateFormatConverter::class_()
+java::lang::Class* poi::ss::util::DateFormatConverter::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.util.DateFormatConverter", 42);
     return c;
 }
 
-void org::apache::poi::ss::util::DateFormatConverter::clinit()
+void poi::ss::util::DateFormatConverter::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        logger_ = ::org::apache::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(DateFormatConverter::class_()));
+        logger_ = ::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(DateFormatConverter::class_()));
         tokenConversions_ = prepareTokenConversions();
         localePrefixes_ = prepareLocalePrefixes();
     }
@@ -426,7 +426,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::util::DateFormatConverter::getClass0()
+java::lang::Class* poi::ss::util::DateFormatConverter::getClass0()
 {
     return class_();
 }

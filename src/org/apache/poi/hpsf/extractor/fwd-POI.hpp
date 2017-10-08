@@ -2,19 +2,13 @@
 #pragma once
 
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hpsf
     {
-        namespace poi
+        namespace extractor
         {
-            namespace hpsf
-            {
-                namespace extractor
-                {
-                    class HPSFPropertiesExtractor;
-                } // extractor
-            } // hpsf
-        } // poi
-    } // apache
-} // org
+            class HPSFPropertiesExtractor;
+        } // extractor
+    } // hpsf
+} // poi

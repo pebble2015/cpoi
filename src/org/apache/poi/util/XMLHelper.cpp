@@ -20,26 +20,26 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::util::XMLHelper::XMLHelper(const ::default_init_tag&)
+poi::util::XMLHelper::XMLHelper(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::util::XMLHelper::XMLHelper()
+poi::util::XMLHelper::XMLHelper()
     : XMLHelper(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::util::POILogger*& org::apache::poi::util::XMLHelper::logger()
+poi::util::POILogger*& poi::util::XMLHelper::logger()
 {
     clinit();
     return logger_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::util::XMLHelper::logger_;
+poi::util::POILogger* poi::util::XMLHelper::logger_;
 
-javax::xml::parsers::DocumentBuilderFactory* org::apache::poi::util::XMLHelper::getDocumentBuilderFactory()
+javax::xml::parsers::DocumentBuilderFactory* poi::util::XMLHelper::getDocumentBuilderFactory()
 {
     clinit();
     auto factory = ::javax::xml::parsers::DocumentBuilderFactory::newInstance();
@@ -52,7 +52,7 @@ javax::xml::parsers::DocumentBuilderFactory* org::apache::poi::util::XMLHelper::
     return factory;
 }
 
-void org::apache::poi::util::XMLHelper::trySetSAXFeature(::javax::xml::parsers::DocumentBuilderFactory* documentBuilderFactory, ::java::lang::String* feature, bool enabled)
+void poi::util::XMLHelper::trySetSAXFeature(::javax::xml::parsers::DocumentBuilderFactory* documentBuilderFactory, ::java::lang::String* feature, bool enabled)
 {
     clinit();
     try {
@@ -66,13 +66,13 @@ void org::apache::poi::util::XMLHelper::trySetSAXFeature(::javax::xml::parsers::
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::util::XMLHelper::class_()
+java::lang::Class* poi::util::XMLHelper::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.util.XMLHelper", 29);
     return c;
 }
 
-void org::apache::poi::util::XMLHelper::clinit()
+void poi::util::XMLHelper::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -88,7 +88,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::util::XMLHelper::getClass0()
+java::lang::Class* poi::util::XMLHelper::getClass0()
 {
     return class_();
 }

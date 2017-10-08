@@ -29,19 +29,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::usermodel::HSSFConditionalFormattingThreshold::HSSFConditionalFormattingThreshold(const ::default_init_tag&)
+poi::hssf::usermodel::HSSFConditionalFormattingThreshold::HSSFConditionalFormattingThreshold(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::usermodel::HSSFConditionalFormattingThreshold::HSSFConditionalFormattingThreshold(::org::apache::poi::hssf::record::cf::Threshold* threshold, HSSFSheet* sheet) 
+poi::hssf::usermodel::HSSFConditionalFormattingThreshold::HSSFConditionalFormattingThreshold(::poi::hssf::record::cf::Threshold* threshold, HSSFSheet* sheet) 
     : HSSFConditionalFormattingThreshold(*static_cast< ::default_init_tag* >(0))
 {
     ctor(threshold,sheet);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFConditionalFormattingThreshold::ctor(::org::apache::poi::hssf::record::cf::Threshold* threshold, HSSFSheet* sheet)
+void poi::hssf::usermodel::HSSFConditionalFormattingThreshold::ctor(::poi::hssf::record::cf::Threshold* threshold, HSSFSheet* sheet)
 {
     super::ctor();
     this->threshold = threshold;
@@ -49,50 +49,50 @@ void org::apache::poi::hssf::usermodel::HSSFConditionalFormattingThreshold::ctor
     this->workbook = java_cast< HSSFWorkbook* >(npc(sheet)->getWorkbook());
 }
 
-org::apache::poi::hssf::record::cf::Threshold* org::apache::poi::hssf::usermodel::HSSFConditionalFormattingThreshold::getThreshold()
+poi::hssf::record::cf::Threshold* poi::hssf::usermodel::HSSFConditionalFormattingThreshold::getThreshold()
 {
     return threshold;
 }
 
-org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType* org::apache::poi::hssf::usermodel::HSSFConditionalFormattingThreshold::getRangeType()
+poi::ss::usermodel::ConditionalFormattingThreshold_RangeType* poi::hssf::usermodel::HSSFConditionalFormattingThreshold::getRangeType()
 {
-    return ::org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::byId(npc(threshold)->getType());
+    return ::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType::byId(npc(threshold)->getType());
 }
 
-void org::apache::poi::hssf::usermodel::HSSFConditionalFormattingThreshold::setRangeType(::org::apache::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType* type)
+void poi::hssf::usermodel::HSSFConditionalFormattingThreshold::setRangeType(::poi::ss::usermodel::ConditionalFormattingThreshold_RangeType* type)
 {
     npc(threshold)->setType(static_cast< int8_t >(npc(type)->id));
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HSSFConditionalFormattingThreshold::getFormula()
+java::lang::String* poi::hssf::usermodel::HSSFConditionalFormattingThreshold::getFormula()
 {
     return HSSFConditionalFormattingRule::toFormulaString(npc(threshold)->getParsedExpression(), workbook);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFConditionalFormattingThreshold::setFormula(::java::lang::String* formula)
+void poi::hssf::usermodel::HSSFConditionalFormattingThreshold::setFormula(::java::lang::String* formula)
 {
-    npc(threshold)->setParsedExpression(::org::apache::poi::hssf::record::CFRuleBase::parseFormula(formula, sheet));
+    npc(threshold)->setParsedExpression(::poi::hssf::record::CFRuleBase::parseFormula(formula, sheet));
 }
 
-java::lang::Double* org::apache::poi::hssf::usermodel::HSSFConditionalFormattingThreshold::getValue()
+java::lang::Double* poi::hssf::usermodel::HSSFConditionalFormattingThreshold::getValue()
 {
     return npc(threshold)->getValue();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFConditionalFormattingThreshold::setValue(::java::lang::Double* value)
+void poi::hssf::usermodel::HSSFConditionalFormattingThreshold::setValue(::java::lang::Double* value)
 {
     npc(threshold)->setValue(value);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFConditionalFormattingThreshold::class_()
+java::lang::Class* poi::hssf::usermodel::HSSFConditionalFormattingThreshold::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.usermodel.HSSFConditionalFormattingThreshold", 64);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFConditionalFormattingThreshold::getClass0()
+java::lang::Class* poi::hssf::usermodel::HSSFConditionalFormattingThreshold::getClass0()
 {
     return class_();
 }

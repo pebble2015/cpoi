@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::util::DefaultTempFileCreationStrategy
+class poi::util::DefaultTempFileCreationStrategy
     : public virtual ::java::lang::Object
     , public virtual TempFileCreationStrategy
 {

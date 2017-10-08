@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::FooterRecord final
+class poi::hssf::record::FooterRecord final
     : public HeaderFooterBase
     , public ::java::lang::Cloneable
 {

@@ -17,23 +17,17 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
-            {
-                namespace record
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::Record, RecordBaseArray > RecordArray;
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
+typedef ::SubArray< ::poi::hssf::record::Record, RecordBaseArray > RecordArray;
+        } // record
+    } // hssf
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -42,42 +36,42 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::Record::Record(const ::default_init_tag&)
+poi::hssf::record::Record::Record(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::Record::Record() 
+poi::hssf::record::Record::Record() 
     : Record(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::hssf::record::Record::ctor()
+void poi::hssf::record::Record::ctor()
 {
     super::ctor();
 }
 
-int8_tArray* org::apache::poi::hssf::record::Record::serialize()
+int8_tArray* poi::hssf::record::Record::serialize()
 {
     auto retval = new ::int8_tArray(getRecordSize());
     serialize(0, retval);
     return retval;
 }
 
-java::lang::String* org::apache::poi::hssf::record::Record::toString()
+java::lang::String* poi::hssf::record::Record::toString()
 {
     return super::toString();
 }
 
-java::lang::Object* org::apache::poi::hssf::record::Record::clone() /* throws(CloneNotSupportedException) */
+java::lang::Object* poi::hssf::record::Record::clone() /* throws(CloneNotSupportedException) */
 {
     throw new ::java::lang::CloneNotSupportedException(::java::lang::StringBuilder().append(u"The class "_j)->append(npc(getClass())->getName())
         ->append(u" needs to define a clone method"_j)->toString());
 }
 
-org::apache::poi::hssf::record::Record* org::apache::poi::hssf::record::Record::cloneViaReserialise()
+poi::hssf::record::Record* poi::hssf::record::Record::cloneViaReserialise()
 {
     auto b = serialize();
     auto rinp = new RecordInputStream(new ::java::io::ByteArrayInputStream(b));
@@ -92,13 +86,13 @@ org::apache::poi::hssf::record::Record* org::apache::poi::hssf::record::Record::
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::Record::class_()
+java::lang::Class* poi::hssf::record::Record::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.Record", 33);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::record::Record::getClass0()
+java::lang::Class* poi::hssf::record::Record::getClass0()
 {
     return class_();
 }

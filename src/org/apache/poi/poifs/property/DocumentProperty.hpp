@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::property::DocumentProperty
+class poi::poifs::property::DocumentProperty
     : public Property
 {
 
@@ -18,14 +18,14 @@ public:
     typedef Property super;
 
 private:
-    ::org::apache::poi::poifs::filesystem::OPOIFSDocument* _document {  };
+    ::poi::poifs::filesystem::OPOIFSDocument* _document {  };
 protected:
     void ctor(::java::lang::String* name, int32_t size);
     void ctor(int32_t index, ::int8_tArray* array, int32_t offset);
 
 public:
-    virtual void setDocument(::org::apache::poi::poifs::filesystem::OPOIFSDocument* doc);
-    virtual ::org::apache::poi::poifs::filesystem::OPOIFSDocument* getDocument();
+    virtual void setDocument(::poi::poifs::filesystem::OPOIFSDocument* doc);
+    virtual ::poi::poifs::filesystem::OPOIFSDocument* getDocument();
     bool shouldUseSmallBlocks() override;
     bool isDirectory() override;
 

@@ -25,41 +25,35 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ddf
     {
-        namespace poi
-        {
-            namespace ddf
-            {
-typedef ::SubArray< ::org::apache::poi::ddf::EscherColorRef_SysIndexSource, ::java::lang::EnumArray > EscherColorRef_SysIndexSourceArray;
-            } // ddf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ddf::EscherColorRef_SysIndexSource, ::java::lang::EnumArray > EscherColorRef_SysIndexSourceArray;
+    } // ddf
+} // poi
 
-org::apache::poi::ddf::EscherColorRef_SysIndexSource::EscherColorRef_SysIndexSource(const ::default_init_tag&)
+poi::ddf::EscherColorRef_SysIndexSource::EscherColorRef_SysIndexSource(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ddf::EscherColorRef_SysIndexSource::EscherColorRef_SysIndexSource(::java::lang::String* name, int ordinal, int32_t value) 
+poi::ddf::EscherColorRef_SysIndexSource::EscherColorRef_SysIndexSource(::java::lang::String* name, int ordinal, int32_t value) 
     : EscherColorRef_SysIndexSource(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal, value);
 }
 
-org::apache::poi::ddf::EscherColorRef_SysIndexSource* org::apache::poi::ddf::EscherColorRef_SysIndexSource::FILL_COLOR = new ::org::apache::poi::ddf::EscherColorRef_SysIndexSource(u"FILL_COLOR"_j, 0, int32_t(240));
-org::apache::poi::ddf::EscherColorRef_SysIndexSource* org::apache::poi::ddf::EscherColorRef_SysIndexSource::LINE_OR_FILL_COLOR = new ::org::apache::poi::ddf::EscherColorRef_SysIndexSource(u"LINE_OR_FILL_COLOR"_j, 1, int32_t(241));
-org::apache::poi::ddf::EscherColorRef_SysIndexSource* org::apache::poi::ddf::EscherColorRef_SysIndexSource::LINE_COLOR = new ::org::apache::poi::ddf::EscherColorRef_SysIndexSource(u"LINE_COLOR"_j, 2, int32_t(242));
-org::apache::poi::ddf::EscherColorRef_SysIndexSource* org::apache::poi::ddf::EscherColorRef_SysIndexSource::SHADOW_COLOR = new ::org::apache::poi::ddf::EscherColorRef_SysIndexSource(u"SHADOW_COLOR"_j, 3, int32_t(243));
-org::apache::poi::ddf::EscherColorRef_SysIndexSource* org::apache::poi::ddf::EscherColorRef_SysIndexSource::CURRENT_OR_LAST_COLOR = new ::org::apache::poi::ddf::EscherColorRef_SysIndexSource(u"CURRENT_OR_LAST_COLOR"_j, 4, int32_t(244));
-org::apache::poi::ddf::EscherColorRef_SysIndexSource* org::apache::poi::ddf::EscherColorRef_SysIndexSource::FILL_BACKGROUND_COLOR = new ::org::apache::poi::ddf::EscherColorRef_SysIndexSource(u"FILL_BACKGROUND_COLOR"_j, 5, int32_t(245));
-org::apache::poi::ddf::EscherColorRef_SysIndexSource* org::apache::poi::ddf::EscherColorRef_SysIndexSource::LINE_BACKGROUND_COLOR = new ::org::apache::poi::ddf::EscherColorRef_SysIndexSource(u"LINE_BACKGROUND_COLOR"_j, 6, int32_t(246));
-org::apache::poi::ddf::EscherColorRef_SysIndexSource* org::apache::poi::ddf::EscherColorRef_SysIndexSource::FILL_OR_LINE_COLOR = new ::org::apache::poi::ddf::EscherColorRef_SysIndexSource(u"FILL_OR_LINE_COLOR"_j, 7, int32_t(247));
-void org::apache::poi::ddf::EscherColorRef_SysIndexSource::ctor(::java::lang::String* name, int ordinal, int32_t value)
+poi::ddf::EscherColorRef_SysIndexSource* poi::ddf::EscherColorRef_SysIndexSource::FILL_COLOR = new ::poi::ddf::EscherColorRef_SysIndexSource(u"FILL_COLOR"_j, 0, int32_t(240));
+poi::ddf::EscherColorRef_SysIndexSource* poi::ddf::EscherColorRef_SysIndexSource::LINE_OR_FILL_COLOR = new ::poi::ddf::EscherColorRef_SysIndexSource(u"LINE_OR_FILL_COLOR"_j, 1, int32_t(241));
+poi::ddf::EscherColorRef_SysIndexSource* poi::ddf::EscherColorRef_SysIndexSource::LINE_COLOR = new ::poi::ddf::EscherColorRef_SysIndexSource(u"LINE_COLOR"_j, 2, int32_t(242));
+poi::ddf::EscherColorRef_SysIndexSource* poi::ddf::EscherColorRef_SysIndexSource::SHADOW_COLOR = new ::poi::ddf::EscherColorRef_SysIndexSource(u"SHADOW_COLOR"_j, 3, int32_t(243));
+poi::ddf::EscherColorRef_SysIndexSource* poi::ddf::EscherColorRef_SysIndexSource::CURRENT_OR_LAST_COLOR = new ::poi::ddf::EscherColorRef_SysIndexSource(u"CURRENT_OR_LAST_COLOR"_j, 4, int32_t(244));
+poi::ddf::EscherColorRef_SysIndexSource* poi::ddf::EscherColorRef_SysIndexSource::FILL_BACKGROUND_COLOR = new ::poi::ddf::EscherColorRef_SysIndexSource(u"FILL_BACKGROUND_COLOR"_j, 5, int32_t(245));
+poi::ddf::EscherColorRef_SysIndexSource* poi::ddf::EscherColorRef_SysIndexSource::LINE_BACKGROUND_COLOR = new ::poi::ddf::EscherColorRef_SysIndexSource(u"LINE_BACKGROUND_COLOR"_j, 6, int32_t(246));
+poi::ddf::EscherColorRef_SysIndexSource* poi::ddf::EscherColorRef_SysIndexSource::FILL_OR_LINE_COLOR = new ::poi::ddf::EscherColorRef_SysIndexSource(u"FILL_OR_LINE_COLOR"_j, 7, int32_t(247));
+void poi::ddf::EscherColorRef_SysIndexSource::ctor(::java::lang::String* name, int ordinal, int32_t value)
 {
     super::ctor(name, ordinal);
     this->value = value;
@@ -67,13 +61,13 @@ void org::apache::poi::ddf::EscherColorRef_SysIndexSource::ctor(::java::lang::St
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ddf::EscherColorRef_SysIndexSource::class_()
+java::lang::Class* poi::ddf::EscherColorRef_SysIndexSource::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ddf.EscherColorRef.SysIndexSource", 48);
     return c;
 }
 
-org::apache::poi::ddf::EscherColorRef_SysIndexSource* org::apache::poi::ddf::EscherColorRef_SysIndexSource::valueOf(::java::lang::String* a0)
+poi::ddf::EscherColorRef_SysIndexSource* poi::ddf::EscherColorRef_SysIndexSource::valueOf(::java::lang::String* a0)
 {
     if(CURRENT_OR_LAST_COLOR->toString()->equals(a0))
         return CURRENT_OR_LAST_COLOR;
@@ -94,9 +88,9 @@ org::apache::poi::ddf::EscherColorRef_SysIndexSource* org::apache::poi::ddf::Esc
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::ddf::EscherColorRef_SysIndexSourceArray* org::apache::poi::ddf::EscherColorRef_SysIndexSource::values()
+poi::ddf::EscherColorRef_SysIndexSourceArray* poi::ddf::EscherColorRef_SysIndexSource::values()
 {
-    return new org::apache::poi::ddf::EscherColorRef_SysIndexSourceArray({
+    return new poi::ddf::EscherColorRef_SysIndexSourceArray({
         CURRENT_OR_LAST_COLOR,
         FILL_BACKGROUND_COLOR,
         FILL_COLOR,
@@ -108,7 +102,7 @@ org::apache::poi::ddf::EscherColorRef_SysIndexSourceArray* org::apache::poi::ddf
     });
 }
 
-java::lang::Class* org::apache::poi::ddf::EscherColorRef_SysIndexSource::getClass0()
+java::lang::Class* poi::ddf::EscherColorRef_SysIndexSource::getClass0()
 {
     return class_();
 }

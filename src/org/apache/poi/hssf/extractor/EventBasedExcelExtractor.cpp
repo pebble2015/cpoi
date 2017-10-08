@@ -24,74 +24,74 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::extractor::EventBasedExcelExtractor::EventBasedExcelExtractor(const ::default_init_tag&)
+poi::hssf::extractor::EventBasedExcelExtractor::EventBasedExcelExtractor(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::extractor::EventBasedExcelExtractor::EventBasedExcelExtractor(::org::apache::poi::poifs::filesystem::DirectoryNode* dir) 
+poi::hssf::extractor::EventBasedExcelExtractor::EventBasedExcelExtractor(::poi::poifs::filesystem::DirectoryNode* dir) 
     : EventBasedExcelExtractor(*static_cast< ::default_init_tag* >(0))
 {
     ctor(dir);
 }
 
-org::apache::poi::hssf::extractor::EventBasedExcelExtractor::EventBasedExcelExtractor(::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs) 
+poi::hssf::extractor::EventBasedExcelExtractor::EventBasedExcelExtractor(::poi::poifs::filesystem::POIFSFileSystem* fs) 
     : EventBasedExcelExtractor(*static_cast< ::default_init_tag* >(0))
 {
     ctor(fs);
 }
 
-void org::apache::poi::hssf::extractor::EventBasedExcelExtractor::init()
+void poi::hssf::extractor::EventBasedExcelExtractor::init()
 {
     _includeSheetNames = true;
     _formulasNotResults = false;
 }
 
-void org::apache::poi::hssf::extractor::EventBasedExcelExtractor::ctor(::org::apache::poi::poifs::filesystem::DirectoryNode* dir)
+void poi::hssf::extractor::EventBasedExcelExtractor::ctor(::poi::poifs::filesystem::DirectoryNode* dir)
 {
-    super::ctor(static_cast< ::org::apache::poi::POIDocument* >(nullptr));
+    super::ctor(static_cast< ::poi::POIDocument* >(nullptr));
     init();
     _dir = dir;
 }
 
-void org::apache::poi::hssf::extractor::EventBasedExcelExtractor::ctor(::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs)
+void poi::hssf::extractor::EventBasedExcelExtractor::ctor(::poi::poifs::filesystem::POIFSFileSystem* fs)
 {
     ctor(npc(fs)->getRoot());
     super::setFilesystem(fs);
 }
 
-org::apache::poi::hpsf::DocumentSummaryInformation* org::apache::poi::hssf::extractor::EventBasedExcelExtractor::getDocSummaryInformation()
+poi::hpsf::DocumentSummaryInformation* poi::hssf::extractor::EventBasedExcelExtractor::getDocSummaryInformation()
 {
     throw new ::java::lang::IllegalStateException(u"Metadata extraction not supported in streaming mode, please use ExcelExtractor"_j);
 }
 
-org::apache::poi::hpsf::SummaryInformation* org::apache::poi::hssf::extractor::EventBasedExcelExtractor::getSummaryInformation()
+poi::hpsf::SummaryInformation* poi::hssf::extractor::EventBasedExcelExtractor::getSummaryInformation()
 {
     throw new ::java::lang::IllegalStateException(u"Metadata extraction not supported in streaming mode, please use ExcelExtractor"_j);
 }
 
-void org::apache::poi::hssf::extractor::EventBasedExcelExtractor::setIncludeCellComments(bool includeComments)
+void poi::hssf::extractor::EventBasedExcelExtractor::setIncludeCellComments(bool includeComments)
 {
     throw new ::java::lang::IllegalStateException(u"Comment extraction not supported in streaming mode, please use ExcelExtractor"_j);
 }
 
-void org::apache::poi::hssf::extractor::EventBasedExcelExtractor::setIncludeHeadersFooters(bool includeHeadersFooters)
+void poi::hssf::extractor::EventBasedExcelExtractor::setIncludeHeadersFooters(bool includeHeadersFooters)
 {
     throw new ::java::lang::IllegalStateException(u"Header/Footer extraction not supported in streaming mode, please use ExcelExtractor"_j);
 }
 
-void org::apache::poi::hssf::extractor::EventBasedExcelExtractor::setIncludeSheetNames(bool includeSheetNames)
+void poi::hssf::extractor::EventBasedExcelExtractor::setIncludeSheetNames(bool includeSheetNames)
 {
     _includeSheetNames = includeSheetNames;
 }
 
-void org::apache::poi::hssf::extractor::EventBasedExcelExtractor::setFormulasNotResults(bool formulasNotResults)
+void poi::hssf::extractor::EventBasedExcelExtractor::setFormulasNotResults(bool formulasNotResults)
 {
     _formulasNotResults = formulasNotResults;
 }
 
-java::lang::String* org::apache::poi::hssf::extractor::EventBasedExcelExtractor::getText()
+java::lang::String* poi::hssf::extractor::EventBasedExcelExtractor::getText()
 {
     ::java::lang::String* text = nullptr;
     try {
@@ -106,13 +106,13 @@ java::lang::String* org::apache::poi::hssf::extractor::EventBasedExcelExtractor:
     return text;
 }
 
-org::apache::poi::hssf::extractor::EventBasedExcelExtractor_TextListener* org::apache::poi::hssf::extractor::EventBasedExcelExtractor::triggerExtraction() /* throws(IOException) */
+poi::hssf::extractor::EventBasedExcelExtractor_TextListener* poi::hssf::extractor::EventBasedExcelExtractor::triggerExtraction() /* throws(IOException) */
 {
     auto tl = new EventBasedExcelExtractor_TextListener(this);
-    auto ft = new ::org::apache::poi::hssf::eventusermodel::FormatTrackingHSSFListener(tl);
+    auto ft = new ::poi::hssf::eventusermodel::FormatTrackingHSSFListener(tl);
     npc(tl)->_ft = ft;
-    auto factory = new ::org::apache::poi::hssf::eventusermodel::HSSFEventFactory();
-    auto request = new ::org::apache::poi::hssf::eventusermodel::HSSFRequest();
+    auto factory = new ::poi::hssf::eventusermodel::HSSFEventFactory();
+    auto request = new ::poi::hssf::eventusermodel::HSSFRequest();
     npc(request)->addListenerForAllRecords(ft);
     npc(factory)->processWorkbookEvents(request, _dir);
     return tl;
@@ -120,13 +120,13 @@ org::apache::poi::hssf::extractor::EventBasedExcelExtractor_TextListener* org::a
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::extractor::EventBasedExcelExtractor::class_()
+java::lang::Class* poi::hssf::extractor::EventBasedExcelExtractor::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.extractor.EventBasedExcelExtractor", 54);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::extractor::EventBasedExcelExtractor::getClass0()
+java::lang::Class* poi::hssf::extractor::EventBasedExcelExtractor::getClass0()
 {
     return class_();
 }

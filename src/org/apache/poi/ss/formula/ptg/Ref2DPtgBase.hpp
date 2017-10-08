@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::ptg::Ref2DPtgBase
+class poi::ss::formula::ptg::Ref2DPtgBase
     : public RefPtgBase
 {
 
@@ -22,11 +22,11 @@ private:
     static constexpr int32_t SIZE { int32_t(5) };
 protected:
     void ctor(int32_t row, int32_t column, bool isRowRelative, bool isColumnRelative);
-    void ctor(::org::apache::poi::util::LittleEndianInput* in);
-    void ctor(::org::apache::poi::ss::util::CellReference* cr);
+    void ctor(::poi::util::LittleEndianInput* in);
+    void ctor(::poi::ss::util::CellReference* cr);
 
 public:
-    void write(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void write(::poi::util::LittleEndianOutput* out) override;
     ::java::lang::String* toFormulaString() override;
 
 public: /* protected */
@@ -40,8 +40,8 @@ public:
 
 public: /* protected */
     Ref2DPtgBase(int32_t row, int32_t column, bool isRowRelative, bool isColumnRelative);
-    Ref2DPtgBase(::org::apache::poi::util::LittleEndianInput* in);
-    Ref2DPtgBase(::org::apache::poi::ss::util::CellReference* cr);
+    Ref2DPtgBase(::poi::util::LittleEndianInput* in);
+    Ref2DPtgBase(::poi::ss::util::CellReference* cr);
 protected:
     Ref2DPtgBase(const ::default_init_tag&);
 

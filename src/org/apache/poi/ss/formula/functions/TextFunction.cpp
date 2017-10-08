@@ -23,25 +23,19 @@
 #include <org/apache/poi/ss/usermodel/DataFormatter.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -50,176 +44,176 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::TextFunction::TextFunction(const ::default_init_tag&)
+poi::ss::formula::functions::TextFunction::TextFunction(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::TextFunction::TextFunction()
+poi::ss::formula::functions::TextFunction::TextFunction()
     : TextFunction(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::usermodel::DataFormatter*& org::apache::poi::ss::formula::functions::TextFunction::formatter()
+poi::ss::usermodel::DataFormatter*& poi::ss::formula::functions::TextFunction::formatter()
 {
     clinit();
     return formatter_;
 }
-org::apache::poi::ss::usermodel::DataFormatter* org::apache::poi::ss::formula::functions::TextFunction::formatter_;
+poi::ss::usermodel::DataFormatter* poi::ss::formula::functions::TextFunction::formatter_;
 
-java::lang::String* org::apache::poi::ss::formula::functions::TextFunction::evaluateStringArg(::org::apache::poi::ss::formula::eval::ValueEval* eval, int32_t srcRow, int32_t srcCol) /* throws(EvaluationException) */
+java::lang::String* poi::ss::formula::functions::TextFunction::evaluateStringArg(::poi::ss::formula::eval::ValueEval* eval, int32_t srcRow, int32_t srcCol) /* throws(EvaluationException) */
 {
     clinit();
-    auto ve = ::org::apache::poi::ss::formula::eval::OperandResolver::getSingleValue(eval, srcRow, srcCol);
-    return ::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToString(ve);
+    auto ve = ::poi::ss::formula::eval::OperandResolver::getSingleValue(eval, srcRow, srcCol);
+    return ::poi::ss::formula::eval::OperandResolver::coerceValueToString(ve);
 }
 
-int32_t org::apache::poi::ss::formula::functions::TextFunction::evaluateIntArg(::org::apache::poi::ss::formula::eval::ValueEval* arg, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */
+int32_t poi::ss::formula::functions::TextFunction::evaluateIntArg(::poi::ss::formula::eval::ValueEval* arg, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */
 {
     clinit();
-    auto ve = ::org::apache::poi::ss::formula::eval::OperandResolver::getSingleValue(arg, srcCellRow, srcCellCol);
-    return ::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToInt(ve);
+    auto ve = ::poi::ss::formula::eval::OperandResolver::getSingleValue(arg, srcCellRow, srcCellCol);
+    return ::poi::ss::formula::eval::OperandResolver::coerceValueToInt(ve);
 }
 
-double org::apache::poi::ss::formula::functions::TextFunction::evaluateDoubleArg(::org::apache::poi::ss::formula::eval::ValueEval* arg, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */
+double poi::ss::formula::functions::TextFunction::evaluateDoubleArg(::poi::ss::formula::eval::ValueEval* arg, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */
 {
     clinit();
-    auto ve = ::org::apache::poi::ss::formula::eval::OperandResolver::getSingleValue(arg, srcCellRow, srcCellCol);
-    return ::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToDouble(ve);
+    auto ve = ::poi::ss::formula::eval::OperandResolver::getSingleValue(arg, srcCellRow, srcCellCol);
+    return ::poi::ss::formula::eval::OperandResolver::coerceValueToDouble(ve);
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::TextFunction::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcCellRow, int32_t srcCellCol)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::TextFunction::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcCellRow, int32_t srcCellCol)
 {
     try {
         return evaluateFunc(args, srcCellRow, srcCellCol);
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
         return npc(e)->getErrorEval();
     }
 }
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::TextFunction::CHAR()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::TextFunction::CHAR()
 {
     clinit();
     return CHAR_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::TextFunction::CHAR_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::TextFunction::CHAR_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::TextFunction::LEN()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::TextFunction::LEN()
 {
     clinit();
     return LEN_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::TextFunction::LEN_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::TextFunction::LEN_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::TextFunction::LOWER()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::TextFunction::LOWER()
 {
     clinit();
     return LOWER_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::TextFunction::LOWER_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::TextFunction::LOWER_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::TextFunction::UPPER()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::TextFunction::UPPER()
 {
     clinit();
     return UPPER_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::TextFunction::UPPER_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::TextFunction::UPPER_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::TextFunction::PROPER()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::TextFunction::PROPER()
 {
     clinit();
     return PROPER_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::TextFunction::PROPER_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::TextFunction::PROPER_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::TextFunction::TRIM()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::TextFunction::TRIM()
 {
     clinit();
     return TRIM_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::TextFunction::TRIM_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::TextFunction::TRIM_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::TextFunction::CLEAN()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::TextFunction::CLEAN()
 {
     clinit();
     return CLEAN_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::TextFunction::CLEAN_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::TextFunction::CLEAN_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::TextFunction::MID()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::TextFunction::MID()
 {
     clinit();
     return MID_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::TextFunction::MID_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::TextFunction::MID_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::TextFunction::LEFT()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::TextFunction::LEFT()
 {
     clinit();
     return LEFT_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::TextFunction::LEFT_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::TextFunction::LEFT_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::TextFunction::RIGHT()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::TextFunction::RIGHT()
 {
     clinit();
     return RIGHT_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::TextFunction::RIGHT_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::TextFunction::RIGHT_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::TextFunction::CONCATENATE()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::TextFunction::CONCATENATE()
 {
     clinit();
     return CONCATENATE_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::TextFunction::CONCATENATE_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::TextFunction::CONCATENATE_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::TextFunction::EXACT()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::TextFunction::EXACT()
 {
     clinit();
     return EXACT_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::TextFunction::EXACT_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::TextFunction::EXACT_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::TextFunction::TEXT()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::TextFunction::TEXT()
 {
     clinit();
     return TEXT_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::TextFunction::TEXT_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::TextFunction::TEXT_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::TextFunction::FIND()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::TextFunction::FIND()
 {
     clinit();
     return FIND_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::TextFunction::FIND_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::TextFunction::FIND_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::TextFunction::SEARCH()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::TextFunction::SEARCH()
 {
     clinit();
     return SEARCH_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::TextFunction::SEARCH_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::TextFunction::SEARCH_;
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::TextFunction::class_()
+java::lang::Class* poi::ss::formula::functions::TextFunction::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.TextFunction", 48);
     return c;
 }
 
-void org::apache::poi::ss::formula::functions::TextFunction::clinit()
+void poi::ss::formula::functions::TextFunction::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        formatter_ = new ::org::apache::poi::ss::usermodel::DataFormatter();
+        formatter_ = new ::poi::ss::usermodel::DataFormatter();
         CHAR_ = new TextFunction_1();
         LEN_ = new TextFunction_2();
         LOWER_ = new TextFunction_3();
@@ -243,7 +237,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::TextFunction::getClass0()
+java::lang::Class* poi::ss::formula::functions::TextFunction::getClass0()
 {
     return class_();
 }

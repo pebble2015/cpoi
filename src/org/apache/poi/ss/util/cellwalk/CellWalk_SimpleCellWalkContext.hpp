@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::util::cellwalk::CellWalk_SimpleCellWalkContext
+class poi::ss::util::cellwalk::CellWalk_SimpleCellWalkContext
     : public virtual ::java::lang::Object
     , public virtual CellWalkContext
 {

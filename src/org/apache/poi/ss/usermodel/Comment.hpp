@@ -8,13 +8,13 @@
 #include <org/apache/poi/ss/util/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::usermodel::Comment
+struct poi::ss::usermodel::Comment
     : public virtual ::java::lang::Object
 {
     virtual void setVisible(bool visible) = 0;
     virtual bool isVisible() = 0;
-    virtual ::org::apache::poi::ss::util::CellAddress* getAddress() = 0;
-    virtual void setAddress(::org::apache::poi::ss::util::CellAddress* addr) = 0;
+    virtual ::poi::ss::util::CellAddress* getAddress() = 0;
+    virtual void setAddress(::poi::ss::util::CellAddress* addr) = 0;
     virtual void setAddress(int32_t row, int32_t col) = 0;
     virtual int32_t getRow() = 0;
     virtual void setRow(int32_t row) = 0;

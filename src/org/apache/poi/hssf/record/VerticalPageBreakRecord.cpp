@@ -24,42 +24,42 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::VerticalPageBreakRecord::VerticalPageBreakRecord(const ::default_init_tag&)
+poi::hssf::record::VerticalPageBreakRecord::VerticalPageBreakRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::VerticalPageBreakRecord::VerticalPageBreakRecord() 
+poi::hssf::record::VerticalPageBreakRecord::VerticalPageBreakRecord() 
     : VerticalPageBreakRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::VerticalPageBreakRecord::VerticalPageBreakRecord(RecordInputStream* in) 
+poi::hssf::record::VerticalPageBreakRecord::VerticalPageBreakRecord(RecordInputStream* in) 
     : VerticalPageBreakRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::VerticalPageBreakRecord::sid;
+constexpr int16_t poi::hssf::record::VerticalPageBreakRecord::sid;
 
-void org::apache::poi::hssf::record::VerticalPageBreakRecord::ctor()
+void poi::hssf::record::VerticalPageBreakRecord::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hssf::record::VerticalPageBreakRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::VerticalPageBreakRecord::ctor(RecordInputStream* in)
 {
     super::ctor(in);
 }
 
-int16_t org::apache::poi::hssf::record::VerticalPageBreakRecord::getSid()
+int16_t poi::hssf::record::VerticalPageBreakRecord::getSid()
 {
     return sid;
 }
 
-java::lang::Object* org::apache::poi::hssf::record::VerticalPageBreakRecord::clone()
+java::lang::Object* poi::hssf::record::VerticalPageBreakRecord::clone()
 {
     PageBreakRecord* result = new VerticalPageBreakRecord();
     auto iterator = getBreaksIterator();
@@ -72,13 +72,13 @@ java::lang::Object* org::apache::poi::hssf::record::VerticalPageBreakRecord::clo
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::VerticalPageBreakRecord::class_()
+java::lang::Class* poi::hssf::record::VerticalPageBreakRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.VerticalPageBreakRecord", 50);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::record::VerticalPageBreakRecord::getClass0()
+java::lang::Class* poi::hssf::record::VerticalPageBreakRecord::getClass0()
 {
     return class_();
 }

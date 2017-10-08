@@ -81,41 +81,41 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ddf::DefaultEscherRecordFactory::DefaultEscherRecordFactory(const ::default_init_tag&)
+poi::ddf::DefaultEscherRecordFactory::DefaultEscherRecordFactory(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ddf::DefaultEscherRecordFactory::DefaultEscherRecordFactory() 
+poi::ddf::DefaultEscherRecordFactory::DefaultEscherRecordFactory() 
     : DefaultEscherRecordFactory(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-java::lang::ClassArray*& org::apache::poi::ddf::DefaultEscherRecordFactory::escherRecordClasses()
+java::lang::ClassArray*& poi::ddf::DefaultEscherRecordFactory::escherRecordClasses()
 {
     clinit();
     return escherRecordClasses_;
 }
-java::lang::ClassArray* org::apache::poi::ddf::DefaultEscherRecordFactory::escherRecordClasses_;
+java::lang::ClassArray* poi::ddf::DefaultEscherRecordFactory::escherRecordClasses_;
 
-java::util::Map*& org::apache::poi::ddf::DefaultEscherRecordFactory::recordsMap()
+java::util::Map*& poi::ddf::DefaultEscherRecordFactory::recordsMap()
 {
     clinit();
     return recordsMap_;
 }
-java::util::Map* org::apache::poi::ddf::DefaultEscherRecordFactory::recordsMap_;
+java::util::Map* poi::ddf::DefaultEscherRecordFactory::recordsMap_;
 
-void org::apache::poi::ddf::DefaultEscherRecordFactory::ctor()
+void poi::ddf::DefaultEscherRecordFactory::ctor()
 {
     super::ctor();
 }
 
-org::apache::poi::ddf::EscherRecord* org::apache::poi::ddf::DefaultEscherRecordFactory::createRecord(::int8_tArray* data, int32_t offset)
+poi::ddf::EscherRecord* poi::ddf::DefaultEscherRecordFactory::createRecord(::int8_tArray* data, int32_t offset)
 {
-    auto options = ::org::apache::poi::util::LittleEndian::getShort(data, offset);
-    auto recordId = ::org::apache::poi::util::LittleEndian::getShort(data, offset + int32_t(2));
+    auto options = ::poi::util::LittleEndian::getShort(data, offset);
+    auto recordId = ::poi::util::LittleEndian::getShort(data, offset + int32_t(2));
     if(isContainer(options, recordId)) {
         auto r = new EscherContainerRecord();
         npc(r)->setRecordId(recordId);
@@ -150,7 +150,7 @@ org::apache::poi::ddf::EscherRecord* org::apache::poi::ddf::DefaultEscherRecordF
     return escherRecord;
 }
 
-java::util::Map* org::apache::poi::ddf::DefaultEscherRecordFactory::recordsToMap(::java::lang::ClassArray* recClasses)
+java::util::Map* poi::ddf::DefaultEscherRecordFactory::recordsToMap(::java::lang::ClassArray* recClasses)
 {
     clinit();
     ::java::util::Map* result = new ::java::util::HashMap();
@@ -178,7 +178,7 @@ java::util::Map* org::apache::poi::ddf::DefaultEscherRecordFactory::recordsToMap
     return result;
 }
 
-bool org::apache::poi::ddf::DefaultEscherRecordFactory::isContainer(int16_t options, int16_t recordId)
+bool poi::ddf::DefaultEscherRecordFactory::isContainer(int16_t options, int16_t recordId)
 {
     clinit();
     if(recordId >= EscherContainerRecord::DGG_CONTAINER && recordId <= EscherContainerRecord::SOLVER_CONTAINER) {
@@ -194,13 +194,13 @@ bool org::apache::poi::ddf::DefaultEscherRecordFactory::isContainer(int16_t opti
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ddf::DefaultEscherRecordFactory::class_()
+java::lang::Class* poi::ddf::DefaultEscherRecordFactory::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ddf.DefaultEscherRecordFactory", 45);
     return c;
 }
 
-void org::apache::poi::ddf::DefaultEscherRecordFactory::clinit()
+void poi::ddf::DefaultEscherRecordFactory::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -230,7 +230,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ddf::DefaultEscherRecordFactory::getClass0()
+java::lang::Class* poi::ddf::DefaultEscherRecordFactory::getClass0()
 {
     return class_();
 }

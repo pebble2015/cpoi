@@ -25,49 +25,43 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace functions
             {
-                namespace formula
-                {
-                    namespace functions
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::functions::LinearRegressionFunction_FUNCTION, ::java::lang::EnumArray > LinearRegressionFunction_FUNCTIONArray;
-                    } // functions
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::functions::LinearRegressionFunction_FUNCTION, ::java::lang::EnumArray > LinearRegressionFunction_FUNCTIONArray;
+            } // functions
+        } // formula
+    } // ss
+} // poi
 
-org::apache::poi::ss::formula::functions::LinearRegressionFunction_FUNCTION::LinearRegressionFunction_FUNCTION(const ::default_init_tag&)
+poi::ss::formula::functions::LinearRegressionFunction_FUNCTION::LinearRegressionFunction_FUNCTION(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::LinearRegressionFunction_FUNCTION::LinearRegressionFunction_FUNCTION(::java::lang::String* name, int ordinal)
+poi::ss::formula::functions::LinearRegressionFunction_FUNCTION::LinearRegressionFunction_FUNCTION(::java::lang::String* name, int ordinal)
     : LinearRegressionFunction_FUNCTION(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal);
 }
 
-org::apache::poi::ss::formula::functions::LinearRegressionFunction_FUNCTION* org::apache::poi::ss::formula::functions::LinearRegressionFunction_FUNCTION::INTERCEPT = new ::org::apache::poi::ss::formula::functions::LinearRegressionFunction_FUNCTION(u"INTERCEPT"_j, 0);
-org::apache::poi::ss::formula::functions::LinearRegressionFunction_FUNCTION* org::apache::poi::ss::formula::functions::LinearRegressionFunction_FUNCTION::SLOPE = new ::org::apache::poi::ss::formula::functions::LinearRegressionFunction_FUNCTION(u"SLOPE"_j, 1);
+poi::ss::formula::functions::LinearRegressionFunction_FUNCTION* poi::ss::formula::functions::LinearRegressionFunction_FUNCTION::INTERCEPT = new ::poi::ss::formula::functions::LinearRegressionFunction_FUNCTION(u"INTERCEPT"_j, 0);
+poi::ss::formula::functions::LinearRegressionFunction_FUNCTION* poi::ss::formula::functions::LinearRegressionFunction_FUNCTION::SLOPE = new ::poi::ss::formula::functions::LinearRegressionFunction_FUNCTION(u"SLOPE"_j, 1);
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::LinearRegressionFunction_FUNCTION::class_()
+java::lang::Class* poi::ss::formula::functions::LinearRegressionFunction_FUNCTION::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.LinearRegressionFunction.FUNCTION", 69);
     return c;
 }
 
-org::apache::poi::ss::formula::functions::LinearRegressionFunction_FUNCTION* org::apache::poi::ss::formula::functions::LinearRegressionFunction_FUNCTION::valueOf(::java::lang::String* a0)
+poi::ss::formula::functions::LinearRegressionFunction_FUNCTION* poi::ss::formula::functions::LinearRegressionFunction_FUNCTION::valueOf(::java::lang::String* a0)
 {
     if(INTERCEPT->toString()->equals(a0))
         return INTERCEPT;
@@ -76,15 +70,15 @@ org::apache::poi::ss::formula::functions::LinearRegressionFunction_FUNCTION* org
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::ss::formula::functions::LinearRegressionFunction_FUNCTIONArray* org::apache::poi::ss::formula::functions::LinearRegressionFunction_FUNCTION::values()
+poi::ss::formula::functions::LinearRegressionFunction_FUNCTIONArray* poi::ss::formula::functions::LinearRegressionFunction_FUNCTION::values()
 {
-    return new org::apache::poi::ss::formula::functions::LinearRegressionFunction_FUNCTIONArray({
+    return new poi::ss::formula::functions::LinearRegressionFunction_FUNCTIONArray({
         INTERCEPT,
         SLOPE,
     });
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::LinearRegressionFunction_FUNCTION::getClass0()
+java::lang::Class* poi::ss::formula::functions::LinearRegressionFunction_FUNCTION::getClass0()
 {
     return class_();
 }

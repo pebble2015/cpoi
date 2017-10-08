@@ -5,7 +5,7 @@
 #include <org/apache/poi/sl/usermodel/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::sl::usermodel::FillStyle
+struct poi::sl::usermodel::FillStyle
     : public virtual ::java::lang::Object
 {
     virtual PaintStyle* getPaint() = 0;

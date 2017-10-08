@@ -54,19 +54,19 @@ namespace
 
     template<typename F> finally_<F> finally(F f) { return finally_<F>(f); }
 }
-org::apache::poi::poifs::filesystem::EntryUtils::EntryUtils(const ::default_init_tag&)
+poi::poifs::filesystem::EntryUtils::EntryUtils(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::filesystem::EntryUtils::EntryUtils()
+poi::poifs::filesystem::EntryUtils::EntryUtils()
     : EntryUtils(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::poifs::filesystem::EntryUtils::copyNodeRecursively(Entry* entry, DirectoryEntry* target) /* throws(IOException) */
+void poi::poifs::filesystem::EntryUtils::copyNodeRecursively(Entry* entry, DirectoryEntry* target) /* throws(IOException) */
 {
     clinit();
     DirectoryEntry* newTarget = nullptr;
@@ -86,7 +86,7 @@ void org::apache::poi::poifs::filesystem::EntryUtils::copyNodeRecursively(Entry*
     }
 }
 
-void org::apache::poi::poifs::filesystem::EntryUtils::copyNodes(DirectoryEntry* sourceRoot, DirectoryEntry* targetRoot) /* throws(IOException) */
+void poi::poifs::filesystem::EntryUtils::copyNodes(DirectoryEntry* sourceRoot, DirectoryEntry* targetRoot) /* throws(IOException) */
 {
     clinit();
     for (auto _i = npc(sourceRoot)->iterator(); _i->hasNext(); ) {
@@ -97,37 +97,37 @@ void org::apache::poi::poifs::filesystem::EntryUtils::copyNodes(DirectoryEntry* 
     }
 }
 
-void org::apache::poi::poifs::filesystem::EntryUtils::copyNodes(FilteringDirectoryNode* filteredSource, FilteringDirectoryNode* filteredTarget) /* throws(IOException) */
+void poi::poifs::filesystem::EntryUtils::copyNodes(FilteringDirectoryNode* filteredSource, FilteringDirectoryNode* filteredTarget) /* throws(IOException) */
 {
     clinit();
     copyNodes(java_cast< DirectoryEntry* >(filteredSource), java_cast< DirectoryEntry* >(filteredTarget));
 }
 
-void org::apache::poi::poifs::filesystem::EntryUtils::copyNodes(OPOIFSFileSystem* source, OPOIFSFileSystem* target) /* throws(IOException) */
+void poi::poifs::filesystem::EntryUtils::copyNodes(OPOIFSFileSystem* source, OPOIFSFileSystem* target) /* throws(IOException) */
 {
     clinit();
     copyNodes(static_cast< DirectoryEntry* >(npc(source)->getRoot()), static_cast< DirectoryEntry* >(npc(target)->getRoot()));
 }
 
-void org::apache::poi::poifs::filesystem::EntryUtils::copyNodes(NPOIFSFileSystem* source, NPOIFSFileSystem* target) /* throws(IOException) */
+void poi::poifs::filesystem::EntryUtils::copyNodes(NPOIFSFileSystem* source, NPOIFSFileSystem* target) /* throws(IOException) */
 {
     clinit();
     copyNodes(static_cast< DirectoryEntry* >(npc(source)->getRoot()), static_cast< DirectoryEntry* >(npc(target)->getRoot()));
 }
 
-void org::apache::poi::poifs::filesystem::EntryUtils::copyNodes(OPOIFSFileSystem* source, OPOIFSFileSystem* target, ::java::util::List* excepts) /* throws(IOException) */
+void poi::poifs::filesystem::EntryUtils::copyNodes(OPOIFSFileSystem* source, OPOIFSFileSystem* target, ::java::util::List* excepts) /* throws(IOException) */
 {
     clinit();
     copyNodes(new FilteringDirectoryNode(npc(source)->getRoot(), excepts), new FilteringDirectoryNode(npc(target)->getRoot(), excepts));
 }
 
-void org::apache::poi::poifs::filesystem::EntryUtils::copyNodes(NPOIFSFileSystem* source, NPOIFSFileSystem* target, ::java::util::List* excepts) /* throws(IOException) */
+void poi::poifs::filesystem::EntryUtils::copyNodes(NPOIFSFileSystem* source, NPOIFSFileSystem* target, ::java::util::List* excepts) /* throws(IOException) */
 {
     clinit();
     copyNodes(new FilteringDirectoryNode(npc(source)->getRoot(), excepts), new FilteringDirectoryNode(npc(target)->getRoot(), excepts));
 }
 
-bool org::apache::poi::poifs::filesystem::EntryUtils::areDirectoriesIdentical(DirectoryEntry* dirA, DirectoryEntry* dirB)
+bool poi::poifs::filesystem::EntryUtils::areDirectoriesIdentical(DirectoryEntry* dirA, DirectoryEntry* dirB)
 {
     clinit();
     if(!npc(npc(dirA)->getName())->equals(static_cast< ::java::lang::Object* >(npc(dirB)->getName()))) {
@@ -195,7 +195,7 @@ bool org::apache::poi::poifs::filesystem::EntryUtils::areDirectoriesIdentical(Di
     return true;
 }
 
-bool org::apache::poi::poifs::filesystem::EntryUtils::areDocumentsIdentical(DocumentEntry* docA, DocumentEntry* docB) /* throws(IOException) */
+bool poi::poifs::filesystem::EntryUtils::areDocumentsIdentical(DocumentEntry* docA, DocumentEntry* docB) /* throws(IOException) */
 {
     clinit();
     if(!npc(npc(docA)->getName())->equals(static_cast< ::java::lang::Object* >(npc(docB)->getName()))) {
@@ -236,13 +236,13 @@ bool org::apache::poi::poifs::filesystem::EntryUtils::areDocumentsIdentical(Docu
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::filesystem::EntryUtils::class_()
+java::lang::Class* poi::poifs::filesystem::EntryUtils::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.filesystem.EntryUtils", 42);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::filesystem::EntryUtils::getClass0()
+java::lang::Class* poi::poifs::filesystem::EntryUtils::getClass0()
 {
     return class_();
 }

@@ -13,22 +13,16 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace poifs
     {
-        namespace poi
+        namespace storage
         {
-            namespace poifs
-            {
-                namespace storage
-                {
-typedef ::SubArray< ::org::apache::poi::poifs::storage::ListManagedBlock, ::java::lang::ObjectArray > ListManagedBlockArray;
-                } // storage
-            } // poifs
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::poifs::storage::ListManagedBlock, ::java::lang::ObjectArray > ListManagedBlockArray;
+        } // storage
+    } // poifs
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -37,43 +31,43 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::storage::BlockListImpl::BlockListImpl(const ::default_init_tag&)
+poi::poifs::storage::BlockListImpl::BlockListImpl(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::storage::BlockListImpl::BlockListImpl() 
+poi::poifs::storage::BlockListImpl::BlockListImpl() 
     : BlockListImpl(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::poifs::storage::BlockListImpl::ctor()
+void poi::poifs::storage::BlockListImpl::ctor()
 {
     super::ctor();
     _blocks = new ListManagedBlockArray(int32_t(0));
     _bat = nullptr;
 }
 
-void org::apache::poi::poifs::storage::BlockListImpl::setBlocks(ListManagedBlockArray* blocks)
+void poi::poifs::storage::BlockListImpl::setBlocks(ListManagedBlockArray* blocks)
 {
     _blocks = npc(blocks)->clone();
 }
 
-void org::apache::poi::poifs::storage::BlockListImpl::zap(int32_t index)
+void poi::poifs::storage::BlockListImpl::zap(int32_t index)
 {
     if((index >= 0) && (index < npc(_blocks)->length)) {
         _blocks->set(index, nullptr);
     }
 }
 
-org::apache::poi::poifs::storage::ListManagedBlock* org::apache::poi::poifs::storage::BlockListImpl::get(int32_t index)
+poi::poifs::storage::ListManagedBlock* poi::poifs::storage::BlockListImpl::get(int32_t index)
 {
     return (*_blocks)[index];
 }
 
-org::apache::poi::poifs::storage::ListManagedBlock* org::apache::poi::poifs::storage::BlockListImpl::remove(int32_t index) /* throws(IOException) */
+poi::poifs::storage::ListManagedBlock* poi::poifs::storage::BlockListImpl::remove(int32_t index) /* throws(IOException) */
 {
     ListManagedBlock* result = nullptr;
     try {
@@ -93,7 +87,7 @@ org::apache::poi::poifs::storage::ListManagedBlock* org::apache::poi::poifs::sto
     return result;
 }
 
-org::apache::poi::poifs::storage::ListManagedBlockArray* org::apache::poi::poifs::storage::BlockListImpl::fetchBlocks(int32_t startBlock, int32_t headerPropertiesStartBlock) /* throws(IOException) */
+poi::poifs::storage::ListManagedBlockArray* poi::poifs::storage::BlockListImpl::fetchBlocks(int32_t startBlock, int32_t headerPropertiesStartBlock) /* throws(IOException) */
 {
     if(_bat == nullptr) {
         throw new ::java::io::IOException(u"Improperly initialized list: no block allocation table provided"_j);
@@ -101,7 +95,7 @@ org::apache::poi::poifs::storage::ListManagedBlockArray* org::apache::poi::poifs
     return npc(_bat)->fetchBlocks(startBlock, headerPropertiesStartBlock, this);
 }
 
-void org::apache::poi::poifs::storage::BlockListImpl::setBAT(BlockAllocationTableReader* bat) /* throws(IOException) */
+void poi::poifs::storage::BlockListImpl::setBAT(BlockAllocationTableReader* bat) /* throws(IOException) */
 {
     if(_bat != nullptr) {
         throw new ::java::io::IOException(u"Attempt to replace existing BlockAllocationTable"_j);
@@ -109,12 +103,12 @@ void org::apache::poi::poifs::storage::BlockListImpl::setBAT(BlockAllocationTabl
     _bat = bat;
 }
 
-int32_t org::apache::poi::poifs::storage::BlockListImpl::blockCount()
+int32_t poi::poifs::storage::BlockListImpl::blockCount()
 {
     return npc(_blocks)->length;
 }
 
-int32_t org::apache::poi::poifs::storage::BlockListImpl::remainingBlocks()
+int32_t poi::poifs::storage::BlockListImpl::remainingBlocks()
 {
     auto c = int32_t(0);
     for (auto i = int32_t(0); i < npc(_blocks)->length; i++) {
@@ -127,13 +121,13 @@ int32_t org::apache::poi::poifs::storage::BlockListImpl::remainingBlocks()
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::storage::BlockListImpl::class_()
+java::lang::Class* poi::poifs::storage::BlockListImpl::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.storage.BlockListImpl", 42);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::storage::BlockListImpl::getClass0()
+java::lang::Class* poi::poifs::storage::BlockListImpl::getClass0()
 {
     return class_();
 }

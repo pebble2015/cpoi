@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::eval::BlankEval final
+class poi::ss::formula::eval::BlankEval final
     : public virtual ::java::lang::Object
     , public ValueEval
 {

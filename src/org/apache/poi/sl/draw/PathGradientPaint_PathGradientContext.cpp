@@ -69,20 +69,20 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::sl::draw::PathGradientPaint_PathGradientContext::PathGradientPaint_PathGradientContext(PathGradientPaint *PathGradientPaint_this, const ::default_init_tag&)
+poi::sl::draw::PathGradientPaint_PathGradientContext::PathGradientPaint_PathGradientContext(PathGradientPaint *PathGradientPaint_this, const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
     , PathGradientPaint_this(PathGradientPaint_this)
 {
     clinit();
 }
 
-org::apache::poi::sl::draw::PathGradientPaint_PathGradientContext::PathGradientPaint_PathGradientContext(PathGradientPaint *PathGradientPaint_this, ::java::awt::image::ColorModel* cm, ::java::awt::Rectangle* deviceBounds, ::java::awt::geom::Rectangle2D* userBounds, ::java::awt::geom::AffineTransform* xform, ::java::awt::RenderingHints* hints) 
+poi::sl::draw::PathGradientPaint_PathGradientContext::PathGradientPaint_PathGradientContext(PathGradientPaint *PathGradientPaint_this, ::java::awt::image::ColorModel* cm, ::java::awt::Rectangle* deviceBounds, ::java::awt::geom::Rectangle2D* userBounds, ::java::awt::geom::AffineTransform* xform, ::java::awt::RenderingHints* hints) 
     : PathGradientPaint_PathGradientContext(PathGradientPaint_this, *static_cast< ::default_init_tag* >(0))
 {
     ctor(cm,deviceBounds,userBounds,xform,hints);
 }
 
-void org::apache::poi::sl::draw::PathGradientPaint_PathGradientContext::ctor(::java::awt::image::ColorModel* cm, ::java::awt::Rectangle* deviceBounds, ::java::awt::geom::Rectangle2D* userBounds, ::java::awt::geom::AffineTransform* xform, ::java::awt::RenderingHints* hints)
+void poi::sl::draw::PathGradientPaint_PathGradientContext::ctor(::java::awt::image::ColorModel* cm, ::java::awt::Rectangle* deviceBounds, ::java::awt::geom::Rectangle2D* userBounds, ::java::awt::geom::AffineTransform* xform, ::java::awt::RenderingHints* hints)
 {
     super::ctor();
     shape = java_cast< ::java::awt::Shape* >(npc(hints)->get(static_cast< ::java::lang::Object* >(Drawable::GRADIENT_SHAPE())));
@@ -101,16 +101,16 @@ void org::apache::poi::sl::draw::PathGradientPaint_PathGradientContext::ctor(::j
     pCtx = npc(gradientPaint)->createContext(cm, bounds, static_cast< ::java::awt::geom::Rectangle2D* >(bounds), new ::java::awt::geom::AffineTransform(), hints);
 }
 
-void org::apache::poi::sl::draw::PathGradientPaint_PathGradientContext::dispose()
+void poi::sl::draw::PathGradientPaint_PathGradientContext::dispose()
 {
 }
 
-java::awt::image::ColorModel* org::apache::poi::sl::draw::PathGradientPaint_PathGradientContext::getColorModel()
+java::awt::image::ColorModel* poi::sl::draw::PathGradientPaint_PathGradientContext::getColorModel()
 {
     return npc(pCtx)->getColorModel();
 }
 
-java::awt::image::Raster* org::apache::poi::sl::draw::PathGradientPaint_PathGradientContext::getRaster(int32_t xOffset, int32_t yOffset, int32_t w, int32_t h)
+java::awt::image::Raster* poi::sl::draw::PathGradientPaint_PathGradientContext::getRaster(int32_t xOffset, int32_t yOffset, int32_t w, int32_t h)
 {
     auto cm = getColorModel();
     if(raster == nullptr)
@@ -134,7 +134,7 @@ java::awt::image::Raster* org::apache::poi::sl::draw::PathGradientPaint_PathGrad
     return childRaster;
 }
 
-int32_t org::apache::poi::sl::draw::PathGradientPaint_PathGradientContext::getGradientSteps(::java::awt::Shape* gradientShape)
+int32_t poi::sl::draw::PathGradientPaint_PathGradientContext::getGradientSteps(::java::awt::Shape* gradientShape)
 {
     auto rect = npc(gradientShape)->getBounds();
     auto lower = int32_t(1);
@@ -152,7 +152,7 @@ int32_t org::apache::poi::sl::draw::PathGradientPaint_PathGradientContext::getGr
     return upper;
 }
 
-void org::apache::poi::sl::draw::PathGradientPaint_PathGradientContext::createRaster()
+void poi::sl::draw::PathGradientPaint_PathGradientContext::createRaster()
 {
     auto cm = getColorModel();
     raster = npc(cm)->createCompatibleWritableRaster(static_cast< int32_t >(npc(deviceBounds)->getWidth()), static_cast< int32_t >(npc(deviceBounds)->getHeight()));
@@ -178,13 +178,13 @@ void org::apache::poi::sl::draw::PathGradientPaint_PathGradientContext::createRa
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::draw::PathGradientPaint_PathGradientContext::class_()
+java::lang::Class* poi::sl::draw::PathGradientPaint_PathGradientContext::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.draw.PathGradientPaint.PathGradientContext", 60);
     return c;
 }
 
-java::lang::Class* org::apache::poi::sl::draw::PathGradientPaint_PathGradientContext::getClass0()
+java::lang::Class* poi::sl::draw::PathGradientPaint_PathGradientContext::getClass0()
 {
     return class_();
 }

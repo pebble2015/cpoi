@@ -31,39 +31,39 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::usermodel::DataFormatter_InternalDecimalFormatWithScale::DataFormatter_InternalDecimalFormatWithScale(const ::default_init_tag&)
+poi::ss::usermodel::DataFormatter_InternalDecimalFormatWithScale::DataFormatter_InternalDecimalFormatWithScale(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::usermodel::DataFormatter_InternalDecimalFormatWithScale::DataFormatter_InternalDecimalFormatWithScale(::java::lang::String* pattern, ::java::text::DecimalFormatSymbols* symbols) 
+poi::ss::usermodel::DataFormatter_InternalDecimalFormatWithScale::DataFormatter_InternalDecimalFormatWithScale(::java::lang::String* pattern, ::java::text::DecimalFormatSymbols* symbols) 
     : DataFormatter_InternalDecimalFormatWithScale(*static_cast< ::default_init_tag* >(0))
 {
     ctor(pattern,symbols);
 }
 
-java::util::regex::Pattern*& org::apache::poi::ss::usermodel::DataFormatter_InternalDecimalFormatWithScale::endsWithCommas()
+java::util::regex::Pattern*& poi::ss::usermodel::DataFormatter_InternalDecimalFormatWithScale::endsWithCommas()
 {
     clinit();
     return endsWithCommas_;
 }
-java::util::regex::Pattern* org::apache::poi::ss::usermodel::DataFormatter_InternalDecimalFormatWithScale::endsWithCommas_;
+java::util::regex::Pattern* poi::ss::usermodel::DataFormatter_InternalDecimalFormatWithScale::endsWithCommas_;
 
-java::math::BigDecimal*& org::apache::poi::ss::usermodel::DataFormatter_InternalDecimalFormatWithScale::ONE_THOUSAND()
+java::math::BigDecimal*& poi::ss::usermodel::DataFormatter_InternalDecimalFormatWithScale::ONE_THOUSAND()
 {
     clinit();
     return ONE_THOUSAND_;
 }
-java::math::BigDecimal* org::apache::poi::ss::usermodel::DataFormatter_InternalDecimalFormatWithScale::ONE_THOUSAND_;
+java::math::BigDecimal* poi::ss::usermodel::DataFormatter_InternalDecimalFormatWithScale::ONE_THOUSAND_;
 
-java::lang::String* org::apache::poi::ss::usermodel::DataFormatter_InternalDecimalFormatWithScale::trimTrailingCommas(::java::lang::String* s)
+java::lang::String* poi::ss::usermodel::DataFormatter_InternalDecimalFormatWithScale::trimTrailingCommas(::java::lang::String* s)
 {
     clinit();
     return npc(s)->replaceAll(u",+$"_j, u""_j);
 }
 
-void org::apache::poi::ss::usermodel::DataFormatter_InternalDecimalFormatWithScale::ctor(::java::lang::String* pattern, ::java::text::DecimalFormatSymbols* symbols)
+void poi::ss::usermodel::DataFormatter_InternalDecimalFormatWithScale::ctor(::java::lang::String* pattern, ::java::text::DecimalFormatSymbols* symbols)
 {
     super::ctor();
     df = new ::java::text::DecimalFormat(trimTrailingCommas(pattern), symbols);
@@ -81,7 +81,7 @@ void org::apache::poi::ss::usermodel::DataFormatter_InternalDecimalFormatWithSca
     }
 }
 
-java::lang::Object* org::apache::poi::ss::usermodel::DataFormatter_InternalDecimalFormatWithScale::scaleInput(::java::lang::Object* obj)
+java::lang::Object* poi::ss::usermodel::DataFormatter_InternalDecimalFormatWithScale::scaleInput(::java::lang::Object* obj)
 {
     if(divider != nullptr) {
         if(dynamic_cast< ::java::math::BigDecimal* >(obj) != nullptr) {
@@ -95,26 +95,26 @@ java::lang::Object* org::apache::poi::ss::usermodel::DataFormatter_InternalDecim
     return obj;
 }
 
-java::lang::StringBuffer* org::apache::poi::ss::usermodel::DataFormatter_InternalDecimalFormatWithScale::format(::java::lang::Object* obj, ::java::lang::StringBuffer* toAppendTo, ::java::text::FieldPosition* pos)
+java::lang::StringBuffer* poi::ss::usermodel::DataFormatter_InternalDecimalFormatWithScale::format(::java::lang::Object* obj, ::java::lang::StringBuffer* toAppendTo, ::java::text::FieldPosition* pos)
 {
     obj = scaleInput(obj);
     return npc(df)->format(obj, toAppendTo, pos);
 }
 
-java::lang::Object* org::apache::poi::ss::usermodel::DataFormatter_InternalDecimalFormatWithScale::parseObject(::java::lang::String* source, ::java::text::ParsePosition* pos)
+java::lang::Object* poi::ss::usermodel::DataFormatter_InternalDecimalFormatWithScale::parseObject(::java::lang::String* source, ::java::text::ParsePosition* pos)
 {
     throw new ::java::lang::UnsupportedOperationException();
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::usermodel::DataFormatter_InternalDecimalFormatWithScale::class_()
+java::lang::Class* poi::ss::usermodel::DataFormatter_InternalDecimalFormatWithScale::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.usermodel.DataFormatter.InternalDecimalFormatWithScale", 72);
     return c;
 }
 
-void org::apache::poi::ss::usermodel::DataFormatter_InternalDecimalFormatWithScale::clinit()
+void poi::ss::usermodel::DataFormatter_InternalDecimalFormatWithScale::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -131,17 +131,17 @@ struct clinit_ {
     }
 }
 
-java::lang::String* org::apache::poi::ss::usermodel::DataFormatter_InternalDecimalFormatWithScale::format(::java::lang::Object* obj)
+java::lang::String* poi::ss::usermodel::DataFormatter_InternalDecimalFormatWithScale::format(::java::lang::Object* obj)
 {
     return super::format(obj);
 }
 
-java::lang::Object* org::apache::poi::ss::usermodel::DataFormatter_InternalDecimalFormatWithScale::parseObject(::java::lang::String* source)
+java::lang::Object* poi::ss::usermodel::DataFormatter_InternalDecimalFormatWithScale::parseObject(::java::lang::String* source)
 {
     return super::parseObject(source);
 }
 
-java::lang::Class* org::apache::poi::ss::usermodel::DataFormatter_InternalDecimalFormatWithScale::getClass0()
+java::lang::Class* poi::ss::usermodel::DataFormatter_InternalDecimalFormatWithScale::getClass0()
 {
     return class_();
 }

@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::RecordFactoryInputStream_StreamEncryptionInfo final
+class poi::hssf::record::RecordFactoryInputStream_StreamEncryptionInfo final
     : public ::java::lang::Object
 {
 

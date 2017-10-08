@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::ptg::RefNPtg final
+class poi::ss::formula::ptg::RefNPtg final
     : public Ref2DPtgBase
 {
 
@@ -17,7 +17,7 @@ public:
     typedef Ref2DPtgBase super;
     static constexpr int8_t sid { int8_t(44) };
 protected:
-    void ctor(::org::apache::poi::util::LittleEndianInput* in);
+    void ctor(::poi::util::LittleEndianInput* in);
 
 public: /* protected */
     int8_t getSid() override;
@@ -25,7 +25,7 @@ public: /* protected */
     // Generated
 
 public:
-    RefNPtg(::org::apache::poi::util::LittleEndianInput* in);
+    RefNPtg(::poi::util::LittleEndianInput* in);
 protected:
     RefNPtg(const ::default_init_tag&);
 

@@ -20,25 +20,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace function
             {
-                namespace formula
-                {
-                    namespace function
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::function::FunctionMetadata, ::java::lang::ObjectArray > FunctionMetadataArray;
-                    } // function
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::function::FunctionMetadata, ::java::lang::ObjectArray > FunctionMetadataArray;
+            } // function
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -56,19 +50,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::function::FunctionDataBuilder::FunctionDataBuilder(const ::default_init_tag&)
+poi::ss::formula::function::FunctionDataBuilder::FunctionDataBuilder(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::function::FunctionDataBuilder::FunctionDataBuilder(int32_t sizeEstimate) 
+poi::ss::formula::function::FunctionDataBuilder::FunctionDataBuilder(int32_t sizeEstimate) 
     : FunctionDataBuilder(*static_cast< ::default_init_tag* >(0))
 {
     ctor(sizeEstimate);
 }
 
-void org::apache::poi::ss::formula::function::FunctionDataBuilder::ctor(int32_t sizeEstimate)
+void poi::ss::formula::function::FunctionDataBuilder::ctor(int32_t sizeEstimate)
 {
     super::ctor();
     _maxFunctionIndex = -int32_t(1);
@@ -77,7 +71,7 @@ void org::apache::poi::ss::formula::function::FunctionDataBuilder::ctor(int32_t 
     _mutatingFunctionIndexes = new ::java::util::HashSet();
 }
 
-void org::apache::poi::ss::formula::function::FunctionDataBuilder::add(int32_t functionIndex, ::java::lang::String* functionName, int32_t minParams, int32_t maxParams, int8_t returnClassCode, ::int8_tArray* parameterClassCodes, bool hasFootnote)
+void poi::ss::formula::function::FunctionDataBuilder::add(int32_t functionIndex, ::java::lang::String* functionName, int32_t minParams, int32_t maxParams, int8_t returnClassCode, ::int8_tArray* parameterClassCodes, bool hasFootnote)
 {
     auto fm = new FunctionMetadata(functionIndex, functionName, minParams, maxParams, returnClassCode, parameterClassCodes);
     auto indexKey = ::java::lang::Integer::valueOf(functionIndex);
@@ -108,7 +102,7 @@ void org::apache::poi::ss::formula::function::FunctionDataBuilder::add(int32_t f
     npc(_functionDataByName)->put(functionName, fm);
 }
 
-org::apache::poi::ss::formula::function::FunctionMetadataRegistry* org::apache::poi::ss::formula::function::FunctionDataBuilder::build()
+poi::ss::formula::function::FunctionMetadataRegistry* poi::ss::formula::function::FunctionDataBuilder::build()
 {
     auto jumbledArray_ = new FunctionMetadataArray(npc(_functionDataByName)->size());
     npc(npc(_functionDataByName)->values())->toArray_(jumbledArray_);
@@ -122,13 +116,13 @@ org::apache::poi::ss::formula::function::FunctionMetadataRegistry* org::apache::
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::function::FunctionDataBuilder::class_()
+java::lang::Class* poi::ss::formula::function::FunctionDataBuilder::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.function.FunctionDataBuilder", 54);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::function::FunctionDataBuilder::getClass0()
+java::lang::Class* poi::ss::formula::function::FunctionDataBuilder::getClass0()
 {
     return class_();
 }

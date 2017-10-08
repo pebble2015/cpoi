@@ -28,7 +28,7 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::dev::BiffDrawingToXml
+class poi::hssf::dev::BiffDrawingToXml
     : public virtual ::java::lang::Object
 {
 
@@ -41,9 +41,9 @@ private:
     static ::java::lang::String* EXCLUDE_WORKBOOK_RECORDS_;
     static int32_t getAttributeIndex(::java::lang::String* attribute, ::java::lang::StringArray* params);
     static bool isExcludeWorkbookRecords(::java::lang::StringArray* params);
-    static ::java::util::List* getIndexesByName(::java::lang::StringArray* params, ::org::apache::poi::hssf::usermodel::HSSFWorkbook* workbook);
+    static ::java::util::List* getIndexesByName(::java::lang::StringArray* params, ::poi::hssf::usermodel::HSSFWorkbook* workbook);
     static ::java::util::List* getIndexesByIdArray_(::java::lang::StringArray* params);
-    static ::java::util::List* getSheetsIndexes(::java::lang::StringArray* params, ::org::apache::poi::hssf::usermodel::HSSFWorkbook* workbook);
+    static ::java::util::List* getSheetsIndexes(::java::lang::StringArray* params, ::poi::hssf::usermodel::HSSFWorkbook* workbook);
     static ::java::lang::String* getInputFileName(::java::lang::StringArray* params);
     static ::java::lang::String* getOutputFileName(::java::lang::String* input);
 

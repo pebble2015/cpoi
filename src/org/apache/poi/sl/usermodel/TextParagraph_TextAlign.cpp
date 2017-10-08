@@ -25,51 +25,45 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace sl
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace sl
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::sl::usermodel::TextParagraph_TextAlign, ::java::lang::EnumArray > TextParagraph_TextAlignArray;
-                } // usermodel
-            } // sl
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::sl::usermodel::TextParagraph_TextAlign, ::java::lang::EnumArray > TextParagraph_TextAlignArray;
+        } // usermodel
+    } // sl
+} // poi
 
-org::apache::poi::sl::usermodel::TextParagraph_TextAlign::TextParagraph_TextAlign(const ::default_init_tag&)
+poi::sl::usermodel::TextParagraph_TextAlign::TextParagraph_TextAlign(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::usermodel::TextParagraph_TextAlign::TextParagraph_TextAlign(::java::lang::String* name, int ordinal)
+poi::sl::usermodel::TextParagraph_TextAlign::TextParagraph_TextAlign(::java::lang::String* name, int ordinal)
     : TextParagraph_TextAlign(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal);
 }
 
-org::apache::poi::sl::usermodel::TextParagraph_TextAlign* org::apache::poi::sl::usermodel::TextParagraph_TextAlign::LEFT = new ::org::apache::poi::sl::usermodel::TextParagraph_TextAlign(u"LEFT"_j, 0);
-org::apache::poi::sl::usermodel::TextParagraph_TextAlign* org::apache::poi::sl::usermodel::TextParagraph_TextAlign::CENTER = new ::org::apache::poi::sl::usermodel::TextParagraph_TextAlign(u"CENTER"_j, 1);
-org::apache::poi::sl::usermodel::TextParagraph_TextAlign* org::apache::poi::sl::usermodel::TextParagraph_TextAlign::RIGHT = new ::org::apache::poi::sl::usermodel::TextParagraph_TextAlign(u"RIGHT"_j, 2);
-org::apache::poi::sl::usermodel::TextParagraph_TextAlign* org::apache::poi::sl::usermodel::TextParagraph_TextAlign::JUSTIFY = new ::org::apache::poi::sl::usermodel::TextParagraph_TextAlign(u"JUSTIFY"_j, 3);
-org::apache::poi::sl::usermodel::TextParagraph_TextAlign* org::apache::poi::sl::usermodel::TextParagraph_TextAlign::JUSTIFY_LOW = new ::org::apache::poi::sl::usermodel::TextParagraph_TextAlign(u"JUSTIFY_LOW"_j, 4);
-org::apache::poi::sl::usermodel::TextParagraph_TextAlign* org::apache::poi::sl::usermodel::TextParagraph_TextAlign::DIST = new ::org::apache::poi::sl::usermodel::TextParagraph_TextAlign(u"DIST"_j, 5);
-org::apache::poi::sl::usermodel::TextParagraph_TextAlign* org::apache::poi::sl::usermodel::TextParagraph_TextAlign::THAI_DIST = new ::org::apache::poi::sl::usermodel::TextParagraph_TextAlign(u"THAI_DIST"_j, 6);
+poi::sl::usermodel::TextParagraph_TextAlign* poi::sl::usermodel::TextParagraph_TextAlign::LEFT = new ::poi::sl::usermodel::TextParagraph_TextAlign(u"LEFT"_j, 0);
+poi::sl::usermodel::TextParagraph_TextAlign* poi::sl::usermodel::TextParagraph_TextAlign::CENTER = new ::poi::sl::usermodel::TextParagraph_TextAlign(u"CENTER"_j, 1);
+poi::sl::usermodel::TextParagraph_TextAlign* poi::sl::usermodel::TextParagraph_TextAlign::RIGHT = new ::poi::sl::usermodel::TextParagraph_TextAlign(u"RIGHT"_j, 2);
+poi::sl::usermodel::TextParagraph_TextAlign* poi::sl::usermodel::TextParagraph_TextAlign::JUSTIFY = new ::poi::sl::usermodel::TextParagraph_TextAlign(u"JUSTIFY"_j, 3);
+poi::sl::usermodel::TextParagraph_TextAlign* poi::sl::usermodel::TextParagraph_TextAlign::JUSTIFY_LOW = new ::poi::sl::usermodel::TextParagraph_TextAlign(u"JUSTIFY_LOW"_j, 4);
+poi::sl::usermodel::TextParagraph_TextAlign* poi::sl::usermodel::TextParagraph_TextAlign::DIST = new ::poi::sl::usermodel::TextParagraph_TextAlign(u"DIST"_j, 5);
+poi::sl::usermodel::TextParagraph_TextAlign* poi::sl::usermodel::TextParagraph_TextAlign::THAI_DIST = new ::poi::sl::usermodel::TextParagraph_TextAlign(u"THAI_DIST"_j, 6);
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::usermodel::TextParagraph_TextAlign::class_()
+java::lang::Class* poi::sl::usermodel::TextParagraph_TextAlign::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.usermodel.TextParagraph.TextAlign", 51);
     return c;
 }
 
-org::apache::poi::sl::usermodel::TextParagraph_TextAlign* org::apache::poi::sl::usermodel::TextParagraph_TextAlign::valueOf(::java::lang::String* a0)
+poi::sl::usermodel::TextParagraph_TextAlign* poi::sl::usermodel::TextParagraph_TextAlign::valueOf(::java::lang::String* a0)
 {
     if(CENTER->toString()->equals(a0))
         return CENTER;
@@ -88,9 +82,9 @@ org::apache::poi::sl::usermodel::TextParagraph_TextAlign* org::apache::poi::sl::
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::sl::usermodel::TextParagraph_TextAlignArray* org::apache::poi::sl::usermodel::TextParagraph_TextAlign::values()
+poi::sl::usermodel::TextParagraph_TextAlignArray* poi::sl::usermodel::TextParagraph_TextAlign::values()
 {
-    return new org::apache::poi::sl::usermodel::TextParagraph_TextAlignArray({
+    return new poi::sl::usermodel::TextParagraph_TextAlignArray({
         CENTER,
         DIST,
         JUSTIFY,
@@ -101,7 +95,7 @@ org::apache::poi::sl::usermodel::TextParagraph_TextAlignArray* org::apache::poi:
     });
 }
 
-java::lang::Class* org::apache::poi::sl::usermodel::TextParagraph_TextAlign::getClass0()
+java::lang::Class* poi::sl::usermodel::TextParagraph_TextAlign::getClass0()
 {
     return class_();
 }

@@ -41,31 +41,31 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::util::PropertyTemplate::PropertyTemplate(const ::default_init_tag&)
+poi::ss::util::PropertyTemplate::PropertyTemplate(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::util::PropertyTemplate::PropertyTemplate() 
+poi::ss::util::PropertyTemplate::PropertyTemplate() 
     : PropertyTemplate(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::util::PropertyTemplate::PropertyTemplate(PropertyTemplate* template_) 
+poi::ss::util::PropertyTemplate::PropertyTemplate(PropertyTemplate* template_) 
     : PropertyTemplate(*static_cast< ::default_init_tag* >(0))
 {
     ctor(template_);
 }
 
-void org::apache::poi::ss::util::PropertyTemplate::ctor()
+void poi::ss::util::PropertyTemplate::ctor()
 {
     super::ctor();
     _propertyTemplate = new ::java::util::HashMap();
 }
 
-void org::apache::poi::ss::util::PropertyTemplate::ctor(PropertyTemplate* template_)
+void poi::ss::util::PropertyTemplate::ctor(PropertyTemplate* template_)
 {
     ctor();
     for (auto _i = npc(npc(npc(template_)->getTemplate())->entrySet())->iterator(); _i->hasNext(); ) {
@@ -76,12 +76,12 @@ void org::apache::poi::ss::util::PropertyTemplate::ctor(PropertyTemplate* templa
     }
 }
 
-java::util::Map* org::apache::poi::ss::util::PropertyTemplate::getTemplate()
+java::util::Map* poi::ss::util::PropertyTemplate::getTemplate()
 {
     return _propertyTemplate;
 }
 
-java::util::Map* org::apache::poi::ss::util::PropertyTemplate::cloneCellProperties(::java::util::Map* properties)
+java::util::Map* poi::ss::util::PropertyTemplate::cloneCellProperties(::java::util::Map* properties)
 {
     clinit();
     ::java::util::Map* newProperties = new ::java::util::HashMap();
@@ -94,66 +94,66 @@ java::util::Map* org::apache::poi::ss::util::PropertyTemplate::cloneCellProperti
     return newProperties;
 }
 
-void org::apache::poi::ss::util::PropertyTemplate::drawBorders(CellRangeAddress* range, ::org::apache::poi::ss::usermodel::BorderStyle* borderType, ::org::apache::poi::ss::usermodel::BorderExtent* extent)
+void poi::ss::util::PropertyTemplate::drawBorders(CellRangeAddress* range, ::poi::ss::usermodel::BorderStyle* borderType, ::poi::ss::usermodel::BorderExtent* extent)
 {
     {
         auto v = extent;
-        if((v == ::org::apache::poi::ss::usermodel::BorderExtent::NONE)) {
+        if((v == ::poi::ss::usermodel::BorderExtent::NONE)) {
             removeBorders(range);
             goto end_switch0;;
         }
-        if((v == ::org::apache::poi::ss::usermodel::BorderExtent::ALL)) {
-            drawHorizontalBorders(range, borderType, ::org::apache::poi::ss::usermodel::BorderExtent::ALL);
-            drawVerticalBorders(range, borderType, ::org::apache::poi::ss::usermodel::BorderExtent::ALL);
+        if((v == ::poi::ss::usermodel::BorderExtent::ALL)) {
+            drawHorizontalBorders(range, borderType, ::poi::ss::usermodel::BorderExtent::ALL);
+            drawVerticalBorders(range, borderType, ::poi::ss::usermodel::BorderExtent::ALL);
             goto end_switch0;;
         }
-        if((v == ::org::apache::poi::ss::usermodel::BorderExtent::INSIDE)) {
-            drawHorizontalBorders(range, borderType, ::org::apache::poi::ss::usermodel::BorderExtent::INSIDE);
-            drawVerticalBorders(range, borderType, ::org::apache::poi::ss::usermodel::BorderExtent::INSIDE);
+        if((v == ::poi::ss::usermodel::BorderExtent::INSIDE)) {
+            drawHorizontalBorders(range, borderType, ::poi::ss::usermodel::BorderExtent::INSIDE);
+            drawVerticalBorders(range, borderType, ::poi::ss::usermodel::BorderExtent::INSIDE);
             goto end_switch0;;
         }
-        if((v == ::org::apache::poi::ss::usermodel::BorderExtent::OUTSIDE)) {
-            drawOutsideBorders(range, borderType, ::org::apache::poi::ss::usermodel::BorderExtent::ALL);
+        if((v == ::poi::ss::usermodel::BorderExtent::OUTSIDE)) {
+            drawOutsideBorders(range, borderType, ::poi::ss::usermodel::BorderExtent::ALL);
             goto end_switch0;;
         }
-        if((v == ::org::apache::poi::ss::usermodel::BorderExtent::TOP)) {
+        if((v == ::poi::ss::usermodel::BorderExtent::TOP)) {
             drawTopBorder(range, borderType);
             goto end_switch0;;
         }
-        if((v == ::org::apache::poi::ss::usermodel::BorderExtent::BOTTOM)) {
+        if((v == ::poi::ss::usermodel::BorderExtent::BOTTOM)) {
             drawBottomBorder(range, borderType);
             goto end_switch0;;
         }
-        if((v == ::org::apache::poi::ss::usermodel::BorderExtent::LEFT)) {
+        if((v == ::poi::ss::usermodel::BorderExtent::LEFT)) {
             drawLeftBorder(range, borderType);
             goto end_switch0;;
         }
-        if((v == ::org::apache::poi::ss::usermodel::BorderExtent::RIGHT)) {
+        if((v == ::poi::ss::usermodel::BorderExtent::RIGHT)) {
             drawRightBorder(range, borderType);
             goto end_switch0;;
         }
-        if((v == ::org::apache::poi::ss::usermodel::BorderExtent::HORIZONTAL)) {
-            drawHorizontalBorders(range, borderType, ::org::apache::poi::ss::usermodel::BorderExtent::ALL);
+        if((v == ::poi::ss::usermodel::BorderExtent::HORIZONTAL)) {
+            drawHorizontalBorders(range, borderType, ::poi::ss::usermodel::BorderExtent::ALL);
             goto end_switch0;;
         }
-        if((v == ::org::apache::poi::ss::usermodel::BorderExtent::INSIDE_HORIZONTAL)) {
-            drawHorizontalBorders(range, borderType, ::org::apache::poi::ss::usermodel::BorderExtent::INSIDE);
+        if((v == ::poi::ss::usermodel::BorderExtent::INSIDE_HORIZONTAL)) {
+            drawHorizontalBorders(range, borderType, ::poi::ss::usermodel::BorderExtent::INSIDE);
             goto end_switch0;;
         }
-        if((v == ::org::apache::poi::ss::usermodel::BorderExtent::OUTSIDE_HORIZONTAL)) {
-            drawOutsideBorders(range, borderType, ::org::apache::poi::ss::usermodel::BorderExtent::HORIZONTAL);
+        if((v == ::poi::ss::usermodel::BorderExtent::OUTSIDE_HORIZONTAL)) {
+            drawOutsideBorders(range, borderType, ::poi::ss::usermodel::BorderExtent::HORIZONTAL);
             goto end_switch0;;
         }
-        if((v == ::org::apache::poi::ss::usermodel::BorderExtent::VERTICAL)) {
-            drawVerticalBorders(range, borderType, ::org::apache::poi::ss::usermodel::BorderExtent::ALL);
+        if((v == ::poi::ss::usermodel::BorderExtent::VERTICAL)) {
+            drawVerticalBorders(range, borderType, ::poi::ss::usermodel::BorderExtent::ALL);
             goto end_switch0;;
         }
-        if((v == ::org::apache::poi::ss::usermodel::BorderExtent::INSIDE_VERTICAL)) {
-            drawVerticalBorders(range, borderType, ::org::apache::poi::ss::usermodel::BorderExtent::INSIDE);
+        if((v == ::poi::ss::usermodel::BorderExtent::INSIDE_VERTICAL)) {
+            drawVerticalBorders(range, borderType, ::poi::ss::usermodel::BorderExtent::INSIDE);
             goto end_switch0;;
         }
-        if((v == ::org::apache::poi::ss::usermodel::BorderExtent::OUTSIDE_VERTICAL)) {
-            drawOutsideBorders(range, borderType, ::org::apache::poi::ss::usermodel::BorderExtent::VERTICAL);
+        if((v == ::poi::ss::usermodel::BorderExtent::OUTSIDE_VERTICAL)) {
+            drawOutsideBorders(range, borderType, ::poi::ss::usermodel::BorderExtent::VERTICAL);
             goto end_switch0;;
         }
 end_switch0:;
@@ -161,82 +161,82 @@ end_switch0:;
 
 }
 
-void org::apache::poi::ss::util::PropertyTemplate::drawBorders(CellRangeAddress* range, ::org::apache::poi::ss::usermodel::BorderStyle* borderType, int16_t color, ::org::apache::poi::ss::usermodel::BorderExtent* extent)
+void poi::ss::util::PropertyTemplate::drawBorders(CellRangeAddress* range, ::poi::ss::usermodel::BorderStyle* borderType, int16_t color, ::poi::ss::usermodel::BorderExtent* extent)
 {
     drawBorders(range, borderType, extent);
-    if(borderType != ::org::apache::poi::ss::usermodel::BorderStyle::NONE) {
+    if(borderType != ::poi::ss::usermodel::BorderStyle::NONE) {
         drawBorderColors(range, color, extent);
     }
 }
 
-void org::apache::poi::ss::util::PropertyTemplate::drawTopBorder(CellRangeAddress* range, ::org::apache::poi::ss::usermodel::BorderStyle* borderType)
+void poi::ss::util::PropertyTemplate::drawTopBorder(CellRangeAddress* range, ::poi::ss::usermodel::BorderStyle* borderType)
 {
     auto row = npc(range)->getFirstRow();
     auto firstCol = npc(range)->getFirstColumn();
     auto lastCol = npc(range)->getLastColumn();
     for (auto i = firstCol; i <= lastCol; i++) {
         addProperty(row, i, CellUtil::BORDER_TOP(), static_cast< ::java::lang::Object* >(borderType));
-        if(borderType == ::org::apache::poi::ss::usermodel::BorderStyle::NONE && row > 0) {
+        if(borderType == ::poi::ss::usermodel::BorderStyle::NONE && row > 0) {
             addProperty(row - int32_t(1), i, CellUtil::BORDER_BOTTOM(), static_cast< ::java::lang::Object* >(borderType));
         }
     }
 }
 
-void org::apache::poi::ss::util::PropertyTemplate::drawBottomBorder(CellRangeAddress* range, ::org::apache::poi::ss::usermodel::BorderStyle* borderType)
+void poi::ss::util::PropertyTemplate::drawBottomBorder(CellRangeAddress* range, ::poi::ss::usermodel::BorderStyle* borderType)
 {
     auto row = npc(range)->getLastRow();
     auto firstCol = npc(range)->getFirstColumn();
     auto lastCol = npc(range)->getLastColumn();
     for (auto i = firstCol; i <= lastCol; i++) {
         addProperty(row, i, CellUtil::BORDER_BOTTOM(), static_cast< ::java::lang::Object* >(borderType));
-        if(borderType == ::org::apache::poi::ss::usermodel::BorderStyle::NONE && row < npc(::org::apache::poi::ss::SpreadsheetVersion::EXCEL2007)->getMaxRows() - int32_t(1)) {
+        if(borderType == ::poi::ss::usermodel::BorderStyle::NONE && row < npc(::poi::ss::SpreadsheetVersion::EXCEL2007)->getMaxRows() - int32_t(1)) {
             addProperty(row + int32_t(1), i, CellUtil::BORDER_TOP(), static_cast< ::java::lang::Object* >(borderType));
         }
     }
 }
 
-void org::apache::poi::ss::util::PropertyTemplate::drawLeftBorder(CellRangeAddress* range, ::org::apache::poi::ss::usermodel::BorderStyle* borderType)
+void poi::ss::util::PropertyTemplate::drawLeftBorder(CellRangeAddress* range, ::poi::ss::usermodel::BorderStyle* borderType)
 {
     auto firstRow = npc(range)->getFirstRow();
     auto lastRow = npc(range)->getLastRow();
     auto col = npc(range)->getFirstColumn();
     for (auto i = firstRow; i <= lastRow; i++) {
         addProperty(i, col, CellUtil::BORDER_LEFT(), static_cast< ::java::lang::Object* >(borderType));
-        if(borderType == ::org::apache::poi::ss::usermodel::BorderStyle::NONE && col > 0) {
+        if(borderType == ::poi::ss::usermodel::BorderStyle::NONE && col > 0) {
             addProperty(i, col - int32_t(1), CellUtil::BORDER_RIGHT(), static_cast< ::java::lang::Object* >(borderType));
         }
     }
 }
 
-void org::apache::poi::ss::util::PropertyTemplate::drawRightBorder(CellRangeAddress* range, ::org::apache::poi::ss::usermodel::BorderStyle* borderType)
+void poi::ss::util::PropertyTemplate::drawRightBorder(CellRangeAddress* range, ::poi::ss::usermodel::BorderStyle* borderType)
 {
     auto firstRow = npc(range)->getFirstRow();
     auto lastRow = npc(range)->getLastRow();
     auto col = npc(range)->getLastColumn();
     for (auto i = firstRow; i <= lastRow; i++) {
         addProperty(i, col, CellUtil::BORDER_RIGHT(), static_cast< ::java::lang::Object* >(borderType));
-        if(borderType == ::org::apache::poi::ss::usermodel::BorderStyle::NONE && col < npc(::org::apache::poi::ss::SpreadsheetVersion::EXCEL2007)->getMaxColumns() - int32_t(1)) {
+        if(borderType == ::poi::ss::usermodel::BorderStyle::NONE && col < npc(::poi::ss::SpreadsheetVersion::EXCEL2007)->getMaxColumns() - int32_t(1)) {
             addProperty(i, col + int32_t(1), CellUtil::BORDER_LEFT(), static_cast< ::java::lang::Object* >(borderType));
         }
     }
 }
 
-void org::apache::poi::ss::util::PropertyTemplate::drawOutsideBorders(CellRangeAddress* range, ::org::apache::poi::ss::usermodel::BorderStyle* borderType, ::org::apache::poi::ss::usermodel::BorderExtent* extent)
+void poi::ss::util::PropertyTemplate::drawOutsideBorders(CellRangeAddress* range, ::poi::ss::usermodel::BorderStyle* borderType, ::poi::ss::usermodel::BorderExtent* extent)
 {
     {
         auto v = extent;
-        if((v == ::org::apache::poi::ss::usermodel::BorderExtent::ALL) || (v == ::org::apache::poi::ss::usermodel::BorderExtent::HORIZONTAL) || (v == ::org::apache::poi::ss::usermodel::BorderExtent::VERTICAL)) {
-            if(extent == ::org::apache::poi::ss::usermodel::BorderExtent::ALL || extent == ::org::apache::poi::ss::usermodel::BorderExtent::HORIZONTAL) {
+        if((v == ::poi::ss::usermodel::BorderExtent::ALL) || (v == ::poi::ss::usermodel::BorderExtent::HORIZONTAL) || (v == ::poi::ss::usermodel::BorderExtent::VERTICAL)) {
+            if(extent == ::poi::ss::usermodel::BorderExtent::ALL || extent == ::poi::ss::usermodel::BorderExtent::HORIZONTAL) {
                 drawTopBorder(range, borderType);
                 drawBottomBorder(range, borderType);
             }
-            if(extent == ::org::apache::poi::ss::usermodel::BorderExtent::ALL || extent == ::org::apache::poi::ss::usermodel::BorderExtent::VERTICAL) {
+            if(extent == ::poi::ss::usermodel::BorderExtent::ALL || extent == ::poi::ss::usermodel::BorderExtent::VERTICAL) {
                 drawLeftBorder(range, borderType);
                 drawRightBorder(range, borderType);
             }
             goto end_switch1;;
         }
-        if((((v != ::org::apache::poi::ss::usermodel::BorderExtent::ALL) && (v != ::org::apache::poi::ss::usermodel::BorderExtent::HORIZONTAL) && (v != ::org::apache::poi::ss::usermodel::BorderExtent::VERTICAL)))) {
+        if((((v != ::poi::ss::usermodel::BorderExtent::ALL) && (v != ::poi::ss::usermodel::BorderExtent::HORIZONTAL) && (v != ::poi::ss::usermodel::BorderExtent::VERTICAL)))) {
             throw new ::java::lang::IllegalArgumentException(u"Unsupported PropertyTemplate.Extent, valid Extents are ALL, HORIZONTAL, and VERTICAL"_j);
         }
 end_switch1:;
@@ -244,7 +244,7 @@ end_switch1:;
 
 }
 
-void org::apache::poi::ss::util::PropertyTemplate::drawHorizontalBorders(CellRangeAddress* range, ::org::apache::poi::ss::usermodel::BorderStyle* borderType, ::org::apache::poi::ss::usermodel::BorderExtent* extent)
+void poi::ss::util::PropertyTemplate::drawHorizontalBorders(CellRangeAddress* range, ::poi::ss::usermodel::BorderStyle* borderType, ::poi::ss::usermodel::BorderExtent* extent)
 {
     {
         int32_t firstRow;
@@ -253,23 +253,23 @@ void org::apache::poi::ss::util::PropertyTemplate::drawHorizontalBorders(CellRan
         int32_t lastCol;
         {
             auto v = extent;
-            if((v == ::org::apache::poi::ss::usermodel::BorderExtent::ALL) || (v == ::org::apache::poi::ss::usermodel::BorderExtent::INSIDE)) {
+            if((v == ::poi::ss::usermodel::BorderExtent::ALL) || (v == ::poi::ss::usermodel::BorderExtent::INSIDE)) {
                 auto firstRow = npc(range)->getFirstRow();
                 auto lastRow = npc(range)->getLastRow();
                 auto firstCol = npc(range)->getFirstColumn();
                 auto lastCol = npc(range)->getLastColumn();
                 for (auto i = firstRow; i <= lastRow; i++) {
                     auto row = new CellRangeAddress(i, i, firstCol, lastCol);
-                    if(extent == ::org::apache::poi::ss::usermodel::BorderExtent::ALL || i > firstRow) {
+                    if(extent == ::poi::ss::usermodel::BorderExtent::ALL || i > firstRow) {
                         drawTopBorder(row, borderType);
                     }
-                    if(extent == ::org::apache::poi::ss::usermodel::BorderExtent::ALL || i < lastRow) {
+                    if(extent == ::poi::ss::usermodel::BorderExtent::ALL || i < lastRow) {
                         drawBottomBorder(row, borderType);
                     }
                 }
                 goto end_switch2;;
             }
-            if((((v != ::org::apache::poi::ss::usermodel::BorderExtent::ALL) && (v != ::org::apache::poi::ss::usermodel::BorderExtent::INSIDE)))) {
+            if((((v != ::poi::ss::usermodel::BorderExtent::ALL) && (v != ::poi::ss::usermodel::BorderExtent::INSIDE)))) {
                 throw new ::java::lang::IllegalArgumentException(u"Unsupported PropertyTemplate.Extent, valid Extents are ALL and INSIDE"_j);
             }
 end_switch2:;
@@ -278,7 +278,7 @@ end_switch2:;
 
 }
 
-void org::apache::poi::ss::util::PropertyTemplate::drawVerticalBorders(CellRangeAddress* range, ::org::apache::poi::ss::usermodel::BorderStyle* borderType, ::org::apache::poi::ss::usermodel::BorderExtent* extent)
+void poi::ss::util::PropertyTemplate::drawVerticalBorders(CellRangeAddress* range, ::poi::ss::usermodel::BorderStyle* borderType, ::poi::ss::usermodel::BorderExtent* extent)
 {
     {
         int32_t firstRow;
@@ -287,23 +287,23 @@ void org::apache::poi::ss::util::PropertyTemplate::drawVerticalBorders(CellRange
         int32_t lastCol;
         {
             auto v = extent;
-            if((v == ::org::apache::poi::ss::usermodel::BorderExtent::ALL) || (v == ::org::apache::poi::ss::usermodel::BorderExtent::INSIDE)) {
+            if((v == ::poi::ss::usermodel::BorderExtent::ALL) || (v == ::poi::ss::usermodel::BorderExtent::INSIDE)) {
                 auto firstRow = npc(range)->getFirstRow();
                 auto lastRow = npc(range)->getLastRow();
                 auto firstCol = npc(range)->getFirstColumn();
                 auto lastCol = npc(range)->getLastColumn();
                 for (auto i = firstCol; i <= lastCol; i++) {
                     auto row = new CellRangeAddress(firstRow, lastRow, i, i);
-                    if(extent == ::org::apache::poi::ss::usermodel::BorderExtent::ALL || i > firstCol) {
+                    if(extent == ::poi::ss::usermodel::BorderExtent::ALL || i > firstCol) {
                         drawLeftBorder(row, borderType);
                     }
-                    if(extent == ::org::apache::poi::ss::usermodel::BorderExtent::ALL || i < lastCol) {
+                    if(extent == ::poi::ss::usermodel::BorderExtent::ALL || i < lastCol) {
                         drawRightBorder(row, borderType);
                     }
                 }
                 goto end_switch3;;
             }
-            if((((v != ::org::apache::poi::ss::usermodel::BorderExtent::ALL) && (v != ::org::apache::poi::ss::usermodel::BorderExtent::INSIDE)))) {
+            if((((v != ::poi::ss::usermodel::BorderExtent::ALL) && (v != ::poi::ss::usermodel::BorderExtent::INSIDE)))) {
                 throw new ::java::lang::IllegalArgumentException(u"Unsupported PropertyTemplate.Extent, valid Extents are ALL and INSIDE"_j);
             }
 end_switch3:;
@@ -312,7 +312,7 @@ end_switch3:;
 
 }
 
-void org::apache::poi::ss::util::PropertyTemplate::removeBorders(CellRangeAddress* range)
+void poi::ss::util::PropertyTemplate::removeBorders(CellRangeAddress* range)
 {
     ::java::util::Set* properties = new ::java::util::HashSet();
     npc(properties)->add(static_cast< ::java::lang::Object* >(CellUtil::BORDER_TOP()));
@@ -327,7 +327,7 @@ void org::apache::poi::ss::util::PropertyTemplate::removeBorders(CellRangeAddres
     removeBorderColors(range);
 }
 
-void org::apache::poi::ss::util::PropertyTemplate::applyBorders(::org::apache::poi::ss::usermodel::Sheet* sheet)
+void poi::ss::util::PropertyTemplate::applyBorders(::poi::ss::usermodel::Sheet* sheet)
 {
     auto wb = npc(sheet)->getWorkbook();
     for (auto _i = npc(npc(_propertyTemplate)->entrySet())->iterator(); _i->hasNext(); ) {
@@ -344,66 +344,66 @@ void org::apache::poi::ss::util::PropertyTemplate::applyBorders(::org::apache::p
     }
 }
 
-void org::apache::poi::ss::util::PropertyTemplate::drawBorderColors(CellRangeAddress* range, int16_t color, ::org::apache::poi::ss::usermodel::BorderExtent* extent)
+void poi::ss::util::PropertyTemplate::drawBorderColors(CellRangeAddress* range, int16_t color, ::poi::ss::usermodel::BorderExtent* extent)
 {
     {
         auto v = extent;
-        if((v == ::org::apache::poi::ss::usermodel::BorderExtent::NONE)) {
+        if((v == ::poi::ss::usermodel::BorderExtent::NONE)) {
             removeBorderColors(range);
             goto end_switch4;;
         }
-        if((v == ::org::apache::poi::ss::usermodel::BorderExtent::ALL)) {
-            drawHorizontalBorderColors(range, color, ::org::apache::poi::ss::usermodel::BorderExtent::ALL);
-            drawVerticalBorderColors(range, color, ::org::apache::poi::ss::usermodel::BorderExtent::ALL);
+        if((v == ::poi::ss::usermodel::BorderExtent::ALL)) {
+            drawHorizontalBorderColors(range, color, ::poi::ss::usermodel::BorderExtent::ALL);
+            drawVerticalBorderColors(range, color, ::poi::ss::usermodel::BorderExtent::ALL);
             goto end_switch4;;
         }
-        if((v == ::org::apache::poi::ss::usermodel::BorderExtent::INSIDE)) {
-            drawHorizontalBorderColors(range, color, ::org::apache::poi::ss::usermodel::BorderExtent::INSIDE);
-            drawVerticalBorderColors(range, color, ::org::apache::poi::ss::usermodel::BorderExtent::INSIDE);
+        if((v == ::poi::ss::usermodel::BorderExtent::INSIDE)) {
+            drawHorizontalBorderColors(range, color, ::poi::ss::usermodel::BorderExtent::INSIDE);
+            drawVerticalBorderColors(range, color, ::poi::ss::usermodel::BorderExtent::INSIDE);
             goto end_switch4;;
         }
-        if((v == ::org::apache::poi::ss::usermodel::BorderExtent::OUTSIDE)) {
-            drawOutsideBorderColors(range, color, ::org::apache::poi::ss::usermodel::BorderExtent::ALL);
+        if((v == ::poi::ss::usermodel::BorderExtent::OUTSIDE)) {
+            drawOutsideBorderColors(range, color, ::poi::ss::usermodel::BorderExtent::ALL);
             goto end_switch4;;
         }
-        if((v == ::org::apache::poi::ss::usermodel::BorderExtent::TOP)) {
+        if((v == ::poi::ss::usermodel::BorderExtent::TOP)) {
             drawTopBorderColor(range, color);
             goto end_switch4;;
         }
-        if((v == ::org::apache::poi::ss::usermodel::BorderExtent::BOTTOM)) {
+        if((v == ::poi::ss::usermodel::BorderExtent::BOTTOM)) {
             drawBottomBorderColor(range, color);
             goto end_switch4;;
         }
-        if((v == ::org::apache::poi::ss::usermodel::BorderExtent::LEFT)) {
+        if((v == ::poi::ss::usermodel::BorderExtent::LEFT)) {
             drawLeftBorderColor(range, color);
             goto end_switch4;;
         }
-        if((v == ::org::apache::poi::ss::usermodel::BorderExtent::RIGHT)) {
+        if((v == ::poi::ss::usermodel::BorderExtent::RIGHT)) {
             drawRightBorderColor(range, color);
             goto end_switch4;;
         }
-        if((v == ::org::apache::poi::ss::usermodel::BorderExtent::HORIZONTAL)) {
-            drawHorizontalBorderColors(range, color, ::org::apache::poi::ss::usermodel::BorderExtent::ALL);
+        if((v == ::poi::ss::usermodel::BorderExtent::HORIZONTAL)) {
+            drawHorizontalBorderColors(range, color, ::poi::ss::usermodel::BorderExtent::ALL);
             goto end_switch4;;
         }
-        if((v == ::org::apache::poi::ss::usermodel::BorderExtent::INSIDE_HORIZONTAL)) {
-            drawHorizontalBorderColors(range, color, ::org::apache::poi::ss::usermodel::BorderExtent::INSIDE);
+        if((v == ::poi::ss::usermodel::BorderExtent::INSIDE_HORIZONTAL)) {
+            drawHorizontalBorderColors(range, color, ::poi::ss::usermodel::BorderExtent::INSIDE);
             goto end_switch4;;
         }
-        if((v == ::org::apache::poi::ss::usermodel::BorderExtent::OUTSIDE_HORIZONTAL)) {
-            drawOutsideBorderColors(range, color, ::org::apache::poi::ss::usermodel::BorderExtent::HORIZONTAL);
+        if((v == ::poi::ss::usermodel::BorderExtent::OUTSIDE_HORIZONTAL)) {
+            drawOutsideBorderColors(range, color, ::poi::ss::usermodel::BorderExtent::HORIZONTAL);
             goto end_switch4;;
         }
-        if((v == ::org::apache::poi::ss::usermodel::BorderExtent::VERTICAL)) {
-            drawVerticalBorderColors(range, color, ::org::apache::poi::ss::usermodel::BorderExtent::ALL);
+        if((v == ::poi::ss::usermodel::BorderExtent::VERTICAL)) {
+            drawVerticalBorderColors(range, color, ::poi::ss::usermodel::BorderExtent::ALL);
             goto end_switch4;;
         }
-        if((v == ::org::apache::poi::ss::usermodel::BorderExtent::INSIDE_VERTICAL)) {
-            drawVerticalBorderColors(range, color, ::org::apache::poi::ss::usermodel::BorderExtent::INSIDE);
+        if((v == ::poi::ss::usermodel::BorderExtent::INSIDE_VERTICAL)) {
+            drawVerticalBorderColors(range, color, ::poi::ss::usermodel::BorderExtent::INSIDE);
             goto end_switch4;;
         }
-        if((v == ::org::apache::poi::ss::usermodel::BorderExtent::OUTSIDE_VERTICAL)) {
-            drawOutsideBorderColors(range, color, ::org::apache::poi::ss::usermodel::BorderExtent::VERTICAL);
+        if((v == ::poi::ss::usermodel::BorderExtent::OUTSIDE_VERTICAL)) {
+            drawOutsideBorderColors(range, color, ::poi::ss::usermodel::BorderExtent::VERTICAL);
             goto end_switch4;;
         }
 end_switch4:;
@@ -411,74 +411,74 @@ end_switch4:;
 
 }
 
-void org::apache::poi::ss::util::PropertyTemplate::drawTopBorderColor(CellRangeAddress* range, int16_t color)
+void poi::ss::util::PropertyTemplate::drawTopBorderColor(CellRangeAddress* range, int16_t color)
 {
     auto row = npc(range)->getFirstRow();
     auto firstCol = npc(range)->getFirstColumn();
     auto lastCol = npc(range)->getLastColumn();
     for (auto i = firstCol; i <= lastCol; i++) {
-        if(getBorderStyle(row, i, CellUtil::BORDER_TOP()) == ::org::apache::poi::ss::usermodel::BorderStyle::NONE) {
-            drawTopBorder(new CellRangeAddress(row, row, i, i), ::org::apache::poi::ss::usermodel::BorderStyle::THIN);
+        if(getBorderStyle(row, i, CellUtil::BORDER_TOP()) == ::poi::ss::usermodel::BorderStyle::NONE) {
+            drawTopBorder(new CellRangeAddress(row, row, i, i), ::poi::ss::usermodel::BorderStyle::THIN);
         }
         addProperty(row, i, CellUtil::TOP_BORDER_COLOR(), color);
     }
 }
 
-void org::apache::poi::ss::util::PropertyTemplate::drawBottomBorderColor(CellRangeAddress* range, int16_t color)
+void poi::ss::util::PropertyTemplate::drawBottomBorderColor(CellRangeAddress* range, int16_t color)
 {
     auto row = npc(range)->getLastRow();
     auto firstCol = npc(range)->getFirstColumn();
     auto lastCol = npc(range)->getLastColumn();
     for (auto i = firstCol; i <= lastCol; i++) {
-        if(getBorderStyle(row, i, CellUtil::BORDER_BOTTOM()) == ::org::apache::poi::ss::usermodel::BorderStyle::NONE) {
-            drawBottomBorder(new CellRangeAddress(row, row, i, i), ::org::apache::poi::ss::usermodel::BorderStyle::THIN);
+        if(getBorderStyle(row, i, CellUtil::BORDER_BOTTOM()) == ::poi::ss::usermodel::BorderStyle::NONE) {
+            drawBottomBorder(new CellRangeAddress(row, row, i, i), ::poi::ss::usermodel::BorderStyle::THIN);
         }
         addProperty(row, i, CellUtil::BOTTOM_BORDER_COLOR(), color);
     }
 }
 
-void org::apache::poi::ss::util::PropertyTemplate::drawLeftBorderColor(CellRangeAddress* range, int16_t color)
+void poi::ss::util::PropertyTemplate::drawLeftBorderColor(CellRangeAddress* range, int16_t color)
 {
     auto firstRow = npc(range)->getFirstRow();
     auto lastRow = npc(range)->getLastRow();
     auto col = npc(range)->getFirstColumn();
     for (auto i = firstRow; i <= lastRow; i++) {
-        if(getBorderStyle(i, col, CellUtil::BORDER_LEFT()) == ::org::apache::poi::ss::usermodel::BorderStyle::NONE) {
-            drawLeftBorder(new CellRangeAddress(i, i, col, col), ::org::apache::poi::ss::usermodel::BorderStyle::THIN);
+        if(getBorderStyle(i, col, CellUtil::BORDER_LEFT()) == ::poi::ss::usermodel::BorderStyle::NONE) {
+            drawLeftBorder(new CellRangeAddress(i, i, col, col), ::poi::ss::usermodel::BorderStyle::THIN);
         }
         addProperty(i, col, CellUtil::LEFT_BORDER_COLOR(), color);
     }
 }
 
-void org::apache::poi::ss::util::PropertyTemplate::drawRightBorderColor(CellRangeAddress* range, int16_t color)
+void poi::ss::util::PropertyTemplate::drawRightBorderColor(CellRangeAddress* range, int16_t color)
 {
     auto firstRow = npc(range)->getFirstRow();
     auto lastRow = npc(range)->getLastRow();
     auto col = npc(range)->getLastColumn();
     for (auto i = firstRow; i <= lastRow; i++) {
-        if(getBorderStyle(i, col, CellUtil::BORDER_RIGHT()) == ::org::apache::poi::ss::usermodel::BorderStyle::NONE) {
-            drawRightBorder(new CellRangeAddress(i, i, col, col), ::org::apache::poi::ss::usermodel::BorderStyle::THIN);
+        if(getBorderStyle(i, col, CellUtil::BORDER_RIGHT()) == ::poi::ss::usermodel::BorderStyle::NONE) {
+            drawRightBorder(new CellRangeAddress(i, i, col, col), ::poi::ss::usermodel::BorderStyle::THIN);
         }
         addProperty(i, col, CellUtil::RIGHT_BORDER_COLOR(), color);
     }
 }
 
-void org::apache::poi::ss::util::PropertyTemplate::drawOutsideBorderColors(CellRangeAddress* range, int16_t color, ::org::apache::poi::ss::usermodel::BorderExtent* extent)
+void poi::ss::util::PropertyTemplate::drawOutsideBorderColors(CellRangeAddress* range, int16_t color, ::poi::ss::usermodel::BorderExtent* extent)
 {
     {
         auto v = extent;
-        if((v == ::org::apache::poi::ss::usermodel::BorderExtent::ALL) || (v == ::org::apache::poi::ss::usermodel::BorderExtent::HORIZONTAL) || (v == ::org::apache::poi::ss::usermodel::BorderExtent::VERTICAL)) {
-            if(extent == ::org::apache::poi::ss::usermodel::BorderExtent::ALL || extent == ::org::apache::poi::ss::usermodel::BorderExtent::HORIZONTAL) {
+        if((v == ::poi::ss::usermodel::BorderExtent::ALL) || (v == ::poi::ss::usermodel::BorderExtent::HORIZONTAL) || (v == ::poi::ss::usermodel::BorderExtent::VERTICAL)) {
+            if(extent == ::poi::ss::usermodel::BorderExtent::ALL || extent == ::poi::ss::usermodel::BorderExtent::HORIZONTAL) {
                 drawTopBorderColor(range, color);
                 drawBottomBorderColor(range, color);
             }
-            if(extent == ::org::apache::poi::ss::usermodel::BorderExtent::ALL || extent == ::org::apache::poi::ss::usermodel::BorderExtent::VERTICAL) {
+            if(extent == ::poi::ss::usermodel::BorderExtent::ALL || extent == ::poi::ss::usermodel::BorderExtent::VERTICAL) {
                 drawLeftBorderColor(range, color);
                 drawRightBorderColor(range, color);
             }
             goto end_switch5;;
         }
-        if((((v != ::org::apache::poi::ss::usermodel::BorderExtent::ALL) && (v != ::org::apache::poi::ss::usermodel::BorderExtent::HORIZONTAL) && (v != ::org::apache::poi::ss::usermodel::BorderExtent::VERTICAL)))) {
+        if((((v != ::poi::ss::usermodel::BorderExtent::ALL) && (v != ::poi::ss::usermodel::BorderExtent::HORIZONTAL) && (v != ::poi::ss::usermodel::BorderExtent::VERTICAL)))) {
             throw new ::java::lang::IllegalArgumentException(u"Unsupported PropertyTemplate.Extent, valid Extents are ALL, HORIZONTAL, and VERTICAL"_j);
         }
 end_switch5:;
@@ -486,7 +486,7 @@ end_switch5:;
 
 }
 
-void org::apache::poi::ss::util::PropertyTemplate::drawHorizontalBorderColors(CellRangeAddress* range, int16_t color, ::org::apache::poi::ss::usermodel::BorderExtent* extent)
+void poi::ss::util::PropertyTemplate::drawHorizontalBorderColors(CellRangeAddress* range, int16_t color, ::poi::ss::usermodel::BorderExtent* extent)
 {
     {
         int32_t firstRow;
@@ -495,23 +495,23 @@ void org::apache::poi::ss::util::PropertyTemplate::drawHorizontalBorderColors(Ce
         int32_t lastCol;
         {
             auto v = extent;
-            if((v == ::org::apache::poi::ss::usermodel::BorderExtent::ALL) || (v == ::org::apache::poi::ss::usermodel::BorderExtent::INSIDE)) {
+            if((v == ::poi::ss::usermodel::BorderExtent::ALL) || (v == ::poi::ss::usermodel::BorderExtent::INSIDE)) {
                 auto firstRow = npc(range)->getFirstRow();
                 auto lastRow = npc(range)->getLastRow();
                 auto firstCol = npc(range)->getFirstColumn();
                 auto lastCol = npc(range)->getLastColumn();
                 for (auto i = firstRow; i <= lastRow; i++) {
                     auto row = new CellRangeAddress(i, i, firstCol, lastCol);
-                    if(extent == ::org::apache::poi::ss::usermodel::BorderExtent::ALL || i > firstRow) {
+                    if(extent == ::poi::ss::usermodel::BorderExtent::ALL || i > firstRow) {
                         drawTopBorderColor(row, color);
                     }
-                    if(extent == ::org::apache::poi::ss::usermodel::BorderExtent::ALL || i < lastRow) {
+                    if(extent == ::poi::ss::usermodel::BorderExtent::ALL || i < lastRow) {
                         drawBottomBorderColor(row, color);
                     }
                 }
                 goto end_switch6;;
             }
-            if((((v != ::org::apache::poi::ss::usermodel::BorderExtent::ALL) && (v != ::org::apache::poi::ss::usermodel::BorderExtent::INSIDE)))) {
+            if((((v != ::poi::ss::usermodel::BorderExtent::ALL) && (v != ::poi::ss::usermodel::BorderExtent::INSIDE)))) {
                 throw new ::java::lang::IllegalArgumentException(u"Unsupported PropertyTemplate.Extent, valid Extents are ALL and INSIDE"_j);
             }
 end_switch6:;
@@ -520,7 +520,7 @@ end_switch6:;
 
 }
 
-void org::apache::poi::ss::util::PropertyTemplate::drawVerticalBorderColors(CellRangeAddress* range, int16_t color, ::org::apache::poi::ss::usermodel::BorderExtent* extent)
+void poi::ss::util::PropertyTemplate::drawVerticalBorderColors(CellRangeAddress* range, int16_t color, ::poi::ss::usermodel::BorderExtent* extent)
 {
     {
         int32_t firstRow;
@@ -529,23 +529,23 @@ void org::apache::poi::ss::util::PropertyTemplate::drawVerticalBorderColors(Cell
         int32_t lastCol;
         {
             auto v = extent;
-            if((v == ::org::apache::poi::ss::usermodel::BorderExtent::ALL) || (v == ::org::apache::poi::ss::usermodel::BorderExtent::INSIDE)) {
+            if((v == ::poi::ss::usermodel::BorderExtent::ALL) || (v == ::poi::ss::usermodel::BorderExtent::INSIDE)) {
                 auto firstRow = npc(range)->getFirstRow();
                 auto lastRow = npc(range)->getLastRow();
                 auto firstCol = npc(range)->getFirstColumn();
                 auto lastCol = npc(range)->getLastColumn();
                 for (auto i = firstCol; i <= lastCol; i++) {
                     auto row = new CellRangeAddress(firstRow, lastRow, i, i);
-                    if(extent == ::org::apache::poi::ss::usermodel::BorderExtent::ALL || i > firstCol) {
+                    if(extent == ::poi::ss::usermodel::BorderExtent::ALL || i > firstCol) {
                         drawLeftBorderColor(row, color);
                     }
-                    if(extent == ::org::apache::poi::ss::usermodel::BorderExtent::ALL || i < lastCol) {
+                    if(extent == ::poi::ss::usermodel::BorderExtent::ALL || i < lastCol) {
                         drawRightBorderColor(row, color);
                     }
                 }
                 goto end_switch7;;
             }
-            if((((v != ::org::apache::poi::ss::usermodel::BorderExtent::ALL) && (v != ::org::apache::poi::ss::usermodel::BorderExtent::INSIDE)))) {
+            if((((v != ::poi::ss::usermodel::BorderExtent::ALL) && (v != ::poi::ss::usermodel::BorderExtent::INSIDE)))) {
                 throw new ::java::lang::IllegalArgumentException(u"Unsupported PropertyTemplate.Extent, valid Extents are ALL and INSIDE"_j);
             }
 end_switch7:;
@@ -554,7 +554,7 @@ end_switch7:;
 
 }
 
-void org::apache::poi::ss::util::PropertyTemplate::removeBorderColors(CellRangeAddress* range)
+void poi::ss::util::PropertyTemplate::removeBorderColors(CellRangeAddress* range)
 {
     ::java::util::Set* properties = new ::java::util::HashSet();
     npc(properties)->add(static_cast< ::java::lang::Object* >(CellUtil::TOP_BORDER_COLOR()));
@@ -568,12 +568,12 @@ void org::apache::poi::ss::util::PropertyTemplate::removeBorderColors(CellRangeA
     }
 }
 
-void org::apache::poi::ss::util::PropertyTemplate::addProperty(int32_t row, int32_t col, ::java::lang::String* property, int16_t value)
+void poi::ss::util::PropertyTemplate::addProperty(int32_t row, int32_t col, ::java::lang::String* property, int16_t value)
 {
     addProperty(row, col, property, static_cast< ::java::lang::Object* >(::java::lang::Short::valueOf(value)));
 }
 
-void org::apache::poi::ss::util::PropertyTemplate::addProperty(int32_t row, int32_t col, ::java::lang::String* property, ::java::lang::Object* value)
+void poi::ss::util::PropertyTemplate::addProperty(int32_t row, int32_t col, ::java::lang::String* property, ::java::lang::Object* value)
 {
     auto cell = new CellAddress(row, col);
     auto cellProperties = java_cast< ::java::util::Map* >(npc(_propertyTemplate)->get(cell));
@@ -584,7 +584,7 @@ void org::apache::poi::ss::util::PropertyTemplate::addProperty(int32_t row, int3
     npc(_propertyTemplate)->put(cell, cellProperties);
 }
 
-void org::apache::poi::ss::util::PropertyTemplate::removeProperties(int32_t row, int32_t col, ::java::util::Set* properties)
+void poi::ss::util::PropertyTemplate::removeProperties(int32_t row, int32_t col, ::java::util::Set* properties)
 {
     auto cell = new CellAddress(row, col);
     auto cellProperties = java_cast< ::java::util::Map* >(npc(_propertyTemplate)->get(cell));
@@ -598,7 +598,7 @@ void org::apache::poi::ss::util::PropertyTemplate::removeProperties(int32_t row,
     }
 }
 
-int32_t org::apache::poi::ss::util::PropertyTemplate::getNumBorders(CellAddress* cell)
+int32_t poi::ss::util::PropertyTemplate::getNumBorders(CellAddress* cell)
 {
     auto cellProperties = java_cast< ::java::util::Map* >(npc(_propertyTemplate)->get(cell));
     if(cellProperties == nullptr) {
@@ -625,12 +625,12 @@ int32_t org::apache::poi::ss::util::PropertyTemplate::getNumBorders(CellAddress*
     return count;
 }
 
-int32_t org::apache::poi::ss::util::PropertyTemplate::getNumBorders(int32_t row, int32_t col)
+int32_t poi::ss::util::PropertyTemplate::getNumBorders(int32_t row, int32_t col)
 {
     return getNumBorders(new CellAddress(row, col));
 }
 
-int32_t org::apache::poi::ss::util::PropertyTemplate::getNumBorderColors(CellAddress* cell)
+int32_t poi::ss::util::PropertyTemplate::getNumBorderColors(CellAddress* cell)
 {
     auto cellProperties = java_cast< ::java::util::Map* >(npc(_propertyTemplate)->get(cell));
     if(cellProperties == nullptr) {
@@ -657,30 +657,30 @@ int32_t org::apache::poi::ss::util::PropertyTemplate::getNumBorderColors(CellAdd
     return count;
 }
 
-int32_t org::apache::poi::ss::util::PropertyTemplate::getNumBorderColors(int32_t row, int32_t col)
+int32_t poi::ss::util::PropertyTemplate::getNumBorderColors(int32_t row, int32_t col)
 {
     return getNumBorderColors(new CellAddress(row, col));
 }
 
-org::apache::poi::ss::usermodel::BorderStyle* org::apache::poi::ss::util::PropertyTemplate::getBorderStyle(CellAddress* cell, ::java::lang::String* property)
+poi::ss::usermodel::BorderStyle* poi::ss::util::PropertyTemplate::getBorderStyle(CellAddress* cell, ::java::lang::String* property)
 {
-    auto value = ::org::apache::poi::ss::usermodel::BorderStyle::NONE;
+    auto value = ::poi::ss::usermodel::BorderStyle::NONE;
     auto cellProperties = java_cast< ::java::util::Map* >(npc(_propertyTemplate)->get(cell));
     if(cellProperties != nullptr) {
         auto obj = java_cast< ::java::lang::Object* >(npc(cellProperties)->get(property));
-        if(dynamic_cast< ::org::apache::poi::ss::usermodel::BorderStyle* >(obj) != nullptr) {
-            value = java_cast< ::org::apache::poi::ss::usermodel::BorderStyle* >(obj);
+        if(dynamic_cast< ::poi::ss::usermodel::BorderStyle* >(obj) != nullptr) {
+            value = java_cast< ::poi::ss::usermodel::BorderStyle* >(obj);
         }
     }
     return value;
 }
 
-org::apache::poi::ss::usermodel::BorderStyle* org::apache::poi::ss::util::PropertyTemplate::getBorderStyle(int32_t row, int32_t col, ::java::lang::String* property)
+poi::ss::usermodel::BorderStyle* poi::ss::util::PropertyTemplate::getBorderStyle(int32_t row, int32_t col, ::java::lang::String* property)
 {
     return getBorderStyle(new CellAddress(row, col), property);
 }
 
-int16_t org::apache::poi::ss::util::PropertyTemplate::getTemplateProperty(CellAddress* cell, ::java::lang::String* property)
+int16_t poi::ss::util::PropertyTemplate::getTemplateProperty(CellAddress* cell, ::java::lang::String* property)
 {
     int16_t value = int32_t(0);
     auto cellProperties = java_cast< ::java::util::Map* >(npc(_propertyTemplate)->get(cell));
@@ -693,12 +693,12 @@ int16_t org::apache::poi::ss::util::PropertyTemplate::getTemplateProperty(CellAd
     return value;
 }
 
-int16_t org::apache::poi::ss::util::PropertyTemplate::getTemplateProperty(int32_t row, int32_t col, ::java::lang::String* property)
+int16_t poi::ss::util::PropertyTemplate::getTemplateProperty(int32_t row, int32_t col, ::java::lang::String* property)
 {
     return getTemplateProperty(new CellAddress(row, col), property);
 }
 
-int16_t org::apache::poi::ss::util::PropertyTemplate::getShort(::java::lang::Object* value)
+int16_t poi::ss::util::PropertyTemplate::getShort(::java::lang::Object* value)
 {
     clinit();
     if(dynamic_cast< ::java::lang::Short* >(value) != nullptr) {
@@ -709,13 +709,13 @@ int16_t org::apache::poi::ss::util::PropertyTemplate::getShort(::java::lang::Obj
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::util::PropertyTemplate::class_()
+java::lang::Class* poi::ss::util::PropertyTemplate::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.util.PropertyTemplate", 39);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::util::PropertyTemplate::getClass0()
+java::lang::Class* poi::ss::util::PropertyTemplate::getClass0()
 {
     return class_();
 }

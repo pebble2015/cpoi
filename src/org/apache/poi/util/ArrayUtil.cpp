@@ -16,19 +16,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::util::ArrayUtil::ArrayUtil(const ::default_init_tag&)
+poi::util::ArrayUtil::ArrayUtil(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::util::ArrayUtil::ArrayUtil()
+poi::util::ArrayUtil::ArrayUtil()
     : ArrayUtil(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::util::ArrayUtil::arraycopy(::int8_tArray* src, int32_t src_position, ::int8_tArray* dst, int32_t dst_position, int32_t length)
+void poi::util::ArrayUtil::arraycopy(::int8_tArray* src, int32_t src_position, ::int8_tArray* dst, int32_t dst_position, int32_t length)
 {
     clinit();
     if(src_position < 0)
@@ -60,7 +60,7 @@ void org::apache::poi::util::ArrayUtil::arraycopy(::int8_tArray* src, int32_t sr
     ::java::lang::System::arraycopy(src, src_position, dst, dst_position, length);
 }
 
-void org::apache::poi::util::ArrayUtil::arrayMoveWithin(::java::lang::ObjectArray* array, int32_t moveFrom, int32_t moveTo, int32_t numToMove)
+void poi::util::ArrayUtil::arrayMoveWithin(::java::lang::ObjectArray* array, int32_t moveFrom, int32_t moveTo, int32_t numToMove)
 {
     clinit();
     if(numToMove <= 0) {
@@ -100,13 +100,13 @@ void org::apache::poi::util::ArrayUtil::arrayMoveWithin(::java::lang::ObjectArra
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::util::ArrayUtil::class_()
+java::lang::Class* poi::util::ArrayUtil::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.util.ArrayUtil", 29);
     return c;
 }
 
-java::lang::Class* org::apache::poi::util::ArrayUtil::getClass0()
+java::lang::Class* poi::util::ArrayUtil::getClass0()
 {
     return class_();
 }

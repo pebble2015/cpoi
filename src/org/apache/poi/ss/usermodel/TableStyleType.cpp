@@ -44,22 +44,16 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace ss
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::TableStyleType, ::java::lang::EnumArray > TableStyleTypeArray;
-                } // usermodel
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::usermodel::TableStyleType, ::java::lang::EnumArray > TableStyleTypeArray;
+        } // usermodel
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -68,47 +62,47 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::usermodel::TableStyleType::TableStyleType(const ::default_init_tag&)
+poi::ss::usermodel::TableStyleType::TableStyleType(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::usermodel::TableStyleType::TableStyleType(::java::lang::String* name, int ordinal)
+poi::ss::usermodel::TableStyleType::TableStyleType(::java::lang::String* name, int ordinal)
     : TableStyleType(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal);
 }
 
-org::apache::poi::ss::usermodel::TableStyleType* org::apache::poi::ss::usermodel::TableStyleType::wholeTable = new ::org::apache::poi::ss::usermodel::TableStyleType_1(u"wholeTable"_j, 0);
-org::apache::poi::ss::usermodel::TableStyleType* org::apache::poi::ss::usermodel::TableStyleType::pageFieldLabels = new ::org::apache::poi::ss::usermodel::TableStyleType(u"pageFieldLabels"_j, 1);
-org::apache::poi::ss::usermodel::TableStyleType* org::apache::poi::ss::usermodel::TableStyleType::pageFieldValues = new ::org::apache::poi::ss::usermodel::TableStyleType(u"pageFieldValues"_j, 2);
-org::apache::poi::ss::usermodel::TableStyleType* org::apache::poi::ss::usermodel::TableStyleType::firstColumnStripe = new ::org::apache::poi::ss::usermodel::TableStyleType_2(u"firstColumnStripe"_j, 3);
-org::apache::poi::ss::usermodel::TableStyleType* org::apache::poi::ss::usermodel::TableStyleType::secondColumnStripe = new ::org::apache::poi::ss::usermodel::TableStyleType_3(u"secondColumnStripe"_j, 4);
-org::apache::poi::ss::usermodel::TableStyleType* org::apache::poi::ss::usermodel::TableStyleType::firstRowStripe = new ::org::apache::poi::ss::usermodel::TableStyleType_4(u"firstRowStripe"_j, 5);
-org::apache::poi::ss::usermodel::TableStyleType* org::apache::poi::ss::usermodel::TableStyleType::secondRowStripe = new ::org::apache::poi::ss::usermodel::TableStyleType_5(u"secondRowStripe"_j, 6);
-org::apache::poi::ss::usermodel::TableStyleType* org::apache::poi::ss::usermodel::TableStyleType::lastColumn = new ::org::apache::poi::ss::usermodel::TableStyleType_6(u"lastColumn"_j, 7);
-org::apache::poi::ss::usermodel::TableStyleType* org::apache::poi::ss::usermodel::TableStyleType::firstColumn = new ::org::apache::poi::ss::usermodel::TableStyleType_7(u"firstColumn"_j, 8);
-org::apache::poi::ss::usermodel::TableStyleType* org::apache::poi::ss::usermodel::TableStyleType::headerRow = new ::org::apache::poi::ss::usermodel::TableStyleType_8(u"headerRow"_j, 9);
-org::apache::poi::ss::usermodel::TableStyleType* org::apache::poi::ss::usermodel::TableStyleType::totalRow = new ::org::apache::poi::ss::usermodel::TableStyleType_9(u"totalRow"_j, 10);
-org::apache::poi::ss::usermodel::TableStyleType* org::apache::poi::ss::usermodel::TableStyleType::firstHeaderCell = new ::org::apache::poi::ss::usermodel::TableStyleType_10(u"firstHeaderCell"_j, 11);
-org::apache::poi::ss::usermodel::TableStyleType* org::apache::poi::ss::usermodel::TableStyleType::lastHeaderCell = new ::org::apache::poi::ss::usermodel::TableStyleType_11(u"lastHeaderCell"_j, 12);
-org::apache::poi::ss::usermodel::TableStyleType* org::apache::poi::ss::usermodel::TableStyleType::firstTotalCell = new ::org::apache::poi::ss::usermodel::TableStyleType_12(u"firstTotalCell"_j, 13);
-org::apache::poi::ss::usermodel::TableStyleType* org::apache::poi::ss::usermodel::TableStyleType::lastTotalCell = new ::org::apache::poi::ss::usermodel::TableStyleType_13(u"lastTotalCell"_j, 14);
-org::apache::poi::ss::usermodel::TableStyleType* org::apache::poi::ss::usermodel::TableStyleType::firstSubtotalColumn = new ::org::apache::poi::ss::usermodel::TableStyleType(u"firstSubtotalColumn"_j, 15);
-org::apache::poi::ss::usermodel::TableStyleType* org::apache::poi::ss::usermodel::TableStyleType::secondSubtotalColumn = new ::org::apache::poi::ss::usermodel::TableStyleType(u"secondSubtotalColumn"_j, 16);
-org::apache::poi::ss::usermodel::TableStyleType* org::apache::poi::ss::usermodel::TableStyleType::thirdSubtotalColumn = new ::org::apache::poi::ss::usermodel::TableStyleType(u"thirdSubtotalColumn"_j, 17);
-org::apache::poi::ss::usermodel::TableStyleType* org::apache::poi::ss::usermodel::TableStyleType::blankRow = new ::org::apache::poi::ss::usermodel::TableStyleType(u"blankRow"_j, 18);
-org::apache::poi::ss::usermodel::TableStyleType* org::apache::poi::ss::usermodel::TableStyleType::firstSubtotalRow = new ::org::apache::poi::ss::usermodel::TableStyleType(u"firstSubtotalRow"_j, 19);
-org::apache::poi::ss::usermodel::TableStyleType* org::apache::poi::ss::usermodel::TableStyleType::secondSubtotalRow = new ::org::apache::poi::ss::usermodel::TableStyleType(u"secondSubtotalRow"_j, 20);
-org::apache::poi::ss::usermodel::TableStyleType* org::apache::poi::ss::usermodel::TableStyleType::thirdSubtotalRow = new ::org::apache::poi::ss::usermodel::TableStyleType(u"thirdSubtotalRow"_j, 21);
-org::apache::poi::ss::usermodel::TableStyleType* org::apache::poi::ss::usermodel::TableStyleType::firstColumnSubheading = new ::org::apache::poi::ss::usermodel::TableStyleType(u"firstColumnSubheading"_j, 22);
-org::apache::poi::ss::usermodel::TableStyleType* org::apache::poi::ss::usermodel::TableStyleType::secondColumnSubheading = new ::org::apache::poi::ss::usermodel::TableStyleType(u"secondColumnSubheading"_j, 23);
-org::apache::poi::ss::usermodel::TableStyleType* org::apache::poi::ss::usermodel::TableStyleType::thirdColumnSubheading = new ::org::apache::poi::ss::usermodel::TableStyleType(u"thirdColumnSubheading"_j, 24);
-org::apache::poi::ss::usermodel::TableStyleType* org::apache::poi::ss::usermodel::TableStyleType::firstRowSubheading = new ::org::apache::poi::ss::usermodel::TableStyleType(u"firstRowSubheading"_j, 25);
-org::apache::poi::ss::usermodel::TableStyleType* org::apache::poi::ss::usermodel::TableStyleType::secondRowSubheading = new ::org::apache::poi::ss::usermodel::TableStyleType(u"secondRowSubheading"_j, 26);
-org::apache::poi::ss::usermodel::TableStyleType* org::apache::poi::ss::usermodel::TableStyleType::thirdRowSubheading = new ::org::apache::poi::ss::usermodel::TableStyleType(u"thirdRowSubheading"_j, 27);
-org::apache::poi::ss::util::CellRangeAddressBase* org::apache::poi::ss::usermodel::TableStyleType::appliesTo(Table* table, Cell* cell)
+poi::ss::usermodel::TableStyleType* poi::ss::usermodel::TableStyleType::wholeTable = new ::poi::ss::usermodel::TableStyleType_1(u"wholeTable"_j, 0);
+poi::ss::usermodel::TableStyleType* poi::ss::usermodel::TableStyleType::pageFieldLabels = new ::poi::ss::usermodel::TableStyleType(u"pageFieldLabels"_j, 1);
+poi::ss::usermodel::TableStyleType* poi::ss::usermodel::TableStyleType::pageFieldValues = new ::poi::ss::usermodel::TableStyleType(u"pageFieldValues"_j, 2);
+poi::ss::usermodel::TableStyleType* poi::ss::usermodel::TableStyleType::firstColumnStripe = new ::poi::ss::usermodel::TableStyleType_2(u"firstColumnStripe"_j, 3);
+poi::ss::usermodel::TableStyleType* poi::ss::usermodel::TableStyleType::secondColumnStripe = new ::poi::ss::usermodel::TableStyleType_3(u"secondColumnStripe"_j, 4);
+poi::ss::usermodel::TableStyleType* poi::ss::usermodel::TableStyleType::firstRowStripe = new ::poi::ss::usermodel::TableStyleType_4(u"firstRowStripe"_j, 5);
+poi::ss::usermodel::TableStyleType* poi::ss::usermodel::TableStyleType::secondRowStripe = new ::poi::ss::usermodel::TableStyleType_5(u"secondRowStripe"_j, 6);
+poi::ss::usermodel::TableStyleType* poi::ss::usermodel::TableStyleType::lastColumn = new ::poi::ss::usermodel::TableStyleType_6(u"lastColumn"_j, 7);
+poi::ss::usermodel::TableStyleType* poi::ss::usermodel::TableStyleType::firstColumn = new ::poi::ss::usermodel::TableStyleType_7(u"firstColumn"_j, 8);
+poi::ss::usermodel::TableStyleType* poi::ss::usermodel::TableStyleType::headerRow = new ::poi::ss::usermodel::TableStyleType_8(u"headerRow"_j, 9);
+poi::ss::usermodel::TableStyleType* poi::ss::usermodel::TableStyleType::totalRow = new ::poi::ss::usermodel::TableStyleType_9(u"totalRow"_j, 10);
+poi::ss::usermodel::TableStyleType* poi::ss::usermodel::TableStyleType::firstHeaderCell = new ::poi::ss::usermodel::TableStyleType_10(u"firstHeaderCell"_j, 11);
+poi::ss::usermodel::TableStyleType* poi::ss::usermodel::TableStyleType::lastHeaderCell = new ::poi::ss::usermodel::TableStyleType_11(u"lastHeaderCell"_j, 12);
+poi::ss::usermodel::TableStyleType* poi::ss::usermodel::TableStyleType::firstTotalCell = new ::poi::ss::usermodel::TableStyleType_12(u"firstTotalCell"_j, 13);
+poi::ss::usermodel::TableStyleType* poi::ss::usermodel::TableStyleType::lastTotalCell = new ::poi::ss::usermodel::TableStyleType_13(u"lastTotalCell"_j, 14);
+poi::ss::usermodel::TableStyleType* poi::ss::usermodel::TableStyleType::firstSubtotalColumn = new ::poi::ss::usermodel::TableStyleType(u"firstSubtotalColumn"_j, 15);
+poi::ss::usermodel::TableStyleType* poi::ss::usermodel::TableStyleType::secondSubtotalColumn = new ::poi::ss::usermodel::TableStyleType(u"secondSubtotalColumn"_j, 16);
+poi::ss::usermodel::TableStyleType* poi::ss::usermodel::TableStyleType::thirdSubtotalColumn = new ::poi::ss::usermodel::TableStyleType(u"thirdSubtotalColumn"_j, 17);
+poi::ss::usermodel::TableStyleType* poi::ss::usermodel::TableStyleType::blankRow = new ::poi::ss::usermodel::TableStyleType(u"blankRow"_j, 18);
+poi::ss::usermodel::TableStyleType* poi::ss::usermodel::TableStyleType::firstSubtotalRow = new ::poi::ss::usermodel::TableStyleType(u"firstSubtotalRow"_j, 19);
+poi::ss::usermodel::TableStyleType* poi::ss::usermodel::TableStyleType::secondSubtotalRow = new ::poi::ss::usermodel::TableStyleType(u"secondSubtotalRow"_j, 20);
+poi::ss::usermodel::TableStyleType* poi::ss::usermodel::TableStyleType::thirdSubtotalRow = new ::poi::ss::usermodel::TableStyleType(u"thirdSubtotalRow"_j, 21);
+poi::ss::usermodel::TableStyleType* poi::ss::usermodel::TableStyleType::firstColumnSubheading = new ::poi::ss::usermodel::TableStyleType(u"firstColumnSubheading"_j, 22);
+poi::ss::usermodel::TableStyleType* poi::ss::usermodel::TableStyleType::secondColumnSubheading = new ::poi::ss::usermodel::TableStyleType(u"secondColumnSubheading"_j, 23);
+poi::ss::usermodel::TableStyleType* poi::ss::usermodel::TableStyleType::thirdColumnSubheading = new ::poi::ss::usermodel::TableStyleType(u"thirdColumnSubheading"_j, 24);
+poi::ss::usermodel::TableStyleType* poi::ss::usermodel::TableStyleType::firstRowSubheading = new ::poi::ss::usermodel::TableStyleType(u"firstRowSubheading"_j, 25);
+poi::ss::usermodel::TableStyleType* poi::ss::usermodel::TableStyleType::secondRowSubheading = new ::poi::ss::usermodel::TableStyleType(u"secondRowSubheading"_j, 26);
+poi::ss::usermodel::TableStyleType* poi::ss::usermodel::TableStyleType::thirdRowSubheading = new ::poi::ss::usermodel::TableStyleType(u"thirdRowSubheading"_j, 27);
+poi::ss::util::CellRangeAddressBase* poi::ss::usermodel::TableStyleType::appliesTo(Table* table, Cell* cell)
 {
     if(table == nullptr || cell == nullptr)
         return nullptr;
@@ -126,20 +120,20 @@ org::apache::poi::ss::util::CellRangeAddressBase* org::apache::poi::ss::usermode
     return nullptr;
 }
 
-org::apache::poi::ss::util::CellRangeAddressBase* org::apache::poi::ss::usermodel::TableStyleType::getRange(Table* table, Cell* cell)
+poi::ss::util::CellRangeAddressBase* poi::ss::usermodel::TableStyleType::getRange(Table* table, Cell* cell)
 {
     return nullptr;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::usermodel::TableStyleType::class_()
+java::lang::Class* poi::ss::usermodel::TableStyleType::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.usermodel.TableStyleType", 42);
     return c;
 }
 
-org::apache::poi::ss::usermodel::TableStyleType* org::apache::poi::ss::usermodel::TableStyleType::valueOf(::java::lang::String* a0)
+poi::ss::usermodel::TableStyleType* poi::ss::usermodel::TableStyleType::valueOf(::java::lang::String* a0)
 {
     if(blankRow->toString()->equals(a0))
         return blankRow;
@@ -200,9 +194,9 @@ org::apache::poi::ss::usermodel::TableStyleType* org::apache::poi::ss::usermodel
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::ss::usermodel::TableStyleTypeArray* org::apache::poi::ss::usermodel::TableStyleType::values()
+poi::ss::usermodel::TableStyleTypeArray* poi::ss::usermodel::TableStyleType::values()
 {
-    return new org::apache::poi::ss::usermodel::TableStyleTypeArray({
+    return new poi::ss::usermodel::TableStyleTypeArray({
         blankRow,
         firstColumn,
         firstColumnStripe,
@@ -234,7 +228,7 @@ org::apache::poi::ss::usermodel::TableStyleTypeArray* org::apache::poi::ss::user
     });
 }
 
-java::lang::Class* org::apache::poi::ss::usermodel::TableStyleType::getClass0()
+java::lang::Class* poi::ss::usermodel::TableStyleType::getClass0()
 {
     return class_();
 }

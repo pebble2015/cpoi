@@ -11,34 +11,28 @@
 #include <org/apache/poi/hssf/record/StandardRecord.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace util
         {
-            namespace ss
-            {
-                namespace util
-                {
-typedef ::SubArray< ::org::apache::poi::ss::util::CellRangeAddressBase, ::java::lang::ObjectArray > CellRangeAddressBaseArray;
-                } // util
-            } // ss
+typedef ::SubArray< ::poi::ss::util::CellRangeAddressBase, ::java::lang::ObjectArray > CellRangeAddressBaseArray;
+        } // util
+    } // ss
 
-            namespace hssf
-            {
-                namespace util
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::util::CellRangeAddress8Bit, ::org::apache::poi::ss::util::CellRangeAddressBaseArray > CellRangeAddress8BitArray;
-                } // util
-            } // hssf
-        } // poi
-    } // apache
-} // org
+    namespace hssf
+    {
+        namespace util
+        {
+typedef ::SubArray< ::poi::hssf::util::CellRangeAddress8Bit, ::poi::ss::util::CellRangeAddressBaseArray > CellRangeAddress8BitArray;
+        } // util
+    } // hssf
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::SelectionRecord final
+class poi::hssf::record::SelectionRecord final
     : public StandardRecord
 {
 
@@ -51,7 +45,7 @@ private:
     int32_t field_2_row_active_cell {  };
     int32_t field_3_col_active_cell {  };
     int32_t field_4_active_cell_ref_index {  };
-    ::org::apache::poi::hssf::util::CellRangeAddress8BitArray* field_6_refs {  };
+    ::poi::hssf::util::CellRangeAddress8BitArray* field_6_refs {  };
 protected:
     void ctor(int32_t activeCellRow, int32_t activeCellCol);
     void ctor(RecordInputStream* in);
@@ -71,7 +65,7 @@ public: /* protected */
     int32_t getDataSize() override;
 
 public:
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
     int16_t getSid() override;
     ::java::lang::Object* clone() override;
 

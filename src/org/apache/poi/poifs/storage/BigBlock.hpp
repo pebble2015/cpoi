@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::storage::BigBlock
+class poi::poifs::storage::BigBlock
     : public virtual ::java::lang::Object
     , public virtual BlockWritable
 {
@@ -20,9 +20,9 @@ public:
     typedef ::java::lang::Object super;
 
 public: /* protected */
-    ::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize {  };
+    ::poi::poifs::common::POIFSBigBlockSize* bigBlockSize {  };
 protected:
-    void ctor(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize);
+    void ctor(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize);
 
 public: /* protected */
     virtual void doWriteData(::java::io::OutputStream* stream, ::int8_tArray* data) /* throws(IOException) */;
@@ -36,7 +36,7 @@ public:
     // Generated
 
 public: /* protected */
-    BigBlock(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize);
+    BigBlock(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize);
 protected:
     BigBlock(const ::default_init_tag&);
 

@@ -11,34 +11,28 @@
 #include <org/apache/poi/hssf/record/cont/ContinuableRecord.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::NameRecord final
-    : public ::org::apache::poi::hssf::record::cont::ContinuableRecord
+class poi::hssf::record::NameRecord final
+    : public ::poi::hssf::record::cont::ContinuableRecord
 {
 
 public:
-    typedef ::org::apache::poi::hssf::record::cont::ContinuableRecord super;
+    typedef ::poi::hssf::record::cont::ContinuableRecord super;
     static constexpr int16_t sid { int16_t(24) };
     static constexpr int8_t BUILTIN_CONSOLIDATE_AREA { int8_t(1) };
     static constexpr int8_t BUILTIN_AUTO_OPEN { int8_t(2) };
@@ -62,7 +56,7 @@ private:
     bool field_11_nameIsMultibyte {  };
     int8_t field_12_built_in_code {  };
     ::java::lang::String* field_12_name_text {  };
-    ::org::apache::poi::ss::formula::Formula* field_13_name_definition {  };
+    ::poi::ss::formula::Formula* field_13_name_definition {  };
     ::java::lang::String* field_14_custom_menu_text {  };
     ::java::lang::String* field_15_description_text {  };
     ::java::lang::String* field_16_help_topic_text {  };
@@ -100,13 +94,13 @@ public:
     bool isBuiltInName();
     ::java::lang::String* getNameText();
     int8_t getBuiltInName();
-    ::org::apache::poi::ss::formula::ptg::PtgArray* getNameDefinition();
-    void setNameDefinition(::org::apache::poi::ss::formula::ptg::PtgArray* ptgs);
+    ::poi::ss::formula::ptg::PtgArray* getNameDefinition();
+    void setNameDefinition(::poi::ss::formula::ptg::PtgArray* ptgs);
     ::java::lang::String* getCustomMenuText();
     ::java::lang::String* getDescriptionText();
     ::java::lang::String* getHelpTopicText();
     ::java::lang::String* getStatusBarText();
-    void serialize(::org::apache::poi::hssf::record::cont::ContinuableRecordOutput* out) override;
+    void serialize(::poi::hssf::record::cont::ContinuableRecordOutput* out) override;
 
 private:
     int32_t getNameRawSize();

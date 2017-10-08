@@ -11,29 +11,23 @@
 #include <java/lang/Object.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::cf::Threshold
+class poi::hssf::record::cf::Threshold
     : public virtual ::java::lang::Object
 {
 
@@ -42,11 +36,11 @@ public:
 
 private:
     int8_t type {  };
-    ::org::apache::poi::ss::formula::Formula* formula {  };
+    ::poi::ss::formula::Formula* formula {  };
     ::java::lang::Double* value {  };
 protected:
     void ctor();
-    void ctor(::org::apache::poi::util::LittleEndianInput* in);
+    void ctor(::poi::util::LittleEndianInput* in);
 
 public:
     virtual int8_t getType();
@@ -54,23 +48,23 @@ public:
     virtual void setType(int32_t type);
 
 public: /* protected */
-    virtual ::org::apache::poi::ss::formula::Formula* getFormula();
+    virtual ::poi::ss::formula::Formula* getFormula();
 
 public:
-    virtual ::org::apache::poi::ss::formula::ptg::PtgArray* getParsedExpression();
-    virtual void setParsedExpression(::org::apache::poi::ss::formula::ptg::PtgArray* ptgs);
+    virtual ::poi::ss::formula::ptg::PtgArray* getParsedExpression();
+    virtual void setParsedExpression(::poi::ss::formula::ptg::PtgArray* ptgs);
     virtual ::java::lang::Double* getValue();
     virtual void setValue(::java::lang::Double* value);
     virtual int32_t getDataLength();
     ::java::lang::String* toString() override;
     virtual void copyTo(Threshold* rec);
-    virtual void serialize(::org::apache::poi::util::LittleEndianOutput* out);
+    virtual void serialize(::poi::util::LittleEndianOutput* out);
 
     // Generated
 
 public: /* protected */
     Threshold();
-    Threshold(::org::apache::poi::util::LittleEndianInput* in);
+    Threshold(::poi::util::LittleEndianInput* in);
 protected:
     Threshold(const ::default_init_tag&);
 

@@ -59,19 +59,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::macros::VBAMacroExtractor::VBAMacroExtractor(const ::default_init_tag&)
+poi::poifs::macros::VBAMacroExtractor::VBAMacroExtractor(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::macros::VBAMacroExtractor::VBAMacroExtractor()
+poi::poifs::macros::VBAMacroExtractor::VBAMacroExtractor()
     : VBAMacroExtractor(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::poifs::macros::VBAMacroExtractor::main(::java::lang::StringArray* args) /* throws(IOException) */
+void poi::poifs::macros::VBAMacroExtractor::main(::java::lang::StringArray* args) /* throws(IOException) */
 {
     clinit();
     if(npc(args)->length == 0) {
@@ -91,7 +91,7 @@ void org::apache::poi::poifs::macros::VBAMacroExtractor::main(::java::lang::Stri
     npc(extractor)->extract(input, output);
 }
 
-void org::apache::poi::poifs::macros::VBAMacroExtractor::extract(::java::io::File* input, ::java::io::File* outputDir, ::java::lang::String* extension) /* throws(IOException) */
+void poi::poifs::macros::VBAMacroExtractor::extract(::java::io::File* input, ::java::io::File* outputDir, ::java::lang::String* extension) /* throws(IOException) */
 {
     if(!npc(input)->exists())
         throw new ::java::io::FileNotFoundException(npc(input)->toString());
@@ -124,7 +124,7 @@ void org::apache::poi::poifs::macros::VBAMacroExtractor::extract(::java::io::Fil
             } else {
                 auto out = new ::java::io::File(outputDir, ::java::lang::StringBuilder().append(moduleName)->append(extension)->toString());
                 auto fout = new ::java::io::FileOutputStream(out);
-                auto fwriter = new ::java::io::OutputStreamWriter(static_cast< ::java::io::OutputStream* >(fout), ::org::apache::poi::util::StringUtil::UTF8());
+                auto fwriter = new ::java::io::OutputStreamWriter(static_cast< ::java::io::OutputStream* >(fout), ::poi::util::StringUtil::UTF8());
                 npc(fwriter)->write(moduleCode);
                 npc(fwriter)->close();
                 npc(fout)->close();
@@ -137,20 +137,20 @@ void org::apache::poi::poifs::macros::VBAMacroExtractor::extract(::java::io::Fil
     }
 }
 
-void org::apache::poi::poifs::macros::VBAMacroExtractor::extract(::java::io::File* input, ::java::io::File* outputDir) /* throws(IOException) */
+void poi::poifs::macros::VBAMacroExtractor::extract(::java::io::File* input, ::java::io::File* outputDir) /* throws(IOException) */
 {
     extract(input, outputDir, u".vba"_j);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::macros::VBAMacroExtractor::class_()
+java::lang::Class* poi::poifs::macros::VBAMacroExtractor::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.macros.VBAMacroExtractor", 45);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::macros::VBAMacroExtractor::getClass0()
+java::lang::Class* poi::poifs::macros::VBAMacroExtractor::getClass0()
 {
     return class_();
 }

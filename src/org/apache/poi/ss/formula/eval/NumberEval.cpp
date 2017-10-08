@@ -28,67 +28,67 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::eval::NumberEval::NumberEval(const ::default_init_tag&)
+poi::ss::formula::eval::NumberEval::NumberEval(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::eval::NumberEval::NumberEval(::org::apache::poi::ss::formula::ptg::Ptg* ptg) 
+poi::ss::formula::eval::NumberEval::NumberEval(::poi::ss::formula::ptg::Ptg* ptg) 
     : NumberEval(*static_cast< ::default_init_tag* >(0))
 {
     ctor(ptg);
 }
 
-org::apache::poi::ss::formula::eval::NumberEval::NumberEval(double value) 
+poi::ss::formula::eval::NumberEval::NumberEval(double value) 
     : NumberEval(*static_cast< ::default_init_tag* >(0))
 {
     ctor(value);
 }
 
-org::apache::poi::ss::formula::eval::NumberEval*& org::apache::poi::ss::formula::eval::NumberEval::ZERO()
+poi::ss::formula::eval::NumberEval*& poi::ss::formula::eval::NumberEval::ZERO()
 {
     clinit();
     return ZERO_;
 }
-org::apache::poi::ss::formula::eval::NumberEval* org::apache::poi::ss::formula::eval::NumberEval::ZERO_;
+poi::ss::formula::eval::NumberEval* poi::ss::formula::eval::NumberEval::ZERO_;
 
-void org::apache::poi::ss::formula::eval::NumberEval::ctor(::org::apache::poi::ss::formula::ptg::Ptg* ptg)
+void poi::ss::formula::eval::NumberEval::ctor(::poi::ss::formula::ptg::Ptg* ptg)
 {
     super::ctor();
     if(ptg == nullptr) {
         throw new ::java::lang::IllegalArgumentException(u"ptg must not be null"_j);
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::ptg::IntPtg* >(ptg) != nullptr) {
-        _value = npc((java_cast< ::org::apache::poi::ss::formula::ptg::IntPtg* >(ptg)))->getValue();
-    } else if(dynamic_cast< ::org::apache::poi::ss::formula::ptg::NumberPtg* >(ptg) != nullptr) {
-        _value = npc((java_cast< ::org::apache::poi::ss::formula::ptg::NumberPtg* >(ptg)))->getValue();
+    if(dynamic_cast< ::poi::ss::formula::ptg::IntPtg* >(ptg) != nullptr) {
+        _value = npc((java_cast< ::poi::ss::formula::ptg::IntPtg* >(ptg)))->getValue();
+    } else if(dynamic_cast< ::poi::ss::formula::ptg::NumberPtg* >(ptg) != nullptr) {
+        _value = npc((java_cast< ::poi::ss::formula::ptg::NumberPtg* >(ptg)))->getValue();
     } else {
         throw new ::java::lang::IllegalArgumentException(::java::lang::StringBuilder().append(u"bad argument type ("_j)->append(npc(npc(ptg)->getClass())->getName())
             ->append(u")"_j)->toString());
     }
 }
 
-void org::apache::poi::ss::formula::eval::NumberEval::ctor(double value)
+void poi::ss::formula::eval::NumberEval::ctor(double value)
 {
     super::ctor();
     _value = value;
 }
 
-double org::apache::poi::ss::formula::eval::NumberEval::getNumberValue()
+double poi::ss::formula::eval::NumberEval::getNumberValue()
 {
     return _value;
 }
 
-java::lang::String* org::apache::poi::ss::formula::eval::NumberEval::getStringValue()
+java::lang::String* poi::ss::formula::eval::NumberEval::getStringValue()
 {
     if(_stringValue == nullptr) {
-        _stringValue = ::org::apache::poi::ss::util::NumberToTextConverter::toText(_value);
+        _stringValue = ::poi::ss::util::NumberToTextConverter::toText(_value);
     }
     return _stringValue;
 }
 
-java::lang::String* org::apache::poi::ss::formula::eval::NumberEval::toString()
+java::lang::String* poi::ss::formula::eval::NumberEval::toString()
 {
     return ::java::lang::StringBuilder().append(npc(getClass())->getName())->append(u" ["_j)
         ->append(getStringValue())
@@ -97,13 +97,13 @@ java::lang::String* org::apache::poi::ss::formula::eval::NumberEval::toString()
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::eval::NumberEval::class_()
+java::lang::Class* poi::ss::formula::eval::NumberEval::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.eval.NumberEval", 41);
     return c;
 }
 
-void org::apache::poi::ss::formula::eval::NumberEval::clinit()
+void poi::ss::formula::eval::NumberEval::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -119,7 +119,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::formula::eval::NumberEval::getClass0()
+java::lang::Class* poi::ss::formula::eval::NumberEval::getClass0()
 {
     return class_();
 }

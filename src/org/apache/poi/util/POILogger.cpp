@@ -46,48 +46,48 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::util::POILogger::POILogger(const ::default_init_tag&)
+poi::util::POILogger::POILogger(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::util::POILogger::POILogger() 
+poi::util::POILogger::POILogger() 
     : POILogger(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-constexpr int32_t org::apache::poi::util::POILogger::DEBUG;
+constexpr int32_t poi::util::POILogger::DEBUG;
 
-constexpr int32_t org::apache::poi::util::POILogger::INFO;
+constexpr int32_t poi::util::POILogger::INFO;
 
-constexpr int32_t org::apache::poi::util::POILogger::WARN;
+constexpr int32_t poi::util::POILogger::WARN;
 
-constexpr int32_t org::apache::poi::util::POILogger::ERROR;
+constexpr int32_t poi::util::POILogger::ERROR;
 
-constexpr int32_t org::apache::poi::util::POILogger::FATAL;
+constexpr int32_t poi::util::POILogger::FATAL;
 
-java::lang::StringArray*& org::apache::poi::util::POILogger::LEVEL_STRINGS_SHORT()
+java::lang::StringArray*& poi::util::POILogger::LEVEL_STRINGS_SHORT()
 {
     clinit();
     return LEVEL_STRINGS_SHORT_;
 }
-java::lang::StringArray* org::apache::poi::util::POILogger::LEVEL_STRINGS_SHORT_;
+java::lang::StringArray* poi::util::POILogger::LEVEL_STRINGS_SHORT_;
 
-java::lang::StringArray*& org::apache::poi::util::POILogger::LEVEL_STRINGS()
+java::lang::StringArray*& poi::util::POILogger::LEVEL_STRINGS()
 {
     clinit();
     return LEVEL_STRINGS_;
 }
-java::lang::StringArray* org::apache::poi::util::POILogger::LEVEL_STRINGS_;
+java::lang::StringArray* poi::util::POILogger::LEVEL_STRINGS_;
 
-void org::apache::poi::util::POILogger::ctor()
+void poi::util::POILogger::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::util::POILogger::log(int32_t level, ::java::lang::ObjectArray*/*...*/ objs)
+void poi::util::POILogger::log(int32_t level, ::java::lang::ObjectArray*/*...*/ objs)
 {
     if(!check(level))
         return;
@@ -112,13 +112,13 @@ void org::apache::poi::util::POILogger::log(int32_t level, ::java::lang::ObjectA
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::util::POILogger::class_()
+java::lang::Class* poi::util::POILogger::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.util.POILogger", 29);
     return c;
 }
 
-void org::apache::poi::util::POILogger::clinit()
+void poi::util::POILogger::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -159,7 +159,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::util::POILogger::getClass0()
+java::lang::Class* poi::util::POILogger::getClass0()
 {
     return class_();
 }

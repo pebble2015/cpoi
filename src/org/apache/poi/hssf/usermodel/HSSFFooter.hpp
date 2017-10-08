@@ -10,25 +10,25 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFFooter final
+class poi::hssf::usermodel::HSSFFooter final
     : public HeaderFooter
-    , public ::org::apache::poi::ss::usermodel::Footer
+    , public ::poi::ss::usermodel::Footer
 {
 
 public:
     typedef HeaderFooter super;
 
 private:
-    ::org::apache::poi::hssf::record::aggregates::PageSettingsBlock* _psb {  };
+    ::poi::hssf::record::aggregates::PageSettingsBlock* _psb {  };
 protected:
-    void ctor(::org::apache::poi::hssf::record::aggregates::PageSettingsBlock* psb);
+    void ctor(::poi::hssf::record::aggregates::PageSettingsBlock* psb);
 
 public: /* protected */
     ::java::lang::String* getRawText() override;
     void setHeaderFooterText(::java::lang::String* text) override;
 
     // Generated
-    HSSFFooter(::org::apache::poi::hssf::record::aggregates::PageSettingsBlock* psb);
+    HSSFFooter(::poi::hssf::record::aggregates::PageSettingsBlock* psb);
 protected:
     HSSFFooter(const ::default_init_tag&);
 

@@ -22,19 +22,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::sl::draw::binding::CTConnectionSiteList::CTConnectionSiteList(const ::default_init_tag&)
+poi::sl::draw::binding::CTConnectionSiteList::CTConnectionSiteList(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::draw::binding::CTConnectionSiteList::CTConnectionSiteList()
+poi::sl::draw::binding::CTConnectionSiteList::CTConnectionSiteList()
     : CTConnectionSiteList(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-java::util::List* org::apache::poi::sl::draw::binding::CTConnectionSiteList::getCxn()
+java::util::List* poi::sl::draw::binding::CTConnectionSiteList::getCxn()
 {
     if(cxn == nullptr) {
         cxn = new ::java::util::ArrayList();
@@ -42,25 +42,25 @@ java::util::List* org::apache::poi::sl::draw::binding::CTConnectionSiteList::get
     return java_cast< ::java::util::List* >(this->cxn);
 }
 
-bool org::apache::poi::sl::draw::binding::CTConnectionSiteList::isSetCxn()
+bool poi::sl::draw::binding::CTConnectionSiteList::isSetCxn()
 {
     return ((java_cast< ::java::util::List* >(this->cxn) != nullptr) && (!npc(java_cast< ::java::util::List* >(this->cxn))->isEmpty()));
 }
 
-void org::apache::poi::sl::draw::binding::CTConnectionSiteList::unsetCxn()
+void poi::sl::draw::binding::CTConnectionSiteList::unsetCxn()
 {
     this->cxn = nullptr;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::draw::binding::CTConnectionSiteList::class_()
+java::lang::Class* poi::sl::draw::binding::CTConnectionSiteList::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.draw.binding.CTConnectionSiteList", 51);
     return c;
 }
 
-java::lang::Class* org::apache::poi::sl::draw::binding::CTConnectionSiteList::getClass0()
+java::lang::Class* poi::sl::draw::binding::CTConnectionSiteList::getClass0()
 {
     return class_();
 }

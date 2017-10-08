@@ -24,30 +24,24 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace sl
     {
-        namespace poi
+        namespace draw
         {
-            namespace sl
+            namespace geom
             {
-                namespace draw
-                {
-                    namespace geom
-                    {
-typedef ::SubArray< ::org::apache::poi::sl::draw::geom::Formula, ::java::lang::ObjectArray > FormulaArray;
-typedef ::SubArray< ::org::apache::poi::sl::draw::geom::BuiltInGuide, ::java::lang::EnumArray, FormulaArray > BuiltInGuideArray;
-                    } // geom
-                } // draw
-            } // sl
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::sl::draw::geom::Formula, ::java::lang::ObjectArray > FormulaArray;
+typedef ::SubArray< ::poi::sl::draw::geom::BuiltInGuide, ::java::lang::EnumArray, FormulaArray > BuiltInGuideArray;
+            } // geom
+        } // draw
+    } // sl
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::geom::BuiltInGuide final
+class poi::sl::draw::geom::BuiltInGuide final
     : public ::java::lang::Enum
     , public Formula
 {

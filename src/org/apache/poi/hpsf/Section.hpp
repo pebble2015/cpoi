@@ -13,23 +13,17 @@
 #include <java/lang/Object.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hpsf
     {
-        namespace poi
-        {
-            namespace hpsf
-            {
-typedef ::SubArray< ::org::apache::poi::hpsf::Property, ::java::lang::ObjectArray > PropertyArray;
-            } // hpsf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hpsf::Property, ::java::lang::ObjectArray > PropertyArray;
+    } // hpsf
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hpsf::Section
+class poi::hpsf::Section
     : public virtual ::java::lang::Object
 {
 
@@ -37,7 +31,7 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    static ::org::apache::poi::util::POILogger* LOG_;
+    static ::poi::util::POILogger* LOG_;
     ::java::util::Map* dictionary {  };
     ClassID* formatID {  };
     ::java::io::ByteArrayOutputStream* sectionBytes {  };
@@ -90,14 +84,14 @@ public:
     virtual int32_t write(::java::io::OutputStream* out) /* throws(WritingNotSupportedException, IOException) */;
 
 private:
-    bool readDictionary(::org::apache::poi::util::LittleEndianByteArrayInputStream* leis, int32_t length, int32_t codepage) /* throws(UnsupportedEncodingException) */;
+    bool readDictionary(::poi::util::LittleEndianByteArrayInputStream* leis, int32_t length, int32_t codepage) /* throws(UnsupportedEncodingException) */;
     int32_t writeDictionary(::java::io::OutputStream* out, int32_t codepage) /* throws(IOException) */;
 
 public:
     virtual void setDictionary(::java::util::Map* dictionary) /* throws(IllegalPropertySetDataException) */;
     int32_t hashCode() override;
     ::java::lang::String* toString() override;
-    virtual ::java::lang::String* toString(::org::apache::poi::hpsf::wellknown::PropertyIDMap* idMap);
+    virtual ::java::lang::String* toString(::poi::hpsf::wellknown::PropertyIDMap* idMap);
     virtual ::java::util::Map* getDictionary();
     virtual int32_t getCodepage();
     virtual void setCodepage(int32_t codepage);
@@ -116,6 +110,6 @@ public:
 
 private:
     void init();
-    static ::org::apache::poi::util::POILogger*& LOG();
+    static ::poi::util::POILogger*& LOG();
     virtual ::java::lang::Class* getClass0();
 };

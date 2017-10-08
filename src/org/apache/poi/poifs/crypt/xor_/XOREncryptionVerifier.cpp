@@ -24,32 +24,32 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::crypt::xor_::XOREncryptionVerifier::XOREncryptionVerifier(const ::default_init_tag&)
+poi::poifs::crypt::xor_::XOREncryptionVerifier::XOREncryptionVerifier(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::crypt::xor_::XOREncryptionVerifier::XOREncryptionVerifier() 
+poi::poifs::crypt::xor_::XOREncryptionVerifier::XOREncryptionVerifier() 
     : XOREncryptionVerifier(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::poifs::crypt::xor_::XOREncryptionVerifier::XOREncryptionVerifier(::org::apache::poi::util::LittleEndianInput* is) 
+poi::poifs::crypt::xor_::XOREncryptionVerifier::XOREncryptionVerifier(::poi::util::LittleEndianInput* is) 
     : XOREncryptionVerifier(*static_cast< ::default_init_tag* >(0))
 {
     ctor(is);
 }
 
-void org::apache::poi::poifs::crypt::xor_::XOREncryptionVerifier::ctor()
+void poi::poifs::crypt::xor_::XOREncryptionVerifier::ctor()
 {
     super::ctor();
     setEncryptedKey(new ::int8_tArray(int32_t(2)));
     setEncryptedVerifier(new ::int8_tArray(int32_t(2)));
 }
 
-void org::apache::poi::poifs::crypt::xor_::XOREncryptionVerifier::ctor(::org::apache::poi::util::LittleEndianInput* is)
+void poi::poifs::crypt::xor_::XOREncryptionVerifier::ctor(::poi::util::LittleEndianInput* is)
 {
     super::ctor();
     auto key = new ::int8_tArray(int32_t(2));
@@ -60,36 +60,36 @@ void org::apache::poi::poifs::crypt::xor_::XOREncryptionVerifier::ctor(::org::ap
     setEncryptedVerifier(verifier);
 }
 
-void org::apache::poi::poifs::crypt::xor_::XOREncryptionVerifier::write(::org::apache::poi::util::LittleEndianByteArrayOutputStream* bos)
+void poi::poifs::crypt::xor_::XOREncryptionVerifier::write(::poi::util::LittleEndianByteArrayOutputStream* bos)
 {
     npc(bos)->write(getEncryptedKey());
     npc(bos)->write(getEncryptedVerifier());
 }
 
-org::apache::poi::poifs::crypt::xor_::XOREncryptionVerifier* org::apache::poi::poifs::crypt::xor_::XOREncryptionVerifier::clone() /* throws(CloneNotSupportedException) */
+poi::poifs::crypt::xor_::XOREncryptionVerifier* poi::poifs::crypt::xor_::XOREncryptionVerifier::clone() /* throws(CloneNotSupportedException) */
 {
     return java_cast< XOREncryptionVerifier* >(super::clone());
 }
 
-void org::apache::poi::poifs::crypt::xor_::XOREncryptionVerifier::setEncryptedVerifier(::int8_tArray* encryptedVerifier)
+void poi::poifs::crypt::xor_::XOREncryptionVerifier::setEncryptedVerifier(::int8_tArray* encryptedVerifier)
 {
     super::setEncryptedVerifier(encryptedVerifier);
 }
 
-void org::apache::poi::poifs::crypt::xor_::XOREncryptionVerifier::setEncryptedKey(::int8_tArray* encryptedKey)
+void poi::poifs::crypt::xor_::XOREncryptionVerifier::setEncryptedKey(::int8_tArray* encryptedKey)
 {
     super::setEncryptedKey(encryptedKey);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::crypt::xor_::XOREncryptionVerifier::class_()
+java::lang::Class* poi::poifs::crypt::xor_::XOREncryptionVerifier::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.crypt.xor.XOREncryptionVerifier", 52);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::crypt::xor_::XOREncryptionVerifier::getClass0()
+java::lang::Class* poi::poifs::crypt::xor_::XOREncryptionVerifier::getClass0()
 {
     return class_();
 }

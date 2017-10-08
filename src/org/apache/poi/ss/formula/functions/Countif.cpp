@@ -30,25 +30,19 @@
 #include <org/apache/poi/ss/formula/functions/Countif_StringMatcher.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -66,74 +60,74 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::Countif::Countif(const ::default_init_tag&)
+poi::ss::formula::functions::Countif::Countif(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::Countif::Countif()
+poi::ss::formula::functions::Countif::Countif()
     : Countif(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Countif::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* arg0, ::org::apache::poi::ss::formula::eval::ValueEval* arg1)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Countif::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::poi::ss::formula::eval::ValueEval* arg0, ::poi::ss::formula::eval::ValueEval* arg1)
 {
     auto mp = createCriteriaPredicate(arg1, srcRowIndex, srcColumnIndex);
     if(mp == nullptr) {
-        return ::org::apache::poi::ss::formula::eval::NumberEval::ZERO();
+        return ::poi::ss::formula::eval::NumberEval::ZERO();
     }
     auto result = countMatchingCellsInArea(arg0, mp);
-    return new ::org::apache::poi::ss::formula::eval::NumberEval(result);
+    return new ::poi::ss::formula::eval::NumberEval(result);
 }
 
-double org::apache::poi::ss::formula::functions::Countif::countMatchingCellsInArea(::org::apache::poi::ss::formula::eval::ValueEval* rangeArg, CountUtils_I_MatchPredicate* criteriaPredicate)
+double poi::ss::formula::functions::Countif::countMatchingCellsInArea(::poi::ss::formula::eval::ValueEval* rangeArg, CountUtils_I_MatchPredicate* criteriaPredicate)
 {
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::RefEval* >(rangeArg) != nullptr) {
-        return CountUtils::countMatchingCellsInRef(java_cast< ::org::apache::poi::ss::formula::eval::RefEval* >(rangeArg), criteriaPredicate);
-    } else if(dynamic_cast< ::org::apache::poi::ss::formula::ThreeDEval* >(rangeArg) != nullptr) {
-        return CountUtils::countMatchingCellsInArea(java_cast< ::org::apache::poi::ss::formula::ThreeDEval* >(rangeArg), criteriaPredicate);
+    if(dynamic_cast< ::poi::ss::formula::eval::RefEval* >(rangeArg) != nullptr) {
+        return CountUtils::countMatchingCellsInRef(java_cast< ::poi::ss::formula::eval::RefEval* >(rangeArg), criteriaPredicate);
+    } else if(dynamic_cast< ::poi::ss::formula::ThreeDEval* >(rangeArg) != nullptr) {
+        return CountUtils::countMatchingCellsInArea(java_cast< ::poi::ss::formula::ThreeDEval* >(rangeArg), criteriaPredicate);
     } else {
         throw new ::java::lang::IllegalArgumentException(::java::lang::StringBuilder().append(u"Bad range arg type ("_j)->append(npc(npc(rangeArg)->getClass())->getName())
             ->append(u")"_j)->toString());
     }
 }
 
-org::apache::poi::ss::formula::functions::CountUtils_I_MatchPredicate* org::apache::poi::ss::formula::functions::Countif::createCriteriaPredicate(::org::apache::poi::ss::formula::eval::ValueEval* arg, int32_t srcRowIndex, int32_t srcColumnIndex)
+poi::ss::formula::functions::CountUtils_I_MatchPredicate* poi::ss::formula::functions::Countif::createCriteriaPredicate(::poi::ss::formula::eval::ValueEval* arg, int32_t srcRowIndex, int32_t srcColumnIndex)
 {
     clinit();
     auto evaluatedCriteriaArg = evaluateCriteriaArg(arg, srcRowIndex, srcColumnIndex);
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::NumberEval* >(evaluatedCriteriaArg) != nullptr) {
-        return new Countif_NumberMatcher(npc((java_cast< ::org::apache::poi::ss::formula::eval::NumberEval* >(evaluatedCriteriaArg)))->getNumberValue(), Countif_CmpOp::OP_NONE());
+    if(dynamic_cast< ::poi::ss::formula::eval::NumberEval* >(evaluatedCriteriaArg) != nullptr) {
+        return new Countif_NumberMatcher(npc((java_cast< ::poi::ss::formula::eval::NumberEval* >(evaluatedCriteriaArg)))->getNumberValue(), Countif_CmpOp::OP_NONE());
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::BoolEval* >(evaluatedCriteriaArg) != nullptr) {
-        return new Countif_BooleanMatcher(npc((java_cast< ::org::apache::poi::ss::formula::eval::BoolEval* >(evaluatedCriteriaArg)))->getBooleanValue(), Countif_CmpOp::OP_NONE());
+    if(dynamic_cast< ::poi::ss::formula::eval::BoolEval* >(evaluatedCriteriaArg) != nullptr) {
+        return new Countif_BooleanMatcher(npc((java_cast< ::poi::ss::formula::eval::BoolEval* >(evaluatedCriteriaArg)))->getBooleanValue(), Countif_CmpOp::OP_NONE());
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::StringEval* >(evaluatedCriteriaArg) != nullptr) {
-        return createGeneralMatchPredicate(java_cast< ::org::apache::poi::ss::formula::eval::StringEval* >(evaluatedCriteriaArg));
+    if(dynamic_cast< ::poi::ss::formula::eval::StringEval* >(evaluatedCriteriaArg) != nullptr) {
+        return createGeneralMatchPredicate(java_cast< ::poi::ss::formula::eval::StringEval* >(evaluatedCriteriaArg));
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::ErrorEval* >(evaluatedCriteriaArg) != nullptr) {
-        return new Countif_ErrorMatcher(npc((java_cast< ::org::apache::poi::ss::formula::eval::ErrorEval* >(evaluatedCriteriaArg)))->getErrorCode(), Countif_CmpOp::OP_NONE());
+    if(dynamic_cast< ::poi::ss::formula::eval::ErrorEval* >(evaluatedCriteriaArg) != nullptr) {
+        return new Countif_ErrorMatcher(npc((java_cast< ::poi::ss::formula::eval::ErrorEval* >(evaluatedCriteriaArg)))->getErrorCode(), Countif_CmpOp::OP_NONE());
     }
-    if(evaluatedCriteriaArg == static_cast< ::org::apache::poi::ss::formula::eval::ValueEval* >(::org::apache::poi::ss::formula::eval::BlankEval::instance())) {
+    if(evaluatedCriteriaArg == static_cast< ::poi::ss::formula::eval::ValueEval* >(::poi::ss::formula::eval::BlankEval::instance())) {
         return nullptr;
     }
     throw new ::java::lang::RuntimeException(::java::lang::StringBuilder().append(u"Unexpected type for criteria ("_j)->append(npc(npc(evaluatedCriteriaArg)->getClass())->getName())
         ->append(u")"_j)->toString());
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Countif::evaluateCriteriaArg(::org::apache::poi::ss::formula::eval::ValueEval* arg, int32_t srcRowIndex, int32_t srcColumnIndex)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Countif::evaluateCriteriaArg(::poi::ss::formula::eval::ValueEval* arg, int32_t srcRowIndex, int32_t srcColumnIndex)
 {
     clinit();
     try {
-        return ::org::apache::poi::ss::formula::eval::OperandResolver::getSingleValue(arg, srcRowIndex, srcColumnIndex);
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+        return ::poi::ss::formula::eval::OperandResolver::getSingleValue(arg, srcRowIndex, srcColumnIndex);
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
         return npc(e)->getErrorEval();
     }
 }
 
-org::apache::poi::ss::formula::functions::CountUtils_I_MatchPredicate* org::apache::poi::ss::formula::functions::Countif::createGeneralMatchPredicate(::org::apache::poi::ss::formula::eval::StringEval* stringEval)
+poi::ss::formula::functions::CountUtils_I_MatchPredicate* poi::ss::formula::functions::Countif::createGeneralMatchPredicate(::poi::ss::formula::eval::StringEval* stringEval)
 {
     clinit();
     auto value = npc(stringEval)->getStringValue();
@@ -143,7 +137,7 @@ org::apache::poi::ss::formula::functions::CountUtils_I_MatchPredicate* org::apac
     if(booleanVal != nullptr) {
         return new Countif_BooleanMatcher(npc(booleanVal)->booleanValue(), operator_);
     }
-    auto doubleVal = ::org::apache::poi::ss::formula::eval::OperandResolver::parseDouble(value);
+    auto doubleVal = ::poi::ss::formula::eval::OperandResolver::parseDouble(value);
     if(doubleVal != nullptr) {
         return new Countif_NumberMatcher(npc(doubleVal)->doubleValue(), operator_);
     }
@@ -154,37 +148,37 @@ org::apache::poi::ss::formula::functions::CountUtils_I_MatchPredicate* org::apac
     return new Countif_StringMatcher(value, operator_);
 }
 
-org::apache::poi::ss::formula::eval::ErrorEval* org::apache::poi::ss::formula::functions::Countif::parseError(::java::lang::String* value)
+poi::ss::formula::eval::ErrorEval* poi::ss::formula::functions::Countif::parseError(::java::lang::String* value)
 {
     clinit();
     if(npc(value)->length() < 4 || npc(value)->charAt(int32_t(0)) != u'#') {
         return nullptr;
     }
     if(npc(value)->equals(static_cast< ::java::lang::Object* >(u"#NULL!"_j))) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::NULL_INTERSECTION();
+        return ::poi::ss::formula::eval::ErrorEval::NULL_INTERSECTION();
     }
     if(npc(value)->equals(static_cast< ::java::lang::Object* >(u"#DIV/0!"_j))) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::DIV_ZERO();
+        return ::poi::ss::formula::eval::ErrorEval::DIV_ZERO();
     }
     if(npc(value)->equals(static_cast< ::java::lang::Object* >(u"#VALUE!"_j))) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
     if(npc(value)->equals(static_cast< ::java::lang::Object* >(u"#REF!"_j))) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::REF_INVALID();
+        return ::poi::ss::formula::eval::ErrorEval::REF_INVALID();
     }
     if(npc(value)->equals(static_cast< ::java::lang::Object* >(u"#NAME?"_j))) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::NAME_INVALID();
+        return ::poi::ss::formula::eval::ErrorEval::NAME_INVALID();
     }
     if(npc(value)->equals(static_cast< ::java::lang::Object* >(u"#NUM!"_j))) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::NUM_ERROR();
+        return ::poi::ss::formula::eval::ErrorEval::NUM_ERROR();
     }
     if(npc(value)->equals(static_cast< ::java::lang::Object* >(u"#N/A"_j))) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::NA();
+        return ::poi::ss::formula::eval::ErrorEval::NA();
     }
     return nullptr;
 }
 
-java::lang::Boolean* org::apache::poi::ss::formula::functions::Countif::parseBoolean(::java::lang::String* strRep)
+java::lang::Boolean* poi::ss::formula::functions::Countif::parseBoolean(::java::lang::String* strRep)
 {
     clinit();
     if(npc(strRep)->length() < 1) {
@@ -210,18 +204,18 @@ java::lang::Boolean* org::apache::poi::ss::formula::functions::Countif::parseBoo
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Countif::class_()
+java::lang::Class* poi::ss::formula::functions::Countif::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.Countif", 43);
     return c;
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Countif::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Countif::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
 {
     return super::evaluate(args, srcRowIndex, srcColumnIndex);
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Countif::getClass0()
+java::lang::Class* poi::ss::formula::functions::Countif::getClass0()
 {
     return class_();
 }

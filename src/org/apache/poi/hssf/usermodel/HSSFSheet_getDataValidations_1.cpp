@@ -31,7 +31,7 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::usermodel::HSSFSheet_getDataValidations_1::HSSFSheet_getDataValidations_1(HSSFSheet *HSSFSheet_this, ::java::util::List* hssfValidations)
+poi::hssf::usermodel::HSSFSheet_getDataValidations_1::HSSFSheet_getDataValidations_1(HSSFSheet *HSSFSheet_this, ::java::util::List* hssfValidations)
     : super(*static_cast< ::default_init_tag* >(0))
     , HSSFSheet_this(HSSFSheet_this)
     , hssfValidations(hssfValidations)
@@ -41,17 +41,17 @@ org::apache::poi::hssf::usermodel::HSSFSheet_getDataValidations_1::HSSFSheet_get
     ctor();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet_getDataValidations_1::init()
+void poi::hssf::usermodel::HSSFSheet_getDataValidations_1::init()
 {
     book = HSSFEvaluationWorkbook::create(java_cast< HSSFWorkbook* >(HSSFSheet_this->getWorkbook()));
 }
 
-void org::apache::poi::hssf::usermodel::HSSFSheet_getDataValidations_1::visitRecord(::org::apache::poi::hssf::record::Record* r)
+void poi::hssf::usermodel::HSSFSheet_getDataValidations_1::visitRecord(::poi::hssf::record::Record* r)
 {
-    if(!(dynamic_cast< ::org::apache::poi::hssf::record::DVRecord* >(r) != nullptr)) {
+    if(!(dynamic_cast< ::poi::hssf::record::DVRecord* >(r) != nullptr)) {
         return;
     }
-    auto dvRecord = java_cast< ::org::apache::poi::hssf::record::DVRecord* >(r);
+    auto dvRecord = java_cast< ::poi::hssf::record::DVRecord* >(r);
     auto regions = npc(npc(dvRecord)->getCellRangeAddress())->copy();
     auto constraint = DVConstraint::createDVConstraint(dvRecord, book);
     auto hssfDataValidation = new HSSFDataValidation(regions, constraint);
@@ -67,13 +67,13 @@ void org::apache::poi::hssf::usermodel::HSSFSheet_getDataValidations_1::visitRec
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFSheet_getDataValidations_1::class_()
+java::lang::Class* poi::hssf::usermodel::HSSFSheet_getDataValidations_1::class_()
 {
     static ::java::lang::Class* c = ::class_(u"", 0);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFSheet_getDataValidations_1::getClass0()
+java::lang::Class* poi::hssf::usermodel::HSSFSheet_getDataValidations_1::getClass0()
 {
     return class_();
 }

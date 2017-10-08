@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::binding::CTEmbeddedWAVAudioFile
+class poi::sl::draw::binding::CTEmbeddedWAVAudioFile
     : public virtual ::java::lang::Object
 {
 

@@ -18,22 +18,16 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
-            {
-                namespace record
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::record::ExtSSTRecord_InfoSubRecord, ::java::lang::ObjectArray > ExtSSTRecord_InfoSubRecordArray;
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hssf::record::ExtSSTRecord_InfoSubRecord, ::java::lang::ObjectArray > ExtSSTRecord_InfoSubRecordArray;
+        } // record
+    } // hssf
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -51,38 +45,38 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::ExtSSTRecord::ExtSSTRecord(const ::default_init_tag&)
+poi::hssf::record::ExtSSTRecord::ExtSSTRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::ExtSSTRecord::ExtSSTRecord() 
+poi::hssf::record::ExtSSTRecord::ExtSSTRecord() 
     : ExtSSTRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::ExtSSTRecord::ExtSSTRecord(RecordInputStream* in) 
+poi::hssf::record::ExtSSTRecord::ExtSSTRecord(RecordInputStream* in) 
     : ExtSSTRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::ExtSSTRecord::sid;
+constexpr int16_t poi::hssf::record::ExtSSTRecord::sid;
 
-constexpr int32_t org::apache::poi::hssf::record::ExtSSTRecord::DEFAULT_BUCKET_SIZE;
+constexpr int32_t poi::hssf::record::ExtSSTRecord::DEFAULT_BUCKET_SIZE;
 
-constexpr int32_t org::apache::poi::hssf::record::ExtSSTRecord::MAX_BUCKETS;
+constexpr int32_t poi::hssf::record::ExtSSTRecord::MAX_BUCKETS;
 
-void org::apache::poi::hssf::record::ExtSSTRecord::ctor()
+void poi::hssf::record::ExtSSTRecord::ctor()
 {
     super::ctor();
     _stringsPerBucket = DEFAULT_BUCKET_SIZE;
     _sstInfos = new ExtSSTRecord_InfoSubRecordArray(int32_t(0));
 }
 
-void org::apache::poi::hssf::record::ExtSSTRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::ExtSSTRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     _stringsPerBucket = npc(in)->readShort();
@@ -98,12 +92,12 @@ void org::apache::poi::hssf::record::ExtSSTRecord::ctor(RecordInputStream* in)
     _sstInfos = java_cast< ExtSSTRecord_InfoSubRecordArray* >(npc(lst)->toArray_(static_cast< ::java::lang::ObjectArray* >(new ExtSSTRecord_InfoSubRecordArray(npc(lst)->size()))));
 }
 
-void org::apache::poi::hssf::record::ExtSSTRecord::setNumStringsPerBucket(int16_t numStrings)
+void poi::hssf::record::ExtSSTRecord::setNumStringsPerBucket(int16_t numStrings)
 {
     _stringsPerBucket = numStrings;
 }
 
-java::lang::String* org::apache::poi::hssf::record::ExtSSTRecord::toString()
+java::lang::String* poi::hssf::record::ExtSSTRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[EXTSST]\n"_j);
@@ -118,7 +112,7 @@ java::lang::String* org::apache::poi::hssf::record::ExtSSTRecord::toString()
     return npc(buffer)->toString();
 }
 
-void org::apache::poi::hssf::record::ExtSSTRecord::serialize(::org::apache::poi::hssf::record::cont::ContinuableRecordOutput* out)
+void poi::hssf::record::ExtSSTRecord::serialize(::poi::hssf::record::cont::ContinuableRecordOutput* out)
 {
     npc(out)->writeShort(static_cast< int32_t >(_stringsPerBucket));
     for (auto k = int32_t(0); k < npc(_sstInfos)->length; k++) {
@@ -126,17 +120,17 @@ void org::apache::poi::hssf::record::ExtSSTRecord::serialize(::org::apache::poi:
     }
 }
 
-int32_t org::apache::poi::hssf::record::ExtSSTRecord::getDataSize()
+int32_t poi::hssf::record::ExtSSTRecord::getDataSize()
 {
     return int32_t(2) + ExtSSTRecord_InfoSubRecord::ENCODED_SIZE * npc(_sstInfos)->length;
 }
 
-org::apache::poi::hssf::record::ExtSSTRecord_InfoSubRecordArray* org::apache::poi::hssf::record::ExtSSTRecord::getInfoSubRecords()
+poi::hssf::record::ExtSSTRecord_InfoSubRecordArray* poi::hssf::record::ExtSSTRecord::getInfoSubRecords()
 {
     return _sstInfos;
 }
 
-int32_t org::apache::poi::hssf::record::ExtSSTRecord::getNumberOfInfoRecsForStrings(int32_t numStrings)
+int32_t poi::hssf::record::ExtSSTRecord::getNumberOfInfoRecsForStrings(int32_t numStrings)
 {
     clinit();
     auto infoRecs = (numStrings / DEFAULT_BUCKET_SIZE);
@@ -149,18 +143,18 @@ int32_t org::apache::poi::hssf::record::ExtSSTRecord::getNumberOfInfoRecsForStri
     return infoRecs;
 }
 
-int32_t org::apache::poi::hssf::record::ExtSSTRecord::getRecordSizeForStrings(int32_t numStrings)
+int32_t poi::hssf::record::ExtSSTRecord::getRecordSizeForStrings(int32_t numStrings)
 {
     clinit();
     return int32_t(4) + int32_t(2) + getNumberOfInfoRecsForStrings(numStrings) * int32_t(8);
 }
 
-int16_t org::apache::poi::hssf::record::ExtSSTRecord::getSid()
+int16_t poi::hssf::record::ExtSSTRecord::getSid()
 {
     return sid;
 }
 
-void org::apache::poi::hssf::record::ExtSSTRecord::setBucketOffsets(::int32_tArray* bucketAbsoluteOffsets, ::int32_tArray* bucketRelativeOffsets)
+void poi::hssf::record::ExtSSTRecord::setBucketOffsets(::int32_tArray* bucketAbsoluteOffsets, ::int32_tArray* bucketRelativeOffsets)
 {
     _sstInfos = new ExtSSTRecord_InfoSubRecordArray(npc(bucketAbsoluteOffsets)->length);
     for (auto i = int32_t(0); i < npc(bucketAbsoluteOffsets)->length; i++) {
@@ -170,23 +164,23 @@ void org::apache::poi::hssf::record::ExtSSTRecord::setBucketOffsets(::int32_tArr
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::ExtSSTRecord::class_()
+java::lang::Class* poi::hssf::record::ExtSSTRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.ExtSSTRecord", 39);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::ExtSSTRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::ExtSSTRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::ExtSSTRecord::serialize()
+int8_tArray* poi::hssf::record::ExtSSTRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::ExtSSTRecord::getClass0()
+java::lang::Class* poi::hssf::record::ExtSSTRecord::getClass0()
 {
     return class_();
 }

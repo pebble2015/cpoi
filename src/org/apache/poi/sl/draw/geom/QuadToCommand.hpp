@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::geom::QuadToCommand
+class poi::sl::draw::geom::QuadToCommand
     : public virtual ::java::lang::Object
     , public virtual PathCommand
 {
@@ -25,7 +25,7 @@ private:
     ::java::lang::String* arg3 {  };
     ::java::lang::String* arg4 {  };
 protected:
-    void ctor(::org::apache::poi::sl::draw::binding::CTAdjPoint2D* pt1, ::org::apache::poi::sl::draw::binding::CTAdjPoint2D* pt2);
+    void ctor(::poi::sl::draw::binding::CTAdjPoint2D* pt1, ::poi::sl::draw::binding::CTAdjPoint2D* pt2);
 
 public:
     void execute(::java::awt::geom::Path2D_Double* path, Context* ctx) override;
@@ -33,7 +33,7 @@ public:
     // Generated
 
 public: /* package */
-    QuadToCommand(::org::apache::poi::sl::draw::binding::CTAdjPoint2D* pt1, ::org::apache::poi::sl::draw::binding::CTAdjPoint2D* pt2);
+    QuadToCommand(::poi::sl::draw::binding::CTAdjPoint2D* pt1, ::poi::sl::draw::binding::CTAdjPoint2D* pt2);
 protected:
     QuadToCommand(const ::default_init_tag&);
 

@@ -10,9 +10,9 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFEvaluationSheet final
+class poi::hssf::usermodel::HSSFEvaluationSheet final
     : public virtual ::java::lang::Object
-    , public ::org::apache::poi::ss::formula::EvaluationSheet
+    , public ::poi::ss::formula::EvaluationSheet
 {
 
 public:
@@ -25,7 +25,7 @@ protected:
 
 public:
     HSSFSheet* getHSSFSheet();
-    ::org::apache::poi::ss::formula::EvaluationCell* getCell(int32_t rowIndex, int32_t columnIndex) override;
+    ::poi::ss::formula::EvaluationCell* getCell(int32_t rowIndex, int32_t columnIndex) override;
     void clearAllCachedResultValues() override;
 
     // Generated

@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::util::IntegerField
+class poi::util::IntegerField
     : public virtual ::java::lang::Object
     , public virtual FixedField
 {

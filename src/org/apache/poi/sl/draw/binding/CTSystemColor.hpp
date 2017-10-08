@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::binding::CTSystemColor
+class poi::sl::draw::binding::CTSystemColor
     : public virtual ::java::lang::Object
 {
 

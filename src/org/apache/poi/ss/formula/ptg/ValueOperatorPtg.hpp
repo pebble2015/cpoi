@@ -27,7 +27,7 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::ptg::ValueOperatorPtg
+class poi::ss::formula::ptg::ValueOperatorPtg
     : public OperationPtg
 {
 
@@ -35,7 +35,7 @@ public:
     typedef OperationPtg super;
     bool isBaseToken() override;
     int8_t getDefaultOperandClass() override;
-    void write(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void write(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     virtual int8_t getSid() = 0;

@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::ptg::TblPtg final
+class poi::ss::formula::ptg::TblPtg final
     : public ControlPtg
 {
 
@@ -27,10 +27,10 @@ private:
     int32_t field_1_first_row {  };
     int32_t field_2_first_col {  };
 protected:
-    void ctor(::org::apache::poi::util::LittleEndianInput* in);
+    void ctor(::poi::util::LittleEndianInput* in);
 
 public:
-    void write(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void write(::poi::util::LittleEndianOutput* out) override;
     int32_t getSize() override;
     int32_t getRow();
     int32_t getColumn();
@@ -38,7 +38,7 @@ public:
     ::java::lang::String* toString() override;
 
     // Generated
-    TblPtg(::org::apache::poi::util::LittleEndianInput* in);
+    TblPtg(::poi::util::LittleEndianInput* in);
 protected:
     TblPtg(const ::default_init_tag&);
 

@@ -11,15 +11,15 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::crypt::standard::StandardEncryptionInfoBuilder
+class poi::poifs::crypt::standard::StandardEncryptionInfoBuilder
     : public virtual ::java::lang::Object
-    , public virtual ::org::apache::poi::poifs::crypt::EncryptionInfoBuilder
+    , public virtual ::poi::poifs::crypt::EncryptionInfoBuilder
 {
 
 public:
     typedef ::java::lang::Object super;
-    void initialize(::org::apache::poi::poifs::crypt::EncryptionInfo* info, ::org::apache::poi::util::LittleEndianInput* dis) /* throws(IOException) */ override;
-    void initialize(::org::apache::poi::poifs::crypt::EncryptionInfo* info, ::org::apache::poi::poifs::crypt::CipherAlgorithm* cipherAlgorithm, ::org::apache::poi::poifs::crypt::HashAlgorithm* hashAlgorithm, int32_t keyBits, int32_t blockSize, ::org::apache::poi::poifs::crypt::ChainingMode* chainingMode) override;
+    void initialize(::poi::poifs::crypt::EncryptionInfo* info, ::poi::util::LittleEndianInput* dis) /* throws(IOException) */ override;
+    void initialize(::poi::poifs::crypt::EncryptionInfo* info, ::poi::poifs::crypt::CipherAlgorithm* cipherAlgorithm, ::poi::poifs::crypt::HashAlgorithm* hashAlgorithm, int32_t keyBits, int32_t blockSize, ::poi::poifs::crypt::ChainingMode* chainingMode) override;
 
     // Generated
     StandardEncryptionInfoBuilder();

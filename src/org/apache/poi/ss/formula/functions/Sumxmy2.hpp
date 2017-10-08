@@ -7,7 +7,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::Sumxmy2 final
+class poi::ss::formula::functions::Sumxmy2 final
     : public XYNumericFunction
 {
 

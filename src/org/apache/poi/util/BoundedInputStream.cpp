@@ -14,32 +14,32 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::util::BoundedInputStream::BoundedInputStream(const ::default_init_tag&)
+poi::util::BoundedInputStream::BoundedInputStream(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::util::BoundedInputStream::BoundedInputStream(::java::io::InputStream* in, int64_t size) 
+poi::util::BoundedInputStream::BoundedInputStream(::java::io::InputStream* in, int64_t size) 
     : BoundedInputStream(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in,size);
 }
 
-org::apache::poi::util::BoundedInputStream::BoundedInputStream(::java::io::InputStream* in) 
+poi::util::BoundedInputStream::BoundedInputStream(::java::io::InputStream* in) 
     : BoundedInputStream(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-void org::apache::poi::util::BoundedInputStream::init()
+void poi::util::BoundedInputStream::init()
 {
     pos = int32_t(0);
     mark_ = -int32_t(1);
     propagateClose = true;
 }
 
-void org::apache::poi::util::BoundedInputStream::ctor(::java::io::InputStream* in, int64_t size)
+void poi::util::BoundedInputStream::ctor(::java::io::InputStream* in, int64_t size)
 {
     super::ctor();
     init();
@@ -47,12 +47,12 @@ void org::apache::poi::util::BoundedInputStream::ctor(::java::io::InputStream* i
     this->in = in;
 }
 
-void org::apache::poi::util::BoundedInputStream::ctor(::java::io::InputStream* in)
+void poi::util::BoundedInputStream::ctor(::java::io::InputStream* in)
 {
     ctor(in, -int32_t(1));
 }
 
-int32_t org::apache::poi::util::BoundedInputStream::read() /* throws(IOException) */
+int32_t poi::util::BoundedInputStream::read() /* throws(IOException) */
 {
     if(max >= 0 && pos == max) {
         return -int32_t(1);
@@ -62,12 +62,12 @@ int32_t org::apache::poi::util::BoundedInputStream::read() /* throws(IOException
     return result;
 }
 
-int32_t org::apache::poi::util::BoundedInputStream::read(::int8_tArray* b) /* throws(IOException) */
+int32_t poi::util::BoundedInputStream::read(::int8_tArray* b) /* throws(IOException) */
 {
     return this->read(b, int32_t(0), npc(b)->length);
 }
 
-int32_t org::apache::poi::util::BoundedInputStream::read(::int8_tArray* b, int32_t off, int32_t len) /* throws(IOException) */
+int32_t poi::util::BoundedInputStream::read(::int8_tArray* b, int32_t off, int32_t len) /* throws(IOException) */
 {
     if(max >= 0 && pos >= max) {
         return -int32_t(1);
@@ -81,7 +81,7 @@ int32_t org::apache::poi::util::BoundedInputStream::read(::int8_tArray* b, int32
     return bytesRead;
 }
 
-int64_t org::apache::poi::util::BoundedInputStream::skip(int64_t n) /* throws(IOException) */
+int64_t poi::util::BoundedInputStream::skip(int64_t n) /* throws(IOException) */
 {
     auto toSkip = max >= 0 ? ::java::lang::Math::min(n, max - pos) : n;
     auto skippedBytes = npc(in)->skip(toSkip);
@@ -89,7 +89,7 @@ int64_t org::apache::poi::util::BoundedInputStream::skip(int64_t n) /* throws(IO
     return skippedBytes;
 }
 
-int32_t org::apache::poi::util::BoundedInputStream::available() /* throws(IOException) */
+int32_t poi::util::BoundedInputStream::available() /* throws(IOException) */
 {
     if(max >= 0 && pos >= max) {
         return 0;
@@ -97,54 +97,54 @@ int32_t org::apache::poi::util::BoundedInputStream::available() /* throws(IOExce
     return npc(in)->available();
 }
 
-java::lang::String* org::apache::poi::util::BoundedInputStream::toString()
+java::lang::String* poi::util::BoundedInputStream::toString()
 {
     return npc(in)->toString();
 }
 
-void org::apache::poi::util::BoundedInputStream::close() /* throws(IOException) */
+void poi::util::BoundedInputStream::close() /* throws(IOException) */
 {
     if(propagateClose) {
         npc(in)->close();
     }
 }
 
-void org::apache::poi::util::BoundedInputStream::reset() /* throws(IOException) */
+void poi::util::BoundedInputStream::reset() /* throws(IOException) */
 {
     npc(in)->reset();
     pos = mark_;
 }
 
-void org::apache::poi::util::BoundedInputStream::mark(int32_t readlimit)
+void poi::util::BoundedInputStream::mark(int32_t readlimit)
 {
     npc(in)->mark(readlimit);
     mark_ = pos;
 }
 
-bool org::apache::poi::util::BoundedInputStream::markSupported()
+bool poi::util::BoundedInputStream::markSupported()
 {
     return npc(in)->markSupported();
 }
 
-bool org::apache::poi::util::BoundedInputStream::isPropagateClose()
+bool poi::util::BoundedInputStream::isPropagateClose()
 {
     return propagateClose;
 }
 
-void org::apache::poi::util::BoundedInputStream::setPropagateClose(bool propagateClose)
+void poi::util::BoundedInputStream::setPropagateClose(bool propagateClose)
 {
     this->propagateClose = propagateClose;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::util::BoundedInputStream::class_()
+java::lang::Class* poi::util::BoundedInputStream::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.util.BoundedInputStream", 38);
     return c;
 }
 
-java::lang::Class* org::apache::poi::util::BoundedInputStream::getClass0()
+java::lang::Class* poi::util::BoundedInputStream::getClass0()
 {
     return class_();
 }

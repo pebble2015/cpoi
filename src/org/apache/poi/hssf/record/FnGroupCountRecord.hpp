@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::FnGroupCountRecord final
+class poi::hssf::record::FnGroupCountRecord final
     : public StandardRecord
 {
 
@@ -29,7 +29,7 @@ public:
     void setCount(int16_t count);
     int16_t getCount();
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;

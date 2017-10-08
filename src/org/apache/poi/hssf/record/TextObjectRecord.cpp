@@ -23,25 +23,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -59,79 +53,79 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::TextObjectRecord::TextObjectRecord(const ::default_init_tag&)
+poi::hssf::record::TextObjectRecord::TextObjectRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::TextObjectRecord::TextObjectRecord() 
+poi::hssf::record::TextObjectRecord::TextObjectRecord() 
     : TextObjectRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::TextObjectRecord::TextObjectRecord(RecordInputStream* in) 
+poi::hssf::record::TextObjectRecord::TextObjectRecord(RecordInputStream* in) 
     : TextObjectRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::TextObjectRecord::sid;
+constexpr int16_t poi::hssf::record::TextObjectRecord::sid;
 
-constexpr int32_t org::apache::poi::hssf::record::TextObjectRecord::FORMAT_RUN_ENCODED_SIZE;
+constexpr int32_t poi::hssf::record::TextObjectRecord::FORMAT_RUN_ENCODED_SIZE;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::TextObjectRecord::HorizontalTextAlignment()
+poi::util::BitField*& poi::hssf::record::TextObjectRecord::HorizontalTextAlignment()
 {
     clinit();
     return HorizontalTextAlignment_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::TextObjectRecord::HorizontalTextAlignment_;
+poi::util::BitField* poi::hssf::record::TextObjectRecord::HorizontalTextAlignment_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::TextObjectRecord::VerticalTextAlignment()
+poi::util::BitField*& poi::hssf::record::TextObjectRecord::VerticalTextAlignment()
 {
     clinit();
     return VerticalTextAlignment_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::TextObjectRecord::VerticalTextAlignment_;
+poi::util::BitField* poi::hssf::record::TextObjectRecord::VerticalTextAlignment_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::TextObjectRecord::textLocked()
+poi::util::BitField*& poi::hssf::record::TextObjectRecord::textLocked()
 {
     clinit();
     return textLocked_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::TextObjectRecord::textLocked_;
+poi::util::BitField* poi::hssf::record::TextObjectRecord::textLocked_;
 
-constexpr int16_t org::apache::poi::hssf::record::TextObjectRecord::HORIZONTAL_TEXT_ALIGNMENT_LEFT_ALIGNED;
+constexpr int16_t poi::hssf::record::TextObjectRecord::HORIZONTAL_TEXT_ALIGNMENT_LEFT_ALIGNED;
 
-constexpr int16_t org::apache::poi::hssf::record::TextObjectRecord::HORIZONTAL_TEXT_ALIGNMENT_CENTERED;
+constexpr int16_t poi::hssf::record::TextObjectRecord::HORIZONTAL_TEXT_ALIGNMENT_CENTERED;
 
-constexpr int16_t org::apache::poi::hssf::record::TextObjectRecord::HORIZONTAL_TEXT_ALIGNMENT_RIGHT_ALIGNED;
+constexpr int16_t poi::hssf::record::TextObjectRecord::HORIZONTAL_TEXT_ALIGNMENT_RIGHT_ALIGNED;
 
-constexpr int16_t org::apache::poi::hssf::record::TextObjectRecord::HORIZONTAL_TEXT_ALIGNMENT_JUSTIFIED;
+constexpr int16_t poi::hssf::record::TextObjectRecord::HORIZONTAL_TEXT_ALIGNMENT_JUSTIFIED;
 
-constexpr int16_t org::apache::poi::hssf::record::TextObjectRecord::VERTICAL_TEXT_ALIGNMENT_TOP;
+constexpr int16_t poi::hssf::record::TextObjectRecord::VERTICAL_TEXT_ALIGNMENT_TOP;
 
-constexpr int16_t org::apache::poi::hssf::record::TextObjectRecord::VERTICAL_TEXT_ALIGNMENT_CENTER;
+constexpr int16_t poi::hssf::record::TextObjectRecord::VERTICAL_TEXT_ALIGNMENT_CENTER;
 
-constexpr int16_t org::apache::poi::hssf::record::TextObjectRecord::VERTICAL_TEXT_ALIGNMENT_BOTTOM;
+constexpr int16_t poi::hssf::record::TextObjectRecord::VERTICAL_TEXT_ALIGNMENT_BOTTOM;
 
-constexpr int16_t org::apache::poi::hssf::record::TextObjectRecord::VERTICAL_TEXT_ALIGNMENT_JUSTIFY;
+constexpr int16_t poi::hssf::record::TextObjectRecord::VERTICAL_TEXT_ALIGNMENT_JUSTIFY;
 
-constexpr int16_t org::apache::poi::hssf::record::TextObjectRecord::TEXT_ORIENTATION_NONE;
+constexpr int16_t poi::hssf::record::TextObjectRecord::TEXT_ORIENTATION_NONE;
 
-constexpr int16_t org::apache::poi::hssf::record::TextObjectRecord::TEXT_ORIENTATION_TOP_TO_BOTTOM;
+constexpr int16_t poi::hssf::record::TextObjectRecord::TEXT_ORIENTATION_TOP_TO_BOTTOM;
 
-constexpr int16_t org::apache::poi::hssf::record::TextObjectRecord::TEXT_ORIENTATION_ROT_RIGHT;
+constexpr int16_t poi::hssf::record::TextObjectRecord::TEXT_ORIENTATION_ROT_RIGHT;
 
-constexpr int16_t org::apache::poi::hssf::record::TextObjectRecord::TEXT_ORIENTATION_ROT_LEFT;
+constexpr int16_t poi::hssf::record::TextObjectRecord::TEXT_ORIENTATION_ROT_LEFT;
 
-void org::apache::poi::hssf::record::TextObjectRecord::ctor()
+void poi::hssf::record::TextObjectRecord::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hssf::record::TextObjectRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::TextObjectRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     field_1_options = npc(in)->readUShort();
@@ -144,16 +138,16 @@ void org::apache::poi::hssf::record::TextObjectRecord::ctor(RecordInputStream* i
     field_8_reserved7 = npc(in)->readInt();
     if(npc(in)->remaining() > 0) {
         if(npc(in)->remaining() < 11) {
-            throw new ::org::apache::poi::util::RecordFormatException(u"Not enough remaining data for a link formula"_j);
+            throw new ::poi::util::RecordFormatException(u"Not enough remaining data for a link formula"_j);
         }
         auto formulaSize = npc(in)->readUShort();
         _unknownPreFormulaInt = npc(in)->readInt();
-        auto ptgs = ::org::apache::poi::ss::formula::ptg::Ptg::readTokens(formulaSize, in);
+        auto ptgs = ::poi::ss::formula::ptg::Ptg::readTokens(formulaSize, in);
         if(npc(ptgs)->length != 1) {
-            throw new ::org::apache::poi::util::RecordFormatException(::java::lang::StringBuilder().append(u"Read "_j)->append(npc(ptgs)->length)
+            throw new ::poi::util::RecordFormatException(::java::lang::StringBuilder().append(u"Read "_j)->append(npc(ptgs)->length)
                 ->append(u" tokens but expected exactly 1"_j)->toString());
         }
-        _linkRefPtg = java_cast< ::org::apache::poi::ss::formula::ptg::OperandPtg* >((*ptgs)[int32_t(0)]);
+        _linkRefPtg = java_cast< ::poi::ss::formula::ptg::OperandPtg* >((*ptgs)[int32_t(0)]);
         if(npc(in)->remaining() > 0) {
             _unknownPostFormulaByte = ::java::lang::Byte::valueOf(npc(in)->readByte());
         } else {
@@ -163,7 +157,7 @@ void org::apache::poi::hssf::record::TextObjectRecord::ctor(RecordInputStream* i
         _linkRefPtg = nullptr;
     }
     if(npc(in)->remaining() > 0) {
-        throw new ::org::apache::poi::util::RecordFormatException(::java::lang::StringBuilder().append(u"Unused "_j)->append(npc(in)->remaining())
+        throw new ::poi::util::RecordFormatException(::java::lang::StringBuilder().append(u"Unused "_j)->append(npc(in)->remaining())
             ->append(u" bytes at end of record"_j)->toString());
     }
     ::java::lang::String* text;
@@ -172,13 +166,13 @@ void org::apache::poi::hssf::record::TextObjectRecord::ctor(RecordInputStream* i
     } else {
         text = u""_j;
     }
-    _text = new ::org::apache::poi::hssf::usermodel::HSSFRichTextString(text);
+    _text = new ::poi::hssf::usermodel::HSSFRichTextString(text);
     if(field_7_formattingDataLength > 0) {
         processFontRuns(in, _text, field_7_formattingDataLength);
     }
 }
 
-java::lang::String* org::apache::poi::hssf::record::TextObjectRecord::readRawString(RecordInputStream* in, int32_t textLength)
+java::lang::String* poi::hssf::record::TextObjectRecord::readRawString(RecordInputStream* in, int32_t textLength)
 {
     clinit();
     auto compressByte = npc(in)->readByte();
@@ -189,11 +183,11 @@ java::lang::String* org::apache::poi::hssf::record::TextObjectRecord::readRawStr
     return npc(in)->readUnicodeLEString(textLength);
 }
 
-void org::apache::poi::hssf::record::TextObjectRecord::processFontRuns(RecordInputStream* in, ::org::apache::poi::hssf::usermodel::HSSFRichTextString* str, int32_t formattingRunDataLength)
+void poi::hssf::record::TextObjectRecord::processFontRuns(RecordInputStream* in, ::poi::hssf::usermodel::HSSFRichTextString* str, int32_t formattingRunDataLength)
 {
     clinit();
     if(formattingRunDataLength % FORMAT_RUN_ENCODED_SIZE != 0) {
-        throw new ::org::apache::poi::util::RecordFormatException(::java::lang::StringBuilder().append(u"Bad format run data length "_j)->append(formattingRunDataLength)
+        throw new ::poi::util::RecordFormatException(::java::lang::StringBuilder().append(u"Bad format run data length "_j)->append(formattingRunDataLength)
             ->append(u")"_j)->toString());
     }
     auto nRuns = formattingRunDataLength / FORMAT_RUN_ENCODED_SIZE;
@@ -205,12 +199,12 @@ void org::apache::poi::hssf::record::TextObjectRecord::processFontRuns(RecordInp
     }
 }
 
-int16_t org::apache::poi::hssf::record::TextObjectRecord::getSid()
+int16_t poi::hssf::record::TextObjectRecord::getSid()
 {
     return sid;
 }
 
-void org::apache::poi::hssf::record::TextObjectRecord::serializeTXORecord(::org::apache::poi::hssf::record::cont::ContinuableRecordOutput* out)
+void poi::hssf::record::TextObjectRecord::serializeTXORecord(::poi::hssf::record::cont::ContinuableRecordOutput* out)
 {
     npc(out)->writeShort(field_1_options);
     npc(out)->writeShort(field_2_textOrientation);
@@ -231,7 +225,7 @@ void org::apache::poi::hssf::record::TextObjectRecord::serializeTXORecord(::org:
     }
 }
 
-void org::apache::poi::hssf::record::TextObjectRecord::serializeTrailingRecords(::org::apache::poi::hssf::record::cont::ContinuableRecordOutput* out)
+void poi::hssf::record::TextObjectRecord::serializeTrailingRecords(::poi::hssf::record::cont::ContinuableRecordOutput* out)
 {
     npc(out)->writeContinue();
     npc(out)->writeStringData(npc(_text)->getString());
@@ -239,7 +233,7 @@ void org::apache::poi::hssf::record::TextObjectRecord::serializeTrailingRecords(
     writeFormatData(out, _text);
 }
 
-void org::apache::poi::hssf::record::TextObjectRecord::serialize(::org::apache::poi::hssf::record::cont::ContinuableRecordOutput* out)
+void poi::hssf::record::TextObjectRecord::serialize(::poi::hssf::record::cont::ContinuableRecordOutput* out)
 {
     serializeTXORecord(out);
     if(npc(npc(_text)->getString())->length() > 0) {
@@ -247,7 +241,7 @@ void org::apache::poi::hssf::record::TextObjectRecord::serialize(::org::apache::
     }
 }
 
-int32_t org::apache::poi::hssf::record::TextObjectRecord::getFormattingDataLength()
+int32_t poi::hssf::record::TextObjectRecord::getFormattingDataLength()
 {
     if(npc(_text)->length() < 1) {
         return 0;
@@ -255,14 +249,14 @@ int32_t org::apache::poi::hssf::record::TextObjectRecord::getFormattingDataLengt
     return (npc(_text)->numFormattingRuns() + int32_t(1)) * FORMAT_RUN_ENCODED_SIZE;
 }
 
-void org::apache::poi::hssf::record::TextObjectRecord::writeFormatData(::org::apache::poi::hssf::record::cont::ContinuableRecordOutput* out, ::org::apache::poi::hssf::usermodel::HSSFRichTextString* str)
+void poi::hssf::record::TextObjectRecord::writeFormatData(::poi::hssf::record::cont::ContinuableRecordOutput* out, ::poi::hssf::usermodel::HSSFRichTextString* str)
 {
     clinit();
     auto nRuns = npc(str)->numFormattingRuns();
     for (auto i = int32_t(0); i < nRuns; i++) {
         npc(out)->writeShort(npc(str)->getIndexOfFormattingRun(i));
         int32_t fontIndex = npc(str)->getFontOfFormattingRun(i);
-        npc(out)->writeShort(fontIndex == ::org::apache::poi::hssf::usermodel::HSSFRichTextString::NO_FONT ? int32_t(0) : fontIndex);
+        npc(out)->writeShort(fontIndex == ::poi::hssf::usermodel::HSSFRichTextString::NO_FONT ? int32_t(0) : fontIndex);
         npc(out)->writeInt(int32_t(0));
     }
     npc(out)->writeShort(npc(str)->length());
@@ -270,75 +264,75 @@ void org::apache::poi::hssf::record::TextObjectRecord::writeFormatData(::org::ap
     npc(out)->writeInt(int32_t(0));
 }
 
-void org::apache::poi::hssf::record::TextObjectRecord::setHorizontalTextAlignment(int32_t value)
+void poi::hssf::record::TextObjectRecord::setHorizontalTextAlignment(int32_t value)
 {
     field_1_options = npc(HorizontalTextAlignment_)->setValue(field_1_options, value);
 }
 
-int32_t org::apache::poi::hssf::record::TextObjectRecord::getHorizontalTextAlignment()
+int32_t poi::hssf::record::TextObjectRecord::getHorizontalTextAlignment()
 {
     return npc(HorizontalTextAlignment_)->getValue(field_1_options);
 }
 
-void org::apache::poi::hssf::record::TextObjectRecord::setVerticalTextAlignment(int32_t value)
+void poi::hssf::record::TextObjectRecord::setVerticalTextAlignment(int32_t value)
 {
     field_1_options = npc(VerticalTextAlignment_)->setValue(field_1_options, value);
 }
 
-int32_t org::apache::poi::hssf::record::TextObjectRecord::getVerticalTextAlignment()
+int32_t poi::hssf::record::TextObjectRecord::getVerticalTextAlignment()
 {
     return npc(VerticalTextAlignment_)->getValue(field_1_options);
 }
 
-void org::apache::poi::hssf::record::TextObjectRecord::setTextLocked(bool value)
+void poi::hssf::record::TextObjectRecord::setTextLocked(bool value)
 {
     field_1_options = npc(textLocked_)->setBoolean(field_1_options, value);
 }
 
-bool org::apache::poi::hssf::record::TextObjectRecord::isTextLocked()
+bool poi::hssf::record::TextObjectRecord::isTextLocked()
 {
     return npc(textLocked_)->isSet(field_1_options);
 }
 
-int32_t org::apache::poi::hssf::record::TextObjectRecord::getTextOrientation()
+int32_t poi::hssf::record::TextObjectRecord::getTextOrientation()
 {
     return field_2_textOrientation;
 }
 
-void org::apache::poi::hssf::record::TextObjectRecord::setTextOrientation(int32_t textOrientation)
+void poi::hssf::record::TextObjectRecord::setTextOrientation(int32_t textOrientation)
 {
     this->field_2_textOrientation = textOrientation;
 }
 
-org::apache::poi::hssf::usermodel::HSSFRichTextString* org::apache::poi::hssf::record::TextObjectRecord::getStr()
+poi::hssf::usermodel::HSSFRichTextString* poi::hssf::record::TextObjectRecord::getStr()
 {
     return _text;
 }
 
-void org::apache::poi::hssf::record::TextObjectRecord::setStr(::org::apache::poi::hssf::usermodel::HSSFRichTextString* str)
+void poi::hssf::record::TextObjectRecord::setStr(::poi::hssf::usermodel::HSSFRichTextString* str)
 {
     _text = str;
 }
 
-org::apache::poi::ss::formula::ptg::Ptg* org::apache::poi::hssf::record::TextObjectRecord::getLinkRefPtg()
+poi::ss::formula::ptg::Ptg* poi::hssf::record::TextObjectRecord::getLinkRefPtg()
 {
     return _linkRefPtg;
 }
 
-java::lang::String* org::apache::poi::hssf::record::TextObjectRecord::toString()
+java::lang::String* poi::hssf::record::TextObjectRecord::toString()
 {
     auto sb = new ::java::lang::StringBuffer();
     npc(sb)->append(u"[TXO]\n"_j);
-    npc(npc(npc(sb)->append(u"    .options        = "_j))->append(::org::apache::poi::util::HexDump::shortToHex(field_1_options)))->append(u"\n"_j);
+    npc(npc(npc(sb)->append(u"    .options        = "_j))->append(::poi::util::HexDump::shortToHex(field_1_options)))->append(u"\n"_j);
     npc(npc(npc(sb)->append(u"         .isHorizontal = "_j))->append(getHorizontalTextAlignment()))->append(u'\u000a');
     npc(npc(npc(sb)->append(u"         .isVertical   = "_j))->append(getVerticalTextAlignment()))->append(u'\u000a');
     npc(npc(npc(sb)->append(u"         .textLocked   = "_j))->append(isTextLocked()))->append(u'\u000a');
-    npc(npc(npc(sb)->append(u"    .textOrientation= "_j))->append(::org::apache::poi::util::HexDump::shortToHex(getTextOrientation())))->append(u"\n"_j);
-    npc(npc(npc(sb)->append(u"    .reserved4      = "_j))->append(::org::apache::poi::util::HexDump::shortToHex(field_3_reserved4)))->append(u"\n"_j);
-    npc(npc(npc(sb)->append(u"    .reserved5      = "_j))->append(::org::apache::poi::util::HexDump::shortToHex(field_4_reserved5)))->append(u"\n"_j);
-    npc(npc(npc(sb)->append(u"    .reserved6      = "_j))->append(::org::apache::poi::util::HexDump::shortToHex(field_5_reserved6)))->append(u"\n"_j);
-    npc(npc(npc(sb)->append(u"    .textLength     = "_j))->append(::org::apache::poi::util::HexDump::shortToHex(npc(_text)->length())))->append(u"\n"_j);
-    npc(npc(npc(sb)->append(u"    .reserved7      = "_j))->append(::org::apache::poi::util::HexDump::intToHex(field_8_reserved7)))->append(u"\n"_j);
+    npc(npc(npc(sb)->append(u"    .textOrientation= "_j))->append(::poi::util::HexDump::shortToHex(getTextOrientation())))->append(u"\n"_j);
+    npc(npc(npc(sb)->append(u"    .reserved4      = "_j))->append(::poi::util::HexDump::shortToHex(field_3_reserved4)))->append(u"\n"_j);
+    npc(npc(npc(sb)->append(u"    .reserved5      = "_j))->append(::poi::util::HexDump::shortToHex(field_4_reserved5)))->append(u"\n"_j);
+    npc(npc(npc(sb)->append(u"    .reserved6      = "_j))->append(::poi::util::HexDump::shortToHex(field_5_reserved6)))->append(u"\n"_j);
+    npc(npc(npc(sb)->append(u"    .textLength     = "_j))->append(::poi::util::HexDump::shortToHex(npc(_text)->length())))->append(u"\n"_j);
+    npc(npc(npc(sb)->append(u"    .reserved7      = "_j))->append(::poi::util::HexDump::intToHex(field_8_reserved7)))->append(u"\n"_j);
     npc(npc(npc(sb)->append(u"    .string = "_j))->append(static_cast< ::java::lang::Object* >(_text)))->append(u'\u000a');
     for (auto i = int32_t(0); i < npc(_text)->numFormattingRuns(); i++) {
         npc(npc(npc(sb)->append(u"    .textrun = "_j))->append(static_cast< int32_t >(npc(_text)->getFontOfFormattingRun(i))))->append(u'\u000a');
@@ -347,7 +341,7 @@ java::lang::String* org::apache::poi::hssf::record::TextObjectRecord::toString()
     return npc(sb)->toString();
 }
 
-java::lang::Object* org::apache::poi::hssf::record::TextObjectRecord::clone()
+java::lang::Object* poi::hssf::record::TextObjectRecord::clone()
 {
     auto rec = new TextObjectRecord();
     npc(rec)->_text = _text;
@@ -368,22 +362,22 @@ java::lang::Object* org::apache::poi::hssf::record::TextObjectRecord::clone()
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::TextObjectRecord::class_()
+java::lang::Class* poi::hssf::record::TextObjectRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.TextObjectRecord", 43);
     return c;
 }
 
-void org::apache::poi::hssf::record::TextObjectRecord::clinit()
+void poi::hssf::record::TextObjectRecord::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        HorizontalTextAlignment_ = ::org::apache::poi::util::BitFieldFactory::getInstance(14);
-        VerticalTextAlignment_ = ::org::apache::poi::util::BitFieldFactory::getInstance(112);
-        textLocked_ = ::org::apache::poi::util::BitFieldFactory::getInstance(512);
+        HorizontalTextAlignment_ = ::poi::util::BitFieldFactory::getInstance(14);
+        VerticalTextAlignment_ = ::poi::util::BitFieldFactory::getInstance(112);
+        textLocked_ = ::poi::util::BitFieldFactory::getInstance(512);
     }
 };
 
@@ -392,17 +386,17 @@ struct clinit_ {
     }
 }
 
-int32_t org::apache::poi::hssf::record::TextObjectRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::TextObjectRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::TextObjectRecord::serialize()
+int8_tArray* poi::hssf::record::TextObjectRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::TextObjectRecord::getClass0()
+java::lang::Class* poi::hssf::record::TextObjectRecord::getClass0()
 {
     return class_();
 }

@@ -10,26 +10,20 @@
 #include <java/lang/Object.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace poifs
     {
-        namespace poi
+        namespace storage
         {
-            namespace poifs
-            {
-                namespace storage
-                {
-typedef ::SubArray< ::org::apache::poi::poifs::storage::ListManagedBlock, ::java::lang::ObjectArray > ListManagedBlockArray;
-                } // storage
-            } // poifs
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::poifs::storage::ListManagedBlock, ::java::lang::ObjectArray > ListManagedBlockArray;
+        } // storage
+    } // poifs
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::property::PropertyFactory
+class poi::poifs::property::PropertyFactory
     : public virtual ::java::lang::Object
 {
 
@@ -39,7 +33,7 @@ protected:
     void ctor();
 
 public: /* package */
-    static ::java::util::List* convertToProperties(::org::apache::poi::poifs::storage::ListManagedBlockArray* blocks) /* throws(IOException) */;
+    static ::java::util::List* convertToProperties(::poi::poifs::storage::ListManagedBlockArray* blocks) /* throws(IOException) */;
     static void convertToProperties(::int8_tArray* data, ::java::util::List* properties) /* throws(IOException) */;
 
     // Generated

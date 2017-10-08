@@ -11,31 +11,31 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::util::PngUtils::PngUtils(const ::default_init_tag&)
+poi::util::PngUtils::PngUtils(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::util::PngUtils::PngUtils() 
+poi::util::PngUtils::PngUtils() 
     : PngUtils(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-int8_tArray*& org::apache::poi::util::PngUtils::PNG_FILE_HEADER()
+int8_tArray*& poi::util::PngUtils::PNG_FILE_HEADER()
 {
     clinit();
     return PNG_FILE_HEADER_;
 }
-int8_tArray* org::apache::poi::util::PngUtils::PNG_FILE_HEADER_;
+int8_tArray* poi::util::PngUtils::PNG_FILE_HEADER_;
 
-void org::apache::poi::util::PngUtils::ctor()
+void poi::util::PngUtils::ctor()
 {
     super::ctor();
 }
 
-bool org::apache::poi::util::PngUtils::matchesPngHeader(::int8_tArray* data, int32_t offset)
+bool poi::util::PngUtils::matchesPngHeader(::int8_tArray* data, int32_t offset)
 {
     clinit();
     if(data == nullptr || npc(data)->length - offset < npc(PNG_FILE_HEADER_)->length) {
@@ -51,13 +51,13 @@ bool org::apache::poi::util::PngUtils::matchesPngHeader(::int8_tArray* data, int
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::util::PngUtils::class_()
+java::lang::Class* poi::util::PngUtils::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.util.PngUtils", 28);
     return c;
 }
 
-void org::apache::poi::util::PngUtils::clinit()
+void poi::util::PngUtils::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -82,7 +82,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::util::PngUtils::getClass0()
+java::lang::Class* poi::util::PngUtils::getClass0()
 {
     return class_();
 }

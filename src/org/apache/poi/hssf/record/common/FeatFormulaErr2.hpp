@@ -12,7 +12,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::common::FeatFormulaErr2 final
+class poi::hssf::record::common::FeatFormulaErr2 final
     : public virtual ::java::lang::Object
     , public SharedFeature
 {
@@ -21,22 +21,22 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    static ::org::apache::poi::util::BitField* CHECK_CALCULATION_ERRORS_;
-    static ::org::apache::poi::util::BitField* CHECK_EMPTY_CELL_REF_;
-    static ::org::apache::poi::util::BitField* CHECK_NUMBERS_AS_TEXT_;
-    static ::org::apache::poi::util::BitField* CHECK_INCONSISTENT_RANGES_;
-    static ::org::apache::poi::util::BitField* CHECK_INCONSISTENT_FORMULAS_;
-    static ::org::apache::poi::util::BitField* CHECK_DATETIME_FORMATS_;
-    static ::org::apache::poi::util::BitField* CHECK_UNPROTECTED_FORMULAS_;
-    static ::org::apache::poi::util::BitField* PERFORM_DATA_VALIDATION_;
+    static ::poi::util::BitField* CHECK_CALCULATION_ERRORS_;
+    static ::poi::util::BitField* CHECK_EMPTY_CELL_REF_;
+    static ::poi::util::BitField* CHECK_NUMBERS_AS_TEXT_;
+    static ::poi::util::BitField* CHECK_INCONSISTENT_RANGES_;
+    static ::poi::util::BitField* CHECK_INCONSISTENT_FORMULAS_;
+    static ::poi::util::BitField* CHECK_DATETIME_FORMATS_;
+    static ::poi::util::BitField* CHECK_UNPROTECTED_FORMULAS_;
+    static ::poi::util::BitField* PERFORM_DATA_VALIDATION_;
     int32_t errorCheck {  };
 protected:
     void ctor();
-    void ctor(::org::apache::poi::hssf::record::RecordInputStream* in);
+    void ctor(::poi::hssf::record::RecordInputStream* in);
 
 public:
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
     int32_t getDataSize() override;
     int32_t _getRawErrorCheckValue();
     bool getCheckCalculationErrors();
@@ -58,7 +58,7 @@ public:
 
     // Generated
     FeatFormulaErr2();
-    FeatFormulaErr2(::org::apache::poi::hssf::record::RecordInputStream* in);
+    FeatFormulaErr2(::poi::hssf::record::RecordInputStream* in);
 protected:
     FeatFormulaErr2(const ::default_init_tag&);
 
@@ -68,13 +68,13 @@ public:
     static void clinit();
 
 private:
-    static ::org::apache::poi::util::BitField*& CHECK_CALCULATION_ERRORS();
-    static ::org::apache::poi::util::BitField*& CHECK_EMPTY_CELL_REF();
-    static ::org::apache::poi::util::BitField*& CHECK_NUMBERS_AS_TEXT();
-    static ::org::apache::poi::util::BitField*& CHECK_INCONSISTENT_RANGES();
-    static ::org::apache::poi::util::BitField*& CHECK_INCONSISTENT_FORMULAS();
-    static ::org::apache::poi::util::BitField*& CHECK_DATETIME_FORMATS();
-    static ::org::apache::poi::util::BitField*& CHECK_UNPROTECTED_FORMULAS();
-    static ::org::apache::poi::util::BitField*& PERFORM_DATA_VALIDATION();
+    static ::poi::util::BitField*& CHECK_CALCULATION_ERRORS();
+    static ::poi::util::BitField*& CHECK_EMPTY_CELL_REF();
+    static ::poi::util::BitField*& CHECK_NUMBERS_AS_TEXT();
+    static ::poi::util::BitField*& CHECK_INCONSISTENT_RANGES();
+    static ::poi::util::BitField*& CHECK_INCONSISTENT_FORMULAS();
+    static ::poi::util::BitField*& CHECK_DATETIME_FORMATS();
+    static ::poi::util::BitField*& CHECK_UNPROTECTED_FORMULAS();
+    static ::poi::util::BitField*& PERFORM_DATA_VALIDATION();
     virtual ::java::lang::Class* getClass0();
 };

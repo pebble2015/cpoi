@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::BackupRecord final
+class poi::hssf::record::BackupRecord final
     : public StandardRecord
 {
 
@@ -28,7 +28,7 @@ public:
     void setBackup(int16_t backup);
     int16_t getBackup();
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;

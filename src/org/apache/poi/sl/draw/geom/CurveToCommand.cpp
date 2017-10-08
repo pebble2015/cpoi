@@ -14,19 +14,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::sl::draw::geom::CurveToCommand::CurveToCommand(const ::default_init_tag&)
+poi::sl::draw::geom::CurveToCommand::CurveToCommand(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::draw::geom::CurveToCommand::CurveToCommand(::org::apache::poi::sl::draw::binding::CTAdjPoint2D* pt1, ::org::apache::poi::sl::draw::binding::CTAdjPoint2D* pt2, ::org::apache::poi::sl::draw::binding::CTAdjPoint2D* pt3) 
+poi::sl::draw::geom::CurveToCommand::CurveToCommand(::poi::sl::draw::binding::CTAdjPoint2D* pt1, ::poi::sl::draw::binding::CTAdjPoint2D* pt2, ::poi::sl::draw::binding::CTAdjPoint2D* pt3) 
     : CurveToCommand(*static_cast< ::default_init_tag* >(0))
 {
     ctor(pt1,pt2,pt3);
 }
 
-void org::apache::poi::sl::draw::geom::CurveToCommand::ctor(::org::apache::poi::sl::draw::binding::CTAdjPoint2D* pt1, ::org::apache::poi::sl::draw::binding::CTAdjPoint2D* pt2, ::org::apache::poi::sl::draw::binding::CTAdjPoint2D* pt3)
+void poi::sl::draw::geom::CurveToCommand::ctor(::poi::sl::draw::binding::CTAdjPoint2D* pt1, ::poi::sl::draw::binding::CTAdjPoint2D* pt2, ::poi::sl::draw::binding::CTAdjPoint2D* pt3)
 {
     super::ctor();
     arg1 = npc(pt1)->getX();
@@ -37,7 +37,7 @@ void org::apache::poi::sl::draw::geom::CurveToCommand::ctor(::org::apache::poi::
     arg6 = npc(pt3)->getY();
 }
 
-void org::apache::poi::sl::draw::geom::CurveToCommand::execute(::java::awt::geom::Path2D_Double* path, Context* ctx)
+void poi::sl::draw::geom::CurveToCommand::execute(::java::awt::geom::Path2D_Double* path, Context* ctx)
 {
     auto x1 = npc(ctx)->getValue(arg1);
     auto y1 = npc(ctx)->getValue(arg2);
@@ -50,13 +50,13 @@ void org::apache::poi::sl::draw::geom::CurveToCommand::execute(::java::awt::geom
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::draw::geom::CurveToCommand::class_()
+java::lang::Class* poi::sl::draw::geom::CurveToCommand::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.draw.geom.CurveToCommand", 42);
     return c;
 }
 
-java::lang::Class* org::apache::poi::sl::draw::geom::CurveToCommand::getClass0()
+java::lang::Class* poi::sl::draw::geom::CurveToCommand::getClass0()
 {
     return class_();
 }

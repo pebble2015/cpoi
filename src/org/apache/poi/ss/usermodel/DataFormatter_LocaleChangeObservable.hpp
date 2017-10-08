@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::usermodel::DataFormatter_LocaleChangeObservable
+class poi::ss::usermodel::DataFormatter_LocaleChangeObservable
     : public ::java::util::Observable
 {
 

@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::ptg::NameXPxg final
+class poi::ss::formula::ptg::NameXPxg final
     : public OperandPtg
     , public Pxg
 {
@@ -37,7 +37,7 @@ public:
     ::java::lang::String* toFormulaString() override;
     int8_t getDefaultOperandClass() override;
     int32_t getSize() override;
-    void write(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void write(::poi::util::LittleEndianOutput* out) override;
 
     // Generated
     NameXPxg(int32_t externalWorkbookNumber, ::java::lang::String* sheetName, ::java::lang::String* nameName);

@@ -5,7 +5,7 @@
 #include <org/apache/poi/ss/usermodel/charts/fwd-POI.hpp>
 #include <org/apache/poi/ss/usermodel/charts/ChartSeries.hpp>
 
-struct org::apache::poi::ss::usermodel::charts::LineChartSeries
+struct poi::ss::usermodel::charts::LineChartSeries
     : public virtual ChartSeries
 {
     virtual ChartDataSource* getCategoryAxisData() = 0;

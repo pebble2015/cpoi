@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::DrawingSelectionRecord final
+class poi::hssf::record::DrawingSelectionRecord final
     : public StandardRecord
     , public ::java::lang::Cloneable
 {
@@ -36,7 +36,7 @@ public: /* protected */
     int32_t getDataSize() override;
 
 public:
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
     DrawingSelectionRecord* clone() override;
     ::java::lang::String* toString() override;
 

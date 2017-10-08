@@ -23,23 +23,17 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
-        {
-            namespace ss
-            {
-typedef ::SubArray< ::org::apache::poi::ss::SpreadsheetVersion, ::java::lang::EnumArray > SpreadsheetVersionArray;
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::SpreadsheetVersion, ::java::lang::EnumArray > SpreadsheetVersionArray;
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::SpreadsheetVersion final
+class poi::ss::SpreadsheetVersion final
     : public ::java::lang::Enum
 {
 

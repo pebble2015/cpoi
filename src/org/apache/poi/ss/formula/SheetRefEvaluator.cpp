@@ -21,25 +21,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -57,19 +51,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::SheetRefEvaluator::SheetRefEvaluator(const ::default_init_tag&)
+poi::ss::formula::SheetRefEvaluator::SheetRefEvaluator(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::SheetRefEvaluator::SheetRefEvaluator(WorkbookEvaluator* bookEvaluator, EvaluationTracker* tracker, int32_t sheetIndex) 
+poi::ss::formula::SheetRefEvaluator::SheetRefEvaluator(WorkbookEvaluator* bookEvaluator, EvaluationTracker* tracker, int32_t sheetIndex) 
     : SheetRefEvaluator(*static_cast< ::default_init_tag* >(0))
 {
     ctor(bookEvaluator,tracker,sheetIndex);
 }
 
-void org::apache::poi::ss::formula::SheetRefEvaluator::ctor(WorkbookEvaluator* bookEvaluator, EvaluationTracker* tracker, int32_t sheetIndex)
+void poi::ss::formula::SheetRefEvaluator::ctor(WorkbookEvaluator* bookEvaluator, EvaluationTracker* tracker, int32_t sheetIndex)
 {
     super::ctor();
     if(sheetIndex < 0) {
@@ -81,17 +75,17 @@ void org::apache::poi::ss::formula::SheetRefEvaluator::ctor(WorkbookEvaluator* b
     _sheetIndex = sheetIndex;
 }
 
-java::lang::String* org::apache::poi::ss::formula::SheetRefEvaluator::getSheetName()
+java::lang::String* poi::ss::formula::SheetRefEvaluator::getSheetName()
 {
     return npc(_bookEvaluator)->getSheetName(_sheetIndex);
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::SheetRefEvaluator::getEvalForCell(int32_t rowIndex, int32_t columnIndex)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::SheetRefEvaluator::getEvalForCell(int32_t rowIndex, int32_t columnIndex)
 {
     return npc(_bookEvaluator)->evaluateReference(getSheet(), _sheetIndex, rowIndex, columnIndex, _tracker);
 }
 
-org::apache::poi::ss::formula::EvaluationSheet* org::apache::poi::ss::formula::SheetRefEvaluator::getSheet()
+poi::ss::formula::EvaluationSheet* poi::ss::formula::SheetRefEvaluator::getSheet()
 {
     if(_sheet == nullptr) {
         _sheet = npc(_bookEvaluator)->getSheet(_sheetIndex);
@@ -99,15 +93,15 @@ org::apache::poi::ss::formula::EvaluationSheet* org::apache::poi::ss::formula::S
     return _sheet;
 }
 
-bool org::apache::poi::ss::formula::SheetRefEvaluator::isSubTotal(int32_t rowIndex, int32_t columnIndex)
+bool poi::ss::formula::SheetRefEvaluator::isSubTotal(int32_t rowIndex, int32_t columnIndex)
 {
     auto subtotal = false;
     auto cell = npc(getSheet())->getCell(rowIndex, columnIndex);
-    if(cell != nullptr && npc(cell)->getCellTypeEnum() == ::org::apache::poi::ss::usermodel::CellType::FORMULA) {
+    if(cell != nullptr && npc(cell)->getCellTypeEnum() == ::poi::ss::usermodel::CellType::FORMULA) {
         auto wb = npc(_bookEvaluator)->getWorkbook();
         for(auto ptg : *npc(npc(wb)->getFormulaTokens(cell))) {
-            if(dynamic_cast< ::org::apache::poi::ss::formula::ptg::FuncVarPtg* >(ptg) != nullptr) {
-                auto f = java_cast< ::org::apache::poi::ss::formula::ptg::FuncVarPtg* >(ptg);
+            if(dynamic_cast< ::poi::ss::formula::ptg::FuncVarPtg* >(ptg) != nullptr) {
+                auto f = java_cast< ::poi::ss::formula::ptg::FuncVarPtg* >(ptg);
                 if(npc(u"SUBTOTAL"_j)->equals(static_cast< ::java::lang::Object* >(npc(f)->getName()))) {
                     subtotal = true;
                     break;
@@ -120,13 +114,13 @@ bool org::apache::poi::ss::formula::SheetRefEvaluator::isSubTotal(int32_t rowInd
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::SheetRefEvaluator::class_()
+java::lang::Class* poi::ss::formula::SheetRefEvaluator::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.SheetRefEvaluator", 43);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::SheetRefEvaluator::getClass0()
+java::lang::Class* poi::ss::formula::SheetRefEvaluator::getClass0()
 {
     return class_();
 }

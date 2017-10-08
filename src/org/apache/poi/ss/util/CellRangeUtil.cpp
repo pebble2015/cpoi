@@ -16,23 +16,17 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace util
         {
-            namespace ss
-            {
-                namespace util
-                {
-typedef ::SubArray< ::org::apache::poi::ss::util::CellRangeAddressBase, ::java::lang::ObjectArray > CellRangeAddressBaseArray;
-typedef ::SubArray< ::org::apache::poi::ss::util::CellRangeAddress, CellRangeAddressBaseArray > CellRangeAddressArray;
-                } // util
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::util::CellRangeAddressBase, ::java::lang::ObjectArray > CellRangeAddressBaseArray;
+typedef ::SubArray< ::poi::ss::util::CellRangeAddress, CellRangeAddressBaseArray > CellRangeAddressArray;
+        } // util
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -50,32 +44,32 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::util::CellRangeUtil::CellRangeUtil(const ::default_init_tag&)
+poi::ss::util::CellRangeUtil::CellRangeUtil(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::util::CellRangeUtil::CellRangeUtil() 
+poi::ss::util::CellRangeUtil::CellRangeUtil() 
     : CellRangeUtil(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::ss::util::CellRangeUtil::ctor()
+void poi::ss::util::CellRangeUtil::ctor()
 {
     super::ctor();
 }
 
-constexpr int32_t org::apache::poi::ss::util::CellRangeUtil::NO_INTERSECTION;
+constexpr int32_t poi::ss::util::CellRangeUtil::NO_INTERSECTION;
 
-constexpr int32_t org::apache::poi::ss::util::CellRangeUtil::OVERLAP;
+constexpr int32_t poi::ss::util::CellRangeUtil::OVERLAP;
 
-constexpr int32_t org::apache::poi::ss::util::CellRangeUtil::INSIDE;
+constexpr int32_t poi::ss::util::CellRangeUtil::INSIDE;
 
-constexpr int32_t org::apache::poi::ss::util::CellRangeUtil::ENCLOSES;
+constexpr int32_t poi::ss::util::CellRangeUtil::ENCLOSES;
 
-int32_t org::apache::poi::ss::util::CellRangeUtil::intersect(CellRangeAddress* crA, CellRangeAddress* crB)
+int32_t poi::ss::util::CellRangeUtil::intersect(CellRangeAddress* crA, CellRangeAddress* crB)
 {
     clinit();
     auto firstRow = npc(crB)->getFirstRow();
@@ -93,7 +87,7 @@ int32_t org::apache::poi::ss::util::CellRangeUtil::intersect(CellRangeAddress* c
     }
 }
 
-org::apache::poi::ss::util::CellRangeAddressArray* org::apache::poi::ss::util::CellRangeUtil::mergeCellRanges(CellRangeAddressArray* cellRanges)
+poi::ss::util::CellRangeAddressArray* poi::ss::util::CellRangeUtil::mergeCellRanges(CellRangeAddressArray* cellRanges)
 {
     clinit();
     if(npc(cellRanges)->length < 1) {
@@ -104,7 +98,7 @@ org::apache::poi::ss::util::CellRangeAddressArray* org::apache::poi::ss::util::C
     return toArray_(temp);
 }
 
-java::util::List* org::apache::poi::ss::util::CellRangeUtil::mergeCellRanges(::java::util::List* cellRangeList)
+java::util::List* poi::ss::util::CellRangeUtil::mergeCellRanges(::java::util::List* cellRangeList)
 {
     clinit();
     while (npc(cellRangeList)->size() > 1) {
@@ -133,7 +127,7 @@ java::util::List* org::apache::poi::ss::util::CellRangeUtil::mergeCellRanges(::j
     return cellRangeList;
 }
 
-org::apache::poi::ss::util::CellRangeAddressArray* org::apache::poi::ss::util::CellRangeUtil::mergeRanges(CellRangeAddress* range1, CellRangeAddress* range2)
+poi::ss::util::CellRangeAddressArray* poi::ss::util::CellRangeUtil::mergeRanges(CellRangeAddress* range1, CellRangeAddress* range2)
 {
     clinit();
     auto x = intersect(range1, range2);
@@ -155,7 +149,7 @@ org::apache::poi::ss::util::CellRangeAddressArray* org::apache::poi::ss::util::C
         ->append(u")"_j)->toString());
 }
 
-org::apache::poi::ss::util::CellRangeAddressArray* org::apache::poi::ss::util::CellRangeUtil::toArray_(::java::util::List* temp)
+poi::ss::util::CellRangeAddressArray* poi::ss::util::CellRangeUtil::toArray_(::java::util::List* temp)
 {
     clinit();
     auto result = new CellRangeAddressArray(npc(temp)->size());
@@ -163,7 +157,7 @@ org::apache::poi::ss::util::CellRangeAddressArray* org::apache::poi::ss::util::C
     return result;
 }
 
-java::util::List* org::apache::poi::ss::util::CellRangeUtil::toList(CellRangeAddressArray* temp)
+java::util::List* poi::ss::util::CellRangeUtil::toList(CellRangeAddressArray* temp)
 {
     clinit();
     ::java::util::List* result = new ::java::util::ArrayList(npc(temp)->length);
@@ -173,13 +167,13 @@ java::util::List* org::apache::poi::ss::util::CellRangeUtil::toList(CellRangeAdd
     return result;
 }
 
-bool org::apache::poi::ss::util::CellRangeUtil::contains(CellRangeAddress* crA, CellRangeAddress* crB)
+bool poi::ss::util::CellRangeUtil::contains(CellRangeAddress* crA, CellRangeAddress* crB)
 {
     clinit();
     return le(npc(crA)->getFirstRow(), npc(crB)->getFirstRow()) && ge(npc(crA)->getLastRow(), npc(crB)->getLastRow()) && le(npc(crA)->getFirstColumn(), npc(crB)->getFirstColumn())&& ge(npc(crA)->getLastColumn(), npc(crB)->getLastColumn());
 }
 
-bool org::apache::poi::ss::util::CellRangeUtil::hasExactSharedBorder(CellRangeAddress* crA, CellRangeAddress* crB)
+bool poi::ss::util::CellRangeUtil::hasExactSharedBorder(CellRangeAddress* crA, CellRangeAddress* crB)
 {
     clinit();
     auto oFirstRow = npc(crB)->getFirstRow();
@@ -195,7 +189,7 @@ bool org::apache::poi::ss::util::CellRangeUtil::hasExactSharedBorder(CellRangeAd
     return false;
 }
 
-org::apache::poi::ss::util::CellRangeAddress* org::apache::poi::ss::util::CellRangeUtil::createEnclosingCellRange(CellRangeAddress* crA, CellRangeAddress* crB)
+poi::ss::util::CellRangeAddress* poi::ss::util::CellRangeUtil::createEnclosingCellRange(CellRangeAddress* crA, CellRangeAddress* crB)
 {
     clinit();
     if(crB == nullptr) {
@@ -208,25 +202,25 @@ org::apache::poi::ss::util::CellRangeAddress* org::apache::poi::ss::util::CellRa
     return new CellRangeAddress(minRow, maxRow, minCol, maxCol);
 }
 
-bool org::apache::poi::ss::util::CellRangeUtil::lt(int32_t a, int32_t b)
+bool poi::ss::util::CellRangeUtil::lt(int32_t a, int32_t b)
 {
     clinit();
     return a == -int32_t(1) ? false : (b == -int32_t(1) ? true : a < b);
 }
 
-bool org::apache::poi::ss::util::CellRangeUtil::le(int32_t a, int32_t b)
+bool poi::ss::util::CellRangeUtil::le(int32_t a, int32_t b)
 {
     clinit();
     return a == b || lt(a, b);
 }
 
-bool org::apache::poi::ss::util::CellRangeUtil::gt(int32_t a, int32_t b)
+bool poi::ss::util::CellRangeUtil::gt(int32_t a, int32_t b)
 {
     clinit();
     return lt(b, a);
 }
 
-bool org::apache::poi::ss::util::CellRangeUtil::ge(int32_t a, int32_t b)
+bool poi::ss::util::CellRangeUtil::ge(int32_t a, int32_t b)
 {
     clinit();
     return !lt(a, b);
@@ -234,13 +228,13 @@ bool org::apache::poi::ss::util::CellRangeUtil::ge(int32_t a, int32_t b)
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::util::CellRangeUtil::class_()
+java::lang::Class* poi::ss::util::CellRangeUtil::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.util.CellRangeUtil", 36);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::util::CellRangeUtil::getClass0()
+java::lang::Class* poi::ss::util::CellRangeUtil::getClass0()
 {
     return class_();
 }

@@ -27,61 +27,61 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::util::IntList::IntList(const ::default_init_tag&)
+poi::util::IntList::IntList(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::util::IntList::IntList() 
+poi::util::IntList::IntList() 
     : IntList(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::util::IntList::IntList(int32_t initialCapacity) 
+poi::util::IntList::IntList(int32_t initialCapacity) 
     : IntList(*static_cast< ::default_init_tag* >(0))
 {
     ctor(initialCapacity);
 }
 
-org::apache::poi::util::IntList::IntList(IntList* list) 
+poi::util::IntList::IntList(IntList* list) 
     : IntList(*static_cast< ::default_init_tag* >(0))
 {
     ctor(list);
 }
 
-org::apache::poi::util::IntList::IntList(int32_t initialCapacity, int32_t fillvalue) 
+poi::util::IntList::IntList(int32_t initialCapacity, int32_t fillvalue) 
     : IntList(*static_cast< ::default_init_tag* >(0))
 {
     ctor(initialCapacity,fillvalue);
 }
 
-void org::apache::poi::util::IntList::init()
+void poi::util::IntList::init()
 {
     fillval = int32_t(0);
 }
 
-constexpr int32_t org::apache::poi::util::IntList::_default_size;
+constexpr int32_t poi::util::IntList::_default_size;
 
-void org::apache::poi::util::IntList::ctor()
+void poi::util::IntList::ctor()
 {
     ctor(_default_size);
 }
 
-void org::apache::poi::util::IntList::ctor(int32_t initialCapacity)
+void poi::util::IntList::ctor(int32_t initialCapacity)
 {
     ctor(initialCapacity, int32_t(0));
 }
 
-void org::apache::poi::util::IntList::ctor(IntList* list)
+void poi::util::IntList::ctor(IntList* list)
 {
     ctor(npc(npc(list)->_array)->length);
     ::java::lang::System::arraycopy(npc(list)->_array, 0, _array, 0, npc(_array)->length);
     _limit = npc(list)->_limit;
 }
 
-void org::apache::poi::util::IntList::ctor(int32_t initialCapacity, int32_t fillvalue)
+void poi::util::IntList::ctor(int32_t initialCapacity, int32_t fillvalue)
 {
     super::ctor();
     init();
@@ -93,14 +93,14 @@ void org::apache::poi::util::IntList::ctor(int32_t initialCapacity, int32_t fill
     _limit = 0;
 }
 
-void org::apache::poi::util::IntList::fillArray_(int32_t val, ::int32_tArray* array, int32_t index)
+void poi::util::IntList::fillArray_(int32_t val, ::int32_tArray* array, int32_t index)
 {
     for (auto k = index; k < npc(array)->length; k++) {
         (*array)[k] = val;
     }
 }
 
-void org::apache::poi::util::IntList::add(int32_t index, int32_t value)
+void poi::util::IntList::add(int32_t index, int32_t value)
 {
     if(index > _limit) {
         throw new ::java::lang::IndexOutOfBoundsException();
@@ -116,7 +116,7 @@ void org::apache::poi::util::IntList::add(int32_t index, int32_t value)
     }
 }
 
-bool org::apache::poi::util::IntList::add(int32_t value)
+bool poi::util::IntList::add(int32_t value)
 {
     if(_limit == npc(_array)->length) {
         growArray_(_limit * int32_t(2));
@@ -125,7 +125,7 @@ bool org::apache::poi::util::IntList::add(int32_t value)
     return true;
 }
 
-bool org::apache::poi::util::IntList::addAll(IntList* c)
+bool poi::util::IntList::addAll(IntList* c)
 {
     if(npc(c)->_limit != 0) {
         if((_limit + npc(c)->_limit) > npc(_array)->length) {
@@ -137,7 +137,7 @@ bool org::apache::poi::util::IntList::addAll(IntList* c)
     return true;
 }
 
-bool org::apache::poi::util::IntList::addAll(int32_t index, IntList* c)
+bool poi::util::IntList::addAll(int32_t index, IntList* c)
 {
     if(index > _limit) {
         throw new ::java::lang::IndexOutOfBoundsException();
@@ -153,12 +153,12 @@ bool org::apache::poi::util::IntList::addAll(int32_t index, IntList* c)
     return true;
 }
 
-void org::apache::poi::util::IntList::clear()
+void poi::util::IntList::clear()
 {
     _limit = 0;
 }
 
-bool org::apache::poi::util::IntList::contains(int32_t o)
+bool poi::util::IntList::contains(int32_t o)
 {
     auto rval = false;
     for (auto j = int32_t(0); !rval && (j < _limit); j++) {
@@ -169,7 +169,7 @@ bool org::apache::poi::util::IntList::contains(int32_t o)
     return rval;
 }
 
-bool org::apache::poi::util::IntList::containsAll(IntList* c)
+bool poi::util::IntList::containsAll(IntList* c)
 {
     auto rval = true;
     if(this != c) {
@@ -182,7 +182,7 @@ bool org::apache::poi::util::IntList::containsAll(IntList* c)
     return rval;
 }
 
-bool org::apache::poi::util::IntList::equals(::java::lang::Object* o)
+bool poi::util::IntList::equals(::java::lang::Object* o)
 {
     auto rval = static_cast< ::java::lang::Object* >(this) == o;
     if(!rval && (o != nullptr) && (static_cast< ::java::lang::Object* >(npc(o)->getClass()) == static_cast< ::java::lang::Object* >(this->getClass()))) {
@@ -197,7 +197,7 @@ bool org::apache::poi::util::IntList::equals(::java::lang::Object* o)
     return rval;
 }
 
-int32_t org::apache::poi::util::IntList::get(int32_t index)
+int32_t poi::util::IntList::get(int32_t index)
 {
     if(index >= _limit) {
         throw new ::java::lang::IndexOutOfBoundsException(::java::lang::StringBuilder().append(index)->append(u" not accessible in a list of length "_j)
@@ -206,7 +206,7 @@ int32_t org::apache::poi::util::IntList::get(int32_t index)
     return (*_array)[index];
 }
 
-int32_t org::apache::poi::util::IntList::hashCode()
+int32_t poi::util::IntList::hashCode()
 {
     auto hash = int32_t(0);
     for (auto j = int32_t(0); j < _limit; j++) {
@@ -215,7 +215,7 @@ int32_t org::apache::poi::util::IntList::hashCode()
     return hash;
 }
 
-int32_t org::apache::poi::util::IntList::indexOf(int32_t o)
+int32_t poi::util::IntList::indexOf(int32_t o)
 {
     auto rval = int32_t(0);
     for (; rval < _limit; rval++) {
@@ -229,12 +229,12 @@ int32_t org::apache::poi::util::IntList::indexOf(int32_t o)
     return rval;
 }
 
-bool org::apache::poi::util::IntList::isEmpty()
+bool poi::util::IntList::isEmpty()
 {
     return _limit == 0;
 }
 
-int32_t org::apache::poi::util::IntList::lastIndexOf(int32_t o)
+int32_t poi::util::IntList::lastIndexOf(int32_t o)
 {
     auto rval = _limit - int32_t(1);
     for (; rval >= 0; rval--) {
@@ -245,7 +245,7 @@ int32_t org::apache::poi::util::IntList::lastIndexOf(int32_t o)
     return rval;
 }
 
-int32_t org::apache::poi::util::IntList::remove(int32_t index)
+int32_t poi::util::IntList::remove(int32_t index)
 {
     if(index >= _limit) {
         throw new ::java::lang::IndexOutOfBoundsException();
@@ -256,7 +256,7 @@ int32_t org::apache::poi::util::IntList::remove(int32_t index)
     return rval;
 }
 
-bool org::apache::poi::util::IntList::removeValue(int32_t o)
+bool poi::util::IntList::removeValue(int32_t o)
 {
     auto rval = false;
     for (auto j = int32_t(0); !rval && (j < _limit); j++) {
@@ -271,7 +271,7 @@ bool org::apache::poi::util::IntList::removeValue(int32_t o)
     return rval;
 }
 
-bool org::apache::poi::util::IntList::removeAll(IntList* c)
+bool poi::util::IntList::removeAll(IntList* c)
 {
     auto rval = false;
     for (auto j = int32_t(0); j < npc(c)->_limit; j++) {
@@ -282,7 +282,7 @@ bool org::apache::poi::util::IntList::removeAll(IntList* c)
     return rval;
 }
 
-bool org::apache::poi::util::IntList::retainAll(IntList* c)
+bool poi::util::IntList::retainAll(IntList* c)
 {
     auto rval = false;
     for (auto j = int32_t(0); j < _limit; ) {
@@ -296,7 +296,7 @@ bool org::apache::poi::util::IntList::retainAll(IntList* c)
     return rval;
 }
 
-int32_t org::apache::poi::util::IntList::set(int32_t index, int32_t element)
+int32_t poi::util::IntList::set(int32_t index, int32_t element)
 {
     if(index >= _limit) {
         throw new ::java::lang::IndexOutOfBoundsException();
@@ -306,19 +306,19 @@ int32_t org::apache::poi::util::IntList::set(int32_t index, int32_t element)
     return rval;
 }
 
-int32_t org::apache::poi::util::IntList::size()
+int32_t poi::util::IntList::size()
 {
     return _limit;
 }
 
-int32_tArray* org::apache::poi::util::IntList::toArray_()
+int32_tArray* poi::util::IntList::toArray_()
 {
     auto rval = new ::int32_tArray(_limit);
     ::java::lang::System::arraycopy(_array, 0, rval, 0, _limit);
     return rval;
 }
 
-int32_tArray* org::apache::poi::util::IntList::toArray_(::int32_tArray* a)
+int32_tArray* poi::util::IntList::toArray_(::int32_tArray* a)
 {
     ::int32_tArray* rval;
     if(npc(a)->length == _limit) {
@@ -330,7 +330,7 @@ int32_tArray* org::apache::poi::util::IntList::toArray_(::int32_tArray* a)
     return rval;
 }
 
-void org::apache::poi::util::IntList::growArray_(int32_t new_size)
+void poi::util::IntList::growArray_(int32_t new_size)
 {
     auto size = (new_size == npc(_array)->length) ? new_size + int32_t(1) : new_size;
     auto new_array = new ::int32_tArray(size);
@@ -343,13 +343,13 @@ void org::apache::poi::util::IntList::growArray_(int32_t new_size)
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::util::IntList::class_()
+java::lang::Class* poi::util::IntList::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.util.IntList", 27);
     return c;
 }
 
-java::lang::Class* org::apache::poi::util::IntList::getClass0()
+java::lang::Class* poi::util::IntList::getClass0()
 {
     return class_();
 }

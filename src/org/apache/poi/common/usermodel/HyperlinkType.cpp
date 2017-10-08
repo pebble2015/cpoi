@@ -32,22 +32,16 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace common
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace common
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::common::usermodel::HyperlinkType, ::java::lang::EnumArray > HyperlinkTypeArray;
-                } // usermodel
-            } // common
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::common::usermodel::HyperlinkType, ::java::lang::EnumArray > HyperlinkTypeArray;
+        } // usermodel
+    } // common
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -65,42 +59,42 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::common::usermodel::HyperlinkType::HyperlinkType(const ::default_init_tag&)
+poi::common::usermodel::HyperlinkType::HyperlinkType(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::common::usermodel::HyperlinkType::HyperlinkType(::java::lang::String* name, int ordinal, int32_t code) 
+poi::common::usermodel::HyperlinkType::HyperlinkType(::java::lang::String* name, int ordinal, int32_t code) 
     : HyperlinkType(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal, code);
 }
 
-org::apache::poi::common::usermodel::HyperlinkType* org::apache::poi::common::usermodel::HyperlinkType::NONE = new ::org::apache::poi::common::usermodel::HyperlinkType(u"NONE"_j, 0, -int32_t(1));
-org::apache::poi::common::usermodel::HyperlinkType* org::apache::poi::common::usermodel::HyperlinkType::URL = new ::org::apache::poi::common::usermodel::HyperlinkType(u"URL"_j, 1, int32_t(1));
-org::apache::poi::common::usermodel::HyperlinkType* org::apache::poi::common::usermodel::HyperlinkType::DOCUMENT = new ::org::apache::poi::common::usermodel::HyperlinkType(u"DOCUMENT"_j, 2, int32_t(2));
-org::apache::poi::common::usermodel::HyperlinkType* org::apache::poi::common::usermodel::HyperlinkType::EMAIL = new ::org::apache::poi::common::usermodel::HyperlinkType(u"EMAIL"_j, 3, int32_t(3));
-org::apache::poi::common::usermodel::HyperlinkType* org::apache::poi::common::usermodel::HyperlinkType::FILE = new ::org::apache::poi::common::usermodel::HyperlinkType(u"FILE"_j, 4, int32_t(4));
-void org::apache::poi::common::usermodel::HyperlinkType::ctor(::java::lang::String* name, int ordinal, int32_t code)
+poi::common::usermodel::HyperlinkType* poi::common::usermodel::HyperlinkType::NONE = new ::poi::common::usermodel::HyperlinkType(u"NONE"_j, 0, -int32_t(1));
+poi::common::usermodel::HyperlinkType* poi::common::usermodel::HyperlinkType::URL = new ::poi::common::usermodel::HyperlinkType(u"URL"_j, 1, int32_t(1));
+poi::common::usermodel::HyperlinkType* poi::common::usermodel::HyperlinkType::DOCUMENT = new ::poi::common::usermodel::HyperlinkType(u"DOCUMENT"_j, 2, int32_t(2));
+poi::common::usermodel::HyperlinkType* poi::common::usermodel::HyperlinkType::EMAIL = new ::poi::common::usermodel::HyperlinkType(u"EMAIL"_j, 3, int32_t(3));
+poi::common::usermodel::HyperlinkType* poi::common::usermodel::HyperlinkType::FILE = new ::poi::common::usermodel::HyperlinkType(u"FILE"_j, 4, int32_t(4));
+void poi::common::usermodel::HyperlinkType::ctor(::java::lang::String* name, int ordinal, int32_t code)
 {
     super::ctor(name, ordinal);
     this->code = code;
 }
 
-java::util::Map*& org::apache::poi::common::usermodel::HyperlinkType::map()
+java::util::Map*& poi::common::usermodel::HyperlinkType::map()
 {
     clinit();
     return map_;
 }
-java::util::Map* org::apache::poi::common::usermodel::HyperlinkType::map_;
+java::util::Map* poi::common::usermodel::HyperlinkType::map_;
 
-int32_t org::apache::poi::common::usermodel::HyperlinkType::getCode()
+int32_t poi::common::usermodel::HyperlinkType::getCode()
 {
     return code;
 }
 
-org::apache::poi::common::usermodel::HyperlinkType* org::apache::poi::common::usermodel::HyperlinkType::forInt(int32_t code)
+poi::common::usermodel::HyperlinkType* poi::common::usermodel::HyperlinkType::forInt(int32_t code)
 {
     clinit();
     auto type = java_cast< HyperlinkType* >(npc(map_)->get(::java::lang::Integer::valueOf(code)));
@@ -112,13 +106,13 @@ org::apache::poi::common::usermodel::HyperlinkType* org::apache::poi::common::us
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::common::usermodel::HyperlinkType::class_()
+java::lang::Class* poi::common::usermodel::HyperlinkType::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.common.usermodel.HyperlinkType", 45);
     return c;
 }
 
-void org::apache::poi::common::usermodel::HyperlinkType::clinit()
+void poi::common::usermodel::HyperlinkType::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -139,7 +133,7 @@ struct clinit_ {
     }
 }
 
-org::apache::poi::common::usermodel::HyperlinkType* org::apache::poi::common::usermodel::HyperlinkType::valueOf(::java::lang::String* a0)
+poi::common::usermodel::HyperlinkType* poi::common::usermodel::HyperlinkType::valueOf(::java::lang::String* a0)
 {
     if(DOCUMENT->toString()->equals(a0))
         return DOCUMENT;
@@ -154,9 +148,9 @@ org::apache::poi::common::usermodel::HyperlinkType* org::apache::poi::common::us
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::common::usermodel::HyperlinkTypeArray* org::apache::poi::common::usermodel::HyperlinkType::values()
+poi::common::usermodel::HyperlinkTypeArray* poi::common::usermodel::HyperlinkType::values()
 {
-    return new org::apache::poi::common::usermodel::HyperlinkTypeArray({
+    return new poi::common::usermodel::HyperlinkTypeArray({
         DOCUMENT,
         EMAIL,
         FILE,
@@ -165,7 +159,7 @@ org::apache::poi::common::usermodel::HyperlinkTypeArray* org::apache::poi::commo
     });
 }
 
-java::lang::Class* org::apache::poi::common::usermodel::HyperlinkType::getClass0()
+java::lang::Class* poi::common::usermodel::HyperlinkType::getClass0()
 {
     return class_();
 }

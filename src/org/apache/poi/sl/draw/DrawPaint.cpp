@@ -68,22 +68,16 @@ typedef ::SubArray< ::java::awt::Color, ::java::lang::ObjectArray, PaintArray, :
     } // awt
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace sl
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace sl
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::sl::usermodel::ColorStyle, ::java::lang::ObjectArray > ColorStyleArray;
-                } // usermodel
-            } // sl
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::sl::usermodel::ColorStyle, ::java::lang::ObjectArray > ColorStyleArray;
+        } // usermodel
+    } // sl
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -117,91 +111,91 @@ namespace
 
     template<typename F> finally_<F> finally(F f) { return finally_<F>(f); }
 }
-org::apache::poi::sl::draw::DrawPaint::DrawPaint(const ::default_init_tag&)
+poi::sl::draw::DrawPaint::DrawPaint(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::draw::DrawPaint::DrawPaint(::org::apache::poi::sl::usermodel::PlaceableShape* shape) 
+poi::sl::draw::DrawPaint::DrawPaint(::poi::sl::usermodel::PlaceableShape* shape) 
     : DrawPaint(*static_cast< ::default_init_tag* >(0))
 {
     ctor(shape);
 }
 
-org::apache::poi::util::POILogger*& org::apache::poi::sl::draw::DrawPaint::LOG()
+poi::util::POILogger*& poi::sl::draw::DrawPaint::LOG()
 {
     clinit();
     return LOG_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::sl::draw::DrawPaint::LOG_;
+poi::util::POILogger* poi::sl::draw::DrawPaint::LOG_;
 
-java::awt::Color*& org::apache::poi::sl::draw::DrawPaint::TRANSPARENT()
+java::awt::Color*& poi::sl::draw::DrawPaint::TRANSPARENT()
 {
     clinit();
     return TRANSPARENT_;
 }
-java::awt::Color* org::apache::poi::sl::draw::DrawPaint::TRANSPARENT_;
+java::awt::Color* poi::sl::draw::DrawPaint::TRANSPARENT_;
 
-void org::apache::poi::sl::draw::DrawPaint::ctor(::org::apache::poi::sl::usermodel::PlaceableShape* shape)
+void poi::sl::draw::DrawPaint::ctor(::poi::sl::usermodel::PlaceableShape* shape)
 {
     super::ctor();
     this->shape = shape;
 }
 
-org::apache::poi::sl::usermodel::PaintStyle_SolidPaint* org::apache::poi::sl::draw::DrawPaint::createSolidPaint(::java::awt::Color* color)
+poi::sl::usermodel::PaintStyle_SolidPaint* poi::sl::draw::DrawPaint::createSolidPaint(::java::awt::Color* color)
 {
     clinit();
-    return (color == nullptr) ? static_cast< ::org::apache::poi::sl::usermodel::PaintStyle_SolidPaint* >(nullptr) : static_cast< ::org::apache::poi::sl::usermodel::PaintStyle_SolidPaint* >(new DrawPaint_SimpleSolidPaint(color));
+    return (color == nullptr) ? static_cast< ::poi::sl::usermodel::PaintStyle_SolidPaint* >(nullptr) : static_cast< ::poi::sl::usermodel::PaintStyle_SolidPaint* >(new DrawPaint_SimpleSolidPaint(color));
 }
 
-org::apache::poi::sl::usermodel::PaintStyle_SolidPaint* org::apache::poi::sl::draw::DrawPaint::createSolidPaint(::org::apache::poi::sl::usermodel::ColorStyle* color)
+poi::sl::usermodel::PaintStyle_SolidPaint* poi::sl::draw::DrawPaint::createSolidPaint(::poi::sl::usermodel::ColorStyle* color)
 {
     clinit();
-    return (color == nullptr) ? static_cast< ::org::apache::poi::sl::usermodel::PaintStyle_SolidPaint* >(nullptr) : static_cast< ::org::apache::poi::sl::usermodel::PaintStyle_SolidPaint* >(new DrawPaint_SimpleSolidPaint(color));
+    return (color == nullptr) ? static_cast< ::poi::sl::usermodel::PaintStyle_SolidPaint* >(nullptr) : static_cast< ::poi::sl::usermodel::PaintStyle_SolidPaint* >(new DrawPaint_SimpleSolidPaint(color));
 }
 
-java::awt::Paint* org::apache::poi::sl::draw::DrawPaint::getPaint(::java::awt::Graphics2D* graphics, ::org::apache::poi::sl::usermodel::PaintStyle* paint)
+java::awt::Paint* poi::sl::draw::DrawPaint::getPaint(::java::awt::Graphics2D* graphics, ::poi::sl::usermodel::PaintStyle* paint)
 {
-    return getPaint(graphics, paint, ::org::apache::poi::sl::usermodel::PaintStyle_PaintModifier::NORM);
+    return getPaint(graphics, paint, ::poi::sl::usermodel::PaintStyle_PaintModifier::NORM);
 }
 
-java::awt::Paint* org::apache::poi::sl::draw::DrawPaint::getPaint(::java::awt::Graphics2D* graphics, ::org::apache::poi::sl::usermodel::PaintStyle* paint, ::org::apache::poi::sl::usermodel::PaintStyle_PaintModifier* modifier)
+java::awt::Paint* poi::sl::draw::DrawPaint::getPaint(::java::awt::Graphics2D* graphics, ::poi::sl::usermodel::PaintStyle* paint, ::poi::sl::usermodel::PaintStyle_PaintModifier* modifier)
 {
-    if(modifier == ::org::apache::poi::sl::usermodel::PaintStyle_PaintModifier::NONE) {
+    if(modifier == ::poi::sl::usermodel::PaintStyle_PaintModifier::NONE) {
         return nullptr;
     }
-    if(dynamic_cast< ::org::apache::poi::sl::usermodel::PaintStyle_SolidPaint* >(paint) != nullptr) {
-        return getSolidPaint(java_cast< ::org::apache::poi::sl::usermodel::PaintStyle_SolidPaint* >(paint), graphics, modifier);
-    } else if(dynamic_cast< ::org::apache::poi::sl::usermodel::PaintStyle_GradientPaint* >(paint) != nullptr) {
-        return getGradientPaint(java_cast< ::org::apache::poi::sl::usermodel::PaintStyle_GradientPaint* >(paint), graphics);
-    } else if(dynamic_cast< ::org::apache::poi::sl::usermodel::PaintStyle_TexturePaint* >(paint) != nullptr) {
-        return getTexturePaint(java_cast< ::org::apache::poi::sl::usermodel::PaintStyle_TexturePaint* >(paint), graphics);
+    if(dynamic_cast< ::poi::sl::usermodel::PaintStyle_SolidPaint* >(paint) != nullptr) {
+        return getSolidPaint(java_cast< ::poi::sl::usermodel::PaintStyle_SolidPaint* >(paint), graphics, modifier);
+    } else if(dynamic_cast< ::poi::sl::usermodel::PaintStyle_GradientPaint* >(paint) != nullptr) {
+        return getGradientPaint(java_cast< ::poi::sl::usermodel::PaintStyle_GradientPaint* >(paint), graphics);
+    } else if(dynamic_cast< ::poi::sl::usermodel::PaintStyle_TexturePaint* >(paint) != nullptr) {
+        return getTexturePaint(java_cast< ::poi::sl::usermodel::PaintStyle_TexturePaint* >(paint), graphics);
     }
     return nullptr;
 }
 
-java::awt::Paint* org::apache::poi::sl::draw::DrawPaint::getSolidPaint(::org::apache::poi::sl::usermodel::PaintStyle_SolidPaint* fill, ::java::awt::Graphics2D* graphics, ::org::apache::poi::sl::usermodel::PaintStyle_PaintModifier* modifier)
+java::awt::Paint* poi::sl::draw::DrawPaint::getSolidPaint(::poi::sl::usermodel::PaintStyle_SolidPaint* fill, ::java::awt::Graphics2D* graphics, ::poi::sl::usermodel::PaintStyle_PaintModifier* modifier)
 {
     auto const orig = npc(fill)->getSolidColor();
-    ::org::apache::poi::sl::usermodel::ColorStyle* cs = new DrawPaint_getSolidPaint_1(this, orig, modifier);
+    ::poi::sl::usermodel::ColorStyle* cs = new DrawPaint_getSolidPaint_1(this, orig, modifier);
     return applyColorTransform(cs);
 }
 
-java::awt::Paint* org::apache::poi::sl::draw::DrawPaint::getGradientPaint(::org::apache::poi::sl::usermodel::PaintStyle_GradientPaint* fill, ::java::awt::Graphics2D* graphics)
+java::awt::Paint* poi::sl::draw::DrawPaint::getGradientPaint(::poi::sl::usermodel::PaintStyle_GradientPaint* fill, ::java::awt::Graphics2D* graphics)
 {
     {
         auto v = npc(fill)->getGradientType();
-        if((v == ::org::apache::poi::sl::usermodel::PaintStyle_GradientPaint_GradientType::linear)) {
+        if((v == ::poi::sl::usermodel::PaintStyle_GradientPaint_GradientType::linear)) {
             return createLinearGradientPaint(fill, graphics);
         }
-        if((v == ::org::apache::poi::sl::usermodel::PaintStyle_GradientPaint_GradientType::circular)) {
+        if((v == ::poi::sl::usermodel::PaintStyle_GradientPaint_GradientType::circular)) {
             return createRadialGradientPaint(fill, graphics);
         }
-        if((v == ::org::apache::poi::sl::usermodel::PaintStyle_GradientPaint_GradientType::shape)) {
+        if((v == ::poi::sl::usermodel::PaintStyle_GradientPaint_GradientType::shape)) {
             return createPathGradientPaint(fill, graphics);
         }
-        if((((v != ::org::apache::poi::sl::usermodel::PaintStyle_GradientPaint_GradientType::linear) && (v != ::org::apache::poi::sl::usermodel::PaintStyle_GradientPaint_GradientType::circular) && (v != ::org::apache::poi::sl::usermodel::PaintStyle_GradientPaint_GradientType::shape)))) {
+        if((((v != ::poi::sl::usermodel::PaintStyle_GradientPaint_GradientType::linear) && (v != ::poi::sl::usermodel::PaintStyle_GradientPaint_GradientType::circular) && (v != ::poi::sl::usermodel::PaintStyle_GradientPaint_GradientType::shape)))) {
             throw new ::java::lang::UnsupportedOperationException(::java::lang::StringBuilder().append(u"gradient fill of type "_j)->append(static_cast< ::java::lang::Object* >(fill))
                 ->append(u" not supported."_j)->toString());
         }
@@ -210,7 +204,7 @@ end_switch0:;
 
 }
 
-java::awt::Paint* org::apache::poi::sl::draw::DrawPaint::getTexturePaint(::org::apache::poi::sl::usermodel::PaintStyle_TexturePaint* fill, ::java::awt::Graphics2D* graphics)
+java::awt::Paint* poi::sl::draw::DrawPaint::getTexturePaint(::poi::sl::usermodel::PaintStyle_TexturePaint* fill, ::java::awt::Graphics2D* graphics)
 {
     auto is = npc(fill)->getImageData();
     if(is == nullptr) {
@@ -229,7 +223,7 @@ java::awt::Paint* org::apache::poi::sl::draw::DrawPaint::getTexturePaint(::org::
         }
 
     } catch (::java::io::IOException* e) {
-        npc(LOG_)->log(::org::apache::poi::util::POILogger::ERROR, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"Can't load image data - using transparent color"_j), static_cast< ::java::lang::Object* >(e)}));
+        npc(LOG_)->log(::poi::util::POILogger::ERROR, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"Can't load image data - using transparent color"_j), static_cast< ::java::lang::Object* >(e)}));
         return nullptr;
     }
     auto alpha = npc(fill)->getAlpha();
@@ -244,14 +238,14 @@ java::awt::Paint* org::apache::poi::sl::draw::DrawPaint::getTexturePaint(::org::
         image = npc(renderer)->getImage();
     }
     if(image == nullptr) {
-        npc(LOG_)->log(::org::apache::poi::util::POILogger::ERROR, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"Can't load image data"_j)}));
+        npc(LOG_)->log(::poi::util::POILogger::ERROR, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"Can't load image data"_j)}));
         return nullptr;
     }
     ::java::awt::Paint* paint = new ::java::awt::TexturePaint(image, textAnchor);
     return paint;
 }
 
-java::awt::Color* org::apache::poi::sl::draw::DrawPaint::applyColorTransform(::org::apache::poi::sl::usermodel::ColorStyle* color)
+java::awt::Color* poi::sl::draw::DrawPaint::applyColorTransform(::poi::sl::usermodel::ColorStyle* color)
 {
     clinit();
     if(color == nullptr || npc(color)->getColor() == nullptr) {
@@ -269,7 +263,7 @@ java::awt::Color* org::apache::poi::sl::draw::DrawPaint::applyColorTransform(::o
     return result;
 }
 
-double org::apache::poi::sl::draw::DrawPaint::getAlpha(::java::awt::Color* c, ::org::apache::poi::sl::usermodel::ColorStyle* fc)
+double poi::sl::draw::DrawPaint::getAlpha(::java::awt::Color* c, ::poi::sl::usermodel::ColorStyle* fc)
 {
     clinit();
     auto alpha = npc(c)->getAlpha() / 255.0;
@@ -280,7 +274,7 @@ double org::apache::poi::sl::draw::DrawPaint::getAlpha(::java::awt::Color* c, ::
     return ::java::lang::Math::min(static_cast< double >(int32_t(1)), ::java::lang::Math::max(static_cast< double >(int32_t(0)), alpha));
 }
 
-void org::apache::poi::sl::draw::DrawPaint::applyHslModOff(::doubleArray* hsl, int32_t hslPart, int32_t mod, int32_t off)
+void poi::sl::draw::DrawPaint::applyHslModOff(::doubleArray* hsl, int32_t hslPart, int32_t mod, int32_t off)
 {
     clinit();
     if(mod == -int32_t(1)) {
@@ -296,7 +290,7 @@ void org::apache::poi::sl::draw::DrawPaint::applyHslModOff(::doubleArray* hsl, i
     }
 }
 
-void org::apache::poi::sl::draw::DrawPaint::applyShade(::doubleArray* hsl, ::org::apache::poi::sl::usermodel::ColorStyle* fc)
+void poi::sl::draw::DrawPaint::applyShade(::doubleArray* hsl, ::poi::sl::usermodel::ColorStyle* fc)
 {
     clinit();
     auto shade = npc(fc)->getShade();
@@ -307,7 +301,7 @@ void org::apache::poi::sl::draw::DrawPaint::applyShade(::doubleArray* hsl, ::org
     (*hsl)[int32_t(2)] *= 1.0 - shadePct;
 }
 
-void org::apache::poi::sl::draw::DrawPaint::applyTint(::doubleArray* hsl, ::org::apache::poi::sl::usermodel::ColorStyle* fc)
+void poi::sl::draw::DrawPaint::applyTint(::doubleArray* hsl, ::poi::sl::usermodel::ColorStyle* fc)
 {
     clinit();
     auto tint = npc(fc)->getTint();
@@ -318,13 +312,13 @@ void org::apache::poi::sl::draw::DrawPaint::applyTint(::doubleArray* hsl, ::org:
     (*hsl)[int32_t(2)] = (*hsl)[int32_t(2)] * (1.0 - tintPct) + (100.0 - 100.0 * (1.0 - tintPct));
 }
 
-java::awt::Paint* org::apache::poi::sl::draw::DrawPaint::createLinearGradientPaint(::org::apache::poi::sl::usermodel::PaintStyle_GradientPaint* fill, ::java::awt::Graphics2D* graphics)
+java::awt::Paint* poi::sl::draw::DrawPaint::createLinearGradientPaint(::poi::sl::usermodel::PaintStyle_GradientPaint* fill, ::java::awt::Graphics2D* graphics)
 {
     auto angle = npc(fill)->getGradientAngle();
     if(!npc(fill)->isRotatedWithShape()) {
         angle -= npc(shape)->getRotation();
     }
-    auto anchor = DrawShape::getAnchor(graphics, static_cast< ::org::apache::poi::sl::usermodel::PlaceableShape* >(shape));
+    auto anchor = DrawShape::getAnchor(graphics, static_cast< ::poi::sl::usermodel::PlaceableShape* >(shape));
     auto const h = npc(anchor)->getHeight();
     auto const w = npc(anchor)->getWidth();
     auto const x = npc(anchor)->getX();
@@ -347,9 +341,9 @@ java::awt::Paint* org::apache::poi::sl::draw::DrawPaint::createLinearGradientPai
     return new ::java::awt::LinearGradientPaint(p1, p2, fractions, colors);
 }
 
-java::awt::Paint* org::apache::poi::sl::draw::DrawPaint::createRadialGradientPaint(::org::apache::poi::sl::usermodel::PaintStyle_GradientPaint* fill, ::java::awt::Graphics2D* graphics)
+java::awt::Paint* poi::sl::draw::DrawPaint::createRadialGradientPaint(::poi::sl::usermodel::PaintStyle_GradientPaint* fill, ::java::awt::Graphics2D* graphics)
 {
-    auto anchor = DrawShape::getAnchor(graphics, static_cast< ::org::apache::poi::sl::usermodel::PlaceableShape* >(shape));
+    auto anchor = DrawShape::getAnchor(graphics, static_cast< ::poi::sl::usermodel::PlaceableShape* >(shape));
     ::java::awt::geom::Point2D* pCenter = new ::java::awt::geom::Point2D_Double(npc(anchor)->getX() + npc(anchor)->getWidth() / int32_t(2), npc(anchor)->getY() + npc(anchor)->getHeight() / int32_t(2));
     auto radius = static_cast< float >(::java::lang::Math::max(npc(anchor)->getWidth(), npc(anchor)->getHeight()));
     auto fractions = npc(fill)->getGradientFractions();
@@ -361,7 +355,7 @@ java::awt::Paint* org::apache::poi::sl::draw::DrawPaint::createRadialGradientPai
     return new ::java::awt::RadialGradientPaint(pCenter, radius, fractions, colors);
 }
 
-java::awt::Paint* org::apache::poi::sl::draw::DrawPaint::createPathGradientPaint(::org::apache::poi::sl::usermodel::PaintStyle_GradientPaint* fill, ::java::awt::Graphics2D* graphics)
+java::awt::Paint* poi::sl::draw::DrawPaint::createPathGradientPaint(::poi::sl::usermodel::PaintStyle_GradientPaint* fill, ::java::awt::Graphics2D* graphics)
 {
     auto fractions = npc(fill)->getGradientFractions();
     auto colors = new ::java::awt::ColorArray(npc(fractions)->length);
@@ -372,7 +366,7 @@ java::awt::Paint* org::apache::poi::sl::draw::DrawPaint::createPathGradientPaint
     return new PathGradientPaint(colors, fractions);
 }
 
-void org::apache::poi::sl::draw::DrawPaint::snapToAnchor(::java::awt::geom::Point2D* p, ::java::awt::geom::Rectangle2D* anchor)
+void poi::sl::draw::DrawPaint::snapToAnchor(::java::awt::geom::Point2D* p, ::java::awt::geom::Rectangle2D* anchor)
 {
     if(npc(p)->getX() < npc(anchor)->getX()) {
         npc(p)->setLocation(npc(anchor)->getX(), npc(p)->getY());
@@ -386,7 +380,7 @@ void org::apache::poi::sl::draw::DrawPaint::snapToAnchor(::java::awt::geom::Poin
     }
 }
 
-java::awt::Color* org::apache::poi::sl::draw::DrawPaint::HSL2RGB(double h, double s, double l, double alpha)
+java::awt::Color* poi::sl::draw::DrawPaint::HSL2RGB(double h, double s, double l, double alpha)
 {
     clinit();
     s = ::java::lang::Math::max(static_cast< double >(int32_t(0)), ::java::lang::Math::min(static_cast< double >(int32_t(100)), s));
@@ -410,7 +404,7 @@ java::awt::Color* org::apache::poi::sl::draw::DrawPaint::HSL2RGB(double h, doubl
     return new ::java::awt::Color(static_cast< float >(r), static_cast< float >(g), static_cast< float >(b), static_cast< float >(alpha));
 }
 
-double org::apache::poi::sl::draw::DrawPaint::HUE2RGB(double p, double q, double h)
+double poi::sl::draw::DrawPaint::HUE2RGB(double p, double q, double h)
 {
     clinit();
     if(h < 0.0) {
@@ -431,7 +425,7 @@ double org::apache::poi::sl::draw::DrawPaint::HUE2RGB(double p, double q, double
     return p;
 }
 
-doubleArray* org::apache::poi::sl::draw::DrawPaint::RGB2HSL(::java::awt::Color* color)
+doubleArray* poi::sl::draw::DrawPaint::RGB2HSL(::java::awt::Color* color)
 {
     clinit();
     auto rgb = npc(color)->getRGBColorComponents(nullptr);
@@ -466,7 +460,7 @@ doubleArray* org::apache::poi::sl::draw::DrawPaint::RGB2HSL(::java::awt::Color* 
     });
 }
 
-int32_t org::apache::poi::sl::draw::DrawPaint::srgb2lin(float sRGB)
+int32_t poi::sl::draw::DrawPaint::srgb2lin(float sRGB)
 {
     clinit();
     if(sRGB <= 0.04045) {
@@ -476,7 +470,7 @@ int32_t org::apache::poi::sl::draw::DrawPaint::srgb2lin(float sRGB)
     }
 }
 
-float org::apache::poi::sl::draw::DrawPaint::lin2srgb(int32_t linRGB)
+float poi::sl::draw::DrawPaint::lin2srgb(int32_t linRGB)
 {
     clinit();
     if(linRGB <= 0.0031308) {
@@ -488,20 +482,20 @@ float org::apache::poi::sl::draw::DrawPaint::lin2srgb(int32_t linRGB)
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::draw::DrawPaint::class_()
+java::lang::Class* poi::sl::draw::DrawPaint::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.draw.DrawPaint", 32);
     return c;
 }
 
-void org::apache::poi::sl::draw::DrawPaint::clinit()
+void poi::sl::draw::DrawPaint::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        LOG_ = ::org::apache::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(DrawPaint::class_()));
+        LOG_ = ::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(DrawPaint::class_()));
         TRANSPARENT_ = new ::java::awt::Color(1.0f, 1.0f, 1.0f, 0.0f);
     }
 };
@@ -511,7 +505,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::sl::draw::DrawPaint::getClass0()
+java::lang::Class* poi::sl::draw::DrawPaint::getClass0()
 {
     return class_();
 }

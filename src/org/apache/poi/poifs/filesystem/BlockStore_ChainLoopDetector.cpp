@@ -15,20 +15,20 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::filesystem::BlockStore_ChainLoopDetector::BlockStore_ChainLoopDetector(BlockStore *BlockStore_this, const ::default_init_tag&)
+poi::poifs::filesystem::BlockStore_ChainLoopDetector::BlockStore_ChainLoopDetector(BlockStore *BlockStore_this, const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
     , BlockStore_this(BlockStore_this)
 {
     clinit();
 }
 
-org::apache::poi::poifs::filesystem::BlockStore_ChainLoopDetector::BlockStore_ChainLoopDetector(BlockStore *BlockStore_this, int64_t rawSize) 
+poi::poifs::filesystem::BlockStore_ChainLoopDetector::BlockStore_ChainLoopDetector(BlockStore *BlockStore_this, int64_t rawSize) 
     : BlockStore_ChainLoopDetector(BlockStore_this, *static_cast< ::default_init_tag* >(0))
 {
     ctor(rawSize);
 }
 
-void org::apache::poi::poifs::filesystem::BlockStore_ChainLoopDetector::ctor(int64_t rawSize)
+void poi::poifs::filesystem::BlockStore_ChainLoopDetector::ctor(int64_t rawSize)
 {
     super::ctor();
     auto blkSize = BlockStore_this->getBlockStoreBlockSize();
@@ -39,7 +39,7 @@ void org::apache::poi::poifs::filesystem::BlockStore_ChainLoopDetector::ctor(int
     used_blocks = new ::boolArray(numBlocks);
 }
 
-void org::apache::poi::poifs::filesystem::BlockStore_ChainLoopDetector::claim(int32_t offset)
+void poi::poifs::filesystem::BlockStore_ChainLoopDetector::claim(int32_t offset)
 {
     if(offset >= npc(used_blocks)->length) {
         return;
@@ -53,13 +53,13 @@ void org::apache::poi::poifs::filesystem::BlockStore_ChainLoopDetector::claim(in
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::filesystem::BlockStore_ChainLoopDetector::class_()
+java::lang::Class* poi::poifs::filesystem::BlockStore_ChainLoopDetector::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.filesystem.BlockStore.ChainLoopDetector", 60);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::filesystem::BlockStore_ChainLoopDetector::getClass0()
+java::lang::Class* poi::poifs::filesystem::BlockStore_ChainLoopDetector::getClass0()
 {
     return class_();
 }

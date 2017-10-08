@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hpsf::Array__ArrayDimension
+class poi::hpsf::Array__ArrayDimension
     : public virtual ::java::lang::Object
 {
 
@@ -21,7 +21,7 @@ private:
     int32_t _indexOffset {  };
 
 public: /* package */
-    virtual void read(::org::apache::poi::util::LittleEndianByteArrayInputStream* lei);
+    virtual void read(::poi::util::LittleEndianByteArrayInputStream* lei);
 
     // Generated
 

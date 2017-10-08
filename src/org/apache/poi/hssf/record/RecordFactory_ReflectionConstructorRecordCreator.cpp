@@ -35,25 +35,25 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::RecordFactory_ReflectionConstructorRecordCreator::RecordFactory_ReflectionConstructorRecordCreator(const ::default_init_tag&)
+poi::hssf::record::RecordFactory_ReflectionConstructorRecordCreator::RecordFactory_ReflectionConstructorRecordCreator(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::RecordFactory_ReflectionConstructorRecordCreator::RecordFactory_ReflectionConstructorRecordCreator(::java::lang::reflect::Constructor* c) 
+poi::hssf::record::RecordFactory_ReflectionConstructorRecordCreator::RecordFactory_ReflectionConstructorRecordCreator(::java::lang::reflect::Constructor* c) 
     : RecordFactory_ReflectionConstructorRecordCreator(*static_cast< ::default_init_tag* >(0))
 {
     ctor(c);
 }
 
-void org::apache::poi::hssf::record::RecordFactory_ReflectionConstructorRecordCreator::ctor(::java::lang::reflect::Constructor* c)
+void poi::hssf::record::RecordFactory_ReflectionConstructorRecordCreator::ctor(::java::lang::reflect::Constructor* c)
 {
     super::ctor();
     _c = c;
 }
 
-org::apache::poi::hssf::record::Record* org::apache::poi::hssf::record::RecordFactory_ReflectionConstructorRecordCreator::create(RecordInputStream* in)
+poi::hssf::record::Record* poi::hssf::record::RecordFactory_ReflectionConstructorRecordCreator::create(RecordInputStream* in)
 {
     auto args = (new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(in)}));
     try {
@@ -66,30 +66,30 @@ org::apache::poi::hssf::record::Record* org::apache::poi::hssf::record::RecordFa
         throw new ::java::lang::RuntimeException(static_cast< ::java::lang::Throwable* >(e));
     } catch (::java::lang::reflect::InvocationTargetException* e) {
         auto t = npc(e)->getTargetException();
-        if(dynamic_cast< ::org::apache::poi::util::RecordFormatException* >(t) != nullptr) {
-            throw java_cast< ::org::apache::poi::util::RecordFormatException* >(t);
-        } else if(dynamic_cast< ::org::apache::poi::EncryptedDocumentException* >(t) != nullptr) {
-            throw java_cast< ::org::apache::poi::EncryptedDocumentException* >(t);
+        if(dynamic_cast< ::poi::util::RecordFormatException* >(t) != nullptr) {
+            throw java_cast< ::poi::util::RecordFormatException* >(t);
+        } else if(dynamic_cast< ::poi::EncryptedDocumentException* >(t) != nullptr) {
+            throw java_cast< ::poi::EncryptedDocumentException* >(t);
         } else {
-            throw new ::org::apache::poi::util::RecordFormatException(u"Unable to construct record instance"_j, t);
+            throw new ::poi::util::RecordFormatException(u"Unable to construct record instance"_j, t);
         }
     }
 }
 
-java::lang::Class* org::apache::poi::hssf::record::RecordFactory_ReflectionConstructorRecordCreator::getRecordClass()
+java::lang::Class* poi::hssf::record::RecordFactory_ReflectionConstructorRecordCreator::getRecordClass()
 {
     return npc(_c)->getDeclaringClass();
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::RecordFactory_ReflectionConstructorRecordCreator::class_()
+java::lang::Class* poi::hssf::record::RecordFactory_ReflectionConstructorRecordCreator::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.RecordFactory.ReflectionConstructorRecordCreator", 75);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::record::RecordFactory_ReflectionConstructorRecordCreator::getClass0()
+java::lang::Class* poi::hssf::record::RecordFactory_ReflectionConstructorRecordCreator::getClass0()
 {
     return class_();
 }

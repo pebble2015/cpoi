@@ -14,29 +14,23 @@
 #include <java/lang/Cloneable.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::CFRuleBase
+class poi::hssf::record::CFRuleBase
     : public StandardRecord
     , public virtual ::java::lang::Cloneable
 {
@@ -45,7 +39,7 @@ public:
     typedef StandardRecord super;
 
 private:
-    static ::org::apache::poi::util::POILogger* logger_;
+    static ::poi::util::POILogger* logger_;
     int8_t condition_type {  };
 
 public:
@@ -89,50 +83,50 @@ public:
     static constexpr int32_t TEMPLATE_BELOW_OR_EQUAL_TO_AVERAGE { int32_t(30) };
 
 private:
-    static ::org::apache::poi::util::BitField* modificationBits_;
-    static ::org::apache::poi::util::BitField* alignHor_;
-    static ::org::apache::poi::util::BitField* alignVer_;
-    static ::org::apache::poi::util::BitField* alignWrap_;
-    static ::org::apache::poi::util::BitField* alignRot_;
-    static ::org::apache::poi::util::BitField* alignJustLast_;
-    static ::org::apache::poi::util::BitField* alignIndent_;
-    static ::org::apache::poi::util::BitField* alignShrin_;
-    static ::org::apache::poi::util::BitField* mergeCell_;
-    static ::org::apache::poi::util::BitField* protLocked_;
-    static ::org::apache::poi::util::BitField* protHidden_;
-    static ::org::apache::poi::util::BitField* bordLeft_;
-    static ::org::apache::poi::util::BitField* bordRight_;
-    static ::org::apache::poi::util::BitField* bordTop_;
-    static ::org::apache::poi::util::BitField* bordBot_;
-    static ::org::apache::poi::util::BitField* bordTlBr_;
-    static ::org::apache::poi::util::BitField* bordBlTr_;
-    static ::org::apache::poi::util::BitField* pattStyle_;
-    static ::org::apache::poi::util::BitField* pattCol_;
-    static ::org::apache::poi::util::BitField* pattBgCol_;
-    static ::org::apache::poi::util::BitField* notUsed2_;
-    static ::org::apache::poi::util::BitField* undocumented_;
-    static ::org::apache::poi::util::BitField* fmtBlockBits_;
-    static ::org::apache::poi::util::BitField* font_;
-    static ::org::apache::poi::util::BitField* align_;
-    static ::org::apache::poi::util::BitField* bord_;
-    static ::org::apache::poi::util::BitField* patt_;
-    static ::org::apache::poi::util::BitField* prot_;
-    static ::org::apache::poi::util::BitField* alignTextDir_;
-    static ::org::apache::poi::util::BitField* bf(int32_t i);
+    static ::poi::util::BitField* modificationBits_;
+    static ::poi::util::BitField* alignHor_;
+    static ::poi::util::BitField* alignVer_;
+    static ::poi::util::BitField* alignWrap_;
+    static ::poi::util::BitField* alignRot_;
+    static ::poi::util::BitField* alignJustLast_;
+    static ::poi::util::BitField* alignIndent_;
+    static ::poi::util::BitField* alignShrin_;
+    static ::poi::util::BitField* mergeCell_;
+    static ::poi::util::BitField* protLocked_;
+    static ::poi::util::BitField* protHidden_;
+    static ::poi::util::BitField* bordLeft_;
+    static ::poi::util::BitField* bordRight_;
+    static ::poi::util::BitField* bordTop_;
+    static ::poi::util::BitField* bordBot_;
+    static ::poi::util::BitField* bordTlBr_;
+    static ::poi::util::BitField* bordBlTr_;
+    static ::poi::util::BitField* pattStyle_;
+    static ::poi::util::BitField* pattCol_;
+    static ::poi::util::BitField* pattBgCol_;
+    static ::poi::util::BitField* notUsed2_;
+    static ::poi::util::BitField* undocumented_;
+    static ::poi::util::BitField* fmtBlockBits_;
+    static ::poi::util::BitField* font_;
+    static ::poi::util::BitField* align_;
+    static ::poi::util::BitField* bord_;
+    static ::poi::util::BitField* patt_;
+    static ::poi::util::BitField* prot_;
+    static ::poi::util::BitField* alignTextDir_;
+    static ::poi::util::BitField* bf(int32_t i);
 
 public: /* protected */
     int32_t formatting_options {  };
     int16_t formatting_not_used {  };
-    ::org::apache::poi::hssf::record::cf::FontFormatting* _fontFormatting {  };
-    ::org::apache::poi::hssf::record::cf::BorderFormatting* _borderFormatting {  };
-    ::org::apache::poi::hssf::record::cf::PatternFormatting* _patternFormatting {  };
+    ::poi::hssf::record::cf::FontFormatting* _fontFormatting {  };
+    ::poi::hssf::record::cf::BorderFormatting* _borderFormatting {  };
+    ::poi::hssf::record::cf::PatternFormatting* _patternFormatting {  };
 
 private:
-    ::org::apache::poi::ss::formula::Formula* formula1 {  };
-    ::org::apache::poi::ss::formula::Formula* formula2 {  };
+    ::poi::ss::formula::Formula* formula1 {  };
+    ::poi::ss::formula::Formula* formula2 {  };
 protected:
     void ctor(int8_t conditionType, int8_t comparisonOperation);
-    void ctor(int8_t conditionType, int8_t comparisonOperation, ::org::apache::poi::ss::formula::ptg::PtgArray* formula1, ::org::apache::poi::ss::formula::ptg::PtgArray* formula2);
+    void ctor(int8_t conditionType, int8_t comparisonOperation, ::poi::ss::formula::ptg::PtgArray* formula1, ::poi::ss::formula::ptg::PtgArray* formula2);
     void ctor();
 
 public: /* protected */
@@ -148,23 +142,23 @@ public:
     virtual void setComparisonOperation(int8_t operation);
     virtual int8_t getComparisonOperation();
     virtual bool containsFontFormattingBlock();
-    virtual void setFontFormatting(::org::apache::poi::hssf::record::cf::FontFormatting* fontFormatting);
-    virtual ::org::apache::poi::hssf::record::cf::FontFormatting* getFontFormatting();
+    virtual void setFontFormatting(::poi::hssf::record::cf::FontFormatting* fontFormatting);
+    virtual ::poi::hssf::record::cf::FontFormatting* getFontFormatting();
     virtual bool containsAlignFormattingBlock();
     virtual void setAlignFormattingUnchanged();
     virtual bool containsBorderFormattingBlock();
-    virtual void setBorderFormatting(::org::apache::poi::hssf::record::cf::BorderFormatting* borderFormatting);
-    virtual ::org::apache::poi::hssf::record::cf::BorderFormatting* getBorderFormatting();
+    virtual void setBorderFormatting(::poi::hssf::record::cf::BorderFormatting* borderFormatting);
+    virtual ::poi::hssf::record::cf::BorderFormatting* getBorderFormatting();
     virtual bool containsPatternFormattingBlock();
-    virtual void setPatternFormatting(::org::apache::poi::hssf::record::cf::PatternFormatting* patternFormatting);
-    virtual ::org::apache::poi::hssf::record::cf::PatternFormatting* getPatternFormatting();
+    virtual void setPatternFormatting(::poi::hssf::record::cf::PatternFormatting* patternFormatting);
+    virtual ::poi::hssf::record::cf::PatternFormatting* getPatternFormatting();
     virtual bool containsProtectionFormattingBlock();
     virtual void setProtectionFormattingUnchanged();
     virtual int32_t getOptions();
 
 private:
-    bool isModified(::org::apache::poi::util::BitField* field);
-    void setModified(bool modified, ::org::apache::poi::util::BitField* field);
+    bool isModified(::poi::util::BitField* field);
+    void setModified(bool modified, ::poi::util::BitField* field);
 
 public:
     virtual bool isLeftBorderModified();
@@ -187,32 +181,32 @@ public:
     virtual void setPatternBackgroundColorModified(bool modified);
 
 private:
-    bool getOptionFlag(::org::apache::poi::util::BitField* field);
-    void setOptionFlag(bool flag, ::org::apache::poi::util::BitField* field);
+    bool getOptionFlag(::poi::util::BitField* field);
+    void setOptionFlag(bool flag, ::poi::util::BitField* field);
 
 public: /* protected */
     virtual int32_t getFormattingBlockSize();
-    virtual void serializeFormattingBlock(::org::apache::poi::util::LittleEndianOutput* out);
+    virtual void serializeFormattingBlock(::poi::util::LittleEndianOutput* out);
 
 public:
-    virtual ::org::apache::poi::ss::formula::ptg::PtgArray* getParsedExpression1();
-    virtual void setParsedExpression1(::org::apache::poi::ss::formula::ptg::PtgArray* ptgs);
+    virtual ::poi::ss::formula::ptg::PtgArray* getParsedExpression1();
+    virtual void setParsedExpression1(::poi::ss::formula::ptg::PtgArray* ptgs);
 
 public: /* protected */
-    virtual ::org::apache::poi::ss::formula::Formula* getFormula1();
-    virtual void setFormula1(::org::apache::poi::ss::formula::Formula* formula1);
+    virtual ::poi::ss::formula::Formula* getFormula1();
+    virtual void setFormula1(::poi::ss::formula::Formula* formula1);
 
 public:
-    virtual ::org::apache::poi::ss::formula::ptg::PtgArray* getParsedExpression2();
-    virtual void setParsedExpression2(::org::apache::poi::ss::formula::ptg::PtgArray* ptgs);
+    virtual ::poi::ss::formula::ptg::PtgArray* getParsedExpression2();
+    virtual void setParsedExpression2(::poi::ss::formula::ptg::PtgArray* ptgs);
 
 public: /* protected */
-    virtual ::org::apache::poi::ss::formula::Formula* getFormula2();
-    virtual void setFormula2(::org::apache::poi::ss::formula::Formula* formula2);
-    static int32_t getFormulaSize(::org::apache::poi::ss::formula::Formula* formula);
+    virtual ::poi::ss::formula::Formula* getFormula2();
+    virtual void setFormula2(::poi::ss::formula::Formula* formula2);
+    static int32_t getFormulaSize(::poi::ss::formula::Formula* formula);
 
 public:
-    static ::org::apache::poi::ss::formula::ptg::PtgArray* parseFormula(::java::lang::String* formula, ::org::apache::poi::hssf::usermodel::HSSFSheet* sheet);
+    static ::poi::ss::formula::ptg::PtgArray* parseFormula(::java::lang::String* formula, ::poi::hssf::usermodel::HSSFSheet* sheet);
 
 public: /* protected */
     virtual void copyTo(CFRuleBase* rec);
@@ -224,7 +218,7 @@ public:
 
 public: /* protected */
     CFRuleBase(int8_t conditionType, int8_t comparisonOperation);
-    CFRuleBase(int8_t conditionType, int8_t comparisonOperation, ::org::apache::poi::ss::formula::ptg::PtgArray* formula1, ::org::apache::poi::ss::formula::ptg::PtgArray* formula2);
+    CFRuleBase(int8_t conditionType, int8_t comparisonOperation, ::poi::ss::formula::ptg::PtgArray* formula1, ::poi::ss::formula::ptg::PtgArray* formula2);
     CFRuleBase();
 protected:
     CFRuleBase(const ::default_init_tag&);
@@ -235,38 +229,38 @@ public:
     static void clinit();
 
 public: /* protected */
-    static ::org::apache::poi::util::POILogger*& logger();
+    static ::poi::util::POILogger*& logger();
 
 public: /* package */
-    static ::org::apache::poi::util::BitField*& modificationBits();
-    static ::org::apache::poi::util::BitField*& alignHor();
-    static ::org::apache::poi::util::BitField*& alignVer();
-    static ::org::apache::poi::util::BitField*& alignWrap();
-    static ::org::apache::poi::util::BitField*& alignRot();
-    static ::org::apache::poi::util::BitField*& alignJustLast();
-    static ::org::apache::poi::util::BitField*& alignIndent();
-    static ::org::apache::poi::util::BitField*& alignShrin();
-    static ::org::apache::poi::util::BitField*& mergeCell();
-    static ::org::apache::poi::util::BitField*& protLocked();
-    static ::org::apache::poi::util::BitField*& protHidden();
-    static ::org::apache::poi::util::BitField*& bordLeft();
-    static ::org::apache::poi::util::BitField*& bordRight();
-    static ::org::apache::poi::util::BitField*& bordTop();
-    static ::org::apache::poi::util::BitField*& bordBot();
-    static ::org::apache::poi::util::BitField*& bordTlBr();
-    static ::org::apache::poi::util::BitField*& bordBlTr();
-    static ::org::apache::poi::util::BitField*& pattStyle();
-    static ::org::apache::poi::util::BitField*& pattCol();
-    static ::org::apache::poi::util::BitField*& pattBgCol();
-    static ::org::apache::poi::util::BitField*& notUsed2();
-    static ::org::apache::poi::util::BitField*& undocumented();
-    static ::org::apache::poi::util::BitField*& fmtBlockBits();
-    static ::org::apache::poi::util::BitField*& font();
-    static ::org::apache::poi::util::BitField*& align();
-    static ::org::apache::poi::util::BitField*& bord();
-    static ::org::apache::poi::util::BitField*& patt();
-    static ::org::apache::poi::util::BitField*& prot();
-    static ::org::apache::poi::util::BitField*& alignTextDir();
+    static ::poi::util::BitField*& modificationBits();
+    static ::poi::util::BitField*& alignHor();
+    static ::poi::util::BitField*& alignVer();
+    static ::poi::util::BitField*& alignWrap();
+    static ::poi::util::BitField*& alignRot();
+    static ::poi::util::BitField*& alignJustLast();
+    static ::poi::util::BitField*& alignIndent();
+    static ::poi::util::BitField*& alignShrin();
+    static ::poi::util::BitField*& mergeCell();
+    static ::poi::util::BitField*& protLocked();
+    static ::poi::util::BitField*& protHidden();
+    static ::poi::util::BitField*& bordLeft();
+    static ::poi::util::BitField*& bordRight();
+    static ::poi::util::BitField*& bordTop();
+    static ::poi::util::BitField*& bordBot();
+    static ::poi::util::BitField*& bordTlBr();
+    static ::poi::util::BitField*& bordBlTr();
+    static ::poi::util::BitField*& pattStyle();
+    static ::poi::util::BitField*& pattCol();
+    static ::poi::util::BitField*& pattBgCol();
+    static ::poi::util::BitField*& notUsed2();
+    static ::poi::util::BitField*& undocumented();
+    static ::poi::util::BitField*& fmtBlockBits();
+    static ::poi::util::BitField*& font();
+    static ::poi::util::BitField*& align();
+    static ::poi::util::BitField*& bord();
+    static ::poi::util::BitField*& patt();
+    static ::poi::util::BitField*& prot();
+    static ::poi::util::BitField*& alignTextDir();
 
 private:
     virtual ::java::lang::Class* getClass0();

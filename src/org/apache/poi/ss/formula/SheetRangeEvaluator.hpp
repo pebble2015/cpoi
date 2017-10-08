@@ -10,26 +10,20 @@
 #include <org/apache/poi/ss/formula/SheetRange.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
-            {
-                namespace formula
-                {
-typedef ::SubArray< ::org::apache::poi::ss::formula::SheetRefEvaluator, ::java::lang::ObjectArray > SheetRefEvaluatorArray;
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::SheetRefEvaluator, ::java::lang::ObjectArray > SheetRefEvaluatorArray;
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::SheetRangeEvaluator final
+class poi::ss::formula::SheetRangeEvaluator final
     : public virtual ::java::lang::Object
     , public SheetRange
 {
@@ -51,7 +45,7 @@ public:
     int32_t getLastSheetIndex() override;
     ::java::lang::String* getSheetName(int32_t sheetIndex);
     ::java::lang::String* getSheetNameRange();
-    ::org::apache::poi::ss::formula::eval::ValueEval* getEvalForCell(int32_t sheetIndex, int32_t rowIndex, int32_t columnIndex);
+    ::poi::ss::formula::eval::ValueEval* getEvalForCell(int32_t sheetIndex, int32_t rowIndex, int32_t columnIndex);
 
     // Generated
     SheetRangeEvaluator(int32_t firstSheetIndex, int32_t lastSheetIndex, SheetRefEvaluatorArray* sheetEvaluators);

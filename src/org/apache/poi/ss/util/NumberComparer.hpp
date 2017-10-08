@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::util::NumberComparer final
+class poi::ss::util::NumberComparer final
     : public ::java::lang::Object
 {
 

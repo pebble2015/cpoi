@@ -8,32 +8,32 @@
 #include <java/lang/String.hpp>
 #include <java/lang/StringBuilder.hpp>
 
-org::apache::poi::ss::format::SimpleFraction::SimpleFraction(const ::default_init_tag&)
+poi::ss::format::SimpleFraction::SimpleFraction(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::format::SimpleFraction::SimpleFraction(int32_t numerator, int32_t denominator) 
+poi::ss::format::SimpleFraction::SimpleFraction(int32_t numerator, int32_t denominator) 
     : SimpleFraction(*static_cast< ::default_init_tag* >(0))
 {
     ctor(numerator,denominator);
 }
 
-org::apache::poi::ss::format::SimpleFraction* org::apache::poi::ss::format::SimpleFraction::buildFractionExactDenominator(double val, int32_t exactDenom)
+poi::ss::format::SimpleFraction* poi::ss::format::SimpleFraction::buildFractionExactDenominator(double val, int32_t exactDenom)
 {
     clinit();
     auto num = static_cast< int32_t >(::java::lang::Math::round(val * exactDenom));
     return new SimpleFraction(num, exactDenom);
 }
 
-org::apache::poi::ss::format::SimpleFraction* org::apache::poi::ss::format::SimpleFraction::buildFractionMaxDenominator(double value, int32_t maxDenominator)
+poi::ss::format::SimpleFraction* poi::ss::format::SimpleFraction::buildFractionMaxDenominator(double value, int32_t maxDenominator)
 {
     clinit();
     return buildFractionMaxDenominator(value, 0, maxDenominator, 100);
 }
 
-org::apache::poi::ss::format::SimpleFraction* org::apache::poi::ss::format::SimpleFraction::buildFractionMaxDenominator(double value, double epsilon, int32_t maxDenominator, int32_t maxIterations)
+poi::ss::format::SimpleFraction* poi::ss::format::SimpleFraction::buildFractionMaxDenominator(double value, double epsilon, int32_t maxDenominator, int32_t maxIterations)
 {
     clinit();
     int64_t overflow = ::java::lang::Integer::MAX_VALUE;
@@ -100,32 +100,32 @@ org::apache::poi::ss::format::SimpleFraction* org::apache::poi::ss::format::Simp
     }
 }
 
-void org::apache::poi::ss::format::SimpleFraction::ctor(int32_t numerator, int32_t denominator)
+void poi::ss::format::SimpleFraction::ctor(int32_t numerator, int32_t denominator)
 {
     super::ctor();
     this->numerator = numerator;
     this->denominator = denominator;
 }
 
-int32_t org::apache::poi::ss::format::SimpleFraction::getDenominator()
+int32_t poi::ss::format::SimpleFraction::getDenominator()
 {
     return denominator;
 }
 
-int32_t org::apache::poi::ss::format::SimpleFraction::getNumerator()
+int32_t poi::ss::format::SimpleFraction::getNumerator()
 {
     return numerator;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::format::SimpleFraction::class_()
+java::lang::Class* poi::ss::format::SimpleFraction::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.format.SimpleFraction", 39);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::format::SimpleFraction::getClass0()
+java::lang::Class* poi::ss::format::SimpleFraction::getClass0()
 {
     return class_();
 }

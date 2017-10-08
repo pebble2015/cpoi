@@ -12,22 +12,16 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
-            {
-                namespace formula
-                {
-typedef ::SubArray< ::org::apache::poi::ss::formula::SheetRefEvaluator, ::java::lang::ObjectArray > SheetRefEvaluatorArray;
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::SheetRefEvaluator, ::java::lang::ObjectArray > SheetRefEvaluatorArray;
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -36,25 +30,25 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::SheetRangeEvaluator::SheetRangeEvaluator(const ::default_init_tag&)
+poi::ss::formula::SheetRangeEvaluator::SheetRangeEvaluator(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::SheetRangeEvaluator::SheetRangeEvaluator(int32_t firstSheetIndex, int32_t lastSheetIndex, SheetRefEvaluatorArray* sheetEvaluators) 
+poi::ss::formula::SheetRangeEvaluator::SheetRangeEvaluator(int32_t firstSheetIndex, int32_t lastSheetIndex, SheetRefEvaluatorArray* sheetEvaluators) 
     : SheetRangeEvaluator(*static_cast< ::default_init_tag* >(0))
 {
     ctor(firstSheetIndex,lastSheetIndex,sheetEvaluators);
 }
 
-org::apache::poi::ss::formula::SheetRangeEvaluator::SheetRangeEvaluator(int32_t onlySheetIndex, SheetRefEvaluator* sheetEvaluator) 
+poi::ss::formula::SheetRangeEvaluator::SheetRangeEvaluator(int32_t onlySheetIndex, SheetRefEvaluator* sheetEvaluator) 
     : SheetRangeEvaluator(*static_cast< ::default_init_tag* >(0))
 {
     ctor(onlySheetIndex,sheetEvaluator);
 }
 
-void org::apache::poi::ss::formula::SheetRangeEvaluator::ctor(int32_t firstSheetIndex, int32_t lastSheetIndex, SheetRefEvaluatorArray* sheetEvaluators)
+void poi::ss::formula::SheetRangeEvaluator::ctor(int32_t firstSheetIndex, int32_t lastSheetIndex, SheetRefEvaluatorArray* sheetEvaluators)
 {
     super::ctor();
     if(firstSheetIndex < 0) {
@@ -72,12 +66,12 @@ void org::apache::poi::ss::formula::SheetRangeEvaluator::ctor(int32_t firstSheet
     _sheetEvaluators = npc(sheetEvaluators)->clone();
 }
 
-void org::apache::poi::ss::formula::SheetRangeEvaluator::ctor(int32_t onlySheetIndex, SheetRefEvaluator* sheetEvaluator)
+void poi::ss::formula::SheetRangeEvaluator::ctor(int32_t onlySheetIndex, SheetRefEvaluator* sheetEvaluator)
 {
     ctor(onlySheetIndex, onlySheetIndex, new SheetRefEvaluatorArray({sheetEvaluator}));
 }
 
-org::apache::poi::ss::formula::SheetRefEvaluator* org::apache::poi::ss::formula::SheetRangeEvaluator::getSheetEvaluator(int32_t sheetIndex)
+poi::ss::formula::SheetRefEvaluator* poi::ss::formula::SheetRangeEvaluator::getSheetEvaluator(int32_t sheetIndex)
 {
     if(sheetIndex < _firstSheetIndex || sheetIndex > _lastSheetIndex) {
         throw new ::java::lang::IllegalArgumentException(::java::lang::StringBuilder().append(u"Invalid SheetIndex: "_j)->append(sheetIndex)
@@ -89,22 +83,22 @@ org::apache::poi::ss::formula::SheetRefEvaluator* org::apache::poi::ss::formula:
     return (*_sheetEvaluators)[sheetIndex - _firstSheetIndex];
 }
 
-int32_t org::apache::poi::ss::formula::SheetRangeEvaluator::getFirstSheetIndex()
+int32_t poi::ss::formula::SheetRangeEvaluator::getFirstSheetIndex()
 {
     return _firstSheetIndex;
 }
 
-int32_t org::apache::poi::ss::formula::SheetRangeEvaluator::getLastSheetIndex()
+int32_t poi::ss::formula::SheetRangeEvaluator::getLastSheetIndex()
 {
     return _lastSheetIndex;
 }
 
-java::lang::String* org::apache::poi::ss::formula::SheetRangeEvaluator::getSheetName(int32_t sheetIndex)
+java::lang::String* poi::ss::formula::SheetRangeEvaluator::getSheetName(int32_t sheetIndex)
 {
     return npc(getSheetEvaluator(sheetIndex))->getSheetName();
 }
 
-java::lang::String* org::apache::poi::ss::formula::SheetRangeEvaluator::getSheetNameRange()
+java::lang::String* poi::ss::formula::SheetRangeEvaluator::getSheetNameRange()
 {
     auto sb = new ::java::lang::StringBuilder();
     npc(sb)->append(getSheetName(_firstSheetIndex));
@@ -115,20 +109,20 @@ java::lang::String* org::apache::poi::ss::formula::SheetRangeEvaluator::getSheet
     return npc(sb)->toString();
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::SheetRangeEvaluator::getEvalForCell(int32_t sheetIndex, int32_t rowIndex, int32_t columnIndex)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::SheetRangeEvaluator::getEvalForCell(int32_t sheetIndex, int32_t rowIndex, int32_t columnIndex)
 {
     return npc(getSheetEvaluator(sheetIndex))->getEvalForCell(rowIndex, columnIndex);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::SheetRangeEvaluator::class_()
+java::lang::Class* poi::ss::formula::SheetRangeEvaluator::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.SheetRangeEvaluator", 45);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::SheetRangeEvaluator::getClass0()
+java::lang::Class* poi::ss::formula::SheetRangeEvaluator::getClass0()
 {
     return class_();
 }

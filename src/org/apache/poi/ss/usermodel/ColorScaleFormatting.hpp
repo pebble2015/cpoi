@@ -8,25 +8,19 @@
 #include <java/lang/Object.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace ss
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::Color, ::java::lang::ObjectArray > ColorArray;
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::ConditionalFormattingThreshold, ::java::lang::ObjectArray > ConditionalFormattingThresholdArray;
-                } // usermodel
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::usermodel::Color, ::java::lang::ObjectArray > ColorArray;
+typedef ::SubArray< ::poi::ss::usermodel::ConditionalFormattingThreshold, ::java::lang::ObjectArray > ConditionalFormattingThresholdArray;
+        } // usermodel
+    } // ss
+} // poi
 
-struct org::apache::poi::ss::usermodel::ColorScaleFormatting
+struct poi::ss::usermodel::ColorScaleFormatting
     : public virtual ::java::lang::Object
 {
     virtual int32_t getNumControlPoints() = 0;

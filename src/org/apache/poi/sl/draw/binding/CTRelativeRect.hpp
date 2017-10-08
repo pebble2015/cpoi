@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::binding::CTRelativeRect
+class poi::sl::draw::binding::CTRelativeRect
     : public virtual ::java::lang::Object
 {
 

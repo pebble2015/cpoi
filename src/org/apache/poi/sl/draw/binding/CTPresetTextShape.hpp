@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::binding::CTPresetTextShape
+class poi::sl::draw::binding::CTPresetTextShape
     : public virtual ::java::lang::Object
 {
 

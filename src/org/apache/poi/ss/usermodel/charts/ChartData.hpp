@@ -8,30 +8,24 @@
 #include <java/lang/Object.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace ss
+            namespace charts
             {
-                namespace usermodel
-                {
-                    namespace charts
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::charts::ChartAxis, ::java::lang::ObjectArray > ChartAxisArray;
-                    } // charts
-                } // usermodel
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::usermodel::charts::ChartAxis, ::java::lang::ObjectArray > ChartAxisArray;
+            } // charts
+        } // usermodel
+    } // ss
+} // poi
 
-struct org::apache::poi::ss::usermodel::charts::ChartData
+struct poi::ss::usermodel::charts::ChartData
     : public virtual ::java::lang::Object
 {
-    virtual void fillChart(::org::apache::poi::ss::usermodel::Chart* chart, ChartAxisArray*/*...*/ axis) = 0;
+    virtual void fillChart(::poi::ss::usermodel::Chart* chart, ChartAxisArray*/*...*/ axis) = 0;
 
     // Generated
     static ::java::lang::Class *class_();

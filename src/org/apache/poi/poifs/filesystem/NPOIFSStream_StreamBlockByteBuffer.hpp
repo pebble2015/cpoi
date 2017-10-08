@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::filesystem::NPOIFSStream_StreamBlockByteBuffer
+class poi::poifs::filesystem::NPOIFSStream_StreamBlockByteBuffer
     : public ::java::io::OutputStream
 {
 

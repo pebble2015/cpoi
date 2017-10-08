@@ -60,93 +60,93 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::util::CellReference::CellReference(const ::default_init_tag&)
+poi::ss::util::CellReference::CellReference(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::util::CellReference::CellReference(::java::lang::String* cellRef) 
+poi::ss::util::CellReference::CellReference(::java::lang::String* cellRef) 
     : CellReference(*static_cast< ::default_init_tag* >(0))
 {
     ctor(cellRef);
 }
 
-org::apache::poi::ss::util::CellReference::CellReference(int32_t pRow, int32_t pCol) 
+poi::ss::util::CellReference::CellReference(int32_t pRow, int32_t pCol) 
     : CellReference(*static_cast< ::default_init_tag* >(0))
 {
     ctor(pRow,pCol);
 }
 
-org::apache::poi::ss::util::CellReference::CellReference(int32_t pRow, int16_t pCol) 
+poi::ss::util::CellReference::CellReference(int32_t pRow, int16_t pCol) 
     : CellReference(*static_cast< ::default_init_tag* >(0))
 {
     ctor(pRow,pCol);
 }
 
-org::apache::poi::ss::util::CellReference::CellReference(::org::apache::poi::ss::usermodel::Cell* cell) 
+poi::ss::util::CellReference::CellReference(::poi::ss::usermodel::Cell* cell) 
     : CellReference(*static_cast< ::default_init_tag* >(0))
 {
     ctor(cell);
 }
 
-org::apache::poi::ss::util::CellReference::CellReference(int32_t pRow, int32_t pCol, bool pAbsRow, bool pAbsCol) 
+poi::ss::util::CellReference::CellReference(int32_t pRow, int32_t pCol, bool pAbsRow, bool pAbsCol) 
     : CellReference(*static_cast< ::default_init_tag* >(0))
 {
     ctor(pRow,pCol,pAbsRow,pAbsCol);
 }
 
-org::apache::poi::ss::util::CellReference::CellReference(::java::lang::String* pSheetName, int32_t pRow, int32_t pCol, bool pAbsRow, bool pAbsCol) 
+poi::ss::util::CellReference::CellReference(::java::lang::String* pSheetName, int32_t pRow, int32_t pCol, bool pAbsRow, bool pAbsCol) 
     : CellReference(*static_cast< ::default_init_tag* >(0))
 {
     ctor(pSheetName,pRow,pCol,pAbsRow,pAbsCol);
 }
 
-constexpr char16_t org::apache::poi::ss::util::CellReference::ABSOLUTE_REFERENCE_MARKER;
+constexpr char16_t poi::ss::util::CellReference::ABSOLUTE_REFERENCE_MARKER;
 
-constexpr char16_t org::apache::poi::ss::util::CellReference::SHEET_NAME_DELIMITER;
+constexpr char16_t poi::ss::util::CellReference::SHEET_NAME_DELIMITER;
 
-constexpr char16_t org::apache::poi::ss::util::CellReference::SPECIAL_NAME_DELIMITER;
+constexpr char16_t poi::ss::util::CellReference::SPECIAL_NAME_DELIMITER;
 
-java::util::regex::Pattern*& org::apache::poi::ss::util::CellReference::CELL_REF_PATTERN()
+java::util::regex::Pattern*& poi::ss::util::CellReference::CELL_REF_PATTERN()
 {
     clinit();
     return CELL_REF_PATTERN_;
 }
-java::util::regex::Pattern* org::apache::poi::ss::util::CellReference::CELL_REF_PATTERN_;
+java::util::regex::Pattern* poi::ss::util::CellReference::CELL_REF_PATTERN_;
 
-java::util::regex::Pattern*& org::apache::poi::ss::util::CellReference::STRICTLY_CELL_REF_PATTERN()
+java::util::regex::Pattern*& poi::ss::util::CellReference::STRICTLY_CELL_REF_PATTERN()
 {
     clinit();
     return STRICTLY_CELL_REF_PATTERN_;
 }
-java::util::regex::Pattern* org::apache::poi::ss::util::CellReference::STRICTLY_CELL_REF_PATTERN_;
+java::util::regex::Pattern* poi::ss::util::CellReference::STRICTLY_CELL_REF_PATTERN_;
 
-java::util::regex::Pattern*& org::apache::poi::ss::util::CellReference::COLUMN_REF_PATTERN()
+java::util::regex::Pattern*& poi::ss::util::CellReference::COLUMN_REF_PATTERN()
 {
     clinit();
     return COLUMN_REF_PATTERN_;
 }
-java::util::regex::Pattern* org::apache::poi::ss::util::CellReference::COLUMN_REF_PATTERN_;
+java::util::regex::Pattern* poi::ss::util::CellReference::COLUMN_REF_PATTERN_;
 
-java::util::regex::Pattern*& org::apache::poi::ss::util::CellReference::ROW_REF_PATTERN()
+java::util::regex::Pattern*& poi::ss::util::CellReference::ROW_REF_PATTERN()
 {
     clinit();
     return ROW_REF_PATTERN_;
 }
-java::util::regex::Pattern* org::apache::poi::ss::util::CellReference::ROW_REF_PATTERN_;
+java::util::regex::Pattern* poi::ss::util::CellReference::ROW_REF_PATTERN_;
 
-java::util::regex::Pattern*& org::apache::poi::ss::util::CellReference::NAMED_RANGE_NAME_PATTERN()
+java::util::regex::Pattern*& poi::ss::util::CellReference::NAMED_RANGE_NAME_PATTERN()
 {
     clinit();
     return NAMED_RANGE_NAME_PATTERN_;
 }
-java::util::regex::Pattern* org::apache::poi::ss::util::CellReference::NAMED_RANGE_NAME_PATTERN_;
+java::util::regex::Pattern* poi::ss::util::CellReference::NAMED_RANGE_NAME_PATTERN_;
 
-void org::apache::poi::ss::util::CellReference::ctor(::java::lang::String* cellRef)
+void poi::ss::util::CellReference::ctor(::java::lang::String* cellRef)
 {
     super::ctor();
-    if(::org::apache::poi::util::StringUtil::endsWithIgnoreCase(cellRef, u"#REF!"_j)) {
+    if(::poi::util::StringUtil::endsWithIgnoreCase(cellRef, u"#REF!"_j)) {
         throw new ::java::lang::IllegalArgumentException(::java::lang::StringBuilder().append(u"Cell reference invalid: "_j)->append(cellRef)->toString());
     }
     auto parts = separateRefParts(cellRef);
@@ -173,27 +173,27 @@ void org::apache::poi::ss::util::CellReference::ctor(::java::lang::String* cellR
     }
 }
 
-void org::apache::poi::ss::util::CellReference::ctor(int32_t pRow, int32_t pCol)
+void poi::ss::util::CellReference::ctor(int32_t pRow, int32_t pCol)
 {
     ctor(pRow, pCol, false, false);
 }
 
-void org::apache::poi::ss::util::CellReference::ctor(int32_t pRow, int16_t pCol)
+void poi::ss::util::CellReference::ctor(int32_t pRow, int16_t pCol)
 {
     ctor(pRow, pCol & int32_t(65535), false, false);
 }
 
-void org::apache::poi::ss::util::CellReference::ctor(::org::apache::poi::ss::usermodel::Cell* cell)
+void poi::ss::util::CellReference::ctor(::poi::ss::usermodel::Cell* cell)
 {
     ctor(npc(cell)->getRowIndex(), npc(cell)->getColumnIndex(), false, false);
 }
 
-void org::apache::poi::ss::util::CellReference::ctor(int32_t pRow, int32_t pCol, bool pAbsRow, bool pAbsCol)
+void poi::ss::util::CellReference::ctor(int32_t pRow, int32_t pCol, bool pAbsRow, bool pAbsCol)
 {
     ctor(nullptr, pRow, pCol, pAbsRow, pAbsCol);
 }
 
-void org::apache::poi::ss::util::CellReference::ctor(::java::lang::String* pSheetName, int32_t pRow, int32_t pCol, bool pAbsRow, bool pAbsCol)
+void poi::ss::util::CellReference::ctor(::java::lang::String* pSheetName, int32_t pRow, int32_t pCol, bool pAbsRow, bool pAbsCol)
 {
     super::ctor();
     if(pRow < -int32_t(1)) {
@@ -209,38 +209,38 @@ void org::apache::poi::ss::util::CellReference::ctor(::java::lang::String* pShee
     _isColAbs = pAbsCol;
 }
 
-int32_t org::apache::poi::ss::util::CellReference::getRow()
+int32_t poi::ss::util::CellReference::getRow()
 {
     return _rowIndex;
 }
 
-int16_t org::apache::poi::ss::util::CellReference::getCol()
+int16_t poi::ss::util::CellReference::getCol()
 {
     return static_cast< int16_t >(_colIndex);
 }
 
-bool org::apache::poi::ss::util::CellReference::isRowAbsolute()
+bool poi::ss::util::CellReference::isRowAbsolute()
 {
     return _isRowAbs;
 }
 
-bool org::apache::poi::ss::util::CellReference::isColAbsolute()
+bool poi::ss::util::CellReference::isColAbsolute()
 {
     return _isColAbs;
 }
 
-java::lang::String* org::apache::poi::ss::util::CellReference::getSheetName()
+java::lang::String* poi::ss::util::CellReference::getSheetName()
 {
     return _sheetName;
 }
 
-bool org::apache::poi::ss::util::CellReference::isPartAbsolute(::java::lang::String* part)
+bool poi::ss::util::CellReference::isPartAbsolute(::java::lang::String* part)
 {
     clinit();
     return npc(part)->charAt(int32_t(0)) == ABSOLUTE_REFERENCE_MARKER;
 }
 
-int32_t org::apache::poi::ss::util::CellReference::convertColStringToIndex(::java::lang::String* ref)
+int32_t poi::ss::util::CellReference::convertColStringToIndex(::java::lang::String* ref)
 {
     clinit();
     auto retval = int32_t(0);
@@ -259,7 +259,7 @@ int32_t org::apache::poi::ss::util::CellReference::convertColStringToIndex(::jav
     return retval - int32_t(1);
 }
 
-org::apache::poi::ss::util::CellReference_NameType* org::apache::poi::ss::util::CellReference::classifyCellReference(::java::lang::String* str, ::org::apache::poi::ss::SpreadsheetVersion* ssVersion)
+poi::ss::util::CellReference_NameType* poi::ss::util::CellReference::classifyCellReference(::java::lang::String* str, ::poi::ss::SpreadsheetVersion* ssVersion)
 {
     clinit();
     auto len = npc(str)->length();
@@ -297,7 +297,7 @@ org::apache::poi::ss::util::CellReference_NameType* org::apache::poi::ss::util::
     return CellReference_NameType::NAMED_RANGE;
 }
 
-org::apache::poi::ss::util::CellReference_NameType* org::apache::poi::ss::util::CellReference::validateNamedRangeName(::java::lang::String* str, ::org::apache::poi::ss::SpreadsheetVersion* ssVersion)
+poi::ss::util::CellReference_NameType* poi::ss::util::CellReference::validateNamedRangeName(::java::lang::String* str, ::poi::ss::SpreadsheetVersion* ssVersion)
 {
     clinit();
     auto colMatcher = npc(COLUMN_REF_PATTERN_)->matcher(str);
@@ -320,7 +320,7 @@ org::apache::poi::ss::util::CellReference_NameType* org::apache::poi::ss::util::
     return CellReference_NameType::NAMED_RANGE;
 }
 
-bool org::apache::poi::ss::util::CellReference::cellReferenceIsWithinRange(::java::lang::String* colStr, ::java::lang::String* rowStr, ::org::apache::poi::ss::SpreadsheetVersion* ssVersion)
+bool poi::ss::util::CellReference::cellReferenceIsWithinRange(::java::lang::String* colStr, ::java::lang::String* rowStr, ::poi::ss::SpreadsheetVersion* ssVersion)
 {
     clinit();
     if(!isColumnWithinRange(colStr, ssVersion)) {
@@ -329,7 +329,7 @@ bool org::apache::poi::ss::util::CellReference::cellReferenceIsWithinRange(::jav
     return isRowWithinRange(rowStr, ssVersion);
 }
 
-bool org::apache::poi::ss::util::CellReference::isColumnWithinRange(::java::lang::String* colStr, ::org::apache::poi::ss::SpreadsheetVersion* ssVersion)
+bool poi::ss::util::CellReference::isColumnWithinRange(::java::lang::String* colStr, ::poi::ss::SpreadsheetVersion* ssVersion)
 {
     clinit();
     auto lastCol = npc(ssVersion)->getLastColumnName();
@@ -347,20 +347,20 @@ bool org::apache::poi::ss::util::CellReference::isColumnWithinRange(::java::lang
     return true;
 }
 
-bool org::apache::poi::ss::util::CellReference::isRowWithinRange(::java::lang::String* rowStr, ::org::apache::poi::ss::SpreadsheetVersion* ssVersion)
+bool poi::ss::util::CellReference::isRowWithinRange(::java::lang::String* rowStr, ::poi::ss::SpreadsheetVersion* ssVersion)
 {
     clinit();
     auto const rowNum = ::java::lang::Integer::parseInt(rowStr) - int32_t(1);
     return isRowWithinRange(rowNum, ssVersion);
 }
 
-bool org::apache::poi::ss::util::CellReference::isRowWithinRange(int32_t rowNum, ::org::apache::poi::ss::SpreadsheetVersion* ssVersion)
+bool poi::ss::util::CellReference::isRowWithinRange(int32_t rowNum, ::poi::ss::SpreadsheetVersion* ssVersion)
 {
     clinit();
     return 0 <= rowNum && rowNum <= npc(ssVersion)->getLastRowIndex();
 }
 
-org::apache::poi::ss::util::CellReference_CellRefParts* org::apache::poi::ss::util::CellReference::separateRefParts(::java::lang::String* reference)
+poi::ss::util::CellReference_CellRefParts* poi::ss::util::CellReference::separateRefParts(::java::lang::String* reference)
 {
     clinit();
     auto plingPos = npc(reference)->lastIndexOf(static_cast< int32_t >(SHEET_NAME_DELIMITER));
@@ -376,7 +376,7 @@ org::apache::poi::ss::util::CellReference_CellRefParts* org::apache::poi::ss::ut
     return cellRefParts;
 }
 
-java::lang::String* org::apache::poi::ss::util::CellReference::parseSheetName(::java::lang::String* reference, int32_t indexOfSheetNameDelimiter)
+java::lang::String* poi::ss::util::CellReference::parseSheetName(::java::lang::String* reference, int32_t indexOfSheetNameDelimiter)
 {
     clinit();
     if(indexOfSheetNameDelimiter < 0) {
@@ -414,7 +414,7 @@ java::lang::String* org::apache::poi::ss::util::CellReference::parseSheetName(::
     return npc(sb)->toString();
 }
 
-java::lang::String* org::apache::poi::ss::util::CellReference::convertNumToColString(int32_t col)
+java::lang::String* poi::ss::util::CellReference::convertNumToColString(int32_t col)
 {
     clinit();
     auto excelColNum = col + int32_t(1);
@@ -432,18 +432,18 @@ java::lang::String* org::apache::poi::ss::util::CellReference::convertNumToColSt
     return npc(colRef)->toString();
 }
 
-java::lang::String* org::apache::poi::ss::util::CellReference::formatAsString()
+java::lang::String* poi::ss::util::CellReference::formatAsString()
 {
     auto sb = new ::java::lang::StringBuffer(int32_t(32));
     if(_sheetName != nullptr) {
-        ::org::apache::poi::ss::formula::SheetNameFormatter::appendFormat(sb, _sheetName);
+        ::poi::ss::formula::SheetNameFormatter::appendFormat(sb, _sheetName);
         npc(sb)->append(SHEET_NAME_DELIMITER);
     }
     appendCellReference(sb);
     return npc(sb)->toString();
 }
 
-java::lang::String* org::apache::poi::ss::util::CellReference::toString()
+java::lang::String* poi::ss::util::CellReference::toString()
 {
     auto sb = new ::java::lang::StringBuffer(int32_t(64));
     npc(npc(sb)->append(npc(getClass())->getName()))->append(u" ["_j);
@@ -452,7 +452,7 @@ java::lang::String* org::apache::poi::ss::util::CellReference::toString()
     return npc(sb)->toString();
 }
 
-java::lang::StringArray* org::apache::poi::ss::util::CellReference::getCellRefParts()
+java::lang::StringArray* poi::ss::util::CellReference::getCellRefParts()
 {
     return new ::java::lang::StringArray({
         _sheetName
@@ -461,7 +461,7 @@ java::lang::StringArray* org::apache::poi::ss::util::CellReference::getCellRefPa
     });
 }
 
-void org::apache::poi::ss::util::CellReference::appendCellReference(::java::lang::StringBuffer* sb)
+void poi::ss::util::CellReference::appendCellReference(::java::lang::StringBuffer* sb)
 {
     if(_colIndex != -int32_t(1)) {
         if(_isColAbs) {
@@ -477,7 +477,7 @@ void org::apache::poi::ss::util::CellReference::appendCellReference(::java::lang
     }
 }
 
-bool org::apache::poi::ss::util::CellReference::equals(::java::lang::Object* o)
+bool poi::ss::util::CellReference::equals(::java::lang::Object* o)
 {
     if(static_cast< ::java::lang::Object* >(this) == o) {
         return true;
@@ -489,7 +489,7 @@ bool org::apache::poi::ss::util::CellReference::equals(::java::lang::Object* o)
     return _rowIndex == npc(cr)->_rowIndex && _colIndex == npc(cr)->_colIndex && _isRowAbs == npc(cr)->_isRowAbs && _isColAbs == npc(cr)->_isColAbs && ((_sheetName == nullptr) ? (npc(cr)->_sheetName == nullptr) : npc(_sheetName)->equals(static_cast< ::java::lang::Object* >(npc(cr)->_sheetName)));
 }
 
-int32_t org::apache::poi::ss::util::CellReference::hashCode()
+int32_t poi::ss::util::CellReference::hashCode()
 {
     auto result = int32_t(17);
     result = int32_t(31) * result + _rowIndex;
@@ -502,13 +502,13 @@ int32_t org::apache::poi::ss::util::CellReference::hashCode()
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::util::CellReference::class_()
+java::lang::Class* poi::ss::util::CellReference::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.util.CellReference", 36);
     return c;
 }
 
-void org::apache::poi::ss::util::CellReference::clinit()
+void poi::ss::util::CellReference::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -528,7 +528,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::util::CellReference::getClass0()
+java::lang::Class* poi::ss::util::CellReference::getClass0()
 {
     return class_();
 }

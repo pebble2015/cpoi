@@ -5,7 +5,7 @@
 #include <org/apache/poi/sl/usermodel/fwd-POI.hpp>
 #include <org/apache/poi/sl/usermodel/Shape.hpp>
 
-struct org::apache::poi::sl::usermodel::Background
+struct poi::sl::usermodel::Background
     : public virtual Shape
 {
     virtual FillStyle* getFillStyle() = 0;

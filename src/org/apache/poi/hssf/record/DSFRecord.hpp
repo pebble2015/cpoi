@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::DSFRecord final
+class poi::hssf::record::DSFRecord final
     : public StandardRecord
 {
 
@@ -19,7 +19,7 @@ public:
     static constexpr int16_t sid { int16_t(353) };
 
 private:
-    static ::org::apache::poi::util::BitField* biff5BookStreamFlag_;
+    static ::poi::util::BitField* biff5BookStreamFlag_;
     int32_t _options {  };
 protected:
     void ctor(int32_t options);
@@ -29,7 +29,7 @@ protected:
 public:
     bool isBiff5BookStreamPresent();
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;
@@ -56,6 +56,6 @@ public:
     ::int8_tArray* serialize();
 
 private:
-    static ::org::apache::poi::util::BitField*& biff5BookStreamFlag();
+    static ::poi::util::BitField*& biff5BookStreamFlag();
     virtual ::java::lang::Class* getClass0();
 };

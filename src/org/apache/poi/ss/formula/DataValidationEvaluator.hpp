@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::DataValidationEvaluator
+class poi::ss::formula::DataValidationEvaluator
     : public virtual ::java::lang::Object
 {
 
@@ -20,10 +20,10 @@ public:
 
 private:
     ::java::util::Map* validations {  };
-    ::org::apache::poi::ss::usermodel::Workbook* workbook {  };
+    ::poi::ss::usermodel::Workbook* workbook {  };
     WorkbookEvaluator* workbookEvaluator {  };
 protected:
-    void ctor(::org::apache::poi::ss::usermodel::Workbook* wb, WorkbookEvaluatorProvider* provider);
+    void ctor(::poi::ss::usermodel::Workbook* wb, WorkbookEvaluatorProvider* provider);
 
 public: /* protected */
     virtual WorkbookEvaluator* getWorkbookEvaluator();
@@ -32,22 +32,22 @@ public:
     virtual void clearAllCachedValues();
 
 private:
-    ::java::util::List* getValidations(::org::apache::poi::ss::usermodel::Sheet* sheet);
+    ::java::util::List* getValidations(::poi::ss::usermodel::Sheet* sheet);
 
 public:
-    virtual ::org::apache::poi::ss::usermodel::DataValidation* getValidationForCell(::org::apache::poi::ss::util::CellReference* cell);
-    virtual DataValidationEvaluator_DataValidationContext* getValidationContextForCell(::org::apache::poi::ss::util::CellReference* cell);
-    virtual ::java::util::List* getValidationValuesForCell(::org::apache::poi::ss::util::CellReference* cell);
+    virtual ::poi::ss::usermodel::DataValidation* getValidationForCell(::poi::ss::util::CellReference* cell);
+    virtual DataValidationEvaluator_DataValidationContext* getValidationContextForCell(::poi::ss::util::CellReference* cell);
+    virtual ::java::util::List* getValidationValuesForCell(::poi::ss::util::CellReference* cell);
 
 public: /* protected */
     static ::java::util::List* getValidationValuesForConstraint(DataValidationEvaluator_DataValidationContext* context);
 
 public:
-    virtual bool isValidCell(::org::apache::poi::ss::util::CellReference* cellRef);
-    static bool isType(::org::apache::poi::ss::usermodel::Cell* cell, ::org::apache::poi::ss::usermodel::CellType* type);
+    virtual bool isValidCell(::poi::ss::util::CellReference* cellRef);
+    static bool isType(::poi::ss::usermodel::Cell* cell, ::poi::ss::usermodel::CellType* type);
 
     // Generated
-    DataValidationEvaluator(::org::apache::poi::ss::usermodel::Workbook* wb, WorkbookEvaluatorProvider* provider);
+    DataValidationEvaluator(::poi::ss::usermodel::Workbook* wb, WorkbookEvaluatorProvider* provider);
 protected:
     DataValidationEvaluator(const ::default_init_tag&);
 

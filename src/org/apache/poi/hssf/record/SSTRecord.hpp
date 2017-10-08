@@ -13,16 +13,16 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::SSTRecord final
-    : public ::org::apache::poi::hssf::record::cont::ContinuableRecord
+class poi::hssf::record::SSTRecord final
+    : public ::poi::hssf::record::cont::ContinuableRecord
 {
 
 public:
-    typedef ::org::apache::poi::hssf::record::cont::ContinuableRecord super;
+    typedef ::poi::hssf::record::cont::ContinuableRecord super;
     static constexpr int16_t sid { int16_t(252) };
 
 private:
-    static ::org::apache::poi::hssf::record::common::UnicodeString* EMPTY_STRING_;
+    static ::poi::hssf::record::common::UnicodeString* EMPTY_STRING_;
 
 public: /* package */
     static constexpr int32_t STD_RECORD_OVERHEAD { int32_t(4) };
@@ -32,7 +32,7 @@ public: /* package */
 private:
     int32_t field_1_num_strings {  };
     int32_t field_2_num_unique_strings {  };
-    ::org::apache::poi::util::IntMapper* field_3_strings {  };
+    ::poi::util::IntMapper* field_3_strings {  };
     SSTDeserializer* deserializer {  };
 
 public: /* package */
@@ -42,10 +42,10 @@ protected:
     void ctor();
 
 public:
-    int32_t addString(::org::apache::poi::hssf::record::common::UnicodeString* string);
+    int32_t addString(::poi::hssf::record::common::UnicodeString* string);
     int32_t getNumStrings();
     int32_t getNumUniqueStrings();
-    ::org::apache::poi::hssf::record::common::UnicodeString* getString(int32_t id);
+    ::poi::hssf::record::common::UnicodeString* getString(int32_t id);
     ::java::lang::String* toString() override;
     int16_t getSid() override;
 protected:
@@ -56,7 +56,7 @@ public: /* package */
     int32_t countStrings();
 
 public: /* protected */
-    void serialize(::org::apache::poi::hssf::record::cont::ContinuableRecordOutput* out) override;
+    void serialize(::poi::hssf::record::cont::ContinuableRecordOutput* out) override;
 
 public: /* package */
     SSTDeserializer* getDeserializer();
@@ -79,6 +79,6 @@ public:
     ::int8_tArray* serialize();
 
 private:
-    static ::org::apache::poi::hssf::record::common::UnicodeString*& EMPTY_STRING();
+    static ::poi::hssf::record::common::UnicodeString*& EMPTY_STRING();
     virtual ::java::lang::Class* getClass0();
 };

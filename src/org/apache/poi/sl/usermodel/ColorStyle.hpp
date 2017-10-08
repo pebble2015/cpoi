@@ -7,7 +7,7 @@
 #include <org/apache/poi/sl/usermodel/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::sl::usermodel::ColorStyle
+struct poi::sl::usermodel::ColorStyle
     : public virtual ::java::lang::Object
 {
     virtual ::java::awt::Color* getColor() = 0;

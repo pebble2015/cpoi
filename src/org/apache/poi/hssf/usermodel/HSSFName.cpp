@@ -24,25 +24,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -51,30 +45,30 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::usermodel::HSSFName::HSSFName(const ::default_init_tag&)
+poi::hssf::usermodel::HSSFName::HSSFName(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::usermodel::HSSFName::HSSFName(HSSFWorkbook* book, ::org::apache::poi::hssf::record::NameRecord* name) 
+poi::hssf::usermodel::HSSFName::HSSFName(HSSFWorkbook* book, ::poi::hssf::record::NameRecord* name) 
     : HSSFName(*static_cast< ::default_init_tag* >(0))
 {
     ctor(book,name);
 }
 
-org::apache::poi::hssf::usermodel::HSSFName::HSSFName(HSSFWorkbook* book, ::org::apache::poi::hssf::record::NameRecord* name, ::org::apache::poi::hssf::record::NameCommentRecord* comment) 
+poi::hssf::usermodel::HSSFName::HSSFName(HSSFWorkbook* book, ::poi::hssf::record::NameRecord* name, ::poi::hssf::record::NameCommentRecord* comment) 
     : HSSFName(*static_cast< ::default_init_tag* >(0))
 {
     ctor(book,name,comment);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFName::ctor(HSSFWorkbook* book, ::org::apache::poi::hssf::record::NameRecord* name)
+void poi::hssf::usermodel::HSSFName::ctor(HSSFWorkbook* book, ::poi::hssf::record::NameRecord* name)
 {
     ctor(book, name, nullptr);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFName::ctor(HSSFWorkbook* book, ::org::apache::poi::hssf::record::NameRecord* name, ::org::apache::poi::hssf::record::NameCommentRecord* comment)
+void poi::hssf::usermodel::HSSFName::ctor(HSSFWorkbook* book, ::poi::hssf::record::NameRecord* name, ::poi::hssf::record::NameCommentRecord* comment)
 {
     super::ctor();
     _book = book;
@@ -82,18 +76,18 @@ void org::apache::poi::hssf::usermodel::HSSFName::ctor(HSSFWorkbook* book, ::org
     _commentRec = comment;
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HSSFName::getSheetName()
+java::lang::String* poi::hssf::usermodel::HSSFName::getSheetName()
 {
     auto indexToExternSheet = npc(_definedNameRec)->getExternSheetNumber();
     return npc(npc(_book)->getWorkbook())->findSheetFirstNameFromExternSheet(indexToExternSheet);
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HSSFName::getNameName()
+java::lang::String* poi::hssf::usermodel::HSSFName::getNameName()
 {
     return npc(_definedNameRec)->getNameText();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFName::setNameName(::java::lang::String* nameName)
+void poi::hssf::usermodel::HSSFName::setNameName(::java::lang::String* nameName)
 {
     validateName(nameName);
     auto wb = npc(_book)->getWorkbook();
@@ -118,7 +112,7 @@ void org::apache::poi::hssf::usermodel::HSSFName::setNameName(::java::lang::Stri
     }
 }
 
-void org::apache::poi::hssf::usermodel::HSSFName::validateName(::java::lang::String* name)
+void poi::hssf::usermodel::HSSFName::validateName(::java::lang::String* name)
 {
     clinit();
     if(npc(name)->length() == 0) {
@@ -150,7 +144,7 @@ void org::apache::poi::hssf::usermodel::HSSFName::validateName(::java::lang::Str
     if(npc(name)->matches(u"[A-Za-z]+\\d+"_j)) {
         auto col = npc(name)->replaceAll(u"\\d"_j, u""_j);
         auto row = npc(name)->replaceAll(u"[A-Za-z]"_j, u""_j);
-        if(::org::apache::poi::ss::util::CellReference::cellReferenceIsWithinRange(col, row, ::org::apache::poi::ss::SpreadsheetVersion::EXCEL97)) {
+        if(::poi::ss::util::CellReference::cellReferenceIsWithinRange(col, row, ::poi::ss::SpreadsheetVersion::EXCEL97)) {
             throw new ::java::lang::IllegalArgumentException(::java::lang::StringBuilder().append(u"Invalid name: '"_j)->append(name)
                 ->append(u"': cannot be $A$1-style cell reference"_j)->toString());
         }
@@ -161,13 +155,13 @@ void org::apache::poi::hssf::usermodel::HSSFName::validateName(::java::lang::Str
     }
 }
 
-void org::apache::poi::hssf::usermodel::HSSFName::setRefersToFormula(::java::lang::String* formulaText)
+void poi::hssf::usermodel::HSSFName::setRefersToFormula(::java::lang::String* formulaText)
 {
-    auto ptgs = ::org::apache::poi::hssf::model::HSSFFormulaParser::parse(formulaText, _book, ::org::apache::poi::ss::formula::FormulaType::NAMEDRANGE, getSheetIndex());
+    auto ptgs = ::poi::hssf::model::HSSFFormulaParser::parse(formulaText, _book, ::poi::ss::formula::FormulaType::NAMEDRANGE, getSheetIndex());
     npc(_definedNameRec)->setNameDefinition(ptgs);
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HSSFName::getRefersToFormula()
+java::lang::String* poi::hssf::usermodel::HSSFName::getRefersToFormula()
 {
     if(npc(_definedNameRec)->isFunctionName()) {
         throw new ::java::lang::IllegalStateException(u"Only applicable to named ranges"_j);
@@ -176,26 +170,26 @@ java::lang::String* org::apache::poi::hssf::usermodel::HSSFName::getRefersToForm
     if(npc(ptgs)->length < 1) {
         return nullptr;
     }
-    return ::org::apache::poi::hssf::model::HSSFFormulaParser::toFormulaString(_book, ptgs);
+    return ::poi::hssf::model::HSSFFormulaParser::toFormulaString(_book, ptgs);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFName::setNameDefinition(::org::apache::poi::ss::formula::ptg::PtgArray* ptgs)
+void poi::hssf::usermodel::HSSFName::setNameDefinition(::poi::ss::formula::ptg::PtgArray* ptgs)
 {
     npc(_definedNameRec)->setNameDefinition(ptgs);
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFName::isDeleted()
+bool poi::hssf::usermodel::HSSFName::isDeleted()
 {
     auto ptgs = npc(_definedNameRec)->getNameDefinition();
-    return ::org::apache::poi::ss::formula::ptg::Ptg::doesFormulaReferToDeletedCell(ptgs);
+    return ::poi::ss::formula::ptg::Ptg::doesFormulaReferToDeletedCell(ptgs);
 }
 
-bool org::apache::poi::hssf::usermodel::HSSFName::isFunctionName()
+bool poi::hssf::usermodel::HSSFName::isFunctionName()
 {
     return npc(_definedNameRec)->isFunctionName();
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HSSFName::toString()
+java::lang::String* poi::hssf::usermodel::HSSFName::toString()
 {
     auto sb = new ::java::lang::StringBuffer(int32_t(64));
     npc(npc(sb)->append(npc(getClass())->getName()))->append(u" ["_j);
@@ -204,7 +198,7 @@ java::lang::String* org::apache::poi::hssf::usermodel::HSSFName::toString()
     return npc(sb)->toString();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFName::setSheetIndex(int32_t index)
+void poi::hssf::usermodel::HSSFName::setSheetIndex(int32_t index)
 {
     auto lastSheetIx = npc(_book)->getNumberOfSheets() - int32_t(1);
     if(index < -int32_t(1) || index > lastSheetIx) {
@@ -216,12 +210,12 @@ void org::apache::poi::hssf::usermodel::HSSFName::setSheetIndex(int32_t index)
     npc(_definedNameRec)->setSheetNumber(index + int32_t(1));
 }
 
-int32_t org::apache::poi::hssf::usermodel::HSSFName::getSheetIndex()
+int32_t poi::hssf::usermodel::HSSFName::getSheetIndex()
 {
     return npc(_definedNameRec)->getSheetNumber() - int32_t(1);
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HSSFName::getComment()
+java::lang::String* poi::hssf::usermodel::HSSFName::getComment()
 {
     if(_commentRec != nullptr) {
         if(npc(_commentRec)->getCommentText() != nullptr && npc(npc(_commentRec)->getCommentText())->length() > 0) {
@@ -231,7 +225,7 @@ java::lang::String* org::apache::poi::hssf::usermodel::HSSFName::getComment()
     return npc(_definedNameRec)->getDescriptionText();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFName::setComment(::java::lang::String* comment)
+void poi::hssf::usermodel::HSSFName::setComment(::java::lang::String* comment)
 {
     npc(_definedNameRec)->setDescriptionText(comment);
     if(_commentRec != nullptr) {
@@ -239,20 +233,20 @@ void org::apache::poi::hssf::usermodel::HSSFName::setComment(::java::lang::Strin
     }
 }
 
-void org::apache::poi::hssf::usermodel::HSSFName::setFunction(bool value)
+void poi::hssf::usermodel::HSSFName::setFunction(bool value)
 {
     npc(_definedNameRec)->setFunction(value);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFName::class_()
+java::lang::Class* poi::hssf::usermodel::HSSFName::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.usermodel.HSSFName", 38);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFName::getClass0()
+java::lang::Class* poi::hssf::usermodel::HSSFName::getClass0()
 {
     return class_();
 }

@@ -5,7 +5,7 @@
 #include <org/apache/poi/ss/usermodel/fwd-POI.hpp>
 #include <java/lang/Iterable.hpp>
 
-struct org::apache::poi::ss::usermodel::ShapeContainer
+struct poi::ss::usermodel::ShapeContainer
     : public virtual ::java::lang::Iterable
 {
 

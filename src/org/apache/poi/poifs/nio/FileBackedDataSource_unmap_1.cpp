@@ -45,7 +45,7 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::nio::FileBackedDataSource_unmap_1::FileBackedDataSource_unmap_1(::java::nio::ByteBuffer* buffer)
+poi::poifs::nio::FileBackedDataSource_unmap_1::FileBackedDataSource_unmap_1(::java::nio::ByteBuffer* buffer)
     : super(*static_cast< ::default_init_tag* >(0))
     , buffer(buffer)
 {
@@ -53,7 +53,7 @@ org::apache::poi::poifs::nio::FileBackedDataSource_unmap_1::FileBackedDataSource
     ctor();
 }
 
-java::lang::Void* org::apache::poi::poifs::nio::FileBackedDataSource_unmap_1::run()
+java::lang::Void* poi::poifs::nio::FileBackedDataSource_unmap_1::run()
 {
     try {
         auto const getCleanerMethod = npc(npc(buffer)->getClass())->getMethod(u"cleaner"_j, new ::java::lang::ClassArray());
@@ -63,20 +63,20 @@ java::lang::Void* org::apache::poi::poifs::nio::FileBackedDataSource_unmap_1::ru
             npc(npc(npc(cleaner)->getClass())->getMethod(u"clean"_j, new ::java::lang::ClassArray()))->invoke(cleaner, new ::java::lang::ObjectArray());
         }
     } catch (::java::lang::Exception* e) {
-        npc(FileBackedDataSource::logger())->log(::org::apache::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"Unable to unmap memory mapped ByteBuffer."_j), static_cast< ::java::lang::Object* >(e)}));
+        npc(FileBackedDataSource::logger())->log(::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"Unable to unmap memory mapped ByteBuffer."_j), static_cast< ::java::lang::Object* >(e)}));
     }
     return nullptr;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::nio::FileBackedDataSource_unmap_1::class_()
+java::lang::Class* poi::poifs::nio::FileBackedDataSource_unmap_1::class_()
 {
     static ::java::lang::Class* c = ::class_(u"", 0);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::nio::FileBackedDataSource_unmap_1::getClass0()
+java::lang::Class* poi::poifs::nio::FileBackedDataSource_unmap_1::getClass0()
 {
     return class_();
 }

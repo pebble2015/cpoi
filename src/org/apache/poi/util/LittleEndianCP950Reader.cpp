@@ -26,25 +26,25 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::util::LittleEndianCP950Reader::LittleEndianCP950Reader(const ::default_init_tag&)
+poi::util::LittleEndianCP950Reader::LittleEndianCP950Reader(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::util::LittleEndianCP950Reader::LittleEndianCP950Reader(::int8_tArray* data) 
+poi::util::LittleEndianCP950Reader::LittleEndianCP950Reader(::int8_tArray* data) 
     : LittleEndianCP950Reader(*static_cast< ::default_init_tag* >(0))
 {
     ctor(data);
 }
 
-org::apache::poi::util::LittleEndianCP950Reader::LittleEndianCP950Reader(::int8_tArray* data, int32_t offset, int32_t length) 
+poi::util::LittleEndianCP950Reader::LittleEndianCP950Reader(::int8_tArray* data, int32_t offset, int32_t length) 
     : LittleEndianCP950Reader(*static_cast< ::default_init_tag* >(0))
 {
     ctor(data,offset,length);
 }
 
-void org::apache::poi::util::LittleEndianCP950Reader::init()
+void poi::util::LittleEndianCP950Reader::init()
 {
     doubleByteBuffer = ::java::nio::ByteBuffer::allocate(2);
     charBuffer = ::java::nio::CharBuffer::allocate(2);
@@ -52,37 +52,37 @@ void org::apache::poi::util::LittleEndianCP950Reader::init()
     cnt = int32_t(0);
 }
 
-org::apache::poi::util::POILogger*& org::apache::poi::util::LittleEndianCP950Reader::LOGGER()
+poi::util::POILogger*& poi::util::LittleEndianCP950Reader::LOGGER()
 {
     clinit();
     return LOGGER_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::util::LittleEndianCP950Reader::LOGGER_;
+poi::util::POILogger* poi::util::LittleEndianCP950Reader::LOGGER_;
 
-constexpr char16_t org::apache::poi::util::LittleEndianCP950Reader::UNMAPPABLE;
+constexpr char16_t poi::util::LittleEndianCP950Reader::UNMAPPABLE;
 
-constexpr char16_t org::apache::poi::util::LittleEndianCP950Reader::range1Low;
+constexpr char16_t poi::util::LittleEndianCP950Reader::range1Low;
 
-constexpr char16_t org::apache::poi::util::LittleEndianCP950Reader::range1High;
+constexpr char16_t poi::util::LittleEndianCP950Reader::range1High;
 
-constexpr char16_t org::apache::poi::util::LittleEndianCP950Reader::range2Low;
+constexpr char16_t poi::util::LittleEndianCP950Reader::range2Low;
 
-constexpr char16_t org::apache::poi::util::LittleEndianCP950Reader::range2High;
+constexpr char16_t poi::util::LittleEndianCP950Reader::range2High;
 
-constexpr char16_t org::apache::poi::util::LittleEndianCP950Reader::range3Low;
+constexpr char16_t poi::util::LittleEndianCP950Reader::range3Low;
 
-constexpr char16_t org::apache::poi::util::LittleEndianCP950Reader::range3High;
+constexpr char16_t poi::util::LittleEndianCP950Reader::range3High;
 
-constexpr char16_t org::apache::poi::util::LittleEndianCP950Reader::range4Low;
+constexpr char16_t poi::util::LittleEndianCP950Reader::range4Low;
 
-constexpr char16_t org::apache::poi::util::LittleEndianCP950Reader::range4High;
+constexpr char16_t poi::util::LittleEndianCP950Reader::range4High;
 
-void org::apache::poi::util::LittleEndianCP950Reader::ctor(::int8_tArray* data)
+void poi::util::LittleEndianCP950Reader::ctor(::int8_tArray* data)
 {
     ctor(data, int32_t(0), npc(data)->length);
 }
 
-void org::apache::poi::util::LittleEndianCP950Reader::ctor(::int8_tArray* data, int32_t offset, int32_t length)
+void poi::util::LittleEndianCP950Reader::ctor(::int8_tArray* data, int32_t offset, int32_t length)
 {
     super::ctor();
     init();
@@ -92,7 +92,7 @@ void org::apache::poi::util::LittleEndianCP950Reader::ctor(::int8_tArray* data, 
     this->length = length;
 }
 
-int32_t org::apache::poi::util::LittleEndianCP950Reader::read()
+int32_t poi::util::LittleEndianCP950Reader::read()
 {
     if(offset + int32_t(1) > npc(data)->length || offset - startOffset > length) {
         return -int32_t(1);
@@ -133,7 +133,7 @@ int32_t org::apache::poi::util::LittleEndianCP950Reader::read()
     }
 }
 
-int32_t org::apache::poi::util::LittleEndianCP950Reader::read(::char16_tArray* cbuf, int32_t off, int32_t len) /* throws(IOException) */
+int32_t poi::util::LittleEndianCP950Reader::read(::char16_tArray* cbuf, int32_t off, int32_t len) /* throws(IOException) */
 {
     for (auto i = off; i < off + len; i++) {
         auto c = read();
@@ -145,31 +145,31 @@ int32_t org::apache::poi::util::LittleEndianCP950Reader::read(::char16_tArray* c
     return len;
 }
 
-void org::apache::poi::util::LittleEndianCP950Reader::close()
+void poi::util::LittleEndianCP950Reader::close()
 {
 }
 
-int32_t org::apache::poi::util::LittleEndianCP950Reader::handleRange1(int32_t leading, int32_t trailing)
+int32_t poi::util::LittleEndianCP950Reader::handleRange1(int32_t leading, int32_t trailing)
 {
     return (int32_t(61112) + (int32_t(157) * (leading - int32_t(129)))) + ((trailing < 128) ? trailing - int32_t(64) : trailing - int32_t(98));
 }
 
-int32_t org::apache::poi::util::LittleEndianCP950Reader::handleRange2(int32_t leading, int32_t trailing)
+int32_t poi::util::LittleEndianCP950Reader::handleRange2(int32_t leading, int32_t trailing)
 {
     return (int32_t(58129) + (int32_t(157) * (leading - int32_t(142)))) + ((trailing < 128) ? trailing - int32_t(64) : trailing - int32_t(98));
 }
 
-int32_t org::apache::poi::util::LittleEndianCP950Reader::handleRange3(int32_t leading, int32_t trailing)
+int32_t poi::util::LittleEndianCP950Reader::handleRange3(int32_t leading, int32_t trailing)
 {
     return (int32_t(63090) + (int32_t(157) * (leading - int32_t(198)))) + ((trailing < 128) ? trailing - int32_t(64) : trailing - int32_t(98));
 }
 
-int32_t org::apache::poi::util::LittleEndianCP950Reader::handleRange4(int32_t leading, int32_t trailing)
+int32_t poi::util::LittleEndianCP950Reader::handleRange4(int32_t leading, int32_t trailing)
 {
     return (int32_t(57344) + (int32_t(157) * (leading - int32_t(250)))) + ((trailing < 128) ? trailing - int32_t(64) : trailing - int32_t(98));
 }
 
-int32_t org::apache::poi::util::LittleEndianCP950Reader::handleF9(int32_t trailing)
+int32_t poi::util::LittleEndianCP950Reader::handleF9(int32_t trailing)
 {
     switch (trailing) {
     case int32_t(64):
@@ -496,13 +496,13 @@ int32_t org::apache::poi::util::LittleEndianCP950Reader::handleF9(int32_t traili
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::util::LittleEndianCP950Reader::class_()
+java::lang::Class* poi::util::LittleEndianCP950Reader::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.util.LittleEndianCP950Reader", 43);
     return c;
 }
 
-void org::apache::poi::util::LittleEndianCP950Reader::clinit()
+void poi::util::LittleEndianCP950Reader::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -518,17 +518,17 @@ struct clinit_ {
     }
 }
 
-int32_t org::apache::poi::util::LittleEndianCP950Reader::read(::java::nio::CharBuffer* target)
+int32_t poi::util::LittleEndianCP950Reader::read(::java::nio::CharBuffer* target)
 {
     return super::read(target);
 }
 
-int32_t org::apache::poi::util::LittleEndianCP950Reader::read(::char16_tArray* cbuf)
+int32_t poi::util::LittleEndianCP950Reader::read(::char16_tArray* cbuf)
 {
     return super::read(cbuf);
 }
 
-java::lang::Class* org::apache::poi::util::LittleEndianCP950Reader::getClass0()
+java::lang::Class* poi::util::LittleEndianCP950Reader::getClass0()
 {
     return class_();
 }

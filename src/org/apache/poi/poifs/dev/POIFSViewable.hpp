@@ -8,7 +8,7 @@
 #include <org/apache/poi/poifs/dev/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::poifs::dev::POIFSViewable
+struct poi::poifs::dev::POIFSViewable
     : public virtual ::java::lang::Object
 {
     virtual ::java::lang::ObjectArray* getViewableArray_() = 0;

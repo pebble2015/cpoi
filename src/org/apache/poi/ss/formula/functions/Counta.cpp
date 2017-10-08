@@ -14,25 +14,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -41,67 +35,67 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::Counta::Counta(const ::default_init_tag&)
+poi::ss::formula::functions::Counta::Counta(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::Counta::Counta() 
+poi::ss::formula::functions::Counta::Counta() 
     : Counta(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::functions::Counta::Counta(CountUtils_I_MatchPredicate* criteriaPredicate) 
+poi::ss::formula::functions::Counta::Counta(CountUtils_I_MatchPredicate* criteriaPredicate) 
     : Counta(*static_cast< ::default_init_tag* >(0))
 {
     ctor(criteriaPredicate);
 }
 
-void org::apache::poi::ss::formula::functions::Counta::ctor()
+void poi::ss::formula::functions::Counta::ctor()
 {
     super::ctor();
     _predicate = defaultPredicate_;
 }
 
-void org::apache::poi::ss::formula::functions::Counta::ctor(CountUtils_I_MatchPredicate* criteriaPredicate)
+void poi::ss::formula::functions::Counta::ctor(CountUtils_I_MatchPredicate* criteriaPredicate)
 {
     super::ctor();
     _predicate = criteriaPredicate;
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Counta::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcCellRow, int32_t srcCellCol)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Counta::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcCellRow, int32_t srcCellCol)
 {
     auto nArgs = npc(args)->length;
     if(nArgs < 1) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
     if(nArgs > 30) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
     auto temp = int32_t(0);
     for (auto i = int32_t(0); i < nArgs; i++) {
         temp += CountUtils::countArg((*args)[i], _predicate);
     }
-    return new ::org::apache::poi::ss::formula::eval::NumberEval(static_cast< double >(temp));
+    return new ::poi::ss::formula::eval::NumberEval(static_cast< double >(temp));
 }
 
-org::apache::poi::ss::formula::functions::CountUtils_I_MatchPredicate*& org::apache::poi::ss::formula::functions::Counta::defaultPredicate()
+poi::ss::formula::functions::CountUtils_I_MatchPredicate*& poi::ss::formula::functions::Counta::defaultPredicate()
 {
     clinit();
     return defaultPredicate_;
 }
-org::apache::poi::ss::formula::functions::CountUtils_I_MatchPredicate* org::apache::poi::ss::formula::functions::Counta::defaultPredicate_;
+poi::ss::formula::functions::CountUtils_I_MatchPredicate* poi::ss::formula::functions::Counta::defaultPredicate_;
 
-org::apache::poi::ss::formula::functions::CountUtils_I_MatchPredicate*& org::apache::poi::ss::formula::functions::Counta::subtotalPredicate()
+poi::ss::formula::functions::CountUtils_I_MatchPredicate*& poi::ss::formula::functions::Counta::subtotalPredicate()
 {
     clinit();
     return subtotalPredicate_;
 }
-org::apache::poi::ss::formula::functions::CountUtils_I_MatchPredicate* org::apache::poi::ss::formula::functions::Counta::subtotalPredicate_;
+poi::ss::formula::functions::CountUtils_I_MatchPredicate* poi::ss::formula::functions::Counta::subtotalPredicate_;
 
-org::apache::poi::ss::formula::functions::Counta* org::apache::poi::ss::formula::functions::Counta::subtotalInstance()
+poi::ss::formula::functions::Counta* poi::ss::formula::functions::Counta::subtotalInstance()
 {
     clinit();
     return new Counta(subtotalPredicate_);
@@ -109,13 +103,13 @@ org::apache::poi::ss::formula::functions::Counta* org::apache::poi::ss::formula:
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Counta::class_()
+java::lang::Class* poi::ss::formula::functions::Counta::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.Counta", 42);
     return c;
 }
 
-void org::apache::poi::ss::formula::functions::Counta::clinit()
+void poi::ss::formula::functions::Counta::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -132,7 +126,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Counta::getClass0()
+java::lang::Class* poi::ss::formula::functions::Counta::getClass0()
 {
     return class_();
 }

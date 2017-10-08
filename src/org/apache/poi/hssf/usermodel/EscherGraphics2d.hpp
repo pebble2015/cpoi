@@ -17,7 +17,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::EscherGraphics2d final
+class poi::hssf::usermodel::EscherGraphics2d final
     : public ::java::awt::Graphics2D
 {
 
@@ -31,7 +31,7 @@ private:
     ::java::awt::Stroke* _stroke {  };
     ::java::awt::Paint* _paint {  };
     ::java::awt::Shape* _deviceclip {  };
-    ::org::apache::poi::util::POILogger* logger {  };
+    ::poi::util::POILogger* logger {  };
 protected:
     void ctor(EscherGraphics* escherGraphics);
 

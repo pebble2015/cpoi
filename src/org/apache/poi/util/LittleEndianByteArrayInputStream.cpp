@@ -17,58 +17,58 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::util::LittleEndianByteArrayInputStream::LittleEndianByteArrayInputStream(const ::default_init_tag&)
+poi::util::LittleEndianByteArrayInputStream::LittleEndianByteArrayInputStream(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::util::LittleEndianByteArrayInputStream::LittleEndianByteArrayInputStream(::int8_tArray* buf, int32_t startOffset, int32_t maxReadLen) 
+poi::util::LittleEndianByteArrayInputStream::LittleEndianByteArrayInputStream(::int8_tArray* buf, int32_t startOffset, int32_t maxReadLen) 
     : LittleEndianByteArrayInputStream(*static_cast< ::default_init_tag* >(0))
 {
     ctor(buf,startOffset,maxReadLen);
 }
 
-org::apache::poi::util::LittleEndianByteArrayInputStream::LittleEndianByteArrayInputStream(::int8_tArray* buf, int32_t startOffset) 
+poi::util::LittleEndianByteArrayInputStream::LittleEndianByteArrayInputStream(::int8_tArray* buf, int32_t startOffset) 
     : LittleEndianByteArrayInputStream(*static_cast< ::default_init_tag* >(0))
 {
     ctor(buf,startOffset);
 }
 
-org::apache::poi::util::LittleEndianByteArrayInputStream::LittleEndianByteArrayInputStream(::int8_tArray* buf) 
+poi::util::LittleEndianByteArrayInputStream::LittleEndianByteArrayInputStream(::int8_tArray* buf) 
     : LittleEndianByteArrayInputStream(*static_cast< ::default_init_tag* >(0))
 {
     ctor(buf);
 }
 
-void org::apache::poi::util::LittleEndianByteArrayInputStream::ctor(::int8_tArray* buf, int32_t startOffset, int32_t maxReadLen)
+void poi::util::LittleEndianByteArrayInputStream::ctor(::int8_tArray* buf, int32_t startOffset, int32_t maxReadLen)
 {
     super::ctor(buf, startOffset, maxReadLen);
 }
 
-void org::apache::poi::util::LittleEndianByteArrayInputStream::ctor(::int8_tArray* buf, int32_t startOffset)
+void poi::util::LittleEndianByteArrayInputStream::ctor(::int8_tArray* buf, int32_t startOffset)
 {
     ctor(buf, startOffset, npc(buf)->length - startOffset);
 }
 
-void org::apache::poi::util::LittleEndianByteArrayInputStream::ctor(::int8_tArray* buf)
+void poi::util::LittleEndianByteArrayInputStream::ctor(::int8_tArray* buf)
 {
     ctor(buf, int32_t(0));
 }
 
-void org::apache::poi::util::LittleEndianByteArrayInputStream::checkPosition(int32_t i)
+void poi::util::LittleEndianByteArrayInputStream::checkPosition(int32_t i)
 {
     if(i > count - pos) {
         throw new ::java::lang::RuntimeException(u"Buffer overrun"_j);
     }
 }
 
-int32_t org::apache::poi::util::LittleEndianByteArrayInputStream::getReadIndex()
+int32_t poi::util::LittleEndianByteArrayInputStream::getReadIndex()
 {
     return pos;
 }
 
-void org::apache::poi::util::LittleEndianByteArrayInputStream::setReadIndex(int32_t pos)
+void poi::util::LittleEndianByteArrayInputStream::setReadIndex(int32_t pos)
 {
     if(pos < 0 || pos >= count) {
         throw new ::java::lang::IndexOutOfBoundsException();
@@ -76,13 +76,13 @@ void org::apache::poi::util::LittleEndianByteArrayInputStream::setReadIndex(int3
     this->pos = pos;
 }
 
-int8_t org::apache::poi::util::LittleEndianByteArrayInputStream::readByte()
+int8_t poi::util::LittleEndianByteArrayInputStream::readByte()
 {
     checkPosition(1);
     return static_cast< int8_t >(read());
 }
 
-int32_t org::apache::poi::util::LittleEndianByteArrayInputStream::readInt()
+int32_t poi::util::LittleEndianByteArrayInputStream::readInt()
 {
     auto const size = LittleEndianConsts::INT_SIZE;
     checkPosition(size);
@@ -92,7 +92,7 @@ int32_t org::apache::poi::util::LittleEndianByteArrayInputStream::readInt()
     return le;
 }
 
-int64_t org::apache::poi::util::LittleEndianByteArrayInputStream::readLong()
+int64_t poi::util::LittleEndianByteArrayInputStream::readLong()
 {
     auto const size = LittleEndianConsts::LONG_SIZE;
     checkPosition(size);
@@ -102,7 +102,7 @@ int64_t org::apache::poi::util::LittleEndianByteArrayInputStream::readLong()
     return le;
 }
 
-int16_t org::apache::poi::util::LittleEndianByteArrayInputStream::readShort()
+int16_t poi::util::LittleEndianByteArrayInputStream::readShort()
 {
     auto const size = LittleEndianConsts::SHORT_SIZE;
     checkPosition(size);
@@ -112,57 +112,57 @@ int16_t org::apache::poi::util::LittleEndianByteArrayInputStream::readShort()
     return le;
 }
 
-int32_t org::apache::poi::util::LittleEndianByteArrayInputStream::readUByte()
+int32_t poi::util::LittleEndianByteArrayInputStream::readUByte()
 {
     return readByte() & int32_t(255);
 }
 
-int32_t org::apache::poi::util::LittleEndianByteArrayInputStream::readUShort()
+int32_t poi::util::LittleEndianByteArrayInputStream::readUShort()
 {
     return readShort() & int32_t(65535);
 }
 
-int64_t org::apache::poi::util::LittleEndianByteArrayInputStream::readUInt()
+int64_t poi::util::LittleEndianByteArrayInputStream::readUInt()
 {
     return readInt() & int64_t(4294967295LL);
 }
 
-double org::apache::poi::util::LittleEndianByteArrayInputStream::readDouble()
+double poi::util::LittleEndianByteArrayInputStream::readDouble()
 {
     return ::java::lang::Double::longBitsToDouble(readLong());
 }
 
-void org::apache::poi::util::LittleEndianByteArrayInputStream::readFully(::int8_tArray* buffer, int32_t off, int32_t len)
+void poi::util::LittleEndianByteArrayInputStream::readFully(::int8_tArray* buffer, int32_t off, int32_t len)
 {
     checkPosition(len);
     read(buffer, off, len);
 }
 
-void org::apache::poi::util::LittleEndianByteArrayInputStream::readFully(::int8_tArray* buffer)
+void poi::util::LittleEndianByteArrayInputStream::readFully(::int8_tArray* buffer)
 {
     checkPosition(npc(buffer)->length);
     read(buffer, int32_t(0), npc(buffer)->length);
 }
 
-void org::apache::poi::util::LittleEndianByteArrayInputStream::readPlain(::int8_tArray* buf, int32_t off, int32_t len)
+void poi::util::LittleEndianByteArrayInputStream::readPlain(::int8_tArray* buf, int32_t off, int32_t len)
 {
     readFully(buf, off, len);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::util::LittleEndianByteArrayInputStream::class_()
+java::lang::Class* poi::util::LittleEndianByteArrayInputStream::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.util.LittleEndianByteArrayInputStream", 52);
     return c;
 }
 
-int32_t org::apache::poi::util::LittleEndianByteArrayInputStream::available()
+int32_t poi::util::LittleEndianByteArrayInputStream::available()
 {
     return ByteArrayInputStream::available();
 }
 
-java::lang::Class* org::apache::poi::util::LittleEndianByteArrayInputStream::getClass0()
+java::lang::Class* poi::util::LittleEndianByteArrayInputStream::getClass0()
 {
     return class_();
 }

@@ -27,29 +27,23 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::Indirect final
+class poi::ss::formula::functions::Indirect final
     : public virtual ::java::lang::Object
     , public FreeRefFunction
 {
@@ -63,11 +57,11 @@ protected:
     void ctor();
 
 public:
-    ::org::apache::poi::ss::formula::eval::ValueEval* evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, ::org::apache::poi::ss::formula::OperationEvaluationContext* ec) override;
+    ::poi::ss::formula::eval::ValueEval* evaluate(::poi::ss::formula::eval::ValueEvalArray* args, ::poi::ss::formula::OperationEvaluationContext* ec) override;
 
 private:
-    static bool evaluateBooleanArg(::org::apache::poi::ss::formula::eval::ValueEval* arg, ::org::apache::poi::ss::formula::OperationEvaluationContext* ec) /* throws(EvaluationException) */;
-    static ::org::apache::poi::ss::formula::eval::ValueEval* evaluateIndirect(::org::apache::poi::ss::formula::OperationEvaluationContext* ec, ::java::lang::String* text, bool isA1style);
+    static bool evaluateBooleanArg(::poi::ss::formula::eval::ValueEval* arg, ::poi::ss::formula::OperationEvaluationContext* ec) /* throws(EvaluationException) */;
+    static ::poi::ss::formula::eval::ValueEval* evaluateIndirect(::poi::ss::formula::OperationEvaluationContext* ec, ::java::lang::String* text, bool isA1style);
     static ::java::lang::StringArray* parseWorkbookAndSheetName(::java::lang::CharSequence* text);
     static ::java::lang::String* unescapeString(::java::lang::CharSequence* text);
     static bool canTrim(::java::lang::CharSequence* text);

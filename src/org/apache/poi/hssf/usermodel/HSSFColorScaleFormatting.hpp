@@ -20,53 +20,47 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace ss
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::ConditionalFormattingThreshold, ::java::lang::ObjectArray > ConditionalFormattingThresholdArray;
-                } // usermodel
-            } // ss
+typedef ::SubArray< ::poi::ss::usermodel::ConditionalFormattingThreshold, ::java::lang::ObjectArray > ConditionalFormattingThresholdArray;
+        } // usermodel
+    } // ss
 
-            namespace hssf
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::usermodel::HSSFConditionalFormattingThreshold, ::java::lang::ObjectArray, ::org::apache::poi::ss::usermodel::ConditionalFormattingThresholdArray > HSSFConditionalFormattingThresholdArray;
-                } // usermodel
-            } // hssf
+    namespace hssf
+    {
+        namespace usermodel
+        {
+typedef ::SubArray< ::poi::hssf::usermodel::HSSFConditionalFormattingThreshold, ::java::lang::ObjectArray, ::poi::ss::usermodel::ConditionalFormattingThresholdArray > HSSFConditionalFormattingThresholdArray;
+        } // usermodel
+    } // hssf
 
-            namespace ss
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::Color, ::java::lang::ObjectArray > ColorArray;
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::ExtendedColor, ::java::lang::ObjectArray, ColorArray > ExtendedColorArray;
-                } // usermodel
-            } // ss
+    namespace ss
+    {
+        namespace usermodel
+        {
+typedef ::SubArray< ::poi::ss::usermodel::Color, ::java::lang::ObjectArray > ColorArray;
+typedef ::SubArray< ::poi::ss::usermodel::ExtendedColor, ::java::lang::ObjectArray, ColorArray > ExtendedColorArray;
+        } // usermodel
+    } // ss
 
-            namespace hssf
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::usermodel::HSSFExtendedColor, ::org::apache::poi::ss::usermodel::ExtendedColorArray > HSSFExtendedColorArray;
-                } // usermodel
-            } // hssf
-        } // poi
-    } // apache
-} // org
+    namespace hssf
+    {
+        namespace usermodel
+        {
+typedef ::SubArray< ::poi::hssf::usermodel::HSSFExtendedColor, ::poi::ss::usermodel::ExtendedColorArray > HSSFExtendedColorArray;
+        } // usermodel
+    } // hssf
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFColorScaleFormatting final
+class poi::hssf::usermodel::HSSFColorScaleFormatting final
     : public virtual ::java::lang::Object
-    , public ::org::apache::poi::ss::usermodel::ColorScaleFormatting
+    , public ::poi::ss::usermodel::ColorScaleFormatting
 {
 
 public:
@@ -74,24 +68,24 @@ public:
 
 private:
     HSSFSheet* sheet {  };
-    ::org::apache::poi::hssf::record::CFRule12Record* cfRule12Record {  };
-    ::org::apache::poi::hssf::record::cf::ColorGradientFormatting* colorFormatting {  };
+    ::poi::hssf::record::CFRule12Record* cfRule12Record {  };
+    ::poi::hssf::record::cf::ColorGradientFormatting* colorFormatting {  };
 protected:
-    void ctor(::org::apache::poi::hssf::record::CFRule12Record* cfRule12Record, HSSFSheet* sheet);
+    void ctor(::poi::hssf::record::CFRule12Record* cfRule12Record, HSSFSheet* sheet);
 
 public:
     int32_t getNumControlPoints() override;
     void setNumControlPoints(int32_t num) override;
     HSSFExtendedColorArray* getColors() override;
-    void setColors(::org::apache::poi::ss::usermodel::ColorArray* colors) override;
+    void setColors(::poi::ss::usermodel::ColorArray* colors) override;
     HSSFConditionalFormattingThresholdArray* getThresholds() override;
-    void setThresholds(::org::apache::poi::ss::usermodel::ConditionalFormattingThresholdArray* thresholds) override;
+    void setThresholds(::poi::ss::usermodel::ConditionalFormattingThresholdArray* thresholds) override;
     HSSFConditionalFormattingThreshold* createThreshold() override;
 
     // Generated
 
 public: /* protected */
-    HSSFColorScaleFormatting(::org::apache::poi::hssf::record::CFRule12Record* cfRule12Record, HSSFSheet* sheet);
+    HSSFColorScaleFormatting(::poi::hssf::record::CFRule12Record* cfRule12Record, HSSFSheet* sheet);
 protected:
     HSSFColorScaleFormatting(const ::default_init_tag&);
 

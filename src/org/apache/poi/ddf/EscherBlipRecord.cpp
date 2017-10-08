@@ -37,37 +37,37 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ddf::EscherBlipRecord::EscherBlipRecord(const ::default_init_tag&)
+poi::ddf::EscherBlipRecord::EscherBlipRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ddf::EscherBlipRecord::EscherBlipRecord() 
+poi::ddf::EscherBlipRecord::EscherBlipRecord() 
     : EscherBlipRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-constexpr int16_t org::apache::poi::ddf::EscherBlipRecord::RECORD_ID_START;
+constexpr int16_t poi::ddf::EscherBlipRecord::RECORD_ID_START;
 
-constexpr int16_t org::apache::poi::ddf::EscherBlipRecord::RECORD_ID_END;
+constexpr int16_t poi::ddf::EscherBlipRecord::RECORD_ID_END;
 
-java::lang::String*& org::apache::poi::ddf::EscherBlipRecord::RECORD_DESCRIPTION()
+java::lang::String*& poi::ddf::EscherBlipRecord::RECORD_DESCRIPTION()
 {
     clinit();
     return RECORD_DESCRIPTION_;
 }
-java::lang::String* org::apache::poi::ddf::EscherBlipRecord::RECORD_DESCRIPTION_;
+java::lang::String* poi::ddf::EscherBlipRecord::RECORD_DESCRIPTION_;
 
-constexpr int32_t org::apache::poi::ddf::EscherBlipRecord::HEADER_SIZE;
+constexpr int32_t poi::ddf::EscherBlipRecord::HEADER_SIZE;
 
-void org::apache::poi::ddf::EscherBlipRecord::ctor()
+void poi::ddf::EscherBlipRecord::ctor()
 {
     super::ctor();
 }
 
-int32_t org::apache::poi::ddf::EscherBlipRecord::fillFields(::int8_tArray* data, int32_t offset, EscherRecordFactory* recordFactory)
+int32_t poi::ddf::EscherBlipRecord::fillFields(::int8_tArray* data, int32_t offset, EscherRecordFactory* recordFactory)
 {
     auto bytesAfterHeader = readHeader(data, offset);
     auto pos = offset + HEADER_SIZE;
@@ -76,37 +76,37 @@ int32_t org::apache::poi::ddf::EscherBlipRecord::fillFields(::int8_tArray* data,
     return bytesAfterHeader + int32_t(8);
 }
 
-int32_t org::apache::poi::ddf::EscherBlipRecord::serialize(int32_t offset, ::int8_tArray* data, EscherSerializationListener* listener)
+int32_t poi::ddf::EscherBlipRecord::serialize(int32_t offset, ::int8_tArray* data, EscherSerializationListener* listener)
 {
     npc(listener)->beforeRecordSerialize(offset, getRecordId(), this);
-    ::org::apache::poi::util::LittleEndian::putShort(data, offset, getOptions());
-    ::org::apache::poi::util::LittleEndian::putShort(data, offset + int32_t(2), getRecordId());
+    ::poi::util::LittleEndian::putShort(data, offset, getOptions());
+    ::poi::util::LittleEndian::putShort(data, offset + int32_t(2), getRecordId());
     ::java::lang::System::arraycopy(field_pictureData, 0, data, offset + int32_t(4), npc(field_pictureData)->length);
     npc(listener)->afterRecordSerialize(offset + int32_t(4) + npc(field_pictureData)->length, getRecordId(), npc(field_pictureData)->length + int32_t(4), this);
     return npc(field_pictureData)->length + int32_t(4);
 }
 
-int32_t org::apache::poi::ddf::EscherBlipRecord::getRecordSize()
+int32_t poi::ddf::EscherBlipRecord::getRecordSize()
 {
     return npc(field_pictureData)->length + HEADER_SIZE;
 }
 
-java::lang::String* org::apache::poi::ddf::EscherBlipRecord::getRecordName()
+java::lang::String* poi::ddf::EscherBlipRecord::getRecordName()
 {
     return u"Blip"_j;
 }
 
-int8_tArray* org::apache::poi::ddf::EscherBlipRecord::getPicturedata()
+int8_tArray* poi::ddf::EscherBlipRecord::getPicturedata()
 {
     return field_pictureData;
 }
 
-void org::apache::poi::ddf::EscherBlipRecord::setPictureData(::int8_tArray* pictureData)
+void poi::ddf::EscherBlipRecord::setPictureData(::int8_tArray* pictureData)
 {
     setPictureData(pictureData, 0, (pictureData == nullptr ? int32_t(0) : npc(pictureData)->length));
 }
 
-void org::apache::poi::ddf::EscherBlipRecord::setPictureData(::int8_tArray* pictureData, int32_t offset, int32_t length)
+void poi::ddf::EscherBlipRecord::setPictureData(::int8_tArray* pictureData, int32_t offset, int32_t length)
 {
     if(pictureData == nullptr || offset < 0 || length < 0 || npc(pictureData)->length < offset + length) {
         throw new ::java::lang::IllegalArgumentException(u"picture data can't be null"_j);
@@ -115,7 +115,7 @@ void org::apache::poi::ddf::EscherBlipRecord::setPictureData(::int8_tArray* pict
     ::java::lang::System::arraycopy(pictureData, offset, field_pictureData, 0, length);
 }
 
-java::lang::ObjectArrayArray* org::apache::poi::ddf::EscherBlipRecord::getAttributeMap()
+java::lang::ObjectArrayArray* poi::ddf::EscherBlipRecord::getAttributeMap()
 {
     return new ::java::lang::ObjectArrayArray({(new ::java::lang::ObjectArray({
         static_cast< ::java::lang::Object* >(u"Extra Data"_j)
@@ -125,13 +125,13 @@ java::lang::ObjectArrayArray* org::apache::poi::ddf::EscherBlipRecord::getAttrib
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ddf::EscherBlipRecord::class_()
+java::lang::Class* poi::ddf::EscherBlipRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ddf.EscherBlipRecord", 35);
     return c;
 }
 
-void org::apache::poi::ddf::EscherBlipRecord::clinit()
+void poi::ddf::EscherBlipRecord::clinit()
 {
 struct string_init_ {
     string_init_() {
@@ -144,22 +144,22 @@ struct string_init_ {
     super::clinit();
 }
 
-int32_t org::apache::poi::ddf::EscherBlipRecord::fillFields(::int8_tArray* data, EscherRecordFactory* f)
+int32_t poi::ddf::EscherBlipRecord::fillFields(::int8_tArray* data, EscherRecordFactory* f)
 {
     return super::fillFields(data, f);
 }
 
-int8_tArray* org::apache::poi::ddf::EscherBlipRecord::serialize()
+int8_tArray* poi::ddf::EscherBlipRecord::serialize()
 {
     return super::serialize();
 }
 
-int32_t org::apache::poi::ddf::EscherBlipRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::ddf::EscherBlipRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-java::lang::Class* org::apache::poi::ddf::EscherBlipRecord::getClass0()
+java::lang::Class* poi::ddf::EscherBlipRecord::getClass0()
 {
     return class_();
 }

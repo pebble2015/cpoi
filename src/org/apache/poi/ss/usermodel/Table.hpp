@@ -8,7 +8,7 @@
 #include <org/apache/poi/ss/usermodel/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::usermodel::Table
+struct poi::ss::usermodel::Table
     : public virtual ::java::lang::Object
 {
 

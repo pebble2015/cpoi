@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFChildAnchor final
+class poi::hssf::usermodel::HSSFChildAnchor final
     : public HSSFAnchor
 {
 
@@ -18,9 +18,9 @@ public:
     typedef HSSFAnchor super;
 
 private:
-    ::org::apache::poi::ddf::EscherChildAnchorRecord* _escherChildAnchor {  };
+    ::poi::ddf::EscherChildAnchorRecord* _escherChildAnchor {  };
 protected:
-    void ctor(::org::apache::poi::ddf::EscherChildAnchorRecord* escherChildAnchorRecord);
+    void ctor(::poi::ddf::EscherChildAnchorRecord* escherChildAnchorRecord);
     void ctor();
     void ctor(int32_t dx1, int32_t dy1, int32_t dx2, int32_t dy2);
 
@@ -38,7 +38,7 @@ public:
     bool isVerticallyFlipped() override;
 
 public: /* protected */
-    ::org::apache::poi::ddf::EscherRecord* getEscherAnchor() override;
+    ::poi::ddf::EscherRecord* getEscherAnchor() override;
     void createEscherAnchor() override;
 
 public:
@@ -46,7 +46,7 @@ public:
     int32_t hashCode() override;
 
     // Generated
-    HSSFChildAnchor(::org::apache::poi::ddf::EscherChildAnchorRecord* escherChildAnchorRecord);
+    HSSFChildAnchor(::poi::ddf::EscherChildAnchorRecord* escherChildAnchorRecord);
     HSSFChildAnchor();
     HSSFChildAnchor(int32_t dx1, int32_t dy1, int32_t dx2, int32_t dy2);
 protected:

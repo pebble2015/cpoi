@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::Countif_ErrorMatcher final
+class poi::ss::formula::functions::Countif_ErrorMatcher final
     : public Countif_MatcherBase
 {
 
@@ -26,7 +26,7 @@ public: /* protected */
     ::java::lang::String* getValueText() override;
 
 public:
-    bool matches(::org::apache::poi::ss::formula::eval::ValueEval* x) override;
+    bool matches(::poi::ss::formula::eval::ValueEval* x) override;
     int32_t getValue();
 
     // Generated

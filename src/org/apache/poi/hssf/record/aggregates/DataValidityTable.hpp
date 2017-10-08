@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::aggregates::DataValidityTable final
+class poi::hssf::record::aggregates::DataValidityTable final
     : public RecordAggregate
 {
 
@@ -18,18 +18,18 @@ public:
     typedef RecordAggregate super;
 
 private:
-    ::org::apache::poi::hssf::record::DVALRecord* _headerRec {  };
+    ::poi::hssf::record::DVALRecord* _headerRec {  };
     ::java::util::List* _validationList {  };
 protected:
-    void ctor(::org::apache::poi::hssf::model::RecordStream* rs);
+    void ctor(::poi::hssf::model::RecordStream* rs);
     void ctor();
 
 public:
     void visitContainedRecords(RecordAggregate_RecordVisitor* rv) override;
-    void addDataValidation(::org::apache::poi::hssf::record::DVRecord* dvRecord);
+    void addDataValidation(::poi::hssf::record::DVRecord* dvRecord);
 
     // Generated
-    DataValidityTable(::org::apache::poi::hssf::model::RecordStream* rs);
+    DataValidityTable(::poi::hssf::model::RecordStream* rs);
     DataValidityTable();
 protected:
     DataValidityTable(const ::default_init_tag&);

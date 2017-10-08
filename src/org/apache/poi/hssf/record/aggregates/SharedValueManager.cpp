@@ -43,36 +43,30 @@ typedef ::SubArray< ::java::lang::Cloneable, ObjectArray > CloneableArray;
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
-            {
-                namespace record
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::Record, RecordBaseArray > RecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::StandardRecord, RecordArray > StandardRecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::SharedValueRecordBase, StandardRecordArray > SharedValueRecordBaseArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::ArrayRecord, SharedValueRecordBaseArray, ::java::lang::CloneableArray > ArrayRecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::SharedFormulaRecord, SharedValueRecordBaseArray > SharedFormulaRecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::TableRecord, SharedValueRecordBaseArray > TableRecordArray;
-                } // record
-            } // hssf
+typedef ::SubArray< ::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
+typedef ::SubArray< ::poi::hssf::record::Record, RecordBaseArray > RecordArray;
+typedef ::SubArray< ::poi::hssf::record::StandardRecord, RecordArray > StandardRecordArray;
+typedef ::SubArray< ::poi::hssf::record::SharedValueRecordBase, StandardRecordArray > SharedValueRecordBaseArray;
+typedef ::SubArray< ::poi::hssf::record::ArrayRecord, SharedValueRecordBaseArray, ::java::lang::CloneableArray > ArrayRecordArray;
+typedef ::SubArray< ::poi::hssf::record::SharedFormulaRecord, SharedValueRecordBaseArray > SharedFormulaRecordArray;
+typedef ::SubArray< ::poi::hssf::record::TableRecord, SharedValueRecordBaseArray > TableRecordArray;
+        } // record
+    } // hssf
 
-            namespace ss
-            {
-                namespace util
-                {
-typedef ::SubArray< ::org::apache::poi::ss::util::CellReference, ::java::lang::ObjectArray > CellReferenceArray;
-                } // util
-            } // ss
-        } // poi
-    } // apache
-} // org
+    namespace ss
+    {
+        namespace util
+        {
+typedef ::SubArray< ::poi::ss::util::CellReference, ::java::lang::ObjectArray > CellReferenceArray;
+        } // util
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -90,25 +84,25 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::aggregates::SharedValueManager::SharedValueManager(const ::default_init_tag&)
+poi::hssf::record::aggregates::SharedValueManager::SharedValueManager(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::aggregates::SharedValueManager::SharedValueManager(::org::apache::poi::hssf::record::SharedFormulaRecordArray* sharedFormulaRecords, ::org::apache::poi::ss::util::CellReferenceArray* firstCells, ::org::apache::poi::hssf::record::ArrayRecordArray* arrayRecords, ::org::apache::poi::hssf::record::TableRecordArray* tableRecords) 
+poi::hssf::record::aggregates::SharedValueManager::SharedValueManager(::poi::hssf::record::SharedFormulaRecordArray* sharedFormulaRecords, ::poi::ss::util::CellReferenceArray* firstCells, ::poi::hssf::record::ArrayRecordArray* arrayRecords, ::poi::hssf::record::TableRecordArray* tableRecords) 
     : SharedValueManager(*static_cast< ::default_init_tag* >(0))
 {
     ctor(sharedFormulaRecords,firstCells,arrayRecords,tableRecords);
 }
 
-org::apache::poi::hssf::record::aggregates::SharedValueManager* org::apache::poi::hssf::record::aggregates::SharedValueManager::createEmpty()
+poi::hssf::record::aggregates::SharedValueManager* poi::hssf::record::aggregates::SharedValueManager::createEmpty()
 {
     clinit();
-    return new SharedValueManager(new ::org::apache::poi::hssf::record::SharedFormulaRecordArray(int32_t(0)), new ::org::apache::poi::ss::util::CellReferenceArray(int32_t(0)), new ::org::apache::poi::hssf::record::ArrayRecordArray(int32_t(0)), new ::org::apache::poi::hssf::record::TableRecordArray(int32_t(0)));
+    return new SharedValueManager(new ::poi::hssf::record::SharedFormulaRecordArray(int32_t(0)), new ::poi::ss::util::CellReferenceArray(int32_t(0)), new ::poi::hssf::record::ArrayRecordArray(int32_t(0)), new ::poi::hssf::record::TableRecordArray(int32_t(0)));
 }
 
-void org::apache::poi::hssf::record::aggregates::SharedValueManager::ctor(::org::apache::poi::hssf::record::SharedFormulaRecordArray* sharedFormulaRecords, ::org::apache::poi::ss::util::CellReferenceArray* firstCells, ::org::apache::poi::hssf::record::ArrayRecordArray* arrayRecords, ::org::apache::poi::hssf::record::TableRecordArray* tableRecords)
+void poi::hssf::record::aggregates::SharedValueManager::ctor(::poi::hssf::record::SharedFormulaRecordArray* sharedFormulaRecords, ::poi::ss::util::CellReferenceArray* firstCells, ::poi::hssf::record::ArrayRecordArray* arrayRecords, ::poi::hssf::record::TableRecordArray* tableRecords)
 {
     super::ctor();
     auto nShF = npc(sharedFormulaRecords)->length;
@@ -128,7 +122,7 @@ void org::apache::poi::hssf::record::aggregates::SharedValueManager::ctor(::org:
     _groupsBySharedFormulaRecord = m;
 }
 
-/* <Z> */java::util::List* org::apache::poi::hssf::record::aggregates::SharedValueManager::toList(::java::lang::ObjectArray* zz)
+/* <Z> */java::util::List* poi::hssf::record::aggregates::SharedValueManager::toList(::java::lang::ObjectArray* zz)
 {
     clinit();
     ::java::util::List* result = new ::java::util::ArrayList(npc(zz)->length);
@@ -138,7 +132,7 @@ void org::apache::poi::hssf::record::aggregates::SharedValueManager::ctor(::org:
     return result;
 }
 
-org::apache::poi::hssf::record::aggregates::SharedValueManager* org::apache::poi::hssf::record::aggregates::SharedValueManager::create(::org::apache::poi::hssf::record::SharedFormulaRecordArray* sharedFormulaRecords, ::org::apache::poi::ss::util::CellReferenceArray* firstCells, ::org::apache::poi::hssf::record::ArrayRecordArray* arrayRecords, ::org::apache::poi::hssf::record::TableRecordArray* tableRecords)
+poi::hssf::record::aggregates::SharedValueManager* poi::hssf::record::aggregates::SharedValueManager::create(::poi::hssf::record::SharedFormulaRecordArray* sharedFormulaRecords, ::poi::ss::util::CellReferenceArray* firstCells, ::poi::hssf::record::ArrayRecordArray* arrayRecords, ::poi::hssf::record::TableRecordArray* tableRecords)
 {
     clinit();
     if(npc(sharedFormulaRecords)->length + npc(firstCells)->length + npc(arrayRecords)->length+ npc(tableRecords)->length < 1) {
@@ -147,7 +141,7 @@ org::apache::poi::hssf::record::aggregates::SharedValueManager* org::apache::poi
     return new SharedValueManager(sharedFormulaRecords, firstCells, arrayRecords, tableRecords);
 }
 
-org::apache::poi::hssf::record::SharedFormulaRecord* org::apache::poi::hssf::record::aggregates::SharedValueManager::linkSharedFormulaRecord(::org::apache::poi::ss::util::CellReference* firstCell, FormulaRecordAggregate* agg)
+poi::hssf::record::SharedFormulaRecord* poi::hssf::record::aggregates::SharedValueManager::linkSharedFormulaRecord(::poi::ss::util::CellReference* firstCell, FormulaRecordAggregate* agg)
 {
     auto result = findFormulaGroupForCell(firstCell);
     if(nullptr == result) {
@@ -157,7 +151,7 @@ org::apache::poi::hssf::record::SharedFormulaRecord* org::apache::poi::hssf::rec
     return npc(result)->getSFR();
 }
 
-org::apache::poi::hssf::record::aggregates::SharedValueManager_SharedFormulaGroup* org::apache::poi::hssf::record::aggregates::SharedValueManager::findFormulaGroupForCell(::org::apache::poi::ss::util::CellReference* cellRef)
+poi::hssf::record::aggregates::SharedValueManager_SharedFormulaGroup* poi::hssf::record::aggregates::SharedValueManager::findFormulaGroupForCell(::poi::ss::util::CellReference* cellRef)
 {
     if(nullptr == _groupsCache) {
         _groupsCache = new ::java::util::HashMap(npc(_groupsBySharedFormulaRecord)->size());
@@ -172,12 +166,12 @@ org::apache::poi::hssf::record::aggregates::SharedValueManager_SharedFormulaGrou
     return sfg;
 }
 
-java::lang::Integer* org::apache::poi::hssf::record::aggregates::SharedValueManager::getKeyForCache(::org::apache::poi::ss::util::CellReference* cellRef)
+java::lang::Integer* poi::hssf::record::aggregates::SharedValueManager::getKeyForCache(::poi::ss::util::CellReference* cellRef)
 {
     return ::java::lang::Integer::valueOf(((npc(cellRef)->getCol() + int32_t(1)) << int32_t(16) | npc(cellRef)->getRow()));
 }
 
-org::apache::poi::hssf::record::SharedValueRecordBase* org::apache::poi::hssf::record::aggregates::SharedValueManager::getRecordForFirstCell(FormulaRecordAggregate* agg)
+poi::hssf::record::SharedValueRecordBase* poi::hssf::record::aggregates::SharedValueManager::getRecordForFirstCell(FormulaRecordAggregate* agg)
 {
     auto firstCell = npc(npc(npc(agg)->getFormulaRecord())->getFormula())->getExpReference();
     if(firstCell == nullptr) {
@@ -200,7 +194,7 @@ org::apache::poi::hssf::record::SharedValueRecordBase* org::apache::poi::hssf::r
         }
     }
     for (auto _i = npc(_arrayRecords)->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::hssf::record::ArrayRecord* ar = java_cast< ::org::apache::poi::hssf::record::ArrayRecord* >(_i->next());
+        ::poi::hssf::record::ArrayRecord* ar = java_cast< ::poi::hssf::record::ArrayRecord* >(_i->next());
         {
             if(npc(ar)->isFirstCell(row, column)) {
                 return ar;
@@ -210,7 +204,7 @@ org::apache::poi::hssf::record::SharedValueRecordBase* org::apache::poi::hssf::r
     return nullptr;
 }
 
-void org::apache::poi::hssf::record::aggregates::SharedValueManager::unlink(::org::apache::poi::hssf::record::SharedFormulaRecord* sharedFormulaRecord)
+void poi::hssf::record::aggregates::SharedValueManager::unlink(::poi::hssf::record::SharedFormulaRecord* sharedFormulaRecord)
 {
     auto svg = java_cast< SharedValueManager_SharedFormulaGroup* >(npc(_groupsBySharedFormulaRecord)->remove(sharedFormulaRecord));
     if(svg == nullptr) {
@@ -220,15 +214,15 @@ void org::apache::poi::hssf::record::aggregates::SharedValueManager::unlink(::or
     npc(svg)->unlinkSharedFormulas();
 }
 
-void org::apache::poi::hssf::record::aggregates::SharedValueManager::addArrayRecord(::org::apache::poi::hssf::record::ArrayRecord* ar)
+void poi::hssf::record::aggregates::SharedValueManager::addArrayRecord(::poi::hssf::record::ArrayRecord* ar)
 {
     npc(_arrayRecords)->add(static_cast< ::java::lang::Object* >(ar));
 }
 
-org::apache::poi::hssf::util::CellRangeAddress8Bit* org::apache::poi::hssf::record::aggregates::SharedValueManager::removeArrayFormula(int32_t rowIndex, int32_t columnIndex)
+poi::hssf::util::CellRangeAddress8Bit* poi::hssf::record::aggregates::SharedValueManager::removeArrayFormula(int32_t rowIndex, int32_t columnIndex)
 {
     for (auto _i = npc(_arrayRecords)->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::hssf::record::ArrayRecord* ar = java_cast< ::org::apache::poi::hssf::record::ArrayRecord* >(_i->next());
+        ::poi::hssf::record::ArrayRecord* ar = java_cast< ::poi::hssf::record::ArrayRecord* >(_i->next());
         {
             if(npc(ar)->isInRange(rowIndex, columnIndex)) {
                 npc(_arrayRecords)->remove(static_cast< ::java::lang::Object* >(ar));
@@ -236,15 +230,15 @@ org::apache::poi::hssf::util::CellRangeAddress8Bit* org::apache::poi::hssf::reco
             }
         }
     }
-    auto ref = (new ::org::apache::poi::ss::util::CellReference(rowIndex, columnIndex, false, false))->formatAsString();
+    auto ref = (new ::poi::ss::util::CellReference(rowIndex, columnIndex, false, false))->formatAsString();
     throw new ::java::lang::IllegalArgumentException(::java::lang::StringBuilder().append(u"Specified cell "_j)->append(ref)
         ->append(u" is not part of an array formula."_j)->toString());
 }
 
-org::apache::poi::hssf::record::ArrayRecord* org::apache::poi::hssf::record::aggregates::SharedValueManager::getArrayRecord(int32_t firstRow, int32_t firstColumn)
+poi::hssf::record::ArrayRecord* poi::hssf::record::aggregates::SharedValueManager::getArrayRecord(int32_t firstRow, int32_t firstColumn)
 {
     for (auto _i = npc(_arrayRecords)->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::hssf::record::ArrayRecord* ar = java_cast< ::org::apache::poi::hssf::record::ArrayRecord* >(_i->next());
+        ::poi::hssf::record::ArrayRecord* ar = java_cast< ::poi::hssf::record::ArrayRecord* >(_i->next());
         {
             if(npc(ar)->isFirstCell(firstRow, firstColumn)) {
                 return ar;
@@ -256,13 +250,13 @@ org::apache::poi::hssf::record::ArrayRecord* org::apache::poi::hssf::record::agg
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::aggregates::SharedValueManager::class_()
+java::lang::Class* poi::hssf::record::aggregates::SharedValueManager::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.aggregates.SharedValueManager", 56);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::record::aggregates::SharedValueManager::getClass0()
+java::lang::Class* poi::hssf::record::aggregates::SharedValueManager::getClass0()
 {
     return class_();
 }

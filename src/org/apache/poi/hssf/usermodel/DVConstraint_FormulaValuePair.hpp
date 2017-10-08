@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::DVConstraint_FormulaValuePair
+class poi::hssf::usermodel::DVConstraint_FormulaValuePair
     : public virtual ::java::lang::Object
 {
 

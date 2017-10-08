@@ -14,19 +14,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::BaseNumberUtils::BaseNumberUtils(const ::default_init_tag&)
+poi::ss::formula::functions::BaseNumberUtils::BaseNumberUtils(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::BaseNumberUtils::BaseNumberUtils()
+poi::ss::formula::functions::BaseNumberUtils::BaseNumberUtils()
     : BaseNumberUtils(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-double org::apache::poi::ss::formula::functions::BaseNumberUtils::convertToDecimal(::java::lang::String* value, int32_t base, int32_t maxNumberOfPlaces) /* throws(IllegalArgumentException) */
+double poi::ss::formula::functions::BaseNumberUtils::convertToDecimal(::java::lang::String* value, int32_t base, int32_t maxNumberOfPlaces) /* throws(IllegalArgumentException) */
 {
     clinit();
     if(value == nullptr || npc(value)->length() == 0) {
@@ -69,7 +69,7 @@ double org::apache::poi::ss::formula::functions::BaseNumberUtils::convertToDecim
     return decimalValue;
 }
 
-double org::apache::poi::ss::formula::functions::BaseNumberUtils::getTwoComplement(double base, double maxNumberOfPlaces, double decimalValue)
+double poi::ss::formula::functions::BaseNumberUtils::getTwoComplement(double base, double maxNumberOfPlaces, double decimalValue)
 {
     clinit();
     return (::java::lang::Math::pow(base, maxNumberOfPlaces) - decimalValue);
@@ -77,13 +77,13 @@ double org::apache::poi::ss::formula::functions::BaseNumberUtils::getTwoCompleme
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::BaseNumberUtils::class_()
+java::lang::Class* poi::ss::formula::functions::BaseNumberUtils::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.BaseNumberUtils", 51);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::BaseNumberUtils::getClass0()
+java::lang::Class* poi::ss::formula::functions::BaseNumberUtils::getClass0()
 {
     return class_();
 }

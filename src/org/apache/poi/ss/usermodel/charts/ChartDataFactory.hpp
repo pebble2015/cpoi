@@ -5,7 +5,7 @@
 #include <org/apache/poi/ss/usermodel/charts/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::usermodel::charts::ChartDataFactory
+struct poi::ss::usermodel::charts::ChartDataFactory
     : public virtual ::java::lang::Object
 {
     virtual ScatterChartData* createScatterChartData() = 0;

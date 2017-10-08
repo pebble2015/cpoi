@@ -16,32 +16,32 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::format::CellDateFormatter_DatePartHandler::CellDateFormatter_DatePartHandler(CellDateFormatter *CellDateFormatter_this, const ::default_init_tag&)
+poi::ss::format::CellDateFormatter_DatePartHandler::CellDateFormatter_DatePartHandler(CellDateFormatter *CellDateFormatter_this, const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
     , CellDateFormatter_this(CellDateFormatter_this)
 {
     clinit();
 }
 
-org::apache::poi::ss::format::CellDateFormatter_DatePartHandler::CellDateFormatter_DatePartHandler(CellDateFormatter *CellDateFormatter_this)
+poi::ss::format::CellDateFormatter_DatePartHandler::CellDateFormatter_DatePartHandler(CellDateFormatter *CellDateFormatter_this)
     : CellDateFormatter_DatePartHandler(CellDateFormatter_this, *static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::ss::format::CellDateFormatter_DatePartHandler::ctor()
+void poi::ss::format::CellDateFormatter_DatePartHandler::ctor()
 {
     super::ctor();
     init();
 }
 
-void org::apache::poi::ss::format::CellDateFormatter_DatePartHandler::init()
+void poi::ss::format::CellDateFormatter_DatePartHandler::init()
 {
     mStart = -int32_t(1);
     hStart = -int32_t(1);
 }
 
-java::lang::String* org::apache::poi::ss::format::CellDateFormatter_DatePartHandler::handlePart(::java::util::regex::Matcher* m, ::java::lang::String* part, CellFormatType* type, ::java::lang::StringBuffer* desc)
+java::lang::String* poi::ss::format::CellDateFormatter_DatePartHandler::handlePart(::java::util::regex::Matcher* m, ::java::lang::String* part, CellFormatType* type, ::java::lang::StringBuffer* desc)
 {
     auto pos = npc(desc)->length();
     auto firstCh = npc(part)->charAt(int32_t(0));
@@ -111,7 +111,7 @@ java::lang::String* org::apache::poi::ss::format::CellDateFormatter_DatePartHand
 
 }
 
-void org::apache::poi::ss::format::CellDateFormatter_DatePartHandler::finish(::java::lang::StringBuffer* toAppendTo)
+void poi::ss::format::CellDateFormatter_DatePartHandler::finish(::java::lang::StringBuffer* toAppendTo)
 {
     if(hStart >= 0 && !CellDateFormatter_this->showAmPm) {
         for (auto i = int32_t(0); i < hLen; i++) {
@@ -122,13 +122,13 @@ void org::apache::poi::ss::format::CellDateFormatter_DatePartHandler::finish(::j
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::format::CellDateFormatter_DatePartHandler::class_()
+java::lang::Class* poi::ss::format::CellDateFormatter_DatePartHandler::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.format.CellDateFormatter.DatePartHandler", 58);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::format::CellDateFormatter_DatePartHandler::getClass0()
+java::lang::Class* poi::ss::format::CellDateFormatter_DatePartHandler::getClass0()
 {
     return class_();
 }

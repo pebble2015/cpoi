@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::util::LittleEndianInputStream
+class poi::util::LittleEndianInputStream
     : public ::java::io::FilterInputStream
     , public virtual LittleEndianInput
 {

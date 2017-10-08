@@ -34,50 +34,50 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::ptg::GreaterThanPtg::GreaterThanPtg(const ::default_init_tag&)
+poi::ss::formula::ptg::GreaterThanPtg::GreaterThanPtg(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::ptg::GreaterThanPtg::GreaterThanPtg() 
+poi::ss::formula::ptg::GreaterThanPtg::GreaterThanPtg() 
     : GreaterThanPtg(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-constexpr int8_t org::apache::poi::ss::formula::ptg::GreaterThanPtg::sid;
+constexpr int8_t poi::ss::formula::ptg::GreaterThanPtg::sid;
 
-java::lang::String*& org::apache::poi::ss::formula::ptg::GreaterThanPtg::GREATERTHAN()
+java::lang::String*& poi::ss::formula::ptg::GreaterThanPtg::GREATERTHAN()
 {
     clinit();
     return GREATERTHAN_;
 }
-java::lang::String* org::apache::poi::ss::formula::ptg::GreaterThanPtg::GREATERTHAN_;
+java::lang::String* poi::ss::formula::ptg::GreaterThanPtg::GREATERTHAN_;
 
-org::apache::poi::ss::formula::ptg::ValueOperatorPtg*& org::apache::poi::ss::formula::ptg::GreaterThanPtg::instance()
+poi::ss::formula::ptg::ValueOperatorPtg*& poi::ss::formula::ptg::GreaterThanPtg::instance()
 {
     clinit();
     return instance_;
 }
-org::apache::poi::ss::formula::ptg::ValueOperatorPtg* org::apache::poi::ss::formula::ptg::GreaterThanPtg::instance_;
+poi::ss::formula::ptg::ValueOperatorPtg* poi::ss::formula::ptg::GreaterThanPtg::instance_;
 
-void org::apache::poi::ss::formula::ptg::GreaterThanPtg::ctor()
+void poi::ss::formula::ptg::GreaterThanPtg::ctor()
 {
     super::ctor();
 }
 
-int8_t org::apache::poi::ss::formula::ptg::GreaterThanPtg::getSid()
+int8_t poi::ss::formula::ptg::GreaterThanPtg::getSid()
 {
     return sid;
 }
 
-int32_t org::apache::poi::ss::formula::ptg::GreaterThanPtg::getNumberOfOperands()
+int32_t poi::ss::formula::ptg::GreaterThanPtg::getNumberOfOperands()
 {
     return 2;
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::GreaterThanPtg::toFormulaString(::java::lang::StringArray* operands)
+java::lang::String* poi::ss::formula::ptg::GreaterThanPtg::toFormulaString(::java::lang::StringArray* operands)
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append((*operands)[int32_t(0)]);
@@ -88,13 +88,13 @@ java::lang::String* org::apache::poi::ss::formula::ptg::GreaterThanPtg::toFormul
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::GreaterThanPtg::class_()
+java::lang::Class* poi::ss::formula::ptg::GreaterThanPtg::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.ptg.GreaterThanPtg", 44);
     return c;
 }
 
-void org::apache::poi::ss::formula::ptg::GreaterThanPtg::clinit()
+void poi::ss::formula::ptg::GreaterThanPtg::clinit()
 {
 struct string_init_ {
     string_init_() {
@@ -118,12 +118,12 @@ struct clinit_ {
     }
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::GreaterThanPtg::toFormulaString()
+java::lang::String* poi::ss::formula::ptg::GreaterThanPtg::toFormulaString()
 {
     return super::toFormulaString();
 }
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::GreaterThanPtg::getClass0()
+java::lang::Class* poi::ss::formula::ptg::GreaterThanPtg::getClass0()
 {
     return class_();
 }

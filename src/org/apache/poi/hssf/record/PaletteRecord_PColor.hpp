@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::PaletteRecord_PColor final
+class poi::hssf::record::PaletteRecord_PColor final
     : public ::java::lang::Object
 {
 
@@ -31,7 +31,7 @@ protected:
     void ctor(RecordInputStream* in);
 
 public:
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out);
+    void serialize(::poi::util::LittleEndianOutput* out);
     ::java::lang::String* toString() override;
 
     // Generated

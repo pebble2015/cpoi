@@ -6,8 +6,8 @@
 #include <org/apache/poi/sl/usermodel/fwd-POI.hpp>
 #include <org/apache/poi/common/usermodel/Hyperlink.hpp>
 
-struct org::apache::poi::sl::usermodel::Hyperlink
-    : public virtual ::org::apache::poi::common::usermodel::Hyperlink
+struct poi::sl::usermodel::Hyperlink
+    : public virtual ::poi::common::usermodel::Hyperlink
 {
     virtual void linkToEmail(::java::lang::String* emailAddress) = 0;
     virtual void linkToUrl(::java::lang::String* url) = 0;

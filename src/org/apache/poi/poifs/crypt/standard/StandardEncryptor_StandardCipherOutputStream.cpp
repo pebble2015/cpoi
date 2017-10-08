@@ -49,65 +49,65 @@ namespace
 
     template<typename F> finally_<F> finally(F f) { return finally_<F>(f); }
 }
-org::apache::poi::poifs::crypt::standard::StandardEncryptor_StandardCipherOutputStream::StandardEncryptor_StandardCipherOutputStream(StandardEncryptor *StandardEncryptor_this, const ::default_init_tag&)
+poi::poifs::crypt::standard::StandardEncryptor_StandardCipherOutputStream::StandardEncryptor_StandardCipherOutputStream(StandardEncryptor *StandardEncryptor_this, const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
     , StandardEncryptor_this(StandardEncryptor_this)
 {
     clinit();
 }
 
-org::apache::poi::poifs::crypt::standard::StandardEncryptor_StandardCipherOutputStream::StandardEncryptor_StandardCipherOutputStream(StandardEncryptor *StandardEncryptor_this, ::org::apache::poi::poifs::filesystem::DirectoryNode* dir, ::java::io::File* fileOut)  /* throws(IOException) */
+poi::poifs::crypt::standard::StandardEncryptor_StandardCipherOutputStream::StandardEncryptor_StandardCipherOutputStream(StandardEncryptor *StandardEncryptor_this, ::poi::poifs::filesystem::DirectoryNode* dir, ::java::io::File* fileOut)  /* throws(IOException) */
     : StandardEncryptor_StandardCipherOutputStream(StandardEncryptor_this, *static_cast< ::default_init_tag* >(0))
 {
     ctor(dir,fileOut);
 }
 
-org::apache::poi::poifs::crypt::standard::StandardEncryptor_StandardCipherOutputStream::StandardEncryptor_StandardCipherOutputStream(StandardEncryptor *StandardEncryptor_this, ::org::apache::poi::poifs::filesystem::DirectoryNode* dir)  /* throws(IOException) */
+poi::poifs::crypt::standard::StandardEncryptor_StandardCipherOutputStream::StandardEncryptor_StandardCipherOutputStream(StandardEncryptor *StandardEncryptor_this, ::poi::poifs::filesystem::DirectoryNode* dir)  /* throws(IOException) */
     : StandardEncryptor_StandardCipherOutputStream(StandardEncryptor_this, *static_cast< ::default_init_tag* >(0))
 {
     ctor(dir);
 }
 
-void org::apache::poi::poifs::crypt::standard::StandardEncryptor_StandardCipherOutputStream::ctor(::org::apache::poi::poifs::filesystem::DirectoryNode* dir, ::java::io::File* fileOut) /* throws(IOException) */
+void poi::poifs::crypt::standard::StandardEncryptor_StandardCipherOutputStream::ctor(::poi::poifs::filesystem::DirectoryNode* dir, ::java::io::File* fileOut) /* throws(IOException) */
 {
     super::ctor(new ::javax::crypto::CipherOutputStream(new ::java::io::FileOutputStream(fileOut), StandardEncryptor_this->getCipher(StandardEncryptor_this->getSecretKey(), u"PKCS5Padding"_j)));
     this->fileOut = fileOut;
     this->dir = dir;
 }
 
-void org::apache::poi::poifs::crypt::standard::StandardEncryptor_StandardCipherOutputStream::ctor(::org::apache::poi::poifs::filesystem::DirectoryNode* dir) /* throws(IOException) */
+void poi::poifs::crypt::standard::StandardEncryptor_StandardCipherOutputStream::ctor(::poi::poifs::filesystem::DirectoryNode* dir) /* throws(IOException) */
 {
-    ctor(dir, ::org::apache::poi::util::TempFile::createTempFile(u"encrypted_package"_j, u"crypt"_j));
+    ctor(dir, ::poi::util::TempFile::createTempFile(u"encrypted_package"_j, u"crypt"_j));
 }
 
-void org::apache::poi::poifs::crypt::standard::StandardEncryptor_StandardCipherOutputStream::write(::int8_tArray* b, int32_t off, int32_t len) /* throws(IOException) */
+void poi::poifs::crypt::standard::StandardEncryptor_StandardCipherOutputStream::write(::int8_tArray* b, int32_t off, int32_t len) /* throws(IOException) */
 {
     npc(out)->write(b, off, len);
     countBytes += len;
 }
 
-void org::apache::poi::poifs::crypt::standard::StandardEncryptor_StandardCipherOutputStream::write(int32_t b) /* throws(IOException) */
+void poi::poifs::crypt::standard::StandardEncryptor_StandardCipherOutputStream::write(int32_t b) /* throws(IOException) */
 {
     npc(out)->write(b);
     countBytes++;
 }
 
-void org::apache::poi::poifs::crypt::standard::StandardEncryptor_StandardCipherOutputStream::close() /* throws(IOException) */
+void poi::poifs::crypt::standard::StandardEncryptor_StandardCipherOutputStream::close() /* throws(IOException) */
 {
     super::close();
     writeToPOIFS();
 }
 
-void org::apache::poi::poifs::crypt::standard::StandardEncryptor_StandardCipherOutputStream::writeToPOIFS() /* throws(IOException) */
+void poi::poifs::crypt::standard::StandardEncryptor_StandardCipherOutputStream::writeToPOIFS() /* throws(IOException) */
 {
-    auto oleStreamSize = static_cast< int32_t >((npc(fileOut)->length() + ::org::apache::poi::util::LittleEndianConsts::LONG_SIZE));
-    npc(dir)->createDocument(::org::apache::poi::poifs::crypt::Encryptor::DEFAULT_POIFS_ENTRY(), oleStreamSize, static_cast< ::org::apache::poi::poifs::filesystem::POIFSWriterListener* >(this));
+    auto oleStreamSize = static_cast< int32_t >((npc(fileOut)->length() + ::poi::util::LittleEndianConsts::LONG_SIZE));
+    npc(dir)->createDocument(::poi::poifs::crypt::Encryptor::DEFAULT_POIFS_ENTRY(), oleStreamSize, static_cast< ::poi::poifs::filesystem::POIFSWriterListener* >(this));
 }
 
-void org::apache::poi::poifs::crypt::standard::StandardEncryptor_StandardCipherOutputStream::processPOIFSWriterEvent(::org::apache::poi::poifs::filesystem::POIFSWriterEvent* event)
+void poi::poifs::crypt::standard::StandardEncryptor_StandardCipherOutputStream::processPOIFSWriterEvent(::poi::poifs::filesystem::POIFSWriterEvent* event)
 {
     try {
-        auto leos = new ::org::apache::poi::util::LittleEndianOutputStream(npc(event)->getStream());
+        auto leos = new ::poi::util::LittleEndianOutputStream(npc(event)->getStream());
         npc(leos)->writeLong(countBytes);
         auto fis = new ::java::io::FileInputStream(fileOut);
         {
@@ -115,33 +115,33 @@ void org::apache::poi::poifs::crypt::standard::StandardEncryptor_StandardCipherO
                 npc(fis)->close();
             });
             {
-                ::org::apache::poi::util::IOUtils::copy(fis, leos);
+                ::poi::util::IOUtils::copy(fis, leos);
             }
         }
 
         if(!npc(fileOut)->delete_()) {
-            npc(StandardEncryptor::logger())->log(::org::apache::poi::util::POILogger::ERROR, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Can't delete temporary encryption file: "_j)->append(static_cast< ::java::lang::Object* >(fileOut))->toString())}));
+            npc(StandardEncryptor::logger())->log(::poi::util::POILogger::ERROR, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Can't delete temporary encryption file: "_j)->append(static_cast< ::java::lang::Object* >(fileOut))->toString())}));
         }
         npc(leos)->close();
     } catch (::java::io::IOException* e) {
-        throw new ::org::apache::poi::EncryptedDocumentException(static_cast< ::java::lang::Throwable* >(e));
+        throw new ::poi::EncryptedDocumentException(static_cast< ::java::lang::Throwable* >(e));
     }
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::crypt::standard::StandardEncryptor_StandardCipherOutputStream::class_()
+java::lang::Class* poi::poifs::crypt::standard::StandardEncryptor_StandardCipherOutputStream::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.crypt.standard.StandardEncryptor.StandardCipherOutputStream", 80);
     return c;
 }
 
-void org::apache::poi::poifs::crypt::standard::StandardEncryptor_StandardCipherOutputStream::write(::int8_tArray* b)
+void poi::poifs::crypt::standard::StandardEncryptor_StandardCipherOutputStream::write(::int8_tArray* b)
 {
     super::write(b);
 }
 
-java::lang::Class* org::apache::poi::poifs::crypt::standard::StandardEncryptor_StandardCipherOutputStream::getClass0()
+java::lang::Class* poi::poifs::crypt::standard::StandardEncryptor_StandardCipherOutputStream::getClass0()
 {
     return class_();
 }

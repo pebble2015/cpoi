@@ -26,7 +26,7 @@ typedef ::SubArray< ::java::lang::ObjectArray, CloneableArray, ::java::io::Seria
 
 struct default_init_tag;
 
-class org::apache::poi::ddf::EscherTextboxRecord final
+class poi::ddf::EscherTextboxRecord final
     : public EscherRecord
     , public virtual ::java::lang::Cloneable
 {

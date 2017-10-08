@@ -15,57 +15,57 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::ptg::TblPtg::TblPtg(const ::default_init_tag&)
+poi::ss::formula::ptg::TblPtg::TblPtg(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::ptg::TblPtg::TblPtg(::org::apache::poi::util::LittleEndianInput* in) 
+poi::ss::formula::ptg::TblPtg::TblPtg(::poi::util::LittleEndianInput* in) 
     : TblPtg(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int32_t org::apache::poi::ss::formula::ptg::TblPtg::SIZE;
+constexpr int32_t poi::ss::formula::ptg::TblPtg::SIZE;
 
-constexpr int16_t org::apache::poi::ss::formula::ptg::TblPtg::sid;
+constexpr int16_t poi::ss::formula::ptg::TblPtg::sid;
 
-void org::apache::poi::ss::formula::ptg::TblPtg::ctor(::org::apache::poi::util::LittleEndianInput* in)
+void poi::ss::formula::ptg::TblPtg::ctor(::poi::util::LittleEndianInput* in)
 {
     super::ctor();
     field_1_first_row = npc(in)->readUShort();
     field_2_first_col = npc(in)->readUShort();
 }
 
-void org::apache::poi::ss::formula::ptg::TblPtg::write(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::ss::formula::ptg::TblPtg::write(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeByte(sid + getPtgClass());
     npc(out)->writeShort(field_1_first_row);
     npc(out)->writeShort(field_2_first_col);
 }
 
-int32_t org::apache::poi::ss::formula::ptg::TblPtg::getSize()
+int32_t poi::ss::formula::ptg::TblPtg::getSize()
 {
     return SIZE;
 }
 
-int32_t org::apache::poi::ss::formula::ptg::TblPtg::getRow()
+int32_t poi::ss::formula::ptg::TblPtg::getRow()
 {
     return field_1_first_row;
 }
 
-int32_t org::apache::poi::ss::formula::ptg::TblPtg::getColumn()
+int32_t poi::ss::formula::ptg::TblPtg::getColumn()
 {
     return field_2_first_col;
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::TblPtg::toFormulaString()
+java::lang::String* poi::ss::formula::ptg::TblPtg::toFormulaString()
 {
     throw new ::java::lang::RuntimeException(u"Table and Arrays are not yet supported"_j);
 }
 
-java::lang::String* org::apache::poi::ss::formula::ptg::TblPtg::toString()
+java::lang::String* poi::ss::formula::ptg::TblPtg::toString()
 {
     auto buffer = new ::java::lang::StringBuffer(u"[Data Table - Parent cell is an interior cell in a data table]\n"_j);
     npc(npc(npc(buffer)->append(u"top left row = "_j))->append(getRow()))->append(u"\n"_j);
@@ -75,13 +75,13 @@ java::lang::String* org::apache::poi::ss::formula::ptg::TblPtg::toString()
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::TblPtg::class_()
+java::lang::Class* poi::ss::formula::ptg::TblPtg::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.ptg.TblPtg", 36);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::ptg::TblPtg::getClass0()
+java::lang::Class* poi::ss::formula::ptg::TblPtg::getClass0()
 {
     return class_();
 }

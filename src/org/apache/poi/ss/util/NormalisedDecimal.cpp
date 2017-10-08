@@ -20,36 +20,36 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::util::NormalisedDecimal::NormalisedDecimal(const ::default_init_tag&)
+poi::ss::util::NormalisedDecimal::NormalisedDecimal(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::util::NormalisedDecimal::NormalisedDecimal(int64_t wholePart, int32_t fracPart, int32_t decimalExponent) 
+poi::ss::util::NormalisedDecimal::NormalisedDecimal(int64_t wholePart, int32_t fracPart, int32_t decimalExponent) 
     : NormalisedDecimal(*static_cast< ::default_init_tag* >(0))
 {
     ctor(wholePart,fracPart,decimalExponent);
 }
 
-constexpr int32_t org::apache::poi::ss::util::NormalisedDecimal::EXPONENT_OFFSET;
+constexpr int32_t poi::ss::util::NormalisedDecimal::EXPONENT_OFFSET;
 
-java::math::BigDecimal*& org::apache::poi::ss::util::NormalisedDecimal::BD_2_POW_24()
+java::math::BigDecimal*& poi::ss::util::NormalisedDecimal::BD_2_POW_24()
 {
     clinit();
     return BD_2_POW_24_;
 }
-java::math::BigDecimal* org::apache::poi::ss::util::NormalisedDecimal::BD_2_POW_24_;
+java::math::BigDecimal* poi::ss::util::NormalisedDecimal::BD_2_POW_24_;
 
-constexpr int32_t org::apache::poi::ss::util::NormalisedDecimal::LOG_BASE_10_OF_2_TIMES_2_POW_20;
+constexpr int32_t poi::ss::util::NormalisedDecimal::LOG_BASE_10_OF_2_TIMES_2_POW_20;
 
-constexpr int32_t org::apache::poi::ss::util::NormalisedDecimal::C_2_POW_19;
+constexpr int32_t poi::ss::util::NormalisedDecimal::C_2_POW_19;
 
-constexpr int32_t org::apache::poi::ss::util::NormalisedDecimal::FRAC_HALF;
+constexpr int32_t poi::ss::util::NormalisedDecimal::FRAC_HALF;
 
-constexpr int64_t org::apache::poi::ss::util::NormalisedDecimal::MAX_REP_WHOLE_PART;
+constexpr int64_t poi::ss::util::NormalisedDecimal::MAX_REP_WHOLE_PART;
 
-org::apache::poi::ss::util::NormalisedDecimal* org::apache::poi::ss::util::NormalisedDecimal::create(::java::math::BigInteger* frac, int32_t binaryExponent)
+poi::ss::util::NormalisedDecimal* poi::ss::util::NormalisedDecimal::create(::java::math::BigInteger* frac, int32_t binaryExponent)
 {
     clinit();
     int32_t pow10;
@@ -94,7 +94,7 @@ org::apache::poi::ss::util::NormalisedDecimal* org::apache::poi::ss::util::Norma
     return npc(cc)->createNormalisedDecimal(pow10);
 }
 
-org::apache::poi::ss::util::NormalisedDecimal* org::apache::poi::ss::util::NormalisedDecimal::roundUnits()
+poi::ss::util::NormalisedDecimal* poi::ss::util::NormalisedDecimal::roundUnits()
 {
     auto wholePart = _wholePart;
     if(_fractionalPart >= FRAC_HALF) {
@@ -107,7 +107,7 @@ org::apache::poi::ss::util::NormalisedDecimal* org::apache::poi::ss::util::Norma
     return new NormalisedDecimal(wholePart / int32_t(10), int32_t(0), de + int32_t(1));
 }
 
-void org::apache::poi::ss::util::NormalisedDecimal::ctor(int64_t wholePart, int32_t fracPart, int32_t decimalExponent)
+void poi::ss::util::NormalisedDecimal::ctor(int64_t wholePart, int32_t fracPart, int32_t decimalExponent)
 {
     super::ctor();
     _wholePart = wholePart;
@@ -115,7 +115,7 @@ void org::apache::poi::ss::util::NormalisedDecimal::ctor(int64_t wholePart, int3
     _relativeDecimalExponent = decimalExponent;
 }
 
-org::apache::poi::ss::util::ExpandedDouble* org::apache::poi::ss::util::NormalisedDecimal::normaliseBaseTwo()
+poi::ss::util::ExpandedDouble* poi::ss::util::NormalisedDecimal::normaliseBaseTwo()
 {
     auto cc = new MutableFPNumber(composeFrac(), int32_t(39));
     npc(cc)->multiplyByPowerOfTen(_relativeDecimalExponent);
@@ -123,7 +123,7 @@ org::apache::poi::ss::util::ExpandedDouble* org::apache::poi::ss::util::Normalis
     return npc(cc)->createExpandedDouble();
 }
 
-java::math::BigInteger* org::apache::poi::ss::util::NormalisedDecimal::composeFrac()
+java::math::BigInteger* poi::ss::util::NormalisedDecimal::composeFrac()
 {
     auto wp = _wholePart;
     auto fp = _fractionalPart;
@@ -142,12 +142,12 @@ java::math::BigInteger* org::apache::poi::ss::util::NormalisedDecimal::composeFr
     }));
 }
 
-java::lang::String* org::apache::poi::ss::util::NormalisedDecimal::getSignificantDecimalDigits()
+java::lang::String* poi::ss::util::NormalisedDecimal::getSignificantDecimalDigits()
 {
     return ::java::lang::Long::toString(_wholePart);
 }
 
-java::lang::String* org::apache::poi::ss::util::NormalisedDecimal::getSignificantDecimalDigitsLastDigitRounded()
+java::lang::String* poi::ss::util::NormalisedDecimal::getSignificantDecimalDigitsLastDigitRounded()
 {
     auto wp = _wholePart + int32_t(5);
     auto sb = new ::java::lang::StringBuilder(int32_t(24));
@@ -156,12 +156,12 @@ java::lang::String* org::apache::poi::ss::util::NormalisedDecimal::getSignifican
     return npc(sb)->toString();
 }
 
-int32_t org::apache::poi::ss::util::NormalisedDecimal::getDecimalExponent()
+int32_t poi::ss::util::NormalisedDecimal::getDecimalExponent()
 {
     return _relativeDecimalExponent + EXPONENT_OFFSET;
 }
 
-int32_t org::apache::poi::ss::util::NormalisedDecimal::compareNormalised(NormalisedDecimal* other)
+int32_t poi::ss::util::NormalisedDecimal::compareNormalised(NormalisedDecimal* other)
 {
     auto cmp = _relativeDecimalExponent - npc(other)->_relativeDecimalExponent;
     if(cmp != 0) {
@@ -176,12 +176,12 @@ int32_t org::apache::poi::ss::util::NormalisedDecimal::compareNormalised(Normali
     return _fractionalPart - npc(other)->_fractionalPart;
 }
 
-java::math::BigDecimal* org::apache::poi::ss::util::NormalisedDecimal::getFractionalPart()
+java::math::BigDecimal* poi::ss::util::NormalisedDecimal::getFractionalPart()
 {
     return (new ::java::math::BigDecimal(_fractionalPart))->divide(BD_2_POW_24_);
 }
 
-java::lang::String* org::apache::poi::ss::util::NormalisedDecimal::getFractionalDigits()
+java::lang::String* poi::ss::util::NormalisedDecimal::getFractionalDigits()
 {
     if(_fractionalPart == 0) {
         return u"0"_j;
@@ -189,7 +189,7 @@ java::lang::String* org::apache::poi::ss::util::NormalisedDecimal::getFractional
     return npc(npc(getFractionalPart())->toString())->substring(2);
 }
 
-java::lang::String* org::apache::poi::ss::util::NormalisedDecimal::toString()
+java::lang::String* poi::ss::util::NormalisedDecimal::toString()
 {
     auto sb = new ::java::lang::StringBuilder();
     npc(sb)->append(npc(getClass())->getName());
@@ -208,13 +208,13 @@ java::lang::String* org::apache::poi::ss::util::NormalisedDecimal::toString()
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::util::NormalisedDecimal::class_()
+java::lang::Class* poi::ss::util::NormalisedDecimal::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.util.NormalisedDecimal", 40);
     return c;
 }
 
-void org::apache::poi::ss::util::NormalisedDecimal::clinit()
+void poi::ss::util::NormalisedDecimal::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -230,7 +230,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::ss::util::NormalisedDecimal::getClass0()
+java::lang::Class* poi::ss::util::NormalisedDecimal::getClass0()
 {
     return class_();
 }

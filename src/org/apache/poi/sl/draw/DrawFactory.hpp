@@ -13,7 +13,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::DrawFactory
+class poi::sl::draw::DrawFactory
     : public virtual ::java::lang::Object
 {
 
@@ -26,23 +26,23 @@ private:
 public:
     static void setDefaultFactory(DrawFactory* factory);
     static DrawFactory* getInstance(::java::awt::Graphics2D* graphics);
-    virtual Drawable* getDrawable(::org::apache::poi::sl::usermodel::Shape* shape);
-    virtual DrawSlide* getDrawable(::org::apache::poi::sl::usermodel::Slide* sheet);
-    virtual DrawSheet* getDrawable(::org::apache::poi::sl::usermodel::Sheet* sheet);
-    virtual DrawMasterSheet* getDrawable(::org::apache::poi::sl::usermodel::MasterSheet* sheet);
-    virtual DrawTextBox* getDrawable(::org::apache::poi::sl::usermodel::TextBox* shape);
-    virtual DrawFreeformShape* getDrawable(::org::apache::poi::sl::usermodel::FreeformShape* shape);
-    virtual DrawConnectorShape* getDrawable(::org::apache::poi::sl::usermodel::ConnectorShape* shape);
-    virtual DrawTableShape* getDrawable(::org::apache::poi::sl::usermodel::TableShape* shape);
-    virtual DrawTextShape* getDrawable(::org::apache::poi::sl::usermodel::TextShape* shape);
-    virtual DrawGroupShape* getDrawable(::org::apache::poi::sl::usermodel::GroupShape* shape);
-    virtual DrawPictureShape* getDrawable(::org::apache::poi::sl::usermodel::PictureShape* shape);
-    virtual DrawGraphicalFrame* getDrawable(::org::apache::poi::sl::usermodel::GraphicalFrame* shape);
-    virtual DrawTextParagraph* getDrawable(::org::apache::poi::sl::usermodel::TextParagraph* paragraph);
-    virtual DrawBackground* getDrawable(::org::apache::poi::sl::usermodel::Background* shape);
+    virtual Drawable* getDrawable(::poi::sl::usermodel::Shape* shape);
+    virtual DrawSlide* getDrawable(::poi::sl::usermodel::Slide* sheet);
+    virtual DrawSheet* getDrawable(::poi::sl::usermodel::Sheet* sheet);
+    virtual DrawMasterSheet* getDrawable(::poi::sl::usermodel::MasterSheet* sheet);
+    virtual DrawTextBox* getDrawable(::poi::sl::usermodel::TextBox* shape);
+    virtual DrawFreeformShape* getDrawable(::poi::sl::usermodel::FreeformShape* shape);
+    virtual DrawConnectorShape* getDrawable(::poi::sl::usermodel::ConnectorShape* shape);
+    virtual DrawTableShape* getDrawable(::poi::sl::usermodel::TableShape* shape);
+    virtual DrawTextShape* getDrawable(::poi::sl::usermodel::TextShape* shape);
+    virtual DrawGroupShape* getDrawable(::poi::sl::usermodel::GroupShape* shape);
+    virtual DrawPictureShape* getDrawable(::poi::sl::usermodel::PictureShape* shape);
+    virtual DrawGraphicalFrame* getDrawable(::poi::sl::usermodel::GraphicalFrame* shape);
+    virtual DrawTextParagraph* getDrawable(::poi::sl::usermodel::TextParagraph* paragraph);
+    virtual DrawBackground* getDrawable(::poi::sl::usermodel::Background* shape);
     virtual DrawTextFragment* getTextFragment(::java::awt::font::TextLayout* layout, ::java::text::AttributedString* str);
-    virtual DrawPaint* getPaint(::org::apache::poi::sl::usermodel::PlaceableShape* shape);
-    virtual void drawShape(::java::awt::Graphics2D* graphics, ::org::apache::poi::sl::usermodel::Shape* shape, ::java::awt::geom::Rectangle2D* bounds);
+    virtual DrawPaint* getPaint(::poi::sl::usermodel::PlaceableShape* shape);
+    virtual void drawShape(::java::awt::Graphics2D* graphics, ::poi::sl::usermodel::Shape* shape, ::java::awt::geom::Rectangle2D* bounds);
     virtual void fixFonts(::java::awt::Graphics2D* graphics);
     virtual DrawFontManager* getFontManager(::java::awt::Graphics2D* graphics);
 

@@ -5,7 +5,7 @@
 #include <org/apache/poi/ss/usermodel/charts/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::usermodel::charts::ChartAxisFactory
+struct poi::ss::usermodel::charts::ChartAxisFactory
     : public virtual ::java::lang::Object
 {
     virtual ValueAxis* createValueAxis(AxisPosition* pos) = 0;

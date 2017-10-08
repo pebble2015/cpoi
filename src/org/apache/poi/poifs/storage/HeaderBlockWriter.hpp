@@ -13,28 +13,22 @@
 #include <org/apache/poi/poifs/storage/BlockWritable.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace poifs
     {
-        namespace poi
+        namespace storage
         {
-            namespace poifs
-            {
-                namespace storage
-                {
-typedef ::SubArray< ::org::apache::poi::poifs::storage::BlockWritable, ::java::lang::ObjectArray > BlockWritableArray;
-typedef ::SubArray< ::org::apache::poi::poifs::storage::BigBlock, ::java::lang::ObjectArray, BlockWritableArray > BigBlockArray;
-typedef ::SubArray< ::org::apache::poi::poifs::storage::BATBlock, BigBlockArray > BATBlockArray;
-                } // storage
-            } // poifs
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::poifs::storage::BlockWritable, ::java::lang::ObjectArray > BlockWritableArray;
+typedef ::SubArray< ::poi::poifs::storage::BigBlock, ::java::lang::ObjectArray, BlockWritableArray > BigBlockArray;
+typedef ::SubArray< ::poi::poifs::storage::BATBlock, BigBlockArray > BATBlockArray;
+        } // storage
+    } // poifs
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::storage::HeaderBlockWriter
+class poi::poifs::storage::HeaderBlockWriter
     : public virtual ::java::lang::Object
     , public virtual HeaderBlockConstants
     , public virtual BlockWritable
@@ -46,7 +40,7 @@ public:
 private:
     HeaderBlock* _header_block {  };
 protected:
-    void ctor(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize);
+    void ctor(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize);
     void ctor(HeaderBlock* headerBlock);
 
 public:
@@ -56,14 +50,14 @@ public:
     virtual void setSBATBlockCount(int32_t count);
 
 public: /* package */
-    static int32_t calculateXBATStorageRequirements(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, int32_t blockCount);
+    static int32_t calculateXBATStorageRequirements(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, int32_t blockCount);
 
 public:
     void writeBlocks(::java::io::OutputStream* stream) /* throws(IOException) */ override;
     virtual void writeBlock(::java::nio::ByteBuffer* block) /* throws(IOException) */;
 
     // Generated
-    HeaderBlockWriter(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize);
+    HeaderBlockWriter(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize);
     HeaderBlockWriter(HeaderBlock* headerBlock);
 protected:
     HeaderBlockWriter(const ::default_init_tag&);

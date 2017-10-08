@@ -9,29 +9,23 @@
 #include <java/lang/Object.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace util
         {
-            namespace ss
-            {
-                namespace util
-                {
-typedef ::SubArray< ::org::apache::poi::ss::util::CellRangeAddressBase, ::java::lang::ObjectArray > CellRangeAddressBaseArray;
-typedef ::SubArray< ::org::apache::poi::ss::util::CellRangeAddress, CellRangeAddressBaseArray > CellRangeAddressArray;
-                } // util
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::util::CellRangeAddressBase, ::java::lang::ObjectArray > CellRangeAddressBaseArray;
+typedef ::SubArray< ::poi::ss::util::CellRangeAddress, CellRangeAddressBaseArray > CellRangeAddressArray;
+        } // util
+    } // ss
+} // poi
 
-struct org::apache::poi::ss::usermodel::ConditionalFormatting
+struct poi::ss::usermodel::ConditionalFormatting
     : public virtual ::java::lang::Object
 {
-    virtual ::org::apache::poi::ss::util::CellRangeAddressArray* getFormattingRanges() = 0;
-    virtual void setFormattingRanges(::org::apache::poi::ss::util::CellRangeAddressArray* ranges) = 0;
+    virtual ::poi::ss::util::CellRangeAddressArray* getFormattingRanges() = 0;
+    virtual void setFormattingRanges(::poi::ss::util::CellRangeAddressArray* ranges) = 0;
     virtual void setRule(int32_t idx, ConditionalFormattingRule* cfRule) = 0;
     virtual void addRule(ConditionalFormattingRule* cfRule) = 0;
     virtual ConditionalFormattingRule* getRule(int32_t idx) = 0;

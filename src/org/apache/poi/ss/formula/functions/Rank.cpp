@@ -17,25 +17,19 @@
 #include <org/apache/poi/ss/formula/eval/ValueEval.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -53,65 +47,65 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::Rank::Rank(const ::default_init_tag&)
+poi::ss::formula::functions::Rank::Rank(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::Rank::Rank()
+poi::ss::formula::functions::Rank::Rank()
     : Rank(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Rank::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* arg0, ::org::apache::poi::ss::formula::eval::ValueEval* arg1)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Rank::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::poi::ss::formula::eval::ValueEval* arg0, ::poi::ss::formula::eval::ValueEval* arg1)
 {
     try {
-        auto ve = ::org::apache::poi::ss::formula::eval::OperandResolver::getSingleValue(arg0, srcRowIndex, srcColumnIndex);
-        auto result = ::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToDouble(ve);
+        auto ve = ::poi::ss::formula::eval::OperandResolver::getSingleValue(arg0, srcRowIndex, srcColumnIndex);
+        auto result = ::poi::ss::formula::eval::OperandResolver::coerceValueToDouble(ve);
         if(::java::lang::Double::isNaN(result) || ::java::lang::Double::isInfinite(result)) {
-            throw new ::org::apache::poi::ss::formula::eval::EvaluationException(::org::apache::poi::ss::formula::eval::ErrorEval::NUM_ERROR());
+            throw new ::poi::ss::formula::eval::EvaluationException(::poi::ss::formula::eval::ErrorEval::NUM_ERROR());
         }
-        if(dynamic_cast< ::org::apache::poi::ss::formula::eval::RefListEval* >(arg1) != nullptr) {
-            return eval(result, (java_cast< ::org::apache::poi::ss::formula::eval::RefListEval* >(arg1)), true);
+        if(dynamic_cast< ::poi::ss::formula::eval::RefListEval* >(arg1) != nullptr) {
+            return eval(result, (java_cast< ::poi::ss::formula::eval::RefListEval* >(arg1)), true);
         }
         auto const aeRange = convertRangeArg(arg1);
         return eval(result, aeRange, true);
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
         return npc(e)->getErrorEval();
     }
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Rank::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* arg0, ::org::apache::poi::ss::formula::eval::ValueEval* arg1, ::org::apache::poi::ss::formula::eval::ValueEval* arg2)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Rank::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::poi::ss::formula::eval::ValueEval* arg0, ::poi::ss::formula::eval::ValueEval* arg1, ::poi::ss::formula::eval::ValueEval* arg2)
 {
     try {
-        auto ve = ::org::apache::poi::ss::formula::eval::OperandResolver::getSingleValue(arg0, srcRowIndex, srcColumnIndex);
-        auto const result = ::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToDouble(ve);
+        auto ve = ::poi::ss::formula::eval::OperandResolver::getSingleValue(arg0, srcRowIndex, srcColumnIndex);
+        auto const result = ::poi::ss::formula::eval::OperandResolver::coerceValueToDouble(ve);
         if(::java::lang::Double::isNaN(result) || ::java::lang::Double::isInfinite(result)) {
-            throw new ::org::apache::poi::ss::formula::eval::EvaluationException(::org::apache::poi::ss::formula::eval::ErrorEval::NUM_ERROR());
+            throw new ::poi::ss::formula::eval::EvaluationException(::poi::ss::formula::eval::ErrorEval::NUM_ERROR());
         }
-        ve = ::org::apache::poi::ss::formula::eval::OperandResolver::getSingleValue(arg2, srcRowIndex, srcColumnIndex);
-        auto order_value = ::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToInt(ve);
+        ve = ::poi::ss::formula::eval::OperandResolver::getSingleValue(arg2, srcRowIndex, srcColumnIndex);
+        auto order_value = ::poi::ss::formula::eval::OperandResolver::coerceValueToInt(ve);
         bool order;
         if(order_value == 0) {
             order = true;
         } else if(order_value == 1) {
             order = false;
         } else {
-            throw new ::org::apache::poi::ss::formula::eval::EvaluationException(::org::apache::poi::ss::formula::eval::ErrorEval::NUM_ERROR());
+            throw new ::poi::ss::formula::eval::EvaluationException(::poi::ss::formula::eval::ErrorEval::NUM_ERROR());
         }
-        if(dynamic_cast< ::org::apache::poi::ss::formula::eval::RefListEval* >(arg1) != nullptr) {
-            return eval(result, (java_cast< ::org::apache::poi::ss::formula::eval::RefListEval* >(arg1)), order);
+        if(dynamic_cast< ::poi::ss::formula::eval::RefListEval* >(arg1) != nullptr) {
+            return eval(result, (java_cast< ::poi::ss::formula::eval::RefListEval* >(arg1)), order);
         }
         auto const aeRange = convertRangeArg(arg1);
         return eval(result, aeRange, order);
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
         return npc(e)->getErrorEval();
     }
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Rank::eval(double arg0, ::org::apache::poi::ss::formula::eval::AreaEval* aeRange, bool descending_order)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Rank::eval(double arg0, ::poi::ss::formula::eval::AreaEval* aeRange, bool descending_order)
 {
     clinit();
     auto rank = int32_t(1);
@@ -128,22 +122,22 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::f
             }
         }
     }
-    return new ::org::apache::poi::ss::formula::eval::NumberEval(static_cast< double >(rank));
+    return new ::poi::ss::formula::eval::NumberEval(static_cast< double >(rank));
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Rank::eval(double arg0, ::org::apache::poi::ss::formula::eval::RefListEval* aeRange, bool descending_order)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Rank::eval(double arg0, ::poi::ss::formula::eval::RefListEval* aeRange, bool descending_order)
 {
     clinit();
     auto rank = int32_t(1);
     for (auto _i = npc(npc(aeRange)->getList())->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::ss::formula::eval::ValueEval* ve = java_cast< ::org::apache::poi::ss::formula::eval::ValueEval* >(_i->next());
+        ::poi::ss::formula::eval::ValueEval* ve = java_cast< ::poi::ss::formula::eval::ValueEval* >(_i->next());
         {
-            if(dynamic_cast< ::org::apache::poi::ss::formula::eval::RefEval* >(ve) != nullptr) {
-                ve = npc((java_cast< ::org::apache::poi::ss::formula::eval::RefEval* >(ve)))->getInnerValueEval(npc((java_cast< ::org::apache::poi::ss::formula::eval::RefEval* >(ve)))->getFirstSheetIndex());
+            if(dynamic_cast< ::poi::ss::formula::eval::RefEval* >(ve) != nullptr) {
+                ve = npc((java_cast< ::poi::ss::formula::eval::RefEval* >(ve)))->getInnerValueEval(npc((java_cast< ::poi::ss::formula::eval::RefEval* >(ve)))->getFirstSheetIndex());
             }
             ::java::lang::Double* value;
-            if(dynamic_cast< ::org::apache::poi::ss::formula::eval::NumberEval* >(ve) != nullptr) {
-                value = ::java::lang::Double::valueOf(npc((java_cast< ::org::apache::poi::ss::formula::eval::NumberEval* >(ve)))->getNumberValue());
+            if(dynamic_cast< ::poi::ss::formula::eval::NumberEval* >(ve) != nullptr) {
+                value = ::java::lang::Double::valueOf(npc((java_cast< ::poi::ss::formula::eval::NumberEval* >(ve)))->getNumberValue());
             } else {
                 continue;
             }
@@ -152,45 +146,45 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::f
             }
         }
     }
-    return new ::org::apache::poi::ss::formula::eval::NumberEval(static_cast< double >(rank));
+    return new ::poi::ss::formula::eval::NumberEval(static_cast< double >(rank));
 }
 
-java::lang::Double* org::apache::poi::ss::formula::functions::Rank::getValue(::org::apache::poi::ss::formula::eval::AreaEval* aeRange, int32_t relRowIndex, int32_t relColIndex)
+java::lang::Double* poi::ss::formula::functions::Rank::getValue(::poi::ss::formula::eval::AreaEval* aeRange, int32_t relRowIndex, int32_t relColIndex)
 {
     clinit();
     auto addend = npc(aeRange)->getRelativeValue(relRowIndex, relColIndex);
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::NumberEval* >(addend) != nullptr) {
-        return ::java::lang::Double::valueOf(npc((java_cast< ::org::apache::poi::ss::formula::eval::NumberEval* >(addend)))->getNumberValue());
+    if(dynamic_cast< ::poi::ss::formula::eval::NumberEval* >(addend) != nullptr) {
+        return ::java::lang::Double::valueOf(npc((java_cast< ::poi::ss::formula::eval::NumberEval* >(addend)))->getNumberValue());
     }
     return nullptr;
 }
 
-org::apache::poi::ss::formula::eval::AreaEval* org::apache::poi::ss::formula::functions::Rank::convertRangeArg(::org::apache::poi::ss::formula::eval::ValueEval* eval) /* throws(EvaluationException) */
+poi::ss::formula::eval::AreaEval* poi::ss::formula::functions::Rank::convertRangeArg(::poi::ss::formula::eval::ValueEval* eval) /* throws(EvaluationException) */
 {
     clinit();
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::AreaEval* >(eval) != nullptr) {
-        return java_cast< ::org::apache::poi::ss::formula::eval::AreaEval* >(eval);
+    if(dynamic_cast< ::poi::ss::formula::eval::AreaEval* >(eval) != nullptr) {
+        return java_cast< ::poi::ss::formula::eval::AreaEval* >(eval);
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::RefEval* >(eval) != nullptr) {
-        return npc((java_cast< ::org::apache::poi::ss::formula::eval::RefEval* >(eval)))->offset(0, 0, 0, 0);
+    if(dynamic_cast< ::poi::ss::formula::eval::RefEval* >(eval) != nullptr) {
+        return npc((java_cast< ::poi::ss::formula::eval::RefEval* >(eval)))->offset(0, 0, 0, 0);
     }
-    throw new ::org::apache::poi::ss::formula::eval::EvaluationException(::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID());
+    throw new ::poi::ss::formula::eval::EvaluationException(::poi::ss::formula::eval::ErrorEval::VALUE_INVALID());
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Rank::class_()
+java::lang::Class* poi::ss::formula::functions::Rank::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.Rank", 40);
     return c;
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Rank::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Rank::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
 {
     return super::evaluate(args, srcRowIndex, srcColumnIndex);
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Rank::getClass0()
+java::lang::Class* poi::ss::formula::functions::Rank::getClass0()
 {
     return class_();
 }

@@ -7,7 +7,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::util::TempFile_DefaultTempFileCreationStrategy
+class poi::util::TempFile_DefaultTempFileCreationStrategy
     : public DefaultTempFileCreationStrategy
 {
 

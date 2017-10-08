@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::FormulaParser_SimpleRangePart final
+class poi::ss::formula::FormulaParser_SimpleRangePart final
     : public ::java::lang::Object
 {
 
@@ -26,7 +26,7 @@ protected:
 public:
     bool isCell();
     bool isRowOrColumn();
-    ::org::apache::poi::ss::util::CellReference* getCellReference();
+    ::poi::ss::util::CellReference* getCellReference();
     bool isColumn();
     bool isRow();
     ::java::lang::String* getRep();

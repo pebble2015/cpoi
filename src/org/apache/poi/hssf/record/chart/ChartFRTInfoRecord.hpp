@@ -10,34 +10,28 @@
 #include <org/apache/poi/hssf/record/StandardRecord.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
+            namespace chart
             {
-                namespace record
-                {
-                    namespace chart
-                    {
-typedef ::SubArray< ::org::apache::poi::hssf::record::chart::ChartFRTInfoRecord_CFRTID, ::java::lang::ObjectArray > ChartFRTInfoRecord_CFRTIDArray;
-                    } // chart
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hssf::record::chart::ChartFRTInfoRecord_CFRTID, ::java::lang::ObjectArray > ChartFRTInfoRecord_CFRTIDArray;
+            } // chart
+        } // record
+    } // hssf
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::chart::ChartFRTInfoRecord final
-    : public ::org::apache::poi::hssf::record::StandardRecord
+class poi::hssf::record::chart::ChartFRTInfoRecord final
+    : public ::poi::hssf::record::StandardRecord
 {
 
 public:
-    typedef ::org::apache::poi::hssf::record::StandardRecord super;
+    typedef ::poi::hssf::record::StandardRecord super;
     static constexpr int16_t sid { int16_t(2128) };
 
 private:
@@ -47,18 +41,18 @@ private:
     int8_t verWriter {  };
     ChartFRTInfoRecord_CFRTIDArray* rgCFRTID {  };
 protected:
-    void ctor(::org::apache::poi::hssf::record::RecordInputStream* in);
+    void ctor(::poi::hssf::record::RecordInputStream* in);
 
 public: /* protected */
     int32_t getDataSize() override;
 
 public:
     int16_t getSid() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
     ::java::lang::String* toString() override;
 
     // Generated
-    ChartFRTInfoRecord(::org::apache::poi::hssf::record::RecordInputStream* in);
+    ChartFRTInfoRecord(::poi::hssf::record::RecordInputStream* in);
 protected:
     ChartFRTInfoRecord(const ::default_init_tag&);
 

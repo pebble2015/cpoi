@@ -24,29 +24,23 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace common
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace common
+            namespace fonts
             {
-                namespace usermodel
-                {
-                    namespace fonts
-                    {
-typedef ::SubArray< ::org::apache::poi::common::usermodel::fonts::FontCharset, ::java::lang::EnumArray > FontCharsetArray;
-                    } // fonts
-                } // usermodel
-            } // common
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::common::usermodel::fonts::FontCharset, ::java::lang::EnumArray > FontCharsetArray;
+            } // fonts
+        } // usermodel
+    } // common
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::common::usermodel::fonts::FontCharset final
+class poi::common::usermodel::fonts::FontCharset final
     : public ::java::lang::Enum
 {
 

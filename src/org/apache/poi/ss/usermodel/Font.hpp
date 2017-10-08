@@ -7,7 +7,7 @@
 #include <org/apache/poi/ss/usermodel/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::usermodel::Font
+struct poi::ss::usermodel::Font
     : public virtual ::java::lang::Object
 {
     static constexpr int16_t COLOR_NORMAL { int16_t(32767) };

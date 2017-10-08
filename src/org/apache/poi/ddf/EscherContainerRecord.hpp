@@ -28,7 +28,7 @@ typedef ::SubArray< ::java::lang::ObjectArray, CloneableArray, ::java::io::Seria
 
 struct default_init_tag;
 
-class org::apache::poi::ddf::EscherContainerRecord final
+class poi::ddf::EscherContainerRecord final
     : public EscherRecord
     , public ::java::lang::Iterable
 {
@@ -43,7 +43,7 @@ public:
     static constexpr int16_t SOLVER_CONTAINER { int16_t(-4091) };
 
 private:
-    static ::org::apache::poi::util::POILogger* log_;
+    static ::poi::util::POILogger* log_;
     int32_t _remainingLength {  };
     ::java::util::List* _childRecords {  };
 
@@ -93,6 +93,6 @@ public:
     virtual int32_t serialize(int32_t offset, ::int8_tArray* data);
 
 private:
-    static ::org::apache::poi::util::POILogger*& log();
+    static ::poi::util::POILogger*& log();
     virtual ::java::lang::Class* getClass0();
 };

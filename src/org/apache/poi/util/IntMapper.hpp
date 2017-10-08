@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::util::IntMapper
+class poi::util::IntMapper
     : public virtual ::java::lang::Object
 {
 

@@ -11,67 +11,67 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::util::HSSFColor_LEMON_CHIFFON::HSSFColor_LEMON_CHIFFON(const ::default_init_tag&)
+poi::hssf::util::HSSFColor_LEMON_CHIFFON::HSSFColor_LEMON_CHIFFON(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::util::HSSFColor_LEMON_CHIFFON::HSSFColor_LEMON_CHIFFON() 
+poi::hssf::util::HSSFColor_LEMON_CHIFFON::HSSFColor_LEMON_CHIFFON() 
     : HSSFColor_LEMON_CHIFFON(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::util::HSSFColor_HSSFColorPredefined*& org::apache::poi::hssf::util::HSSFColor_LEMON_CHIFFON::ref()
+poi::hssf::util::HSSFColor_HSSFColorPredefined*& poi::hssf::util::HSSFColor_LEMON_CHIFFON::ref()
 {
     clinit();
     return ref_;
 }
-org::apache::poi::hssf::util::HSSFColor_HSSFColorPredefined* org::apache::poi::hssf::util::HSSFColor_LEMON_CHIFFON::ref_;
+poi::hssf::util::HSSFColor_HSSFColorPredefined* poi::hssf::util::HSSFColor_LEMON_CHIFFON::ref_;
 
-int16_t& org::apache::poi::hssf::util::HSSFColor_LEMON_CHIFFON::index()
+int16_t& poi::hssf::util::HSSFColor_LEMON_CHIFFON::index()
 {
     clinit();
     return index_;
 }
-int16_t org::apache::poi::hssf::util::HSSFColor_LEMON_CHIFFON::index_;
+int16_t poi::hssf::util::HSSFColor_LEMON_CHIFFON::index_;
 
-int32_t& org::apache::poi::hssf::util::HSSFColor_LEMON_CHIFFON::index2()
+int32_t& poi::hssf::util::HSSFColor_LEMON_CHIFFON::index2()
 {
     clinit();
     return index2_;
 }
-int32_t org::apache::poi::hssf::util::HSSFColor_LEMON_CHIFFON::index2_;
+int32_t poi::hssf::util::HSSFColor_LEMON_CHIFFON::index2_;
 
-int16_tArray*& org::apache::poi::hssf::util::HSSFColor_LEMON_CHIFFON::triplet()
+int16_tArray*& poi::hssf::util::HSSFColor_LEMON_CHIFFON::triplet()
 {
     clinit();
     return triplet_;
 }
-int16_tArray* org::apache::poi::hssf::util::HSSFColor_LEMON_CHIFFON::triplet_;
+int16_tArray* poi::hssf::util::HSSFColor_LEMON_CHIFFON::triplet_;
 
-java::lang::String*& org::apache::poi::hssf::util::HSSFColor_LEMON_CHIFFON::hexString()
+java::lang::String*& poi::hssf::util::HSSFColor_LEMON_CHIFFON::hexString()
 {
     clinit();
     return hexString_;
 }
-java::lang::String* org::apache::poi::hssf::util::HSSFColor_LEMON_CHIFFON::hexString_;
+java::lang::String* poi::hssf::util::HSSFColor_LEMON_CHIFFON::hexString_;
 
-void org::apache::poi::hssf::util::HSSFColor_LEMON_CHIFFON::ctor()
+void poi::hssf::util::HSSFColor_LEMON_CHIFFON::ctor()
 {
     super::ctor(ref_);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::util::HSSFColor_LEMON_CHIFFON::class_()
+java::lang::Class* poi::hssf::util::HSSFColor_LEMON_CHIFFON::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.util.HSSFColor.LEMON_CHIFFON", 48);
     return c;
 }
 
-void org::apache::poi::hssf::util::HSSFColor_LEMON_CHIFFON::clinit()
+void poi::hssf::util::HSSFColor_LEMON_CHIFFON::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -91,7 +91,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::hssf::util::HSSFColor_LEMON_CHIFFON::getClass0()
+java::lang::Class* poi::hssf::util::HSSFColor_LEMON_CHIFFON::getClass0()
 {
     return class_();
 }

@@ -54,66 +54,66 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hpsf::VariantSupport::VariantSupport(const ::default_init_tag&)
+poi::hpsf::VariantSupport::VariantSupport(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hpsf::VariantSupport::VariantSupport()
+poi::hpsf::VariantSupport::VariantSupport()
     : VariantSupport(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-int32_tArray*& org::apache::poi::hpsf::VariantSupport::SUPPORTED_TYPES()
+int32_tArray*& poi::hpsf::VariantSupport::SUPPORTED_TYPES()
 {
     clinit();
     return SUPPORTED_TYPES_;
 }
-int32_tArray* org::apache::poi::hpsf::VariantSupport::SUPPORTED_TYPES_;
+int32_tArray* poi::hpsf::VariantSupport::SUPPORTED_TYPES_;
 
-org::apache::poi::util::POILogger*& org::apache::poi::hpsf::VariantSupport::logger()
+poi::util::POILogger*& poi::hpsf::VariantSupport::logger()
 {
     clinit();
     return logger_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::hpsf::VariantSupport::logger_;
+poi::util::POILogger* poi::hpsf::VariantSupport::logger_;
 
-bool& org::apache::poi::hpsf::VariantSupport::logUnsupportedTypes()
+bool& poi::hpsf::VariantSupport::logUnsupportedTypes()
 {
     clinit();
     return logUnsupportedTypes_;
 }
-bool org::apache::poi::hpsf::VariantSupport::logUnsupportedTypes_;
+bool poi::hpsf::VariantSupport::logUnsupportedTypes_;
 
-java::util::List*& org::apache::poi::hpsf::VariantSupport::unsupportedMessage()
+java::util::List*& poi::hpsf::VariantSupport::unsupportedMessage()
 {
     clinit();
     return unsupportedMessage_;
 }
-java::util::List* org::apache::poi::hpsf::VariantSupport::unsupportedMessage_;
+java::util::List* poi::hpsf::VariantSupport::unsupportedMessage_;
 
-int8_tArray*& org::apache::poi::hpsf::VariantSupport::paddingBytes()
+int8_tArray*& poi::hpsf::VariantSupport::paddingBytes()
 {
     clinit();
     return paddingBytes_;
 }
-int8_tArray* org::apache::poi::hpsf::VariantSupport::paddingBytes_;
+int8_tArray* poi::hpsf::VariantSupport::paddingBytes_;
 
-void org::apache::poi::hpsf::VariantSupport::setLogUnsupportedTypes(bool logUnsupportedTypes)
+void poi::hpsf::VariantSupport::setLogUnsupportedTypes(bool logUnsupportedTypes)
 {
     clinit();
     VariantSupport::logUnsupportedTypes_ = logUnsupportedTypes;
 }
 
-bool org::apache::poi::hpsf::VariantSupport::isLogUnsupportedTypes()
+bool poi::hpsf::VariantSupport::isLogUnsupportedTypes()
 {
     clinit();
     return logUnsupportedTypes_;
 }
 
-void org::apache::poi::hpsf::VariantSupport::writeUnsupportedTypeMessage(UnsupportedVariantTypeException* ex)
+void poi::hpsf::VariantSupport::writeUnsupportedTypeMessage(UnsupportedVariantTypeException* ex)
 {
     clinit();
     if(isLogUnsupportedTypes()) {
@@ -122,13 +122,13 @@ void org::apache::poi::hpsf::VariantSupport::writeUnsupportedTypeMessage(Unsuppo
         }
         auto vt = ::java::lang::Long::valueOf(npc(ex)->getVariantType());
         if(!npc(unsupportedMessage_)->contains(static_cast< ::java::lang::Object* >(vt))) {
-            npc(logger_)->log(::org::apache::poi::util::POILogger::ERROR, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(npc(ex)->getMessage())}));
+            npc(logger_)->log(::poi::util::POILogger::ERROR, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(npc(ex)->getMessage())}));
             npc(unsupportedMessage_)->add(static_cast< ::java::lang::Object* >(vt));
         }
     }
 }
 
-bool org::apache::poi::hpsf::VariantSupport::isSupportedType(int32_t variantType)
+bool poi::hpsf::VariantSupport::isSupportedType(int32_t variantType)
 {
     for(auto st : *npc(SUPPORTED_TYPES_)) {
         if(variantType == st) {
@@ -138,14 +138,14 @@ bool org::apache::poi::hpsf::VariantSupport::isSupportedType(int32_t variantType
     return false;
 }
 
-java::lang::Object* org::apache::poi::hpsf::VariantSupport::read(::int8_tArray* src, int32_t offset, int32_t length, int64_t type, int32_t codepage) /* throws(ReadingNotSupportedException, UnsupportedEncodingException) */
+java::lang::Object* poi::hpsf::VariantSupport::read(::int8_tArray* src, int32_t offset, int32_t length, int64_t type, int32_t codepage) /* throws(ReadingNotSupportedException, UnsupportedEncodingException) */
 {
     clinit();
-    auto lei = new ::org::apache::poi::util::LittleEndianByteArrayInputStream(src, offset);
+    auto lei = new ::poi::util::LittleEndianByteArrayInputStream(src, offset);
     return read(lei, length, type, codepage);
 }
 
-java::lang::Object* org::apache::poi::hpsf::VariantSupport::read(::org::apache::poi::util::LittleEndianByteArrayInputStream* lei, int32_t length, int64_t type, int32_t codepage) /* throws(ReadingNotSupportedException, UnsupportedEncodingException) */
+java::lang::Object* poi::hpsf::VariantSupport::read(::poi::util::LittleEndianByteArrayInputStream* lei, int32_t length, int64_t type, int32_t codepage) /* throws(ReadingNotSupportedException, UnsupportedEncodingException) */
 {
     clinit();
     auto const offset = npc(lei)->getReadIndex();
@@ -206,13 +206,13 @@ java::lang::Object* org::apache::poi::hpsf::VariantSupport::read(::org::apache::
 
 }
 
-java::lang::String* org::apache::poi::hpsf::VariantSupport::codepageToEncoding(int32_t codepage) /* throws(UnsupportedEncodingException) */
+java::lang::String* poi::hpsf::VariantSupport::codepageToEncoding(int32_t codepage) /* throws(UnsupportedEncodingException) */
 {
     clinit();
-    return ::org::apache::poi::util::CodePageUtil::codepageToEncoding(codepage);
+    return ::poi::util::CodePageUtil::codepageToEncoding(codepage);
 }
 
-int32_t org::apache::poi::hpsf::VariantSupport::write(::java::io::OutputStream* out, int64_t type, ::java::lang::Object* value, int32_t codepage) /* throws(IOException, WritingNotSupportedException) */
+int32_t poi::hpsf::VariantSupport::write(::java::io::OutputStream* out, int64_t type, ::java::lang::Object* value, int32_t codepage) /* throws(IOException, WritingNotSupportedException) */
 {
     clinit();
     auto length = -int32_t(1);
@@ -250,37 +250,37 @@ int32_t org::apache::poi::hpsf::VariantSupport::write(::java::io::OutputStream* 
             }
             break;
         case Variant::VT_EMPTY:
-            ::org::apache::poi::util::LittleEndian::putUInt(Variant::VT_EMPTY, out);
-            length = ::org::apache::poi::util::LittleEndianConsts::INT_SIZE;
+            ::poi::util::LittleEndian::putUInt(Variant::VT_EMPTY, out);
+            length = ::poi::util::LittleEndianConsts::INT_SIZE;
             break;
         case Variant::VT_I2:
             if(dynamic_cast< ::java::lang::Number* >(value) != nullptr) {
-                ::org::apache::poi::util::LittleEndian::putShort(out, npc((java_cast< ::java::lang::Number* >(value)))->shortValue());
-                length = ::org::apache::poi::util::LittleEndianConsts::SHORT_SIZE;
+                ::poi::util::LittleEndian::putShort(out, npc((java_cast< ::java::lang::Number* >(value)))->shortValue());
+                length = ::poi::util::LittleEndianConsts::SHORT_SIZE;
             }
             break;
         case Variant::VT_UI2:
             if(dynamic_cast< ::java::lang::Number* >(value) != nullptr) {
-                ::org::apache::poi::util::LittleEndian::putUShort(npc((java_cast< ::java::lang::Number* >(value)))->intValue(), out);
-                length = ::org::apache::poi::util::LittleEndianConsts::SHORT_SIZE;
+                ::poi::util::LittleEndian::putUShort(npc((java_cast< ::java::lang::Number* >(value)))->intValue(), out);
+                length = ::poi::util::LittleEndianConsts::SHORT_SIZE;
             }
             break;
         case Variant::VT_I4:
             if(dynamic_cast< ::java::lang::Number* >(value) != nullptr) {
-                ::org::apache::poi::util::LittleEndian::putInt(npc((java_cast< ::java::lang::Number* >(value)))->intValue(), out);
-                length = ::org::apache::poi::util::LittleEndianConsts::INT_SIZE;
+                ::poi::util::LittleEndian::putInt(npc((java_cast< ::java::lang::Number* >(value)))->intValue(), out);
+                length = ::poi::util::LittleEndianConsts::INT_SIZE;
             }
             break;
         case Variant::VT_UI4:
             if(dynamic_cast< ::java::lang::Number* >(value) != nullptr) {
-                ::org::apache::poi::util::LittleEndian::putUInt(npc((java_cast< ::java::lang::Number* >(value)))->longValue(), out);
-                length = ::org::apache::poi::util::LittleEndianConsts::INT_SIZE;
+                ::poi::util::LittleEndian::putUInt(npc((java_cast< ::java::lang::Number* >(value)))->longValue(), out);
+                length = ::poi::util::LittleEndianConsts::INT_SIZE;
             }
             break;
         case Variant::VT_I8:
             if(dynamic_cast< ::java::lang::Number* >(value) != nullptr) {
-                ::org::apache::poi::util::LittleEndian::putLong(npc((java_cast< ::java::lang::Number* >(value)))->longValue(), out);
-                length = ::org::apache::poi::util::LittleEndianConsts::LONG_SIZE;
+                ::poi::util::LittleEndian::putLong(npc((java_cast< ::java::lang::Number* >(value)))->longValue(), out);
+                length = ::poi::util::LittleEndianConsts::LONG_SIZE;
             }
             break;
         case Variant::VT_UI8: {
@@ -290,31 +290,31 @@ int32_t org::apache::poi::hpsf::VariantSupport::write(::java::io::OutputStream* 
                         throw new WritingNotSupportedException(type, value);
                     }
                     auto biBytesBE = npc(bi)->toByteArray_();
-                    auto biBytesLE = new ::int8_tArray(::org::apache::poi::util::LittleEndianConsts::LONG_SIZE);
+                    auto biBytesLE = new ::int8_tArray(::poi::util::LittleEndianConsts::LONG_SIZE);
                     auto i = npc(biBytesBE)->length;
                     for(auto b : *npc(biBytesBE)) {
-                        if(i <= ::org::apache::poi::util::LittleEndianConsts::LONG_SIZE) {
+                        if(i <= ::poi::util::LittleEndianConsts::LONG_SIZE) {
                             (*biBytesLE)[i - int32_t(1)] = b;
                         }
                         i--;
                     }
                     npc(out)->write(biBytesLE);
-                    length = ::org::apache::poi::util::LittleEndianConsts::LONG_SIZE;
+                    length = ::poi::util::LittleEndianConsts::LONG_SIZE;
                 }
                 break;
             }
         case Variant::VT_R4: {
                 if(dynamic_cast< ::java::lang::Number* >(value) != nullptr) {
                     auto floatBits = ::java::lang::Float::floatToIntBits(npc((java_cast< ::java::lang::Number* >(value)))->floatValue());
-                    ::org::apache::poi::util::LittleEndian::putInt(floatBits, out);
-                    length = ::org::apache::poi::util::LittleEndianConsts::INT_SIZE;
+                    ::poi::util::LittleEndian::putInt(floatBits, out);
+                    length = ::poi::util::LittleEndianConsts::INT_SIZE;
                 }
                 break;
             }
         case Variant::VT_R8:
             if(dynamic_cast< ::java::lang::Number* >(value) != nullptr) {
-                ::org::apache::poi::util::LittleEndian::putDouble(npc((java_cast< ::java::lang::Number* >(value)))->doubleValue(), out);
-                length = ::org::apache::poi::util::LittleEndianConsts::DOUBLE_SIZE;
+                ::poi::util::LittleEndian::putDouble(npc((java_cast< ::java::lang::Number* >(value)))->doubleValue(), out);
+                length = ::poi::util::LittleEndianConsts::DOUBLE_SIZE;
             }
             break;
         case Variant::VT_FILETIME:
@@ -343,13 +343,13 @@ int32_t org::apache::poi::hpsf::VariantSupport::write(::java::io::OutputStream* 
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hpsf::VariantSupport::class_()
+java::lang::Class* poi::hpsf::VariantSupport::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hpsf.VariantSupport", 34);
     return c;
 }
 
-void org::apache::poi::hpsf::VariantSupport::clinit()
+void poi::hpsf::VariantSupport::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -368,7 +368,7 @@ struct clinit_ {
             , Variant::VT_CF
             , Variant::VT_BOOL
         }));
-        logger_ = ::org::apache::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(VariantSupport::class_()));
+        logger_ = ::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(VariantSupport::class_()));
         paddingBytes_ = new ::int8_tArray(int32_t(3));
     }
 };
@@ -378,7 +378,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::hpsf::VariantSupport::getClass0()
+java::lang::Class* poi::hpsf::VariantSupport::getClass0()
 {
     return class_();
 }

@@ -15,38 +15,38 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::TopMarginRecord::TopMarginRecord(const ::default_init_tag&)
+poi::hssf::record::TopMarginRecord::TopMarginRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::TopMarginRecord::TopMarginRecord() 
+poi::hssf::record::TopMarginRecord::TopMarginRecord() 
     : TopMarginRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::TopMarginRecord::TopMarginRecord(RecordInputStream* in) 
+poi::hssf::record::TopMarginRecord::TopMarginRecord(RecordInputStream* in) 
     : TopMarginRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::TopMarginRecord::sid;
+constexpr int16_t poi::hssf::record::TopMarginRecord::sid;
 
-void org::apache::poi::hssf::record::TopMarginRecord::ctor()
+void poi::hssf::record::TopMarginRecord::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hssf::record::TopMarginRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::TopMarginRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     field_1_margin = npc(in)->readDouble();
 }
 
-java::lang::String* org::apache::poi::hssf::record::TopMarginRecord::toString()
+java::lang::String* poi::hssf::record::TopMarginRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[TopMargin]\n"_j);
@@ -55,32 +55,32 @@ java::lang::String* org::apache::poi::hssf::record::TopMarginRecord::toString()
     return npc(buffer)->toString();
 }
 
-void org::apache::poi::hssf::record::TopMarginRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::TopMarginRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeDouble(field_1_margin);
 }
 
-int32_t org::apache::poi::hssf::record::TopMarginRecord::getDataSize()
+int32_t poi::hssf::record::TopMarginRecord::getDataSize()
 {
     return 8;
 }
 
-int16_t org::apache::poi::hssf::record::TopMarginRecord::getSid()
+int16_t poi::hssf::record::TopMarginRecord::getSid()
 {
     return sid;
 }
 
-double org::apache::poi::hssf::record::TopMarginRecord::getMargin()
+double poi::hssf::record::TopMarginRecord::getMargin()
 {
     return field_1_margin;
 }
 
-void org::apache::poi::hssf::record::TopMarginRecord::setMargin(double field_1_margin)
+void poi::hssf::record::TopMarginRecord::setMargin(double field_1_margin)
 {
     this->field_1_margin = field_1_margin;
 }
 
-java::lang::Object* org::apache::poi::hssf::record::TopMarginRecord::clone()
+java::lang::Object* poi::hssf::record::TopMarginRecord::clone()
 {
     auto rec = new TopMarginRecord();
     npc(rec)->field_1_margin = this->field_1_margin;
@@ -89,23 +89,23 @@ java::lang::Object* org::apache::poi::hssf::record::TopMarginRecord::clone()
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::TopMarginRecord::class_()
+java::lang::Class* poi::hssf::record::TopMarginRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.TopMarginRecord", 42);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::TopMarginRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::TopMarginRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::TopMarginRecord::serialize()
+int8_tArray* poi::hssf::record::TopMarginRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::TopMarginRecord::getClass0()
+java::lang::Class* poi::hssf::record::TopMarginRecord::getClass0()
 {
     return class_();
 }

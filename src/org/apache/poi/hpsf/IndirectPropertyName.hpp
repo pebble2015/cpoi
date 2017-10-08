@@ -7,7 +7,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hpsf::IndirectPropertyName
+class poi::hpsf::IndirectPropertyName
     : public CodePageString
 {
 

@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::filesystem::Ole10NativeException
+class poi::poifs::filesystem::Ole10NativeException
     : public ::java::lang::Exception
 {
 

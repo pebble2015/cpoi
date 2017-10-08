@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::SSTDeserializer
+class poi::hssf::record::SSTDeserializer
     : public virtual ::java::lang::Object
 {
 
@@ -18,17 +18,17 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    static ::org::apache::poi::util::POILogger* logger_;
-    ::org::apache::poi::util::IntMapper* strings {  };
+    static ::poi::util::POILogger* logger_;
+    ::poi::util::IntMapper* strings {  };
 protected:
-    void ctor(::org::apache::poi::util::IntMapper* strings);
+    void ctor(::poi::util::IntMapper* strings);
 
 public:
     virtual void manufactureStrings(int32_t stringCount, RecordInputStream* in);
-    static void addToStringTable(::org::apache::poi::util::IntMapper* strings, ::org::apache::poi::hssf::record::common::UnicodeString* string);
+    static void addToStringTable(::poi::util::IntMapper* strings, ::poi::hssf::record::common::UnicodeString* string);
 
     // Generated
-    SSTDeserializer(::org::apache::poi::util::IntMapper* strings);
+    SSTDeserializer(::poi::util::IntMapper* strings);
 protected:
     SSTDeserializer(const ::default_init_tag&);
 
@@ -38,6 +38,6 @@ public:
     static void clinit();
 
 private:
-    static ::org::apache::poi::util::POILogger*& logger();
+    static ::poi::util::POILogger*& logger();
     virtual ::java::lang::Class* getClass0();
 };

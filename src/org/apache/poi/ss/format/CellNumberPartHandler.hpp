@@ -12,7 +12,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::format::CellNumberPartHandler
+class poi::ss::format::CellNumberPartHandler
     : public virtual ::java::lang::Object
     , public virtual CellFormatPart_PartHandler
 {

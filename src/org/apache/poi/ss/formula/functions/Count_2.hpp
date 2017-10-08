@@ -11,15 +11,15 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::Count_2
+class poi::ss::formula::functions::Count_2
     : public virtual ::java::lang::Object
     , public virtual CountUtils_I_MatchAreaPredicate
 {
 
 public:
     typedef ::java::lang::Object super;
-    bool matches(::org::apache::poi::ss::formula::eval::ValueEval* valueEval) override;
-    bool matches(::org::apache::poi::ss::formula::TwoDEval* areEval, int32_t rowIndex, int32_t columnIndex) override;
+    bool matches(::poi::ss::formula::eval::ValueEval* valueEval) override;
+    bool matches(::poi::ss::formula::TwoDEval* areEval, int32_t rowIndex, int32_t columnIndex) override;
 
     // Generated
     Count_2();

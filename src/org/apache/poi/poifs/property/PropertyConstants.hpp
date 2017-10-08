@@ -6,7 +6,7 @@
 #include <org/apache/poi/poifs/property/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::poifs::property::PropertyConstants
+struct poi::poifs::property::PropertyConstants
     : public virtual ::java::lang::Object
 {
     static constexpr int32_t PROPERTY_TYPE_OFFSET { int32_t(66) };

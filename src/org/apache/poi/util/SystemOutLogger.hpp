@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::util::SystemOutLogger
+class poi::util::SystemOutLogger
     : public POILogger
 {
 

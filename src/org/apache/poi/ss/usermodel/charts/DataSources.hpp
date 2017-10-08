@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::usermodel::charts::DataSources
+class poi::ss::usermodel::charts::DataSources
     : public virtual ::java::lang::Object
 {
 
@@ -21,8 +21,8 @@ protected:
 
 public:
     static /* <T> */ChartDataSource* fromArray_(::java::lang::ObjectArray* elements);
-    static ChartDataSource* fromNumericCellRange(::org::apache::poi::ss::usermodel::Sheet* sheet, ::org::apache::poi::ss::util::CellRangeAddress* cellRangeAddress);
-    static ChartDataSource* fromStringCellRange(::org::apache::poi::ss::usermodel::Sheet* sheet, ::org::apache::poi::ss::util::CellRangeAddress* cellRangeAddress);
+    static ChartDataSource* fromNumericCellRange(::poi::ss::usermodel::Sheet* sheet, ::poi::ss::util::CellRangeAddress* cellRangeAddress);
+    static ChartDataSource* fromStringCellRange(::poi::ss::usermodel::Sheet* sheet, ::poi::ss::util::CellRangeAddress* cellRangeAddress);
 
     // Generated
 

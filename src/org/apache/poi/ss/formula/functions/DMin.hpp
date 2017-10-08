@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::DMin final
+class poi::ss::formula::functions::DMin final
     : public virtual ::java::lang::Object
     , public IDStarAlgorithm
 {
@@ -19,11 +19,11 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    ::org::apache::poi::ss::formula::eval::ValueEval* minimumValue {  };
+    ::poi::ss::formula::eval::ValueEval* minimumValue {  };
 
 public:
-    bool processMatch(::org::apache::poi::ss::formula::eval::ValueEval* eval) override;
-    ::org::apache::poi::ss::formula::eval::ValueEval* getResult() override;
+    bool processMatch(::poi::ss::formula::eval::ValueEval* eval) override;
+    ::poi::ss::formula::eval::ValueEval* getResult() override;
 
     // Generated
     DMin();

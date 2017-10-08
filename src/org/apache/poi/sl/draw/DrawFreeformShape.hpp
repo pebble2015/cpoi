@@ -11,23 +11,23 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::DrawFreeformShape
+class poi::sl::draw::DrawFreeformShape
     : public DrawAutoShape
 {
 
 public:
     typedef DrawAutoShape super;
 protected:
-    void ctor(::org::apache::poi::sl::usermodel::FreeformShape* shape);
+    void ctor(::poi::sl::usermodel::FreeformShape* shape);
 
 public: /* protected */
     ::java::util::Collection* computeOutlines(::java::awt::Graphics2D* graphics) override;
-    ::org::apache::poi::sl::usermodel::TextShape* getShape() override;
+    ::poi::sl::usermodel::TextShape* getShape() override;
 
     // Generated
 
 public:
-    DrawFreeformShape(::org::apache::poi::sl::usermodel::FreeformShape* shape);
+    DrawFreeformShape(::poi::sl::usermodel::FreeformShape* shape);
 protected:
     DrawFreeformShape(const ::default_init_tag&);
 

@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::ptg::Area2DPtgBase
+class poi::ss::formula::ptg::Area2DPtgBase
     : public AreaPtgBase
 {
 
@@ -22,14 +22,14 @@ private:
     static constexpr int32_t SIZE { int32_t(9) };
 protected:
     void ctor(int32_t firstRow, int32_t lastRow, int32_t firstColumn, int32_t lastColumn, bool firstRowRelative, bool lastRowRelative, bool firstColRelative, bool lastColRelative);
-    void ctor(::org::apache::poi::ss::util::AreaReference* ar);
-    void ctor(::org::apache::poi::util::LittleEndianInput* in);
+    void ctor(::poi::ss::util::AreaReference* ar);
+    void ctor(::poi::util::LittleEndianInput* in);
 
 public: /* protected */
     virtual int8_t getSid() = 0;
 
 public:
-    void write(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void write(::poi::util::LittleEndianOutput* out) override;
     int32_t getSize() override;
     ::java::lang::String* toFormulaString() override;
     ::java::lang::String* toString() override;
@@ -38,8 +38,8 @@ public:
 
 public: /* protected */
     Area2DPtgBase(int32_t firstRow, int32_t lastRow, int32_t firstColumn, int32_t lastColumn, bool firstRowRelative, bool lastRowRelative, bool firstColRelative, bool lastColRelative);
-    Area2DPtgBase(::org::apache::poi::ss::util::AreaReference* ar);
-    Area2DPtgBase(::org::apache::poi::util::LittleEndianInput* in);
+    Area2DPtgBase(::poi::ss::util::AreaReference* ar);
+    Area2DPtgBase(::poi::util::LittleEndianInput* in);
 protected:
     Area2DPtgBase(const ::default_init_tag&);
 

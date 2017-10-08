@@ -7,7 +7,7 @@
 #include <org/apache/poi/sl/usermodel/fwd-POI.hpp>
 #include <org/apache/poi/sl/usermodel/AutoShape.hpp>
 
-struct org::apache::poi::sl::usermodel::FreeformShape
+struct poi::sl::usermodel::FreeformShape
     : public virtual AutoShape
 {
     virtual ::java::awt::geom::Path2D_Double* getPath() = 0;

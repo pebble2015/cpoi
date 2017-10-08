@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::binding::CTOfficeArtExtension
+class poi::sl::draw::binding::CTOfficeArtExtension
     : public virtual ::java::lang::Object
 {
 

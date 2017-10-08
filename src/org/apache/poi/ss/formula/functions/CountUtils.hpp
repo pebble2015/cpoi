@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::CountUtils final
+class poi::ss::formula::functions::CountUtils final
     : public ::java::lang::Object
 {
 
@@ -20,9 +20,9 @@ protected:
     void ctor();
 
 public:
-    static int32_t countMatchingCellsInArea(::org::apache::poi::ss::formula::ThreeDEval* areaEval, CountUtils_I_MatchPredicate* criteriaPredicate);
-    static int32_t countMatchingCellsInRef(::org::apache::poi::ss::formula::eval::RefEval* refEval, CountUtils_I_MatchPredicate* criteriaPredicate);
-    static int32_t countArg(::org::apache::poi::ss::formula::eval::ValueEval* eval, CountUtils_I_MatchPredicate* criteriaPredicate);
+    static int32_t countMatchingCellsInArea(::poi::ss::formula::ThreeDEval* areaEval, CountUtils_I_MatchPredicate* criteriaPredicate);
+    static int32_t countMatchingCellsInRef(::poi::ss::formula::eval::RefEval* refEval, CountUtils_I_MatchPredicate* criteriaPredicate);
+    static int32_t countArg(::poi::ss::formula::eval::ValueEval* eval, CountUtils_I_MatchPredicate* criteriaPredicate);
 
     // Generated
 

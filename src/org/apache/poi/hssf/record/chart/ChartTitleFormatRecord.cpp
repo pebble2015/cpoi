@@ -13,25 +13,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
+            namespace chart
             {
-                namespace record
-                {
-                    namespace chart
-                    {
-typedef ::SubArray< ::org::apache::poi::hssf::record::chart::ChartTitleFormatRecord_CTFormat, ::java::lang::ObjectArray > ChartTitleFormatRecord_CTFormatArray;
-                    } // chart
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hssf::record::chart::ChartTitleFormatRecord_CTFormat, ::java::lang::ObjectArray > ChartTitleFormatRecord_CTFormatArray;
+            } // chart
+        } // record
+    } // hssf
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -40,21 +34,21 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::chart::ChartTitleFormatRecord::ChartTitleFormatRecord(const ::default_init_tag&)
+poi::hssf::record::chart::ChartTitleFormatRecord::ChartTitleFormatRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::chart::ChartTitleFormatRecord::ChartTitleFormatRecord(::org::apache::poi::hssf::record::RecordInputStream* in) 
+poi::hssf::record::chart::ChartTitleFormatRecord::ChartTitleFormatRecord(::poi::hssf::record::RecordInputStream* in) 
     : ChartTitleFormatRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::chart::ChartTitleFormatRecord::sid;
+constexpr int16_t poi::hssf::record::chart::ChartTitleFormatRecord::sid;
 
-void org::apache::poi::hssf::record::chart::ChartTitleFormatRecord::ctor(::org::apache::poi::hssf::record::RecordInputStream* in)
+void poi::hssf::record::chart::ChartTitleFormatRecord::ctor(::poi::hssf::record::RecordInputStream* in)
 {
     super::ctor();
     auto nRecs = npc(in)->readUShort();
@@ -64,7 +58,7 @@ void org::apache::poi::hssf::record::chart::ChartTitleFormatRecord::ctor(::org::
     }
 }
 
-void org::apache::poi::hssf::record::chart::ChartTitleFormatRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::chart::ChartTitleFormatRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(npc(_formats)->length);
     for (auto i = int32_t(0); i < npc(_formats)->length; i++) {
@@ -72,22 +66,22 @@ void org::apache::poi::hssf::record::chart::ChartTitleFormatRecord::serialize(::
     }
 }
 
-int32_t org::apache::poi::hssf::record::chart::ChartTitleFormatRecord::getDataSize()
+int32_t poi::hssf::record::chart::ChartTitleFormatRecord::getDataSize()
 {
     return int32_t(2) + ChartTitleFormatRecord_CTFormat::ENCODED_SIZE * npc(_formats)->length;
 }
 
-int16_t org::apache::poi::hssf::record::chart::ChartTitleFormatRecord::getSid()
+int16_t poi::hssf::record::chart::ChartTitleFormatRecord::getSid()
 {
     return sid;
 }
 
-int32_t org::apache::poi::hssf::record::chart::ChartTitleFormatRecord::getFormatCount()
+int32_t poi::hssf::record::chart::ChartTitleFormatRecord::getFormatCount()
 {
     return npc(_formats)->length;
 }
 
-void org::apache::poi::hssf::record::chart::ChartTitleFormatRecord::modifyFormatRun(int16_t oldPos, int16_t newLen)
+void poi::hssf::record::chart::ChartTitleFormatRecord::modifyFormatRun(int16_t oldPos, int16_t newLen)
 {
     auto shift = int32_t(0);
     for (auto i = int32_t(0); i < npc(_formats)->length; i++) {
@@ -101,7 +95,7 @@ void org::apache::poi::hssf::record::chart::ChartTitleFormatRecord::modifyFormat
     }
 }
 
-java::lang::String* org::apache::poi::hssf::record::chart::ChartTitleFormatRecord::toString()
+java::lang::String* poi::hssf::record::chart::ChartTitleFormatRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[CHARTTITLEFORMAT]\n"_j);
@@ -118,23 +112,23 @@ java::lang::String* org::apache::poi::hssf::record::chart::ChartTitleFormatRecor
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::chart::ChartTitleFormatRecord::class_()
+java::lang::Class* poi::hssf::record::chart::ChartTitleFormatRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.chart.ChartTitleFormatRecord", 55);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::chart::ChartTitleFormatRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::chart::ChartTitleFormatRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::chart::ChartTitleFormatRecord::serialize()
+int8_tArray* poi::hssf::record::chart::ChartTitleFormatRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::chart::ChartTitleFormatRecord::getClass0()
+java::lang::Class* poi::hssf::record::chart::ChartTitleFormatRecord::getClass0()
 {
     return class_();
 }

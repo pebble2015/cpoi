@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::LbsDataSubRecord_LbsDropData
+class poi::hssf::record::LbsDataSubRecord_LbsDropData
     : public virtual ::java::lang::Object
 {
 
@@ -28,18 +28,18 @@ private:
     ::java::lang::Byte* _unused {  };
 protected:
     void ctor();
-    void ctor(::org::apache::poi::util::LittleEndianInput* in);
+    void ctor(::poi::util::LittleEndianInput* in);
 
 public:
     virtual void setStyle(int32_t style);
     virtual void setNumLines(int32_t num);
-    virtual void serialize(::org::apache::poi::util::LittleEndianOutput* out);
+    virtual void serialize(::poi::util::LittleEndianOutput* out);
     virtual int32_t getDataSize();
     ::java::lang::String* toString() override;
 
     // Generated
     LbsDataSubRecord_LbsDropData();
-    LbsDataSubRecord_LbsDropData(::org::apache::poi::util::LittleEndianInput* in);
+    LbsDataSubRecord_LbsDropData(::poi::util::LittleEndianInput* in);
 protected:
     LbsDataSubRecord_LbsDropData(const ::default_init_tag&);
 

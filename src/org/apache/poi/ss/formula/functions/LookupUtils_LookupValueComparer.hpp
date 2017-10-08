@@ -6,10 +6,10 @@
 #include <org/apache/poi/ss/formula/functions/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::formula::functions::LookupUtils_LookupValueComparer
+struct poi::ss::formula::functions::LookupUtils_LookupValueComparer
     : public virtual ::java::lang::Object
 {
-    virtual LookupUtils_CompareResult* compareTo(::org::apache::poi::ss::formula::eval::ValueEval* other) = 0;
+    virtual LookupUtils_CompareResult* compareTo(::poi::ss::formula::eval::ValueEval* other) = 0;
 
     // Generated
     static ::java::lang::Class *class_();

@@ -11,18 +11,18 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::crypt::DataSpaceMapUtils
+class poi::poifs::crypt::DataSpaceMapUtils
     : public virtual ::java::lang::Object
 {
 
 public:
     typedef ::java::lang::Object super;
-    static void addDefaultDataSpace(::org::apache::poi::poifs::filesystem::DirectoryEntry* dir) /* throws(IOException) */;
-    static ::org::apache::poi::poifs::filesystem::DocumentEntry* createEncryptionEntry(::org::apache::poi::poifs::filesystem::DirectoryEntry* dir, ::java::lang::String* path, ::org::apache::poi::poifs::crypt::standard::EncryptionRecord* out) /* throws(IOException) */;
-    static ::java::lang::String* readUnicodeLPP4(::org::apache::poi::util::LittleEndianInput* is);
-    static void writeUnicodeLPP4(::org::apache::poi::util::LittleEndianOutput* os, ::java::lang::String* string);
-    static ::java::lang::String* readUtf8LPP4(::org::apache::poi::util::LittleEndianInput* is);
-    static void writeUtf8LPP4(::org::apache::poi::util::LittleEndianOutput* os, ::java::lang::String* str);
+    static void addDefaultDataSpace(::poi::poifs::filesystem::DirectoryEntry* dir) /* throws(IOException) */;
+    static ::poi::poifs::filesystem::DocumentEntry* createEncryptionEntry(::poi::poifs::filesystem::DirectoryEntry* dir, ::java::lang::String* path, ::poi::poifs::crypt::standard::EncryptionRecord* out) /* throws(IOException) */;
+    static ::java::lang::String* readUnicodeLPP4(::poi::util::LittleEndianInput* is);
+    static void writeUnicodeLPP4(::poi::util::LittleEndianOutput* os, ::java::lang::String* string);
+    static ::java::lang::String* readUtf8LPP4(::poi::util::LittleEndianInput* is);
+    static void writeUtf8LPP4(::poi::util::LittleEndianOutput* os, ::java::lang::String* str);
 
     // Generated
     DataSpaceMapUtils();

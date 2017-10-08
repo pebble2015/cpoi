@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::LabelSSTRecord final
+class poi::hssf::record::LabelSSTRecord final
     : public CellRecord
     , public ::java::lang::Cloneable
 {
@@ -33,7 +33,7 @@ public:
 public: /* protected */
     ::java::lang::String* getRecordName() override;
     void appendValueText(::java::lang::StringBuilder* sb) override;
-    void serializeValue(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serializeValue(::poi::util::LittleEndianOutput* out) override;
     int32_t getValueDataSize() override;
 
 public:

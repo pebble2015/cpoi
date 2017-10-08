@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::crypto::Biff8EncryptionKey final
+class poi::hssf::record::crypto::Biff8EncryptionKey final
     : public ::java::lang::Object
 {
 

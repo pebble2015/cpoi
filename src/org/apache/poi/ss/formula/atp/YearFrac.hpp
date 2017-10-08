@@ -12,47 +12,41 @@
 #include <org/apache/poi/ss/formula/functions/FreeRefFunction.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::atp::YearFrac final
+class poi::ss::formula::atp::YearFrac final
     : public virtual ::java::lang::Object
-    , public ::org::apache::poi::ss::formula::functions::FreeRefFunction
+    , public ::poi::ss::formula::functions::FreeRefFunction
 {
 
 public:
     typedef ::java::lang::Object super;
 
 private:
-    static ::org::apache::poi::ss::formula::functions::FreeRefFunction* instance_;
+    static ::poi::ss::formula::functions::FreeRefFunction* instance_;
 protected:
     void ctor();
 
 public:
-    ::org::apache::poi::ss::formula::eval::ValueEval* evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, ::org::apache::poi::ss::formula::OperationEvaluationContext* ec) override;
+    ::poi::ss::formula::eval::ValueEval* evaluate(::poi::ss::formula::eval::ValueEvalArray* args, ::poi::ss::formula::OperationEvaluationContext* ec) override;
 
 private:
-    static double evaluateDateArg(::org::apache::poi::ss::formula::eval::ValueEval* arg, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */;
-    static int32_t evaluateIntArg(::org::apache::poi::ss::formula::eval::ValueEval* arg, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */;
+    static double evaluateDateArg(::poi::ss::formula::eval::ValueEval* arg, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */;
+    static int32_t evaluateIntArg(::poi::ss::formula::eval::ValueEval* arg, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */;
 
     // Generated
     YearFrac();
@@ -63,7 +57,7 @@ protected:
 public:
     static ::java::lang::Class *class_();
     static void clinit();
-    static ::org::apache::poi::ss::formula::functions::FreeRefFunction*& instance();
+    static ::poi::ss::formula::functions::FreeRefFunction*& instance();
 
 private:
     virtual ::java::lang::Class* getClass0();

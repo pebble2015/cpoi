@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::binding::CTGeomGuide
+class poi::sl::draw::binding::CTGeomGuide
     : public virtual ::java::lang::Object
 {
 

@@ -8,19 +8,19 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::PlainValueCellCacheEntry final
+class poi::ss::formula::PlainValueCellCacheEntry final
     : public CellCacheEntry
 {
 
 public:
     typedef CellCacheEntry super;
 protected:
-    void ctor(::org::apache::poi::ss::formula::eval::ValueEval* value);
+    void ctor(::poi::ss::formula::eval::ValueEval* value);
 
     // Generated
 
 public:
-    PlainValueCellCacheEntry(::org::apache::poi::ss::formula::eval::ValueEval* value);
+    PlainValueCellCacheEntry(::poi::ss::formula::eval::ValueEval* value);
 protected:
     PlainValueCellCacheEntry(const ::default_init_tag&);
 

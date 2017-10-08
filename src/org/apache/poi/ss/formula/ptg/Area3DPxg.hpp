@@ -13,7 +13,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::ptg::Area3DPxg final
+class poi::ss::formula::ptg::Area3DPxg final
     : public AreaPtgBase
     , public Pxg3D
 {
@@ -26,10 +26,10 @@ private:
     ::java::lang::String* firstSheetName {  };
     ::java::lang::String* lastSheetName {  };
 protected:
-    void ctor(int32_t externalWorkbookNumber, ::org::apache::poi::ss::formula::SheetIdentifier* sheetName, ::java::lang::String* arearef);
-    void ctor(int32_t externalWorkbookNumber, ::org::apache::poi::ss::formula::SheetIdentifier* sheetName, ::org::apache::poi::ss::util::AreaReference* arearef);
-    void ctor(::org::apache::poi::ss::formula::SheetIdentifier* sheetName, ::java::lang::String* arearef);
-    void ctor(::org::apache::poi::ss::formula::SheetIdentifier* sheetName, ::org::apache::poi::ss::util::AreaReference* arearef);
+    void ctor(int32_t externalWorkbookNumber, ::poi::ss::formula::SheetIdentifier* sheetName, ::java::lang::String* arearef);
+    void ctor(int32_t externalWorkbookNumber, ::poi::ss::formula::SheetIdentifier* sheetName, ::poi::ss::util::AreaReference* arearef);
+    void ctor(::poi::ss::formula::SheetIdentifier* sheetName, ::java::lang::String* arearef);
+    void ctor(::poi::ss::formula::SheetIdentifier* sheetName, ::poi::ss::util::AreaReference* arearef);
 
 public:
     ::java::lang::String* toString() override;
@@ -41,13 +41,13 @@ public:
     ::java::lang::String* format2DRefAsString();
     ::java::lang::String* toFormulaString() override;
     int32_t getSize() override;
-    void write(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void write(::poi::util::LittleEndianOutput* out) override;
 
     // Generated
-    Area3DPxg(int32_t externalWorkbookNumber, ::org::apache::poi::ss::formula::SheetIdentifier* sheetName, ::java::lang::String* arearef);
-    Area3DPxg(int32_t externalWorkbookNumber, ::org::apache::poi::ss::formula::SheetIdentifier* sheetName, ::org::apache::poi::ss::util::AreaReference* arearef);
-    Area3DPxg(::org::apache::poi::ss::formula::SheetIdentifier* sheetName, ::java::lang::String* arearef);
-    Area3DPxg(::org::apache::poi::ss::formula::SheetIdentifier* sheetName, ::org::apache::poi::ss::util::AreaReference* arearef);
+    Area3DPxg(int32_t externalWorkbookNumber, ::poi::ss::formula::SheetIdentifier* sheetName, ::java::lang::String* arearef);
+    Area3DPxg(int32_t externalWorkbookNumber, ::poi::ss::formula::SheetIdentifier* sheetName, ::poi::ss::util::AreaReference* arearef);
+    Area3DPxg(::poi::ss::formula::SheetIdentifier* sheetName, ::java::lang::String* arearef);
+    Area3DPxg(::poi::ss::formula::SheetIdentifier* sheetName, ::poi::ss::util::AreaReference* arearef);
 protected:
     Area3DPxg(const ::default_init_tag&);
 

@@ -45,27 +45,21 @@ typedef ::SubArray< ::java::lang::Cloneable, ObjectArray > CloneableArray;
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
-            {
-                namespace record
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::Record, RecordBaseArray > RecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::StandardRecord, RecordArray > StandardRecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::CellValueRecordInterface, ::java::lang::ObjectArray > CellValueRecordInterfaceArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::CellRecord, StandardRecordArray, CellValueRecordInterfaceArray > CellRecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::NumberRecord, CellRecordArray, ::java::lang::CloneableArray > NumberRecordArray;
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
+typedef ::SubArray< ::poi::hssf::record::Record, RecordBaseArray > RecordArray;
+typedef ::SubArray< ::poi::hssf::record::StandardRecord, RecordArray > StandardRecordArray;
+typedef ::SubArray< ::poi::hssf::record::CellValueRecordInterface, ::java::lang::ObjectArray > CellValueRecordInterfaceArray;
+typedef ::SubArray< ::poi::hssf::record::CellRecord, StandardRecordArray, CellValueRecordInterfaceArray > CellRecordArray;
+typedef ::SubArray< ::poi::hssf::record::NumberRecord, CellRecordArray, ::java::lang::CloneableArray > NumberRecordArray;
+        } // record
+    } // hssf
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -83,26 +77,26 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::RecordFactoryInputStream::RecordFactoryInputStream(const ::default_init_tag&)
+poi::hssf::record::RecordFactoryInputStream::RecordFactoryInputStream(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::RecordFactoryInputStream::RecordFactoryInputStream(::java::io::InputStream* in, bool shouldIncludeContinueRecords) 
+poi::hssf::record::RecordFactoryInputStream::RecordFactoryInputStream(::java::io::InputStream* in, bool shouldIncludeContinueRecords) 
     : RecordFactoryInputStream(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in,shouldIncludeContinueRecords);
 }
 
-void org::apache::poi::hssf::record::RecordFactoryInputStream::init()
+void poi::hssf::record::RecordFactoryInputStream::init()
 {
     _unreadRecordIndex = -int32_t(1);
     _lastRecord = nullptr;
     _lastDrawingRecord = new DrawingRecord();
 }
 
-void org::apache::poi::hssf::record::RecordFactoryInputStream::ctor(::java::io::InputStream* in, bool shouldIncludeContinueRecords)
+void poi::hssf::record::RecordFactoryInputStream::ctor(::java::io::InputStream* in, bool shouldIncludeContinueRecords)
 {
     super::ctor();
     init();
@@ -125,7 +119,7 @@ void org::apache::poi::hssf::record::RecordFactoryInputStream::ctor(::java::io::
     _lastRecordWasEOFLevelZero = false;
 }
 
-org::apache::poi::hssf::record::Record* org::apache::poi::hssf::record::RecordFactoryInputStream::nextRecord()
+poi::hssf::record::Record* poi::hssf::record::RecordFactoryInputStream::nextRecord()
 {
     Record* r;
     r = getNextUnreadRecord();
@@ -150,7 +144,7 @@ org::apache::poi::hssf::record::Record* org::apache::poi::hssf::record::RecordFa
     }
 }
 
-org::apache::poi::hssf::record::Record* org::apache::poi::hssf::record::RecordFactoryInputStream::getNextUnreadRecord()
+poi::hssf::record::Record* poi::hssf::record::RecordFactoryInputStream::getNextUnreadRecord()
 {
     if(_unreadRecordBuffer != nullptr) {
         auto ix = _unreadRecordIndex;
@@ -165,7 +159,7 @@ org::apache::poi::hssf::record::Record* org::apache::poi::hssf::record::RecordFa
     return nullptr;
 }
 
-org::apache::poi::hssf::record::Record* org::apache::poi::hssf::record::RecordFactoryInputStream::readNextRecord()
+poi::hssf::record::Record* poi::hssf::record::RecordFactoryInputStream::readNextRecord()
 {
     auto record = RecordFactory::createSingleRecord(_recStream);
     _lastRecordWasEOFLevelZero = false;
@@ -219,7 +213,7 @@ org::apache::poi::hssf::record::Record* org::apache::poi::hssf::record::RecordFa
         if(dynamic_cast< EOFRecord* >(_lastRecord) != nullptr) {
             return record;
         }
-        throw new ::org::apache::poi::util::RecordFormatException(::java::lang::StringBuilder().append(u"Unhandled Continue Record followining "_j)->append(static_cast< ::java::lang::Object* >(npc(_lastRecord)->getClass()))->toString());
+        throw new ::poi::util::RecordFormatException(::java::lang::StringBuilder().append(u"Unhandled Continue Record followining "_j)->append(static_cast< ::java::lang::Object* >(npc(_lastRecord)->getClass()))->toString());
     }
     _lastRecord = record;
     if(dynamic_cast< DrawingRecord* >(record) != nullptr) {
@@ -230,13 +224,13 @@ org::apache::poi::hssf::record::Record* org::apache::poi::hssf::record::RecordFa
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::RecordFactoryInputStream::class_()
+java::lang::Class* poi::hssf::record::RecordFactoryInputStream::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.RecordFactoryInputStream", 51);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::record::RecordFactoryInputStream::getClass0()
+java::lang::Class* poi::hssf::record::RecordFactoryInputStream::getClass0()
 {
     return class_();
 }

@@ -9,31 +9,25 @@
 #include <org/apache/poi/hssf/record/cont/ContinuableRecord.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
-            {
-                namespace record
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::record::ExtSSTRecord_InfoSubRecord, ::java::lang::ObjectArray > ExtSSTRecord_InfoSubRecordArray;
-                } // record
-            } // hssf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hssf::record::ExtSSTRecord_InfoSubRecord, ::java::lang::ObjectArray > ExtSSTRecord_InfoSubRecordArray;
+        } // record
+    } // hssf
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::ExtSSTRecord final
-    : public ::org::apache::poi::hssf::record::cont::ContinuableRecord
+class poi::hssf::record::ExtSSTRecord final
+    : public ::poi::hssf::record::cont::ContinuableRecord
 {
 
 public:
-    typedef ::org::apache::poi::hssf::record::cont::ContinuableRecord super;
+    typedef ::poi::hssf::record::cont::ContinuableRecord super;
     static constexpr int16_t sid { int16_t(255) };
     static constexpr int32_t DEFAULT_BUCKET_SIZE { int32_t(8) };
     static constexpr int32_t MAX_BUCKETS { int32_t(128) };
@@ -48,7 +42,7 @@ protected:
 public:
     void setNumStringsPerBucket(int16_t numStrings);
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::hssf::record::cont::ContinuableRecordOutput* out) override;
+    void serialize(::poi::hssf::record::cont::ContinuableRecordOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize();

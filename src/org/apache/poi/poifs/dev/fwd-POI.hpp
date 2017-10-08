@@ -2,24 +2,18 @@
 #pragma once
 
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace poifs
     {
-        namespace poi
+        namespace dev
         {
-            namespace poifs
-            {
-                namespace dev
-                {
-                    class POIFSDump;
-                    class POIFSHeaderDumper;
-                    class POIFSLister;
-                    class POIFSViewEngine;
-                    struct POIFSViewable;
-                    class POIFSViewer;
-                } // dev
-            } // poifs
-        } // poi
-    } // apache
-} // org
+            class POIFSDump;
+            class POIFSHeaderDumper;
+            class POIFSLister;
+            class POIFSViewEngine;
+            struct POIFSViewable;
+            class POIFSViewer;
+        } // dev
+    } // poifs
+} // poi

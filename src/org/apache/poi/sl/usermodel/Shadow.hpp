@@ -6,7 +6,7 @@
 #include <org/apache/poi/sl/usermodel/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::sl::usermodel::Shadow
+struct poi::sl::usermodel::Shadow
     : public virtual ::java::lang::Object
 {
     virtual SimpleShape* getShadowParent() = 0;

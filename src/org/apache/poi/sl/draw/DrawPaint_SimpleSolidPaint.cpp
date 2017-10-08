@@ -7,25 +7,25 @@
 #include <org/apache/poi/sl/draw/DrawPaint_SimpleSolidPaint_SimpleSolidPaint_1.hpp>
 #include <org/apache/poi/sl/usermodel/ColorStyle.hpp>
 
-org::apache::poi::sl::draw::DrawPaint_SimpleSolidPaint::DrawPaint_SimpleSolidPaint(const ::default_init_tag&)
+poi::sl::draw::DrawPaint_SimpleSolidPaint::DrawPaint_SimpleSolidPaint(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::draw::DrawPaint_SimpleSolidPaint::DrawPaint_SimpleSolidPaint(::java::awt::Color* color) 
+poi::sl::draw::DrawPaint_SimpleSolidPaint::DrawPaint_SimpleSolidPaint(::java::awt::Color* color) 
     : DrawPaint_SimpleSolidPaint(*static_cast< ::default_init_tag* >(0))
 {
     ctor(color);
 }
 
-org::apache::poi::sl::draw::DrawPaint_SimpleSolidPaint::DrawPaint_SimpleSolidPaint(::org::apache::poi::sl::usermodel::ColorStyle* color) 
+poi::sl::draw::DrawPaint_SimpleSolidPaint::DrawPaint_SimpleSolidPaint(::poi::sl::usermodel::ColorStyle* color) 
     : DrawPaint_SimpleSolidPaint(*static_cast< ::default_init_tag* >(0))
 {
     ctor(color);
 }
 
-void org::apache::poi::sl::draw::DrawPaint_SimpleSolidPaint::ctor(::java::awt::Color* color)
+void poi::sl::draw::DrawPaint_SimpleSolidPaint::ctor(::java::awt::Color* color)
 {
     super::ctor();
     if(color == nullptr) {
@@ -34,7 +34,7 @@ void org::apache::poi::sl::draw::DrawPaint_SimpleSolidPaint::ctor(::java::awt::C
     this->solidColor = new DrawPaint_SimpleSolidPaint_SimpleSolidPaint_1(this, color);
 }
 
-void org::apache::poi::sl::draw::DrawPaint_SimpleSolidPaint::ctor(::org::apache::poi::sl::usermodel::ColorStyle* color)
+void poi::sl::draw::DrawPaint_SimpleSolidPaint::ctor(::poi::sl::usermodel::ColorStyle* color)
 {
     super::ctor();
     if(color == nullptr) {
@@ -43,20 +43,20 @@ void org::apache::poi::sl::draw::DrawPaint_SimpleSolidPaint::ctor(::org::apache:
     this->solidColor = color;
 }
 
-org::apache::poi::sl::usermodel::ColorStyle* org::apache::poi::sl::draw::DrawPaint_SimpleSolidPaint::getSolidColor()
+poi::sl::usermodel::ColorStyle* poi::sl::draw::DrawPaint_SimpleSolidPaint::getSolidColor()
 {
     return solidColor;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::draw::DrawPaint_SimpleSolidPaint::class_()
+java::lang::Class* poi::sl::draw::DrawPaint_SimpleSolidPaint::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.draw.DrawPaint.SimpleSolidPaint", 49);
     return c;
 }
 
-java::lang::Class* org::apache::poi::sl::draw::DrawPaint_SimpleSolidPaint::getClass0()
+java::lang::Class* poi::sl::draw::DrawPaint_SimpleSolidPaint::getClass0()
 {
     return class_();
 }

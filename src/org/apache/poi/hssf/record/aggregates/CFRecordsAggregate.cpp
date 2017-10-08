@@ -46,42 +46,36 @@ typedef ::SubArray< ::java::lang::Cloneable, ObjectArray > CloneableArray;
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace record
         {
-            namespace hssf
-            {
-                namespace record
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::Record, RecordBaseArray > RecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::StandardRecord, RecordArray > StandardRecordArray;
-typedef ::SubArray< ::org::apache::poi::hssf::record::CFRuleBase, StandardRecordArray, ::java::lang::CloneableArray > CFRuleBaseArray;
-                } // record
-            } // hssf
+typedef ::SubArray< ::poi::hssf::record::RecordBase, ::java::lang::ObjectArray > RecordBaseArray;
+typedef ::SubArray< ::poi::hssf::record::Record, RecordBaseArray > RecordArray;
+typedef ::SubArray< ::poi::hssf::record::StandardRecord, RecordArray > StandardRecordArray;
+typedef ::SubArray< ::poi::hssf::record::CFRuleBase, StandardRecordArray, ::java::lang::CloneableArray > CFRuleBaseArray;
+        } // record
+    } // hssf
 
-            namespace ss
+    namespace ss
+    {
+        namespace formula
+        {
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
 
-                namespace util
-                {
-typedef ::SubArray< ::org::apache::poi::ss::util::CellRangeAddressBase, ::java::lang::ObjectArray > CellRangeAddressBaseArray;
-typedef ::SubArray< ::org::apache::poi::ss::util::CellRangeAddress, CellRangeAddressBaseArray > CellRangeAddressArray;
-                } // util
-            } // ss
-        } // poi
-    } // apache
-} // org
+        namespace util
+        {
+typedef ::SubArray< ::poi::ss::util::CellRangeAddressBase, ::java::lang::ObjectArray > CellRangeAddressBaseArray;
+typedef ::SubArray< ::poi::ss::util::CellRangeAddress, CellRangeAddressBaseArray > CellRangeAddressArray;
+        } // util
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -99,34 +93,34 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::aggregates::CFRecordsAggregate::CFRecordsAggregate(const ::default_init_tag&)
+poi::hssf::record::aggregates::CFRecordsAggregate::CFRecordsAggregate(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::aggregates::CFRecordsAggregate::CFRecordsAggregate(::org::apache::poi::hssf::record::CFHeaderBase* pHeader, ::org::apache::poi::hssf::record::CFRuleBaseArray* pRules) 
+poi::hssf::record::aggregates::CFRecordsAggregate::CFRecordsAggregate(::poi::hssf::record::CFHeaderBase* pHeader, ::poi::hssf::record::CFRuleBaseArray* pRules) 
     : CFRecordsAggregate(*static_cast< ::default_init_tag* >(0))
 {
     ctor(pHeader,pRules);
 }
 
-org::apache::poi::hssf::record::aggregates::CFRecordsAggregate::CFRecordsAggregate(::org::apache::poi::ss::util::CellRangeAddressArray* regions, ::org::apache::poi::hssf::record::CFRuleBaseArray* rules) 
+poi::hssf::record::aggregates::CFRecordsAggregate::CFRecordsAggregate(::poi::ss::util::CellRangeAddressArray* regions, ::poi::hssf::record::CFRuleBaseArray* rules) 
     : CFRecordsAggregate(*static_cast< ::default_init_tag* >(0))
 {
     ctor(regions,rules);
 }
 
-constexpr int32_t org::apache::poi::hssf::record::aggregates::CFRecordsAggregate::MAX_97_2003_CONDTIONAL_FORMAT_RULES;
+constexpr int32_t poi::hssf::record::aggregates::CFRecordsAggregate::MAX_97_2003_CONDTIONAL_FORMAT_RULES;
 
-org::apache::poi::util::POILogger*& org::apache::poi::hssf::record::aggregates::CFRecordsAggregate::logger()
+poi::util::POILogger*& poi::hssf::record::aggregates::CFRecordsAggregate::logger()
 {
     clinit();
     return logger_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::hssf::record::aggregates::CFRecordsAggregate::logger_;
+poi::util::POILogger* poi::hssf::record::aggregates::CFRecordsAggregate::logger_;
 
-void org::apache::poi::hssf::record::aggregates::CFRecordsAggregate::ctor(::org::apache::poi::hssf::record::CFHeaderBase* pHeader, ::org::apache::poi::hssf::record::CFRuleBaseArray* pRules)
+void poi::hssf::record::aggregates::CFRecordsAggregate::ctor(::poi::hssf::record::CFHeaderBase* pHeader, ::poi::hssf::record::CFRuleBaseArray* pRules)
 {
     super::ctor();
     if(pHeader == nullptr) {
@@ -136,14 +130,14 @@ void org::apache::poi::hssf::record::aggregates::CFRecordsAggregate::ctor(::org:
         throw new ::java::lang::IllegalArgumentException(u"rules must not be null"_j);
     }
     if(npc(pRules)->length > MAX_97_2003_CONDTIONAL_FORMAT_RULES) {
-        npc(logger_)->log(::org::apache::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(::java::lang::StringBuilder().append(u"Excel versions before 2007 require that "_j)->append(u"No more than "_j)->toString())->append(MAX_97_2003_CONDTIONAL_FORMAT_RULES)
+        npc(logger_)->log(::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(::java::lang::StringBuilder().append(u"Excel versions before 2007 require that "_j)->append(u"No more than "_j)->toString())->append(MAX_97_2003_CONDTIONAL_FORMAT_RULES)
             ->append(u" rules may be specified, "_j)
             ->append(npc(pRules)->length)
             ->append(u" were found,"_j)
             ->append(u" this file will cause problems with old Excel versions"_j)->toString())}));
     }
     if(npc(pRules)->length != npc(pHeader)->getNumberOfConditionalFormats()) {
-        throw new ::org::apache::poi::util::RecordFormatException(u"Mismatch number of rules"_j);
+        throw new ::poi::util::RecordFormatException(u"Mismatch number of rules"_j);
     }
     header = pHeader;
     rules = new ::java::util::ArrayList(npc(pRules)->length);
@@ -153,60 +147,60 @@ void org::apache::poi::hssf::record::aggregates::CFRecordsAggregate::ctor(::org:
     }
 }
 
-void org::apache::poi::hssf::record::aggregates::CFRecordsAggregate::ctor(::org::apache::poi::ss::util::CellRangeAddressArray* regions, ::org::apache::poi::hssf::record::CFRuleBaseArray* rules)
+void poi::hssf::record::aggregates::CFRecordsAggregate::ctor(::poi::ss::util::CellRangeAddressArray* regions, ::poi::hssf::record::CFRuleBaseArray* rules)
 {
     ctor(createHeader(regions, rules), rules);
 }
 
-org::apache::poi::hssf::record::CFHeaderBase* org::apache::poi::hssf::record::aggregates::CFRecordsAggregate::createHeader(::org::apache::poi::ss::util::CellRangeAddressArray* regions, ::org::apache::poi::hssf::record::CFRuleBaseArray* rules)
+poi::hssf::record::CFHeaderBase* poi::hssf::record::aggregates::CFRecordsAggregate::createHeader(::poi::ss::util::CellRangeAddressArray* regions, ::poi::hssf::record::CFRuleBaseArray* rules)
 {
     clinit();
-    ::org::apache::poi::hssf::record::CFHeaderBase* header;
-    if(npc(rules)->length == 0 || dynamic_cast< ::org::apache::poi::hssf::record::CFRuleRecord* >((*rules)[int32_t(0)]) != nullptr) {
-        header = new ::org::apache::poi::hssf::record::CFHeaderRecord(regions, npc(rules)->length);
+    ::poi::hssf::record::CFHeaderBase* header;
+    if(npc(rules)->length == 0 || dynamic_cast< ::poi::hssf::record::CFRuleRecord* >((*rules)[int32_t(0)]) != nullptr) {
+        header = new ::poi::hssf::record::CFHeaderRecord(regions, npc(rules)->length);
     } else {
-        header = new ::org::apache::poi::hssf::record::CFHeader12Record(regions, npc(rules)->length);
+        header = new ::poi::hssf::record::CFHeader12Record(regions, npc(rules)->length);
     }
     npc(header)->setNeedRecalculation(true);
     return header;
 }
 
-org::apache::poi::hssf::record::aggregates::CFRecordsAggregate* org::apache::poi::hssf::record::aggregates::CFRecordsAggregate::createCFAggregate(::org::apache::poi::hssf::model::RecordStream* rs)
+poi::hssf::record::aggregates::CFRecordsAggregate* poi::hssf::record::aggregates::CFRecordsAggregate::createCFAggregate(::poi::hssf::model::RecordStream* rs)
 {
     clinit();
     auto rec = npc(rs)->getNext();
-    if(npc(rec)->getSid() != ::org::apache::poi::hssf::record::CFHeaderRecord::sid && npc(rec)->getSid() != ::org::apache::poi::hssf::record::CFHeader12Record::sid) {
+    if(npc(rec)->getSid() != ::poi::hssf::record::CFHeaderRecord::sid && npc(rec)->getSid() != ::poi::hssf::record::CFHeader12Record::sid) {
         throw new ::java::lang::IllegalStateException(::java::lang::StringBuilder().append(u"next record sid was "_j)->append(npc(rec)->getSid())
             ->append(u" instead of "_j)
-            ->append(::org::apache::poi::hssf::record::CFHeaderRecord::sid)
+            ->append(::poi::hssf::record::CFHeaderRecord::sid)
             ->append(u" or "_j)
-            ->append(::org::apache::poi::hssf::record::CFHeader12Record::sid)
+            ->append(::poi::hssf::record::CFHeader12Record::sid)
             ->append(u" as expected"_j)->toString());
     }
-    auto header = java_cast< ::org::apache::poi::hssf::record::CFHeaderBase* >(rec);
+    auto header = java_cast< ::poi::hssf::record::CFHeaderBase* >(rec);
     auto nRules = npc(header)->getNumberOfConditionalFormats();
-    auto rules = new ::org::apache::poi::hssf::record::CFRuleBaseArray(nRules);
+    auto rules = new ::poi::hssf::record::CFRuleBaseArray(nRules);
     for (auto i = int32_t(0); i < npc(rules)->length; i++) {
-        rules->set(i, java_cast< ::org::apache::poi::hssf::record::CFRuleBase* >(npc(rs)->getNext()));
+        rules->set(i, java_cast< ::poi::hssf::record::CFRuleBase* >(npc(rs)->getNext()));
     }
     return new CFRecordsAggregate(header, rules);
 }
 
-org::apache::poi::hssf::record::aggregates::CFRecordsAggregate* org::apache::poi::hssf::record::aggregates::CFRecordsAggregate::cloneCFAggregate()
+poi::hssf::record::aggregates::CFRecordsAggregate* poi::hssf::record::aggregates::CFRecordsAggregate::cloneCFAggregate()
 {
-    auto newRecs = new ::org::apache::poi::hssf::record::CFRuleBaseArray(npc(rules)->size());
+    auto newRecs = new ::poi::hssf::record::CFRuleBaseArray(npc(rules)->size());
     for (auto i = int32_t(0); i < npc(newRecs)->length; i++) {
         newRecs->set(i, npc(getRule(i))->clone());
     }
     return new CFRecordsAggregate(npc(header)->clone(), newRecs);
 }
 
-org::apache::poi::hssf::record::CFHeaderBase* org::apache::poi::hssf::record::aggregates::CFRecordsAggregate::getHeader()
+poi::hssf::record::CFHeaderBase* poi::hssf::record::aggregates::CFRecordsAggregate::getHeader()
 {
     return header;
 }
 
-void org::apache::poi::hssf::record::aggregates::CFRecordsAggregate::checkRuleIndex(int32_t idx)
+void poi::hssf::record::aggregates::CFRecordsAggregate::checkRuleIndex(int32_t idx)
 {
     if(idx < 0 || idx >= npc(rules)->size()) {
         throw new ::java::lang::IllegalArgumentException(::java::lang::StringBuilder().append(u"Bad rule record index ("_j)->append(idx)
@@ -215,24 +209,24 @@ void org::apache::poi::hssf::record::aggregates::CFRecordsAggregate::checkRuleIn
     }
 }
 
-void org::apache::poi::hssf::record::aggregates::CFRecordsAggregate::checkRuleType(::org::apache::poi::hssf::record::CFRuleBase* r)
+void poi::hssf::record::aggregates::CFRecordsAggregate::checkRuleType(::poi::hssf::record::CFRuleBase* r)
 {
-    if(dynamic_cast< ::org::apache::poi::hssf::record::CFHeaderRecord* >(header) != nullptr && dynamic_cast< ::org::apache::poi::hssf::record::CFRuleRecord* >(r) != nullptr) {
+    if(dynamic_cast< ::poi::hssf::record::CFHeaderRecord* >(header) != nullptr && dynamic_cast< ::poi::hssf::record::CFRuleRecord* >(r) != nullptr) {
         return;
     }
-    if(dynamic_cast< ::org::apache::poi::hssf::record::CFHeader12Record* >(header) != nullptr && dynamic_cast< ::org::apache::poi::hssf::record::CFRule12Record* >(r) != nullptr) {
+    if(dynamic_cast< ::poi::hssf::record::CFHeader12Record* >(header) != nullptr && dynamic_cast< ::poi::hssf::record::CFRule12Record* >(r) != nullptr) {
         return;
     }
     throw new ::java::lang::IllegalArgumentException(u"Header and Rule must both be CF or both be CF12, can't mix"_j);
 }
 
-org::apache::poi::hssf::record::CFRuleBase* org::apache::poi::hssf::record::aggregates::CFRecordsAggregate::getRule(int32_t idx)
+poi::hssf::record::CFRuleBase* poi::hssf::record::aggregates::CFRecordsAggregate::getRule(int32_t idx)
 {
     checkRuleIndex(idx);
-    return java_cast< ::org::apache::poi::hssf::record::CFRuleBase* >(npc(rules)->get(idx));
+    return java_cast< ::poi::hssf::record::CFRuleBase* >(npc(rules)->get(idx));
 }
 
-void org::apache::poi::hssf::record::aggregates::CFRecordsAggregate::setRule(int32_t idx, ::org::apache::poi::hssf::record::CFRuleBase* r)
+void poi::hssf::record::aggregates::CFRecordsAggregate::setRule(int32_t idx, ::poi::hssf::record::CFRuleBase* r)
 {
     if(r == nullptr) {
         throw new ::java::lang::IllegalArgumentException(u"r must not be null"_j);
@@ -242,13 +236,13 @@ void org::apache::poi::hssf::record::aggregates::CFRecordsAggregate::setRule(int
     npc(rules)->set(idx, r);
 }
 
-void org::apache::poi::hssf::record::aggregates::CFRecordsAggregate::addRule(::org::apache::poi::hssf::record::CFRuleBase* r)
+void poi::hssf::record::aggregates::CFRecordsAggregate::addRule(::poi::hssf::record::CFRuleBase* r)
 {
     if(r == nullptr) {
         throw new ::java::lang::IllegalArgumentException(u"r must not be null"_j);
     }
     if(npc(rules)->size() >= MAX_97_2003_CONDTIONAL_FORMAT_RULES) {
-        npc(logger_)->log(::org::apache::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(::java::lang::StringBuilder().append(u"Excel versions before 2007 cannot cope with"_j)->append(u" any more than "_j)->toString())->append(MAX_97_2003_CONDTIONAL_FORMAT_RULES)
+        npc(logger_)->log(::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(::java::lang::StringBuilder().append(u"Excel versions before 2007 cannot cope with"_j)->append(u" any more than "_j)->toString())->append(MAX_97_2003_CONDTIONAL_FORMAT_RULES)
             ->append(u" - this file will cause problems with old Excel versions"_j)->toString())}));
     }
     checkRuleType(r);
@@ -256,16 +250,16 @@ void org::apache::poi::hssf::record::aggregates::CFRecordsAggregate::addRule(::o
     npc(header)->setNumberOfConditionalFormats(npc(rules)->size());
 }
 
-int32_t org::apache::poi::hssf::record::aggregates::CFRecordsAggregate::getNumberOfRules()
+int32_t poi::hssf::record::aggregates::CFRecordsAggregate::getNumberOfRules()
 {
     return npc(rules)->size();
 }
 
-java::lang::String* org::apache::poi::hssf::record::aggregates::CFRecordsAggregate::toString()
+java::lang::String* poi::hssf::record::aggregates::CFRecordsAggregate::toString()
 {
     auto buffer = new ::java::lang::StringBuilder();
     auto type = u"CF"_j;
-    if(dynamic_cast< ::org::apache::poi::hssf::record::CFHeader12Record* >(header) != nullptr) {
+    if(dynamic_cast< ::poi::hssf::record::CFHeader12Record* >(header) != nullptr) {
         type = u"CF12"_j;
     }
     npc(npc(npc(buffer)->append(u"["_j))->append(type))->append(u"]\n"_j);
@@ -273,7 +267,7 @@ java::lang::String* org::apache::poi::hssf::record::aggregates::CFRecordsAggrega
         npc(buffer)->append(static_cast< ::java::lang::Object* >(header));
     }
     for (auto _i = npc(rules)->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::hssf::record::CFRuleBase* cfRule = java_cast< ::org::apache::poi::hssf::record::CFRuleBase* >(_i->next());
+        ::poi::hssf::record::CFRuleBase* cfRule = java_cast< ::poi::hssf::record::CFRuleBase* >(_i->next());
         {
             npc(buffer)->append(static_cast< ::java::lang::Object* >(cfRule));
         }
@@ -282,18 +276,18 @@ java::lang::String* org::apache::poi::hssf::record::aggregates::CFRecordsAggrega
     return npc(buffer)->toString();
 }
 
-void org::apache::poi::hssf::record::aggregates::CFRecordsAggregate::visitContainedRecords(RecordAggregate_RecordVisitor* rv)
+void poi::hssf::record::aggregates::CFRecordsAggregate::visitContainedRecords(RecordAggregate_RecordVisitor* rv)
 {
     npc(rv)->visitRecord(header);
     for (auto _i = npc(rules)->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::hssf::record::CFRuleBase* rule = java_cast< ::org::apache::poi::hssf::record::CFRuleBase* >(_i->next());
+        ::poi::hssf::record::CFRuleBase* rule = java_cast< ::poi::hssf::record::CFRuleBase* >(_i->next());
         {
             npc(rv)->visitRecord(rule);
         }
     }
 }
 
-bool org::apache::poi::hssf::record::aggregates::CFRecordsAggregate::updateFormulasAfterCellShift(::org::apache::poi::ss::formula::FormulaShifter* shifter, int32_t currentExternSheetIx)
+bool poi::hssf::record::aggregates::CFRecordsAggregate::updateFormulasAfterCellShift(::poi::ss::formula::FormulaShifter* shifter, int32_t currentExternSheetIx)
 {
     auto cellRanges = npc(header)->getCellRanges();
     auto changed = false;
@@ -314,14 +308,14 @@ bool org::apache::poi::hssf::record::aggregates::CFRecordsAggregate::updateFormu
         if(nRanges == 0) {
             return false;
         }
-        auto newRanges = new ::org::apache::poi::ss::util::CellRangeAddressArray(nRanges);
+        auto newRanges = new ::poi::ss::util::CellRangeAddressArray(nRanges);
         npc(temp)->toArray_(static_cast< ::java::lang::ObjectArray* >(newRanges));
         npc(header)->setCellRanges(newRanges);
     }
     for (auto _i = npc(rules)->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::hssf::record::CFRuleBase* rule = java_cast< ::org::apache::poi::hssf::record::CFRuleBase* >(_i->next());
+        ::poi::hssf::record::CFRuleBase* rule = java_cast< ::poi::hssf::record::CFRuleBase* >(_i->next());
         {
-            ::org::apache::poi::ss::formula::ptg::PtgArray* ptgs;
+            ::poi::ss::formula::ptg::PtgArray* ptgs;
             ptgs = npc(rule)->getParsedExpression1();
             if(ptgs != nullptr && npc(shifter)->adjustFormula(ptgs, currentExternSheetIx)) {
                 npc(rule)->setParsedExpression1(ptgs);
@@ -330,8 +324,8 @@ bool org::apache::poi::hssf::record::aggregates::CFRecordsAggregate::updateFormu
             if(ptgs != nullptr && npc(shifter)->adjustFormula(ptgs, currentExternSheetIx)) {
                 npc(rule)->setParsedExpression2(ptgs);
             }
-            if(dynamic_cast< ::org::apache::poi::hssf::record::CFRule12Record* >(rule) != nullptr) {
-                auto rule12 = java_cast< ::org::apache::poi::hssf::record::CFRule12Record* >(rule);
+            if(dynamic_cast< ::poi::hssf::record::CFRule12Record* >(rule) != nullptr) {
+                auto rule12 = java_cast< ::poi::hssf::record::CFRule12Record* >(rule);
                 ptgs = npc(rule12)->getParsedExpressionScale();
                 if(ptgs != nullptr && npc(shifter)->adjustFormula(ptgs, currentExternSheetIx)) {
                     npc(rule12)->setParsedExpressionScale(ptgs);
@@ -342,20 +336,20 @@ bool org::apache::poi::hssf::record::aggregates::CFRecordsAggregate::updateFormu
     return true;
 }
 
-org::apache::poi::ss::util::CellRangeAddress* org::apache::poi::hssf::record::aggregates::CFRecordsAggregate::shiftRange(::org::apache::poi::ss::formula::FormulaShifter* shifter, ::org::apache::poi::ss::util::CellRangeAddress* cra, int32_t currentExternSheetIx)
+poi::ss::util::CellRangeAddress* poi::hssf::record::aggregates::CFRecordsAggregate::shiftRange(::poi::ss::formula::FormulaShifter* shifter, ::poi::ss::util::CellRangeAddress* cra, int32_t currentExternSheetIx)
 {
     clinit();
-    auto aptg = new ::org::apache::poi::ss::formula::ptg::AreaPtg(npc(cra)->getFirstRow(), npc(cra)->getLastRow(), npc(cra)->getFirstColumn(), npc(cra)->getLastColumn(), false, false, false, false);
-    auto ptgs = (new ::org::apache::poi::ss::formula::ptg::PtgArray({static_cast< ::org::apache::poi::ss::formula::ptg::Ptg* >(aptg)}));
+    auto aptg = new ::poi::ss::formula::ptg::AreaPtg(npc(cra)->getFirstRow(), npc(cra)->getLastRow(), npc(cra)->getFirstColumn(), npc(cra)->getLastColumn(), false, false, false, false);
+    auto ptgs = (new ::poi::ss::formula::ptg::PtgArray({static_cast< ::poi::ss::formula::ptg::Ptg* >(aptg)}));
     if(!npc(shifter)->adjustFormula(ptgs, currentExternSheetIx)) {
         return cra;
     }
     auto ptg0 = (*ptgs)[int32_t(0)];
-    if(dynamic_cast< ::org::apache::poi::ss::formula::ptg::AreaPtg* >(ptg0) != nullptr) {
-        auto bptg = java_cast< ::org::apache::poi::ss::formula::ptg::AreaPtg* >(ptg0);
-        return new ::org::apache::poi::ss::util::CellRangeAddress(npc(bptg)->getFirstRow(), npc(bptg)->getLastRow(), npc(bptg)->getFirstColumn(), npc(bptg)->getLastColumn());
+    if(dynamic_cast< ::poi::ss::formula::ptg::AreaPtg* >(ptg0) != nullptr) {
+        auto bptg = java_cast< ::poi::ss::formula::ptg::AreaPtg* >(ptg0);
+        return new ::poi::ss::util::CellRangeAddress(npc(bptg)->getFirstRow(), npc(bptg)->getLastRow(), npc(bptg)->getFirstColumn(), npc(bptg)->getLastColumn());
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::ptg::AreaErrPtg* >(ptg0) != nullptr) {
+    if(dynamic_cast< ::poi::ss::formula::ptg::AreaErrPtg* >(ptg0) != nullptr) {
         return nullptr;
     }
     throw new ::java::lang::IllegalStateException(::java::lang::StringBuilder().append(u"Unexpected shifted ptg class ("_j)->append(npc(npc(ptg0)->getClass())->getName())
@@ -364,20 +358,20 @@ org::apache::poi::ss::util::CellRangeAddress* org::apache::poi::hssf::record::ag
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::aggregates::CFRecordsAggregate::class_()
+java::lang::Class* poi::hssf::record::aggregates::CFRecordsAggregate::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.aggregates.CFRecordsAggregate", 56);
     return c;
 }
 
-void org::apache::poi::hssf::record::aggregates::CFRecordsAggregate::clinit()
+void poi::hssf::record::aggregates::CFRecordsAggregate::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        logger_ = ::org::apache::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(CFRecordsAggregate::class_()));
+        logger_ = ::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(CFRecordsAggregate::class_()));
     }
 };
 
@@ -386,7 +380,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::hssf::record::aggregates::CFRecordsAggregate::getClass0()
+java::lang::Class* poi::hssf::record::aggregates::CFRecordsAggregate::getClass0()
 {
     return class_();
 }

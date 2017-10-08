@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::eval::RelationalOperationEval_6
+class poi::ss::formula::eval::RelationalOperationEval_6
     : public RelationalOperationEval
 {
 

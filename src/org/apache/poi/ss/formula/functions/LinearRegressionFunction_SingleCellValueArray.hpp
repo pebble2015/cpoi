@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::LinearRegressionFunction_SingleCellValueArray final
+class poi::ss::formula::functions::LinearRegressionFunction_SingleCellValueArray final
     : public LinearRegressionFunction_ValueArray
 {
 
@@ -17,17 +17,17 @@ public:
     typedef LinearRegressionFunction_ValueArray super;
 
 private:
-    ::org::apache::poi::ss::formula::eval::ValueEval* _value {  };
+    ::poi::ss::formula::eval::ValueEval* _value {  };
 protected:
-    void ctor(::org::apache::poi::ss::formula::eval::ValueEval* value);
+    void ctor(::poi::ss::formula::eval::ValueEval* value);
 
 public: /* protected */
-    ::org::apache::poi::ss::formula::eval::ValueEval* getItemInternal(int32_t index) override;
+    ::poi::ss::formula::eval::ValueEval* getItemInternal(int32_t index) override;
 
     // Generated
 
 public:
-    LinearRegressionFunction_SingleCellValueArray(::org::apache::poi::ss::formula::eval::ValueEval* value);
+    LinearRegressionFunction_SingleCellValueArray(::poi::ss::formula::eval::ValueEval* value);
 protected:
     LinearRegressionFunction_SingleCellValueArray(const ::default_init_tag&);
 

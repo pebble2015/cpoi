@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::usermodel::charts::DataSources_ArrayDataSource
+class poi::ss::usermodel::charts::DataSources_ArrayDataSource
     : public virtual ::java::lang::Object
     , public virtual ChartDataSource
 {

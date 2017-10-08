@@ -29,7 +29,7 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
 
 struct default_init_tag;
 
-class org::apache::poi::ss::util::CellReference
+class poi::ss::util::CellReference
     : public virtual ::java::lang::Object
 {
 
@@ -54,7 +54,7 @@ protected:
     void ctor(::java::lang::String* cellRef);
     void ctor(int32_t pRow, int32_t pCol);
     void ctor(int32_t pRow, int16_t pCol);
-    void ctor(::org::apache::poi::ss::usermodel::Cell* cell);
+    void ctor(::poi::ss::usermodel::Cell* cell);
     void ctor(int32_t pRow, int32_t pCol, bool pAbsRow, bool pAbsCol);
     void ctor(::java::lang::String* pSheetName, int32_t pRow, int32_t pCol, bool pAbsRow, bool pAbsCol);
 
@@ -66,16 +66,16 @@ public:
     virtual ::java::lang::String* getSheetName();
     static bool isPartAbsolute(::java::lang::String* part);
     static int32_t convertColStringToIndex(::java::lang::String* ref);
-    static CellReference_NameType* classifyCellReference(::java::lang::String* str, ::org::apache::poi::ss::SpreadsheetVersion* ssVersion);
+    static CellReference_NameType* classifyCellReference(::java::lang::String* str, ::poi::ss::SpreadsheetVersion* ssVersion);
 
 private:
-    static CellReference_NameType* validateNamedRangeName(::java::lang::String* str, ::org::apache::poi::ss::SpreadsheetVersion* ssVersion);
+    static CellReference_NameType* validateNamedRangeName(::java::lang::String* str, ::poi::ss::SpreadsheetVersion* ssVersion);
 
 public:
-    static bool cellReferenceIsWithinRange(::java::lang::String* colStr, ::java::lang::String* rowStr, ::org::apache::poi::ss::SpreadsheetVersion* ssVersion);
-    static bool isColumnWithinRange(::java::lang::String* colStr, ::org::apache::poi::ss::SpreadsheetVersion* ssVersion);
-    static bool isRowWithinRange(::java::lang::String* rowStr, ::org::apache::poi::ss::SpreadsheetVersion* ssVersion);
-    static bool isRowWithinRange(int32_t rowNum, ::org::apache::poi::ss::SpreadsheetVersion* ssVersion);
+    static bool cellReferenceIsWithinRange(::java::lang::String* colStr, ::java::lang::String* rowStr, ::poi::ss::SpreadsheetVersion* ssVersion);
+    static bool isColumnWithinRange(::java::lang::String* colStr, ::poi::ss::SpreadsheetVersion* ssVersion);
+    static bool isRowWithinRange(::java::lang::String* rowStr, ::poi::ss::SpreadsheetVersion* ssVersion);
+    static bool isRowWithinRange(int32_t rowNum, ::poi::ss::SpreadsheetVersion* ssVersion);
 
 private:
     static CellReference_CellRefParts* separateRefParts(::java::lang::String* reference);
@@ -98,7 +98,7 @@ public:
     CellReference(::java::lang::String* cellRef);
     CellReference(int32_t pRow, int32_t pCol);
     CellReference(int32_t pRow, int16_t pCol);
-    CellReference(::org::apache::poi::ss::usermodel::Cell* cell);
+    CellReference(::poi::ss::usermodel::Cell* cell);
     CellReference(int32_t pRow, int32_t pCol, bool pAbsRow, bool pAbsCol);
     CellReference(::java::lang::String* pSheetName, int32_t pRow, int32_t pCol, bool pAbsRow, bool pAbsCol);
 protected:

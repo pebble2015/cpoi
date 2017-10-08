@@ -8,12 +8,12 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::OldExcelFormatException
-    : public ::org::apache::poi::OldFileFormatException
+class poi::hssf::OldExcelFormatException
+    : public ::poi::OldFileFormatException
 {
 
 public:
-    typedef ::org::apache::poi::OldFileFormatException super;
+    typedef ::poi::OldFileFormatException super;
 protected:
     void ctor(::java::lang::String* s);
 

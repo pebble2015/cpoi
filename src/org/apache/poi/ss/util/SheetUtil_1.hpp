@@ -11,25 +11,25 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::util::SheetUtil_1
+class poi::ss::util::SheetUtil_1
     : public virtual ::java::lang::Object
-    , public virtual ::org::apache::poi::ss::usermodel::FormulaEvaluator
+    , public virtual ::poi::ss::usermodel::FormulaEvaluator
 {
 
 public:
     typedef ::java::lang::Object super;
     void clearAllCachedResultValues() override;
-    void notifySetFormula(::org::apache::poi::ss::usermodel::Cell* cell) override;
-    void notifyDeleteCell(::org::apache::poi::ss::usermodel::Cell* cell) override;
-    void notifyUpdateCell(::org::apache::poi::ss::usermodel::Cell* cell) override;
-    ::org::apache::poi::ss::usermodel::CellValue* evaluate(::org::apache::poi::ss::usermodel::Cell* cell) override;
-    ::org::apache::poi::ss::usermodel::Cell* evaluateInCell(::org::apache::poi::ss::usermodel::Cell* cell) override;
+    void notifySetFormula(::poi::ss::usermodel::Cell* cell) override;
+    void notifyDeleteCell(::poi::ss::usermodel::Cell* cell) override;
+    void notifyUpdateCell(::poi::ss::usermodel::Cell* cell) override;
+    ::poi::ss::usermodel::CellValue* evaluate(::poi::ss::usermodel::Cell* cell) override;
+    ::poi::ss::usermodel::Cell* evaluateInCell(::poi::ss::usermodel::Cell* cell) override;
     void setupReferencedWorkbooks(::java::util::Map* workbooks) override;
     void setDebugEvaluationOutputForNextEval(bool value) override;
     void setIgnoreMissingWorkbooks(bool ignore) override;
     void evaluateAll() override;
-    int32_t evaluateFormulaCell(::org::apache::poi::ss::usermodel::Cell* cell) override;
-    ::org::apache::poi::ss::usermodel::CellType* evaluateFormulaCellEnum(::org::apache::poi::ss::usermodel::Cell* cell) override;
+    int32_t evaluateFormulaCell(::poi::ss::usermodel::Cell* cell) override;
+    ::poi::ss::usermodel::CellType* evaluateFormulaCellEnum(::poi::ss::usermodel::Cell* cell) override;
 
     // Generated
     SheetUtil_1();

@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::usermodel::DataFormatter_ZipPlusFourFormat final
+class poi::ss::usermodel::DataFormatter_ZipPlusFourFormat final
     : public ::java::text::Format
 {
 

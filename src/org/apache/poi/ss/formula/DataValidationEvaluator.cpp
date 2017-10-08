@@ -53,23 +53,17 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace util
         {
-            namespace ss
-            {
-                namespace util
-                {
-typedef ::SubArray< ::org::apache::poi::ss::util::CellRangeAddressBase, ::java::lang::ObjectArray > CellRangeAddressBaseArray;
-typedef ::SubArray< ::org::apache::poi::ss::util::CellRangeAddress, CellRangeAddressBaseArray > CellRangeAddressArray;
-                } // util
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::util::CellRangeAddressBase, ::java::lang::ObjectArray > CellRangeAddressBaseArray;
+typedef ::SubArray< ::poi::ss::util::CellRangeAddress, CellRangeAddressBaseArray > CellRangeAddressArray;
+        } // util
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -87,24 +81,24 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::DataValidationEvaluator::DataValidationEvaluator(const ::default_init_tag&)
+poi::ss::formula::DataValidationEvaluator::DataValidationEvaluator(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::DataValidationEvaluator::DataValidationEvaluator(::org::apache::poi::ss::usermodel::Workbook* wb, WorkbookEvaluatorProvider* provider) 
+poi::ss::formula::DataValidationEvaluator::DataValidationEvaluator(::poi::ss::usermodel::Workbook* wb, WorkbookEvaluatorProvider* provider) 
     : DataValidationEvaluator(*static_cast< ::default_init_tag* >(0))
 {
     ctor(wb,provider);
 }
 
-void org::apache::poi::ss::formula::DataValidationEvaluator::init()
+void poi::ss::formula::DataValidationEvaluator::init()
 {
     validations = new ::java::util::HashMap();
 }
 
-void org::apache::poi::ss::formula::DataValidationEvaluator::ctor(::org::apache::poi::ss::usermodel::Workbook* wb, WorkbookEvaluatorProvider* provider)
+void poi::ss::formula::DataValidationEvaluator::ctor(::poi::ss::usermodel::Workbook* wb, WorkbookEvaluatorProvider* provider)
 {
     super::ctor();
     init();
@@ -112,17 +106,17 @@ void org::apache::poi::ss::formula::DataValidationEvaluator::ctor(::org::apache:
     this->workbookEvaluator = npc(provider)->_getWorkbookEvaluator();
 }
 
-org::apache::poi::ss::formula::WorkbookEvaluator* org::apache::poi::ss::formula::DataValidationEvaluator::getWorkbookEvaluator()
+poi::ss::formula::WorkbookEvaluator* poi::ss::formula::DataValidationEvaluator::getWorkbookEvaluator()
 {
     return workbookEvaluator;
 }
 
-void org::apache::poi::ss::formula::DataValidationEvaluator::clearAllCachedValues()
+void poi::ss::formula::DataValidationEvaluator::clearAllCachedValues()
 {
     npc(validations)->clear();
 }
 
-java::util::List* org::apache::poi::ss::formula::DataValidationEvaluator::getValidations(::org::apache::poi::ss::usermodel::Sheet* sheet)
+java::util::List* poi::ss::formula::DataValidationEvaluator::getValidations(::poi::ss::usermodel::Sheet* sheet)
 {
     auto dvs = java_cast< ::java::util::List* >(npc(validations)->get(npc(sheet)->getSheetName()));
     if(dvs == nullptr && !npc(validations)->containsKey(npc(sheet)->getSheetName())) {
@@ -132,13 +126,13 @@ java::util::List* org::apache::poi::ss::formula::DataValidationEvaluator::getVal
     return dvs;
 }
 
-org::apache::poi::ss::usermodel::DataValidation* org::apache::poi::ss::formula::DataValidationEvaluator::getValidationForCell(::org::apache::poi::ss::util::CellReference* cell)
+poi::ss::usermodel::DataValidation* poi::ss::formula::DataValidationEvaluator::getValidationForCell(::poi::ss::util::CellReference* cell)
 {
     auto const vc = getValidationContextForCell(cell);
-    return vc == nullptr ? static_cast< ::org::apache::poi::ss::usermodel::DataValidation* >(nullptr) : npc(vc)->getValidation();
+    return vc == nullptr ? static_cast< ::poi::ss::usermodel::DataValidation* >(nullptr) : npc(vc)->getValidation();
 }
 
-org::apache::poi::ss::formula::DataValidationEvaluator_DataValidationContext* org::apache::poi::ss::formula::DataValidationEvaluator::getValidationContextForCell(::org::apache::poi::ss::util::CellReference* cell)
+poi::ss::formula::DataValidationEvaluator_DataValidationContext* poi::ss::formula::DataValidationEvaluator::getValidationContextForCell(::poi::ss::util::CellReference* cell)
 {
     auto const sheet = npc(workbook)->getSheet(npc(cell)->getSheetName());
     if(sheet == nullptr)
@@ -149,7 +143,7 @@ org::apache::poi::ss::formula::DataValidationEvaluator_DataValidationContext* or
         return nullptr;
 
     for (auto _i = npc(dataValidations)->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::ss::usermodel::DataValidation* dv = java_cast< ::org::apache::poi::ss::usermodel::DataValidation* >(_i->next());
+        ::poi::ss::usermodel::DataValidation* dv = java_cast< ::poi::ss::usermodel::DataValidation* >(_i->next());
         {
             auto const regions = npc(dv)->getRegions();
             if(regions == nullptr)
@@ -165,7 +159,7 @@ org::apache::poi::ss::formula::DataValidationEvaluator_DataValidationContext* or
     return nullptr;
 }
 
-java::util::List* org::apache::poi::ss::formula::DataValidationEvaluator::getValidationValuesForCell(::org::apache::poi::ss::util::CellReference* cell)
+java::util::List* poi::ss::formula::DataValidationEvaluator::getValidationValuesForCell(::poi::ss::util::CellReference* cell)
 {
     auto context = getValidationContextForCell(cell);
     if(context == nullptr)
@@ -174,11 +168,11 @@ java::util::List* org::apache::poi::ss::formula::DataValidationEvaluator::getVal
     return getValidationValuesForConstraint(context);
 }
 
-java::util::List* org::apache::poi::ss::formula::DataValidationEvaluator::getValidationValuesForConstraint(DataValidationEvaluator_DataValidationContext* context)
+java::util::List* poi::ss::formula::DataValidationEvaluator::getValidationValuesForConstraint(DataValidationEvaluator_DataValidationContext* context)
 {
     clinit();
     auto const val = npc(npc(context)->getValidation())->getValidationConstraint();
-    if(npc(val)->getValidationType() != ::org::apache::poi::ss::usermodel::DataValidationConstraint_ValidationType::LIST)
+    if(npc(val)->getValidationType() != ::poi::ss::usermodel::DataValidationConstraint_ValidationType::LIST)
         return nullptr;
 
     auto formula = npc(val)->getFormula1();
@@ -186,7 +180,7 @@ java::util::List* org::apache::poi::ss::formula::DataValidationEvaluator::getVal
     if(npc(val)->getExplicitListValues() != nullptr && npc(npc(val)->getExplicitListValues())->length > 0) {
         for(auto s : *npc(npc(val)->getExplicitListValues())) {
             if(s != nullptr)
-                npc(values)->add(static_cast< ::java::lang::Object* >(new ::org::apache::poi::ss::formula::eval::StringEval(s)));
+                npc(values)->add(static_cast< ::java::lang::Object* >(new ::poi::ss::formula::eval::StringEval(s)));
 
         }
     } else if(formula != nullptr) {
@@ -202,35 +196,35 @@ java::util::List* org::apache::poi::ss::formula::DataValidationEvaluator::getVal
     return ::java::util::Collections::unmodifiableList(values);
 }
 
-bool org::apache::poi::ss::formula::DataValidationEvaluator::isValidCell(::org::apache::poi::ss::util::CellReference* cellRef)
+bool poi::ss::formula::DataValidationEvaluator::isValidCell(::poi::ss::util::CellReference* cellRef)
 {
     auto const context = getValidationContextForCell(cellRef);
     if(context == nullptr)
         return true;
 
-    auto const cell = ::org::apache::poi::ss::util::SheetUtil::getCell(npc(workbook)->getSheet(npc(cellRef)->getSheetName()), npc(cellRef)->getRow(), npc(cellRef)->getCol());
-    if(cell == nullptr || isType(cell, ::org::apache::poi::ss::usermodel::CellType::BLANK) || (isType(cell, ::org::apache::poi::ss::usermodel::CellType::STRING) && (npc(cell)->getStringCellValue() == nullptr || npc(npc(cell)->getStringCellValue())->isEmpty()))) {
+    auto const cell = ::poi::ss::util::SheetUtil::getCell(npc(workbook)->getSheet(npc(cellRef)->getSheetName()), npc(cellRef)->getRow(), npc(cellRef)->getCol());
+    if(cell == nullptr || isType(cell, ::poi::ss::usermodel::CellType::BLANK) || (isType(cell, ::poi::ss::usermodel::CellType::STRING) && (npc(cell)->getStringCellValue() == nullptr || npc(npc(cell)->getStringCellValue())->isEmpty()))) {
         return npc(npc(context)->getValidation())->getEmptyCellAllowed();
     }
     return DataValidationEvaluator_ValidationEnum::isValid(cell, context);
 }
 
-bool org::apache::poi::ss::formula::DataValidationEvaluator::isType(::org::apache::poi::ss::usermodel::Cell* cell, ::org::apache::poi::ss::usermodel::CellType* type)
+bool poi::ss::formula::DataValidationEvaluator::isType(::poi::ss::usermodel::Cell* cell, ::poi::ss::usermodel::CellType* type)
 {
     clinit();
     auto const cellType = npc(cell)->getCellTypeEnum();
-    return cellType == type || (cellType == ::org::apache::poi::ss::usermodel::CellType::FORMULA && npc(cell)->getCachedFormulaResultTypeEnum() == type);
+    return cellType == type || (cellType == ::poi::ss::usermodel::CellType::FORMULA && npc(cell)->getCachedFormulaResultTypeEnum() == type);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::DataValidationEvaluator::class_()
+java::lang::Class* poi::ss::formula::DataValidationEvaluator::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.DataValidationEvaluator", 49);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::DataValidationEvaluator::getClass0()
+java::lang::Class* poi::ss::formula::DataValidationEvaluator::getClass0()
 {
     return class_();
 }

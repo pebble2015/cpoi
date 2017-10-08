@@ -15,25 +15,19 @@
 #include <Array.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -51,7 +45,7 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::NumericFunction_36::NumericFunction_36()
+poi::ss::formula::functions::NumericFunction_36::NumericFunction_36()
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
@@ -59,7 +53,7 @@ org::apache::poi::ss::formula::functions::NumericFunction_36::NumericFunction_36
     ctor();
 }
 
-void org::apache::poi::ss::formula::functions::NumericFunction_36::init()
+void poi::ss::formula::functions::NumericFunction_36::init()
 {
     FACTORIALS = new ::int64_tArray({
         int64_t(1LL)
@@ -86,9 +80,9 @@ void org::apache::poi::ss::formula::functions::NumericFunction_36::init()
     });
 }
 
-constexpr double org::apache::poi::ss::formula::functions::NumericFunction_36::DEFAULT_RETURN_RESULT;
+constexpr double poi::ss::formula::functions::NumericFunction_36::DEFAULT_RETURN_RESULT;
 
-bool org::apache::poi::ss::formula::functions::NumericFunction_36::isDefaultResult(double x, double mean)
+bool poi::ss::formula::functions::NumericFunction_36::isDefaultResult(double x, double mean)
 {
     if(x == 0 && mean == 0) {
         return true;
@@ -96,21 +90,21 @@ bool org::apache::poi::ss::formula::functions::NumericFunction_36::isDefaultResu
     return false;
 }
 
-bool org::apache::poi::ss::formula::functions::NumericFunction_36::checkArgument(double aDouble) /* throws(EvaluationException) */
+bool poi::ss::formula::functions::NumericFunction_36::checkArgument(double aDouble) /* throws(EvaluationException) */
 {
     NumericFunction::checkValue(aDouble);
     if(aDouble < 0) {
-        throw new ::org::apache::poi::ss::formula::eval::EvaluationException(::org::apache::poi::ss::formula::eval::ErrorEval::NUM_ERROR());
+        throw new ::poi::ss::formula::eval::EvaluationException(::poi::ss::formula::eval::ErrorEval::NUM_ERROR());
     }
     return true;
 }
 
-double org::apache::poi::ss::formula::functions::NumericFunction_36::probability(int32_t k, double lambda)
+double poi::ss::formula::functions::NumericFunction_36::probability(int32_t k, double lambda)
 {
     return ::java::lang::Math::pow(lambda, k) * ::java::lang::Math::exp(-lambda) / factorial(k);
 }
 
-double org::apache::poi::ss::formula::functions::NumericFunction_36::cumulativeProbability(int32_t x, double lambda)
+double poi::ss::formula::functions::NumericFunction_36::cumulativeProbability(int32_t x, double lambda)
 {
     double result = int32_t(0);
     for (auto k = int32_t(0); k <= x; k++) {
@@ -119,7 +113,7 @@ double org::apache::poi::ss::formula::functions::NumericFunction_36::cumulativeP
     return result;
 }
 
-int64_t org::apache::poi::ss::formula::functions::NumericFunction_36::factorial(int32_t n)
+int64_t poi::ss::formula::functions::NumericFunction_36::factorial(int32_t n)
 {
     if(n < 0 || n > 20) {
         throw new ::java::lang::IllegalArgumentException(u"Valid argument should be in the range [0..20]"_j);
@@ -127,17 +121,17 @@ int64_t org::apache::poi::ss::formula::functions::NumericFunction_36::factorial(
     return (*FACTORIALS)[n];
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::NumericFunction_36::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* arg0, ::org::apache::poi::ss::formula::eval::ValueEval* arg1, ::org::apache::poi::ss::formula::eval::ValueEval* arg2)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::NumericFunction_36::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::poi::ss::formula::eval::ValueEval* arg0, ::poi::ss::formula::eval::ValueEval* arg1, ::poi::ss::formula::eval::ValueEval* arg2)
 {
     double mean = int32_t(0);
     double x = int32_t(0);
-    auto cumulative = npc((java_cast< ::org::apache::poi::ss::formula::eval::BoolEval* >(arg2)))->getBooleanValue();
+    auto cumulative = npc((java_cast< ::poi::ss::formula::eval::BoolEval* >(arg2)))->getBooleanValue();
     double result = int32_t(0);
     try {
         x = NumericFunction::singleOperandEvaluate(arg0, srcRowIndex, srcColumnIndex);
         mean = NumericFunction::singleOperandEvaluate(arg1, srcRowIndex, srcColumnIndex);
         if(isDefaultResult(x, mean)) {
-            return new ::org::apache::poi::ss::formula::eval::NumberEval(DEFAULT_RETURN_RESULT);
+            return new ::poi::ss::formula::eval::NumberEval(DEFAULT_RETURN_RESULT);
         }
         checkArgument(x);
         checkArgument(mean);
@@ -147,26 +141,26 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::f
             result = probability(static_cast< int32_t >(x), mean);
         }
         NumericFunction::checkValue(result);
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
         return npc(e)->getErrorEval();
     }
-    return new ::org::apache::poi::ss::formula::eval::NumberEval(result);
+    return new ::poi::ss::formula::eval::NumberEval(result);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::NumericFunction_36::class_()
+java::lang::Class* poi::ss::formula::functions::NumericFunction_36::class_()
 {
     static ::java::lang::Class* c = ::class_(u"", 0);
     return c;
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::NumericFunction_36::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::NumericFunction_36::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
 {
     return super::evaluate(args, srcRowIndex, srcColumnIndex);
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::NumericFunction_36::getClass0()
+java::lang::Class* poi::ss::formula::functions::NumericFunction_36::getClass0()
 {
     return class_();
 }

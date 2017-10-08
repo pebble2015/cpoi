@@ -25,25 +25,25 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::model::WorkbookRecordList::WorkbookRecordList(const ::default_init_tag&)
+poi::hssf::model::WorkbookRecordList::WorkbookRecordList(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::model::WorkbookRecordList::WorkbookRecordList()
+poi::hssf::model::WorkbookRecordList::WorkbookRecordList()
     : WorkbookRecordList(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::hssf::model::WorkbookRecordList::ctor()
+void poi::hssf::model::WorkbookRecordList::ctor()
 {
     super::ctor();
     init();
 }
 
-void org::apache::poi::hssf::model::WorkbookRecordList::init()
+void poi::hssf::model::WorkbookRecordList::init()
 {
     records = new ::java::util::ArrayList();
     protpos = int32_t(0);
@@ -58,37 +58,37 @@ void org::apache::poi::hssf::model::WorkbookRecordList::init()
     palettepos = -int32_t(1);
 }
 
-void org::apache::poi::hssf::model::WorkbookRecordList::setRecords(::java::util::List* records)
+void poi::hssf::model::WorkbookRecordList::setRecords(::java::util::List* records)
 {
     this->records = records;
 }
 
-int32_t org::apache::poi::hssf::model::WorkbookRecordList::size()
+int32_t poi::hssf::model::WorkbookRecordList::size()
 {
     return npc(records)->size();
 }
 
-org::apache::poi::hssf::record::Record* org::apache::poi::hssf::model::WorkbookRecordList::get(int32_t i)
+poi::hssf::record::Record* poi::hssf::model::WorkbookRecordList::get(int32_t i)
 {
-    return java_cast< ::org::apache::poi::hssf::record::Record* >(npc(records)->get(i));
+    return java_cast< ::poi::hssf::record::Record* >(npc(records)->get(i));
 }
 
-void org::apache::poi::hssf::model::WorkbookRecordList::add(int32_t pos, ::org::apache::poi::hssf::record::Record* r)
+void poi::hssf::model::WorkbookRecordList::add(int32_t pos, ::poi::hssf::record::Record* r)
 {
     npc(records)->add(pos, r);
     updateRecordPos(pos, true);
 }
 
-java::util::List* org::apache::poi::hssf::model::WorkbookRecordList::getRecords()
+java::util::List* poi::hssf::model::WorkbookRecordList::getRecords()
 {
     return records;
 }
 
-void org::apache::poi::hssf::model::WorkbookRecordList::remove(::java::lang::Object* record)
+void poi::hssf::model::WorkbookRecordList::remove(::java::lang::Object* record)
 {
     auto i = int32_t(0);
     for (auto _i = npc(records)->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::hssf::record::Record* r = java_cast< ::org::apache::poi::hssf::record::Record* >(_i->next());
+        ::poi::hssf::record::Record* r = java_cast< ::poi::hssf::record::Record* >(_i->next());
         {
             if(static_cast< ::java::lang::Object* >(r) == record) {
                 remove(i);
@@ -99,113 +99,113 @@ void org::apache::poi::hssf::model::WorkbookRecordList::remove(::java::lang::Obj
     }
 }
 
-void org::apache::poi::hssf::model::WorkbookRecordList::remove(int32_t pos)
+void poi::hssf::model::WorkbookRecordList::remove(int32_t pos)
 {
     npc(records)->remove(pos);
     updateRecordPos(pos, false);
 }
 
-int32_t org::apache::poi::hssf::model::WorkbookRecordList::getProtpos()
+int32_t poi::hssf::model::WorkbookRecordList::getProtpos()
 {
     return protpos;
 }
 
-void org::apache::poi::hssf::model::WorkbookRecordList::setProtpos(int32_t protpos)
+void poi::hssf::model::WorkbookRecordList::setProtpos(int32_t protpos)
 {
     this->protpos = protpos;
 }
 
-int32_t org::apache::poi::hssf::model::WorkbookRecordList::getBspos()
+int32_t poi::hssf::model::WorkbookRecordList::getBspos()
 {
     return bspos;
 }
 
-void org::apache::poi::hssf::model::WorkbookRecordList::setBspos(int32_t bspos)
+void poi::hssf::model::WorkbookRecordList::setBspos(int32_t bspos)
 {
     this->bspos = bspos;
 }
 
-int32_t org::apache::poi::hssf::model::WorkbookRecordList::getTabpos()
+int32_t poi::hssf::model::WorkbookRecordList::getTabpos()
 {
     return tabpos;
 }
 
-void org::apache::poi::hssf::model::WorkbookRecordList::setTabpos(int32_t tabpos)
+void poi::hssf::model::WorkbookRecordList::setTabpos(int32_t tabpos)
 {
     this->tabpos = tabpos;
 }
 
-int32_t org::apache::poi::hssf::model::WorkbookRecordList::getFontpos()
+int32_t poi::hssf::model::WorkbookRecordList::getFontpos()
 {
     return fontpos;
 }
 
-void org::apache::poi::hssf::model::WorkbookRecordList::setFontpos(int32_t fontpos)
+void poi::hssf::model::WorkbookRecordList::setFontpos(int32_t fontpos)
 {
     this->fontpos = fontpos;
 }
 
-int32_t org::apache::poi::hssf::model::WorkbookRecordList::getXfpos()
+int32_t poi::hssf::model::WorkbookRecordList::getXfpos()
 {
     return xfpos;
 }
 
-void org::apache::poi::hssf::model::WorkbookRecordList::setXfpos(int32_t xfpos)
+void poi::hssf::model::WorkbookRecordList::setXfpos(int32_t xfpos)
 {
     this->xfpos = xfpos;
 }
 
-int32_t org::apache::poi::hssf::model::WorkbookRecordList::getBackuppos()
+int32_t poi::hssf::model::WorkbookRecordList::getBackuppos()
 {
     return backuppos;
 }
 
-void org::apache::poi::hssf::model::WorkbookRecordList::setBackuppos(int32_t backuppos)
+void poi::hssf::model::WorkbookRecordList::setBackuppos(int32_t backuppos)
 {
     this->backuppos = backuppos;
 }
 
-int32_t org::apache::poi::hssf::model::WorkbookRecordList::getPalettepos()
+int32_t poi::hssf::model::WorkbookRecordList::getPalettepos()
 {
     return palettepos;
 }
 
-void org::apache::poi::hssf::model::WorkbookRecordList::setPalettepos(int32_t palettepos)
+void poi::hssf::model::WorkbookRecordList::setPalettepos(int32_t palettepos)
 {
     this->palettepos = palettepos;
 }
 
-int32_t org::apache::poi::hssf::model::WorkbookRecordList::getNamepos()
+int32_t poi::hssf::model::WorkbookRecordList::getNamepos()
 {
     return namepos;
 }
 
-int32_t org::apache::poi::hssf::model::WorkbookRecordList::getSupbookpos()
+int32_t poi::hssf::model::WorkbookRecordList::getSupbookpos()
 {
     return supbookpos;
 }
 
-void org::apache::poi::hssf::model::WorkbookRecordList::setNamepos(int32_t namepos)
+void poi::hssf::model::WorkbookRecordList::setNamepos(int32_t namepos)
 {
     this->namepos = namepos;
 }
 
-void org::apache::poi::hssf::model::WorkbookRecordList::setSupbookpos(int32_t supbookpos)
+void poi::hssf::model::WorkbookRecordList::setSupbookpos(int32_t supbookpos)
 {
     this->supbookpos = supbookpos;
 }
 
-int32_t org::apache::poi::hssf::model::WorkbookRecordList::getExternsheetPos()
+int32_t poi::hssf::model::WorkbookRecordList::getExternsheetPos()
 {
     return externsheetPos;
 }
 
-void org::apache::poi::hssf::model::WorkbookRecordList::setExternsheetPos(int32_t externsheetPos)
+void poi::hssf::model::WorkbookRecordList::setExternsheetPos(int32_t externsheetPos)
 {
     this->externsheetPos = externsheetPos;
 }
 
-void org::apache::poi::hssf::model::WorkbookRecordList::updateRecordPos(int32_t pos, bool add)
+void poi::hssf::model::WorkbookRecordList::updateRecordPos(int32_t pos, bool add)
 {
     auto delta = (add) ? int32_t(1) : -int32_t(1);
     auto p = getProtpos();
@@ -252,13 +252,13 @@ void org::apache::poi::hssf::model::WorkbookRecordList::updateRecordPos(int32_t 
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::model::WorkbookRecordList::class_()
+java::lang::Class* poi::hssf::model::WorkbookRecordList::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.model.WorkbookRecordList", 44);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::model::WorkbookRecordList::getClass0()
+java::lang::Class* poi::hssf::model::WorkbookRecordList::getClass0()
 {
     return class_();
 }

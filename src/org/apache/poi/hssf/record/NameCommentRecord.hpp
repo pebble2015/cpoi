@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::NameCommentRecord final
+class poi::hssf::record::NameCommentRecord final
     : public StandardRecord
 {
 
@@ -28,7 +28,7 @@ protected:
     void ctor(::java::lang::String* name, ::java::lang::String* comment);
 
 public:
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;

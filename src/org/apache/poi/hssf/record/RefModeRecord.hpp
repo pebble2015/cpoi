@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::RefModeRecord final
+class poi::hssf::record::RefModeRecord final
     : public StandardRecord
 {
 
@@ -30,7 +30,7 @@ public:
     void setMode(int16_t mode);
     int16_t getMode();
     ::java::lang::String* toString() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;

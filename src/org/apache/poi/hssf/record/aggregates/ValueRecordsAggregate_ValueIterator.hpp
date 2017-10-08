@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::aggregates::ValueRecordsAggregate_ValueIterator
+class poi::hssf::record::aggregates::ValueRecordsAggregate_ValueIterator
     : public virtual ::java::lang::Object
     , public virtual ::java::util::Iterator
 {
@@ -30,7 +30,7 @@ public: /* package */
 
 public:
     bool hasNext() override;
-    ::org::apache::poi::hssf::record::CellValueRecordInterface* next() override;
+    ::poi::hssf::record::CellValueRecordInterface* next() override;
     void remove() override;
 
     // Generated

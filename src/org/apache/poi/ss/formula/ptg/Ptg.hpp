@@ -10,29 +10,23 @@
 #include <java/lang/Object.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::ptg::Ptg
+class poi::ss::formula::ptg::Ptg
     : public virtual ::java::lang::Object
 {
 
@@ -43,12 +37,12 @@ private:
     static PtgArray* EMPTY_PTG_ARRAY_;
 
 public:
-    static PtgArray* readTokens(int32_t size, ::org::apache::poi::util::LittleEndianInput* in);
-    static Ptg* createPtg(::org::apache::poi::util::LittleEndianInput* in);
+    static PtgArray* readTokens(int32_t size, ::poi::util::LittleEndianInput* in);
+    static Ptg* createPtg(::poi::util::LittleEndianInput* in);
 
 private:
-    static Ptg* createClassifiedPtg(int8_t id, ::org::apache::poi::util::LittleEndianInput* in);
-    static Ptg* createBasePtg(int8_t id, ::org::apache::poi::util::LittleEndianInput* in);
+    static Ptg* createClassifiedPtg(int8_t id, ::poi::util::LittleEndianInput* in);
+    static Ptg* createBasePtg(int8_t id, ::poi::util::LittleEndianInput* in);
     static PtgArray* toPtgArray_(::java::util::List* l);
 
 public:
@@ -56,7 +50,7 @@ public:
     static int32_t getEncodedSizeWithoutArrayData(PtgArray* ptgs);
     static int32_t serializePtgs(PtgArray* ptgs, ::int8_tArray* array, int32_t offset);
     virtual int32_t getSize() = 0;
-    virtual void write(::org::apache::poi::util::LittleEndianOutput* out) = 0;
+    virtual void write(::poi::util::LittleEndianOutput* out) = 0;
     virtual ::java::lang::String* toFormulaString() = 0;
     ::java::lang::String* toString() override;
     static constexpr int8_t CLASS_REF { int8_t(0) };

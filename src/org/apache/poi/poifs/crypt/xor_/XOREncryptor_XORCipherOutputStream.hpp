@@ -11,24 +11,24 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::crypt::xor_::XOREncryptor_XORCipherOutputStream
-    : public ::org::apache::poi::poifs::crypt::ChunkedCipherOutputStream
+class poi::poifs::crypt::xor_::XOREncryptor_XORCipherOutputStream
+    : public ::poi::poifs::crypt::ChunkedCipherOutputStream
 {
 
 public:
-    typedef ::org::apache::poi::poifs::crypt::ChunkedCipherOutputStream super;
+    typedef ::poi::poifs::crypt::ChunkedCipherOutputStream super;
 
 private:
     int32_t recordStart {  };
     int32_t recordEnd {  };
 protected:
     void ctor(::java::io::OutputStream* stream, int32_t initialPos) /* throws(IOException, GeneralSecurityException) */;
-    void ctor(::org::apache::poi::poifs::filesystem::DirectoryNode* dir) /* throws(IOException, GeneralSecurityException) */;
+    void ctor(::poi::poifs::filesystem::DirectoryNode* dir) /* throws(IOException, GeneralSecurityException) */;
 
 public: /* protected */
     ::javax::crypto::Cipher* initCipherForBlock(::javax::crypto::Cipher* cipher, int32_t block, bool lastChunk) /* throws(GeneralSecurityException) */ override;
     void calculateChecksum(::java::io::File* file, int32_t i) override;
-    void createEncryptionInfoEntry(::org::apache::poi::poifs::filesystem::DirectoryNode* dir, ::java::io::File* tmpFile) /* throws(IOException, GeneralSecurityException) */ override;
+    void createEncryptionInfoEntry(::poi::poifs::filesystem::DirectoryNode* dir, ::java::io::File* tmpFile) /* throws(IOException, GeneralSecurityException) */ override;
 
 public:
     void setNextRecordSize(int32_t recordSize, bool isPlain) override;
@@ -44,7 +44,7 @@ private:
 
 public:
     XOREncryptor_XORCipherOutputStream(XOREncryptor *XOREncryptor_this, ::java::io::OutputStream* stream, int32_t initialPos);
-    XOREncryptor_XORCipherOutputStream(XOREncryptor *XOREncryptor_this, ::org::apache::poi::poifs::filesystem::DirectoryNode* dir);
+    XOREncryptor_XORCipherOutputStream(XOREncryptor *XOREncryptor_this, ::poi::poifs::filesystem::DirectoryNode* dir);
 protected:
     XOREncryptor_XORCipherOutputStream(XOREncryptor *XOREncryptor_this, const ::default_init_tag&);
 

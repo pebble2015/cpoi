@@ -11,67 +11,67 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::util::HSSFColor_LIGHT_TURQUOISE::HSSFColor_LIGHT_TURQUOISE(const ::default_init_tag&)
+poi::hssf::util::HSSFColor_LIGHT_TURQUOISE::HSSFColor_LIGHT_TURQUOISE(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::util::HSSFColor_LIGHT_TURQUOISE::HSSFColor_LIGHT_TURQUOISE() 
+poi::hssf::util::HSSFColor_LIGHT_TURQUOISE::HSSFColor_LIGHT_TURQUOISE() 
     : HSSFColor_LIGHT_TURQUOISE(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::util::HSSFColor_HSSFColorPredefined*& org::apache::poi::hssf::util::HSSFColor_LIGHT_TURQUOISE::ref()
+poi::hssf::util::HSSFColor_HSSFColorPredefined*& poi::hssf::util::HSSFColor_LIGHT_TURQUOISE::ref()
 {
     clinit();
     return ref_;
 }
-org::apache::poi::hssf::util::HSSFColor_HSSFColorPredefined* org::apache::poi::hssf::util::HSSFColor_LIGHT_TURQUOISE::ref_;
+poi::hssf::util::HSSFColor_HSSFColorPredefined* poi::hssf::util::HSSFColor_LIGHT_TURQUOISE::ref_;
 
-int16_t& org::apache::poi::hssf::util::HSSFColor_LIGHT_TURQUOISE::index()
+int16_t& poi::hssf::util::HSSFColor_LIGHT_TURQUOISE::index()
 {
     clinit();
     return index_;
 }
-int16_t org::apache::poi::hssf::util::HSSFColor_LIGHT_TURQUOISE::index_;
+int16_t poi::hssf::util::HSSFColor_LIGHT_TURQUOISE::index_;
 
-int32_t& org::apache::poi::hssf::util::HSSFColor_LIGHT_TURQUOISE::index2()
+int32_t& poi::hssf::util::HSSFColor_LIGHT_TURQUOISE::index2()
 {
     clinit();
     return index2_;
 }
-int32_t org::apache::poi::hssf::util::HSSFColor_LIGHT_TURQUOISE::index2_;
+int32_t poi::hssf::util::HSSFColor_LIGHT_TURQUOISE::index2_;
 
-int16_tArray*& org::apache::poi::hssf::util::HSSFColor_LIGHT_TURQUOISE::triplet()
+int16_tArray*& poi::hssf::util::HSSFColor_LIGHT_TURQUOISE::triplet()
 {
     clinit();
     return triplet_;
 }
-int16_tArray* org::apache::poi::hssf::util::HSSFColor_LIGHT_TURQUOISE::triplet_;
+int16_tArray* poi::hssf::util::HSSFColor_LIGHT_TURQUOISE::triplet_;
 
-java::lang::String*& org::apache::poi::hssf::util::HSSFColor_LIGHT_TURQUOISE::hexString()
+java::lang::String*& poi::hssf::util::HSSFColor_LIGHT_TURQUOISE::hexString()
 {
     clinit();
     return hexString_;
 }
-java::lang::String* org::apache::poi::hssf::util::HSSFColor_LIGHT_TURQUOISE::hexString_;
+java::lang::String* poi::hssf::util::HSSFColor_LIGHT_TURQUOISE::hexString_;
 
-void org::apache::poi::hssf::util::HSSFColor_LIGHT_TURQUOISE::ctor()
+void poi::hssf::util::HSSFColor_LIGHT_TURQUOISE::ctor()
 {
     super::ctor(ref_);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::util::HSSFColor_LIGHT_TURQUOISE::class_()
+java::lang::Class* poi::hssf::util::HSSFColor_LIGHT_TURQUOISE::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.util.HSSFColor.LIGHT_TURQUOISE", 50);
     return c;
 }
 
-void org::apache::poi::hssf::util::HSSFColor_LIGHT_TURQUOISE::clinit()
+void poi::hssf::util::HSSFColor_LIGHT_TURQUOISE::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -91,7 +91,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::hssf::util::HSSFColor_LIGHT_TURQUOISE::getClass0()
+java::lang::Class* poi::hssf::util::HSSFColor_LIGHT_TURQUOISE::getClass0()
 {
     return class_();
 }

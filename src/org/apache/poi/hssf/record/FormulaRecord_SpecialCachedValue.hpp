@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::FormulaRecord_SpecialCachedValue final
+class poi::hssf::record::FormulaRecord_SpecialCachedValue final
     : public ::java::lang::Object
 {
 
@@ -36,7 +36,7 @@ protected:
 public:
     int32_t getTypeCode();
     static FormulaRecord_SpecialCachedValue* create(int64_t valueLongBits);
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out);
+    void serialize(::poi::util::LittleEndianOutput* out);
     ::java::lang::String* formatDebugString();
 
 private:

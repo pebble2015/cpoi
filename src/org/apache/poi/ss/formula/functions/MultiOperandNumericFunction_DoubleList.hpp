@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::MultiOperandNumericFunction_DoubleList
+class poi::ss::formula::functions::MultiOperandNumericFunction_DoubleList
     : public virtual ::java::lang::Object
 {
 

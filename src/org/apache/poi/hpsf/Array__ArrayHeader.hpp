@@ -9,23 +9,17 @@
 #include <java/lang/Object.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hpsf
     {
-        namespace poi
-        {
-            namespace hpsf
-            {
-typedef ::SubArray< ::org::apache::poi::hpsf::Array__ArrayDimension, ::java::lang::ObjectArray > Array__ArrayDimensionArray;
-            } // hpsf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hpsf::Array__ArrayDimension, ::java::lang::ObjectArray > Array__ArrayDimensionArray;
+    } // hpsf
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hpsf::Array__ArrayHeader
+class poi::hpsf::Array__ArrayHeader
     : public virtual ::java::lang::Object
 {
 
@@ -37,7 +31,7 @@ private:
     int32_t _type {  };
 
 public: /* package */
-    virtual void read(::org::apache::poi::util::LittleEndianByteArrayInputStream* lei);
+    virtual void read(::poi::util::LittleEndianByteArrayInputStream* lei);
     virtual int64_t getNumberOfScalarValues();
     virtual int32_t getType();
 

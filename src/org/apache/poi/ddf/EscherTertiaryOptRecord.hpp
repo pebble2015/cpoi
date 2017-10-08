@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ddf::EscherTertiaryOptRecord
+class poi::ddf::EscherTertiaryOptRecord
     : public AbstractEscherOptRecord
 {
 

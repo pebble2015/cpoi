@@ -9,29 +9,23 @@
 #include <org/apache/poi/ss/formula/functions/MultiOperandNumericFunction.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::AggregateFunction_ValueCollector final
+class poi::ss::formula::functions::AggregateFunction_ValueCollector final
     : public MultiOperandNumericFunction
 {
 
@@ -44,7 +38,7 @@ protected:
     void ctor();
 
 public:
-    static ::doubleArray* collectValues(::org::apache::poi::ss::formula::eval::ValueEvalArray*/*...*/ operands) /* throws(EvaluationException) */;
+    static ::doubleArray* collectValues(::poi::ss::formula::eval::ValueEvalArray*/*...*/ operands) /* throws(EvaluationException) */;
 
 public: /* protected */
     double evaluate(::doubleArray* values) override;
@@ -60,7 +54,7 @@ protected:
 public:
     static ::java::lang::Class *class_();
     static void clinit();
-    ::org::apache::poi::ss::formula::eval::ValueEval* evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcCellRow, int32_t srcCellCol);
+    ::poi::ss::formula::eval::ValueEval* evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcCellRow, int32_t srcCellCol);
 
 private:
     static AggregateFunction_ValueCollector*& instance();

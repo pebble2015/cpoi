@@ -6,7 +6,7 @@
 #include <org/apache/poi/ss/usermodel/fwd-POI.hpp>
 #include <org/apache/poi/ss/usermodel/ShapeContainer.hpp>
 
-struct org::apache::poi::ss::usermodel::Drawing
+struct poi::ss::usermodel::Drawing
     : public virtual ShapeContainer
 {
     virtual Picture* createPicture(ClientAnchor* anchor, int32_t pictureIndex) = 0;

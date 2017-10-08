@@ -12,7 +12,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::PathGradientPaint_PathGradientContext
+class poi::sl::draw::PathGradientPaint_PathGradientContext
     : public virtual ::java::lang::Object
     , public virtual ::java::awt::PaintContext
 {

@@ -17,21 +17,21 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::DrawingSelectionRecord::DrawingSelectionRecord(const ::default_init_tag&)
+poi::hssf::record::DrawingSelectionRecord::DrawingSelectionRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::DrawingSelectionRecord::DrawingSelectionRecord(RecordInputStream* in) 
+poi::hssf::record::DrawingSelectionRecord::DrawingSelectionRecord(RecordInputStream* in) 
     : DrawingSelectionRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::DrawingSelectionRecord::sid;
+constexpr int16_t poi::hssf::record::DrawingSelectionRecord::sid;
 
-void org::apache::poi::hssf::record::DrawingSelectionRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::DrawingSelectionRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     _header = new DrawingSelectionRecord_OfficeArtRecordHeader(in);
@@ -46,17 +46,17 @@ void org::apache::poi::hssf::record::DrawingSelectionRecord::ctor(RecordInputStr
     _shapeIds = shapeIds;
 }
 
-int16_t org::apache::poi::hssf::record::DrawingSelectionRecord::getSid()
+int16_t poi::hssf::record::DrawingSelectionRecord::getSid()
 {
     return sid;
 }
 
-int32_t org::apache::poi::hssf::record::DrawingSelectionRecord::getDataSize()
+int32_t poi::hssf::record::DrawingSelectionRecord::getDataSize()
 {
     return DrawingSelectionRecord_OfficeArtRecordHeader::ENCODED_SIZE + int32_t(12) + npc(_shapeIds)->length * int32_t(4);
 }
 
-void org::apache::poi::hssf::record::DrawingSelectionRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::DrawingSelectionRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(_header)->serialize(out);
     npc(out)->writeInt(_cpsp);
@@ -67,25 +67,25 @@ void org::apache::poi::hssf::record::DrawingSelectionRecord::serialize(::org::ap
     }
 }
 
-org::apache::poi::hssf::record::DrawingSelectionRecord* org::apache::poi::hssf::record::DrawingSelectionRecord::clone()
+poi::hssf::record::DrawingSelectionRecord* poi::hssf::record::DrawingSelectionRecord::clone()
 {
     return this;
 }
 
-java::lang::String* org::apache::poi::hssf::record::DrawingSelectionRecord::toString()
+java::lang::String* poi::hssf::record::DrawingSelectionRecord::toString()
 {
     auto sb = new ::java::lang::StringBuffer();
     npc(sb)->append(u"[MSODRAWINGSELECTION]\n"_j);
     npc(npc(npc(sb)->append(u"    .rh       =("_j))->append(npc(_header)->debugFormatAsString()))->append(u")\n"_j);
-    npc(npc(npc(sb)->append(u"    .cpsp     ="_j))->append(::org::apache::poi::util::HexDump::intToHex(_cpsp)))->append(u'\u000a');
-    npc(npc(npc(sb)->append(u"    .dgslk    ="_j))->append(::org::apache::poi::util::HexDump::intToHex(_dgslk)))->append(u'\u000a');
-    npc(npc(npc(sb)->append(u"    .spidFocus="_j))->append(::org::apache::poi::util::HexDump::intToHex(_spidFocus)))->append(u'\u000a');
+    npc(npc(npc(sb)->append(u"    .cpsp     ="_j))->append(::poi::util::HexDump::intToHex(_cpsp)))->append(u'\u000a');
+    npc(npc(npc(sb)->append(u"    .dgslk    ="_j))->append(::poi::util::HexDump::intToHex(_dgslk)))->append(u'\u000a');
+    npc(npc(npc(sb)->append(u"    .spidFocus="_j))->append(::poi::util::HexDump::intToHex(_spidFocus)))->append(u'\u000a');
     npc(sb)->append(u"    .shapeIds =("_j);
     for (auto i = int32_t(0); i < npc(_shapeIds)->length; i++) {
         if(i > 0) {
             npc(sb)->append(u", "_j);
         }
-        npc(sb)->append(::org::apache::poi::util::HexDump::intToHex((*_shapeIds)[i]));
+        npc(sb)->append(::poi::util::HexDump::intToHex((*_shapeIds)[i]));
     }
     npc(sb)->append(u")\n"_j);
     npc(sb)->append(u"[/MSODRAWINGSELECTION]\n"_j);
@@ -94,23 +94,23 @@ java::lang::String* org::apache::poi::hssf::record::DrawingSelectionRecord::toSt
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::DrawingSelectionRecord::class_()
+java::lang::Class* poi::hssf::record::DrawingSelectionRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.DrawingSelectionRecord", 49);
     return c;
 }
 
-int32_t org::apache::poi::hssf::record::DrawingSelectionRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::DrawingSelectionRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::DrawingSelectionRecord::serialize()
+int8_tArray* poi::hssf::record::DrawingSelectionRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::DrawingSelectionRecord::getClass0()
+java::lang::Class* poi::hssf::record::DrawingSelectionRecord::getClass0()
 {
     return class_();
 }

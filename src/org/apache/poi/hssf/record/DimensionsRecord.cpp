@@ -21,39 +21,39 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::DimensionsRecord::DimensionsRecord(const ::default_init_tag&)
+poi::hssf::record::DimensionsRecord::DimensionsRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::DimensionsRecord::DimensionsRecord() 
+poi::hssf::record::DimensionsRecord::DimensionsRecord() 
     : DimensionsRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::DimensionsRecord::DimensionsRecord(RecordInputStream* in) 
+poi::hssf::record::DimensionsRecord::DimensionsRecord(RecordInputStream* in) 
     : DimensionsRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-org::apache::poi::util::POILogger*& org::apache::poi::hssf::record::DimensionsRecord::logger()
+poi::util::POILogger*& poi::hssf::record::DimensionsRecord::logger()
 {
     clinit();
     return logger_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::hssf::record::DimensionsRecord::logger_;
+poi::util::POILogger* poi::hssf::record::DimensionsRecord::logger_;
 
-constexpr int16_t org::apache::poi::hssf::record::DimensionsRecord::sid;
+constexpr int16_t poi::hssf::record::DimensionsRecord::sid;
 
-void org::apache::poi::hssf::record::DimensionsRecord::ctor()
+void poi::hssf::record::DimensionsRecord::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hssf::record::DimensionsRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::DimensionsRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     field_1_first_row = npc(in)->readInt();
@@ -62,52 +62,52 @@ void org::apache::poi::hssf::record::DimensionsRecord::ctor(RecordInputStream* i
     field_4_last_col = npc(in)->readShort();
     field_5_zero = npc(in)->readShort();
     if(npc(in)->available() == 2) {
-        npc(logger_)->log(::org::apache::poi::util::POILogger::INFO, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"DimensionsRecord has extra 2 bytes."_j)}));
+        npc(logger_)->log(::poi::util::POILogger::INFO, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(u"DimensionsRecord has extra 2 bytes."_j)}));
         npc(in)->readShort();
     }
 }
 
-void org::apache::poi::hssf::record::DimensionsRecord::setFirstRow(int32_t row)
+void poi::hssf::record::DimensionsRecord::setFirstRow(int32_t row)
 {
     field_1_first_row = row;
 }
 
-void org::apache::poi::hssf::record::DimensionsRecord::setLastRow(int32_t row)
+void poi::hssf::record::DimensionsRecord::setLastRow(int32_t row)
 {
     field_2_last_row = row;
 }
 
-void org::apache::poi::hssf::record::DimensionsRecord::setFirstCol(int16_t col)
+void poi::hssf::record::DimensionsRecord::setFirstCol(int16_t col)
 {
     field_3_first_col = col;
 }
 
-void org::apache::poi::hssf::record::DimensionsRecord::setLastCol(int16_t col)
+void poi::hssf::record::DimensionsRecord::setLastCol(int16_t col)
 {
     field_4_last_col = col;
 }
 
-int32_t org::apache::poi::hssf::record::DimensionsRecord::getFirstRow()
+int32_t poi::hssf::record::DimensionsRecord::getFirstRow()
 {
     return field_1_first_row;
 }
 
-int32_t org::apache::poi::hssf::record::DimensionsRecord::getLastRow()
+int32_t poi::hssf::record::DimensionsRecord::getLastRow()
 {
     return field_2_last_row;
 }
 
-int16_t org::apache::poi::hssf::record::DimensionsRecord::getFirstCol()
+int16_t poi::hssf::record::DimensionsRecord::getFirstCol()
 {
     return field_3_first_col;
 }
 
-int16_t org::apache::poi::hssf::record::DimensionsRecord::getLastCol()
+int16_t poi::hssf::record::DimensionsRecord::getLastCol()
 {
     return field_4_last_col;
 }
 
-java::lang::String* org::apache::poi::hssf::record::DimensionsRecord::toString()
+java::lang::String* poi::hssf::record::DimensionsRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[DIMENSIONS]\n"_j);
@@ -120,7 +120,7 @@ java::lang::String* org::apache::poi::hssf::record::DimensionsRecord::toString()
     return npc(buffer)->toString();
 }
 
-void org::apache::poi::hssf::record::DimensionsRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::DimensionsRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeInt(getFirstRow());
     npc(out)->writeInt(getLastRow());
@@ -129,17 +129,17 @@ void org::apache::poi::hssf::record::DimensionsRecord::serialize(::org::apache::
     npc(out)->writeShort(static_cast< int16_t >(int32_t(0)));
 }
 
-int32_t org::apache::poi::hssf::record::DimensionsRecord::getDataSize()
+int32_t poi::hssf::record::DimensionsRecord::getDataSize()
 {
     return 14;
 }
 
-int16_t org::apache::poi::hssf::record::DimensionsRecord::getSid()
+int16_t poi::hssf::record::DimensionsRecord::getSid()
 {
     return sid;
 }
 
-org::apache::poi::hssf::record::DimensionsRecord* org::apache::poi::hssf::record::DimensionsRecord::clone()
+poi::hssf::record::DimensionsRecord* poi::hssf::record::DimensionsRecord::clone()
 {
     auto rec = new DimensionsRecord();
     npc(rec)->field_1_first_row = field_1_first_row;
@@ -152,20 +152,20 @@ org::apache::poi::hssf::record::DimensionsRecord* org::apache::poi::hssf::record
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::DimensionsRecord::class_()
+java::lang::Class* poi::hssf::record::DimensionsRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.DimensionsRecord", 43);
     return c;
 }
 
-void org::apache::poi::hssf::record::DimensionsRecord::clinit()
+void poi::hssf::record::DimensionsRecord::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        logger_ = ::org::apache::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(DimensionsRecord::class_()));
+        logger_ = ::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(DimensionsRecord::class_()));
     }
 };
 
@@ -174,17 +174,17 @@ struct clinit_ {
     }
 }
 
-int32_t org::apache::poi::hssf::record::DimensionsRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::DimensionsRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::DimensionsRecord::serialize()
+int8_tArray* poi::hssf::record::DimensionsRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::DimensionsRecord::getClass0()
+java::lang::Class* poi::hssf::record::DimensionsRecord::getClass0()
 {
     return class_();
 }

@@ -9,34 +9,28 @@
 #include <org/apache/poi/ss/formula/functions/Fixed2ArgFunction.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::eval::TwoOperandNumericOperation
-    : public ::org::apache::poi::ss::formula::functions::Fixed2ArgFunction
+class poi::ss::formula::eval::TwoOperandNumericOperation
+    : public ::poi::ss::formula::functions::Fixed2ArgFunction
 {
 
 public:
-    typedef ::org::apache::poi::ss::formula::functions::Fixed2ArgFunction super;
+    typedef ::poi::ss::formula::functions::Fixed2ArgFunction super;
 
 public: /* protected */
     double singleOperandEvaluate(ValueEval* arg, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */;
@@ -48,11 +42,11 @@ public: /* protected */
     virtual double evaluate(double d0, double d1) /* throws(EvaluationException) */ = 0;
 
 private:
-    static ::org::apache::poi::ss::formula::functions::Function* AddEval_;
-    static ::org::apache::poi::ss::formula::functions::Function* DivideEval_;
-    static ::org::apache::poi::ss::formula::functions::Function* MultiplyEval_;
-    static ::org::apache::poi::ss::formula::functions::Function* PowerEval_;
-    static ::org::apache::poi::ss::formula::functions::Function* SubtractEval_;
+    static ::poi::ss::formula::functions::Function* AddEval_;
+    static ::poi::ss::formula::functions::Function* DivideEval_;
+    static ::poi::ss::formula::functions::Function* MultiplyEval_;
+    static ::poi::ss::formula::functions::Function* PowerEval_;
+    static ::poi::ss::formula::functions::Function* SubtractEval_;
 
     // Generated
 
@@ -66,11 +60,11 @@ public:
     static ::java::lang::Class *class_();
     static void clinit();
     ValueEval* evaluate(ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex);
-    static ::org::apache::poi::ss::formula::functions::Function*& AddEval();
-    static ::org::apache::poi::ss::formula::functions::Function*& DivideEval();
-    static ::org::apache::poi::ss::formula::functions::Function*& MultiplyEval();
-    static ::org::apache::poi::ss::formula::functions::Function*& PowerEval();
-    static ::org::apache::poi::ss::formula::functions::Function*& SubtractEval();
+    static ::poi::ss::formula::functions::Function*& AddEval();
+    static ::poi::ss::formula::functions::Function*& DivideEval();
+    static ::poi::ss::formula::functions::Function*& MultiplyEval();
+    static ::poi::ss::formula::functions::Function*& PowerEval();
+    static ::poi::ss::formula::functions::Function*& SubtractEval();
 
 private:
     virtual ::java::lang::Class* getClass0();

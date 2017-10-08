@@ -22,19 +22,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::sl::draw::binding::CTScRgbColor::CTScRgbColor(const ::default_init_tag&)
+poi::sl::draw::binding::CTScRgbColor::CTScRgbColor(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::draw::binding::CTScRgbColor::CTScRgbColor()
+poi::sl::draw::binding::CTScRgbColor::CTScRgbColor()
     : CTScRgbColor(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-java::util::List* org::apache::poi::sl::draw::binding::CTScRgbColor::getEGColorTransform()
+java::util::List* poi::sl::draw::binding::CTScRgbColor::getEGColorTransform()
 {
     if(egColorTransform == nullptr) {
         egColorTransform = new ::java::util::ArrayList();
@@ -42,70 +42,70 @@ java::util::List* org::apache::poi::sl::draw::binding::CTScRgbColor::getEGColorT
     return java_cast< ::java::util::List* >(this->egColorTransform);
 }
 
-bool org::apache::poi::sl::draw::binding::CTScRgbColor::isSetEGColorTransform()
+bool poi::sl::draw::binding::CTScRgbColor::isSetEGColorTransform()
 {
     return ((java_cast< ::java::util::List* >(this->egColorTransform) != nullptr) && (!npc(java_cast< ::java::util::List* >(this->egColorTransform))->isEmpty()));
 }
 
-void org::apache::poi::sl::draw::binding::CTScRgbColor::unsetEGColorTransform()
+void poi::sl::draw::binding::CTScRgbColor::unsetEGColorTransform()
 {
     this->egColorTransform = nullptr;
 }
 
-int32_t org::apache::poi::sl::draw::binding::CTScRgbColor::getR()
+int32_t poi::sl::draw::binding::CTScRgbColor::getR()
 {
     return r;
 }
 
-void org::apache::poi::sl::draw::binding::CTScRgbColor::setR(int32_t value)
+void poi::sl::draw::binding::CTScRgbColor::setR(int32_t value)
 {
     this->r = value;
 }
 
-bool org::apache::poi::sl::draw::binding::CTScRgbColor::isSetR()
+bool poi::sl::draw::binding::CTScRgbColor::isSetR()
 {
     return true;
 }
 
-int32_t org::apache::poi::sl::draw::binding::CTScRgbColor::getG()
+int32_t poi::sl::draw::binding::CTScRgbColor::getG()
 {
     return g;
 }
 
-void org::apache::poi::sl::draw::binding::CTScRgbColor::setG(int32_t value)
+void poi::sl::draw::binding::CTScRgbColor::setG(int32_t value)
 {
     this->g = value;
 }
 
-bool org::apache::poi::sl::draw::binding::CTScRgbColor::isSetG()
+bool poi::sl::draw::binding::CTScRgbColor::isSetG()
 {
     return true;
 }
 
-int32_t org::apache::poi::sl::draw::binding::CTScRgbColor::getB()
+int32_t poi::sl::draw::binding::CTScRgbColor::getB()
 {
     return b;
 }
 
-void org::apache::poi::sl::draw::binding::CTScRgbColor::setB(int32_t value)
+void poi::sl::draw::binding::CTScRgbColor::setB(int32_t value)
 {
     this->b = value;
 }
 
-bool org::apache::poi::sl::draw::binding::CTScRgbColor::isSetB()
+bool poi::sl::draw::binding::CTScRgbColor::isSetB()
 {
     return true;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::draw::binding::CTScRgbColor::class_()
+java::lang::Class* poi::sl::draw::binding::CTScRgbColor::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.draw.binding.CTScRgbColor", 43);
     return c;
 }
 
-java::lang::Class* org::apache::poi::sl::draw::binding::CTScRgbColor::getClass0()
+java::lang::Class* poi::sl::draw::binding::CTScRgbColor::getClass0()
 {
     return class_();
 }

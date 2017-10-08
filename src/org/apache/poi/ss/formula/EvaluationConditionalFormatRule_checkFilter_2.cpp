@@ -27,7 +27,7 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::EvaluationConditionalFormatRule_checkFilter_2::EvaluationConditionalFormatRule_checkFilter_2(EvaluationConditionalFormatRule *EvaluationConditionalFormatRule_this)
+poi::ss::formula::EvaluationConditionalFormatRule_checkFilter_2::EvaluationConditionalFormatRule_checkFilter_2(EvaluationConditionalFormatRule *EvaluationConditionalFormatRule_this)
     : super(*static_cast< ::default_init_tag* >(0))
     , EvaluationConditionalFormatRule_this(EvaluationConditionalFormatRule_this)
 {
@@ -35,7 +35,7 @@ org::apache::poi::ss::formula::EvaluationConditionalFormatRule_checkFilter_2::Ev
     ctor();
 }
 
-java::util::Set* org::apache::poi::ss::formula::EvaluationConditionalFormatRule_checkFilter_2::evaluate(::java::util::List* allValues)
+java::util::Set* poi::ss::formula::EvaluationConditionalFormatRule_checkFilter_2::evaluate(::java::util::List* allValues)
 {
     auto values = allValues;
     ::java::util::Collections::sort(values);
@@ -53,13 +53,13 @@ java::util::Set* org::apache::poi::ss::formula::EvaluationConditionalFormatRule_
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::EvaluationConditionalFormatRule_checkFilter_2::class_()
+java::lang::Class* poi::ss::formula::EvaluationConditionalFormatRule_checkFilter_2::class_()
 {
     static ::java::lang::Class* c = ::class_(u"", 0);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::EvaluationConditionalFormatRule_checkFilter_2::getClass0()
+java::lang::Class* poi::ss::formula::EvaluationConditionalFormatRule_checkFilter_2::getClass0()
 {
     return class_();
 }

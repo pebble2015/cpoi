@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::aggregates::RecordAggregate_PositionTrackingVisitor final
+class poi::hssf::record::aggregates::RecordAggregate_PositionTrackingVisitor final
     : public virtual ::java::lang::Object
     , public RecordAggregate_RecordVisitor
 {
@@ -25,7 +25,7 @@ protected:
     void ctor(RecordAggregate_RecordVisitor* rv, int32_t initialPosition);
 
 public:
-    void visitRecord(::org::apache::poi::hssf::record::Record* r) override;
+    void visitRecord(::poi::hssf::record::Record* r) override;
     void setPosition(int32_t position);
     int32_t getPosition();
 

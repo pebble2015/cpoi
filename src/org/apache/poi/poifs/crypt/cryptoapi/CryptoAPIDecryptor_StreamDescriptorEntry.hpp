@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor_StreamDescriptorEntry
+class poi::poifs::crypt::cryptoapi::CryptoAPIDecryptor_StreamDescriptorEntry
     : public virtual ::java::lang::Object
 {
 
@@ -18,7 +18,7 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    static ::org::apache::poi::util::BitField* flagStream_;
+    static ::poi::util::BitField* flagStream_;
 
 public: /* package */
     int32_t streamOffset {  };
@@ -41,7 +41,7 @@ public:
     static void clinit();
 
 public: /* package */
-    static ::org::apache::poi::util::BitField*& flagStream();
+    static ::poi::util::BitField*& flagStream();
 
 private:
     virtual ::java::lang::Class* getClass0();

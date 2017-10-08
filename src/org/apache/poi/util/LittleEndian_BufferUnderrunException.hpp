@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::util::LittleEndian_BufferUnderrunException final
+class poi::util::LittleEndian_BufferUnderrunException final
     : public ::java::io::IOException
 {
 

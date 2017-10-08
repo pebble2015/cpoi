@@ -14,25 +14,25 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::crypt::DataSpaceMapUtils_DataSpaceVersionInfo::DataSpaceMapUtils_DataSpaceVersionInfo(const ::default_init_tag&)
+poi::poifs::crypt::DataSpaceMapUtils_DataSpaceVersionInfo::DataSpaceMapUtils_DataSpaceVersionInfo(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::crypt::DataSpaceMapUtils_DataSpaceVersionInfo::DataSpaceMapUtils_DataSpaceVersionInfo(::org::apache::poi::util::LittleEndianInput* is) 
+poi::poifs::crypt::DataSpaceMapUtils_DataSpaceVersionInfo::DataSpaceMapUtils_DataSpaceVersionInfo(::poi::util::LittleEndianInput* is) 
     : DataSpaceMapUtils_DataSpaceVersionInfo(*static_cast< ::default_init_tag* >(0))
 {
     ctor(is);
 }
 
-org::apache::poi::poifs::crypt::DataSpaceMapUtils_DataSpaceVersionInfo::DataSpaceMapUtils_DataSpaceVersionInfo(::java::lang::String* featureIdentifier, int32_t readerVersionMajor, int32_t readerVersionMinor, int32_t updaterVersionMajor, int32_t updaterVersionMinor, int32_t writerVersionMajor, int32_t writerVersionMinor) 
+poi::poifs::crypt::DataSpaceMapUtils_DataSpaceVersionInfo::DataSpaceMapUtils_DataSpaceVersionInfo(::java::lang::String* featureIdentifier, int32_t readerVersionMajor, int32_t readerVersionMinor, int32_t updaterVersionMajor, int32_t updaterVersionMinor, int32_t writerVersionMajor, int32_t writerVersionMinor) 
     : DataSpaceMapUtils_DataSpaceVersionInfo(*static_cast< ::default_init_tag* >(0))
 {
     ctor(featureIdentifier,readerVersionMajor,readerVersionMinor,updaterVersionMajor,updaterVersionMinor,writerVersionMajor,writerVersionMinor);
 }
 
-void org::apache::poi::poifs::crypt::DataSpaceMapUtils_DataSpaceVersionInfo::init()
+void poi::poifs::crypt::DataSpaceMapUtils_DataSpaceVersionInfo::init()
 {
     readerVersionMajor = int32_t(1);
     readerVersionMinor = int32_t(0);
@@ -42,7 +42,7 @@ void org::apache::poi::poifs::crypt::DataSpaceMapUtils_DataSpaceVersionInfo::ini
     writerVersionMinor = int32_t(0);
 }
 
-void org::apache::poi::poifs::crypt::DataSpaceMapUtils_DataSpaceVersionInfo::ctor(::org::apache::poi::util::LittleEndianInput* is)
+void poi::poifs::crypt::DataSpaceMapUtils_DataSpaceVersionInfo::ctor(::poi::util::LittleEndianInput* is)
 {
     super::ctor();
     init();
@@ -55,7 +55,7 @@ void org::apache::poi::poifs::crypt::DataSpaceMapUtils_DataSpaceVersionInfo::cto
     writerVersionMinor = npc(is)->readShort();
 }
 
-void org::apache::poi::poifs::crypt::DataSpaceMapUtils_DataSpaceVersionInfo::ctor(::java::lang::String* featureIdentifier, int32_t readerVersionMajor, int32_t readerVersionMinor, int32_t updaterVersionMajor, int32_t updaterVersionMinor, int32_t writerVersionMajor, int32_t writerVersionMinor)
+void poi::poifs::crypt::DataSpaceMapUtils_DataSpaceVersionInfo::ctor(::java::lang::String* featureIdentifier, int32_t readerVersionMajor, int32_t readerVersionMinor, int32_t updaterVersionMajor, int32_t updaterVersionMinor, int32_t writerVersionMajor, int32_t writerVersionMinor)
 {
     super::ctor();
     init();
@@ -68,7 +68,7 @@ void org::apache::poi::poifs::crypt::DataSpaceMapUtils_DataSpaceVersionInfo::cto
     this->writerVersionMinor = writerVersionMinor;
 }
 
-void org::apache::poi::poifs::crypt::DataSpaceMapUtils_DataSpaceVersionInfo::write(::org::apache::poi::util::LittleEndianByteArrayOutputStream* bos)
+void poi::poifs::crypt::DataSpaceMapUtils_DataSpaceVersionInfo::write(::poi::util::LittleEndianByteArrayOutputStream* bos)
 {
     DataSpaceMapUtils::writeUnicodeLPP4(bos, featureIdentifier);
     npc(bos)->writeShort(readerVersionMajor);
@@ -81,13 +81,13 @@ void org::apache::poi::poifs::crypt::DataSpaceMapUtils_DataSpaceVersionInfo::wri
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::crypt::DataSpaceMapUtils_DataSpaceVersionInfo::class_()
+java::lang::Class* poi::poifs::crypt::DataSpaceMapUtils_DataSpaceVersionInfo::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.crypt.DataSpaceMapUtils.DataSpaceVersionInfo", 65);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::crypt::DataSpaceMapUtils_DataSpaceVersionInfo::getClass0()
+java::lang::Class* poi::poifs::crypt::DataSpaceMapUtils_DataSpaceVersionInfo::getClass0()
 {
     return class_();
 }

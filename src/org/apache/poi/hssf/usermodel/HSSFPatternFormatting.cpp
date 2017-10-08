@@ -15,19 +15,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::usermodel::HSSFPatternFormatting::HSSFPatternFormatting(const ::default_init_tag&)
+poi::hssf::usermodel::HSSFPatternFormatting::HSSFPatternFormatting(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::usermodel::HSSFPatternFormatting::HSSFPatternFormatting(::org::apache::poi::hssf::record::CFRuleBase* cfRuleRecord, HSSFWorkbook* workbook) 
+poi::hssf::usermodel::HSSFPatternFormatting::HSSFPatternFormatting(::poi::hssf::record::CFRuleBase* cfRuleRecord, HSSFWorkbook* workbook) 
     : HSSFPatternFormatting(*static_cast< ::default_init_tag* >(0))
 {
     ctor(cfRuleRecord,workbook);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPatternFormatting::ctor(::org::apache::poi::hssf::record::CFRuleBase* cfRuleRecord, HSSFWorkbook* workbook)
+void poi::hssf::usermodel::HSSFPatternFormatting::ctor(::poi::hssf::record::CFRuleBase* cfRuleRecord, HSSFWorkbook* workbook)
 {
     super::ctor();
     this->workbook = workbook;
@@ -35,39 +35,39 @@ void org::apache::poi::hssf::usermodel::HSSFPatternFormatting::ctor(::org::apach
     this->patternFormatting = npc(cfRuleRecord)->getPatternFormatting();
 }
 
-org::apache::poi::hssf::record::cf::PatternFormatting* org::apache::poi::hssf::usermodel::HSSFPatternFormatting::getPatternFormattingBlock()
+poi::hssf::record::cf::PatternFormatting* poi::hssf::usermodel::HSSFPatternFormatting::getPatternFormattingBlock()
 {
     return patternFormatting;
 }
 
-org::apache::poi::hssf::util::HSSFColor* org::apache::poi::hssf::usermodel::HSSFPatternFormatting::getFillBackgroundColorColor()
+poi::hssf::util::HSSFColor* poi::hssf::usermodel::HSSFPatternFormatting::getFillBackgroundColorColor()
 {
     return npc(npc(workbook)->getCustomPalette())->getColor(getFillBackgroundColor());
 }
 
-org::apache::poi::hssf::util::HSSFColor* org::apache::poi::hssf::usermodel::HSSFPatternFormatting::getFillForegroundColorColor()
+poi::hssf::util::HSSFColor* poi::hssf::usermodel::HSSFPatternFormatting::getFillForegroundColorColor()
 {
     return npc(npc(workbook)->getCustomPalette())->getColor(getFillForegroundColor());
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFPatternFormatting::getFillBackgroundColor()
+int16_t poi::hssf::usermodel::HSSFPatternFormatting::getFillBackgroundColor()
 {
     return static_cast< int16_t >(npc(patternFormatting)->getFillBackgroundColor());
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFPatternFormatting::getFillForegroundColor()
+int16_t poi::hssf::usermodel::HSSFPatternFormatting::getFillForegroundColor()
 {
     return static_cast< int16_t >(npc(patternFormatting)->getFillForegroundColor());
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFPatternFormatting::getFillPattern()
+int16_t poi::hssf::usermodel::HSSFPatternFormatting::getFillPattern()
 {
     return static_cast< int16_t >(npc(patternFormatting)->getFillPattern());
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPatternFormatting::setFillBackgroundColor(::org::apache::poi::ss::usermodel::Color* bg)
+void poi::hssf::usermodel::HSSFPatternFormatting::setFillBackgroundColor(::poi::ss::usermodel::Color* bg)
 {
-    auto hcolor = ::org::apache::poi::hssf::util::HSSFColor::toHSSFColor(bg);
+    auto hcolor = ::poi::hssf::util::HSSFColor::toHSSFColor(bg);
     if(hcolor == nullptr) {
         setFillBackgroundColor(static_cast< int16_t >(int32_t(0)));
     } else {
@@ -75,9 +75,9 @@ void org::apache::poi::hssf::usermodel::HSSFPatternFormatting::setFillBackground
     }
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPatternFormatting::setFillForegroundColor(::org::apache::poi::ss::usermodel::Color* fg)
+void poi::hssf::usermodel::HSSFPatternFormatting::setFillForegroundColor(::poi::ss::usermodel::Color* fg)
 {
-    auto hcolor = ::org::apache::poi::hssf::util::HSSFColor::toHSSFColor(fg);
+    auto hcolor = ::poi::hssf::util::HSSFColor::toHSSFColor(fg);
     if(hcolor == nullptr) {
         setFillForegroundColor(static_cast< int16_t >(int32_t(0)));
     } else {
@@ -85,7 +85,7 @@ void org::apache::poi::hssf::usermodel::HSSFPatternFormatting::setFillForeground
     }
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPatternFormatting::setFillBackgroundColor(int16_t bg)
+void poi::hssf::usermodel::HSSFPatternFormatting::setFillBackgroundColor(int16_t bg)
 {
     npc(patternFormatting)->setFillBackgroundColor(bg);
     if(bg != 0) {
@@ -93,7 +93,7 @@ void org::apache::poi::hssf::usermodel::HSSFPatternFormatting::setFillBackground
     }
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPatternFormatting::setFillForegroundColor(int16_t fg)
+void poi::hssf::usermodel::HSSFPatternFormatting::setFillForegroundColor(int16_t fg)
 {
     npc(patternFormatting)->setFillForegroundColor(fg);
     if(fg != 0) {
@@ -101,7 +101,7 @@ void org::apache::poi::hssf::usermodel::HSSFPatternFormatting::setFillForeground
     }
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPatternFormatting::setFillPattern(int16_t fp)
+void poi::hssf::usermodel::HSSFPatternFormatting::setFillPattern(int16_t fp)
 {
     npc(patternFormatting)->setFillPattern(fp);
     if(fp != 0) {
@@ -111,13 +111,13 @@ void org::apache::poi::hssf::usermodel::HSSFPatternFormatting::setFillPattern(in
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFPatternFormatting::class_()
+java::lang::Class* poi::hssf::usermodel::HSSFPatternFormatting::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.usermodel.HSSFPatternFormatting", 51);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFPatternFormatting::getClass0()
+java::lang::Class* poi::hssf::usermodel::HSSFPatternFormatting::getClass0()
 {
     return class_();
 }

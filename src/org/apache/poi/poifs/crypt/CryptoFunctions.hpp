@@ -31,7 +31,7 @@ typedef ::SubArray< ::int32_tArray, ::java::lang::CloneableArray, ::java::io::Se
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::crypt::CryptoFunctions
+class poi::poifs::crypt::CryptoFunctions
     : public virtual ::java::lang::Object
 {
 

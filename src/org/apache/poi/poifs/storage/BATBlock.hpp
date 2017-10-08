@@ -12,28 +12,22 @@
 #include <org/apache/poi/poifs/storage/BigBlock.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace poifs
     {
-        namespace poi
+        namespace storage
         {
-            namespace poifs
-            {
-                namespace storage
-                {
-typedef ::SubArray< ::org::apache::poi::poifs::storage::BlockWritable, ::java::lang::ObjectArray > BlockWritableArray;
-typedef ::SubArray< ::org::apache::poi::poifs::storage::BigBlock, ::java::lang::ObjectArray, BlockWritableArray > BigBlockArray;
-typedef ::SubArray< ::org::apache::poi::poifs::storage::BATBlock, BigBlockArray > BATBlockArray;
-                } // storage
-            } // poifs
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::poifs::storage::BlockWritable, ::java::lang::ObjectArray > BlockWritableArray;
+typedef ::SubArray< ::poi::poifs::storage::BigBlock, ::java::lang::ObjectArray, BlockWritableArray > BigBlockArray;
+typedef ::SubArray< ::poi::poifs::storage::BATBlock, BigBlockArray > BATBlockArray;
+        } // storage
+    } // poifs
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::storage::BATBlock final
+class poi::poifs::storage::BATBlock final
     : public BigBlock
 {
 
@@ -45,26 +39,26 @@ private:
     bool _has_free_sectors {  };
     int32_t ourBlockIndex {  };
 protected:
-    void ctor(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize);
-    void ctor(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ::int32_tArray* entries, int32_t start_index, int32_t end_index);
+    void ctor(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize);
+    void ctor(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ::int32_tArray* entries, int32_t start_index, int32_t end_index);
 
 private:
     void recomputeFree();
 
 public:
-    static BATBlock* createBATBlock(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ::java::nio::ByteBuffer* data);
-    static BATBlock* createEmptyBATBlock(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, bool isXBAT);
-    static BATBlockArray* createBATBlocks(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ::int32_tArray* entries);
-    static BATBlockArray* createXBATBlocks(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ::int32_tArray* entries, int32_t startBlock);
-    static int32_t calculateStorageRequirements(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, int32_t entryCount);
-    static int32_t calculateXBATStorageRequirements(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, int32_t entryCount);
-    static int64_t calculateMaximumSize(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, int32_t numBATs);
+    static BATBlock* createBATBlock(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ::java::nio::ByteBuffer* data);
+    static BATBlock* createEmptyBATBlock(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, bool isXBAT);
+    static BATBlockArray* createBATBlocks(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ::int32_tArray* entries);
+    static BATBlockArray* createXBATBlocks(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ::int32_tArray* entries, int32_t startBlock);
+    static int32_t calculateStorageRequirements(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, int32_t entryCount);
+    static int32_t calculateXBATStorageRequirements(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, int32_t entryCount);
+    static int64_t calculateMaximumSize(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, int32_t numBATs);
     static int64_t calculateMaximumSize(HeaderBlock* header);
     static BATBlock_BATBlockAndIndex* getBATBlockAndIndex(int32_t offset, HeaderBlock* header, ::java::util::List* bats);
     static BATBlock_BATBlockAndIndex* getSBATBlockAndIndex(int32_t offset, HeaderBlock* header, ::java::util::List* sbats);
 
 private:
-    void setXBATChain(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, int32_t chainIndex);
+    void setXBATChain(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, int32_t chainIndex);
 
 public:
     bool hasFreeSectors();
@@ -82,8 +76,8 @@ private:
     ::int8_tArray* serialize();
 
     // Generated
-    BATBlock(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize);
-    BATBlock(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ::int32_tArray* entries, int32_t start_index, int32_t end_index);
+    BATBlock(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize);
+    BATBlock(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ::int32_tArray* entries, int32_t start_index, int32_t end_index);
 protected:
     BATBlock(const ::default_init_tag&);
 

@@ -13,25 +13,19 @@
 #include <org/apache/poi/ss/usermodel/FormulaError.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -40,55 +34,55 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::Errortype::Errortype(const ::default_init_tag&)
+poi::ss::formula::functions::Errortype::Errortype(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::Errortype::Errortype()
+poi::ss::formula::functions::Errortype::Errortype()
     : Errortype(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Errortype::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* arg0)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Errortype::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::poi::ss::formula::eval::ValueEval* arg0)
 {
     try {
-        ::org::apache::poi::ss::formula::eval::OperandResolver::getSingleValue(arg0, srcRowIndex, srcColumnIndex);
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::NA();
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+        ::poi::ss::formula::eval::OperandResolver::getSingleValue(arg0, srcRowIndex, srcColumnIndex);
+        return ::poi::ss::formula::eval::ErrorEval::NA();
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
         auto result = translateErrorCodeToErrorTypeValue(npc(npc(e)->getErrorEval())->getErrorCode());
-        return new ::org::apache::poi::ss::formula::eval::NumberEval(static_cast< double >(result));
+        return new ::poi::ss::formula::eval::NumberEval(static_cast< double >(result));
     }
 }
 
-int32_t org::apache::poi::ss::formula::functions::Errortype::translateErrorCodeToErrorTypeValue(int32_t errorCode)
+int32_t poi::ss::formula::functions::Errortype::translateErrorCodeToErrorTypeValue(int32_t errorCode)
 {
     {
-        auto v = ::org::apache::poi::ss::usermodel::FormulaError::forInt(errorCode);
-        if((v == ::org::apache::poi::ss::usermodel::FormulaError::NULL_)) {
+        auto v = ::poi::ss::usermodel::FormulaError::forInt(errorCode);
+        if((v == ::poi::ss::usermodel::FormulaError::NULL_)) {
             return 1;
         }
-        if((v == ::org::apache::poi::ss::usermodel::FormulaError::DIV0)) {
+        if((v == ::poi::ss::usermodel::FormulaError::DIV0)) {
             return 2;
         }
-        if((v == ::org::apache::poi::ss::usermodel::FormulaError::VALUE)) {
+        if((v == ::poi::ss::usermodel::FormulaError::VALUE)) {
             return 3;
         }
-        if((v == ::org::apache::poi::ss::usermodel::FormulaError::REF)) {
+        if((v == ::poi::ss::usermodel::FormulaError::REF)) {
             return 4;
         }
-        if((v == ::org::apache::poi::ss::usermodel::FormulaError::NAME)) {
+        if((v == ::poi::ss::usermodel::FormulaError::NAME)) {
             return 5;
         }
-        if((v == ::org::apache::poi::ss::usermodel::FormulaError::NUM)) {
+        if((v == ::poi::ss::usermodel::FormulaError::NUM)) {
             return 6;
         }
-        if((v == ::org::apache::poi::ss::usermodel::FormulaError::NA)) {
+        if((v == ::poi::ss::usermodel::FormulaError::NA)) {
             return 7;
         }
-        if((((v != ::org::apache::poi::ss::usermodel::FormulaError::NULL_) && (v != ::org::apache::poi::ss::usermodel::FormulaError::DIV0) && (v != ::org::apache::poi::ss::usermodel::FormulaError::VALUE) && (v != ::org::apache::poi::ss::usermodel::FormulaError::REF) && (v != ::org::apache::poi::ss::usermodel::FormulaError::NAME) && (v != ::org::apache::poi::ss::usermodel::FormulaError::NUM) && (v != ::org::apache::poi::ss::usermodel::FormulaError::NA)))) {
+        if((((v != ::poi::ss::usermodel::FormulaError::NULL_) && (v != ::poi::ss::usermodel::FormulaError::DIV0) && (v != ::poi::ss::usermodel::FormulaError::VALUE) && (v != ::poi::ss::usermodel::FormulaError::REF) && (v != ::poi::ss::usermodel::FormulaError::NAME) && (v != ::poi::ss::usermodel::FormulaError::NUM) && (v != ::poi::ss::usermodel::FormulaError::NA)))) {
             throw new ::java::lang::IllegalArgumentException(::java::lang::StringBuilder().append(u"Invalid error code ("_j)->append(errorCode)
                 ->append(u")"_j)->toString());
         }
@@ -99,18 +93,18 @@ end_switch0:;
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Errortype::class_()
+java::lang::Class* poi::ss::formula::functions::Errortype::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.Errortype", 45);
     return c;
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Errortype::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Errortype::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
 {
     return super::evaluate(args, srcRowIndex, srcColumnIndex);
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Errortype::getClass0()
+java::lang::Class* poi::ss::formula::functions::Errortype::getClass0()
 {
     return class_();
 }

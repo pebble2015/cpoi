@@ -7,7 +7,7 @@
 #include <org/apache/poi/ss/usermodel/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::usermodel::FormulaEvaluator
+struct poi::ss::usermodel::FormulaEvaluator
     : public virtual ::java::lang::Object
 {
     virtual void clearAllCachedResultValues() = 0;

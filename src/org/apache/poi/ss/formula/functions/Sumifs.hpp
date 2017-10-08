@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::Sumifs final
+class poi::ss::formula::functions::Sumifs final
     : public Baseifs
 {
 

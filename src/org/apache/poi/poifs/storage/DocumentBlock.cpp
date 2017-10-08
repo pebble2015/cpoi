@@ -18,24 +18,18 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace poifs
     {
-        namespace poi
+        namespace storage
         {
-            namespace poifs
-            {
-                namespace storage
-                {
-typedef ::SubArray< ::org::apache::poi::poifs::storage::BlockWritable, ::java::lang::ObjectArray > BlockWritableArray;
-typedef ::SubArray< ::org::apache::poi::poifs::storage::BigBlock, ::java::lang::ObjectArray, BlockWritableArray > BigBlockArray;
-typedef ::SubArray< ::org::apache::poi::poifs::storage::DocumentBlock, BigBlockArray > DocumentBlockArray;
-                } // storage
-            } // poifs
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::poifs::storage::BlockWritable, ::java::lang::ObjectArray > BlockWritableArray;
+typedef ::SubArray< ::poi::poifs::storage::BigBlock, ::java::lang::ObjectArray, BlockWritableArray > BigBlockArray;
+typedef ::SubArray< ::poi::poifs::storage::DocumentBlock, BigBlockArray > DocumentBlockArray;
+        } // storage
+    } // poifs
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -44,70 +38,70 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::storage::DocumentBlock::DocumentBlock(const ::default_init_tag&)
+poi::poifs::storage::DocumentBlock::DocumentBlock(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::storage::DocumentBlock::DocumentBlock(RawDataBlock* block)  /* throws(IOException) */
+poi::poifs::storage::DocumentBlock::DocumentBlock(RawDataBlock* block)  /* throws(IOException) */
     : DocumentBlock(*static_cast< ::default_init_tag* >(0))
 {
     ctor(block);
 }
 
-org::apache::poi::poifs::storage::DocumentBlock::DocumentBlock(::java::io::InputStream* stream, ::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize)  /* throws(IOException) */
+poi::poifs::storage::DocumentBlock::DocumentBlock(::java::io::InputStream* stream, ::poi::poifs::common::POIFSBigBlockSize* bigBlockSize)  /* throws(IOException) */
     : DocumentBlock(*static_cast< ::default_init_tag* >(0))
 {
     ctor(stream,bigBlockSize);
 }
 
-org::apache::poi::poifs::storage::DocumentBlock::DocumentBlock(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize) 
+poi::poifs::storage::DocumentBlock::DocumentBlock(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize) 
     : DocumentBlock(*static_cast< ::default_init_tag* >(0))
 {
     ctor(bigBlockSize);
 }
 
-constexpr int8_t org::apache::poi::poifs::storage::DocumentBlock::_default_value;
+constexpr int8_t poi::poifs::storage::DocumentBlock::_default_value;
 
-void org::apache::poi::poifs::storage::DocumentBlock::ctor(RawDataBlock* block) /* throws(IOException) */
+void poi::poifs::storage::DocumentBlock::ctor(RawDataBlock* block) /* throws(IOException) */
 {
-    super::ctor(npc(block)->getBigBlockSize() == ::org::apache::poi::poifs::common::POIFSConstants::SMALLER_BIG_BLOCK_SIZE ? ::org::apache::poi::poifs::common::POIFSConstants::SMALLER_BIG_BLOCK_SIZE_DETAILS() : ::org::apache::poi::poifs::common::POIFSConstants::LARGER_BIG_BLOCK_SIZE_DETAILS());
+    super::ctor(npc(block)->getBigBlockSize() == ::poi::poifs::common::POIFSConstants::SMALLER_BIG_BLOCK_SIZE ? ::poi::poifs::common::POIFSConstants::SMALLER_BIG_BLOCK_SIZE_DETAILS() : ::poi::poifs::common::POIFSConstants::LARGER_BIG_BLOCK_SIZE_DETAILS());
     _data = npc(block)->getData();
     _bytes_read = npc(_data)->length;
 }
 
-void org::apache::poi::poifs::storage::DocumentBlock::ctor(::java::io::InputStream* stream, ::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize) /* throws(IOException) */
+void poi::poifs::storage::DocumentBlock::ctor(::java::io::InputStream* stream, ::poi::poifs::common::POIFSBigBlockSize* bigBlockSize) /* throws(IOException) */
 {
     ctor(bigBlockSize);
-    auto count = ::org::apache::poi::util::IOUtils::readFully(stream, _data);
+    auto count = ::poi::util::IOUtils::readFully(stream, _data);
     _bytes_read = (count == -int32_t(1)) ? int32_t(0) : count;
 }
 
-void org::apache::poi::poifs::storage::DocumentBlock::ctor(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize)
+void poi::poifs::storage::DocumentBlock::ctor(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize)
 {
     super::ctor(bigBlockSize);
     _data = new ::int8_tArray(npc(bigBlockSize)->getBigBlockSize());
     ::java::util::Arrays::fill(_data, _default_value);
 }
 
-int32_t org::apache::poi::poifs::storage::DocumentBlock::size()
+int32_t poi::poifs::storage::DocumentBlock::size()
 {
     return _bytes_read;
 }
 
-bool org::apache::poi::poifs::storage::DocumentBlock::partiallyRead()
+bool poi::poifs::storage::DocumentBlock::partiallyRead()
 {
     return _bytes_read != npc(bigBlockSize)->getBigBlockSize();
 }
 
-int8_t org::apache::poi::poifs::storage::DocumentBlock::getFillByte()
+int8_t poi::poifs::storage::DocumentBlock::getFillByte()
 {
     clinit();
     return _default_value;
 }
 
-org::apache::poi::poifs::storage::DocumentBlockArray* org::apache::poi::poifs::storage::DocumentBlock::convert(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ::int8_tArray* array, int32_t size)
+poi::poifs::storage::DocumentBlockArray* poi::poifs::storage::DocumentBlock::convert(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ::int8_tArray* array, int32_t size)
 {
     clinit();
     auto rval = new DocumentBlockArray((size + npc(bigBlockSize)->getBigBlockSize() - int32_t(1)) / npc(bigBlockSize)->getBigBlockSize());
@@ -128,7 +122,7 @@ org::apache::poi::poifs::storage::DocumentBlockArray* org::apache::poi::poifs::s
     return rval;
 }
 
-org::apache::poi::poifs::storage::DataInputBlock* org::apache::poi::poifs::storage::DocumentBlock::getDataInputBlock(DocumentBlockArray* blocks, int32_t offset)
+poi::poifs::storage::DataInputBlock* poi::poifs::storage::DocumentBlock::getDataInputBlock(DocumentBlockArray* blocks, int32_t offset)
 {
     clinit();
     if(blocks == nullptr || npc(blocks)->length == 0) {
@@ -143,20 +137,20 @@ org::apache::poi::poifs::storage::DataInputBlock* org::apache::poi::poifs::stora
     return new DataInputBlock(npc((*blocks)[firstBlockIndex])->_data, firstBlockOffset);
 }
 
-void org::apache::poi::poifs::storage::DocumentBlock::writeData(::java::io::OutputStream* stream) /* throws(IOException) */
+void poi::poifs::storage::DocumentBlock::writeData(::java::io::OutputStream* stream) /* throws(IOException) */
 {
     doWriteData(stream, _data);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::storage::DocumentBlock::class_()
+java::lang::Class* poi::poifs::storage::DocumentBlock::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.storage.DocumentBlock", 42);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::storage::DocumentBlock::getClass0()
+java::lang::Class* poi::poifs::storage::DocumentBlock::getClass0()
 {
     return class_();
 }

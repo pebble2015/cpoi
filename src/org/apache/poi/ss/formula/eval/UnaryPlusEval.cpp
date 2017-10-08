@@ -10,25 +10,19 @@
 #include <org/apache/poi/ss/formula/eval/ValueEval.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -37,31 +31,31 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::eval::UnaryPlusEval::UnaryPlusEval(const ::default_init_tag&)
+poi::ss::formula::eval::UnaryPlusEval::UnaryPlusEval(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::eval::UnaryPlusEval::UnaryPlusEval() 
+poi::ss::formula::eval::UnaryPlusEval::UnaryPlusEval() 
     : UnaryPlusEval(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::eval::UnaryPlusEval::instance()
+poi::ss::formula::functions::Function*& poi::ss::formula::eval::UnaryPlusEval::instance()
 {
     clinit();
     return instance_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::eval::UnaryPlusEval::instance_;
+poi::ss::formula::functions::Function* poi::ss::formula::eval::UnaryPlusEval::instance_;
 
-void org::apache::poi::ss::formula::eval::UnaryPlusEval::ctor()
+void poi::ss::formula::eval::UnaryPlusEval::ctor()
 {
     super::ctor();
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::eval::UnaryPlusEval::evaluate(int32_t srcCellRow, int32_t srcCellCol, ValueEval* arg0)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::eval::UnaryPlusEval::evaluate(int32_t srcCellRow, int32_t srcCellCol, ValueEval* arg0)
 {
     double d;
     try {
@@ -78,13 +72,13 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::e
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::eval::UnaryPlusEval::class_()
+java::lang::Class* poi::ss::formula::eval::UnaryPlusEval::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.eval.UnaryPlusEval", 44);
     return c;
 }
 
-void org::apache::poi::ss::formula::eval::UnaryPlusEval::clinit()
+void poi::ss::formula::eval::UnaryPlusEval::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -100,12 +94,12 @@ struct clinit_ {
     }
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::eval::UnaryPlusEval::evaluate(ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::eval::UnaryPlusEval::evaluate(ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
 {
     return super::evaluate(args, srcRowIndex, srcColumnIndex);
 }
 
-java::lang::Class* org::apache::poi::ss::formula::eval::UnaryPlusEval::getClass0()
+java::lang::Class* poi::ss::formula::eval::UnaryPlusEval::getClass0()
 {
     return class_();
 }

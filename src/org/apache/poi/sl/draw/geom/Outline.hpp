@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::geom::Outline
+class poi::sl::draw::geom::Outline
     : public virtual ::java::lang::Object
 {
 

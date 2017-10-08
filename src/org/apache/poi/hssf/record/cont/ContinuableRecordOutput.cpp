@@ -18,19 +18,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::cont::ContinuableRecordOutput::ContinuableRecordOutput(const ::default_init_tag&)
+poi::hssf::record::cont::ContinuableRecordOutput::ContinuableRecordOutput(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::cont::ContinuableRecordOutput::ContinuableRecordOutput(::org::apache::poi::util::LittleEndianOutput* out, int32_t sid) 
+poi::hssf::record::cont::ContinuableRecordOutput::ContinuableRecordOutput(::poi::util::LittleEndianOutput* out, int32_t sid) 
     : ContinuableRecordOutput(*static_cast< ::default_init_tag* >(0))
 {
     ctor(out,sid);
 }
 
-void org::apache::poi::hssf::record::cont::ContinuableRecordOutput::ctor(::org::apache::poi::util::LittleEndianOutput* out, int32_t sid)
+void poi::hssf::record::cont::ContinuableRecordOutput::ctor(::poi::util::LittleEndianOutput* out, int32_t sid)
 {
     super::ctor();
     _ulrOutput = new UnknownLengthRecordOutput(out, sid);
@@ -38,44 +38,44 @@ void org::apache::poi::hssf::record::cont::ContinuableRecordOutput::ctor(::org::
     _totalPreviousRecordsSize = 0;
 }
 
-org::apache::poi::hssf::record::cont::ContinuableRecordOutput* org::apache::poi::hssf::record::cont::ContinuableRecordOutput::createForCountingOnly()
+poi::hssf::record::cont::ContinuableRecordOutput* poi::hssf::record::cont::ContinuableRecordOutput::createForCountingOnly()
 {
     clinit();
     return new ContinuableRecordOutput(NOPOutput_, -int32_t(777));
 }
 
-int32_t org::apache::poi::hssf::record::cont::ContinuableRecordOutput::getTotalSize()
+int32_t poi::hssf::record::cont::ContinuableRecordOutput::getTotalSize()
 {
     return _totalPreviousRecordsSize + npc(_ulrOutput)->getTotalSize();
 }
 
-void org::apache::poi::hssf::record::cont::ContinuableRecordOutput::terminate()
+void poi::hssf::record::cont::ContinuableRecordOutput::terminate()
 {
     npc(_ulrOutput)->terminate();
 }
 
-int32_t org::apache::poi::hssf::record::cont::ContinuableRecordOutput::getAvailableSpace()
+int32_t poi::hssf::record::cont::ContinuableRecordOutput::getAvailableSpace()
 {
     return npc(_ulrOutput)->getAvailableSpace();
 }
 
-void org::apache::poi::hssf::record::cont::ContinuableRecordOutput::writeContinue()
+void poi::hssf::record::cont::ContinuableRecordOutput::writeContinue()
 {
     npc(_ulrOutput)->terminate();
     _totalPreviousRecordsSize += npc(_ulrOutput)->getTotalSize();
-    _ulrOutput = new UnknownLengthRecordOutput(_out, ::org::apache::poi::hssf::record::ContinueRecord::sid);
+    _ulrOutput = new UnknownLengthRecordOutput(_out, ::poi::hssf::record::ContinueRecord::sid);
 }
 
-void org::apache::poi::hssf::record::cont::ContinuableRecordOutput::writeContinueIfRequired(int32_t requiredContinuousSize)
+void poi::hssf::record::cont::ContinuableRecordOutput::writeContinueIfRequired(int32_t requiredContinuousSize)
 {
     if(npc(_ulrOutput)->getAvailableSpace() < requiredContinuousSize) {
         writeContinue();
     }
 }
 
-void org::apache::poi::hssf::record::cont::ContinuableRecordOutput::writeStringData(::java::lang::String* text)
+void poi::hssf::record::cont::ContinuableRecordOutput::writeStringData(::java::lang::String* text)
 {
-    auto is16bitEncoded = ::org::apache::poi::util::StringUtil::hasMultibyte(text);
+    auto is16bitEncoded = ::poi::util::StringUtil::hasMultibyte(text);
     auto keepTogetherSize = int32_t(1) + int32_t(1);
     auto optionFlags = int32_t(0);
     if(is16bitEncoded) {
@@ -87,9 +87,9 @@ void org::apache::poi::hssf::record::cont::ContinuableRecordOutput::writeStringD
     writeCharacterData(text, is16bitEncoded);
 }
 
-void org::apache::poi::hssf::record::cont::ContinuableRecordOutput::writeString(::java::lang::String* text, int32_t numberOfRichTextRuns, int32_t extendedDataSize)
+void poi::hssf::record::cont::ContinuableRecordOutput::writeString(::java::lang::String* text, int32_t numberOfRichTextRuns, int32_t extendedDataSize)
 {
-    auto is16bitEncoded = ::org::apache::poi::util::StringUtil::hasMultibyte(text);
+    auto is16bitEncoded = ::poi::util::StringUtil::hasMultibyte(text);
     auto keepTogetherSize = int32_t(2) + int32_t(1) + int32_t(1);
     auto optionFlags = int32_t(0);
     if(is16bitEncoded) {
@@ -116,7 +116,7 @@ void org::apache::poi::hssf::record::cont::ContinuableRecordOutput::writeString(
     writeCharacterData(text, is16bitEncoded);
 }
 
-void org::apache::poi::hssf::record::cont::ContinuableRecordOutput::writeCharacterData(::java::lang::String* text, bool is16bitEncoded)
+void poi::hssf::record::cont::ContinuableRecordOutput::writeCharacterData(::java::lang::String* text, bool is16bitEncoded)
 {
     auto nChars = npc(text)->length();
     auto i = int32_t(0);
@@ -147,13 +147,13 @@ void org::apache::poi::hssf::record::cont::ContinuableRecordOutput::writeCharact
     }
 }
 
-void org::apache::poi::hssf::record::cont::ContinuableRecordOutput::write(::int8_tArray* b)
+void poi::hssf::record::cont::ContinuableRecordOutput::write(::int8_tArray* b)
 {
     writeContinueIfRequired(npc(b)->length);
     npc(_ulrOutput)->write(b);
 }
 
-void org::apache::poi::hssf::record::cont::ContinuableRecordOutput::write(::int8_tArray* b, int32_t offset, int32_t len)
+void poi::hssf::record::cont::ContinuableRecordOutput::write(::int8_tArray* b, int32_t offset, int32_t len)
 {
     auto i = int32_t(0);
     while (true) {
@@ -168,52 +168,52 @@ void org::apache::poi::hssf::record::cont::ContinuableRecordOutput::write(::int8
     }
 }
 
-void org::apache::poi::hssf::record::cont::ContinuableRecordOutput::writeByte(int32_t v)
+void poi::hssf::record::cont::ContinuableRecordOutput::writeByte(int32_t v)
 {
     writeContinueIfRequired(1);
     npc(_ulrOutput)->writeByte(v);
 }
 
-void org::apache::poi::hssf::record::cont::ContinuableRecordOutput::writeDouble(double v)
+void poi::hssf::record::cont::ContinuableRecordOutput::writeDouble(double v)
 {
     writeContinueIfRequired(8);
     npc(_ulrOutput)->writeDouble(v);
 }
 
-void org::apache::poi::hssf::record::cont::ContinuableRecordOutput::writeInt(int32_t v)
+void poi::hssf::record::cont::ContinuableRecordOutput::writeInt(int32_t v)
 {
     writeContinueIfRequired(4);
     npc(_ulrOutput)->writeInt(v);
 }
 
-void org::apache::poi::hssf::record::cont::ContinuableRecordOutput::writeLong(int64_t v)
+void poi::hssf::record::cont::ContinuableRecordOutput::writeLong(int64_t v)
 {
     writeContinueIfRequired(8);
     npc(_ulrOutput)->writeLong(v);
 }
 
-void org::apache::poi::hssf::record::cont::ContinuableRecordOutput::writeShort(int32_t v)
+void poi::hssf::record::cont::ContinuableRecordOutput::writeShort(int32_t v)
 {
     writeContinueIfRequired(2);
     npc(_ulrOutput)->writeShort(v);
 }
 
-org::apache::poi::util::LittleEndianOutput*& org::apache::poi::hssf::record::cont::ContinuableRecordOutput::NOPOutput()
+poi::util::LittleEndianOutput*& poi::hssf::record::cont::ContinuableRecordOutput::NOPOutput()
 {
     clinit();
     return NOPOutput_;
 }
-org::apache::poi::util::LittleEndianOutput* org::apache::poi::hssf::record::cont::ContinuableRecordOutput::NOPOutput_;
+poi::util::LittleEndianOutput* poi::hssf::record::cont::ContinuableRecordOutput::NOPOutput_;
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::cont::ContinuableRecordOutput::class_()
+java::lang::Class* poi::hssf::record::cont::ContinuableRecordOutput::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.cont.ContinuableRecordOutput", 55);
     return c;
 }
 
-void org::apache::poi::hssf::record::cont::ContinuableRecordOutput::clinit()
+void poi::hssf::record::cont::ContinuableRecordOutput::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -229,7 +229,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::hssf::record::cont::ContinuableRecordOutput::getClass0()
+java::lang::Class* poi::hssf::record::cont::ContinuableRecordOutput::getClass0()
 {
     return class_();
 }

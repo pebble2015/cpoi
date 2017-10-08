@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::XYNumericFunction_AreaValueArray final
+class poi::ss::formula::functions::XYNumericFunction_AreaValueArray final
     : public XYNumericFunction_ValueArray
 {
 
@@ -18,18 +18,18 @@ public:
     typedef XYNumericFunction_ValueArray super;
 
 private:
-    ::org::apache::poi::ss::formula::TwoDEval* _ae {  };
+    ::poi::ss::formula::TwoDEval* _ae {  };
     int32_t _width {  };
 protected:
-    void ctor(::org::apache::poi::ss::formula::TwoDEval* ae);
+    void ctor(::poi::ss::formula::TwoDEval* ae);
 
 public: /* protected */
-    ::org::apache::poi::ss::formula::eval::ValueEval* getItemInternal(int32_t index) override;
+    ::poi::ss::formula::eval::ValueEval* getItemInternal(int32_t index) override;
 
     // Generated
 
 public:
-    XYNumericFunction_AreaValueArray(::org::apache::poi::ss::formula::TwoDEval* ae);
+    XYNumericFunction_AreaValueArray(::poi::ss::formula::TwoDEval* ae);
 protected:
     XYNumericFunction_AreaValueArray(const ::default_init_tag&);
 

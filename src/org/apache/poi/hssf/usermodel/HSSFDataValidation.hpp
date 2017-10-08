@@ -13,9 +13,9 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFDataValidation final
+class poi::hssf::usermodel::HSSFDataValidation final
     : public virtual ::java::lang::Object
-    , public ::org::apache::poi::ss::usermodel::DataValidation
+    , public ::poi::ss::usermodel::DataValidation
 {
 
 public:
@@ -31,15 +31,15 @@ private:
     bool _suppress_dropdown_arrow {  };
     bool _showPromptBox {  };
     bool _showErrorBox {  };
-    ::org::apache::poi::ss::util::CellRangeAddressList* _regions {  };
+    ::poi::ss::util::CellRangeAddressList* _regions {  };
     DVConstraint* _constraint {  };
 protected:
-    void ctor(::org::apache::poi::ss::util::CellRangeAddressList* regions, ::org::apache::poi::ss::usermodel::DataValidationConstraint* constraint);
+    void ctor(::poi::ss::util::CellRangeAddressList* regions, ::poi::ss::usermodel::DataValidationConstraint* constraint);
 
 public:
-    ::org::apache::poi::ss::usermodel::DataValidationConstraint* getValidationConstraint() override;
+    ::poi::ss::usermodel::DataValidationConstraint* getValidationConstraint() override;
     DVConstraint* getConstraint();
-    ::org::apache::poi::ss::util::CellRangeAddressList* getRegions() override;
+    ::poi::ss::util::CellRangeAddressList* getRegions() override;
     void setErrorStyle(int32_t error_style) override;
     int32_t getErrorStyle() override;
     void setEmptyCellAllowed(bool allowed) override;
@@ -56,10 +56,10 @@ public:
     void createErrorBox(::java::lang::String* title, ::java::lang::String* text) override;
     ::java::lang::String* getErrorBoxTitle() override;
     ::java::lang::String* getErrorBoxText() override;
-    ::org::apache::poi::hssf::record::DVRecord* createDVRecord(HSSFSheet* sheet);
+    ::poi::hssf::record::DVRecord* createDVRecord(HSSFSheet* sheet);
 
     // Generated
-    HSSFDataValidation(::org::apache::poi::ss::util::CellRangeAddressList* regions, ::org::apache::poi::ss::usermodel::DataValidationConstraint* constraint);
+    HSSFDataValidation(::poi::ss::util::CellRangeAddressList* regions, ::poi::ss::usermodel::DataValidationConstraint* constraint);
 protected:
     HSSFDataValidation(const ::default_init_tag&);
 

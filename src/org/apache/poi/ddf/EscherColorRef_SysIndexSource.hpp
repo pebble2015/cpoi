@@ -23,23 +23,17 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ddf
     {
-        namespace poi
-        {
-            namespace ddf
-            {
-typedef ::SubArray< ::org::apache::poi::ddf::EscherColorRef_SysIndexSource, ::java::lang::EnumArray > EscherColorRef_SysIndexSourceArray;
-            } // ddf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ddf::EscherColorRef_SysIndexSource, ::java::lang::EnumArray > EscherColorRef_SysIndexSourceArray;
+    } // ddf
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ddf::EscherColorRef_SysIndexSource final
+class poi::ddf::EscherColorRef_SysIndexSource final
     : public ::java::lang::Enum
 {
 

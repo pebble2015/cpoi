@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::StaticFontMetrics final
+class poi::hssf::usermodel::StaticFontMetrics final
     : public ::java::lang::Object
 {
 
@@ -18,7 +18,7 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    static ::org::apache::poi::util::POILogger* LOGGER_;
+    static ::poi::util::POILogger* LOGGER_;
     static ::java::util::Properties* fontMetricsProps_;
     static ::java::util::Map* fontDetailsMap_;
 protected:
@@ -41,7 +41,7 @@ public:
     static void clinit();
 
 private:
-    static ::org::apache::poi::util::POILogger*& LOGGER();
+    static ::poi::util::POILogger*& LOGGER();
     static ::java::util::Properties*& fontMetricsProps();
     static ::java::util::Map*& fontDetailsMap();
     virtual ::java::lang::Class* getClass0();

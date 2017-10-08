@@ -12,7 +12,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::ConditionalFormattingEvaluator
+class poi::ss::formula::ConditionalFormattingEvaluator
     : public virtual ::java::lang::Object
 {
 
@@ -21,11 +21,11 @@ public:
 
 private:
     WorkbookEvaluator* workbookEvaluator {  };
-    ::org::apache::poi::ss::usermodel::Workbook* workbook {  };
+    ::poi::ss::usermodel::Workbook* workbook {  };
     ::java::util::Map* formats {  };
     ::java::util::Map* values {  };
 protected:
-    void ctor(::org::apache::poi::ss::usermodel::Workbook* wb, WorkbookEvaluatorProvider* provider);
+    void ctor(::poi::ss::usermodel::Workbook* wb, WorkbookEvaluatorProvider* provider);
 
 public: /* protected */
     virtual WorkbookEvaluator* getWorkbookEvaluator();
@@ -35,19 +35,19 @@ public:
     virtual void clearAllCachedValues();
 
 public: /* protected */
-    virtual ::java::util::List* getRules(::org::apache::poi::ss::usermodel::Sheet* sheet);
+    virtual ::java::util::List* getRules(::poi::ss::usermodel::Sheet* sheet);
 
 public:
-    virtual ::java::util::List* getConditionalFormattingForCell(::org::apache::poi::ss::util::CellReference* cellRef);
-    virtual ::java::util::List* getConditionalFormattingForCell(::org::apache::poi::ss::usermodel::Cell* cell);
-    static ::org::apache::poi::ss::util::CellReference* getRef(::org::apache::poi::ss::usermodel::Cell* cell);
+    virtual ::java::util::List* getConditionalFormattingForCell(::poi::ss::util::CellReference* cellRef);
+    virtual ::java::util::List* getConditionalFormattingForCell(::poi::ss::usermodel::Cell* cell);
+    static ::poi::ss::util::CellReference* getRef(::poi::ss::usermodel::Cell* cell);
     virtual ::java::util::List* getFormatRulesForSheet(::java::lang::String* sheetName);
-    virtual ::java::util::List* getFormatRulesForSheet(::org::apache::poi::ss::usermodel::Sheet* sheet);
-    virtual ::java::util::List* getMatchingCells(::org::apache::poi::ss::usermodel::Sheet* sheet, int32_t conditionalFormattingIndex, int32_t ruleIndex);
+    virtual ::java::util::List* getFormatRulesForSheet(::poi::ss::usermodel::Sheet* sheet);
+    virtual ::java::util::List* getMatchingCells(::poi::ss::usermodel::Sheet* sheet, int32_t conditionalFormattingIndex, int32_t ruleIndex);
     virtual ::java::util::List* getMatchingCells(EvaluationConditionalFormatRule* rule);
 
     // Generated
-    ConditionalFormattingEvaluator(::org::apache::poi::ss::usermodel::Workbook* wb, WorkbookEvaluatorProvider* provider);
+    ConditionalFormattingEvaluator(::poi::ss::usermodel::Workbook* wb, WorkbookEvaluatorProvider* provider);
 protected:
     ConditionalFormattingEvaluator(const ::default_init_tag&);
 

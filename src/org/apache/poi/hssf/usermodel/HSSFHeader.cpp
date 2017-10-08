@@ -13,25 +13,25 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::usermodel::HSSFHeader::HSSFHeader(const ::default_init_tag&)
+poi::hssf::usermodel::HSSFHeader::HSSFHeader(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::usermodel::HSSFHeader::HSSFHeader(::org::apache::poi::hssf::record::aggregates::PageSettingsBlock* psb) 
+poi::hssf::usermodel::HSSFHeader::HSSFHeader(::poi::hssf::record::aggregates::PageSettingsBlock* psb) 
     : HSSFHeader(*static_cast< ::default_init_tag* >(0))
 {
     ctor(psb);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFHeader::ctor(::org::apache::poi::hssf::record::aggregates::PageSettingsBlock* psb)
+void poi::hssf::usermodel::HSSFHeader::ctor(::poi::hssf::record::aggregates::PageSettingsBlock* psb)
 {
     super::ctor();
     _psb = psb;
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HSSFHeader::getRawText()
+java::lang::String* poi::hssf::usermodel::HSSFHeader::getRawText()
 {
     auto hf = npc(_psb)->getHeader();
     if(hf == nullptr) {
@@ -40,11 +40,11 @@ java::lang::String* org::apache::poi::hssf::usermodel::HSSFHeader::getRawText()
     return npc(hf)->getText();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFHeader::setHeaderFooterText(::java::lang::String* text)
+void poi::hssf::usermodel::HSSFHeader::setHeaderFooterText(::java::lang::String* text)
 {
     auto hfr = npc(_psb)->getHeader();
     if(hfr == nullptr) {
-        hfr = new ::org::apache::poi::hssf::record::HeaderRecord(text);
+        hfr = new ::poi::hssf::record::HeaderRecord(text);
         npc(_psb)->setHeader(hfr);
     } else {
         npc(hfr)->setText(text);
@@ -53,43 +53,43 @@ void org::apache::poi::hssf::usermodel::HSSFHeader::setHeaderFooterText(::java::
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFHeader::class_()
+java::lang::Class* poi::hssf::usermodel::HSSFHeader::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.usermodel.HSSFHeader", 40);
     return c;
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HSSFHeader::getCenter()
+java::lang::String* poi::hssf::usermodel::HSSFHeader::getCenter()
 {
     return HeaderFooter::getCenter();
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HSSFHeader::getLeft()
+java::lang::String* poi::hssf::usermodel::HSSFHeader::getLeft()
 {
     return HeaderFooter::getLeft();
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HSSFHeader::getRight()
+java::lang::String* poi::hssf::usermodel::HSSFHeader::getRight()
 {
     return HeaderFooter::getRight();
 }
 
-void org::apache::poi::hssf::usermodel::HSSFHeader::setCenter(::java::lang::String* newCenter)
+void poi::hssf::usermodel::HSSFHeader::setCenter(::java::lang::String* newCenter)
 {
     HeaderFooter::setCenter(newCenter);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFHeader::setLeft(::java::lang::String* newLeft)
+void poi::hssf::usermodel::HSSFHeader::setLeft(::java::lang::String* newLeft)
 {
     HeaderFooter::setLeft(newLeft);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFHeader::setRight(::java::lang::String* newRight)
+void poi::hssf::usermodel::HSSFHeader::setRight(::java::lang::String* newRight)
 {
     HeaderFooter::setRight(newRight);
 }
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFHeader::getClass0()
+java::lang::Class* poi::hssf::usermodel::HSSFHeader::getClass0()
 {
     return class_();
 }

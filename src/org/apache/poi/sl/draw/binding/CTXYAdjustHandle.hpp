@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::binding::CTXYAdjustHandle
+class poi::sl::draw::binding::CTXYAdjustHandle
     : public virtual ::java::lang::Object
 {
 

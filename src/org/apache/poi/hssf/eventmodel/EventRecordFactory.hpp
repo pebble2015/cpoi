@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::eventmodel::EventRecordFactory final
+class poi::hssf::eventmodel::EventRecordFactory final
     : public ::java::lang::Object
 {
 
@@ -25,7 +25,7 @@ protected:
 
 private:
     bool isSidIncluded(int16_t sid);
-    bool processRecord(::org::apache::poi::hssf::record::Record* record);
+    bool processRecord(::poi::hssf::record::Record* record);
 
 public:
     void processRecords(::java::io::InputStream* in) /* throws(RecordFormatException) */;

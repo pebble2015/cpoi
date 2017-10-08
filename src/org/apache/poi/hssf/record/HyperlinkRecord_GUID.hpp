@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::HyperlinkRecord_GUID final
+class poi::hssf::record::HyperlinkRecord_GUID final
     : public ::java::lang::Object
 {
 
@@ -29,11 +29,11 @@ private:
     int32_t _d3 {  };
     int64_t _d4 {  };
 protected:
-    void ctor(::org::apache::poi::util::LittleEndianInput* in);
+    void ctor(::poi::util::LittleEndianInput* in);
     void ctor(int32_t d1, int32_t d2, int32_t d3, int64_t d4);
 
 public:
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out);
+    void serialize(::poi::util::LittleEndianOutput* out);
     bool equals(::java::lang::Object* obj) override;
     int32_t hashCode() override;
     int32_t getD1();
@@ -52,7 +52,7 @@ private:
     // Generated
 
 public:
-    HyperlinkRecord_GUID(::org::apache::poi::util::LittleEndianInput* in);
+    HyperlinkRecord_GUID(::poi::util::LittleEndianInput* in);
     HyperlinkRecord_GUID(int32_t d1, int32_t d2, int32_t d3, int64_t d4);
 protected:
     HyperlinkRecord_GUID(const ::default_init_tag&);

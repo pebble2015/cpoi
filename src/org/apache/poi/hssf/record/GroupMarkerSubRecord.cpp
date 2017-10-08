@@ -18,40 +18,40 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::GroupMarkerSubRecord::GroupMarkerSubRecord(const ::default_init_tag&)
+poi::hssf::record::GroupMarkerSubRecord::GroupMarkerSubRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::GroupMarkerSubRecord::GroupMarkerSubRecord() 
+poi::hssf::record::GroupMarkerSubRecord::GroupMarkerSubRecord() 
     : GroupMarkerSubRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::GroupMarkerSubRecord::GroupMarkerSubRecord(::org::apache::poi::util::LittleEndianInput* in, int32_t size) 
+poi::hssf::record::GroupMarkerSubRecord::GroupMarkerSubRecord(::poi::util::LittleEndianInput* in, int32_t size) 
     : GroupMarkerSubRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in,size);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::GroupMarkerSubRecord::sid;
+constexpr int16_t poi::hssf::record::GroupMarkerSubRecord::sid;
 
-int8_tArray*& org::apache::poi::hssf::record::GroupMarkerSubRecord::EMPTY_BYTE_ARRAY()
+int8_tArray*& poi::hssf::record::GroupMarkerSubRecord::EMPTY_BYTE_ARRAY()
 {
     clinit();
     return EMPTY_BYTE_ARRAY_;
 }
-int8_tArray* org::apache::poi::hssf::record::GroupMarkerSubRecord::EMPTY_BYTE_ARRAY_;
+int8_tArray* poi::hssf::record::GroupMarkerSubRecord::EMPTY_BYTE_ARRAY_;
 
-void org::apache::poi::hssf::record::GroupMarkerSubRecord::ctor()
+void poi::hssf::record::GroupMarkerSubRecord::ctor()
 {
     super::ctor();
     reserved = EMPTY_BYTE_ARRAY_;
 }
 
-void org::apache::poi::hssf::record::GroupMarkerSubRecord::ctor(::org::apache::poi::util::LittleEndianInput* in, int32_t size)
+void poi::hssf::record::GroupMarkerSubRecord::ctor(::poi::util::LittleEndianInput* in, int32_t size)
 {
     super::ctor();
     auto buf = new ::int8_tArray(size);
@@ -59,34 +59,34 @@ void org::apache::poi::hssf::record::GroupMarkerSubRecord::ctor(::org::apache::p
     reserved = buf;
 }
 
-java::lang::String* org::apache::poi::hssf::record::GroupMarkerSubRecord::toString()
+java::lang::String* poi::hssf::record::GroupMarkerSubRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     auto nl = ::java::lang::System::getProperty(u"line.separator"_j);
     npc(buffer)->append(::java::lang::StringBuilder().append(u"[ftGmo]"_j)->append(nl)->toString());
-    npc(npc(npc(buffer)->append(u"  reserved = "_j))->append(::org::apache::poi::util::HexDump::toHex(reserved)))->append(nl);
+    npc(npc(npc(buffer)->append(u"  reserved = "_j))->append(::poi::util::HexDump::toHex(reserved)))->append(nl);
     npc(buffer)->append(::java::lang::StringBuilder().append(u"[/ftGmo]"_j)->append(nl)->toString());
     return npc(buffer)->toString();
 }
 
-void org::apache::poi::hssf::record::GroupMarkerSubRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::GroupMarkerSubRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(sid);
     npc(out)->writeShort(npc(reserved)->length);
     npc(out)->write(reserved);
 }
 
-int32_t org::apache::poi::hssf::record::GroupMarkerSubRecord::getDataSize()
+int32_t poi::hssf::record::GroupMarkerSubRecord::getDataSize()
 {
     return npc(reserved)->length;
 }
 
-int16_t org::apache::poi::hssf::record::GroupMarkerSubRecord::getSid()
+int16_t poi::hssf::record::GroupMarkerSubRecord::getSid()
 {
     return sid;
 }
 
-org::apache::poi::hssf::record::GroupMarkerSubRecord* org::apache::poi::hssf::record::GroupMarkerSubRecord::clone()
+poi::hssf::record::GroupMarkerSubRecord* poi::hssf::record::GroupMarkerSubRecord::clone()
 {
     auto rec = new GroupMarkerSubRecord();
     npc(rec)->reserved = new ::int8_tArray(npc(reserved)->length);
@@ -98,13 +98,13 @@ org::apache::poi::hssf::record::GroupMarkerSubRecord* org::apache::poi::hssf::re
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::GroupMarkerSubRecord::class_()
+java::lang::Class* poi::hssf::record::GroupMarkerSubRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.GroupMarkerSubRecord", 47);
     return c;
 }
 
-void org::apache::poi::hssf::record::GroupMarkerSubRecord::clinit()
+void poi::hssf::record::GroupMarkerSubRecord::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -120,12 +120,12 @@ struct clinit_ {
     }
 }
 
-int8_tArray* org::apache::poi::hssf::record::GroupMarkerSubRecord::serialize()
+int8_tArray* poi::hssf::record::GroupMarkerSubRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::GroupMarkerSubRecord::getClass0()
+java::lang::Class* poi::hssf::record::GroupMarkerSubRecord::getClass0()
 {
     return class_();
 }

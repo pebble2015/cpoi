@@ -31,25 +31,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -67,53 +61,53 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::DStarRunner::DStarRunner(const ::default_init_tag&)
+poi::ss::formula::functions::DStarRunner::DStarRunner(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::DStarRunner::DStarRunner(DStarRunner_DStarAlgorithmEnum* algorithm) 
+poi::ss::formula::functions::DStarRunner::DStarRunner(DStarRunner_DStarAlgorithmEnum* algorithm) 
     : DStarRunner(*static_cast< ::default_init_tag* >(0))
 {
     ctor(algorithm);
 }
 
-void org::apache::poi::ss::formula::functions::DStarRunner::ctor(DStarRunner_DStarAlgorithmEnum* algorithm)
+void poi::ss::formula::functions::DStarRunner::ctor(DStarRunner_DStarAlgorithmEnum* algorithm)
 {
     super::ctor();
     this->algoType = algorithm;
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::DStarRunner::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::DStarRunner::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
 {
     if(npc(args)->length == 3) {
         return evaluate(srcRowIndex, srcColumnIndex, (*args)[int32_t(0)], (*args)[int32_t(1)], (*args)[int32_t(2)]);
     } else {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::DStarRunner::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* database, ::org::apache::poi::ss::formula::eval::ValueEval* filterColumn, ::org::apache::poi::ss::formula::eval::ValueEval* conditionDatabase)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::DStarRunner::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::poi::ss::formula::eval::ValueEval* database, ::poi::ss::formula::eval::ValueEval* filterColumn, ::poi::ss::formula::eval::ValueEval* conditionDatabase)
 {
-    if(!(dynamic_cast< ::org::apache::poi::ss::formula::eval::AreaEval* >(database) != nullptr) || !(dynamic_cast< ::org::apache::poi::ss::formula::eval::AreaEval* >(conditionDatabase) != nullptr)) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+    if(!(dynamic_cast< ::poi::ss::formula::eval::AreaEval* >(database) != nullptr) || !(dynamic_cast< ::poi::ss::formula::eval::AreaEval* >(conditionDatabase) != nullptr)) {
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
-    auto db = java_cast< ::org::apache::poi::ss::formula::eval::AreaEval* >(database);
-    auto cdb = java_cast< ::org::apache::poi::ss::formula::eval::AreaEval* >(conditionDatabase);
+    auto db = java_cast< ::poi::ss::formula::eval::AreaEval* >(database);
+    auto cdb = java_cast< ::poi::ss::formula::eval::AreaEval* >(conditionDatabase);
     try {
-        filterColumn = ::org::apache::poi::ss::formula::eval::OperandResolver::getSingleValue(filterColumn, srcRowIndex, srcColumnIndex);
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+        filterColumn = ::poi::ss::formula::eval::OperandResolver::getSingleValue(filterColumn, srcRowIndex, srcColumnIndex);
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
         return npc(e)->getErrorEval();
     }
     int32_t fc;
     try {
         fc = getColumnForName(filterColumn, db);
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
     if(fc == -int32_t(1)) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
     IDStarAlgorithm* algorithm = nullptr;
     {
@@ -138,8 +132,8 @@ end_switch0:;
         auto matches = true;
         try {
             matches = fullfillsConditions(db, row, cdb);
-        } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
-            return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        } catch (::poi::ss::formula::eval::EvaluationException* e) {
+            return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
         }
         if(matches) {
             auto currentValueEval = resolveReference(db, row, fc);
@@ -152,27 +146,27 @@ end_switch0:;
     return npc(algorithm)->getResult();
 }
 
-int32_t org::apache::poi::ss::formula::functions::DStarRunner::getColumnForName(::org::apache::poi::ss::formula::eval::ValueEval* nameValueEval, ::org::apache::poi::ss::formula::eval::AreaEval* db) /* throws(EvaluationException) */
+int32_t poi::ss::formula::functions::DStarRunner::getColumnForName(::poi::ss::formula::eval::ValueEval* nameValueEval, ::poi::ss::formula::eval::AreaEval* db) /* throws(EvaluationException) */
 {
     clinit();
-    auto name = ::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToString(nameValueEval);
+    auto name = ::poi::ss::formula::eval::OperandResolver::coerceValueToString(nameValueEval);
     return getColumnForString(db, name);
 }
 
-int32_t org::apache::poi::ss::formula::functions::DStarRunner::getColumnForString(::org::apache::poi::ss::formula::eval::AreaEval* db, ::java::lang::String* name) /* throws(EvaluationException) */
+int32_t poi::ss::formula::functions::DStarRunner::getColumnForString(::poi::ss::formula::eval::AreaEval* db, ::java::lang::String* name) /* throws(EvaluationException) */
 {
     clinit();
     auto resultColumn = -int32_t(1);
     auto const width = npc(db)->getWidth();
     for (auto column = int32_t(0); column < width; ++column) {
         auto columnNameValueEval = resolveReference(db, 0, column);
-        if(dynamic_cast< ::org::apache::poi::ss::formula::eval::BlankEval* >(columnNameValueEval) != nullptr) {
+        if(dynamic_cast< ::poi::ss::formula::eval::BlankEval* >(columnNameValueEval) != nullptr) {
             continue;
         }
-        if(dynamic_cast< ::org::apache::poi::ss::formula::eval::ErrorEval* >(columnNameValueEval) != nullptr) {
+        if(dynamic_cast< ::poi::ss::formula::eval::ErrorEval* >(columnNameValueEval) != nullptr) {
             continue;
         }
-        auto columnName = ::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToString(columnNameValueEval);
+        auto columnName = ::poi::ss::formula::eval::OperandResolver::coerceValueToString(columnNameValueEval);
         if(npc(name)->equals(static_cast< ::java::lang::Object* >(columnName))) {
             resultColumn = column;
             break;
@@ -181,7 +175,7 @@ int32_t org::apache::poi::ss::formula::functions::DStarRunner::getColumnForStrin
     return resultColumn;
 }
 
-bool org::apache::poi::ss::formula::functions::DStarRunner::fullfillsConditions(::org::apache::poi::ss::formula::eval::AreaEval* db, int32_t row, ::org::apache::poi::ss::formula::eval::AreaEval* cdb) /* throws(EvaluationException) */
+bool poi::ss::formula::functions::DStarRunner::fullfillsConditions(::poi::ss::formula::eval::AreaEval* db, int32_t row, ::poi::ss::formula::eval::AreaEval* cdb) /* throws(EvaluationException) */
 {
     clinit();
     auto const height = npc(cdb)->getHeight();
@@ -190,14 +184,14 @@ bool org::apache::poi::ss::formula::functions::DStarRunner::fullfillsConditions(
         auto const width = npc(cdb)->getWidth();
         for (auto column = int32_t(0); column < width; ++column) {
             auto columnCondition = true;
-            ::org::apache::poi::ss::formula::eval::ValueEval* condition = nullptr;
+            ::poi::ss::formula::eval::ValueEval* condition = nullptr;
             condition = resolveReference(cdb, conditionRow, column);
-            if(dynamic_cast< ::org::apache::poi::ss::formula::eval::BlankEval* >(condition) != nullptr)
+            if(dynamic_cast< ::poi::ss::formula::eval::BlankEval* >(condition) != nullptr)
                 continue;
 
             auto targetHeader = resolveReference(cdb, 0, column);
-            if(!(dynamic_cast< ::org::apache::poi::ss::formula::eval::StringValueEval* >(targetHeader) != nullptr)) {
-                throw new ::org::apache::poi::ss::formula::eval::EvaluationException(::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID());
+            if(!(dynamic_cast< ::poi::ss::formula::eval::StringValueEval* >(targetHeader) != nullptr)) {
+                throw new ::poi::ss::formula::eval::EvaluationException(::poi::ss::formula::eval::ErrorEval::VALUE_INVALID());
             }
             if(getColumnForName(targetHeader, db) == -int32_t(1))
                 columnCondition = false;
@@ -209,10 +203,10 @@ bool org::apache::poi::ss::formula::functions::DStarRunner::fullfillsConditions(
                     break;
                 }
             } else {
-                if(npc(::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToString(condition))->isEmpty()) {
-                    throw new ::org::apache::poi::ss::formula::eval::EvaluationException(::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID());
+                if(npc(::poi::ss::formula::eval::OperandResolver::coerceValueToString(condition))->isEmpty()) {
+                    throw new ::poi::ss::formula::eval::EvaluationException(::poi::ss::formula::eval::ErrorEval::VALUE_INVALID());
                 }
-                throw new ::org::apache::poi::ss::formula::eval::NotImplementedException(u"D* function with formula conditions"_j);
+                throw new ::poi::ss::formula::eval::NotImplementedException(u"D* function with formula conditions"_j);
             }
         }
         if(matches == true) {
@@ -222,11 +216,11 @@ bool org::apache::poi::ss::formula::functions::DStarRunner::fullfillsConditions(
     return false;
 }
 
-bool org::apache::poi::ss::formula::functions::DStarRunner::testNormalCondition(::org::apache::poi::ss::formula::eval::ValueEval* value, ::org::apache::poi::ss::formula::eval::ValueEval* condition) /* throws(EvaluationException) */
+bool poi::ss::formula::functions::DStarRunner::testNormalCondition(::poi::ss::formula::eval::ValueEval* value, ::poi::ss::formula::eval::ValueEval* condition) /* throws(EvaluationException) */
 {
     clinit();
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::StringEval* >(condition) != nullptr) {
-        auto conditionString = npc((java_cast< ::org::apache::poi::ss::formula::eval::StringEval* >(condition)))->getStringValue();
+    if(dynamic_cast< ::poi::ss::formula::eval::StringEval* >(condition) != nullptr) {
+        auto conditionString = npc((java_cast< ::poi::ss::formula::eval::StringEval* >(condition)))->getStringValue();
         if(npc(conditionString)->startsWith(u"<"_j)) {
             auto number = npc(conditionString)->substring(1);
             if(npc(number)->startsWith(u"="_j)) {
@@ -246,7 +240,7 @@ bool org::apache::poi::ss::formula::functions::DStarRunner::testNormalCondition(
         } else if(npc(conditionString)->startsWith(u"="_j)) {
             auto stringOrNumber = npc(conditionString)->substring(1);
             if(npc(stringOrNumber)->isEmpty()) {
-                return dynamic_cast< ::org::apache::poi::ss::formula::eval::BlankEval* >(value) != nullptr;
+                return dynamic_cast< ::poi::ss::formula::eval::BlankEval* >(value) != nullptr;
             }
             auto itsANumber = false;
             try {
@@ -263,27 +257,27 @@ bool org::apache::poi::ss::formula::functions::DStarRunner::testNormalCondition(
             if(itsANumber) {
                 return testNumericCondition(value, DStarRunner_operator::equal, stringOrNumber);
             } else {
-                auto valueString = dynamic_cast< ::org::apache::poi::ss::formula::eval::BlankEval* >(value) != nullptr ? u""_j : ::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToString(value);
+                auto valueString = dynamic_cast< ::poi::ss::formula::eval::BlankEval* >(value) != nullptr ? u""_j : ::poi::ss::formula::eval::OperandResolver::coerceValueToString(value);
                 return npc(stringOrNumber)->equals(static_cast< ::java::lang::Object* >(valueString));
             }
         } else {
             if(npc(conditionString)->isEmpty()) {
-                return dynamic_cast< ::org::apache::poi::ss::formula::eval::StringEval* >(value) != nullptr;
+                return dynamic_cast< ::poi::ss::formula::eval::StringEval* >(value) != nullptr;
             } else {
-                auto valueString = dynamic_cast< ::org::apache::poi::ss::formula::eval::BlankEval* >(value) != nullptr ? u""_j : ::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToString(value);
+                auto valueString = dynamic_cast< ::poi::ss::formula::eval::BlankEval* >(value) != nullptr ? u""_j : ::poi::ss::formula::eval::OperandResolver::coerceValueToString(value);
                 return npc(valueString)->startsWith(conditionString);
             }
         }
-    } else if(dynamic_cast< ::org::apache::poi::ss::formula::eval::NumericValueEval* >(condition) != nullptr) {
-        auto conditionNumber = npc((java_cast< ::org::apache::poi::ss::formula::eval::NumericValueEval* >(condition)))->getNumberValue();
+    } else if(dynamic_cast< ::poi::ss::formula::eval::NumericValueEval* >(condition) != nullptr) {
+        auto conditionNumber = npc((java_cast< ::poi::ss::formula::eval::NumericValueEval* >(condition)))->getNumberValue();
         auto valueNumber = getNumberFromValueEval(value);
         if(valueNumber == nullptr) {
             return false;
         }
         return conditionNumber == (npc(valueNumber))->doubleValue();
-    } else if(dynamic_cast< ::org::apache::poi::ss::formula::eval::ErrorEval* >(condition) != nullptr) {
-        if(dynamic_cast< ::org::apache::poi::ss::formula::eval::ErrorEval* >(value) != nullptr) {
-            return npc((java_cast< ::org::apache::poi::ss::formula::eval::ErrorEval* >(condition)))->getErrorCode() == npc((java_cast< ::org::apache::poi::ss::formula::eval::ErrorEval* >(value)))->getErrorCode();
+    } else if(dynamic_cast< ::poi::ss::formula::eval::ErrorEval* >(condition) != nullptr) {
+        if(dynamic_cast< ::poi::ss::formula::eval::ErrorEval* >(value) != nullptr) {
+            return npc((java_cast< ::poi::ss::formula::eval::ErrorEval* >(condition)))->getErrorCode() == npc((java_cast< ::poi::ss::formula::eval::ErrorEval* >(value)))->getErrorCode();
         } else {
             return false;
         }
@@ -292,13 +286,13 @@ bool org::apache::poi::ss::formula::functions::DStarRunner::testNormalCondition(
     }
 }
 
-bool org::apache::poi::ss::formula::functions::DStarRunner::testNumericCondition(::org::apache::poi::ss::formula::eval::ValueEval* valueEval, DStarRunner_operator* op, ::java::lang::String* condition) /* throws(EvaluationException) */
+bool poi::ss::formula::functions::DStarRunner::testNumericCondition(::poi::ss::formula::eval::ValueEval* valueEval, DStarRunner_operator* op, ::java::lang::String* condition) /* throws(EvaluationException) */
 {
     clinit();
-    if(!(dynamic_cast< ::org::apache::poi::ss::formula::eval::NumericValueEval* >(valueEval) != nullptr))
+    if(!(dynamic_cast< ::poi::ss::formula::eval::NumericValueEval* >(valueEval) != nullptr))
         return false;
 
-    auto value = npc((java_cast< ::org::apache::poi::ss::formula::eval::NumericValueEval* >(valueEval)))->getNumberValue();
+    auto value = npc((java_cast< ::poi::ss::formula::eval::NumericValueEval* >(valueEval)))->getNumberValue();
     auto conditionValue = 0.0;
     try {
         auto intValue = ::java::lang::Integer::parseInt(condition);
@@ -307,10 +301,10 @@ bool org::apache::poi::ss::formula::functions::DStarRunner::testNumericCondition
         try {
             conditionValue = ::java::lang::Double::parseDouble(condition);
         } catch (::java::lang::NumberFormatException* e2) {
-            throw new ::org::apache::poi::ss::formula::eval::EvaluationException(::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID());
+            throw new ::poi::ss::formula::eval::EvaluationException(::poi::ss::formula::eval::ErrorEval::VALUE_INVALID());
         }
     }
-    auto result = ::org::apache::poi::ss::util::NumberComparer::compare(value, conditionValue);
+    auto result = ::poi::ss::util::NumberComparer::compare(value, conditionValue);
     {
         auto v = op;
         if((v == DStarRunner_operator::largerThan)) {
@@ -334,13 +328,13 @@ end_switch1:;
     return false;
 }
 
-java::lang::Double* org::apache::poi::ss::formula::functions::DStarRunner::getNumberFromValueEval(::org::apache::poi::ss::formula::eval::ValueEval* value)
+java::lang::Double* poi::ss::formula::functions::DStarRunner::getNumberFromValueEval(::poi::ss::formula::eval::ValueEval* value)
 {
     clinit();
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::NumericValueEval* >(value) != nullptr) {
-        return ::java::lang::Double::valueOf(npc((java_cast< ::org::apache::poi::ss::formula::eval::NumericValueEval* >(value)))->getNumberValue());
-    } else if(dynamic_cast< ::org::apache::poi::ss::formula::eval::StringValueEval* >(value) != nullptr) {
-        auto stringValue = npc((java_cast< ::org::apache::poi::ss::formula::eval::StringValueEval* >(value)))->getStringValue();
+    if(dynamic_cast< ::poi::ss::formula::eval::NumericValueEval* >(value) != nullptr) {
+        return ::java::lang::Double::valueOf(npc((java_cast< ::poi::ss::formula::eval::NumericValueEval* >(value)))->getNumberValue());
+    } else if(dynamic_cast< ::poi::ss::formula::eval::StringValueEval* >(value) != nullptr) {
+        auto stringValue = npc((java_cast< ::poi::ss::formula::eval::StringValueEval* >(value)))->getStringValue();
         try {
             return ::java::lang::Double::valueOf(::java::lang::Double::parseDouble(stringValue));
         } catch (::java::lang::NumberFormatException* e2) {
@@ -351,25 +345,25 @@ java::lang::Double* org::apache::poi::ss::formula::functions::DStarRunner::getNu
     }
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::DStarRunner::resolveReference(::org::apache::poi::ss::formula::eval::AreaEval* db, int32_t dbRow, int32_t dbCol)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::DStarRunner::resolveReference(::poi::ss::formula::eval::AreaEval* db, int32_t dbRow, int32_t dbCol)
 {
     clinit();
     try {
-        return ::org::apache::poi::ss::formula::eval::OperandResolver::getSingleValue(npc(db)->getValue(dbRow, dbCol), npc(db)->getFirstRow() + dbRow, npc(db)->getFirstColumn() + dbCol);
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+        return ::poi::ss::formula::eval::OperandResolver::getSingleValue(npc(db)->getValue(dbRow, dbCol), npc(db)->getFirstRow() + dbRow, npc(db)->getFirstColumn() + dbCol);
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
         return npc(e)->getErrorEval();
     }
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::DStarRunner::class_()
+java::lang::Class* poi::ss::formula::functions::DStarRunner::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.DStarRunner", 47);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::DStarRunner::getClass0()
+java::lang::Class* poi::ss::formula::functions::DStarRunner::getClass0()
 {
     return class_();
 }

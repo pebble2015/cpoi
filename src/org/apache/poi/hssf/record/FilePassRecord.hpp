@@ -12,7 +12,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::FilePassRecord final
+class poi::hssf::record::FilePassRecord final
     : public StandardRecord
     , public ::java::lang::Cloneable
 {
@@ -25,20 +25,20 @@ private:
     static constexpr int32_t ENCRYPTION_XOR { int32_t(0) };
     static constexpr int32_t ENCRYPTION_OTHER { int32_t(1) };
     int32_t encryptionType {  };
-    ::org::apache::poi::poifs::crypt::EncryptionInfo* encryptionInfo {  };
+    ::poi::poifs::crypt::EncryptionInfo* encryptionInfo {  };
 protected:
     void ctor(FilePassRecord* other);
-    void ctor(::org::apache::poi::poifs::crypt::EncryptionMode* encryptionMode);
+    void ctor(::poi::poifs::crypt::EncryptionMode* encryptionMode);
     void ctor(RecordInputStream* in);
 
 public:
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;
 
 public:
-    ::org::apache::poi::poifs::crypt::EncryptionInfo* getEncryptionInfo();
+    ::poi::poifs::crypt::EncryptionInfo* getEncryptionInfo();
     int16_t getSid() override;
     FilePassRecord* clone() override;
     ::java::lang::String* toString() override;
@@ -49,7 +49,7 @@ private:
     FilePassRecord(FilePassRecord* other);
 
 public:
-    FilePassRecord(::org::apache::poi::poifs::crypt::EncryptionMode* encryptionMode);
+    FilePassRecord(::poi::poifs::crypt::EncryptionMode* encryptionMode);
     FilePassRecord(RecordInputStream* in);
 protected:
     FilePassRecord(const ::default_init_tag&);

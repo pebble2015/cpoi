@@ -23,19 +23,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::sl::draw::binding::CTSRgbColor::CTSRgbColor(const ::default_init_tag&)
+poi::sl::draw::binding::CTSRgbColor::CTSRgbColor(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::draw::binding::CTSRgbColor::CTSRgbColor()
+poi::sl::draw::binding::CTSRgbColor::CTSRgbColor()
     : CTSRgbColor(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-java::util::List* org::apache::poi::sl::draw::binding::CTSRgbColor::getEGColorTransform()
+java::util::List* poi::sl::draw::binding::CTSRgbColor::getEGColorTransform()
 {
     if(egColorTransform == nullptr) {
         egColorTransform = new ::java::util::ArrayList();
@@ -43,40 +43,40 @@ java::util::List* org::apache::poi::sl::draw::binding::CTSRgbColor::getEGColorTr
     return java_cast< ::java::util::List* >(this->egColorTransform);
 }
 
-bool org::apache::poi::sl::draw::binding::CTSRgbColor::isSetEGColorTransform()
+bool poi::sl::draw::binding::CTSRgbColor::isSetEGColorTransform()
 {
     return ((java_cast< ::java::util::List* >(this->egColorTransform) != nullptr) && (!npc(java_cast< ::java::util::List* >(this->egColorTransform))->isEmpty()));
 }
 
-void org::apache::poi::sl::draw::binding::CTSRgbColor::unsetEGColorTransform()
+void poi::sl::draw::binding::CTSRgbColor::unsetEGColorTransform()
 {
     this->egColorTransform = nullptr;
 }
 
-int8_tArray* org::apache::poi::sl::draw::binding::CTSRgbColor::getVal()
+int8_tArray* poi::sl::draw::binding::CTSRgbColor::getVal()
 {
     return val;
 }
 
-void org::apache::poi::sl::draw::binding::CTSRgbColor::setVal(::int8_tArray* value)
+void poi::sl::draw::binding::CTSRgbColor::setVal(::int8_tArray* value)
 {
     this->val = (value != nullptr) ? npc(value)->clone() : static_cast< ::int8_tArray* >(nullptr);
 }
 
-bool org::apache::poi::sl::draw::binding::CTSRgbColor::isSetVal()
+bool poi::sl::draw::binding::CTSRgbColor::isSetVal()
 {
     return (this->val != nullptr);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::draw::binding::CTSRgbColor::class_()
+java::lang::Class* poi::sl::draw::binding::CTSRgbColor::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.draw.binding.CTSRgbColor", 42);
     return c;
 }
 
-java::lang::Class* org::apache::poi::sl::draw::binding::CTSRgbColor::getClass0()
+java::lang::Class* poi::sl::draw::binding::CTSRgbColor::getClass0()
 {
     return class_();
 }

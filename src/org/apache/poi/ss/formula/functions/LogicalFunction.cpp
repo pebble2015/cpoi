@@ -18,25 +18,19 @@
 #include <org/apache/poi/ss/formula/functions/LogicalFunction_9.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -45,101 +39,101 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::LogicalFunction::LogicalFunction(const ::default_init_tag&)
+poi::ss::formula::functions::LogicalFunction::LogicalFunction(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::LogicalFunction::LogicalFunction()
+poi::ss::formula::functions::LogicalFunction::LogicalFunction()
     : LogicalFunction(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::LogicalFunction::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* arg0)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::LogicalFunction::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::poi::ss::formula::eval::ValueEval* arg0)
 {
-    ::org::apache::poi::ss::formula::eval::ValueEval* ve;
+    ::poi::ss::formula::eval::ValueEval* ve;
     try {
-        ve = ::org::apache::poi::ss::formula::eval::OperandResolver::getSingleValue(arg0, srcRowIndex, srcColumnIndex);
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+        ve = ::poi::ss::formula::eval::OperandResolver::getSingleValue(arg0, srcRowIndex, srcColumnIndex);
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
         ve = npc(e)->getErrorEval();
     }
-    return ::org::apache::poi::ss::formula::eval::BoolEval::valueOf(evaluate(ve));
+    return ::poi::ss::formula::eval::BoolEval::valueOf(evaluate(ve));
 }
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::LogicalFunction::ISLOGICAL()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::LogicalFunction::ISLOGICAL()
 {
     clinit();
     return ISLOGICAL_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::LogicalFunction::ISLOGICAL_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::LogicalFunction::ISLOGICAL_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::LogicalFunction::ISNONTEXT()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::LogicalFunction::ISNONTEXT()
 {
     clinit();
     return ISNONTEXT_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::LogicalFunction::ISNONTEXT_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::LogicalFunction::ISNONTEXT_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::LogicalFunction::ISNUMBER()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::LogicalFunction::ISNUMBER()
 {
     clinit();
     return ISNUMBER_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::LogicalFunction::ISNUMBER_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::LogicalFunction::ISNUMBER_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::LogicalFunction::ISTEXT()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::LogicalFunction::ISTEXT()
 {
     clinit();
     return ISTEXT_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::LogicalFunction::ISTEXT_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::LogicalFunction::ISTEXT_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::LogicalFunction::ISBLANK()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::LogicalFunction::ISBLANK()
 {
     clinit();
     return ISBLANK_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::LogicalFunction::ISBLANK_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::LogicalFunction::ISBLANK_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::LogicalFunction::ISERROR()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::LogicalFunction::ISERROR()
 {
     clinit();
     return ISERROR_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::LogicalFunction::ISERROR_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::LogicalFunction::ISERROR_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::LogicalFunction::ISERR()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::LogicalFunction::ISERR()
 {
     clinit();
     return ISERR_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::LogicalFunction::ISERR_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::LogicalFunction::ISERR_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::LogicalFunction::ISNA()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::LogicalFunction::ISNA()
 {
     clinit();
     return ISNA_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::LogicalFunction::ISNA_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::LogicalFunction::ISNA_;
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::functions::LogicalFunction::ISREF()
+poi::ss::formula::functions::Function*& poi::ss::formula::functions::LogicalFunction::ISREF()
 {
     clinit();
     return ISREF_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::functions::LogicalFunction::ISREF_;
+poi::ss::formula::functions::Function* poi::ss::formula::functions::LogicalFunction::ISREF_;
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::LogicalFunction::class_()
+java::lang::Class* poi::ss::formula::functions::LogicalFunction::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.LogicalFunction", 51);
     return c;
 }
 
-void org::apache::poi::ss::formula::functions::LogicalFunction::clinit()
+void poi::ss::formula::functions::LogicalFunction::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -163,12 +157,12 @@ struct clinit_ {
     }
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::LogicalFunction::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::LogicalFunction::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
 {
     return super::evaluate(args, srcRowIndex, srcColumnIndex);
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::LogicalFunction::getClass0()
+java::lang::Class* poi::ss::formula::functions::LogicalFunction::getClass0()
 {
     return class_();
 }

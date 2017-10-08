@@ -42,29 +42,29 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::atp::DateParser::DateParser(const ::default_init_tag&)
+poi::ss::formula::atp::DateParser::DateParser(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::atp::DateParser::DateParser() 
+poi::ss::formula::atp::DateParser::DateParser() 
     : DateParser(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::ss::formula::atp::DateParser::ctor()
+void poi::ss::formula::atp::DateParser::ctor()
 {
     super::ctor();
 }
 
-java::util::Calendar* org::apache::poi::ss::formula::atp::DateParser::parseDate(::java::lang::String* strVal) /* throws(EvaluationException) */
+java::util::Calendar* poi::ss::formula::atp::DateParser::parseDate(::java::lang::String* strVal) /* throws(EvaluationException) */
 {
     clinit();
     auto parts = npc(::java::util::regex::Pattern::compile(u"/"_j))->split(strVal);
     if(npc(parts)->length != 3) {
-        throw new ::org::apache::poi::ss::formula::eval::EvaluationException(::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID());
+        throw new ::poi::ss::formula::eval::EvaluationException(::poi::ss::formula::eval::ErrorEval::VALUE_INVALID());
     }
     auto part2 = (*parts)[int32_t(2)];
     auto spacePos = npc(part2)->indexOf(static_cast< int32_t >(u' '));
@@ -79,10 +79,10 @@ java::util::Calendar* org::apache::poi::ss::formula::atp::DateParser::parseDate(
         f1 = ::java::lang::Integer::parseInt((*parts)[int32_t(1)]);
         f2 = ::java::lang::Integer::parseInt(part2);
     } catch (::java::lang::NumberFormatException* e) {
-        throw new ::org::apache::poi::ss::formula::eval::EvaluationException(::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID());
+        throw new ::poi::ss::formula::eval::EvaluationException(::poi::ss::formula::eval::ErrorEval::VALUE_INVALID());
     }
     if(f0 < 0 || f1 < 0 || f2 < 0 || (f0 > 12 && f1 > 12 && f2 > 12)) {
-        throw new ::org::apache::poi::ss::formula::eval::EvaluationException(::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID());
+        throw new ::poi::ss::formula::eval::EvaluationException(::poi::ss::formula::eval::ErrorEval::VALUE_INVALID());
     }
     if(f0 >= 1900 && f0 < 9999) {
         return makeDate(f0, f1, f2);
@@ -91,15 +91,15 @@ java::util::Calendar* org::apache::poi::ss::formula::atp::DateParser::parseDate(
         ->append(u"'"_j)->toString());
 }
 
-java::util::Calendar* org::apache::poi::ss::formula::atp::DateParser::makeDate(int32_t year, int32_t month, int32_t day) /* throws(EvaluationException) */
+java::util::Calendar* poi::ss::formula::atp::DateParser::makeDate(int32_t year, int32_t month, int32_t day) /* throws(EvaluationException) */
 {
     clinit();
     if(month < 1 || month > 12) {
-        throw new ::org::apache::poi::ss::formula::eval::EvaluationException(::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID());
+        throw new ::poi::ss::formula::eval::EvaluationException(::poi::ss::formula::eval::ErrorEval::VALUE_INVALID());
     }
-    auto cal = ::org::apache::poi::util::LocaleUtil::getLocaleCalendar(year, month - int32_t(1), 1, 0, 0, 0);
+    auto cal = ::poi::util::LocaleUtil::getLocaleCalendar(year, month - int32_t(1), 1, 0, 0, 0);
     if(day < 1 || day > npc(cal)->getActualMaximum(::java::util::Calendar::DAY_OF_MONTH)) {
-        throw new ::org::apache::poi::ss::formula::eval::EvaluationException(::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID());
+        throw new ::poi::ss::formula::eval::EvaluationException(::poi::ss::formula::eval::ErrorEval::VALUE_INVALID());
     }
     npc(cal)->set(::java::util::Calendar::DAY_OF_MONTH, day);
     return cal;
@@ -107,13 +107,13 @@ java::util::Calendar* org::apache::poi::ss::formula::atp::DateParser::makeDate(i
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::atp::DateParser::class_()
+java::lang::Class* poi::ss::formula::atp::DateParser::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.atp.DateParser", 40);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::atp::DateParser::getClass0()
+java::lang::Class* poi::ss::formula::atp::DateParser::getClass0()
 {
     return class_();
 }

@@ -19,20 +19,20 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::format::CellElapsedFormatter_ElapsedPartHandler::CellElapsedFormatter_ElapsedPartHandler(CellElapsedFormatter *CellElapsedFormatter_this, const ::default_init_tag&)
+poi::ss::format::CellElapsedFormatter_ElapsedPartHandler::CellElapsedFormatter_ElapsedPartHandler(CellElapsedFormatter *CellElapsedFormatter_this, const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
     , CellElapsedFormatter_this(CellElapsedFormatter_this)
 {
     clinit();
 }
 
-org::apache::poi::ss::format::CellElapsedFormatter_ElapsedPartHandler::CellElapsedFormatter_ElapsedPartHandler(CellElapsedFormatter *CellElapsedFormatter_this)
+poi::ss::format::CellElapsedFormatter_ElapsedPartHandler::CellElapsedFormatter_ElapsedPartHandler(CellElapsedFormatter *CellElapsedFormatter_this)
     : CellElapsedFormatter_ElapsedPartHandler(CellElapsedFormatter_this, *static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-java::lang::String* org::apache::poi::ss::format::CellElapsedFormatter_ElapsedPartHandler::handlePart(::java::util::regex::Matcher* m, ::java::lang::String* part, CellFormatType* type, ::java::lang::StringBuffer* desc)
+java::lang::String* poi::ss::format::CellElapsedFormatter_ElapsedPartHandler::handlePart(::java::util::regex::Matcher* m, ::java::lang::String* part, CellFormatType* type, ::java::lang::StringBuffer* desc)
 {
     auto pos = npc(desc)->length();
     auto firstCh = npc(part)->charAt(int32_t(0));
@@ -80,13 +80,13 @@ java::lang::String* org::apache::poi::ss::format::CellElapsedFormatter_ElapsedPa
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::format::CellElapsedFormatter_ElapsedPartHandler::class_()
+java::lang::Class* poi::ss::format::CellElapsedFormatter_ElapsedPartHandler::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.format.CellElapsedFormatter.ElapsedPartHandler", 64);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::format::CellElapsedFormatter_ElapsedPartHandler::getClass0()
+java::lang::Class* poi::ss::format::CellElapsedFormatter_ElapsedPartHandler::getClass0()
 {
     return class_();
 }

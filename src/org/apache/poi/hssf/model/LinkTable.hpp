@@ -28,26 +28,20 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
+        namespace model
         {
-            namespace hssf
-            {
-                namespace model
-                {
-typedef ::SubArray< ::org::apache::poi::hssf::model::LinkTable_ExternalBookBlock, ::java::lang::ObjectArray > LinkTable_ExternalBookBlockArray;
-                } // model
-            } // hssf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hssf::model::LinkTable_ExternalBookBlock, ::java::lang::ObjectArray > LinkTable_ExternalBookBlockArray;
+        } // model
+    } // hssf
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::model::LinkTable final
+class poi::hssf::model::LinkTable final
     : public ::java::lang::Object
 {
 
@@ -56,7 +50,7 @@ public:
 
 private:
     LinkTable_ExternalBookBlockArray* _externalBookBlocks {  };
-    ::org::apache::poi::hssf::record::ExternSheetRecord* _externSheetRecord {  };
+    ::poi::hssf::record::ExternSheetRecord* _externSheetRecord {  };
     ::java::util::List* _definedNames {  };
     int32_t _recordCount {  };
     WorkbookRecordList* _workbookRecordList {  };
@@ -64,23 +58,23 @@ protected:
     void ctor(::java::util::List* inputList, int32_t startIndex, WorkbookRecordList* workbookRecordList, ::java::util::Map* commentRecords);
 
 private:
-    static ::org::apache::poi::hssf::record::ExternSheetRecord* readExtSheetRecord(RecordStream* rs);
+    static ::poi::hssf::record::ExternSheetRecord* readExtSheetRecord(RecordStream* rs);
 protected:
     void ctor(int32_t numberOfSheets, WorkbookRecordList* workbookRecordList);
 
 public:
     int32_t getRecordCount();
-    ::org::apache::poi::hssf::record::NameRecord* getSpecificBuiltinRecord(int8_t builtInCode, int32_t sheetNumber);
+    ::poi::hssf::record::NameRecord* getSpecificBuiltinRecord(int8_t builtInCode, int32_t sheetNumber);
     void removeBuiltinRecord(int8_t name, int32_t sheetIndex);
     int32_t getNumNames();
-    ::org::apache::poi::hssf::record::NameRecord* getNameRecord(int32_t index);
-    void addName(::org::apache::poi::hssf::record::NameRecord* name);
+    ::poi::hssf::record::NameRecord* getNameRecord(int32_t index);
+    void addName(::poi::hssf::record::NameRecord* name);
     void removeName(int32_t namenum);
-    bool nameAlreadyExists(::org::apache::poi::hssf::record::NameRecord* name);
+    bool nameAlreadyExists(::poi::hssf::record::NameRecord* name);
 
 private:
-    static bool isDuplicatedNames(::org::apache::poi::hssf::record::NameRecord* firstName, ::org::apache::poi::hssf::record::NameRecord* lastName);
-    static bool isSameSheetNames(::org::apache::poi::hssf::record::NameRecord* firstName, ::org::apache::poi::hssf::record::NameRecord* lastName);
+    static bool isDuplicatedNames(::poi::hssf::record::NameRecord* firstName, ::poi::hssf::record::NameRecord* lastName);
+    static bool isSameSheetNames(::poi::hssf::record::NameRecord* firstName, ::poi::hssf::record::NameRecord* lastName);
 
 public:
     ::java::lang::StringArray* getExternalBookAndSheetName(int32_t extRefIndex);
@@ -89,7 +83,7 @@ private:
     int32_t getExternalWorkbookIndex(::java::lang::String* workbookName);
 
 public:
-    int32_t linkExternalWorkbook(::java::lang::String* name, ::org::apache::poi::ss::usermodel::Workbook* externalWorkbook);
+    int32_t linkExternalWorkbook(::java::lang::String* name, ::poi::ss::usermodel::Workbook* externalWorkbook);
     int32_t getExternalSheetIndex(::java::lang::String* workbookName, ::java::lang::String* firstSheetName, ::java::lang::String* lastSheetName);
 
 private:
@@ -108,8 +102,8 @@ private:
 public:
     ::java::lang::String* resolveNameXText(int32_t refIndex, int32_t definedNameIndex, InternalWorkbook* workbook);
     int32_t resolveNameXIx(int32_t refIndex, int32_t definedNameIndex);
-    ::org::apache::poi::ss::formula::ptg::NameXPtg* getNameXPtg(::java::lang::String* name, int32_t sheetRefIndex);
-    ::org::apache::poi::ss::formula::ptg::NameXPtg* addNameXPtg(::java::lang::String* name);
+    ::poi::ss::formula::ptg::NameXPtg* getNameXPtg(::java::lang::String* name, int32_t sheetRefIndex);
+    ::poi::ss::formula::ptg::NameXPtg* addNameXPtg(::java::lang::String* name);
 
 private:
     int32_t extendExternalBookBlocks(LinkTable_ExternalBookBlock* newBlock);

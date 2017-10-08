@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::RecordBase
+class poi::hssf::record::RecordBase
     : public virtual ::java::lang::Object
 {
 

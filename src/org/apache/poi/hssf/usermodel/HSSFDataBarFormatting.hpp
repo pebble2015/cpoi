@@ -14,9 +14,9 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFDataBarFormatting final
+class poi::hssf::usermodel::HSSFDataBarFormatting final
     : public virtual ::java::lang::Object
-    , public ::org::apache::poi::ss::usermodel::DataBarFormatting
+    , public ::poi::ss::usermodel::DataBarFormatting
 {
 
 public:
@@ -24,10 +24,10 @@ public:
 
 private:
     HSSFSheet* sheet {  };
-    ::org::apache::poi::hssf::record::CFRule12Record* cfRule12Record {  };
-    ::org::apache::poi::hssf::record::cf::DataBarFormatting* databarFormatting {  };
+    ::poi::hssf::record::CFRule12Record* cfRule12Record {  };
+    ::poi::hssf::record::cf::DataBarFormatting* databarFormatting {  };
 protected:
-    void ctor(::org::apache::poi::hssf::record::CFRule12Record* cfRule12Record, HSSFSheet* sheet);
+    void ctor(::poi::hssf::record::CFRule12Record* cfRule12Record, HSSFSheet* sheet);
 
 public:
     bool isLeftToRight() override;
@@ -37,7 +37,7 @@ public:
     int32_t getWidthMax() override;
     void setWidthMax(int32_t width) override;
     HSSFExtendedColor* getColor() override;
-    void setColor(::org::apache::poi::ss::usermodel::Color* color) override;
+    void setColor(::poi::ss::usermodel::Color* color) override;
     HSSFConditionalFormattingThreshold* getMinThreshold() override;
     HSSFConditionalFormattingThreshold* getMaxThreshold() override;
     bool isIconOnly() override;
@@ -47,7 +47,7 @@ public:
     // Generated
 
 public: /* protected */
-    HSSFDataBarFormatting(::org::apache::poi::hssf::record::CFRule12Record* cfRule12Record, HSSFSheet* sheet);
+    HSSFDataBarFormatting(::poi::hssf::record::CFRule12Record* cfRule12Record, HSSFSheet* sheet);
 protected:
     HSSFDataBarFormatting(const ::default_init_tag&);
 

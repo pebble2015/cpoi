@@ -21,44 +21,44 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::atp::YearFracCalculator::YearFracCalculator(const ::default_init_tag&)
+poi::ss::formula::atp::YearFracCalculator::YearFracCalculator(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::atp::YearFracCalculator::YearFracCalculator() 
+poi::ss::formula::atp::YearFracCalculator::YearFracCalculator() 
     : YearFracCalculator(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-constexpr int32_t org::apache::poi::ss::formula::atp::YearFracCalculator::MS_PER_HOUR;
+constexpr int32_t poi::ss::formula::atp::YearFracCalculator::MS_PER_HOUR;
 
-constexpr int32_t org::apache::poi::ss::formula::atp::YearFracCalculator::MS_PER_DAY;
+constexpr int32_t poi::ss::formula::atp::YearFracCalculator::MS_PER_DAY;
 
-constexpr int32_t org::apache::poi::ss::formula::atp::YearFracCalculator::DAYS_PER_NORMAL_YEAR;
+constexpr int32_t poi::ss::formula::atp::YearFracCalculator::DAYS_PER_NORMAL_YEAR;
 
-constexpr int32_t org::apache::poi::ss::formula::atp::YearFracCalculator::DAYS_PER_LEAP_YEAR;
+constexpr int32_t poi::ss::formula::atp::YearFracCalculator::DAYS_PER_LEAP_YEAR;
 
-constexpr int32_t org::apache::poi::ss::formula::atp::YearFracCalculator::LONG_MONTH_LEN;
+constexpr int32_t poi::ss::formula::atp::YearFracCalculator::LONG_MONTH_LEN;
 
-constexpr int32_t org::apache::poi::ss::formula::atp::YearFracCalculator::SHORT_MONTH_LEN;
+constexpr int32_t poi::ss::formula::atp::YearFracCalculator::SHORT_MONTH_LEN;
 
-constexpr int32_t org::apache::poi::ss::formula::atp::YearFracCalculator::SHORT_FEB_LEN;
+constexpr int32_t poi::ss::formula::atp::YearFracCalculator::SHORT_FEB_LEN;
 
-constexpr int32_t org::apache::poi::ss::formula::atp::YearFracCalculator::LONG_FEB_LEN;
+constexpr int32_t poi::ss::formula::atp::YearFracCalculator::LONG_FEB_LEN;
 
-void org::apache::poi::ss::formula::atp::YearFracCalculator::ctor()
+void poi::ss::formula::atp::YearFracCalculator::ctor()
 {
     super::ctor();
 }
 
-double org::apache::poi::ss::formula::atp::YearFracCalculator::calculate(double pStartDateVal, double pEndDateVal, int32_t basis) /* throws(EvaluationException) */
+double poi::ss::formula::atp::YearFracCalculator::calculate(double pStartDateVal, double pEndDateVal, int32_t basis) /* throws(EvaluationException) */
 {
     clinit();
     if(basis < 0 || basis >= 5) {
-        throw new ::org::apache::poi::ss::formula::eval::EvaluationException(::org::apache::poi::ss::formula::eval::ErrorEval::NUM_ERROR());
+        throw new ::poi::ss::formula::eval::EvaluationException(::poi::ss::formula::eval::ErrorEval::NUM_ERROR());
     }
     auto startDateVal = static_cast< int32_t >(::java::lang::Math::floor(pStartDateVal));
     auto endDateVal = static_cast< int32_t >(::java::lang::Math::floor(pEndDateVal));
@@ -86,7 +86,7 @@ double org::apache::poi::ss::formula::atp::YearFracCalculator::calculate(double 
     throw new ::java::lang::IllegalStateException(u"cannot happen"_j);
 }
 
-double org::apache::poi::ss::formula::atp::YearFracCalculator::basis0(int32_t startDateVal, int32_t endDateVal)
+double poi::ss::formula::atp::YearFracCalculator::basis0(int32_t startDateVal, int32_t endDateVal)
 {
     clinit();
     auto startDate = createDate(startDateVal);
@@ -109,7 +109,7 @@ double org::apache::poi::ss::formula::atp::YearFracCalculator::basis0(int32_t st
     return calculateAdjusted(startDate, endDate, date1day, date2day);
 }
 
-double org::apache::poi::ss::formula::atp::YearFracCalculator::basis1(int32_t startDateVal, int32_t endDateVal)
+double poi::ss::formula::atp::YearFracCalculator::basis1(int32_t startDateVal, int32_t endDateVal)
 {
     clinit();
     auto startDate = createDate(startDateVal);
@@ -125,19 +125,19 @@ double org::apache::poi::ss::formula::atp::YearFracCalculator::basis1(int32_t st
     return dateDiff(npc(startDate)->tsMilliseconds, npc(endDate)->tsMilliseconds) / yearLength;
 }
 
-double org::apache::poi::ss::formula::atp::YearFracCalculator::basis2(int32_t startDateVal, int32_t endDateVal)
+double poi::ss::formula::atp::YearFracCalculator::basis2(int32_t startDateVal, int32_t endDateVal)
 {
     clinit();
     return (endDateVal - startDateVal) / 360.0;
 }
 
-double org::apache::poi::ss::formula::atp::YearFracCalculator::basis3(double startDateVal, double endDateVal)
+double poi::ss::formula::atp::YearFracCalculator::basis3(double startDateVal, double endDateVal)
 {
     clinit();
     return (endDateVal - startDateVal) / 365.0;
 }
 
-double org::apache::poi::ss::formula::atp::YearFracCalculator::basis4(int32_t startDateVal, int32_t endDateVal)
+double poi::ss::formula::atp::YearFracCalculator::basis4(int32_t startDateVal, int32_t endDateVal)
 {
     clinit();
     auto startDate = createDate(startDateVal);
@@ -153,14 +153,14 @@ double org::apache::poi::ss::formula::atp::YearFracCalculator::basis4(int32_t st
     return calculateAdjusted(startDate, endDate, date1day, date2day);
 }
 
-double org::apache::poi::ss::formula::atp::YearFracCalculator::calculateAdjusted(YearFracCalculator_SimpleDate* startDate, YearFracCalculator_SimpleDate* endDate, int32_t date1day, int32_t date2day)
+double poi::ss::formula::atp::YearFracCalculator::calculateAdjusted(YearFracCalculator_SimpleDate* startDate, YearFracCalculator_SimpleDate* endDate, int32_t date1day, int32_t date2day)
 {
     clinit();
     double dayCount = (npc(endDate)->year - npc(startDate)->year) * int32_t(360) + (npc(endDate)->month - npc(startDate)->month) * SHORT_MONTH_LEN + (date2day - date1day) * int32_t(1);
     return dayCount / int32_t(360);
 }
 
-bool org::apache::poi::ss::formula::atp::YearFracCalculator::isLastDayOfMonth(YearFracCalculator_SimpleDate* date)
+bool poi::ss::formula::atp::YearFracCalculator::isLastDayOfMonth(YearFracCalculator_SimpleDate* date)
 {
     clinit();
     if(npc(date)->day < SHORT_FEB_LEN) {
@@ -169,7 +169,7 @@ bool org::apache::poi::ss::formula::atp::YearFracCalculator::isLastDayOfMonth(Ye
     return npc(date)->day == getLastDayOfMonth(date);
 }
 
-int32_t org::apache::poi::ss::formula::atp::YearFracCalculator::getLastDayOfMonth(YearFracCalculator_SimpleDate* date)
+int32_t poi::ss::formula::atp::YearFracCalculator::getLastDayOfMonth(YearFracCalculator_SimpleDate* date)
 {
     clinit();
     switch (npc(date)->month) {
@@ -194,7 +194,7 @@ int32_t org::apache::poi::ss::formula::atp::YearFracCalculator::getLastDayOfMont
     return SHORT_FEB_LEN;
 }
 
-bool org::apache::poi::ss::formula::atp::YearFracCalculator::shouldCountFeb29(YearFracCalculator_SimpleDate* start, YearFracCalculator_SimpleDate* end)
+bool poi::ss::formula::atp::YearFracCalculator::shouldCountFeb29(YearFracCalculator_SimpleDate* start, YearFracCalculator_SimpleDate* end)
 {
     clinit();
     if(isLeapYear(npc(start)->year)) {
@@ -224,7 +224,7 @@ bool org::apache::poi::ss::formula::atp::YearFracCalculator::shouldCountFeb29(Ye
     return false;
 }
 
-int32_t org::apache::poi::ss::formula::atp::YearFracCalculator::dateDiff(int64_t startDateMS, int64_t endDateMS)
+int32_t poi::ss::formula::atp::YearFracCalculator::dateDiff(int64_t startDateMS, int64_t endDateMS)
 {
     clinit();
     auto msDiff = endDateMS - startDateMS;
@@ -243,7 +243,7 @@ int32_t org::apache::poi::ss::formula::atp::YearFracCalculator::dateDiff(int64_t
     return static_cast< int32_t >((0.5 + (static_cast< double >(msDiff) / MS_PER_DAY)));
 }
 
-double org::apache::poi::ss::formula::atp::YearFracCalculator::averageYearLength(int32_t startYear, int32_t endYear)
+double poi::ss::formula::atp::YearFracCalculator::averageYearLength(int32_t startYear, int32_t endYear)
 {
     clinit();
     auto dayCount = int32_t(0);
@@ -257,7 +257,7 @@ double org::apache::poi::ss::formula::atp::YearFracCalculator::averageYearLength
     return dayCount / numberOfYears;
 }
 
-bool org::apache::poi::ss::formula::atp::YearFracCalculator::isLeapYear(int32_t i)
+bool poi::ss::formula::atp::YearFracCalculator::isLeapYear(int32_t i)
 {
     clinit();
     if(i % int32_t(4) != 0) {
@@ -272,7 +272,7 @@ bool org::apache::poi::ss::formula::atp::YearFracCalculator::isLeapYear(int32_t 
     return true;
 }
 
-bool org::apache::poi::ss::formula::atp::YearFracCalculator::isGreaterThanOneYear(YearFracCalculator_SimpleDate* start, YearFracCalculator_SimpleDate* end)
+bool poi::ss::formula::atp::YearFracCalculator::isGreaterThanOneYear(YearFracCalculator_SimpleDate* start, YearFracCalculator_SimpleDate* end)
 {
     clinit();
     if(npc(start)->year == npc(end)->year) {
@@ -290,23 +290,23 @@ bool org::apache::poi::ss::formula::atp::YearFracCalculator::isGreaterThanOneYea
     return npc(start)->day < npc(end)->day;
 }
 
-org::apache::poi::ss::formula::atp::YearFracCalculator_SimpleDate* org::apache::poi::ss::formula::atp::YearFracCalculator::createDate(int32_t dayCount)
+poi::ss::formula::atp::YearFracCalculator_SimpleDate* poi::ss::formula::atp::YearFracCalculator::createDate(int32_t dayCount)
 {
     clinit();
-    auto cal = ::org::apache::poi::util::LocaleUtil::getLocaleCalendar(::org::apache::poi::util::LocaleUtil::TIMEZONE_UTC());
-    ::org::apache::poi::ss::usermodel::DateUtil::setCalendar(cal, dayCount, 0, false, false);
+    auto cal = ::poi::util::LocaleUtil::getLocaleCalendar(::poi::util::LocaleUtil::TIMEZONE_UTC());
+    ::poi::ss::usermodel::DateUtil::setCalendar(cal, dayCount, 0, false, false);
     return new YearFracCalculator_SimpleDate(cal);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::atp::YearFracCalculator::class_()
+java::lang::Class* poi::ss::formula::atp::YearFracCalculator::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.atp.YearFracCalculator", 48);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::atp::YearFracCalculator::getClass0()
+java::lang::Class* poi::ss::formula::atp::YearFracCalculator::getClass0()
 {
     return class_();
 }

@@ -22,19 +22,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::sl::draw::binding::CTAdjustHandleList::CTAdjustHandleList(const ::default_init_tag&)
+poi::sl::draw::binding::CTAdjustHandleList::CTAdjustHandleList(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::draw::binding::CTAdjustHandleList::CTAdjustHandleList()
+poi::sl::draw::binding::CTAdjustHandleList::CTAdjustHandleList()
     : CTAdjustHandleList(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-java::util::List* org::apache::poi::sl::draw::binding::CTAdjustHandleList::getAhXYOrAhPolar()
+java::util::List* poi::sl::draw::binding::CTAdjustHandleList::getAhXYOrAhPolar()
 {
     if(ahXYOrAhPolar == nullptr) {
         ahXYOrAhPolar = new ::java::util::ArrayList();
@@ -42,25 +42,25 @@ java::util::List* org::apache::poi::sl::draw::binding::CTAdjustHandleList::getAh
     return java_cast< ::java::util::List* >(this->ahXYOrAhPolar);
 }
 
-bool org::apache::poi::sl::draw::binding::CTAdjustHandleList::isSetAhXYOrAhPolar()
+bool poi::sl::draw::binding::CTAdjustHandleList::isSetAhXYOrAhPolar()
 {
     return ((java_cast< ::java::util::List* >(this->ahXYOrAhPolar) != nullptr) && (!npc(java_cast< ::java::util::List* >(this->ahXYOrAhPolar))->isEmpty()));
 }
 
-void org::apache::poi::sl::draw::binding::CTAdjustHandleList::unsetAhXYOrAhPolar()
+void poi::sl::draw::binding::CTAdjustHandleList::unsetAhXYOrAhPolar()
 {
     this->ahXYOrAhPolar = nullptr;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::draw::binding::CTAdjustHandleList::class_()
+java::lang::Class* poi::sl::draw::binding::CTAdjustHandleList::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.draw.binding.CTAdjustHandleList", 49);
     return c;
 }
 
-java::lang::Class* org::apache::poi::sl::draw::binding::CTAdjustHandleList::getClass0()
+java::lang::Class* poi::sl::draw::binding::CTAdjustHandleList::getClass0()
 {
     return class_();
 }

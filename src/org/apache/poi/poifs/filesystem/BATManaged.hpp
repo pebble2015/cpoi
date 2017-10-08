@@ -6,7 +6,7 @@
 #include <org/apache/poi/poifs/filesystem/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::poifs::filesystem::BATManaged
+struct poi::poifs::filesystem::BATManaged
     : public virtual ::java::lang::Object
 {
     virtual int32_t countBlocks() = 0;

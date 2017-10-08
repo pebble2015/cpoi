@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hpsf::ClassID
+class poi::hpsf::ClassID
     : public virtual ::java::lang::Object
 {
 

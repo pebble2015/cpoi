@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hpsf::MutablePropertySet
+class poi::hpsf::MutablePropertySet
     : public PropertySet
 {
 

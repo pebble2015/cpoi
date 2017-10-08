@@ -55,38 +55,38 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ddf::UnknownEscherRecord::UnknownEscherRecord(const ::default_init_tag&)
+poi::ddf::UnknownEscherRecord::UnknownEscherRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ddf::UnknownEscherRecord::UnknownEscherRecord() 
+poi::ddf::UnknownEscherRecord::UnknownEscherRecord() 
     : UnknownEscherRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::ddf::UnknownEscherRecord::init()
+void poi::ddf::UnknownEscherRecord::init()
 {
     thedata = UnknownEscherRecord::NO_BYTES_;
 }
 
-int8_tArray*& org::apache::poi::ddf::UnknownEscherRecord::NO_BYTES()
+int8_tArray*& poi::ddf::UnknownEscherRecord::NO_BYTES()
 {
     clinit();
     return NO_BYTES_;
 }
-int8_tArray* org::apache::poi::ddf::UnknownEscherRecord::NO_BYTES_;
+int8_tArray* poi::ddf::UnknownEscherRecord::NO_BYTES_;
 
-void org::apache::poi::ddf::UnknownEscherRecord::ctor()
+void poi::ddf::UnknownEscherRecord::ctor()
 {
     super::ctor();
     init();
     _childRecords = new ::java::util::ArrayList();
 }
 
-int32_t org::apache::poi::ddf::UnknownEscherRecord::fillFields(::int8_tArray* data, int32_t offset, EscherRecordFactory* recordFactory)
+int32_t poi::ddf::UnknownEscherRecord::fillFields(::int8_tArray* data, int32_t offset, EscherRecordFactory* recordFactory)
 {
     auto bytesRemaining = readHeader(data, offset);
     auto available = npc(data)->length - (offset + int32_t(8));
@@ -116,11 +116,11 @@ int32_t org::apache::poi::ddf::UnknownEscherRecord::fillFields(::int8_tArray* da
     return bytesRemaining + int32_t(8);
 }
 
-int32_t org::apache::poi::ddf::UnknownEscherRecord::serialize(int32_t offset, ::int8_tArray* data, EscherSerializationListener* listener)
+int32_t poi::ddf::UnknownEscherRecord::serialize(int32_t offset, ::int8_tArray* data, EscherSerializationListener* listener)
 {
     npc(listener)->beforeRecordSerialize(offset, getRecordId(), this);
-    ::org::apache::poi::util::LittleEndian::putShort(data, offset, getOptions());
-    ::org::apache::poi::util::LittleEndian::putShort(data, offset + int32_t(2), getRecordId());
+    ::poi::util::LittleEndian::putShort(data, offset, getOptions());
+    ::poi::util::LittleEndian::putShort(data, offset + int32_t(2), getRecordId());
     auto remainingBytes = npc(thedata)->length;
     for (auto _i = npc(_childRecords)->iterator(); _i->hasNext(); ) {
         EscherRecord* r = java_cast< EscherRecord* >(_i->next());
@@ -128,7 +128,7 @@ int32_t org::apache::poi::ddf::UnknownEscherRecord::serialize(int32_t offset, ::
             remainingBytes += npc(r)->getRecordSize();
         }
     }
-    ::org::apache::poi::util::LittleEndian::putInt(data, offset + int32_t(4), remainingBytes);
+    ::poi::util::LittleEndian::putInt(data, offset + int32_t(4), remainingBytes);
     ::java::lang::System::arraycopy(thedata, 0, data, offset + int32_t(8), npc(thedata)->length);
     auto pos = offset + int32_t(8) + npc(thedata)->length;
     for (auto _i = npc(_childRecords)->iterator(); _i->hasNext(); ) {
@@ -141,27 +141,27 @@ int32_t org::apache::poi::ddf::UnknownEscherRecord::serialize(int32_t offset, ::
     return pos - offset;
 }
 
-int8_tArray* org::apache::poi::ddf::UnknownEscherRecord::getData()
+int8_tArray* poi::ddf::UnknownEscherRecord::getData()
 {
     return thedata;
 }
 
-int32_t org::apache::poi::ddf::UnknownEscherRecord::getRecordSize()
+int32_t poi::ddf::UnknownEscherRecord::getRecordSize()
 {
     return int32_t(8) + npc(thedata)->length;
 }
 
-java::util::List* org::apache::poi::ddf::UnknownEscherRecord::getChildRecords()
+java::util::List* poi::ddf::UnknownEscherRecord::getChildRecords()
 {
     return _childRecords;
 }
 
-void org::apache::poi::ddf::UnknownEscherRecord::setChildRecords(::java::util::List* childRecords)
+void poi::ddf::UnknownEscherRecord::setChildRecords(::java::util::List* childRecords)
 {
     _childRecords = childRecords;
 }
 
-org::apache::poi::ddf::UnknownEscherRecord* org::apache::poi::ddf::UnknownEscherRecord::clone()
+poi::ddf::UnknownEscherRecord* poi::ddf::UnknownEscherRecord::clone()
 {
     auto uer = new UnknownEscherRecord();
     npc(uer)->thedata = npc(this->thedata)->clone();
@@ -170,17 +170,17 @@ org::apache::poi::ddf::UnknownEscherRecord* org::apache::poi::ddf::UnknownEscher
     return uer;
 }
 
-java::lang::String* org::apache::poi::ddf::UnknownEscherRecord::getRecordName()
+java::lang::String* poi::ddf::UnknownEscherRecord::getRecordName()
 {
-    return ::java::lang::StringBuilder().append(u"Unknown 0x"_j)->append(::org::apache::poi::util::HexDump::toHex(getRecordId()))->toString();
+    return ::java::lang::StringBuilder().append(u"Unknown 0x"_j)->append(::poi::util::HexDump::toHex(getRecordId()))->toString();
 }
 
-void org::apache::poi::ddf::UnknownEscherRecord::addChildRecord(EscherRecord* childRecord)
+void poi::ddf::UnknownEscherRecord::addChildRecord(EscherRecord* childRecord)
 {
     npc(getChildRecords())->add(static_cast< ::java::lang::Object* >(childRecord));
 }
 
-java::lang::ObjectArrayArray* org::apache::poi::ddf::UnknownEscherRecord::getAttributeMap()
+java::lang::ObjectArrayArray* poi::ddf::UnknownEscherRecord::getAttributeMap()
 {
     auto numCh = npc(getChildRecords())->size();
     ::java::util::List* chLst = new ::java::util::ArrayList(numCh * int32_t(2) + int32_t(2));
@@ -208,13 +208,13 @@ java::lang::ObjectArrayArray* org::apache::poi::ddf::UnknownEscherRecord::getAtt
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ddf::UnknownEscherRecord::class_()
+java::lang::Class* poi::ddf::UnknownEscherRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ddf.UnknownEscherRecord", 38);
     return c;
 }
 
-void org::apache::poi::ddf::UnknownEscherRecord::clinit()
+void poi::ddf::UnknownEscherRecord::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -230,22 +230,22 @@ struct clinit_ {
     }
 }
 
-int32_t org::apache::poi::ddf::UnknownEscherRecord::fillFields(::int8_tArray* data, EscherRecordFactory* f)
+int32_t poi::ddf::UnknownEscherRecord::fillFields(::int8_tArray* data, EscherRecordFactory* f)
 {
     return super::fillFields(data, f);
 }
 
-int8_tArray* org::apache::poi::ddf::UnknownEscherRecord::serialize()
+int8_tArray* poi::ddf::UnknownEscherRecord::serialize()
 {
     return super::serialize();
 }
 
-int32_t org::apache::poi::ddf::UnknownEscherRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::ddf::UnknownEscherRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-java::lang::Class* org::apache::poi::ddf::UnknownEscherRecord::getClass0()
+java::lang::Class* poi::ddf::UnknownEscherRecord::getClass0()
 {
     return class_();
 }

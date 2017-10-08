@@ -18,59 +18,59 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::common::ExtendedColor::ExtendedColor(const ::default_init_tag&)
+poi::hssf::record::common::ExtendedColor::ExtendedColor(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::common::ExtendedColor::ExtendedColor() 
+poi::hssf::record::common::ExtendedColor::ExtendedColor() 
     : ExtendedColor(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::common::ExtendedColor::ExtendedColor(::org::apache::poi::util::LittleEndianInput* in) 
+poi::hssf::record::common::ExtendedColor::ExtendedColor(::poi::util::LittleEndianInput* in) 
     : ExtendedColor(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int32_t org::apache::poi::hssf::record::common::ExtendedColor::TYPE_AUTO;
+constexpr int32_t poi::hssf::record::common::ExtendedColor::TYPE_AUTO;
 
-constexpr int32_t org::apache::poi::hssf::record::common::ExtendedColor::TYPE_INDEXED;
+constexpr int32_t poi::hssf::record::common::ExtendedColor::TYPE_INDEXED;
 
-constexpr int32_t org::apache::poi::hssf::record::common::ExtendedColor::TYPE_RGB;
+constexpr int32_t poi::hssf::record::common::ExtendedColor::TYPE_RGB;
 
-constexpr int32_t org::apache::poi::hssf::record::common::ExtendedColor::TYPE_THEMED;
+constexpr int32_t poi::hssf::record::common::ExtendedColor::TYPE_THEMED;
 
-constexpr int32_t org::apache::poi::hssf::record::common::ExtendedColor::TYPE_UNSET;
+constexpr int32_t poi::hssf::record::common::ExtendedColor::TYPE_UNSET;
 
-constexpr int32_t org::apache::poi::hssf::record::common::ExtendedColor::THEME_DARK_1;
+constexpr int32_t poi::hssf::record::common::ExtendedColor::THEME_DARK_1;
 
-constexpr int32_t org::apache::poi::hssf::record::common::ExtendedColor::THEME_LIGHT_1;
+constexpr int32_t poi::hssf::record::common::ExtendedColor::THEME_LIGHT_1;
 
-constexpr int32_t org::apache::poi::hssf::record::common::ExtendedColor::THEME_DARK_2;
+constexpr int32_t poi::hssf::record::common::ExtendedColor::THEME_DARK_2;
 
-constexpr int32_t org::apache::poi::hssf::record::common::ExtendedColor::THEME_LIGHT_2;
+constexpr int32_t poi::hssf::record::common::ExtendedColor::THEME_LIGHT_2;
 
-constexpr int32_t org::apache::poi::hssf::record::common::ExtendedColor::THEME_ACCENT_1;
+constexpr int32_t poi::hssf::record::common::ExtendedColor::THEME_ACCENT_1;
 
-constexpr int32_t org::apache::poi::hssf::record::common::ExtendedColor::THEME_ACCENT_2;
+constexpr int32_t poi::hssf::record::common::ExtendedColor::THEME_ACCENT_2;
 
-constexpr int32_t org::apache::poi::hssf::record::common::ExtendedColor::THEME_ACCENT_3;
+constexpr int32_t poi::hssf::record::common::ExtendedColor::THEME_ACCENT_3;
 
-constexpr int32_t org::apache::poi::hssf::record::common::ExtendedColor::THEME_ACCENT_4;
+constexpr int32_t poi::hssf::record::common::ExtendedColor::THEME_ACCENT_4;
 
-constexpr int32_t org::apache::poi::hssf::record::common::ExtendedColor::THEME_ACCENT_5;
+constexpr int32_t poi::hssf::record::common::ExtendedColor::THEME_ACCENT_5;
 
-constexpr int32_t org::apache::poi::hssf::record::common::ExtendedColor::THEME_ACCENT_6;
+constexpr int32_t poi::hssf::record::common::ExtendedColor::THEME_ACCENT_6;
 
-constexpr int32_t org::apache::poi::hssf::record::common::ExtendedColor::THEME_HYPERLINK;
+constexpr int32_t poi::hssf::record::common::ExtendedColor::THEME_HYPERLINK;
 
-constexpr int32_t org::apache::poi::hssf::record::common::ExtendedColor::THEME_FOLLOWED_HYPERLINK;
+constexpr int32_t poi::hssf::record::common::ExtendedColor::THEME_FOLLOWED_HYPERLINK;
 
-void org::apache::poi::hssf::record::common::ExtendedColor::ctor()
+void poi::hssf::record::common::ExtendedColor::ctor()
 {
     super::ctor();
     this->type = TYPE_INDEXED;
@@ -78,7 +78,7 @@ void org::apache::poi::hssf::record::common::ExtendedColor::ctor()
     this->tint = 0.0;
 }
 
-void org::apache::poi::hssf::record::common::ExtendedColor::ctor(::org::apache::poi::util::LittleEndianInput* in)
+void poi::hssf::record::common::ExtendedColor::ctor(::poi::util::LittleEndianInput* in)
 {
     super::ctor();
     type = npc(in)->readInt();
@@ -95,52 +95,52 @@ void org::apache::poi::hssf::record::common::ExtendedColor::ctor(::org::apache::
     tint = npc(in)->readDouble();
 }
 
-int32_t org::apache::poi::hssf::record::common::ExtendedColor::getType()
+int32_t poi::hssf::record::common::ExtendedColor::getType()
 {
     return type;
 }
 
-void org::apache::poi::hssf::record::common::ExtendedColor::setType(int32_t type)
+void poi::hssf::record::common::ExtendedColor::setType(int32_t type)
 {
     this->type = type;
 }
 
-int32_t org::apache::poi::hssf::record::common::ExtendedColor::getColorIndex()
+int32_t poi::hssf::record::common::ExtendedColor::getColorIndex()
 {
     return colorIndex;
 }
 
-void org::apache::poi::hssf::record::common::ExtendedColor::setColorIndex(int32_t colorIndex)
+void poi::hssf::record::common::ExtendedColor::setColorIndex(int32_t colorIndex)
 {
     this->colorIndex = colorIndex;
 }
 
-int8_tArray* org::apache::poi::hssf::record::common::ExtendedColor::getRGBA()
+int8_tArray* poi::hssf::record::common::ExtendedColor::getRGBA()
 {
     return rgba;
 }
 
-void org::apache::poi::hssf::record::common::ExtendedColor::setRGBA(::int8_tArray* rgba)
+void poi::hssf::record::common::ExtendedColor::setRGBA(::int8_tArray* rgba)
 {
     this->rgba = (rgba == nullptr) ? static_cast< ::int8_tArray* >(nullptr) : npc(rgba)->clone();
 }
 
-int32_t org::apache::poi::hssf::record::common::ExtendedColor::getThemeIndex()
+int32_t poi::hssf::record::common::ExtendedColor::getThemeIndex()
 {
     return themeIndex;
 }
 
-void org::apache::poi::hssf::record::common::ExtendedColor::setThemeIndex(int32_t themeIndex)
+void poi::hssf::record::common::ExtendedColor::setThemeIndex(int32_t themeIndex)
 {
     this->themeIndex = themeIndex;
 }
 
-double org::apache::poi::hssf::record::common::ExtendedColor::getTint()
+double poi::hssf::record::common::ExtendedColor::getTint()
 {
     return tint;
 }
 
-void org::apache::poi::hssf::record::common::ExtendedColor::setTint(double tint)
+void poi::hssf::record::common::ExtendedColor::setTint(double tint)
 {
     if(tint < -int32_t(1) || tint > 1) {
         throw new ::java::lang::IllegalArgumentException(u"Tint/Shade must be between -1 and +1"_j);
@@ -148,20 +148,20 @@ void org::apache::poi::hssf::record::common::ExtendedColor::setTint(double tint)
     this->tint = tint;
 }
 
-java::lang::String* org::apache::poi::hssf::record::common::ExtendedColor::toString()
+java::lang::String* poi::hssf::record::common::ExtendedColor::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"    [Extended Color]\n"_j);
     npc(npc(npc(buffer)->append(u"          .type  = "_j))->append(type))->append(u"\n"_j);
     npc(npc(npc(buffer)->append(u"          .tint  = "_j))->append(tint))->append(u"\n"_j);
     npc(npc(npc(buffer)->append(u"          .c_idx = "_j))->append(colorIndex))->append(u"\n"_j);
-    npc(npc(npc(buffer)->append(u"          .rgba  = "_j))->append(::org::apache::poi::util::HexDump::toHex(rgba)))->append(u"\n"_j);
+    npc(npc(npc(buffer)->append(u"          .rgba  = "_j))->append(::poi::util::HexDump::toHex(rgba)))->append(u"\n"_j);
     npc(npc(npc(buffer)->append(u"          .t_idx = "_j))->append(themeIndex))->append(u"\n"_j);
     npc(buffer)->append(u"    [/Extended Color]\n"_j);
     return npc(buffer)->toString();
 }
 
-org::apache::poi::hssf::record::common::ExtendedColor* org::apache::poi::hssf::record::common::ExtendedColor::clone()
+poi::hssf::record::common::ExtendedColor* poi::hssf::record::common::ExtendedColor::clone()
 {
     auto exc = new ExtendedColor();
     npc(exc)->type = type;
@@ -177,12 +177,12 @@ org::apache::poi::hssf::record::common::ExtendedColor* org::apache::poi::hssf::r
     return exc;
 }
 
-int32_t org::apache::poi::hssf::record::common::ExtendedColor::getDataLength()
+int32_t poi::hssf::record::common::ExtendedColor::getDataLength()
 {
     return int32_t(4) + int32_t(4) + int32_t(8);
 }
 
-void org::apache::poi::hssf::record::common::ExtendedColor::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::common::ExtendedColor::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeInt(type);
     if(type == TYPE_INDEXED) {
@@ -199,13 +199,13 @@ void org::apache::poi::hssf::record::common::ExtendedColor::serialize(::org::apa
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::common::ExtendedColor::class_()
+java::lang::Class* poi::hssf::record::common::ExtendedColor::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.common.ExtendedColor", 47);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::record::common::ExtendedColor::getClass0()
+java::lang::Class* poi::hssf::record::common::ExtendedColor::getClass0()
 {
     return class_();
 }

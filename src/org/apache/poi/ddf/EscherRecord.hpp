@@ -28,7 +28,7 @@ typedef ::SubArray< ::java::lang::ObjectArray, CloneableArray, ::java::io::Seria
 
 struct default_init_tag;
 
-class org::apache::poi::ddf::EscherRecord
+class poi::ddf::EscherRecord
     : public virtual ::java::lang::Object
     , public virtual ::java::lang::Cloneable
 {
@@ -37,8 +37,8 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    static ::org::apache::poi::util::BitField* fInstance_;
-    static ::org::apache::poi::util::BitField* fVersion_;
+    static ::poi::util::BitField* fInstance_;
+    static ::poi::util::BitField* fVersion_;
     int16_t _options {  };
     int16_t _recordId {  };
 protected:
@@ -101,7 +101,7 @@ public:
     static void clinit();
 
 private:
-    static ::org::apache::poi::util::BitField*& fInstance();
-    static ::org::apache::poi::util::BitField*& fVersion();
+    static ::poi::util::BitField*& fInstance();
+    static ::poi::util::BitField*& fVersion();
     virtual ::java::lang::Class* getClass0();
 };

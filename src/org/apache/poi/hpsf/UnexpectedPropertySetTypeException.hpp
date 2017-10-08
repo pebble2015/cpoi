@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hpsf::UnexpectedPropertySetTypeException
+class poi::hpsf::UnexpectedPropertySetTypeException
     : public HPSFException
 {
 

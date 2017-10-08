@@ -13,7 +13,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::crypt::Encryptor
+class poi::poifs::crypt::Encryptor
     : public virtual ::java::lang::Object
     , public virtual ::java::lang::Cloneable
 {
@@ -27,13 +27,13 @@ private:
     ::javax::crypto::SecretKey* secretKey {  };
 
 public:
-    virtual ::java::io::OutputStream* getDataStream(::org::apache::poi::poifs::filesystem::DirectoryNode* dir) /* throws(IOException, GeneralSecurityException) */ = 0;
+    virtual ::java::io::OutputStream* getDataStream(::poi::poifs::filesystem::DirectoryNode* dir) /* throws(IOException, GeneralSecurityException) */ = 0;
     virtual void confirmPassword(::java::lang::String* password, ::int8_tArray* keySpec, ::int8_tArray* keySalt, ::int8_tArray* verifier, ::int8_tArray* verifierSalt, ::int8_tArray* integritySalt) = 0;
     virtual void confirmPassword(::java::lang::String* password) = 0;
     static Encryptor* getInstance(EncryptionInfo* info);
-    virtual ::java::io::OutputStream* getDataStream(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs) /* throws(IOException, GeneralSecurityException) */;
-    virtual ::java::io::OutputStream* getDataStream(::org::apache::poi::poifs::filesystem::OPOIFSFileSystem* fs) /* throws(IOException, GeneralSecurityException) */;
-    virtual ::java::io::OutputStream* getDataStream(::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs) /* throws(IOException, GeneralSecurityException) */;
+    virtual ::java::io::OutputStream* getDataStream(::poi::poifs::filesystem::NPOIFSFileSystem* fs) /* throws(IOException, GeneralSecurityException) */;
+    virtual ::java::io::OutputStream* getDataStream(::poi::poifs::filesystem::OPOIFSFileSystem* fs) /* throws(IOException, GeneralSecurityException) */;
+    virtual ::java::io::OutputStream* getDataStream(::poi::poifs::filesystem::POIFSFileSystem* fs) /* throws(IOException, GeneralSecurityException) */;
     virtual ChunkedCipherOutputStream* getDataStream(::java::io::OutputStream* stream, int32_t initialOffset) /* throws(IOException, GeneralSecurityException) */;
     virtual ::javax::crypto::SecretKey* getSecretKey();
     virtual void setSecretKey(::javax::crypto::SecretKey* secretKey);

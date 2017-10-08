@@ -14,10 +14,10 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::storage::SmallBlockTableWriter
+class poi::poifs::storage::SmallBlockTableWriter
     : public virtual ::java::lang::Object
     , public virtual BlockWritable
-    , public virtual ::org::apache::poi::poifs::filesystem::BATManaged
+    , public virtual ::poi::poifs::filesystem::BATManaged
 {
 
 public:
@@ -27,9 +27,9 @@ private:
     BlockAllocationTableWriter* _sbat {  };
     ::java::util::List* _small_blocks {  };
     int32_t _big_block_count {  };
-    ::org::apache::poi::poifs::property::RootProperty* _root {  };
+    ::poi::poifs::property::RootProperty* _root {  };
 protected:
-    void ctor(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ::java::util::List* documents, ::org::apache::poi::poifs::property::RootProperty* root);
+    void ctor(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ::java::util::List* documents, ::poi::poifs::property::RootProperty* root);
 
 public:
     virtual int32_t getSBATBlockCount();
@@ -39,7 +39,7 @@ public:
     void writeBlocks(::java::io::OutputStream* stream) /* throws(IOException) */ override;
 
     // Generated
-    SmallBlockTableWriter(::org::apache::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ::java::util::List* documents, ::org::apache::poi::poifs::property::RootProperty* root);
+    SmallBlockTableWriter(::poi::poifs::common::POIFSBigBlockSize* bigBlockSize, ::java::util::List* documents, ::poi::poifs::property::RootProperty* root);
 protected:
     SmallBlockTableWriter(const ::default_init_tag&);
 

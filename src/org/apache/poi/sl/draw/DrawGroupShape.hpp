@@ -10,25 +10,25 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::DrawGroupShape
+class poi::sl::draw::DrawGroupShape
     : public DrawShape
 {
 
 public:
     typedef DrawShape super;
 protected:
-    void ctor(::org::apache::poi::sl::usermodel::GroupShape* shape);
+    void ctor(::poi::sl::usermodel::GroupShape* shape);
 
 public:
     void draw(::java::awt::Graphics2D* graphics) override;
 
 public: /* protected */
-    ::org::apache::poi::sl::usermodel::GroupShape* getShape() override;
+    ::poi::sl::usermodel::GroupShape* getShape() override;
 
     // Generated
 
 public:
-    DrawGroupShape(::org::apache::poi::sl::usermodel::GroupShape* shape);
+    DrawGroupShape(::poi::sl::usermodel::GroupShape* shape);
 protected:
     DrawGroupShape(const ::default_init_tag&);
 

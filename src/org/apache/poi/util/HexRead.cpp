@@ -74,19 +74,19 @@ namespace
 
     template<typename F> finally_<F> finally(F f) { return finally_<F>(f); }
 }
-org::apache::poi::util::HexRead::HexRead(const ::default_init_tag&)
+poi::util::HexRead::HexRead(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::util::HexRead::HexRead()
+poi::util::HexRead::HexRead()
     : HexRead(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-int8_tArray* org::apache::poi::util::HexRead::readData(::java::lang::String* filename) /* throws(IOException) */
+int8_tArray* poi::util::HexRead::readData(::java::lang::String* filename) /* throws(IOException) */
 {
     clinit();
     auto file = new ::java::io::File(filename);
@@ -102,7 +102,7 @@ int8_tArray* org::apache::poi::util::HexRead::readData(::java::lang::String* fil
 
 }
 
-int8_tArray* org::apache::poi::util::HexRead::readData(::java::io::InputStream* stream, ::java::lang::String* section) /* throws(IOException) */
+int8_tArray* poi::util::HexRead::readData(::java::io::InputStream* stream, ::java::lang::String* section) /* throws(IOException) */
 {
     clinit();
     {
@@ -145,13 +145,13 @@ int8_tArray* org::apache::poi::util::HexRead::readData(::java::io::InputStream* 
         ->append(u"' not found"_j)->toString());
 }
 
-int8_tArray* org::apache::poi::util::HexRead::readData(::java::lang::String* filename, ::java::lang::String* section) /* throws(IOException) */
+int8_tArray* poi::util::HexRead::readData(::java::lang::String* filename, ::java::lang::String* section) /* throws(IOException) */
 {
     clinit();
     return readData(static_cast< ::java::io::InputStream* >(new ::java::io::FileInputStream(filename)), section);
 }
 
-int8_tArray* org::apache::poi::util::HexRead::readData(::java::io::InputStream* stream, int32_t eofChar) /* throws(IOException) */
+int8_tArray* poi::util::HexRead::readData(::java::io::InputStream* stream, int32_t eofChar) /* throws(IOException) */
 {
     clinit();
     auto characterCount = int32_t(0);
@@ -192,7 +192,7 @@ int8_tArray* org::apache::poi::util::HexRead::readData(::java::io::InputStream* 
     return rval;
 }
 
-int8_tArray* org::apache::poi::util::HexRead::readFromString(::java::lang::String* data)
+int8_tArray* poi::util::HexRead::readFromString(::java::lang::String* data)
 {
     clinit();
     try {
@@ -202,7 +202,7 @@ int8_tArray* org::apache::poi::util::HexRead::readFromString(::java::lang::Strin
     }
 }
 
-void org::apache::poi::util::HexRead::readToEOL(::java::io::InputStream* stream) /* throws(IOException) */
+void poi::util::HexRead::readToEOL(::java::io::InputStream* stream) /* throws(IOException) */
 {
     clinit();
     auto c = npc(stream)->read();
@@ -213,13 +213,13 @@ void org::apache::poi::util::HexRead::readToEOL(::java::io::InputStream* stream)
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::util::HexRead::class_()
+java::lang::Class* poi::util::HexRead::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.util.HexRead", 27);
     return c;
 }
 
-java::lang::Class* org::apache::poi::util::HexRead::getClass0()
+java::lang::Class* poi::util::HexRead::getClass0()
 {
     return class_();
 }

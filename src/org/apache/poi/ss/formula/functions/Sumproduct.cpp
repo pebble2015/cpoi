@@ -23,26 +23,20 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-typedef ::SubArray< ::org::apache::poi::ss::formula::TwoDEval, ::java::lang::ObjectArray, ::org::apache::poi::ss::formula::eval::ValueEvalArray > TwoDEvalArray;
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+typedef ::SubArray< ::poi::ss::formula::TwoDEval, ::java::lang::ObjectArray, ::poi::ss::formula::eval::ValueEvalArray > TwoDEvalArray;
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -60,47 +54,47 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::Sumproduct::Sumproduct(const ::default_init_tag&)
+poi::ss::formula::functions::Sumproduct::Sumproduct(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::Sumproduct::Sumproduct()
+poi::ss::formula::functions::Sumproduct::Sumproduct()
     : Sumproduct(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Sumproduct::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcCellRow, int32_t srcCellCol)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Sumproduct::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcCellRow, int32_t srcCellCol)
 {
     auto maxN = npc(args)->length;
     if(maxN < 1) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
     auto firstArg = (*args)[int32_t(0)];
     try {
-        if(dynamic_cast< ::org::apache::poi::ss::formula::eval::NumericValueEval* >(firstArg) != nullptr) {
+        if(dynamic_cast< ::poi::ss::formula::eval::NumericValueEval* >(firstArg) != nullptr) {
             return evaluateSingleProduct(args);
         }
-        if(dynamic_cast< ::org::apache::poi::ss::formula::eval::RefEval* >(firstArg) != nullptr) {
+        if(dynamic_cast< ::poi::ss::formula::eval::RefEval* >(firstArg) != nullptr) {
             return evaluateSingleProduct(args);
         }
-        if(dynamic_cast< ::org::apache::poi::ss::formula::TwoDEval* >(firstArg) != nullptr) {
-            auto ae = java_cast< ::org::apache::poi::ss::formula::TwoDEval* >(firstArg);
+        if(dynamic_cast< ::poi::ss::formula::TwoDEval* >(firstArg) != nullptr) {
+            auto ae = java_cast< ::poi::ss::formula::TwoDEval* >(firstArg);
             if(npc(ae)->isRow() && npc(ae)->isColumn()) {
                 return evaluateSingleProduct(args);
             }
             return evaluateAreaSumProduct(args);
         }
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
         return npc(e)->getErrorEval();
     }
     throw new ::java::lang::RuntimeException(::java::lang::StringBuilder().append(u"Invalid arg type for SUMPRODUCT: ("_j)->append(npc(npc(firstArg)->getClass())->getName())
         ->append(u")"_j)->toString());
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Sumproduct::evaluateSingleProduct(::org::apache::poi::ss::formula::eval::ValueEvalArray* evalArgs) /* throws(EvaluationException) */
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Sumproduct::evaluateSingleProduct(::poi::ss::formula::eval::ValueEvalArray* evalArgs) /* throws(EvaluationException) */
 {
     clinit();
     auto maxN = npc(evalArgs)->length;
@@ -109,17 +103,17 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::f
         auto val = getScalarValue((*evalArgs)[n]);
         term *= val;
     }
-    return new ::org::apache::poi::ss::formula::eval::NumberEval(term);
+    return new ::poi::ss::formula::eval::NumberEval(term);
 }
 
-double org::apache::poi::ss::formula::functions::Sumproduct::getScalarValue(::org::apache::poi::ss::formula::eval::ValueEval* arg) /* throws(EvaluationException) */
+double poi::ss::formula::functions::Sumproduct::getScalarValue(::poi::ss::formula::eval::ValueEval* arg) /* throws(EvaluationException) */
 {
     clinit();
-    ::org::apache::poi::ss::formula::eval::ValueEval* eval;
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::RefEval* >(arg) != nullptr) {
-        auto re = java_cast< ::org::apache::poi::ss::formula::eval::RefEval* >(arg);
+    ::poi::ss::formula::eval::ValueEval* eval;
+    if(dynamic_cast< ::poi::ss::formula::eval::RefEval* >(arg) != nullptr) {
+        auto re = java_cast< ::poi::ss::formula::eval::RefEval* >(arg);
         if(npc(re)->getNumberOfSheets() > 1) {
-            throw new ::org::apache::poi::ss::formula::eval::EvaluationException(::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID());
+            throw new ::poi::ss::formula::eval::EvaluationException(::poi::ss::formula::eval::ErrorEval::VALUE_INVALID());
         }
         eval = npc(re)->getInnerValueEval(npc(re)->getFirstSheetIndex());
     } else {
@@ -128,25 +122,25 @@ double org::apache::poi::ss::formula::functions::Sumproduct::getScalarValue(::or
     if(eval == nullptr) {
         throw new ::java::lang::RuntimeException(u"parameter may not be null"_j);
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::AreaEval* >(eval) != nullptr) {
-        auto ae = java_cast< ::org::apache::poi::ss::formula::eval::AreaEval* >(eval);
+    if(dynamic_cast< ::poi::ss::formula::eval::AreaEval* >(eval) != nullptr) {
+        auto ae = java_cast< ::poi::ss::formula::eval::AreaEval* >(eval);
         if(!npc(ae)->isColumn() || !npc(ae)->isRow()) {
-            throw new ::org::apache::poi::ss::formula::eval::EvaluationException(::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID());
+            throw new ::poi::ss::formula::eval::EvaluationException(::poi::ss::formula::eval::ErrorEval::VALUE_INVALID());
         }
         eval = npc(ae)->getRelativeValue(0, 0);
     }
     return getProductTerm(eval, true);
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Sumproduct::evaluateAreaSumProduct(::org::apache::poi::ss::formula::eval::ValueEvalArray* evalArgs) /* throws(EvaluationException) */
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Sumproduct::evaluateAreaSumProduct(::poi::ss::formula::eval::ValueEvalArray* evalArgs) /* throws(EvaluationException) */
 {
     clinit();
     auto maxN = npc(evalArgs)->length;
-    auto args = new ::org::apache::poi::ss::formula::TwoDEvalArray(maxN);
+    auto args = new ::poi::ss::formula::TwoDEvalArray(maxN);
     try {
         ::java::lang::System::arraycopy(evalArgs, 0, args, 0, maxN);
     } catch (::java::lang::ArrayStoreException* e) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
     auto firstArg = (*args)[int32_t(0)];
     auto height = npc(firstArg)->getHeight();
@@ -155,7 +149,7 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::f
         for (auto i = int32_t(1); i < npc(args)->length; i++) {
             throwFirstError((*args)[i]);
         }
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
     double acc = int32_t(0);
     for (auto rrIx = int32_t(0); rrIx < height; rrIx++) {
@@ -168,10 +162,10 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::f
             acc += term;
         }
     }
-    return new ::org::apache::poi::ss::formula::eval::NumberEval(acc);
+    return new ::poi::ss::formula::eval::NumberEval(acc);
 }
 
-void org::apache::poi::ss::formula::functions::Sumproduct::throwFirstError(::org::apache::poi::ss::formula::TwoDEval* areaEval) /* throws(EvaluationException) */
+void poi::ss::formula::functions::Sumproduct::throwFirstError(::poi::ss::formula::TwoDEval* areaEval) /* throws(EvaluationException) */
 {
     clinit();
     auto height = npc(areaEval)->getHeight();
@@ -179,14 +173,14 @@ void org::apache::poi::ss::formula::functions::Sumproduct::throwFirstError(::org
     for (auto rrIx = int32_t(0); rrIx < height; rrIx++) {
         for (auto rcIx = int32_t(0); rcIx < width; rcIx++) {
             auto ve = npc(areaEval)->getValue(rrIx, rcIx);
-            if(dynamic_cast< ::org::apache::poi::ss::formula::eval::ErrorEval* >(ve) != nullptr) {
-                throw new ::org::apache::poi::ss::formula::eval::EvaluationException(java_cast< ::org::apache::poi::ss::formula::eval::ErrorEval* >(ve));
+            if(dynamic_cast< ::poi::ss::formula::eval::ErrorEval* >(ve) != nullptr) {
+                throw new ::poi::ss::formula::eval::EvaluationException(java_cast< ::poi::ss::formula::eval::ErrorEval* >(ve));
             }
         }
     }
 }
 
-bool org::apache::poi::ss::formula::functions::Sumproduct::areasAllSameSize(::org::apache::poi::ss::formula::TwoDEvalArray* args, int32_t height, int32_t width)
+bool poi::ss::formula::functions::Sumproduct::areasAllSameSize(::poi::ss::formula::TwoDEvalArray* args, int32_t height, int32_t width)
 {
     clinit();
     for (auto i = int32_t(0); i < npc(args)->length; i++) {
@@ -201,26 +195,26 @@ bool org::apache::poi::ss::formula::functions::Sumproduct::areasAllSameSize(::or
     return true;
 }
 
-double org::apache::poi::ss::formula::functions::Sumproduct::getProductTerm(::org::apache::poi::ss::formula::eval::ValueEval* ve, bool isScalarProduct) /* throws(EvaluationException) */
+double poi::ss::formula::functions::Sumproduct::getProductTerm(::poi::ss::formula::eval::ValueEval* ve, bool isScalarProduct) /* throws(EvaluationException) */
 {
     clinit();
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::BlankEval* >(ve) != nullptr || ve == nullptr) {
+    if(dynamic_cast< ::poi::ss::formula::eval::BlankEval* >(ve) != nullptr || ve == nullptr) {
         if(isScalarProduct) {
-            throw new ::org::apache::poi::ss::formula::eval::EvaluationException(::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID());
+            throw new ::poi::ss::formula::eval::EvaluationException(::poi::ss::formula::eval::ErrorEval::VALUE_INVALID());
         }
         return 0;
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::ErrorEval* >(ve) != nullptr) {
-        throw new ::org::apache::poi::ss::formula::eval::EvaluationException(java_cast< ::org::apache::poi::ss::formula::eval::ErrorEval* >(ve));
+    if(dynamic_cast< ::poi::ss::formula::eval::ErrorEval* >(ve) != nullptr) {
+        throw new ::poi::ss::formula::eval::EvaluationException(java_cast< ::poi::ss::formula::eval::ErrorEval* >(ve));
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::StringEval* >(ve) != nullptr) {
+    if(dynamic_cast< ::poi::ss::formula::eval::StringEval* >(ve) != nullptr) {
         if(isScalarProduct) {
-            throw new ::org::apache::poi::ss::formula::eval::EvaluationException(::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID());
+            throw new ::poi::ss::formula::eval::EvaluationException(::poi::ss::formula::eval::ErrorEval::VALUE_INVALID());
         }
         return 0;
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::NumericValueEval* >(ve) != nullptr) {
-        auto nve = java_cast< ::org::apache::poi::ss::formula::eval::NumericValueEval* >(ve);
+    if(dynamic_cast< ::poi::ss::formula::eval::NumericValueEval* >(ve) != nullptr) {
+        auto nve = java_cast< ::poi::ss::formula::eval::NumericValueEval* >(ve);
         return npc(nve)->getNumberValue();
     }
     throw new ::java::lang::RuntimeException(::java::lang::StringBuilder().append(u"Unexpected value eval class ("_j)->append(npc(npc(ve)->getClass())->getName())
@@ -229,13 +223,13 @@ double org::apache::poi::ss::formula::functions::Sumproduct::getProductTerm(::or
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Sumproduct::class_()
+java::lang::Class* poi::ss::formula::functions::Sumproduct::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.Sumproduct", 46);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Sumproduct::getClass0()
+java::lang::Class* poi::ss::formula::functions::Sumproduct::getClass0()
 {
     return class_();
 }

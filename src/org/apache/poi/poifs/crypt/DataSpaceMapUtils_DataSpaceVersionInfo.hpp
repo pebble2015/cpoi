@@ -11,9 +11,9 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::crypt::DataSpaceMapUtils_DataSpaceVersionInfo
+class poi::poifs::crypt::DataSpaceMapUtils_DataSpaceVersionInfo
     : public virtual ::java::lang::Object
-    , public virtual ::org::apache::poi::poifs::crypt::standard::EncryptionRecord
+    , public virtual ::poi::poifs::crypt::standard::EncryptionRecord
 {
 
 public:
@@ -25,14 +25,14 @@ public: /* package */
     int32_t updaterVersionMajor {  }, updaterVersionMinor {  };
     int32_t writerVersionMajor {  }, writerVersionMinor {  };
 protected:
-    void ctor(::org::apache::poi::util::LittleEndianInput* is);
+    void ctor(::poi::util::LittleEndianInput* is);
     void ctor(::java::lang::String* featureIdentifier, int32_t readerVersionMajor, int32_t readerVersionMinor, int32_t updaterVersionMajor, int32_t updaterVersionMinor, int32_t writerVersionMajor, int32_t writerVersionMinor);
 
 public:
-    void write(::org::apache::poi::util::LittleEndianByteArrayOutputStream* bos) override;
+    void write(::poi::util::LittleEndianByteArrayOutputStream* bos) override;
 
     // Generated
-    DataSpaceMapUtils_DataSpaceVersionInfo(::org::apache::poi::util::LittleEndianInput* is);
+    DataSpaceMapUtils_DataSpaceVersionInfo(::poi::util::LittleEndianInput* is);
     DataSpaceMapUtils_DataSpaceVersionInfo(::java::lang::String* featureIdentifier, int32_t readerVersionMajor, int32_t readerVersionMinor, int32_t updaterVersionMajor, int32_t updaterVersionMinor, int32_t writerVersionMajor, int32_t writerVersionMinor);
 protected:
     DataSpaceMapUtils_DataSpaceVersionInfo(const ::default_init_tag&);

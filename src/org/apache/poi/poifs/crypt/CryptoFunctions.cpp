@@ -78,25 +78,25 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::crypt::CryptoFunctions::CryptoFunctions(const ::default_init_tag&)
+poi::poifs::crypt::CryptoFunctions::CryptoFunctions(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::crypt::CryptoFunctions::CryptoFunctions()
+poi::poifs::crypt::CryptoFunctions::CryptoFunctions()
     : CryptoFunctions(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-int8_tArray* org::apache::poi::poifs::crypt::CryptoFunctions::hashPassword(::java::lang::String* password, HashAlgorithm* hashAlgorithm, ::int8_tArray* salt, int32_t spinCount)
+int8_tArray* poi::poifs::crypt::CryptoFunctions::hashPassword(::java::lang::String* password, HashAlgorithm* hashAlgorithm, ::int8_tArray* salt, int32_t spinCount)
 {
     clinit();
     return hashPassword(password, hashAlgorithm, salt, spinCount, true);
 }
 
-int8_tArray* org::apache::poi::poifs::crypt::CryptoFunctions::hashPassword(::java::lang::String* password, HashAlgorithm* hashAlgorithm, ::int8_tArray* salt, int32_t spinCount, bool iteratorFirst)
+int8_tArray* poi::poifs::crypt::CryptoFunctions::hashPassword(::java::lang::String* password, HashAlgorithm* hashAlgorithm, ::int8_tArray* salt, int32_t spinCount, bool iteratorFirst)
 {
     clinit();
     if(password == nullptr) {
@@ -104,25 +104,25 @@ int8_tArray* org::apache::poi::poifs::crypt::CryptoFunctions::hashPassword(::jav
     }
     auto hashAlg = getMessageDigest(hashAlgorithm);
     npc(hashAlg)->update(salt);
-    auto hash = npc(hashAlg)->digest(::org::apache::poi::util::StringUtil::getToUnicodeLE(password));
-    auto iterator = new ::int8_tArray(::org::apache::poi::util::LittleEndianConsts::INT_SIZE);
+    auto hash = npc(hashAlg)->digest(::poi::util::StringUtil::getToUnicodeLE(password));
+    auto iterator = new ::int8_tArray(::poi::util::LittleEndianConsts::INT_SIZE);
     auto first = (iteratorFirst ? iterator : hash);
     auto second = (iteratorFirst ? hash : iterator);
     try {
         for (auto i = int32_t(0); i < spinCount; i++) {
-            ::org::apache::poi::util::LittleEndian::putInt(iterator, 0, i);
+            ::poi::util::LittleEndian::putInt(iterator, 0, i);
             npc(hashAlg)->reset();
             npc(hashAlg)->update(first);
             npc(hashAlg)->update(second);
             npc(hashAlg)->digest(hash, 0, npc(hash)->length);
         }
     } catch (::java::security::DigestException* e) {
-        throw new ::org::apache::poi::EncryptedDocumentException(u"error in password hashing"_j);
+        throw new ::poi::EncryptedDocumentException(u"error in password hashing"_j);
     }
     return hash;
 }
 
-int8_tArray* org::apache::poi::poifs::crypt::CryptoFunctions::generateIv(HashAlgorithm* hashAlgorithm, ::int8_tArray* salt, ::int8_tArray* blockKey, int32_t blockSize)
+int8_tArray* poi::poifs::crypt::CryptoFunctions::generateIv(HashAlgorithm* hashAlgorithm, ::int8_tArray* salt, ::int8_tArray* blockKey, int32_t blockSize)
 {
     clinit();
     auto iv = salt;
@@ -134,7 +134,7 @@ int8_tArray* org::apache::poi::poifs::crypt::CryptoFunctions::generateIv(HashAlg
     return getBlock36(iv, blockSize);
 }
 
-int8_tArray* org::apache::poi::poifs::crypt::CryptoFunctions::generateKey(::int8_tArray* passwordHash, HashAlgorithm* hashAlgorithm, ::int8_tArray* blockKey, int32_t keySize)
+int8_tArray* poi::poifs::crypt::CryptoFunctions::generateKey(::int8_tArray* passwordHash, HashAlgorithm* hashAlgorithm, ::int8_tArray* blockKey, int32_t keySize)
 {
     clinit();
     auto hashAlgo = getMessageDigest(hashAlgorithm);
@@ -143,13 +143,13 @@ int8_tArray* org::apache::poi::poifs::crypt::CryptoFunctions::generateKey(::int8
     return getBlock36(key, keySize);
 }
 
-javax::crypto::Cipher* org::apache::poi::poifs::crypt::CryptoFunctions::getCipher(::javax::crypto::SecretKey* key, CipherAlgorithm* cipherAlgorithm, ChainingMode* chain, ::int8_tArray* vec, int32_t cipherMode)
+javax::crypto::Cipher* poi::poifs::crypt::CryptoFunctions::getCipher(::javax::crypto::SecretKey* key, CipherAlgorithm* cipherAlgorithm, ChainingMode* chain, ::int8_tArray* vec, int32_t cipherMode)
 {
     clinit();
     return getCipher(key, cipherAlgorithm, chain, vec, cipherMode, nullptr);
 }
 
-javax::crypto::Cipher* org::apache::poi::poifs::crypt::CryptoFunctions::getCipher(::java::security::Key* key, CipherAlgorithm* cipherAlgorithm, ChainingMode* chain, ::int8_tArray* vec, int32_t cipherMode, ::java::lang::String* padding)
+javax::crypto::Cipher* poi::poifs::crypt::CryptoFunctions::getCipher(::java::security::Key* key, CipherAlgorithm* cipherAlgorithm, ChainingMode* chain, ::int8_tArray* vec, int32_t cipherMode, ::java::lang::String* padding)
 {
     clinit();
     auto keySizeInBytes = npc(npc(key)->getEncoded())->length;
@@ -158,7 +158,7 @@ javax::crypto::Cipher* org::apache::poi::poifs::crypt::CryptoFunctions::getCiphe
 
     try {
         if(::javax::crypto::Cipher::getMaxAllowedKeyLength(npc(cipherAlgorithm)->jceId) < keySizeInBytes * int32_t(8)) {
-            throw new ::org::apache::poi::EncryptedDocumentException(u"Export Restrictions in place - please install JCE Unlimited Strength Jurisdiction Policy files"_j);
+            throw new ::poi::EncryptedDocumentException(u"Export Restrictions in place - please install JCE Unlimited Strength Jurisdiction Policy files"_j);
         }
         ::javax::crypto::Cipher* cipher;
         if(cipherAlgorithm == CipherAlgorithm::rc4) {
@@ -188,23 +188,23 @@ javax::crypto::Cipher* org::apache::poi::poifs::crypt::CryptoFunctions::getCiphe
         }
         return cipher;
     } catch (::java::security::GeneralSecurityException* e) {
-        throw new ::org::apache::poi::EncryptedDocumentException(static_cast< ::java::lang::Throwable* >(e));
+        throw new ::poi::EncryptedDocumentException(static_cast< ::java::lang::Throwable* >(e));
     }
 }
 
-int8_tArray* org::apache::poi::poifs::crypt::CryptoFunctions::getBlock36(::int8_tArray* hash, int32_t size)
+int8_tArray* poi::poifs::crypt::CryptoFunctions::getBlock36(::int8_tArray* hash, int32_t size)
 {
     clinit();
     return getBlockX(hash, size, static_cast< int8_t >(int32_t(54)));
 }
 
-int8_tArray* org::apache::poi::poifs::crypt::CryptoFunctions::getBlock0(::int8_tArray* hash, int32_t size)
+int8_tArray* poi::poifs::crypt::CryptoFunctions::getBlock0(::int8_tArray* hash, int32_t size)
 {
     clinit();
     return getBlockX(hash, size, static_cast< int8_t >(int32_t(0)));
 }
 
-int8_tArray* org::apache::poi::poifs::crypt::CryptoFunctions::getBlockX(::int8_tArray* hash, int32_t size, int8_t fill)
+int8_tArray* poi::poifs::crypt::CryptoFunctions::getBlockX(::int8_tArray* hash, int32_t size, int8_t fill)
 {
     clinit();
     if(npc(hash)->length == size)
@@ -216,7 +216,7 @@ int8_tArray* org::apache::poi::poifs::crypt::CryptoFunctions::getBlockX(::int8_t
     return result;
 }
 
-java::security::MessageDigest* org::apache::poi::poifs::crypt::CryptoFunctions::getMessageDigest(HashAlgorithm* hashAlgorithm)
+java::security::MessageDigest* poi::poifs::crypt::CryptoFunctions::getMessageDigest(HashAlgorithm* hashAlgorithm)
 {
     clinit();
     try {
@@ -227,11 +227,11 @@ java::security::MessageDigest* org::apache::poi::poifs::crypt::CryptoFunctions::
             return ::java::security::MessageDigest::getInstance(npc(hashAlgorithm)->jceId);
         }
     } catch (::java::security::GeneralSecurityException* e) {
-        throw new ::org::apache::poi::EncryptedDocumentException(u"hash algo not supported"_j, e);
+        throw new ::poi::EncryptedDocumentException(u"hash algo not supported"_j, e);
     }
 }
 
-javax::crypto::Mac* org::apache::poi::poifs::crypt::CryptoFunctions::getMac(HashAlgorithm* hashAlgorithm)
+javax::crypto::Mac* poi::poifs::crypt::CryptoFunctions::getMac(HashAlgorithm* hashAlgorithm)
 {
     clinit();
     try {
@@ -242,11 +242,11 @@ javax::crypto::Mac* org::apache::poi::poifs::crypt::CryptoFunctions::getMac(Hash
             return ::javax::crypto::Mac::getInstance(npc(hashAlgorithm)->jceHmacId);
         }
     } catch (::java::security::GeneralSecurityException* e) {
-        throw new ::org::apache::poi::EncryptedDocumentException(u"hmac algo not supported"_j, e);
+        throw new ::poi::EncryptedDocumentException(u"hmac algo not supported"_j, e);
     }
 }
 
-void org::apache::poi::poifs::crypt::CryptoFunctions::registerBouncyCastle()
+void poi::poifs::crypt::CryptoFunctions::registerBouncyCastle()
 {
     clinit();
     if(::java::security::Security::getProvider(u"BC"_j) != nullptr) {
@@ -258,32 +258,32 @@ void org::apache::poi::poifs::crypt::CryptoFunctions::registerBouncyCastle()
         auto clazz = java_cast< ::java::lang::Class* >(npc(cl)->loadClass(bcProviderName));
         ::java::security::Security::addProvider(java_cast< ::java::security::Provider* >(npc(clazz)->newInstance()));
     } catch (::java::lang::Exception* e) {
-        throw new ::org::apache::poi::EncryptedDocumentException(u"Only the BouncyCastle provider supports your encryption settings - please add it to the classpath."_j, e);
+        throw new ::poi::EncryptedDocumentException(u"Only the BouncyCastle provider supports your encryption settings - please add it to the classpath."_j, e);
     }
 }
 
-int32_tArray*& org::apache::poi::poifs::crypt::CryptoFunctions::INITIAL_CODE_ARRAY()
+int32_tArray*& poi::poifs::crypt::CryptoFunctions::INITIAL_CODE_ARRAY()
 {
     clinit();
     return INITIAL_CODE_ARRAY_;
 }
-int32_tArray* org::apache::poi::poifs::crypt::CryptoFunctions::INITIAL_CODE_ARRAY_;
+int32_tArray* poi::poifs::crypt::CryptoFunctions::INITIAL_CODE_ARRAY_;
 
-int8_tArray*& org::apache::poi::poifs::crypt::CryptoFunctions::PAD_ARRAY()
+int8_tArray*& poi::poifs::crypt::CryptoFunctions::PAD_ARRAY()
 {
     clinit();
     return PAD_ARRAY_;
 }
-int8_tArray* org::apache::poi::poifs::crypt::CryptoFunctions::PAD_ARRAY_;
+int8_tArray* poi::poifs::crypt::CryptoFunctions::PAD_ARRAY_;
 
-int32_tArrayArray*& org::apache::poi::poifs::crypt::CryptoFunctions::ENCRYPTION_MATRIX()
+int32_tArrayArray*& poi::poifs::crypt::CryptoFunctions::ENCRYPTION_MATRIX()
 {
     clinit();
     return ENCRYPTION_MATRIX_;
 }
-int32_tArrayArray* org::apache::poi::poifs::crypt::CryptoFunctions::ENCRYPTION_MATRIX_;
+int32_tArrayArray* poi::poifs::crypt::CryptoFunctions::ENCRYPTION_MATRIX_;
 
-int32_t org::apache::poi::poifs::crypt::CryptoFunctions::createXorVerifier1(::java::lang::String* password)
+int32_t poi::poifs::crypt::CryptoFunctions::createXorVerifier1(::java::lang::String* password)
 {
     clinit();
     auto arrByteChars = toAnsiPassword(password);
@@ -300,7 +300,7 @@ int32_t org::apache::poi::poifs::crypt::CryptoFunctions::createXorVerifier1(::ja
     return verifier & int32_t(65535);
 }
 
-int32_t org::apache::poi::poifs::crypt::CryptoFunctions::createXorVerifier2(::java::lang::String* password)
+int32_t poi::poifs::crypt::CryptoFunctions::createXorVerifier2(::java::lang::String* password)
 {
     clinit();
     auto generatedKey = new ::int8_tArray(int32_t(4));
@@ -318,33 +318,33 @@ int32_t org::apache::poi::poifs::crypt::CryptoFunctions::createXorVerifier2(::ja
             }
         }
         auto verifier = createXorVerifier1(password);
-        ::org::apache::poi::util::LittleEndian::putShort(generatedKey, 0, static_cast< int16_t >(verifier));
-        ::org::apache::poi::util::LittleEndian::putShort(generatedKey, 2, static_cast< int16_t >(highOrderWord));
+        ::poi::util::LittleEndian::putShort(generatedKey, 0, static_cast< int16_t >(verifier));
+        ::poi::util::LittleEndian::putShort(generatedKey, 2, static_cast< int16_t >(highOrderWord));
     }
-    return ::org::apache::poi::util::LittleEndian::getInt(generatedKey);
+    return ::poi::util::LittleEndian::getInt(generatedKey);
 }
 
-java::lang::String* org::apache::poi::poifs::crypt::CryptoFunctions::xorHashPassword(::java::lang::String* password)
+java::lang::String* poi::poifs::crypt::CryptoFunctions::xorHashPassword(::java::lang::String* password)
 {
     clinit();
     auto hashedPassword = createXorVerifier2(password);
     return ::java::lang::String::format(::java::util::Locale::ROOT(), u"%1$08X"_j, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::Integer::valueOf(hashedPassword))}));
 }
 
-java::lang::String* org::apache::poi::poifs::crypt::CryptoFunctions::xorHashPasswordReversed(::java::lang::String* password)
+java::lang::String* poi::poifs::crypt::CryptoFunctions::xorHashPasswordReversed(::java::lang::String* password)
 {
     clinit();
     auto hashedPassword = createXorVerifier2(password);
     return ::java::lang::String::format(::java::util::Locale::ROOT(), u"%1$02X%2$02X%3$02X%4$02X"_j, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::Integer::valueOf((static_cast<int32_t>(static_cast<uint32_t>(hashedPassword) >> int32_t(0))) & int32_t(255))), static_cast< ::java::lang::Object* >(::java::lang::Integer::valueOf((static_cast<int32_t>(static_cast<uint32_t>(hashedPassword) >> int32_t(8))) & int32_t(255))), static_cast< ::java::lang::Object* >(::java::lang::Integer::valueOf((static_cast<int32_t>(static_cast<uint32_t>(hashedPassword) >> int32_t(16))) & int32_t(255))), static_cast< ::java::lang::Object* >(::java::lang::Integer::valueOf((static_cast<int32_t>(static_cast<uint32_t>(hashedPassword) >> int32_t(24))) & int32_t(255)))}));
 }
 
-int32_t org::apache::poi::poifs::crypt::CryptoFunctions::createXorKey1(::java::lang::String* password)
+int32_t poi::poifs::crypt::CryptoFunctions::createXorKey1(::java::lang::String* password)
 {
     clinit();
     return static_cast<int32_t>(static_cast<uint32_t>(createXorVerifier2(password)) >> int32_t(16));
 }
 
-int8_tArray* org::apache::poi::poifs::crypt::CryptoFunctions::createXorArray1(::java::lang::String* password)
+int8_tArray* poi::poifs::crypt::CryptoFunctions::createXorArray1(::java::lang::String* password)
 {
     clinit();
     if(npc(password)->length() > 15) {
@@ -367,7 +367,7 @@ int8_tArray* org::apache::poi::poifs::crypt::CryptoFunctions::createXorArray1(::
     return obfuscationArray_;
 }
 
-int8_tArray* org::apache::poi::poifs::crypt::CryptoFunctions::toAnsiPassword(::java::lang::String* password)
+int8_tArray* poi::poifs::crypt::CryptoFunctions::toAnsiPassword(::java::lang::String* password)
 {
     clinit();
     auto arrByteChars = new ::int8_tArray(npc(password)->length());
@@ -380,13 +380,13 @@ int8_tArray* org::apache::poi::poifs::crypt::CryptoFunctions::toAnsiPassword(::j
     return arrByteChars;
 }
 
-int8_t org::apache::poi::poifs::crypt::CryptoFunctions::rotateLeft(int8_t bits, int32_t shift)
+int8_t poi::poifs::crypt::CryptoFunctions::rotateLeft(int8_t bits, int32_t shift)
 {
     clinit();
     return static_cast< int8_t >((((bits & int32_t(255)) << shift) | (static_cast<int32_t>(static_cast<uint32_t>((bits & int32_t(255))) >> (int32_t(8) - shift)))));
 }
 
-int16_t org::apache::poi::poifs::crypt::CryptoFunctions::rotateLeftBase15Bit(int16_t verifier)
+int16_t poi::poifs::crypt::CryptoFunctions::rotateLeftBase15Bit(int16_t verifier)
 {
     clinit();
     auto intermediate1 = static_cast< int16_t >((((verifier & int32_t(16384)) == 0) ? int32_t(0) : int32_t(1)));
@@ -397,13 +397,13 @@ int16_t org::apache::poi::poifs::crypt::CryptoFunctions::rotateLeftBase15Bit(int
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::crypt::CryptoFunctions::class_()
+java::lang::Class* poi::poifs::crypt::CryptoFunctions::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.crypt.CryptoFunctions", 42);
     return c;
 }
 
-void org::apache::poi::poifs::crypt::CryptoFunctions::clinit()
+void poi::poifs::crypt::CryptoFunctions::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -589,7 +589,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::poifs::crypt::CryptoFunctions::getClass0()
+java::lang::Class* poi::poifs::crypt::CryptoFunctions::getClass0()
 {
     return class_();
 }

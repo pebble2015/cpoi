@@ -29,31 +29,25 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::DVConstraint
+class poi::hssf::usermodel::DVConstraint
     : public virtual ::java::lang::Object
-    , public virtual ::org::apache::poi::ss::usermodel::DataValidationConstraint
+    , public virtual ::poi::ss::usermodel::DataValidationConstraint
 {
 
 public:
@@ -106,14 +100,14 @@ public: /* package */
     virtual DVConstraint_FormulaPair* createFormulas(HSSFSheet* sheet);
 
 private:
-    ::org::apache::poi::ss::formula::ptg::PtgArray* createListFormula(HSSFSheet* sheet);
-    static ::org::apache::poi::ss::formula::ptg::PtgArray* convertDoubleFormula(::java::lang::String* formula, ::java::lang::Double* value, HSSFSheet* sheet);
+    ::poi::ss::formula::ptg::PtgArray* createListFormula(HSSFSheet* sheet);
+    static ::poi::ss::formula::ptg::PtgArray* convertDoubleFormula(::java::lang::String* formula, ::java::lang::Double* value, HSSFSheet* sheet);
 
 public: /* package */
-    static DVConstraint* createDVConstraint(::org::apache::poi::hssf::record::DVRecord* dvRecord, ::org::apache::poi::ss::formula::FormulaRenderingWorkbook* book);
+    static DVConstraint* createDVConstraint(::poi::hssf::record::DVRecord* dvRecord, ::poi::ss::formula::FormulaRenderingWorkbook* book);
 
 private:
-    static DVConstraint_FormulaValuePair* toFormulaString(::org::apache::poi::ss::formula::ptg::PtgArray* ptgs, ::org::apache::poi::ss::formula::FormulaRenderingWorkbook* book);
+    static DVConstraint_FormulaValuePair* toFormulaString(::poi::ss::formula::ptg::PtgArray* ptgs, ::poi::ss::formula::FormulaRenderingWorkbook* book);
 
     // Generated
     DVConstraint(int32_t validationType, int32_t comparisonOperator, ::java::lang::String* formulaA, ::java::lang::String* formulaB, ::java::lang::Double* value1, ::java::lang::Double* value2, ::java::lang::StringArray* excplicitListValues);

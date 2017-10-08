@@ -36,47 +36,47 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::crypt::standard::StandardEncryptionHeader::StandardEncryptionHeader(const ::default_init_tag&)
+poi::poifs::crypt::standard::StandardEncryptionHeader::StandardEncryptionHeader(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::crypt::standard::StandardEncryptionHeader::StandardEncryptionHeader(::org::apache::poi::util::LittleEndianInput* is)  /* throws(IOException) */
+poi::poifs::crypt::standard::StandardEncryptionHeader::StandardEncryptionHeader(::poi::util::LittleEndianInput* is)  /* throws(IOException) */
     : StandardEncryptionHeader(*static_cast< ::default_init_tag* >(0))
 {
     ctor(is);
 }
 
-org::apache::poi::poifs::crypt::standard::StandardEncryptionHeader::StandardEncryptionHeader(::org::apache::poi::poifs::crypt::CipherAlgorithm* cipherAlgorithm, ::org::apache::poi::poifs::crypt::HashAlgorithm* hashAlgorithm, int32_t keyBits, int32_t blockSize, ::org::apache::poi::poifs::crypt::ChainingMode* chainingMode) 
+poi::poifs::crypt::standard::StandardEncryptionHeader::StandardEncryptionHeader(::poi::poifs::crypt::CipherAlgorithm* cipherAlgorithm, ::poi::poifs::crypt::HashAlgorithm* hashAlgorithm, int32_t keyBits, int32_t blockSize, ::poi::poifs::crypt::ChainingMode* chainingMode) 
     : StandardEncryptionHeader(*static_cast< ::default_init_tag* >(0))
 {
     ctor(cipherAlgorithm,hashAlgorithm,keyBits,blockSize,chainingMode);
 }
 
-void org::apache::poi::poifs::crypt::standard::StandardEncryptionHeader::ctor(::org::apache::poi::util::LittleEndianInput* is) /* throws(IOException) */
+void poi::poifs::crypt::standard::StandardEncryptionHeader::ctor(::poi::util::LittleEndianInput* is) /* throws(IOException) */
 {
     super::ctor();
     setFlags(npc(is)->readInt());
     setSizeExtra(npc(is)->readInt());
-    setCipherAlgorithm(::org::apache::poi::poifs::crypt::CipherAlgorithm::fromEcmaId(npc(is)->readInt()));
-    setHashAlgorithm(::org::apache::poi::poifs::crypt::HashAlgorithm::fromEcmaId(npc(is)->readInt()));
+    setCipherAlgorithm(::poi::poifs::crypt::CipherAlgorithm::fromEcmaId(npc(is)->readInt()));
+    setHashAlgorithm(::poi::poifs::crypt::HashAlgorithm::fromEcmaId(npc(is)->readInt()));
     auto keySize = npc(is)->readInt();
     if(keySize == 0) {
         keySize = 40;
     }
     setKeySize(keySize);
     setBlockSize(getKeySize());
-    setCipherProvider(::org::apache::poi::poifs::crypt::CipherProvider::fromEcmaId(npc(is)->readInt()));
+    setCipherProvider(::poi::poifs::crypt::CipherProvider::fromEcmaId(npc(is)->readInt()));
     npc(is)->readLong();
-    if(dynamic_cast< ::org::apache::poi::hssf::record::RecordInputStream* >(is) != nullptr) {
-        npc((java_cast< ::org::apache::poi::hssf::record::RecordInputStream* >(is)))->mark(::org::apache::poi::util::LittleEndianConsts::INT_SIZE + int32_t(1));
+    if(dynamic_cast< ::poi::hssf::record::RecordInputStream* >(is) != nullptr) {
+        npc((java_cast< ::poi::hssf::record::RecordInputStream* >(is)))->mark(::poi::util::LittleEndianConsts::INT_SIZE + int32_t(1));
     } else {
-        npc((java_cast< ::java::io::InputStream* >(is)))->mark(::org::apache::poi::util::LittleEndianConsts::INT_SIZE + int32_t(1));
+        npc((java_cast< ::java::io::InputStream* >(is)))->mark(::poi::util::LittleEndianConsts::INT_SIZE + int32_t(1));
     }
     auto checkForSalt = npc(is)->readInt();
-    if(dynamic_cast< ::org::apache::poi::hssf::record::RecordInputStream* >(is) != nullptr) {
-        npc((java_cast< ::org::apache::poi::hssf::record::RecordInputStream* >(is)))->reset();
+    if(dynamic_cast< ::poi::hssf::record::RecordInputStream* >(is) != nullptr) {
+        npc((java_cast< ::poi::hssf::record::RecordInputStream* >(is)))->reset();
     } else {
         npc((java_cast< ::java::io::InputStream* >(is)))->reset();
     }
@@ -93,11 +93,11 @@ void org::apache::poi::poifs::crypt::standard::StandardEncryptionHeader::ctor(::
         }
         setCspName(npc(builder)->toString());
     }
-    setChainingMode(::org::apache::poi::poifs::crypt::ChainingMode::ecb);
+    setChainingMode(::poi::poifs::crypt::ChainingMode::ecb);
     setKeySalt(nullptr);
 }
 
-void org::apache::poi::poifs::crypt::standard::StandardEncryptionHeader::ctor(::org::apache::poi::poifs::crypt::CipherAlgorithm* cipherAlgorithm, ::org::apache::poi::poifs::crypt::HashAlgorithm* hashAlgorithm, int32_t keyBits, int32_t blockSize, ::org::apache::poi::poifs::crypt::ChainingMode* chainingMode)
+void poi::poifs::crypt::standard::StandardEncryptionHeader::ctor(::poi::poifs::crypt::CipherAlgorithm* cipherAlgorithm, ::poi::poifs::crypt::HashAlgorithm* hashAlgorithm, int32_t keyBits, int32_t blockSize, ::poi::poifs::crypt::ChainingMode* chainingMode)
 {
     super::ctor();
     setCipherAlgorithm(cipherAlgorithm);
@@ -105,13 +105,13 @@ void org::apache::poi::poifs::crypt::standard::StandardEncryptionHeader::ctor(::
     setKeySize(keyBits);
     setBlockSize(blockSize);
     setCipherProvider(npc(cipherAlgorithm)->provider);
-    setFlags(npc(::org::apache::poi::poifs::crypt::EncryptionInfo::flagCryptoAPI())->setBoolean(0, true) | npc(::org::apache::poi::poifs::crypt::EncryptionInfo::flagAES())->setBoolean(0, npc(cipherAlgorithm)->provider == ::org::apache::poi::poifs::crypt::CipherProvider::aes));
+    setFlags(npc(::poi::poifs::crypt::EncryptionInfo::flagCryptoAPI())->setBoolean(0, true) | npc(::poi::poifs::crypt::EncryptionInfo::flagAES())->setBoolean(0, npc(cipherAlgorithm)->provider == ::poi::poifs::crypt::CipherProvider::aes));
 }
 
-void org::apache::poi::poifs::crypt::standard::StandardEncryptionHeader::write(::org::apache::poi::util::LittleEndianByteArrayOutputStream* bos)
+void poi::poifs::crypt::standard::StandardEncryptionHeader::write(::poi::util::LittleEndianByteArrayOutputStream* bos)
 {
     auto startIdx = npc(bos)->getWriteIndex();
-    auto sizeOutput = npc(bos)->createDelayedOutput(::org::apache::poi::util::LittleEndianConsts::INT_SIZE);
+    auto sizeOutput = npc(bos)->createDelayedOutput(::poi::util::LittleEndianConsts::INT_SIZE);
     npc(bos)->writeInt(getFlags());
     npc(bos)->writeInt(int32_t(0));
     npc(bos)->writeInt(npc(getCipherAlgorithm())->ecmaId);
@@ -124,26 +124,26 @@ void org::apache::poi::poifs::crypt::standard::StandardEncryptionHeader::write(:
     if(cspName == nullptr) {
         cspName = npc(getCipherProvider())->cipherProviderName;
     }
-    npc(bos)->write(::org::apache::poi::util::StringUtil::getToUnicodeLE(cspName));
+    npc(bos)->write(::poi::util::StringUtil::getToUnicodeLE(cspName));
     npc(bos)->writeShort(int32_t(0));
-    auto headerSize = npc(bos)->getWriteIndex() - startIdx - ::org::apache::poi::util::LittleEndianConsts::INT_SIZE;
+    auto headerSize = npc(bos)->getWriteIndex() - startIdx - ::poi::util::LittleEndianConsts::INT_SIZE;
     npc(sizeOutput)->writeInt(headerSize);
 }
 
-org::apache::poi::poifs::crypt::standard::StandardEncryptionHeader* org::apache::poi::poifs::crypt::standard::StandardEncryptionHeader::clone() /* throws(CloneNotSupportedException) */
+poi::poifs::crypt::standard::StandardEncryptionHeader* poi::poifs::crypt::standard::StandardEncryptionHeader::clone() /* throws(CloneNotSupportedException) */
 {
     return java_cast< StandardEncryptionHeader* >(super::clone());
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::crypt::standard::StandardEncryptionHeader::class_()
+java::lang::Class* poi::poifs::crypt::standard::StandardEncryptionHeader::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.crypt.standard.StandardEncryptionHeader", 60);
     return c;
 }
 
-java::lang::Class* org::apache::poi::poifs::crypt::standard::StandardEncryptionHeader::getClass0()
+java::lang::Class* poi::poifs::crypt::standard::StandardEncryptionHeader::getClass0()
 {
     return class_();
 }

@@ -5,7 +5,7 @@
 #include <org/apache/poi/sl/usermodel/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::sl::usermodel::FontCollection
+struct poi::sl::usermodel::FontCollection
     : public virtual ::java::lang::Object
 {
 

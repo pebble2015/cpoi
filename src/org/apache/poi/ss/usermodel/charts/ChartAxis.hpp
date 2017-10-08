@@ -7,7 +7,7 @@
 #include <org/apache/poi/ss/usermodel/charts/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::usermodel::charts::ChartAxis
+struct poi::ss::usermodel::charts::ChartAxis
     : public virtual ::java::lang::Object
 {
     virtual int64_t getId() = 0;

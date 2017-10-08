@@ -2,16 +2,10 @@
 #pragma once
 
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hssf
     {
-        namespace poi
-        {
-            namespace hssf
-            {
-                class OldExcelFormatException;
-            } // hssf
-        } // poi
-    } // apache
-} // org
+        class OldExcelFormatException;
+    } // hssf
+} // poi

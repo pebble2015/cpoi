@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::extractor::ExcelExtractor_CommandParseException final
+class poi::hssf::extractor::ExcelExtractor_CommandParseException final
     : public ::java::lang::Exception
 {
 

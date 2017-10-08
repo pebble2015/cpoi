@@ -29,360 +29,360 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::ExtendedFormatRecord::ExtendedFormatRecord(const ::default_init_tag&)
+poi::hssf::record::ExtendedFormatRecord::ExtendedFormatRecord(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::ExtendedFormatRecord::ExtendedFormatRecord() 
+poi::hssf::record::ExtendedFormatRecord::ExtendedFormatRecord() 
     : ExtendedFormatRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hssf::record::ExtendedFormatRecord::ExtendedFormatRecord(RecordInputStream* in) 
+poi::hssf::record::ExtendedFormatRecord::ExtendedFormatRecord(RecordInputStream* in) 
     : ExtendedFormatRecord(*static_cast< ::default_init_tag* >(0))
 {
     ctor(in);
 }
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::sid;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::sid;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::NULL_;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::NULL_;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::XF_STYLE;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::XF_STYLE;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::XF_CELL;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::XF_CELL;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::NONE;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::NONE;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::THIN;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::THIN;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::MEDIUM;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::MEDIUM;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::DASHED;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::DASHED;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::DOTTED;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::DOTTED;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::THICK;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::THICK;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::DOUBLE;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::DOUBLE;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::HAIR;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::HAIR;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::MEDIUM_DASHED;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::MEDIUM_DASHED;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::DASH_DOT;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::DASH_DOT;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::MEDIUM_DASH_DOT;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::MEDIUM_DASH_DOT;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::DASH_DOT_DOT;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::DASH_DOT_DOT;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::MEDIUM_DASH_DOT_DOT;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::MEDIUM_DASH_DOT_DOT;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::SLANTED_DASH_DOT;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::SLANTED_DASH_DOT;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::GENERAL;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::GENERAL;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::LEFT;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::LEFT;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::CENTER;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::CENTER;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::RIGHT;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::RIGHT;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::FILL;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::FILL;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::JUSTIFY;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::JUSTIFY;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::CENTER_SELECTION;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::CENTER_SELECTION;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::VERTICAL_TOP;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::VERTICAL_TOP;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::VERTICAL_CENTER;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::VERTICAL_CENTER;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::VERTICAL_BOTTOM;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::VERTICAL_BOTTOM;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::VERTICAL_JUSTIFY;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::VERTICAL_JUSTIFY;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::NO_FILL;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::NO_FILL;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::SOLID_FILL;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::SOLID_FILL;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::FINE_DOTS;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::FINE_DOTS;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::ALT_BARS;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::ALT_BARS;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::SPARSE_DOTS;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::SPARSE_DOTS;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::THICK_HORZ_BANDS;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::THICK_HORZ_BANDS;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::THICK_VERT_BANDS;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::THICK_VERT_BANDS;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::THICK_BACKWARD_DIAG;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::THICK_BACKWARD_DIAG;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::THICK_FORWARD_DIAG;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::THICK_FORWARD_DIAG;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::BIG_SPOTS;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::BIG_SPOTS;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::BRICKS;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::BRICKS;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::THIN_HORZ_BANDS;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::THIN_HORZ_BANDS;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::THIN_VERT_BANDS;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::THIN_VERT_BANDS;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::THIN_BACKWARD_DIAG;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::THIN_BACKWARD_DIAG;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::THIN_FORWARD_DIAG;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::THIN_FORWARD_DIAG;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::SQUARES;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::SQUARES;
 
-constexpr int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::DIAMONDS;
+constexpr int16_t poi::hssf::record::ExtendedFormatRecord::DIAMONDS;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::ExtendedFormatRecord::_locked()
+poi::util::BitField*& poi::hssf::record::ExtendedFormatRecord::_locked()
 {
     clinit();
     return _locked_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::ExtendedFormatRecord::_locked_;
+poi::util::BitField* poi::hssf::record::ExtendedFormatRecord::_locked_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::ExtendedFormatRecord::_hidden()
+poi::util::BitField*& poi::hssf::record::ExtendedFormatRecord::_hidden()
 {
     clinit();
     return _hidden_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::ExtendedFormatRecord::_hidden_;
+poi::util::BitField* poi::hssf::record::ExtendedFormatRecord::_hidden_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::ExtendedFormatRecord::_xf_type()
+poi::util::BitField*& poi::hssf::record::ExtendedFormatRecord::_xf_type()
 {
     clinit();
     return _xf_type_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::ExtendedFormatRecord::_xf_type_;
+poi::util::BitField* poi::hssf::record::ExtendedFormatRecord::_xf_type_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::ExtendedFormatRecord::_123_prefix()
+poi::util::BitField*& poi::hssf::record::ExtendedFormatRecord::_123_prefix()
 {
     clinit();
     return _123_prefix_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::ExtendedFormatRecord::_123_prefix_;
+poi::util::BitField* poi::hssf::record::ExtendedFormatRecord::_123_prefix_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::ExtendedFormatRecord::_parent_index()
+poi::util::BitField*& poi::hssf::record::ExtendedFormatRecord::_parent_index()
 {
     clinit();
     return _parent_index_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::ExtendedFormatRecord::_parent_index_;
+poi::util::BitField* poi::hssf::record::ExtendedFormatRecord::_parent_index_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::ExtendedFormatRecord::_alignment()
+poi::util::BitField*& poi::hssf::record::ExtendedFormatRecord::_alignment()
 {
     clinit();
     return _alignment_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::ExtendedFormatRecord::_alignment_;
+poi::util::BitField* poi::hssf::record::ExtendedFormatRecord::_alignment_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::ExtendedFormatRecord::_wrap_text()
+poi::util::BitField*& poi::hssf::record::ExtendedFormatRecord::_wrap_text()
 {
     clinit();
     return _wrap_text_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::ExtendedFormatRecord::_wrap_text_;
+poi::util::BitField* poi::hssf::record::ExtendedFormatRecord::_wrap_text_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::ExtendedFormatRecord::_vertical_alignment()
+poi::util::BitField*& poi::hssf::record::ExtendedFormatRecord::_vertical_alignment()
 {
     clinit();
     return _vertical_alignment_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::ExtendedFormatRecord::_vertical_alignment_;
+poi::util::BitField* poi::hssf::record::ExtendedFormatRecord::_vertical_alignment_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::ExtendedFormatRecord::_justify_last()
+poi::util::BitField*& poi::hssf::record::ExtendedFormatRecord::_justify_last()
 {
     clinit();
     return _justify_last_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::ExtendedFormatRecord::_justify_last_;
+poi::util::BitField* poi::hssf::record::ExtendedFormatRecord::_justify_last_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::ExtendedFormatRecord::_rotation()
+poi::util::BitField*& poi::hssf::record::ExtendedFormatRecord::_rotation()
 {
     clinit();
     return _rotation_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::ExtendedFormatRecord::_rotation_;
+poi::util::BitField* poi::hssf::record::ExtendedFormatRecord::_rotation_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::ExtendedFormatRecord::_indent()
+poi::util::BitField*& poi::hssf::record::ExtendedFormatRecord::_indent()
 {
     clinit();
     return _indent_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::ExtendedFormatRecord::_indent_;
+poi::util::BitField* poi::hssf::record::ExtendedFormatRecord::_indent_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::ExtendedFormatRecord::_shrink_to_fit()
+poi::util::BitField*& poi::hssf::record::ExtendedFormatRecord::_shrink_to_fit()
 {
     clinit();
     return _shrink_to_fit_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::ExtendedFormatRecord::_shrink_to_fit_;
+poi::util::BitField* poi::hssf::record::ExtendedFormatRecord::_shrink_to_fit_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::ExtendedFormatRecord::_merge_cells()
+poi::util::BitField*& poi::hssf::record::ExtendedFormatRecord::_merge_cells()
 {
     clinit();
     return _merge_cells_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::ExtendedFormatRecord::_merge_cells_;
+poi::util::BitField* poi::hssf::record::ExtendedFormatRecord::_merge_cells_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::ExtendedFormatRecord::_reading_order()
+poi::util::BitField*& poi::hssf::record::ExtendedFormatRecord::_reading_order()
 {
     clinit();
     return _reading_order_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::ExtendedFormatRecord::_reading_order_;
+poi::util::BitField* poi::hssf::record::ExtendedFormatRecord::_reading_order_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::ExtendedFormatRecord::_indent_not_parent_format()
+poi::util::BitField*& poi::hssf::record::ExtendedFormatRecord::_indent_not_parent_format()
 {
     clinit();
     return _indent_not_parent_format_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::ExtendedFormatRecord::_indent_not_parent_format_;
+poi::util::BitField* poi::hssf::record::ExtendedFormatRecord::_indent_not_parent_format_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::ExtendedFormatRecord::_indent_not_parent_font()
+poi::util::BitField*& poi::hssf::record::ExtendedFormatRecord::_indent_not_parent_font()
 {
     clinit();
     return _indent_not_parent_font_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::ExtendedFormatRecord::_indent_not_parent_font_;
+poi::util::BitField* poi::hssf::record::ExtendedFormatRecord::_indent_not_parent_font_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::ExtendedFormatRecord::_indent_not_parent_alignment()
+poi::util::BitField*& poi::hssf::record::ExtendedFormatRecord::_indent_not_parent_alignment()
 {
     clinit();
     return _indent_not_parent_alignment_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::ExtendedFormatRecord::_indent_not_parent_alignment_;
+poi::util::BitField* poi::hssf::record::ExtendedFormatRecord::_indent_not_parent_alignment_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::ExtendedFormatRecord::_indent_not_parent_border()
+poi::util::BitField*& poi::hssf::record::ExtendedFormatRecord::_indent_not_parent_border()
 {
     clinit();
     return _indent_not_parent_border_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::ExtendedFormatRecord::_indent_not_parent_border_;
+poi::util::BitField* poi::hssf::record::ExtendedFormatRecord::_indent_not_parent_border_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::ExtendedFormatRecord::_indent_not_parent_pattern()
+poi::util::BitField*& poi::hssf::record::ExtendedFormatRecord::_indent_not_parent_pattern()
 {
     clinit();
     return _indent_not_parent_pattern_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::ExtendedFormatRecord::_indent_not_parent_pattern_;
+poi::util::BitField* poi::hssf::record::ExtendedFormatRecord::_indent_not_parent_pattern_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::ExtendedFormatRecord::_indent_not_parent_cell_options()
+poi::util::BitField*& poi::hssf::record::ExtendedFormatRecord::_indent_not_parent_cell_options()
 {
     clinit();
     return _indent_not_parent_cell_options_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::ExtendedFormatRecord::_indent_not_parent_cell_options_;
+poi::util::BitField* poi::hssf::record::ExtendedFormatRecord::_indent_not_parent_cell_options_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::ExtendedFormatRecord::_border_left()
+poi::util::BitField*& poi::hssf::record::ExtendedFormatRecord::_border_left()
 {
     clinit();
     return _border_left_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::ExtendedFormatRecord::_border_left_;
+poi::util::BitField* poi::hssf::record::ExtendedFormatRecord::_border_left_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::ExtendedFormatRecord::_border_right()
+poi::util::BitField*& poi::hssf::record::ExtendedFormatRecord::_border_right()
 {
     clinit();
     return _border_right_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::ExtendedFormatRecord::_border_right_;
+poi::util::BitField* poi::hssf::record::ExtendedFormatRecord::_border_right_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::ExtendedFormatRecord::_border_top()
+poi::util::BitField*& poi::hssf::record::ExtendedFormatRecord::_border_top()
 {
     clinit();
     return _border_top_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::ExtendedFormatRecord::_border_top_;
+poi::util::BitField* poi::hssf::record::ExtendedFormatRecord::_border_top_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::ExtendedFormatRecord::_border_bottom()
+poi::util::BitField*& poi::hssf::record::ExtendedFormatRecord::_border_bottom()
 {
     clinit();
     return _border_bottom_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::ExtendedFormatRecord::_border_bottom_;
+poi::util::BitField* poi::hssf::record::ExtendedFormatRecord::_border_bottom_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::ExtendedFormatRecord::_left_border_palette_idx()
+poi::util::BitField*& poi::hssf::record::ExtendedFormatRecord::_left_border_palette_idx()
 {
     clinit();
     return _left_border_palette_idx_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::ExtendedFormatRecord::_left_border_palette_idx_;
+poi::util::BitField* poi::hssf::record::ExtendedFormatRecord::_left_border_palette_idx_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::ExtendedFormatRecord::_right_border_palette_idx()
+poi::util::BitField*& poi::hssf::record::ExtendedFormatRecord::_right_border_palette_idx()
 {
     clinit();
     return _right_border_palette_idx_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::ExtendedFormatRecord::_right_border_palette_idx_;
+poi::util::BitField* poi::hssf::record::ExtendedFormatRecord::_right_border_palette_idx_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::ExtendedFormatRecord::_diag()
+poi::util::BitField*& poi::hssf::record::ExtendedFormatRecord::_diag()
 {
     clinit();
     return _diag_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::ExtendedFormatRecord::_diag_;
+poi::util::BitField* poi::hssf::record::ExtendedFormatRecord::_diag_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::ExtendedFormatRecord::_top_border_palette_idx()
+poi::util::BitField*& poi::hssf::record::ExtendedFormatRecord::_top_border_palette_idx()
 {
     clinit();
     return _top_border_palette_idx_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::ExtendedFormatRecord::_top_border_palette_idx_;
+poi::util::BitField* poi::hssf::record::ExtendedFormatRecord::_top_border_palette_idx_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::ExtendedFormatRecord::_bottom_border_palette_idx()
+poi::util::BitField*& poi::hssf::record::ExtendedFormatRecord::_bottom_border_palette_idx()
 {
     clinit();
     return _bottom_border_palette_idx_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::ExtendedFormatRecord::_bottom_border_palette_idx_;
+poi::util::BitField* poi::hssf::record::ExtendedFormatRecord::_bottom_border_palette_idx_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::ExtendedFormatRecord::_adtl_diag()
+poi::util::BitField*& poi::hssf::record::ExtendedFormatRecord::_adtl_diag()
 {
     clinit();
     return _adtl_diag_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::ExtendedFormatRecord::_adtl_diag_;
+poi::util::BitField* poi::hssf::record::ExtendedFormatRecord::_adtl_diag_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::ExtendedFormatRecord::_adtl_diag_line_style()
+poi::util::BitField*& poi::hssf::record::ExtendedFormatRecord::_adtl_diag_line_style()
 {
     clinit();
     return _adtl_diag_line_style_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::ExtendedFormatRecord::_adtl_diag_line_style_;
+poi::util::BitField* poi::hssf::record::ExtendedFormatRecord::_adtl_diag_line_style_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::ExtendedFormatRecord::_adtl_fill_pattern()
+poi::util::BitField*& poi::hssf::record::ExtendedFormatRecord::_adtl_fill_pattern()
 {
     clinit();
     return _adtl_fill_pattern_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::ExtendedFormatRecord::_adtl_fill_pattern_;
+poi::util::BitField* poi::hssf::record::ExtendedFormatRecord::_adtl_fill_pattern_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::ExtendedFormatRecord::_fill_foreground()
+poi::util::BitField*& poi::hssf::record::ExtendedFormatRecord::_fill_foreground()
 {
     clinit();
     return _fill_foreground_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::ExtendedFormatRecord::_fill_foreground_;
+poi::util::BitField* poi::hssf::record::ExtendedFormatRecord::_fill_foreground_;
 
-org::apache::poi::util::BitField*& org::apache::poi::hssf::record::ExtendedFormatRecord::_fill_background()
+poi::util::BitField*& poi::hssf::record::ExtendedFormatRecord::_fill_background()
 {
     clinit();
     return _fill_background_;
 }
-org::apache::poi::util::BitField* org::apache::poi::hssf::record::ExtendedFormatRecord::_fill_background_;
+poi::util::BitField* poi::hssf::record::ExtendedFormatRecord::_fill_background_;
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::ctor()
+void poi::hssf::record::ExtendedFormatRecord::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::ctor(RecordInputStream* in)
+void poi::hssf::record::ExtendedFormatRecord::ctor(RecordInputStream* in)
 {
     super::ctor();
     field_1_font_index = npc(in)->readShort();
@@ -396,437 +396,437 @@ void org::apache::poi::hssf::record::ExtendedFormatRecord::ctor(RecordInputStrea
     field_9_fill_palette_options = npc(in)->readShort();
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setFontIndex(int16_t index)
+void poi::hssf::record::ExtendedFormatRecord::setFontIndex(int16_t index)
 {
     field_1_font_index = index;
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setFormatIndex(int16_t index)
+void poi::hssf::record::ExtendedFormatRecord::setFormatIndex(int16_t index)
 {
     field_2_format_index = index;
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setCellOptions(int16_t options)
+void poi::hssf::record::ExtendedFormatRecord::setCellOptions(int16_t options)
 {
     field_3_cell_options = options;
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setLocked(bool locked)
+void poi::hssf::record::ExtendedFormatRecord::setLocked(bool locked)
 {
     field_3_cell_options = npc(_locked_)->setShortBoolean(field_3_cell_options, locked);
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setHidden(bool hidden)
+void poi::hssf::record::ExtendedFormatRecord::setHidden(bool hidden)
 {
     field_3_cell_options = npc(_hidden_)->setShortBoolean(field_3_cell_options, hidden);
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setXFType(int16_t type)
+void poi::hssf::record::ExtendedFormatRecord::setXFType(int16_t type)
 {
     field_3_cell_options = npc(_xf_type_)->setShortValue(field_3_cell_options, type);
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::set123Prefix(bool prefix)
+void poi::hssf::record::ExtendedFormatRecord::set123Prefix(bool prefix)
 {
     field_3_cell_options = npc(_123_prefix_)->setShortBoolean(field_3_cell_options, prefix);
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setParentIndex(int16_t parent)
+void poi::hssf::record::ExtendedFormatRecord::setParentIndex(int16_t parent)
 {
     field_3_cell_options = npc(_parent_index_)->setShortValue(field_3_cell_options, parent);
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setAlignmentOptions(int16_t options)
+void poi::hssf::record::ExtendedFormatRecord::setAlignmentOptions(int16_t options)
 {
     field_4_alignment_options = options;
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setAlignment(int16_t align)
+void poi::hssf::record::ExtendedFormatRecord::setAlignment(int16_t align)
 {
     field_4_alignment_options = npc(_alignment_)->setShortValue(field_4_alignment_options, align);
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setWrapText(bool wrapped)
+void poi::hssf::record::ExtendedFormatRecord::setWrapText(bool wrapped)
 {
     field_4_alignment_options = npc(_wrap_text_)->setShortBoolean(field_4_alignment_options, wrapped);
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setVerticalAlignment(int16_t align)
+void poi::hssf::record::ExtendedFormatRecord::setVerticalAlignment(int16_t align)
 {
     field_4_alignment_options = npc(_vertical_alignment_)->setShortValue(field_4_alignment_options, align);
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setJustifyLast(int16_t justify)
+void poi::hssf::record::ExtendedFormatRecord::setJustifyLast(int16_t justify)
 {
     field_4_alignment_options = npc(_justify_last_)->setShortValue(field_4_alignment_options, justify);
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setRotation(int16_t rotation)
+void poi::hssf::record::ExtendedFormatRecord::setRotation(int16_t rotation)
 {
     field_4_alignment_options = npc(_rotation_)->setShortValue(field_4_alignment_options, rotation);
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setIndentionOptions(int16_t options)
+void poi::hssf::record::ExtendedFormatRecord::setIndentionOptions(int16_t options)
 {
     field_5_indention_options = options;
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setIndent(int16_t indent)
+void poi::hssf::record::ExtendedFormatRecord::setIndent(int16_t indent)
 {
     field_5_indention_options = npc(_indent_)->setShortValue(field_5_indention_options, indent);
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setShrinkToFit(bool shrink)
+void poi::hssf::record::ExtendedFormatRecord::setShrinkToFit(bool shrink)
 {
     field_5_indention_options = npc(_shrink_to_fit_)->setShortBoolean(field_5_indention_options, shrink);
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setMergeCells(bool merge)
+void poi::hssf::record::ExtendedFormatRecord::setMergeCells(bool merge)
 {
     field_5_indention_options = npc(_merge_cells_)->setShortBoolean(field_5_indention_options, merge);
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setReadingOrder(int16_t order)
+void poi::hssf::record::ExtendedFormatRecord::setReadingOrder(int16_t order)
 {
     field_5_indention_options = npc(_reading_order_)->setShortValue(field_5_indention_options, order);
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setIndentNotParentFormat(bool parent)
+void poi::hssf::record::ExtendedFormatRecord::setIndentNotParentFormat(bool parent)
 {
     field_5_indention_options = npc(_indent_not_parent_format_)->setShortBoolean(field_5_indention_options, parent);
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setIndentNotParentFont(bool font)
+void poi::hssf::record::ExtendedFormatRecord::setIndentNotParentFont(bool font)
 {
     field_5_indention_options = npc(_indent_not_parent_font_)->setShortBoolean(field_5_indention_options, font);
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setIndentNotParentAlignment(bool alignment)
+void poi::hssf::record::ExtendedFormatRecord::setIndentNotParentAlignment(bool alignment)
 {
     field_5_indention_options = npc(_indent_not_parent_alignment_)->setShortBoolean(field_5_indention_options, alignment);
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setIndentNotParentBorder(bool border)
+void poi::hssf::record::ExtendedFormatRecord::setIndentNotParentBorder(bool border)
 {
     field_5_indention_options = npc(_indent_not_parent_border_)->setShortBoolean(field_5_indention_options, border);
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setIndentNotParentPattern(bool pattern)
+void poi::hssf::record::ExtendedFormatRecord::setIndentNotParentPattern(bool pattern)
 {
     field_5_indention_options = npc(_indent_not_parent_pattern_)->setShortBoolean(field_5_indention_options, pattern);
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setIndentNotParentCellOptions(bool options)
+void poi::hssf::record::ExtendedFormatRecord::setIndentNotParentCellOptions(bool options)
 {
     field_5_indention_options = npc(_indent_not_parent_cell_options_)->setShortBoolean(field_5_indention_options, options);
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setBorderOptions(int16_t options)
+void poi::hssf::record::ExtendedFormatRecord::setBorderOptions(int16_t options)
 {
     field_6_border_options = options;
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setBorderLeft(int16_t border)
+void poi::hssf::record::ExtendedFormatRecord::setBorderLeft(int16_t border)
 {
     field_6_border_options = npc(_border_left_)->setShortValue(field_6_border_options, border);
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setBorderRight(int16_t border)
+void poi::hssf::record::ExtendedFormatRecord::setBorderRight(int16_t border)
 {
     field_6_border_options = npc(_border_right_)->setShortValue(field_6_border_options, border);
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setBorderTop(int16_t border)
+void poi::hssf::record::ExtendedFormatRecord::setBorderTop(int16_t border)
 {
     field_6_border_options = npc(_border_top_)->setShortValue(field_6_border_options, border);
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setBorderBottom(int16_t border)
+void poi::hssf::record::ExtendedFormatRecord::setBorderBottom(int16_t border)
 {
     field_6_border_options = npc(_border_bottom_)->setShortValue(field_6_border_options, border);
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setPaletteOptions(int16_t options)
+void poi::hssf::record::ExtendedFormatRecord::setPaletteOptions(int16_t options)
 {
     field_7_palette_options = options;
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setLeftBorderPaletteIdx(int16_t border)
+void poi::hssf::record::ExtendedFormatRecord::setLeftBorderPaletteIdx(int16_t border)
 {
     field_7_palette_options = npc(_left_border_palette_idx_)->setShortValue(field_7_palette_options, border);
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setRightBorderPaletteIdx(int16_t border)
+void poi::hssf::record::ExtendedFormatRecord::setRightBorderPaletteIdx(int16_t border)
 {
     field_7_palette_options = npc(_right_border_palette_idx_)->setShortValue(field_7_palette_options, border);
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setDiag(int16_t diag)
+void poi::hssf::record::ExtendedFormatRecord::setDiag(int16_t diag)
 {
     field_7_palette_options = npc(_diag_)->setShortValue(field_7_palette_options, diag);
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setAdtlPaletteOptions(int16_t options)
+void poi::hssf::record::ExtendedFormatRecord::setAdtlPaletteOptions(int16_t options)
 {
     field_8_adtl_palette_options = options;
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setTopBorderPaletteIdx(int16_t border)
+void poi::hssf::record::ExtendedFormatRecord::setTopBorderPaletteIdx(int16_t border)
 {
     field_8_adtl_palette_options = npc(_top_border_palette_idx_)->setValue(field_8_adtl_palette_options, border);
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setBottomBorderPaletteIdx(int16_t border)
+void poi::hssf::record::ExtendedFormatRecord::setBottomBorderPaletteIdx(int16_t border)
 {
     field_8_adtl_palette_options = npc(_bottom_border_palette_idx_)->setValue(field_8_adtl_palette_options, border);
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setAdtlDiag(int16_t diag)
+void poi::hssf::record::ExtendedFormatRecord::setAdtlDiag(int16_t diag)
 {
     field_8_adtl_palette_options = npc(_adtl_diag_)->setValue(field_8_adtl_palette_options, diag);
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setAdtlDiagLineStyle(int16_t diag)
+void poi::hssf::record::ExtendedFormatRecord::setAdtlDiagLineStyle(int16_t diag)
 {
     field_8_adtl_palette_options = npc(_adtl_diag_line_style_)->setValue(field_8_adtl_palette_options, diag);
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setAdtlFillPattern(int16_t fill)
+void poi::hssf::record::ExtendedFormatRecord::setAdtlFillPattern(int16_t fill)
 {
     field_8_adtl_palette_options = npc(_adtl_fill_pattern_)->setValue(field_8_adtl_palette_options, fill);
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setFillPaletteOptions(int16_t options)
+void poi::hssf::record::ExtendedFormatRecord::setFillPaletteOptions(int16_t options)
 {
     field_9_fill_palette_options = options;
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setFillForeground(int16_t color)
+void poi::hssf::record::ExtendedFormatRecord::setFillForeground(int16_t color)
 {
     field_9_fill_palette_options = npc(_fill_foreground_)->setShortValue(field_9_fill_palette_options, color);
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::setFillBackground(int16_t color)
+void poi::hssf::record::ExtendedFormatRecord::setFillBackground(int16_t color)
 {
     field_9_fill_palette_options = npc(_fill_background_)->setShortValue(field_9_fill_palette_options, color);
 }
 
-int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::getFontIndex()
+int16_t poi::hssf::record::ExtendedFormatRecord::getFontIndex()
 {
     return field_1_font_index;
 }
 
-int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::getFormatIndex()
+int16_t poi::hssf::record::ExtendedFormatRecord::getFormatIndex()
 {
     return field_2_format_index;
 }
 
-int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::getCellOptions()
+int16_t poi::hssf::record::ExtendedFormatRecord::getCellOptions()
 {
     return field_3_cell_options;
 }
 
-bool org::apache::poi::hssf::record::ExtendedFormatRecord::isLocked()
+bool poi::hssf::record::ExtendedFormatRecord::isLocked()
 {
     return npc(_locked_)->isSet(field_3_cell_options);
 }
 
-bool org::apache::poi::hssf::record::ExtendedFormatRecord::isHidden()
+bool poi::hssf::record::ExtendedFormatRecord::isHidden()
 {
     return npc(_hidden_)->isSet(field_3_cell_options);
 }
 
-int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::getXFType()
+int16_t poi::hssf::record::ExtendedFormatRecord::getXFType()
 {
     return npc(_xf_type_)->getShortValue(field_3_cell_options);
 }
 
-bool org::apache::poi::hssf::record::ExtendedFormatRecord::get123Prefix()
+bool poi::hssf::record::ExtendedFormatRecord::get123Prefix()
 {
     return npc(_123_prefix_)->isSet(field_3_cell_options);
 }
 
-int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::getParentIndex()
+int16_t poi::hssf::record::ExtendedFormatRecord::getParentIndex()
 {
     return npc(_parent_index_)->getShortValue(field_3_cell_options);
 }
 
-int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::getAlignmentOptions()
+int16_t poi::hssf::record::ExtendedFormatRecord::getAlignmentOptions()
 {
     return field_4_alignment_options;
 }
 
-int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::getAlignment()
+int16_t poi::hssf::record::ExtendedFormatRecord::getAlignment()
 {
     return npc(_alignment_)->getShortValue(field_4_alignment_options);
 }
 
-bool org::apache::poi::hssf::record::ExtendedFormatRecord::getWrapText()
+bool poi::hssf::record::ExtendedFormatRecord::getWrapText()
 {
     return npc(_wrap_text_)->isSet(field_4_alignment_options);
 }
 
-int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::getVerticalAlignment()
+int16_t poi::hssf::record::ExtendedFormatRecord::getVerticalAlignment()
 {
     return npc(_vertical_alignment_)->getShortValue(field_4_alignment_options);
 }
 
-int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::getJustifyLast()
+int16_t poi::hssf::record::ExtendedFormatRecord::getJustifyLast()
 {
     return npc(_justify_last_)->getShortValue(field_4_alignment_options);
 }
 
-int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::getRotation()
+int16_t poi::hssf::record::ExtendedFormatRecord::getRotation()
 {
     return npc(_rotation_)->getShortValue(field_4_alignment_options);
 }
 
-int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::getIndentionOptions()
+int16_t poi::hssf::record::ExtendedFormatRecord::getIndentionOptions()
 {
     return field_5_indention_options;
 }
 
-int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::getIndent()
+int16_t poi::hssf::record::ExtendedFormatRecord::getIndent()
 {
     return npc(_indent_)->getShortValue(field_5_indention_options);
 }
 
-bool org::apache::poi::hssf::record::ExtendedFormatRecord::getShrinkToFit()
+bool poi::hssf::record::ExtendedFormatRecord::getShrinkToFit()
 {
     return npc(_shrink_to_fit_)->isSet(field_5_indention_options);
 }
 
-bool org::apache::poi::hssf::record::ExtendedFormatRecord::getMergeCells()
+bool poi::hssf::record::ExtendedFormatRecord::getMergeCells()
 {
     return npc(_merge_cells_)->isSet(field_5_indention_options);
 }
 
-int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::getReadingOrder()
+int16_t poi::hssf::record::ExtendedFormatRecord::getReadingOrder()
 {
     return npc(_reading_order_)->getShortValue(field_5_indention_options);
 }
 
-bool org::apache::poi::hssf::record::ExtendedFormatRecord::isIndentNotParentFormat()
+bool poi::hssf::record::ExtendedFormatRecord::isIndentNotParentFormat()
 {
     return npc(_indent_not_parent_format_)->isSet(field_5_indention_options);
 }
 
-bool org::apache::poi::hssf::record::ExtendedFormatRecord::isIndentNotParentFont()
+bool poi::hssf::record::ExtendedFormatRecord::isIndentNotParentFont()
 {
     return npc(_indent_not_parent_font_)->isSet(field_5_indention_options);
 }
 
-bool org::apache::poi::hssf::record::ExtendedFormatRecord::isIndentNotParentAlignment()
+bool poi::hssf::record::ExtendedFormatRecord::isIndentNotParentAlignment()
 {
     return npc(_indent_not_parent_alignment_)->isSet(field_5_indention_options);
 }
 
-bool org::apache::poi::hssf::record::ExtendedFormatRecord::isIndentNotParentBorder()
+bool poi::hssf::record::ExtendedFormatRecord::isIndentNotParentBorder()
 {
     return npc(_indent_not_parent_border_)->isSet(field_5_indention_options);
 }
 
-bool org::apache::poi::hssf::record::ExtendedFormatRecord::isIndentNotParentPattern()
+bool poi::hssf::record::ExtendedFormatRecord::isIndentNotParentPattern()
 {
     return npc(_indent_not_parent_pattern_)->isSet(field_5_indention_options);
 }
 
-bool org::apache::poi::hssf::record::ExtendedFormatRecord::isIndentNotParentCellOptions()
+bool poi::hssf::record::ExtendedFormatRecord::isIndentNotParentCellOptions()
 {
     return npc(_indent_not_parent_cell_options_)->isSet(field_5_indention_options);
 }
 
-int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::getBorderOptions()
+int16_t poi::hssf::record::ExtendedFormatRecord::getBorderOptions()
 {
     return field_6_border_options;
 }
 
-int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::getBorderLeft()
+int16_t poi::hssf::record::ExtendedFormatRecord::getBorderLeft()
 {
     return npc(_border_left_)->getShortValue(field_6_border_options);
 }
 
-int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::getBorderRight()
+int16_t poi::hssf::record::ExtendedFormatRecord::getBorderRight()
 {
     return npc(_border_right_)->getShortValue(field_6_border_options);
 }
 
-int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::getBorderTop()
+int16_t poi::hssf::record::ExtendedFormatRecord::getBorderTop()
 {
     return npc(_border_top_)->getShortValue(field_6_border_options);
 }
 
-int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::getBorderBottom()
+int16_t poi::hssf::record::ExtendedFormatRecord::getBorderBottom()
 {
     return npc(_border_bottom_)->getShortValue(field_6_border_options);
 }
 
-int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::getPaletteOptions()
+int16_t poi::hssf::record::ExtendedFormatRecord::getPaletteOptions()
 {
     return field_7_palette_options;
 }
 
-int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::getLeftBorderPaletteIdx()
+int16_t poi::hssf::record::ExtendedFormatRecord::getLeftBorderPaletteIdx()
 {
     return npc(_left_border_palette_idx_)->getShortValue(field_7_palette_options);
 }
 
-int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::getRightBorderPaletteIdx()
+int16_t poi::hssf::record::ExtendedFormatRecord::getRightBorderPaletteIdx()
 {
     return npc(_right_border_palette_idx_)->getShortValue(field_7_palette_options);
 }
 
-int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::getDiag()
+int16_t poi::hssf::record::ExtendedFormatRecord::getDiag()
 {
     return npc(_diag_)->getShortValue(field_7_palette_options);
 }
 
-int32_t org::apache::poi::hssf::record::ExtendedFormatRecord::getAdtlPaletteOptions()
+int32_t poi::hssf::record::ExtendedFormatRecord::getAdtlPaletteOptions()
 {
     return field_8_adtl_palette_options;
 }
 
-int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::getTopBorderPaletteIdx()
+int16_t poi::hssf::record::ExtendedFormatRecord::getTopBorderPaletteIdx()
 {
     return static_cast< int16_t >(npc(_top_border_palette_idx_)->getValue(field_8_adtl_palette_options));
 }
 
-int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::getBottomBorderPaletteIdx()
+int16_t poi::hssf::record::ExtendedFormatRecord::getBottomBorderPaletteIdx()
 {
     return static_cast< int16_t >(npc(_bottom_border_palette_idx_)->getValue(field_8_adtl_palette_options));
 }
 
-int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::getAdtlDiag()
+int16_t poi::hssf::record::ExtendedFormatRecord::getAdtlDiag()
 {
     return static_cast< int16_t >(npc(_adtl_diag_)->getValue(field_8_adtl_palette_options));
 }
 
-int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::getAdtlDiagLineStyle()
+int16_t poi::hssf::record::ExtendedFormatRecord::getAdtlDiagLineStyle()
 {
     return static_cast< int16_t >(npc(_adtl_diag_line_style_)->getValue(field_8_adtl_palette_options));
 }
 
-int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::getAdtlFillPattern()
+int16_t poi::hssf::record::ExtendedFormatRecord::getAdtlFillPattern()
 {
     return static_cast< int16_t >(npc(_adtl_fill_pattern_)->getValue(field_8_adtl_palette_options));
 }
 
-int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::getFillPaletteOptions()
+int16_t poi::hssf::record::ExtendedFormatRecord::getFillPaletteOptions()
 {
     return field_9_fill_palette_options;
 }
 
-int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::getFillForeground()
+int16_t poi::hssf::record::ExtendedFormatRecord::getFillForeground()
 {
     return npc(_fill_foreground_)->getShortValue(field_9_fill_palette_options);
 }
 
-int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::getFillBackground()
+int16_t poi::hssf::record::ExtendedFormatRecord::getFillBackground()
 {
     return npc(_fill_background_)->getShortValue(field_9_fill_palette_options);
 }
 
-java::lang::String* org::apache::poi::hssf::record::ExtendedFormatRecord::toString()
+java::lang::String* poi::hssf::record::ExtendedFormatRecord::toString()
 {
     auto buffer = new ::java::lang::StringBuffer();
     npc(buffer)->append(u"[EXTENDEDFORMAT]\n"_j);
@@ -881,7 +881,7 @@ java::lang::String* org::apache::poi::hssf::record::ExtendedFormatRecord::toStri
     return npc(buffer)->toString();
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::serialize(::org::apache::poi::util::LittleEndianOutput* out)
+void poi::hssf::record::ExtendedFormatRecord::serialize(::poi::util::LittleEndianOutput* out)
 {
     npc(out)->writeShort(getFontIndex());
     npc(out)->writeShort(getFormatIndex());
@@ -894,17 +894,17 @@ void org::apache::poi::hssf::record::ExtendedFormatRecord::serialize(::org::apac
     npc(out)->writeShort(getFillPaletteOptions());
 }
 
-int32_t org::apache::poi::hssf::record::ExtendedFormatRecord::getDataSize()
+int32_t poi::hssf::record::ExtendedFormatRecord::getDataSize()
 {
     return 20;
 }
 
-int16_t org::apache::poi::hssf::record::ExtendedFormatRecord::getSid()
+int16_t poi::hssf::record::ExtendedFormatRecord::getSid()
 {
     return sid;
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::cloneStyleFrom(ExtendedFormatRecord* source)
+void poi::hssf::record::ExtendedFormatRecord::cloneStyleFrom(ExtendedFormatRecord* source)
 {
     field_1_font_index = npc(source)->field_1_font_index;
     field_2_format_index = npc(source)->field_2_format_index;
@@ -917,7 +917,7 @@ void org::apache::poi::hssf::record::ExtendedFormatRecord::cloneStyleFrom(Extend
     field_9_fill_palette_options = npc(source)->field_9_fill_palette_options;
 }
 
-int32_t org::apache::poi::hssf::record::ExtendedFormatRecord::hashCode()
+int32_t poi::hssf::record::ExtendedFormatRecord::hashCode()
 {
     auto const prime = int32_t(31);
     auto result = int32_t(1);
@@ -933,7 +933,7 @@ int32_t org::apache::poi::hssf::record::ExtendedFormatRecord::hashCode()
     return result;
 }
 
-bool org::apache::poi::hssf::record::ExtendedFormatRecord::equals(::java::lang::Object* obj)
+bool poi::hssf::record::ExtendedFormatRecord::equals(::java::lang::Object* obj)
 {
     if(static_cast< ::java::lang::Object* >(this) == obj)
         return true;
@@ -975,7 +975,7 @@ bool org::apache::poi::hssf::record::ExtendedFormatRecord::equals(::java::lang::
     return false;
 }
 
-int32_tArray* org::apache::poi::hssf::record::ExtendedFormatRecord::stateSummary()
+int32_tArray* poi::hssf::record::ExtendedFormatRecord::stateSummary()
 {
     return new ::int32_tArray({
         static_cast< int32_t >(field_1_font_index)
@@ -992,53 +992,53 @@ int32_tArray* org::apache::poi::hssf::record::ExtendedFormatRecord::stateSummary
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::ExtendedFormatRecord::class_()
+java::lang::Class* poi::hssf::record::ExtendedFormatRecord::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.ExtendedFormatRecord", 47);
     return c;
 }
 
-void org::apache::poi::hssf::record::ExtendedFormatRecord::clinit()
+void poi::hssf::record::ExtendedFormatRecord::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        _locked_ = ::org::apache::poi::util::BitFieldFactory::getInstance(1);
-        _hidden_ = ::org::apache::poi::util::BitFieldFactory::getInstance(2);
-        _xf_type_ = ::org::apache::poi::util::BitFieldFactory::getInstance(4);
-        _123_prefix_ = ::org::apache::poi::util::BitFieldFactory::getInstance(8);
-        _parent_index_ = ::org::apache::poi::util::BitFieldFactory::getInstance(65520);
-        _alignment_ = ::org::apache::poi::util::BitFieldFactory::getInstance(7);
-        _wrap_text_ = ::org::apache::poi::util::BitFieldFactory::getInstance(8);
-        _vertical_alignment_ = ::org::apache::poi::util::BitFieldFactory::getInstance(112);
-        _justify_last_ = ::org::apache::poi::util::BitFieldFactory::getInstance(128);
-        _rotation_ = ::org::apache::poi::util::BitFieldFactory::getInstance(65280);
-        _indent_ = ::org::apache::poi::util::BitFieldFactory::getInstance(15);
-        _shrink_to_fit_ = ::org::apache::poi::util::BitFieldFactory::getInstance(16);
-        _merge_cells_ = ::org::apache::poi::util::BitFieldFactory::getInstance(32);
-        _reading_order_ = ::org::apache::poi::util::BitFieldFactory::getInstance(192);
-        _indent_not_parent_format_ = ::org::apache::poi::util::BitFieldFactory::getInstance(1024);
-        _indent_not_parent_font_ = ::org::apache::poi::util::BitFieldFactory::getInstance(2048);
-        _indent_not_parent_alignment_ = ::org::apache::poi::util::BitFieldFactory::getInstance(4096);
-        _indent_not_parent_border_ = ::org::apache::poi::util::BitFieldFactory::getInstance(8192);
-        _indent_not_parent_pattern_ = ::org::apache::poi::util::BitFieldFactory::getInstance(16384);
-        _indent_not_parent_cell_options_ = ::org::apache::poi::util::BitFieldFactory::getInstance(32768);
-        _border_left_ = ::org::apache::poi::util::BitFieldFactory::getInstance(15);
-        _border_right_ = ::org::apache::poi::util::BitFieldFactory::getInstance(240);
-        _border_top_ = ::org::apache::poi::util::BitFieldFactory::getInstance(3840);
-        _border_bottom_ = ::org::apache::poi::util::BitFieldFactory::getInstance(61440);
-        _left_border_palette_idx_ = ::org::apache::poi::util::BitFieldFactory::getInstance(127);
-        _right_border_palette_idx_ = ::org::apache::poi::util::BitFieldFactory::getInstance(16256);
-        _diag_ = ::org::apache::poi::util::BitFieldFactory::getInstance(49152);
-        _top_border_palette_idx_ = ::org::apache::poi::util::BitFieldFactory::getInstance(127);
-        _bottom_border_palette_idx_ = ::org::apache::poi::util::BitFieldFactory::getInstance(16256);
-        _adtl_diag_ = ::org::apache::poi::util::BitFieldFactory::getInstance(2080768);
-        _adtl_diag_line_style_ = ::org::apache::poi::util::BitFieldFactory::getInstance(31457280);
-        _adtl_fill_pattern_ = ::org::apache::poi::util::BitFieldFactory::getInstance(-67108864);
-        _fill_foreground_ = ::org::apache::poi::util::BitFieldFactory::getInstance(127);
-        _fill_background_ = ::org::apache::poi::util::BitFieldFactory::getInstance(16256);
+        _locked_ = ::poi::util::BitFieldFactory::getInstance(1);
+        _hidden_ = ::poi::util::BitFieldFactory::getInstance(2);
+        _xf_type_ = ::poi::util::BitFieldFactory::getInstance(4);
+        _123_prefix_ = ::poi::util::BitFieldFactory::getInstance(8);
+        _parent_index_ = ::poi::util::BitFieldFactory::getInstance(65520);
+        _alignment_ = ::poi::util::BitFieldFactory::getInstance(7);
+        _wrap_text_ = ::poi::util::BitFieldFactory::getInstance(8);
+        _vertical_alignment_ = ::poi::util::BitFieldFactory::getInstance(112);
+        _justify_last_ = ::poi::util::BitFieldFactory::getInstance(128);
+        _rotation_ = ::poi::util::BitFieldFactory::getInstance(65280);
+        _indent_ = ::poi::util::BitFieldFactory::getInstance(15);
+        _shrink_to_fit_ = ::poi::util::BitFieldFactory::getInstance(16);
+        _merge_cells_ = ::poi::util::BitFieldFactory::getInstance(32);
+        _reading_order_ = ::poi::util::BitFieldFactory::getInstance(192);
+        _indent_not_parent_format_ = ::poi::util::BitFieldFactory::getInstance(1024);
+        _indent_not_parent_font_ = ::poi::util::BitFieldFactory::getInstance(2048);
+        _indent_not_parent_alignment_ = ::poi::util::BitFieldFactory::getInstance(4096);
+        _indent_not_parent_border_ = ::poi::util::BitFieldFactory::getInstance(8192);
+        _indent_not_parent_pattern_ = ::poi::util::BitFieldFactory::getInstance(16384);
+        _indent_not_parent_cell_options_ = ::poi::util::BitFieldFactory::getInstance(32768);
+        _border_left_ = ::poi::util::BitFieldFactory::getInstance(15);
+        _border_right_ = ::poi::util::BitFieldFactory::getInstance(240);
+        _border_top_ = ::poi::util::BitFieldFactory::getInstance(3840);
+        _border_bottom_ = ::poi::util::BitFieldFactory::getInstance(61440);
+        _left_border_palette_idx_ = ::poi::util::BitFieldFactory::getInstance(127);
+        _right_border_palette_idx_ = ::poi::util::BitFieldFactory::getInstance(16256);
+        _diag_ = ::poi::util::BitFieldFactory::getInstance(49152);
+        _top_border_palette_idx_ = ::poi::util::BitFieldFactory::getInstance(127);
+        _bottom_border_palette_idx_ = ::poi::util::BitFieldFactory::getInstance(16256);
+        _adtl_diag_ = ::poi::util::BitFieldFactory::getInstance(2080768);
+        _adtl_diag_line_style_ = ::poi::util::BitFieldFactory::getInstance(31457280);
+        _adtl_fill_pattern_ = ::poi::util::BitFieldFactory::getInstance(-67108864);
+        _fill_foreground_ = ::poi::util::BitFieldFactory::getInstance(127);
+        _fill_background_ = ::poi::util::BitFieldFactory::getInstance(16256);
     }
 };
 
@@ -1047,17 +1047,17 @@ struct clinit_ {
     }
 }
 
-int32_t org::apache::poi::hssf::record::ExtendedFormatRecord::serialize(int32_t offset, ::int8_tArray* data)
+int32_t poi::hssf::record::ExtendedFormatRecord::serialize(int32_t offset, ::int8_tArray* data)
 {
     return super::serialize(offset, data);
 }
 
-int8_tArray* org::apache::poi::hssf::record::ExtendedFormatRecord::serialize()
+int8_tArray* poi::hssf::record::ExtendedFormatRecord::serialize()
 {
     return super::serialize();
 }
 
-java::lang::Class* org::apache::poi::hssf::record::ExtendedFormatRecord::getClass0()
+java::lang::Class* poi::hssf::record::ExtendedFormatRecord::getClass0()
 {
     return class_();
 }

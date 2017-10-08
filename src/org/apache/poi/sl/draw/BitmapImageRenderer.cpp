@@ -68,36 +68,36 @@ namespace
 
     template<typename F> finally_<F> finally(F f) { return finally_<F>(f); }
 }
-org::apache::poi::sl::draw::BitmapImageRenderer::BitmapImageRenderer(const ::default_init_tag&)
+poi::sl::draw::BitmapImageRenderer::BitmapImageRenderer(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::draw::BitmapImageRenderer::BitmapImageRenderer()
+poi::sl::draw::BitmapImageRenderer::BitmapImageRenderer()
     : BitmapImageRenderer(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::util::POILogger*& org::apache::poi::sl::draw::BitmapImageRenderer::LOG()
+poi::util::POILogger*& poi::sl::draw::BitmapImageRenderer::LOG()
 {
     clinit();
     return LOG_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::sl::draw::BitmapImageRenderer::LOG_;
+poi::util::POILogger* poi::sl::draw::BitmapImageRenderer::LOG_;
 
-void org::apache::poi::sl::draw::BitmapImageRenderer::loadImage(::java::io::InputStream* data, ::java::lang::String* contentType) /* throws(IOException) */
+void poi::sl::draw::BitmapImageRenderer::loadImage(::java::io::InputStream* data, ::java::lang::String* contentType) /* throws(IOException) */
 {
     img = readImage(data, contentType);
 }
 
-void org::apache::poi::sl::draw::BitmapImageRenderer::loadImage(::int8_tArray* data, ::java::lang::String* contentType) /* throws(IOException) */
+void poi::sl::draw::BitmapImageRenderer::loadImage(::int8_tArray* data, ::java::lang::String* contentType) /* throws(IOException) */
 {
     img = readImage(new ::java::io::ByteArrayInputStream(data), contentType);
 }
 
-java::awt::image::BufferedImage* org::apache::poi::sl::draw::BitmapImageRenderer::readImage(::java::io::InputStream* data, ::java::lang::String* contentType) /* throws(IOException) */
+java::awt::image::BufferedImage* poi::sl::draw::BitmapImageRenderer::readImage(::java::io::InputStream* data, ::java::lang::String* contentType) /* throws(IOException) */
 {
     clinit();
     ::java::io::IOException* lastException = nullptr;
@@ -209,7 +209,7 @@ java::awt::image::BufferedImage* org::apache::poi::sl::draw::BitmapImageRenderer
         if(lastException != nullptr) {
             throw lastException;
         }
-        npc(LOG_)->log(::org::apache::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Content-type: "_j)->append(contentType)
+        npc(LOG_)->log(::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Content-type: "_j)->append(contentType)
             ->append(u" is not support. Image ignored."_j)->toString())}));
         return nullptr;
     }
@@ -223,7 +223,7 @@ java::awt::image::BufferedImage* org::apache::poi::sl::draw::BitmapImageRenderer
     return img;
 }
 
-int32_t org::apache::poi::sl::draw::BitmapImageRenderer::findTruncatedBlackBox(::java::awt::image::BufferedImage* img, int32_t width, int32_t height)
+int32_t poi::sl::draw::BitmapImageRenderer::findTruncatedBlackBox(::java::awt::image::BufferedImage* img, int32_t width, int32_t height)
 {
     clinit();
     auto h = height - int32_t(1);
@@ -238,12 +238,12 @@ int32_t org::apache::poi::sl::draw::BitmapImageRenderer::findTruncatedBlackBox(:
     return 0;
 }
 
-java::awt::image::BufferedImage* org::apache::poi::sl::draw::BitmapImageRenderer::getImage()
+java::awt::image::BufferedImage* poi::sl::draw::BitmapImageRenderer::getImage()
 {
     return img;
 }
 
-java::awt::image::BufferedImage* org::apache::poi::sl::draw::BitmapImageRenderer::getImage(::java::awt::Dimension* dim)
+java::awt::image::BufferedImage* poi::sl::draw::BitmapImageRenderer::getImage(::java::awt::Dimension* dim)
 {
     double w_old = npc(img)->getWidth();
     double h_old = npc(img)->getHeight();
@@ -257,12 +257,12 @@ java::awt::image::BufferedImage* org::apache::poi::sl::draw::BitmapImageRenderer
     return scaled;
 }
 
-java::awt::Dimension* org::apache::poi::sl::draw::BitmapImageRenderer::getDimension()
+java::awt::Dimension* poi::sl::draw::BitmapImageRenderer::getDimension()
 {
     return (img == nullptr) ? new ::java::awt::Dimension(int32_t(0), int32_t(0)) : new ::java::awt::Dimension(npc(img)->getWidth(), npc(img)->getHeight());
 }
 
-void org::apache::poi::sl::draw::BitmapImageRenderer::setAlpha(double alpha)
+void poi::sl::draw::BitmapImageRenderer::setAlpha(double alpha)
 {
     if(img == nullptr)
         return;
@@ -286,12 +286,12 @@ void org::apache::poi::sl::draw::BitmapImageRenderer::setAlpha(double alpha)
     img = newImg;
 }
 
-bool org::apache::poi::sl::draw::BitmapImageRenderer::drawImage(::java::awt::Graphics2D* graphics, ::java::awt::geom::Rectangle2D* anchor)
+bool poi::sl::draw::BitmapImageRenderer::drawImage(::java::awt::Graphics2D* graphics, ::java::awt::geom::Rectangle2D* anchor)
 {
     return drawImage(graphics, anchor, static_cast< ::java::awt::Insets* >(nullptr));
 }
 
-bool org::apache::poi::sl::draw::BitmapImageRenderer::drawImage(::java::awt::Graphics2D* graphics, ::java::awt::geom::Rectangle2D* anchor, ::java::awt::Insets* clip)
+bool poi::sl::draw::BitmapImageRenderer::drawImage(::java::awt::Graphics2D* graphics, ::java::awt::geom::Rectangle2D* anchor, ::java::awt::Insets* clip)
 {
     if(img == nullptr)
         return false;
@@ -321,20 +321,20 @@ bool org::apache::poi::sl::draw::BitmapImageRenderer::drawImage(::java::awt::Gra
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::draw::BitmapImageRenderer::class_()
+java::lang::Class* poi::sl::draw::BitmapImageRenderer::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.draw.BitmapImageRenderer", 42);
     return c;
 }
 
-void org::apache::poi::sl::draw::BitmapImageRenderer::clinit()
+void poi::sl::draw::BitmapImageRenderer::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        LOG_ = ::org::apache::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(ImageRenderer::class_()));
+        LOG_ = ::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(ImageRenderer::class_()));
     }
 };
 
@@ -343,7 +343,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::sl::draw::BitmapImageRenderer::getClass0()
+java::lang::Class* poi::sl::draw::BitmapImageRenderer::getClass0()
 {
     return class_();
 }

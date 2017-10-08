@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::HorizontalPageBreakRecord final
+class poi::hssf::record::HorizontalPageBreakRecord final
     : public PageBreakRecord
     , public ::java::lang::Cloneable
 {

@@ -34,32 +34,32 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::property::PropertyTableBase::PropertyTableBase(const ::default_init_tag&)
+poi::poifs::property::PropertyTableBase::PropertyTableBase(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::property::PropertyTableBase::PropertyTableBase(::org::apache::poi::poifs::storage::HeaderBlock* header_block) 
+poi::poifs::property::PropertyTableBase::PropertyTableBase(::poi::poifs::storage::HeaderBlock* header_block) 
     : PropertyTableBase(*static_cast< ::default_init_tag* >(0))
 {
     ctor(header_block);
 }
 
-org::apache::poi::poifs::property::PropertyTableBase::PropertyTableBase(::org::apache::poi::poifs::storage::HeaderBlock* header_block, ::java::util::List* properties)  /* throws(IOException) */
+poi::poifs::property::PropertyTableBase::PropertyTableBase(::poi::poifs::storage::HeaderBlock* header_block, ::java::util::List* properties)  /* throws(IOException) */
     : PropertyTableBase(*static_cast< ::default_init_tag* >(0))
 {
     ctor(header_block,properties);
 }
 
-org::apache::poi::util::POILogger*& org::apache::poi::poifs::property::PropertyTableBase::_logger()
+poi::util::POILogger*& poi::poifs::property::PropertyTableBase::_logger()
 {
     clinit();
     return _logger_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::poifs::property::PropertyTableBase::_logger_;
+poi::util::POILogger* poi::poifs::property::PropertyTableBase::_logger_;
 
-void org::apache::poi::poifs::property::PropertyTableBase::ctor(::org::apache::poi::poifs::storage::HeaderBlock* header_block)
+void poi::poifs::property::PropertyTableBase::ctor(::poi::poifs::storage::HeaderBlock* header_block)
 {
     super::ctor();
     _header_block = header_block;
@@ -67,7 +67,7 @@ void org::apache::poi::poifs::property::PropertyTableBase::ctor(::org::apache::p
     addProperty(new RootProperty());
 }
 
-void org::apache::poi::poifs::property::PropertyTableBase::ctor(::org::apache::poi::poifs::storage::HeaderBlock* header_block, ::java::util::List* properties) /* throws(IOException) */
+void poi::poifs::property::PropertyTableBase::ctor(::poi::poifs::storage::HeaderBlock* header_block, ::java::util::List* properties) /* throws(IOException) */
 {
     super::ctor();
     _header_block = header_block;
@@ -75,22 +75,22 @@ void org::apache::poi::poifs::property::PropertyTableBase::ctor(::org::apache::p
     populatePropertyTree(java_cast< DirectoryProperty* >(java_cast< Property* >(npc(_properties)->get(0))));
 }
 
-void org::apache::poi::poifs::property::PropertyTableBase::addProperty(Property* property)
+void poi::poifs::property::PropertyTableBase::addProperty(Property* property)
 {
     npc(_properties)->add(static_cast< ::java::lang::Object* >(property));
 }
 
-void org::apache::poi::poifs::property::PropertyTableBase::removeProperty(Property* property)
+void poi::poifs::property::PropertyTableBase::removeProperty(Property* property)
 {
     npc(_properties)->remove(static_cast< ::java::lang::Object* >(property));
 }
 
-org::apache::poi::poifs::property::RootProperty* org::apache::poi::poifs::property::PropertyTableBase::getRoot()
+poi::poifs::property::RootProperty* poi::poifs::property::PropertyTableBase::getRoot()
 {
     return java_cast< RootProperty* >(java_cast< Property* >(npc(_properties)->get(0)));
 }
 
-void org::apache::poi::poifs::property::PropertyTableBase::populatePropertyTree(DirectoryProperty* root) /* throws(IOException) */
+void poi::poifs::property::PropertyTableBase::populatePropertyTree(DirectoryProperty* root) /* throws(IOException) */
 {
     auto index = npc(root)->getChildIndex();
     if(!Property::isValidIndex(index)) {
@@ -118,13 +118,13 @@ void org::apache::poi::poifs::property::PropertyTableBase::populatePropertyTree(
     }
 }
 
-bool org::apache::poi::poifs::property::PropertyTableBase::isValidIndex(int32_t index)
+bool poi::poifs::property::PropertyTableBase::isValidIndex(int32_t index)
 {
     if(!Property::isValidIndex(index))
         return false;
 
     if(index < 0 || index >= npc(_properties)->size()) {
-        npc(_logger_)->log(::org::apache::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Property index "_j)->append(index)
+        npc(_logger_)->log(::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(::java::lang::StringBuilder().append(u"Property index "_j)->append(index)
             ->append(u"outside the valid range 0.."_j)
             ->append(npc(_properties)->size())->toString())}));
         return false;
@@ -132,32 +132,32 @@ bool org::apache::poi::poifs::property::PropertyTableBase::isValidIndex(int32_t 
     return true;
 }
 
-int32_t org::apache::poi::poifs::property::PropertyTableBase::getStartBlock()
+int32_t poi::poifs::property::PropertyTableBase::getStartBlock()
 {
     return npc(_header_block)->getPropertyStart();
 }
 
-void org::apache::poi::poifs::property::PropertyTableBase::setStartBlock(int32_t index)
+void poi::poifs::property::PropertyTableBase::setStartBlock(int32_t index)
 {
     npc(_header_block)->setPropertyStart(index);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::property::PropertyTableBase::class_()
+java::lang::Class* poi::poifs::property::PropertyTableBase::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.property.PropertyTableBase", 47);
     return c;
 }
 
-void org::apache::poi::poifs::property::PropertyTableBase::clinit()
+void poi::poifs::property::PropertyTableBase::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        _logger_ = ::org::apache::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(PropertyTableBase::class_()));
+        _logger_ = ::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(PropertyTableBase::class_()));
     }
 };
 
@@ -166,7 +166,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::poifs::property::PropertyTableBase::getClass0()
+java::lang::Class* poi::poifs::property::PropertyTableBase::getClass0()
 {
     return class_();
 }

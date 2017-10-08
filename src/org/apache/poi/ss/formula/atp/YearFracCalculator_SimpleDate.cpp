@@ -11,23 +11,23 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::atp::YearFracCalculator_SimpleDate::YearFracCalculator_SimpleDate(const ::default_init_tag&)
+poi::ss::formula::atp::YearFracCalculator_SimpleDate::YearFracCalculator_SimpleDate(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::atp::YearFracCalculator_SimpleDate::YearFracCalculator_SimpleDate(::java::util::Calendar* cal) 
+poi::ss::formula::atp::YearFracCalculator_SimpleDate::YearFracCalculator_SimpleDate(::java::util::Calendar* cal) 
     : YearFracCalculator_SimpleDate(*static_cast< ::default_init_tag* >(0))
 {
     ctor(cal);
 }
 
-constexpr int32_t org::apache::poi::ss::formula::atp::YearFracCalculator_SimpleDate::JANUARY;
+constexpr int32_t poi::ss::formula::atp::YearFracCalculator_SimpleDate::JANUARY;
 
-constexpr int32_t org::apache::poi::ss::formula::atp::YearFracCalculator_SimpleDate::FEBRUARY;
+constexpr int32_t poi::ss::formula::atp::YearFracCalculator_SimpleDate::FEBRUARY;
 
-void org::apache::poi::ss::formula::atp::YearFracCalculator_SimpleDate::ctor(::java::util::Calendar* cal)
+void poi::ss::formula::atp::YearFracCalculator_SimpleDate::ctor(::java::util::Calendar* cal)
 {
     super::ctor();
     year = npc(cal)->get(::java::util::Calendar::YEAR);
@@ -38,13 +38,13 @@ void org::apache::poi::ss::formula::atp::YearFracCalculator_SimpleDate::ctor(::j
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::atp::YearFracCalculator_SimpleDate::class_()
+java::lang::Class* poi::ss::formula::atp::YearFracCalculator_SimpleDate::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.atp.YearFracCalculator.SimpleDate", 59);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::atp::YearFracCalculator_SimpleDate::getClass0()
+java::lang::Class* poi::ss::formula::atp::YearFracCalculator_SimpleDate::getClass0()
 {
     return class_();
 }

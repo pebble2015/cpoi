@@ -16,30 +16,30 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::usermodel::HSSFPalette_CustomColor::HSSFPalette_CustomColor(const ::default_init_tag&)
+poi::hssf::usermodel::HSSFPalette_CustomColor::HSSFPalette_CustomColor(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::usermodel::HSSFPalette_CustomColor::HSSFPalette_CustomColor(int16_t byteOffset, ::int8_tArray* colors) 
+poi::hssf::usermodel::HSSFPalette_CustomColor::HSSFPalette_CustomColor(int16_t byteOffset, ::int8_tArray* colors) 
     : HSSFPalette_CustomColor(*static_cast< ::default_init_tag* >(0))
 {
     ctor(byteOffset,colors);
 }
 
-org::apache::poi::hssf::usermodel::HSSFPalette_CustomColor::HSSFPalette_CustomColor(int16_t byteOffset, int8_t red, int8_t green, int8_t blue) 
+poi::hssf::usermodel::HSSFPalette_CustomColor::HSSFPalette_CustomColor(int16_t byteOffset, int8_t red, int8_t green, int8_t blue) 
     : HSSFPalette_CustomColor(*static_cast< ::default_init_tag* >(0))
 {
     ctor(byteOffset,red,green,blue);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPalette_CustomColor::ctor(int16_t byteOffset, ::int8_tArray* colors)
+void poi::hssf::usermodel::HSSFPalette_CustomColor::ctor(int16_t byteOffset, ::int8_tArray* colors)
 {
     ctor(byteOffset, (*colors)[int32_t(0)], (*colors)[int32_t(1)], (*colors)[int32_t(2)]);
 }
 
-void org::apache::poi::hssf::usermodel::HSSFPalette_CustomColor::ctor(int16_t byteOffset, int8_t red, int8_t green, int8_t blue)
+void poi::hssf::usermodel::HSSFPalette_CustomColor::ctor(int16_t byteOffset, int8_t red, int8_t green, int8_t blue)
 {
     super::ctor();
     _byteOffset = byteOffset;
@@ -48,12 +48,12 @@ void org::apache::poi::hssf::usermodel::HSSFPalette_CustomColor::ctor(int16_t by
     _blue = blue;
 }
 
-int16_t org::apache::poi::hssf::usermodel::HSSFPalette_CustomColor::getIndex()
+int16_t poi::hssf::usermodel::HSSFPalette_CustomColor::getIndex()
 {
     return _byteOffset;
 }
 
-int16_tArray* org::apache::poi::hssf::usermodel::HSSFPalette_CustomColor::getTriplet()
+int16_tArray* poi::hssf::usermodel::HSSFPalette_CustomColor::getTriplet()
 {
     return new ::int16_tArray({
         static_cast< int16_t >((_red & int32_t(255)))
@@ -62,7 +62,7 @@ int16_tArray* org::apache::poi::hssf::usermodel::HSSFPalette_CustomColor::getTri
     });
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HSSFPalette_CustomColor::getHexString()
+java::lang::String* poi::hssf::usermodel::HSSFPalette_CustomColor::getHexString()
 {
     auto sb = new ::java::lang::StringBuffer();
     npc(sb)->append(getGnumericPart(_red));
@@ -73,7 +73,7 @@ java::lang::String* org::apache::poi::hssf::usermodel::HSSFPalette_CustomColor::
     return npc(sb)->toString();
 }
 
-java::lang::String* org::apache::poi::hssf::usermodel::HSSFPalette_CustomColor::getGnumericPart(int8_t color)
+java::lang::String* poi::hssf::usermodel::HSSFPalette_CustomColor::getGnumericPart(int8_t color)
 {
     ::java::lang::String* s;
     if(color == 0) {
@@ -91,13 +91,13 @@ java::lang::String* org::apache::poi::hssf::usermodel::HSSFPalette_CustomColor::
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFPalette_CustomColor::class_()
+java::lang::Class* poi::hssf::usermodel::HSSFPalette_CustomColor::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.usermodel.HSSFPalette.CustomColor", 53);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::usermodel::HSSFPalette_CustomColor::getClass0()
+java::lang::Class* poi::hssf::usermodel::HSSFPalette_CustomColor::getClass0()
 {
     return class_();
 }

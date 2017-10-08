@@ -16,89 +16,89 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hpsf::Thumbnail::Thumbnail(const ::default_init_tag&)
+poi::hpsf::Thumbnail::Thumbnail(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hpsf::Thumbnail::Thumbnail() 
+poi::hpsf::Thumbnail::Thumbnail() 
     : Thumbnail(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::hpsf::Thumbnail::Thumbnail(::int8_tArray* thumbnailData) 
+poi::hpsf::Thumbnail::Thumbnail(::int8_tArray* thumbnailData) 
     : Thumbnail(*static_cast< ::default_init_tag* >(0))
 {
     ctor(thumbnailData);
 }
 
-void org::apache::poi::hpsf::Thumbnail::init()
+void poi::hpsf::Thumbnail::init()
 {
     _thumbnailData = nullptr;
 }
 
-constexpr int32_t org::apache::poi::hpsf::Thumbnail::OFFSET_CFTAG;
+constexpr int32_t poi::hpsf::Thumbnail::OFFSET_CFTAG;
 
-constexpr int32_t org::apache::poi::hpsf::Thumbnail::OFFSET_CF;
+constexpr int32_t poi::hpsf::Thumbnail::OFFSET_CF;
 
-constexpr int32_t org::apache::poi::hpsf::Thumbnail::OFFSET_WMFDATA;
+constexpr int32_t poi::hpsf::Thumbnail::OFFSET_WMFDATA;
 
-constexpr int32_t org::apache::poi::hpsf::Thumbnail::CFTAG_WINDOWS;
+constexpr int32_t poi::hpsf::Thumbnail::CFTAG_WINDOWS;
 
-constexpr int32_t org::apache::poi::hpsf::Thumbnail::CFTAG_MACINTOSH;
+constexpr int32_t poi::hpsf::Thumbnail::CFTAG_MACINTOSH;
 
-constexpr int32_t org::apache::poi::hpsf::Thumbnail::CFTAG_FMTID;
+constexpr int32_t poi::hpsf::Thumbnail::CFTAG_FMTID;
 
-constexpr int32_t org::apache::poi::hpsf::Thumbnail::CFTAG_NODATA;
+constexpr int32_t poi::hpsf::Thumbnail::CFTAG_NODATA;
 
-constexpr int32_t org::apache::poi::hpsf::Thumbnail::CF_METAFILEPICT;
+constexpr int32_t poi::hpsf::Thumbnail::CF_METAFILEPICT;
 
-constexpr int32_t org::apache::poi::hpsf::Thumbnail::CF_DIB;
+constexpr int32_t poi::hpsf::Thumbnail::CF_DIB;
 
-constexpr int32_t org::apache::poi::hpsf::Thumbnail::CF_ENHMETAFILE;
+constexpr int32_t poi::hpsf::Thumbnail::CF_ENHMETAFILE;
 
-constexpr int32_t org::apache::poi::hpsf::Thumbnail::CF_BITMAP;
+constexpr int32_t poi::hpsf::Thumbnail::CF_BITMAP;
 
-void org::apache::poi::hpsf::Thumbnail::ctor()
+void poi::hpsf::Thumbnail::ctor()
 {
     super::ctor();
     init();
 }
 
-void org::apache::poi::hpsf::Thumbnail::ctor(::int8_tArray* thumbnailData)
+void poi::hpsf::Thumbnail::ctor(::int8_tArray* thumbnailData)
 {
     super::ctor();
     init();
     this->_thumbnailData = thumbnailData;
 }
 
-int8_tArray* org::apache::poi::hpsf::Thumbnail::getThumbnail()
+int8_tArray* poi::hpsf::Thumbnail::getThumbnail()
 {
     return _thumbnailData;
 }
 
-void org::apache::poi::hpsf::Thumbnail::setThumbnail(::int8_tArray* thumbnail)
+void poi::hpsf::Thumbnail::setThumbnail(::int8_tArray* thumbnail)
 {
     this->_thumbnailData = thumbnail;
 }
 
-int64_t org::apache::poi::hpsf::Thumbnail::getClipboardFormatTag()
+int64_t poi::hpsf::Thumbnail::getClipboardFormatTag()
 {
-    int64_t clipboardFormatTag = ::org::apache::poi::util::LittleEndian::getInt(getThumbnail(), OFFSET_CFTAG);
+    int64_t clipboardFormatTag = ::poi::util::LittleEndian::getInt(getThumbnail(), OFFSET_CFTAG);
     return clipboardFormatTag;
 }
 
-int64_t org::apache::poi::hpsf::Thumbnail::getClipboardFormat() /* throws(HPSFException) */
+int64_t poi::hpsf::Thumbnail::getClipboardFormat() /* throws(HPSFException) */
 {
     if(!(getClipboardFormatTag() == CFTAG_WINDOWS))
         throw new HPSFException(::java::lang::StringBuilder().append(u"Clipboard Format Tag of Thumbnail must "_j)->append(u"be CFTAG_WINDOWS."_j)->toString());
 
-    return ::org::apache::poi::util::LittleEndian::getInt(getThumbnail(), OFFSET_CF);
+    return ::poi::util::LittleEndian::getInt(getThumbnail(), OFFSET_CF);
 }
 
-int8_tArray* org::apache::poi::hpsf::Thumbnail::getThumbnailAsWMF() /* throws(HPSFException) */
+int8_tArray* poi::hpsf::Thumbnail::getThumbnailAsWMF() /* throws(HPSFException) */
 {
     if(!(getClipboardFormatTag() == CFTAG_WINDOWS))
         throw new HPSFException(::java::lang::StringBuilder().append(u"Clipboard Format Tag of Thumbnail must "_j)->append(u"be CFTAG_WINDOWS."_j)->toString());
@@ -115,13 +115,13 @@ int8_tArray* org::apache::poi::hpsf::Thumbnail::getThumbnailAsWMF() /* throws(HP
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hpsf::Thumbnail::class_()
+java::lang::Class* poi::hpsf::Thumbnail::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hpsf.Thumbnail", 29);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hpsf::Thumbnail::getClass0()
+java::lang::Class* poi::hpsf::Thumbnail::getClass0()
 {
     return class_();
 }

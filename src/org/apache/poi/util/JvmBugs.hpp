@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::util::JvmBugs
+class poi::util::JvmBugs
     : public virtual ::java::lang::Object
 {
 

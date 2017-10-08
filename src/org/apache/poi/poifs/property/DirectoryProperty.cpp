@@ -23,28 +23,22 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace poifs
     {
-        namespace poi
+        namespace dev
         {
-            namespace poifs
-            {
-                namespace dev
-                {
-typedef ::SubArray< ::org::apache::poi::poifs::dev::POIFSViewable, ::java::lang::ObjectArray > POIFSViewableArray;
-                } // dev
+typedef ::SubArray< ::poi::poifs::dev::POIFSViewable, ::java::lang::ObjectArray > POIFSViewableArray;
+        } // dev
 
-                namespace property
-                {
-typedef ::SubArray< ::org::apache::poi::poifs::property::Child, ::java::lang::ObjectArray > ChildArray;
-typedef ::SubArray< ::org::apache::poi::poifs::property::Property, ::java::lang::ObjectArray, ChildArray, ::org::apache::poi::poifs::dev::POIFSViewableArray > PropertyArray;
-                } // property
-            } // poifs
-        } // poi
-    } // apache
-} // org
+        namespace property
+        {
+typedef ::SubArray< ::poi::poifs::property::Child, ::java::lang::ObjectArray > ChildArray;
+typedef ::SubArray< ::poi::poifs::property::Property, ::java::lang::ObjectArray, ChildArray, ::poi::poifs::dev::POIFSViewableArray > PropertyArray;
+        } // property
+    } // poifs
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -62,25 +56,25 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::poifs::property::DirectoryProperty::DirectoryProperty(const ::default_init_tag&)
+poi::poifs::property::DirectoryProperty::DirectoryProperty(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::poifs::property::DirectoryProperty::DirectoryProperty(::java::lang::String* name) 
+poi::poifs::property::DirectoryProperty::DirectoryProperty(::java::lang::String* name) 
     : DirectoryProperty(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name);
 }
 
-org::apache::poi::poifs::property::DirectoryProperty::DirectoryProperty(int32_t index, ::int8_tArray* array, int32_t offset) 
+poi::poifs::property::DirectoryProperty::DirectoryProperty(int32_t index, ::int8_tArray* array, int32_t offset) 
     : DirectoryProperty(*static_cast< ::default_init_tag* >(0))
 {
     ctor(index,array,offset);
 }
 
-void org::apache::poi::poifs::property::DirectoryProperty::ctor(::java::lang::String* name)
+void poi::poifs::property::DirectoryProperty::ctor(::java::lang::String* name)
 {
     super::ctor();
     _children = new ::java::util::ArrayList();
@@ -92,14 +86,14 @@ void org::apache::poi::poifs::property::DirectoryProperty::ctor(::java::lang::St
     setNodeColor(_NODE_BLACK);
 }
 
-void org::apache::poi::poifs::property::DirectoryProperty::ctor(int32_t index, ::int8_tArray* array, int32_t offset)
+void poi::poifs::property::DirectoryProperty::ctor(int32_t index, ::int8_tArray* array, int32_t offset)
 {
     super::ctor(index, array, offset);
     _children = new ::java::util::ArrayList();
     _children_names = new ::java::util::HashSet();
 }
 
-bool org::apache::poi::poifs::property::DirectoryProperty::changeName(Property* property, ::java::lang::String* newName)
+bool poi::poifs::property::DirectoryProperty::changeName(Property* property, ::java::lang::String* newName)
 {
     bool result;
     auto oldName = npc(property)->getName();
@@ -116,7 +110,7 @@ bool org::apache::poi::poifs::property::DirectoryProperty::changeName(Property* 
     return result;
 }
 
-bool org::apache::poi::poifs::property::DirectoryProperty::deleteChild(Property* property)
+bool poi::poifs::property::DirectoryProperty::deleteChild(Property* property)
 {
     auto result = npc(_children)->remove(static_cast< ::java::lang::Object* >(property));
     if(result) {
@@ -125,12 +119,12 @@ bool org::apache::poi::poifs::property::DirectoryProperty::deleteChild(Property*
     return result;
 }
 
-bool org::apache::poi::poifs::property::DirectoryProperty::isDirectory()
+bool poi::poifs::property::DirectoryProperty::isDirectory()
 {
     return true;
 }
 
-void org::apache::poi::poifs::property::DirectoryProperty::preWrite()
+void poi::poifs::property::DirectoryProperty::preWrite()
 {
     if(npc(_children)->size() > 0) {
         auto children = java_cast< PropertyArray* >(npc(_children)->toArray_(static_cast< ::java::lang::ObjectArray* >(new PropertyArray(int32_t(0)))));
@@ -160,17 +154,17 @@ void org::apache::poi::poifs::property::DirectoryProperty::preWrite()
     }
 }
 
-java::util::Iterator* org::apache::poi::poifs::property::DirectoryProperty::getChildren()
+java::util::Iterator* poi::poifs::property::DirectoryProperty::getChildren()
 {
     return npc(_children)->iterator();
 }
 
-java::util::Iterator* org::apache::poi::poifs::property::DirectoryProperty::iterator()
+java::util::Iterator* poi::poifs::property::DirectoryProperty::iterator()
 {
     return getChildren();
 }
 
-void org::apache::poi::poifs::property::DirectoryProperty::addChild(Property* property) /* throws(IOException) */
+void poi::poifs::property::DirectoryProperty::addChild(Property* property) /* throws(IOException) */
 {
     auto name = npc(property)->getName();
     if(npc(_children_names)->contains(static_cast< ::java::lang::Object* >(name))) {
@@ -183,33 +177,33 @@ void org::apache::poi::poifs::property::DirectoryProperty::addChild(Property* pr
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::poifs::property::DirectoryProperty::class_()
+java::lang::Class* poi::poifs::property::DirectoryProperty::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.poifs.property.DirectoryProperty", 47);
     return c;
 }
 
-org::apache::poi::poifs::property::Child* org::apache::poi::poifs::property::DirectoryProperty::getNextChild()
+poi::poifs::property::Child* poi::poifs::property::DirectoryProperty::getNextChild()
 {
     return Property::getNextChild();
 }
 
-org::apache::poi::poifs::property::Child* org::apache::poi::poifs::property::DirectoryProperty::getPreviousChild()
+poi::poifs::property::Child* poi::poifs::property::DirectoryProperty::getPreviousChild()
 {
     return Property::getPreviousChild();
 }
 
-void org::apache::poi::poifs::property::DirectoryProperty::setNextChild(Child* child)
+void poi::poifs::property::DirectoryProperty::setNextChild(Child* child)
 {
     Property::setNextChild(child);
 }
 
-void org::apache::poi::poifs::property::DirectoryProperty::setPreviousChild(Child* child)
+void poi::poifs::property::DirectoryProperty::setPreviousChild(Child* child)
 {
     Property::setPreviousChild(child);
 }
 
-java::lang::Class* org::apache::poi::poifs::property::DirectoryProperty::getClass0()
+java::lang::Class* poi::poifs::property::DirectoryProperty::getClass0()
 {
     return class_();
 }

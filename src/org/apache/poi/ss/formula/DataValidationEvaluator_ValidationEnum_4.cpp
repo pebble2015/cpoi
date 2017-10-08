@@ -15,16 +15,16 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum_4::DataValidationEvaluator_ValidationEnum_4(::java::lang::String* name, int ordinal)
+poi::ss::formula::DataValidationEvaluator_ValidationEnum_4::DataValidationEvaluator_ValidationEnum_4(::java::lang::String* name, int ordinal)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
     ctor(name, ordinal);
 }
 
-bool org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum_4::isValidValue(::org::apache::poi::ss::usermodel::Cell* cell, DataValidationEvaluator_DataValidationContext* context)
+bool poi::ss::formula::DataValidationEvaluator_ValidationEnum_4::isValidValue(::poi::ss::usermodel::Cell* cell, DataValidationEvaluator_DataValidationContext* context)
 {
-    if(!DataValidationEvaluator::isType(cell, ::org::apache::poi::ss::usermodel::CellType::STRING))
+    if(!DataValidationEvaluator::isType(cell, ::poi::ss::usermodel::CellType::STRING))
         return false;
 
     auto v = npc(cell)->getStringCellValue();
@@ -33,13 +33,13 @@ bool org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum_4::is
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum_4::class_()
+java::lang::Class* poi::ss::formula::DataValidationEvaluator_ValidationEnum_4::class_()
 {
     static ::java::lang::Class* c = ::class_(u"", 0);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::DataValidationEvaluator_ValidationEnum_4::getClass0()
+java::lang::Class* poi::ss::formula::DataValidationEvaluator_ValidationEnum_4::getClass0()
 {
     return class_();
 }

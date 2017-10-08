@@ -15,25 +15,19 @@
 #include <org/apache/poi/ss/formula/eval/ValueEval.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -51,31 +45,31 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::eval::IntersectionEval::IntersectionEval(const ::default_init_tag&)
+poi::ss::formula::eval::IntersectionEval::IntersectionEval(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::eval::IntersectionEval::IntersectionEval() 
+poi::ss::formula::eval::IntersectionEval::IntersectionEval() 
     : IntersectionEval(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::functions::Function*& org::apache::poi::ss::formula::eval::IntersectionEval::instance()
+poi::ss::formula::functions::Function*& poi::ss::formula::eval::IntersectionEval::instance()
 {
     clinit();
     return instance_;
 }
-org::apache::poi::ss::formula::functions::Function* org::apache::poi::ss::formula::eval::IntersectionEval::instance_;
+poi::ss::formula::functions::Function* poi::ss::formula::eval::IntersectionEval::instance_;
 
-void org::apache::poi::ss::formula::eval::IntersectionEval::ctor()
+void poi::ss::formula::eval::IntersectionEval::ctor()
 {
     super::ctor();
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::eval::IntersectionEval::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ValueEval* arg0, ValueEval* arg1)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::eval::IntersectionEval::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ValueEval* arg0, ValueEval* arg1)
 {
     try {
         auto reA = evaluateRef(arg0);
@@ -90,7 +84,7 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::e
     }
 }
 
-org::apache::poi::ss::formula::eval::AreaEval* org::apache::poi::ss::formula::eval::IntersectionEval::resolveRange(AreaEval* aeA, AreaEval* aeB)
+poi::ss::formula::eval::AreaEval* poi::ss::formula::eval::IntersectionEval::resolveRange(AreaEval* aeA, AreaEval* aeB)
 {
     clinit();
     auto aeAfr = npc(aeA)->getFirstRow();
@@ -119,7 +113,7 @@ org::apache::poi::ss::formula::eval::AreaEval* org::apache::poi::ss::formula::ev
     return npc(aeA)->offset(top - aeAfr, bottom - aeAfr, left - aeAfc, right - aeAfc);
 }
 
-org::apache::poi::ss::formula::eval::AreaEval* org::apache::poi::ss::formula::eval::IntersectionEval::evaluateRef(ValueEval* arg) /* throws(EvaluationException) */
+poi::ss::formula::eval::AreaEval* poi::ss::formula::eval::IntersectionEval::evaluateRef(ValueEval* arg) /* throws(EvaluationException) */
 {
     clinit();
     if(dynamic_cast< AreaEval* >(arg) != nullptr) {
@@ -137,13 +131,13 @@ org::apache::poi::ss::formula::eval::AreaEval* org::apache::poi::ss::formula::ev
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::eval::IntersectionEval::class_()
+java::lang::Class* poi::ss::formula::eval::IntersectionEval::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.eval.IntersectionEval", 47);
     return c;
 }
 
-void org::apache::poi::ss::formula::eval::IntersectionEval::clinit()
+void poi::ss::formula::eval::IntersectionEval::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
@@ -159,12 +153,12 @@ struct clinit_ {
     }
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::eval::IntersectionEval::evaluate(ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::eval::IntersectionEval::evaluate(ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
 {
     return super::evaluate(args, srcRowIndex, srcColumnIndex);
 }
 
-java::lang::Class* org::apache::poi::ss::formula::eval::IntersectionEval::getClass0()
+java::lang::Class* poi::ss::formula::eval::IntersectionEval::getClass0()
 {
     return class_();
 }

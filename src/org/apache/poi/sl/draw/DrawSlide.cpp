@@ -28,30 +28,30 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::sl::draw::DrawSlide::DrawSlide(const ::default_init_tag&)
+poi::sl::draw::DrawSlide::DrawSlide(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::draw::DrawSlide::DrawSlide(::org::apache::poi::sl::usermodel::Slide* slide) 
+poi::sl::draw::DrawSlide::DrawSlide(::poi::sl::usermodel::Slide* slide) 
     : DrawSlide(*static_cast< ::default_init_tag* >(0))
 {
     ctor(slide);
 }
 
-void org::apache::poi::sl::draw::DrawSlide::ctor(::org::apache::poi::sl::usermodel::Slide* slide)
+void poi::sl::draw::DrawSlide::ctor(::poi::sl::usermodel::Slide* slide)
 {
     super::ctor(slide);
 }
 
-void org::apache::poi::sl::draw::DrawSlide::draw(::java::awt::Graphics2D* graphics)
+void poi::sl::draw::DrawSlide::draw(::java::awt::Graphics2D* graphics)
 {
-    npc(graphics)->setRenderingHint(Drawable::CURRENT_SLIDE(), java_cast< ::org::apache::poi::sl::usermodel::Sheet* >(this->sheet));
+    npc(graphics)->setRenderingHint(Drawable::CURRENT_SLIDE(), java_cast< ::poi::sl::usermodel::Sheet* >(this->sheet));
     auto bg = npc(sheet)->getBackground();
     if(bg != nullptr) {
         auto drawFact = DrawFactory::getInstance(graphics);
-        Drawable* db = npc(drawFact)->getDrawable(static_cast< ::org::apache::poi::sl::usermodel::Background* >(bg));
+        Drawable* db = npc(drawFact)->getDrawable(static_cast< ::poi::sl::usermodel::Background* >(bg));
         npc(db)->draw(graphics);
     }
     super::draw(graphics);
@@ -60,13 +60,13 @@ void org::apache::poi::sl::draw::DrawSlide::draw(::java::awt::Graphics2D* graphi
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::draw::DrawSlide::class_()
+java::lang::Class* poi::sl::draw::DrawSlide::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.draw.DrawSlide", 32);
     return c;
 }
 
-java::lang::Class* org::apache::poi::sl::draw::DrawSlide::getClass0()
+java::lang::Class* poi::sl::draw::DrawSlide::getClass0()
 {
     return class_();
 }

@@ -69,28 +69,22 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
-            {
-                namespace formula
-                {
-typedef ::SubArray< ::org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum, ::java::lang::EnumArray > EvaluationConditionalFormatRule_OperatorEnumArray;
-                } // formula
+typedef ::SubArray< ::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum, ::java::lang::EnumArray > EvaluationConditionalFormatRule_OperatorEnumArray;
+        } // formula
 
-                namespace util
-                {
-typedef ::SubArray< ::org::apache::poi::ss::util::CellRangeAddressBase, ::java::lang::ObjectArray > CellRangeAddressBaseArray;
-typedef ::SubArray< ::org::apache::poi::ss::util::CellRangeAddress, CellRangeAddressBaseArray > CellRangeAddressArray;
-                } // util
-            } // ss
-        } // poi
-    } // apache
-} // org
+        namespace util
+        {
+typedef ::SubArray< ::poi::ss::util::CellRangeAddressBase, ::java::lang::ObjectArray > CellRangeAddressBaseArray;
+typedef ::SubArray< ::poi::ss::util::CellRangeAddress, CellRangeAddressBaseArray > CellRangeAddressArray;
+        } // util
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -108,24 +102,24 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::EvaluationConditionalFormatRule::EvaluationConditionalFormatRule(const ::default_init_tag&)
+poi::ss::formula::EvaluationConditionalFormatRule::EvaluationConditionalFormatRule(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::EvaluationConditionalFormatRule::EvaluationConditionalFormatRule(WorkbookEvaluator* workbookEvaluator, ::org::apache::poi::ss::usermodel::Sheet* sheet, ::org::apache::poi::ss::usermodel::ConditionalFormatting* formatting, int32_t formattingIndex, ::org::apache::poi::ss::usermodel::ConditionalFormattingRule* rule, int32_t ruleIndex, ::org::apache::poi::ss::util::CellRangeAddressArray* regions) 
+poi::ss::formula::EvaluationConditionalFormatRule::EvaluationConditionalFormatRule(WorkbookEvaluator* workbookEvaluator, ::poi::ss::usermodel::Sheet* sheet, ::poi::ss::usermodel::ConditionalFormatting* formatting, int32_t formattingIndex, ::poi::ss::usermodel::ConditionalFormattingRule* rule, int32_t ruleIndex, ::poi::ss::util::CellRangeAddressArray* regions) 
     : EvaluationConditionalFormatRule(*static_cast< ::default_init_tag* >(0))
 {
     ctor(workbookEvaluator,sheet,formatting,formattingIndex,rule,ruleIndex,regions);
 }
 
-void org::apache::poi::ss::formula::EvaluationConditionalFormatRule::init()
+void poi::ss::formula::EvaluationConditionalFormatRule::init()
 {
     meaningfulRegionValues = new ::java::util::HashMap();
 }
 
-void org::apache::poi::ss::formula::EvaluationConditionalFormatRule::ctor(WorkbookEvaluator* workbookEvaluator, ::org::apache::poi::ss::usermodel::Sheet* sheet, ::org::apache::poi::ss::usermodel::ConditionalFormatting* formatting, int32_t formattingIndex, ::org::apache::poi::ss::usermodel::ConditionalFormattingRule* rule, int32_t ruleIndex, ::org::apache::poi::ss::util::CellRangeAddressArray* regions)
+void poi::ss::formula::EvaluationConditionalFormatRule::ctor(WorkbookEvaluator* workbookEvaluator, ::poi::ss::usermodel::Sheet* sheet, ::poi::ss::usermodel::ConditionalFormatting* formatting, int32_t formattingIndex, ::poi::ss::usermodel::ConditionalFormattingRule* rule, int32_t ruleIndex, ::poi::ss::util::CellRangeAddressArray* regions)
 {
     super::ctor();
     init();
@@ -144,67 +138,67 @@ void org::apache::poi::ss::formula::EvaluationConditionalFormatRule::ctor(Workbo
     type = npc(rule)->getConditionType();
 }
 
-org::apache::poi::ss::usermodel::Sheet* org::apache::poi::ss::formula::EvaluationConditionalFormatRule::getSheet()
+poi::ss::usermodel::Sheet* poi::ss::formula::EvaluationConditionalFormatRule::getSheet()
 {
     return sheet;
 }
 
-org::apache::poi::ss::usermodel::ConditionalFormatting* org::apache::poi::ss::formula::EvaluationConditionalFormatRule::getFormatting()
+poi::ss::usermodel::ConditionalFormatting* poi::ss::formula::EvaluationConditionalFormatRule::getFormatting()
 {
     return formatting;
 }
 
-int32_t org::apache::poi::ss::formula::EvaluationConditionalFormatRule::getFormattingIndex()
+int32_t poi::ss::formula::EvaluationConditionalFormatRule::getFormattingIndex()
 {
     return formattingIndex;
 }
 
-org::apache::poi::ss::usermodel::ExcelNumberFormat* org::apache::poi::ss::formula::EvaluationConditionalFormatRule::getNumberFormat()
+poi::ss::usermodel::ExcelNumberFormat* poi::ss::formula::EvaluationConditionalFormatRule::getNumberFormat()
 {
     return numberFormat;
 }
 
-org::apache::poi::ss::usermodel::ConditionalFormattingRule* org::apache::poi::ss::formula::EvaluationConditionalFormatRule::getRule()
+poi::ss::usermodel::ConditionalFormattingRule* poi::ss::formula::EvaluationConditionalFormatRule::getRule()
 {
     return rule;
 }
 
-int32_t org::apache::poi::ss::formula::EvaluationConditionalFormatRule::getRuleIndex()
+int32_t poi::ss::formula::EvaluationConditionalFormatRule::getRuleIndex()
 {
     return ruleIndex;
 }
 
-org::apache::poi::ss::util::CellRangeAddressArray* org::apache::poi::ss::formula::EvaluationConditionalFormatRule::getRegions()
+poi::ss::util::CellRangeAddressArray* poi::ss::formula::EvaluationConditionalFormatRule::getRegions()
 {
     return regions;
 }
 
-int32_t org::apache::poi::ss::formula::EvaluationConditionalFormatRule::getPriority()
+int32_t poi::ss::formula::EvaluationConditionalFormatRule::getPriority()
 {
     return priority;
 }
 
-java::lang::String* org::apache::poi::ss::formula::EvaluationConditionalFormatRule::getFormula1()
+java::lang::String* poi::ss::formula::EvaluationConditionalFormatRule::getFormula1()
 {
     return formula1;
 }
 
-java::lang::String* org::apache::poi::ss::formula::EvaluationConditionalFormatRule::getFormula2()
+java::lang::String* poi::ss::formula::EvaluationConditionalFormatRule::getFormula2()
 {
     return formula2;
 }
 
-org::apache::poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum* org::apache::poi::ss::formula::EvaluationConditionalFormatRule::getOperator()
+poi::ss::formula::EvaluationConditionalFormatRule_OperatorEnum* poi::ss::formula::EvaluationConditionalFormatRule::getOperator()
 {
     return operator_;
 }
 
-org::apache::poi::ss::usermodel::ConditionType* org::apache::poi::ss::formula::EvaluationConditionalFormatRule::getType()
+poi::ss::usermodel::ConditionType* poi::ss::formula::EvaluationConditionalFormatRule::getType()
 {
     return type;
 }
 
-bool org::apache::poi::ss::formula::EvaluationConditionalFormatRule::equals(::java::lang::Object* obj)
+bool poi::ss::formula::EvaluationConditionalFormatRule::equals(::java::lang::Object* obj)
 {
     if(obj == nullptr) {
         return false;
@@ -216,7 +210,7 @@ bool org::apache::poi::ss::formula::EvaluationConditionalFormatRule::equals(::ja
     return npc(npc(getSheet())->getSheetName())->equalsIgnoreCase(npc(npc(r)->getSheet())->getSheetName()) && getFormattingIndex() == npc(r)->getFormattingIndex() && getRuleIndex() == npc(r)->getRuleIndex();
 }
 
-int32_t org::apache::poi::ss::formula::EvaluationConditionalFormatRule::compareTo(EvaluationConditionalFormatRule* o)
+int32_t poi::ss::formula::EvaluationConditionalFormatRule::compareTo(EvaluationConditionalFormatRule* o)
 {
     auto cmp = npc(npc(getSheet())->getSheetName())->compareToIgnoreCase(npc(npc(o)->getSheet())->getSheetName());
     if(cmp != 0) {
@@ -235,12 +229,12 @@ int32_t org::apache::poi::ss::formula::EvaluationConditionalFormatRule::compareT
     return (new ::java::lang::Integer(getRuleIndex()))->compareTo(new ::java::lang::Integer(npc(o)->getRuleIndex()));
 }
 
-int32_t org::apache::poi::ss::formula::EvaluationConditionalFormatRule::compareTo(::java::lang::Object* o)
+int32_t poi::ss::formula::EvaluationConditionalFormatRule::compareTo(::java::lang::Object* o)
 { 
     return compareTo(dynamic_cast< EvaluationConditionalFormatRule* >(o));
 }
 
-int32_t org::apache::poi::ss::formula::EvaluationConditionalFormatRule::hashCode()
+int32_t poi::ss::formula::EvaluationConditionalFormatRule::hashCode()
 {
     auto hash = npc(npc(sheet)->getSheetName())->hashCode();
     hash = int32_t(31) * hash + formattingIndex;
@@ -248,9 +242,9 @@ int32_t org::apache::poi::ss::formula::EvaluationConditionalFormatRule::hashCode
     return hash;
 }
 
-bool org::apache::poi::ss::formula::EvaluationConditionalFormatRule::matches(::org::apache::poi::ss::util::CellReference* ref)
+bool poi::ss::formula::EvaluationConditionalFormatRule::matches(::poi::ss::util::CellReference* ref)
 {
-    ::org::apache::poi::ss::util::CellRangeAddress* region = nullptr;
+    ::poi::ss::util::CellRangeAddress* region = nullptr;
     for(auto r : *npc(regions)) {
         if(npc(r)->isInRange(ref)) {
             region = r;
@@ -261,90 +255,90 @@ bool org::apache::poi::ss::formula::EvaluationConditionalFormatRule::matches(::o
         return false;
     }
     auto const ruleType = npc(getRule())->getConditionType();
-    if(npc(ruleType)->equals(::org::apache::poi::ss::usermodel::ConditionType::COLOR_SCALE()) || npc(ruleType)->equals(::org::apache::poi::ss::usermodel::ConditionType::DATA_BAR()) || npc(ruleType)->equals(::org::apache::poi::ss::usermodel::ConditionType::ICON_SET())) {
+    if(npc(ruleType)->equals(::poi::ss::usermodel::ConditionType::COLOR_SCALE()) || npc(ruleType)->equals(::poi::ss::usermodel::ConditionType::DATA_BAR()) || npc(ruleType)->equals(::poi::ss::usermodel::ConditionType::ICON_SET())) {
         return true;
     }
-    ::org::apache::poi::ss::usermodel::Cell* cell = nullptr;
+    ::poi::ss::usermodel::Cell* cell = nullptr;
     auto const row = npc(sheet)->getRow(npc(ref)->getRow());
     if(row != nullptr) {
         cell = npc(row)->getCell(npc(ref)->getCol());
     }
-    if(npc(ruleType)->equals(::org::apache::poi::ss::usermodel::ConditionType::CELL_VALUE_IS())) {
+    if(npc(ruleType)->equals(::poi::ss::usermodel::ConditionType::CELL_VALUE_IS())) {
         if(cell == nullptr)
             return false;
 
         return checkValue(cell, region);
     }
-    if(npc(ruleType)->equals(::org::apache::poi::ss::usermodel::ConditionType::FORMULA())) {
+    if(npc(ruleType)->equals(::poi::ss::usermodel::ConditionType::FORMULA())) {
         return checkFormula(ref, region);
     }
-    if(npc(ruleType)->equals(::org::apache::poi::ss::usermodel::ConditionType::FILTER())) {
+    if(npc(ruleType)->equals(::poi::ss::usermodel::ConditionType::FILTER())) {
         return checkFilter(cell, ref, region);
     }
     return false;
 }
 
-bool org::apache::poi::ss::formula::EvaluationConditionalFormatRule::checkValue(::org::apache::poi::ss::usermodel::Cell* cell, ::org::apache::poi::ss::util::CellRangeAddress* region)
+bool poi::ss::formula::EvaluationConditionalFormatRule::checkValue(::poi::ss::usermodel::Cell* cell, ::poi::ss::util::CellRangeAddress* region)
 {
-    if(cell == nullptr || DataValidationEvaluator::isType(cell, ::org::apache::poi::ss::usermodel::CellType::BLANK) || DataValidationEvaluator::isType(cell, ::org::apache::poi::ss::usermodel::CellType::ERROR) || (DataValidationEvaluator::isType(cell, ::org::apache::poi::ss::usermodel::CellType::STRING) && (npc(cell)->getStringCellValue() == nullptr || npc(npc(cell)->getStringCellValue())->isEmpty()))) {
+    if(cell == nullptr || DataValidationEvaluator::isType(cell, ::poi::ss::usermodel::CellType::BLANK) || DataValidationEvaluator::isType(cell, ::poi::ss::usermodel::CellType::ERROR) || (DataValidationEvaluator::isType(cell, ::poi::ss::usermodel::CellType::STRING) && (npc(cell)->getStringCellValue() == nullptr || npc(npc(cell)->getStringCellValue())->isEmpty()))) {
         return false;
     }
     auto eval = unwrapEval(npc(workbookEvaluator)->evaluate(npc(rule)->getFormula1(), ConditionalFormattingEvaluator::getRef(cell), region));
     auto f2 = npc(rule)->getFormula2();
-    ::org::apache::poi::ss::formula::eval::ValueEval* eval2 = nullptr;
+    ::poi::ss::formula::eval::ValueEval* eval2 = nullptr;
     if(f2 != nullptr && npc(f2)->length() > 0) {
         eval2 = unwrapEval(npc(workbookEvaluator)->evaluate(f2, ConditionalFormattingEvaluator::getRef(cell), region));
     }
-    if(DataValidationEvaluator::isType(cell, ::org::apache::poi::ss::usermodel::CellType::BOOLEAN)) {
-        if(dynamic_cast< ::org::apache::poi::ss::formula::eval::BoolEval* >(eval) != nullptr && (eval2 == nullptr || dynamic_cast< ::org::apache::poi::ss::formula::eval::BoolEval* >(eval2) != nullptr)) {
-            return npc(operator_)->isValid(::java::lang::Boolean::valueOf(npc(cell)->getBooleanCellValue()), ::java::lang::Boolean::valueOf(npc((java_cast< ::org::apache::poi::ss::formula::eval::BoolEval* >(eval)))->getBooleanValue()), eval2 == nullptr ? static_cast< ::java::lang::Boolean* >(nullptr) : ::java::lang::Boolean::valueOf(npc((java_cast< ::org::apache::poi::ss::formula::eval::BoolEval* >(eval2)))->getBooleanValue()));
+    if(DataValidationEvaluator::isType(cell, ::poi::ss::usermodel::CellType::BOOLEAN)) {
+        if(dynamic_cast< ::poi::ss::formula::eval::BoolEval* >(eval) != nullptr && (eval2 == nullptr || dynamic_cast< ::poi::ss::formula::eval::BoolEval* >(eval2) != nullptr)) {
+            return npc(operator_)->isValid(::java::lang::Boolean::valueOf(npc(cell)->getBooleanCellValue()), ::java::lang::Boolean::valueOf(npc((java_cast< ::poi::ss::formula::eval::BoolEval* >(eval)))->getBooleanValue()), eval2 == nullptr ? static_cast< ::java::lang::Boolean* >(nullptr) : ::java::lang::Boolean::valueOf(npc((java_cast< ::poi::ss::formula::eval::BoolEval* >(eval2)))->getBooleanValue()));
         }
         return false;
     }
-    if(DataValidationEvaluator::isType(cell, ::org::apache::poi::ss::usermodel::CellType::NUMERIC)) {
-        if(dynamic_cast< ::org::apache::poi::ss::formula::eval::NumberEval* >(eval) != nullptr && (eval2 == nullptr || dynamic_cast< ::org::apache::poi::ss::formula::eval::NumberEval* >(eval2) != nullptr)) {
-            return npc(operator_)->isValid(::java::lang::Double::valueOf(npc(cell)->getNumericCellValue()), ::java::lang::Double::valueOf(npc((java_cast< ::org::apache::poi::ss::formula::eval::NumberEval* >(eval)))->getNumberValue()), eval2 == nullptr ? static_cast< ::java::lang::Double* >(nullptr) : ::java::lang::Double::valueOf(npc((java_cast< ::org::apache::poi::ss::formula::eval::NumberEval* >(eval2)))->getNumberValue()));
+    if(DataValidationEvaluator::isType(cell, ::poi::ss::usermodel::CellType::NUMERIC)) {
+        if(dynamic_cast< ::poi::ss::formula::eval::NumberEval* >(eval) != nullptr && (eval2 == nullptr || dynamic_cast< ::poi::ss::formula::eval::NumberEval* >(eval2) != nullptr)) {
+            return npc(operator_)->isValid(::java::lang::Double::valueOf(npc(cell)->getNumericCellValue()), ::java::lang::Double::valueOf(npc((java_cast< ::poi::ss::formula::eval::NumberEval* >(eval)))->getNumberValue()), eval2 == nullptr ? static_cast< ::java::lang::Double* >(nullptr) : ::java::lang::Double::valueOf(npc((java_cast< ::poi::ss::formula::eval::NumberEval* >(eval2)))->getNumberValue()));
         }
         return false;
     }
-    if(DataValidationEvaluator::isType(cell, ::org::apache::poi::ss::usermodel::CellType::STRING)) {
-        if(dynamic_cast< ::org::apache::poi::ss::formula::eval::StringEval* >(eval) != nullptr && (eval2 == nullptr || dynamic_cast< ::org::apache::poi::ss::formula::eval::StringEval* >(eval2) != nullptr)) {
-            return npc(operator_)->isValid(npc(cell)->getStringCellValue(), npc((java_cast< ::org::apache::poi::ss::formula::eval::StringEval* >(eval)))->getStringValue(), eval2 == nullptr ? static_cast< ::java::lang::String* >(nullptr) : npc((java_cast< ::org::apache::poi::ss::formula::eval::StringEval* >(eval2)))->getStringValue());
+    if(DataValidationEvaluator::isType(cell, ::poi::ss::usermodel::CellType::STRING)) {
+        if(dynamic_cast< ::poi::ss::formula::eval::StringEval* >(eval) != nullptr && (eval2 == nullptr || dynamic_cast< ::poi::ss::formula::eval::StringEval* >(eval2) != nullptr)) {
+            return npc(operator_)->isValid(npc(cell)->getStringCellValue(), npc((java_cast< ::poi::ss::formula::eval::StringEval* >(eval)))->getStringValue(), eval2 == nullptr ? static_cast< ::java::lang::String* >(nullptr) : npc((java_cast< ::poi::ss::formula::eval::StringEval* >(eval2)))->getStringValue());
         }
         return false;
     }
     return false;
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::EvaluationConditionalFormatRule::unwrapEval(::org::apache::poi::ss::formula::eval::ValueEval* eval)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::EvaluationConditionalFormatRule::unwrapEval(::poi::ss::formula::eval::ValueEval* eval)
 {
     auto comp = eval;
-    while (dynamic_cast< ::org::apache::poi::ss::formula::eval::RefEval* >(comp) != nullptr) {
-        auto ref = java_cast< ::org::apache::poi::ss::formula::eval::RefEval* >(comp);
+    while (dynamic_cast< ::poi::ss::formula::eval::RefEval* >(comp) != nullptr) {
+        auto ref = java_cast< ::poi::ss::formula::eval::RefEval* >(comp);
         comp = npc(ref)->getInnerValueEval(npc(ref)->getFirstSheetIndex());
     }
     return comp;
 }
 
-bool org::apache::poi::ss::formula::EvaluationConditionalFormatRule::checkFormula(::org::apache::poi::ss::util::CellReference* ref, ::org::apache::poi::ss::util::CellRangeAddress* region)
+bool poi::ss::formula::EvaluationConditionalFormatRule::checkFormula(::poi::ss::util::CellReference* ref, ::poi::ss::util::CellRangeAddress* region)
 {
     auto comp = unwrapEval(npc(workbookEvaluator)->evaluate(npc(rule)->getFormula1(), ref, region));
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::BlankEval* >(comp) != nullptr) {
+    if(dynamic_cast< ::poi::ss::formula::eval::BlankEval* >(comp) != nullptr) {
         return true;
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::ErrorEval* >(comp) != nullptr) {
+    if(dynamic_cast< ::poi::ss::formula::eval::ErrorEval* >(comp) != nullptr) {
         return false;
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::BoolEval* >(comp) != nullptr) {
-        return npc((java_cast< ::org::apache::poi::ss::formula::eval::BoolEval* >(comp)))->getBooleanValue();
+    if(dynamic_cast< ::poi::ss::formula::eval::BoolEval* >(comp) != nullptr) {
+        return npc((java_cast< ::poi::ss::formula::eval::BoolEval* >(comp)))->getBooleanValue();
     }
-    if(dynamic_cast< ::org::apache::poi::ss::formula::eval::NumberEval* >(comp) != nullptr) {
-        return npc((java_cast< ::org::apache::poi::ss::formula::eval::NumberEval* >(comp)))->getNumberValue() != 0;
+    if(dynamic_cast< ::poi::ss::formula::eval::NumberEval* >(comp) != nullptr) {
+        return npc((java_cast< ::poi::ss::formula::eval::NumberEval* >(comp)))->getNumberValue() != 0;
     }
     return false;
 }
 
-bool org::apache::poi::ss::formula::EvaluationConditionalFormatRule::checkFilter(::org::apache::poi::ss::usermodel::Cell* cell, ::org::apache::poi::ss::util::CellReference* ref, ::org::apache::poi::ss::util::CellRangeAddress* region)
+bool poi::ss::formula::EvaluationConditionalFormatRule::checkFilter(::poi::ss::usermodel::Cell* cell, ::poi::ss::util::CellReference* ref, ::poi::ss::util::CellRangeAddress* region)
 {
     auto const filterType = npc(rule)->getConditionFilterType();
     if(filterType == nullptr) {
@@ -352,7 +346,7 @@ bool org::apache::poi::ss::formula::EvaluationConditionalFormatRule::checkFilter
     }
     auto const cv = getCellValue(cell);
     {
-        ::org::apache::poi::ss::usermodel::ConditionFilterData* conf;
+        ::poi::ss::usermodel::ConditionFilterData* conf;
         ::java::util::List* values;
         ::java::lang::Double* val;
         double avg;
@@ -361,22 +355,22 @@ bool org::apache::poi::ss::formula::EvaluationConditionalFormatRule::checkFilter
         EvaluationConditionalFormatRule_OperatorEnum* op;
         {
             auto v = filterType;
-            if((v == ::org::apache::poi::ss::usermodel::ConditionFilterType::FILTER)) {
+            if((v == ::poi::ss::usermodel::ConditionFilterType::FILTER)) {
                 return false;
             }
-            if((v == ::org::apache::poi::ss::usermodel::ConditionFilterType::TOP_10)) {
+            if((v == ::poi::ss::usermodel::ConditionFilterType::TOP_10)) {
                 if(!npc(cv)->isNumber()) {
                     return false;
                 }
                 return npc(getMeaningfulValues(region, false, new EvaluationConditionalFormatRule_checkFilter_1(this)))->contains(static_cast< ::java::lang::Object* >(cv));
             }
-            if((v == ::org::apache::poi::ss::usermodel::ConditionFilterType::UNIQUE_VALUES)) {
+            if((v == ::poi::ss::usermodel::ConditionFilterType::UNIQUE_VALUES)) {
                 return npc(getMeaningfulValues(region, true, new EvaluationConditionalFormatRule_checkFilter_2(this)))->contains(static_cast< ::java::lang::Object* >(cv));
             }
-            if((v == ::org::apache::poi::ss::usermodel::ConditionFilterType::DUPLICATE_VALUES)) {
+            if((v == ::poi::ss::usermodel::ConditionFilterType::DUPLICATE_VALUES)) {
                 return npc(getMeaningfulValues(region, true, new EvaluationConditionalFormatRule_checkFilter_3(this)))->contains(static_cast< ::java::lang::Object* >(cv));
             }
-            if((v == ::org::apache::poi::ss::usermodel::ConditionFilterType::ABOVE_AVERAGE)) {
+            if((v == ::poi::ss::usermodel::ConditionFilterType::ABOVE_AVERAGE)) {
                 auto const conf = npc(rule)->getFilterConfiguration();
                 ::java::util::List* values = new ::java::util::ArrayList(static_cast< ::java::util::Collection* >(getMeaningfulValues(region, false, new EvaluationConditionalFormatRule_checkFilter_4(this))));
                 auto val = npc(cv)->isNumber() ? npc(cv)->getValue() : static_cast< ::java::lang::Double* >(nullptr);
@@ -402,19 +396,19 @@ bool org::apache::poi::ss::formula::EvaluationConditionalFormatRule::checkFilter
                 }
                 return op != nullptr && npc(op)->isValid(val, comp, nullptr);
             }
-            if((v == ::org::apache::poi::ss::usermodel::ConditionFilterType::CONTAINS_TEXT)) {
+            if((v == ::poi::ss::usermodel::ConditionFilterType::CONTAINS_TEXT)) {
                 return checkFormula(ref, region);
             }
-            if((v == ::org::apache::poi::ss::usermodel::ConditionFilterType::NOT_CONTAINS_TEXT)) {
+            if((v == ::poi::ss::usermodel::ConditionFilterType::NOT_CONTAINS_TEXT)) {
                 return checkFormula(ref, region);
             }
-            if((v == ::org::apache::poi::ss::usermodel::ConditionFilterType::BEGINS_WITH)) {
+            if((v == ::poi::ss::usermodel::ConditionFilterType::BEGINS_WITH)) {
                 return checkFormula(ref, region);
             }
-            if((v == ::org::apache::poi::ss::usermodel::ConditionFilterType::ENDS_WITH)) {
+            if((v == ::poi::ss::usermodel::ConditionFilterType::ENDS_WITH)) {
                 return checkFormula(ref, region);
             }
-            if((v == ::org::apache::poi::ss::usermodel::ConditionFilterType::CONTAINS_BLANKS)) {
+            if((v == ::poi::ss::usermodel::ConditionFilterType::CONTAINS_BLANKS)) {
                 try {
                     auto v = npc(cv)->getString();
                     return v == nullptr || npc(npc(v)->trim())->length() == 0;
@@ -422,7 +416,7 @@ bool org::apache::poi::ss::formula::EvaluationConditionalFormatRule::checkFilter
                     return false;
                 }
             }
-            if((v == ::org::apache::poi::ss::usermodel::ConditionFilterType::CONTAINS_BLANKS) || (v == ::org::apache::poi::ss::usermodel::ConditionFilterType::NOT_CONTAINS_BLANKS)) {
+            if((v == ::poi::ss::usermodel::ConditionFilterType::CONTAINS_BLANKS) || (v == ::poi::ss::usermodel::ConditionFilterType::NOT_CONTAINS_BLANKS)) {
                 try {
                     auto v = npc(cv)->getString();
                     return v != nullptr && npc(npc(v)->trim())->length() > 0;
@@ -430,16 +424,16 @@ bool org::apache::poi::ss::formula::EvaluationConditionalFormatRule::checkFilter
                     return true;
                 }
             }
-            if((v == ::org::apache::poi::ss::usermodel::ConditionFilterType::CONTAINS_BLANKS) || (v == ::org::apache::poi::ss::usermodel::ConditionFilterType::NOT_CONTAINS_BLANKS) || (v == ::org::apache::poi::ss::usermodel::ConditionFilterType::CONTAINS_ERRORS)) {
-                return cell != nullptr && DataValidationEvaluator::isType(cell, ::org::apache::poi::ss::usermodel::CellType::ERROR);
+            if((v == ::poi::ss::usermodel::ConditionFilterType::CONTAINS_BLANKS) || (v == ::poi::ss::usermodel::ConditionFilterType::NOT_CONTAINS_BLANKS) || (v == ::poi::ss::usermodel::ConditionFilterType::CONTAINS_ERRORS)) {
+                return cell != nullptr && DataValidationEvaluator::isType(cell, ::poi::ss::usermodel::CellType::ERROR);
             }
-            if((v == ::org::apache::poi::ss::usermodel::ConditionFilterType::NOT_CONTAINS_ERRORS)) {
-                return cell == nullptr || !DataValidationEvaluator::isType(cell, ::org::apache::poi::ss::usermodel::CellType::ERROR);
+            if((v == ::poi::ss::usermodel::ConditionFilterType::NOT_CONTAINS_ERRORS)) {
+                return cell == nullptr || !DataValidationEvaluator::isType(cell, ::poi::ss::usermodel::CellType::ERROR);
             }
-            if((v == ::org::apache::poi::ss::usermodel::ConditionFilterType::TIME_PERIOD)) {
+            if((v == ::poi::ss::usermodel::ConditionFilterType::TIME_PERIOD)) {
                 return checkFormula(ref, region);
             }
-            if((((v != ::org::apache::poi::ss::usermodel::ConditionFilterType::FILTER) && (v != ::org::apache::poi::ss::usermodel::ConditionFilterType::TOP_10) && (v != ::org::apache::poi::ss::usermodel::ConditionFilterType::UNIQUE_VALUES) && (v != ::org::apache::poi::ss::usermodel::ConditionFilterType::DUPLICATE_VALUES) && (v != ::org::apache::poi::ss::usermodel::ConditionFilterType::ABOVE_AVERAGE) && (v != ::org::apache::poi::ss::usermodel::ConditionFilterType::CONTAINS_TEXT) && (v != ::org::apache::poi::ss::usermodel::ConditionFilterType::NOT_CONTAINS_TEXT) && (v != ::org::apache::poi::ss::usermodel::ConditionFilterType::BEGINS_WITH) && (v != ::org::apache::poi::ss::usermodel::ConditionFilterType::ENDS_WITH) && (v != ::org::apache::poi::ss::usermodel::ConditionFilterType::CONTAINS_BLANKS) && (v != ::org::apache::poi::ss::usermodel::ConditionFilterType::NOT_CONTAINS_BLANKS) && (v != ::org::apache::poi::ss::usermodel::ConditionFilterType::CONTAINS_ERRORS) && (v != ::org::apache::poi::ss::usermodel::ConditionFilterType::NOT_CONTAINS_ERRORS) && (v != ::org::apache::poi::ss::usermodel::ConditionFilterType::TIME_PERIOD)))) {
+            if((((v != ::poi::ss::usermodel::ConditionFilterType::FILTER) && (v != ::poi::ss::usermodel::ConditionFilterType::TOP_10) && (v != ::poi::ss::usermodel::ConditionFilterType::UNIQUE_VALUES) && (v != ::poi::ss::usermodel::ConditionFilterType::DUPLICATE_VALUES) && (v != ::poi::ss::usermodel::ConditionFilterType::ABOVE_AVERAGE) && (v != ::poi::ss::usermodel::ConditionFilterType::CONTAINS_TEXT) && (v != ::poi::ss::usermodel::ConditionFilterType::NOT_CONTAINS_TEXT) && (v != ::poi::ss::usermodel::ConditionFilterType::BEGINS_WITH) && (v != ::poi::ss::usermodel::ConditionFilterType::ENDS_WITH) && (v != ::poi::ss::usermodel::ConditionFilterType::CONTAINS_BLANKS) && (v != ::poi::ss::usermodel::ConditionFilterType::NOT_CONTAINS_BLANKS) && (v != ::poi::ss::usermodel::ConditionFilterType::CONTAINS_ERRORS) && (v != ::poi::ss::usermodel::ConditionFilterType::NOT_CONTAINS_ERRORS) && (v != ::poi::ss::usermodel::ConditionFilterType::TIME_PERIOD)))) {
                 return false;
             }
 end_switch0:;
@@ -448,7 +442,7 @@ end_switch0:;
 
 }
 
-java::util::Set* org::apache::poi::ss::formula::EvaluationConditionalFormatRule::getMeaningfulValues(::org::apache::poi::ss::util::CellRangeAddress* region, bool withText, EvaluationConditionalFormatRule_ValueFunction* func)
+java::util::Set* poi::ss::formula::EvaluationConditionalFormatRule::getMeaningfulValues(::poi::ss::util::CellRangeAddress* region, bool withText, EvaluationConditionalFormatRule_ValueFunction* func)
 {
     auto values = java_cast< ::java::util::Set* >(npc(meaningfulRegionValues)->get(region));
     if(values != nullptr) {
@@ -473,15 +467,15 @@ java::util::Set* org::apache::poi::ss::formula::EvaluationConditionalFormatRule:
     return values;
 }
 
-org::apache::poi::ss::formula::EvaluationConditionalFormatRule_ValueAndFormat* org::apache::poi::ss::formula::EvaluationConditionalFormatRule::getCellValue(::org::apache::poi::ss::usermodel::Cell* cell)
+poi::ss::formula::EvaluationConditionalFormatRule_ValueAndFormat* poi::ss::formula::EvaluationConditionalFormatRule::getCellValue(::poi::ss::usermodel::Cell* cell)
 {
     if(cell != nullptr) {
         auto const type = npc(cell)->getCellTypeEnum();
-        if(type == ::org::apache::poi::ss::usermodel::CellType::NUMERIC || (type == ::org::apache::poi::ss::usermodel::CellType::FORMULA && npc(cell)->getCachedFormulaResultTypeEnum() == ::org::apache::poi::ss::usermodel::CellType::NUMERIC)) {
+        if(type == ::poi::ss::usermodel::CellType::NUMERIC || (type == ::poi::ss::usermodel::CellType::FORMULA && npc(cell)->getCachedFormulaResultTypeEnum() == ::poi::ss::usermodel::CellType::NUMERIC)) {
             return new EvaluationConditionalFormatRule_ValueAndFormat(new ::java::lang::Double(npc(cell)->getNumericCellValue()), npc(npc(cell)->getCellStyle())->getDataFormatString());
-        } else if(type == ::org::apache::poi::ss::usermodel::CellType::STRING || (type == ::org::apache::poi::ss::usermodel::CellType::FORMULA && npc(cell)->getCachedFormulaResultTypeEnum() == ::org::apache::poi::ss::usermodel::CellType::STRING)) {
+        } else if(type == ::poi::ss::usermodel::CellType::STRING || (type == ::poi::ss::usermodel::CellType::FORMULA && npc(cell)->getCachedFormulaResultTypeEnum() == ::poi::ss::usermodel::CellType::STRING)) {
             return new EvaluationConditionalFormatRule_ValueAndFormat(npc(cell)->getStringCellValue(), npc(npc(cell)->getCellStyle())->getDataFormatString());
-        } else if(type == ::org::apache::poi::ss::usermodel::CellType::BOOLEAN || (type == ::org::apache::poi::ss::usermodel::CellType::FORMULA && npc(cell)->getCachedFormulaResultTypeEnum() == ::org::apache::poi::ss::usermodel::CellType::BOOLEAN)) {
+        } else if(type == ::poi::ss::usermodel::CellType::BOOLEAN || (type == ::poi::ss::usermodel::CellType::FORMULA && npc(cell)->getCachedFormulaResultTypeEnum() == ::poi::ss::usermodel::CellType::BOOLEAN)) {
             return new EvaluationConditionalFormatRule_ValueAndFormat(npc(cell)->getStringCellValue(), npc(npc(cell)->getCellStyle())->getDataFormatString());
         }
     }
@@ -490,13 +484,13 @@ org::apache::poi::ss::formula::EvaluationConditionalFormatRule_ValueAndFormat* o
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::EvaluationConditionalFormatRule::class_()
+java::lang::Class* poi::ss::formula::EvaluationConditionalFormatRule::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.EvaluationConditionalFormatRule", 57);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::EvaluationConditionalFormatRule::getClass0()
+java::lang::Class* poi::ss::formula::EvaluationConditionalFormatRule::getClass0()
 {
     return class_();
 }

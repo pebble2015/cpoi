@@ -9,31 +9,25 @@
 #include <java/lang/Object.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
-            {
-                namespace formula
-                {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ParseNode, ::java::lang::ObjectArray > ParseNodeArray;
+typedef ::SubArray< ::poi::ss::formula::ParseNode, ::java::lang::ObjectArray > ParseNodeArray;
 
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+            namespace ptg
+            {
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::ParseNode final
+class poi::ss::formula::ParseNode final
     : public ::java::lang::Object
 {
 
@@ -42,37 +36,37 @@ public:
 
 private:
     static ParseNodeArray* EMPTY_ARRAY_;
-    ::org::apache::poi::ss::formula::ptg::Ptg* _token {  };
+    ::poi::ss::formula::ptg::Ptg* _token {  };
     ParseNodeArray* _children {  };
     bool _isIf {  };
     int32_t _tokenCount {  };
 protected:
-    void ctor(::org::apache::poi::ss::formula::ptg::Ptg* token, ParseNodeArray* children);
-    void ctor(::org::apache::poi::ss::formula::ptg::Ptg* token);
-    void ctor(::org::apache::poi::ss::formula::ptg::Ptg* token, ParseNode* child0);
-    void ctor(::org::apache::poi::ss::formula::ptg::Ptg* token, ParseNode* child0, ParseNode* child1);
+    void ctor(::poi::ss::formula::ptg::Ptg* token, ParseNodeArray* children);
+    void ctor(::poi::ss::formula::ptg::Ptg* token);
+    void ctor(::poi::ss::formula::ptg::Ptg* token, ParseNode* child0);
+    void ctor(::poi::ss::formula::ptg::Ptg* token, ParseNode* child0, ParseNode* child1);
 
 private:
     int32_t getTokenCount();
 
 public:
     int32_t getEncodedSize();
-    static ::org::apache::poi::ss::formula::ptg::PtgArray* toTokenArray_(ParseNode* rootNode);
+    static ::poi::ss::formula::ptg::PtgArray* toTokenArray_(ParseNode* rootNode);
 
 private:
     void collectPtgs(ParseNode_TokenCollector* temp);
     void collectIfPtgs(ParseNode_TokenCollector* temp);
-    static bool isIf(::org::apache::poi::ss::formula::ptg::Ptg* token);
+    static bool isIf(::poi::ss::formula::ptg::Ptg* token);
 
 public:
-    ::org::apache::poi::ss::formula::ptg::Ptg* getToken();
+    ::poi::ss::formula::ptg::Ptg* getToken();
     ParseNodeArray* getChildren();
 
     // Generated
-    ParseNode(::org::apache::poi::ss::formula::ptg::Ptg* token, ParseNodeArray* children);
-    ParseNode(::org::apache::poi::ss::formula::ptg::Ptg* token);
-    ParseNode(::org::apache::poi::ss::formula::ptg::Ptg* token, ParseNode* child0);
-    ParseNode(::org::apache::poi::ss::formula::ptg::Ptg* token, ParseNode* child0, ParseNode* child1);
+    ParseNode(::poi::ss::formula::ptg::Ptg* token, ParseNodeArray* children);
+    ParseNode(::poi::ss::formula::ptg::Ptg* token);
+    ParseNode(::poi::ss::formula::ptg::Ptg* token, ParseNode* child0);
+    ParseNode(::poi::ss::formula::ptg::Ptg* token, ParseNode* child0, ParseNode* child1);
 protected:
     ParseNode(const ::default_init_tag&);
 

@@ -10,29 +10,23 @@
 #include <org/apache/poi/ss/formula/functions/Function.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::NumericFunction
+class poi::ss::formula::functions::NumericFunction
     : public virtual ::java::lang::Object
     , public virtual Function
 {
@@ -48,14 +42,14 @@ private:
     static double LOG_10_TO_BASE_e_;
 
 public: /* protected */
-    static double singleOperandEvaluate(::org::apache::poi::ss::formula::eval::ValueEval* arg, int32_t srcRowIndex, int32_t srcColumnIndex) /* throws(EvaluationException) */;
+    static double singleOperandEvaluate(::poi::ss::formula::eval::ValueEval* arg, int32_t srcRowIndex, int32_t srcColumnIndex) /* throws(EvaluationException) */;
 
 public:
     static void checkValue(double result) /* throws(EvaluationException) */;
-    ::org::apache::poi::ss::formula::eval::ValueEval* evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcCellRow, int32_t srcCellCol) override;
+    ::poi::ss::formula::eval::ValueEval* evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcCellRow, int32_t srcCellCol) override;
 
 public: /* protected */
-    virtual double eval(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */ = 0;
+    virtual double eval(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcCellRow, int32_t srcCellCol) /* throws(EvaluationException) */ = 0;
 
 private:
     static Function* ABS_;
@@ -68,7 +62,7 @@ private:
     static Function* COS_;
     static Function* COSH_;
     static Function* DEGREES_;
-    static ::org::apache::poi::ss::formula::eval::NumberEval* DOLLAR_ARG2_DEFAULT_;
+    static ::poi::ss::formula::eval::NumberEval* DOLLAR_ARG2_DEFAULT_;
     static Function* DOLLAR_;
     static Function* EXP_;
     static Function* FACT_;
@@ -91,10 +85,10 @@ private:
     static Function* ROUND_;
     static Function* ROUNDDOWN_;
     static Function* ROUNDUP_;
-    static ::org::apache::poi::ss::formula::eval::NumberEval* TRUNC_ARG2_DEFAULT_;
+    static ::poi::ss::formula::eval::NumberEval* TRUNC_ARG2_DEFAULT_;
     static Function* TRUNC_;
     static Function* LOG_;
-    static ::org::apache::poi::ss::formula::eval::NumberEval* PI_EVAL_;
+    static ::poi::ss::formula::eval::NumberEval* PI_EVAL_;
     static Function* PI_;
     static Function* RAND_;
     static Function* POISSON_;
@@ -127,7 +121,7 @@ public:
     static Function*& DEGREES();
 
 public: /* package */
-    static ::org::apache::poi::ss::formula::eval::NumberEval*& DOLLAR_ARG2_DEFAULT();
+    static ::poi::ss::formula::eval::NumberEval*& DOLLAR_ARG2_DEFAULT();
 
 public:
     static Function*& DOLLAR();
@@ -154,14 +148,14 @@ public:
     static Function*& ROUNDUP();
 
 public: /* package */
-    static ::org::apache::poi::ss::formula::eval::NumberEval*& TRUNC_ARG2_DEFAULT();
+    static ::poi::ss::formula::eval::NumberEval*& TRUNC_ARG2_DEFAULT();
 
 public:
     static Function*& TRUNC();
     static Function*& LOG();
 
 public: /* package */
-    static ::org::apache::poi::ss::formula::eval::NumberEval*& PI_EVAL();
+    static ::poi::ss::formula::eval::NumberEval*& PI_EVAL();
 
 public:
     static Function*& PI();

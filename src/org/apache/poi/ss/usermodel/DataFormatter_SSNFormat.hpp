@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::usermodel::DataFormatter_SSNFormat final
+class poi::ss::usermodel::DataFormatter_SSNFormat final
     : public ::java::text::Format
 {
 

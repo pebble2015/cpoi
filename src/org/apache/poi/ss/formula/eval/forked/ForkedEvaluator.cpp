@@ -58,30 +58,24 @@ typedef ::SubArray< ::java::lang::String, ObjectArray, ::java::io::SerializableA
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
-            {
-                namespace formula
-                {
-typedef ::SubArray< ::org::apache::poi::ss::formula::WorkbookEvaluator, ::java::lang::ObjectArray > WorkbookEvaluatorArray;
+typedef ::SubArray< ::poi::ss::formula::WorkbookEvaluator, ::java::lang::ObjectArray > WorkbookEvaluatorArray;
 
-                    namespace eval
-                    {
-                        namespace forked
-                        {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::forked::ForkedEvaluator, ::java::lang::ObjectArray > ForkedEvaluatorArray;
-                        } // forked
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+            namespace eval
+            {
+                namespace forked
+                {
+typedef ::SubArray< ::poi::ss::formula::eval::forked::ForkedEvaluator, ::java::lang::ObjectArray > ForkedEvaluatorArray;
+                } // forked
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T, typename U>
 static T java_cast(U* u)
@@ -99,36 +93,36 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::eval::forked::ForkedEvaluator::ForkedEvaluator(const ::default_init_tag&)
+poi::ss::formula::eval::forked::ForkedEvaluator::ForkedEvaluator(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::eval::forked::ForkedEvaluator::ForkedEvaluator(::org::apache::poi::ss::formula::EvaluationWorkbook* masterWorkbook, ::org::apache::poi::ss::formula::IStabilityClassifier* stabilityClassifier, ::org::apache::poi::ss::formula::udf::UDFFinder* udfFinder) 
+poi::ss::formula::eval::forked::ForkedEvaluator::ForkedEvaluator(::poi::ss::formula::EvaluationWorkbook* masterWorkbook, ::poi::ss::formula::IStabilityClassifier* stabilityClassifier, ::poi::ss::formula::udf::UDFFinder* udfFinder) 
     : ForkedEvaluator(*static_cast< ::default_init_tag* >(0))
 {
     ctor(masterWorkbook,stabilityClassifier,udfFinder);
 }
 
-void org::apache::poi::ss::formula::eval::forked::ForkedEvaluator::ctor(::org::apache::poi::ss::formula::EvaluationWorkbook* masterWorkbook, ::org::apache::poi::ss::formula::IStabilityClassifier* stabilityClassifier, ::org::apache::poi::ss::formula::udf::UDFFinder* udfFinder)
+void poi::ss::formula::eval::forked::ForkedEvaluator::ctor(::poi::ss::formula::EvaluationWorkbook* masterWorkbook, ::poi::ss::formula::IStabilityClassifier* stabilityClassifier, ::poi::ss::formula::udf::UDFFinder* udfFinder)
 {
     super::ctor();
     _sewb = new ForkedEvaluationWorkbook(masterWorkbook);
-    _evaluator = new ::org::apache::poi::ss::formula::WorkbookEvaluator(_sewb, stabilityClassifier, udfFinder);
+    _evaluator = new ::poi::ss::formula::WorkbookEvaluator(_sewb, stabilityClassifier, udfFinder);
 }
 
-org::apache::poi::ss::formula::EvaluationWorkbook* org::apache::poi::ss::formula::eval::forked::ForkedEvaluator::createEvaluationWorkbook(::org::apache::poi::ss::usermodel::Workbook* wb)
+poi::ss::formula::EvaluationWorkbook* poi::ss::formula::eval::forked::ForkedEvaluator::createEvaluationWorkbook(::poi::ss::usermodel::Workbook* wb)
 {
     clinit();
-    if(dynamic_cast< ::org::apache::poi::hssf::usermodel::HSSFWorkbook* >(wb) != nullptr) {
-        return ::org::apache::poi::hssf::usermodel::HSSFEvaluationWorkbook::create(java_cast< ::org::apache::poi::hssf::usermodel::HSSFWorkbook* >(wb));
+    if(dynamic_cast< ::poi::hssf::usermodel::HSSFWorkbook* >(wb) != nullptr) {
+        return ::poi::hssf::usermodel::HSSFEvaluationWorkbook::create(java_cast< ::poi::hssf::usermodel::HSSFWorkbook* >(wb));
     } else {
         try {
             auto evalWB = ::java::lang::Class::forName(u"org.apache.poi.xssf.usermodel.XSSFEvaluationWorkbook"_j);
             auto xssfWB = ::java::lang::Class::forName(u"org.apache.poi.xssf.usermodel.XSSFWorkbook"_j);
             auto createM = npc(evalWB)->getDeclaredMethod(u"create"_j, new ::java::lang::ClassArray({static_cast< ::java::lang::Class* >(xssfWB)}));
-            return java_cast< ::org::apache::poi::ss::formula::EvaluationWorkbook* >(npc(createM)->invoke(nullptr, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(wb)})));
+            return java_cast< ::poi::ss::formula::EvaluationWorkbook* >(npc(createM)->invoke(nullptr, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(wb)})));
         } catch (::java::lang::Exception* e) {
             throw new ::java::lang::IllegalArgumentException(::java::lang::StringBuilder().append(u"Unexpected workbook type ("_j)->append(npc(npc(wb)->getClass())->getName())
                 ->append(u") - check for poi-ooxml and poi-ooxml schemas jar in the classpath"_j)->toString(), e);
@@ -136,48 +130,48 @@ org::apache::poi::ss::formula::EvaluationWorkbook* org::apache::poi::ss::formula
     }
 }
 
-org::apache::poi::ss::formula::eval::forked::ForkedEvaluator* org::apache::poi::ss::formula::eval::forked::ForkedEvaluator::create(::org::apache::poi::ss::usermodel::Workbook* wb, ::org::apache::poi::ss::formula::IStabilityClassifier* stabilityClassifier, ::org::apache::poi::ss::formula::udf::UDFFinder* udfFinder)
+poi::ss::formula::eval::forked::ForkedEvaluator* poi::ss::formula::eval::forked::ForkedEvaluator::create(::poi::ss::usermodel::Workbook* wb, ::poi::ss::formula::IStabilityClassifier* stabilityClassifier, ::poi::ss::formula::udf::UDFFinder* udfFinder)
 {
     clinit();
     return new ForkedEvaluator(createEvaluationWorkbook(wb), stabilityClassifier, udfFinder);
 }
 
-void org::apache::poi::ss::formula::eval::forked::ForkedEvaluator::updateCell(::java::lang::String* sheetName, int32_t rowIndex, int32_t columnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* value)
+void poi::ss::formula::eval::forked::ForkedEvaluator::updateCell(::java::lang::String* sheetName, int32_t rowIndex, int32_t columnIndex, ::poi::ss::formula::eval::ValueEval* value)
 {
     auto cell = npc(_sewb)->getOrCreateUpdatableCell(sheetName, rowIndex, columnIndex);
     npc(cell)->setValue(value);
     npc(_evaluator)->notifyUpdateCell(cell);
 }
 
-void org::apache::poi::ss::formula::eval::forked::ForkedEvaluator::copyUpdatedCells(::org::apache::poi::ss::usermodel::Workbook* workbook)
+void poi::ss::formula::eval::forked::ForkedEvaluator::copyUpdatedCells(::poi::ss::usermodel::Workbook* workbook)
 {
     npc(_sewb)->copyUpdatedCells(workbook);
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::eval::forked::ForkedEvaluator::evaluate(::java::lang::String* sheetName, int32_t rowIndex, int32_t columnIndex)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::eval::forked::ForkedEvaluator::evaluate(::java::lang::String* sheetName, int32_t rowIndex, int32_t columnIndex)
 {
     auto cell = npc(_sewb)->getEvaluationCell(sheetName, rowIndex, columnIndex);
     {
         auto v = npc(cell)->getCellTypeEnum();
-        if((v == ::org::apache::poi::ss::usermodel::CellType::BOOLEAN)) {
-            return ::org::apache::poi::ss::formula::eval::BoolEval::valueOf(npc(cell)->getBooleanCellValue());
+        if((v == ::poi::ss::usermodel::CellType::BOOLEAN)) {
+            return ::poi::ss::formula::eval::BoolEval::valueOf(npc(cell)->getBooleanCellValue());
         }
-        if((v == ::org::apache::poi::ss::usermodel::CellType::ERROR)) {
-            return ::org::apache::poi::ss::formula::eval::ErrorEval::valueOf(npc(cell)->getErrorCellValue());
+        if((v == ::poi::ss::usermodel::CellType::ERROR)) {
+            return ::poi::ss::formula::eval::ErrorEval::valueOf(npc(cell)->getErrorCellValue());
         }
-        if((v == ::org::apache::poi::ss::usermodel::CellType::FORMULA)) {
+        if((v == ::poi::ss::usermodel::CellType::FORMULA)) {
             return npc(_evaluator)->evaluate(cell);
         }
-        if((v == ::org::apache::poi::ss::usermodel::CellType::NUMERIC)) {
-            return new ::org::apache::poi::ss::formula::eval::NumberEval(npc(cell)->getNumericCellValue());
+        if((v == ::poi::ss::usermodel::CellType::NUMERIC)) {
+            return new ::poi::ss::formula::eval::NumberEval(npc(cell)->getNumericCellValue());
         }
-        if((v == ::org::apache::poi::ss::usermodel::CellType::STRING)) {
-            return new ::org::apache::poi::ss::formula::eval::StringEval(npc(cell)->getStringCellValue());
+        if((v == ::poi::ss::usermodel::CellType::STRING)) {
+            return new ::poi::ss::formula::eval::StringEval(npc(cell)->getStringCellValue());
         }
-        if((v == ::org::apache::poi::ss::usermodel::CellType::BLANK)) {
+        if((v == ::poi::ss::usermodel::CellType::BLANK)) {
             return nullptr;
         }
-        if((((v != ::org::apache::poi::ss::usermodel::CellType::BOOLEAN) && (v != ::org::apache::poi::ss::usermodel::CellType::ERROR) && (v != ::org::apache::poi::ss::usermodel::CellType::FORMULA) && (v != ::org::apache::poi::ss::usermodel::CellType::NUMERIC) && (v != ::org::apache::poi::ss::usermodel::CellType::STRING) && (v != ::org::apache::poi::ss::usermodel::CellType::BLANK)))) {
+        if((((v != ::poi::ss::usermodel::CellType::BOOLEAN) && (v != ::poi::ss::usermodel::CellType::ERROR) && (v != ::poi::ss::usermodel::CellType::FORMULA) && (v != ::poi::ss::usermodel::CellType::NUMERIC) && (v != ::poi::ss::usermodel::CellType::STRING) && (v != ::poi::ss::usermodel::CellType::BLANK)))) {
             throw new ::java::lang::IllegalStateException(::java::lang::StringBuilder().append(u"Bad cell type ("_j)->append(static_cast< ::java::lang::Object* >(npc(cell)->getCellTypeEnum()))
                 ->append(u")"_j)->toString());
         }
@@ -186,25 +180,25 @@ end_switch0:;
 
 }
 
-void org::apache::poi::ss::formula::eval::forked::ForkedEvaluator::setupEnvironment(::java::lang::StringArray* workbookNames, ForkedEvaluatorArray* evaluators)
+void poi::ss::formula::eval::forked::ForkedEvaluator::setupEnvironment(::java::lang::StringArray* workbookNames, ForkedEvaluatorArray* evaluators)
 {
     clinit();
-    auto wbEvals = new ::org::apache::poi::ss::formula::WorkbookEvaluatorArray(npc(evaluators)->length);
+    auto wbEvals = new ::poi::ss::formula::WorkbookEvaluatorArray(npc(evaluators)->length);
     for (auto i = int32_t(0); i < npc(wbEvals)->length; i++) {
         wbEvals->set(i, npc((*evaluators)[i])->_evaluator);
     }
-    ::org::apache::poi::ss::formula::CollaboratingWorkbooksEnvironment::setup(workbookNames, wbEvals);
+    ::poi::ss::formula::CollaboratingWorkbooksEnvironment::setup(workbookNames, wbEvals);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::eval::forked::ForkedEvaluator::class_()
+java::lang::Class* poi::ss::formula::eval::forked::ForkedEvaluator::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.eval.forked.ForkedEvaluator", 53);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::eval::forked::ForkedEvaluator::getClass0()
+java::lang::Class* poi::ss::formula::eval::forked::ForkedEvaluator::getClass0()
 {
     return class_();
 }

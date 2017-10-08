@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::functions::LookupUtils_SheetVector final
+class poi::ss::formula::functions::LookupUtils_SheetVector final
     : public virtual ::java::lang::Object
     , public LookupUtils_ValueVector
 {
@@ -19,17 +19,17 @@ public:
     typedef ::java::lang::Object super;
 
 private:
-    ::org::apache::poi::ss::formula::eval::RefEval* _re {  };
+    ::poi::ss::formula::eval::RefEval* _re {  };
     int32_t _size {  };
 protected:
-    void ctor(::org::apache::poi::ss::formula::eval::RefEval* re);
+    void ctor(::poi::ss::formula::eval::RefEval* re);
 
 public:
-    ::org::apache::poi::ss::formula::eval::ValueEval* getItem(int32_t index) override;
+    ::poi::ss::formula::eval::ValueEval* getItem(int32_t index) override;
     int32_t getSize() override;
 
     // Generated
-    LookupUtils_SheetVector(::org::apache::poi::ss::formula::eval::RefEval* re);
+    LookupUtils_SheetVector(::poi::ss::formula::eval::RefEval* re);
 protected:
     LookupUtils_SheetVector(const ::default_init_tag&);
 

@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFPolygon
+class poi::hssf::usermodel::HSSFPolygon
     : public HSSFSimpleShape
 {
 
@@ -19,19 +19,19 @@ public:
     typedef HSSFSimpleShape super;
 
 private:
-    static ::org::apache::poi::util::POILogger* logger_;
+    static ::poi::util::POILogger* logger_;
 
 public:
     static constexpr int16_t OBJECT_TYPE_MICROSOFT_OFFICE_DRAWING { int16_t(30) };
 protected:
-    void ctor(::org::apache::poi::ddf::EscherContainerRecord* spContainer, ::org::apache::poi::hssf::record::ObjRecord* objRecord, ::org::apache::poi::hssf::record::TextObjectRecord* _textObjectRecord);
-    void ctor(::org::apache::poi::ddf::EscherContainerRecord* spContainer, ::org::apache::poi::hssf::record::ObjRecord* objRecord);
+    void ctor(::poi::ddf::EscherContainerRecord* spContainer, ::poi::hssf::record::ObjRecord* objRecord, ::poi::hssf::record::TextObjectRecord* _textObjectRecord);
+    void ctor(::poi::ddf::EscherContainerRecord* spContainer, ::poi::hssf::record::ObjRecord* objRecord);
     void ctor(HSSFShape* parent, HSSFAnchor* anchor);
 
 public: /* protected */
-    ::org::apache::poi::hssf::record::TextObjectRecord* createTextObjRecord() override;
-    ::org::apache::poi::ddf::EscherContainerRecord* createSpContainer() override;
-    ::org::apache::poi::hssf::record::ObjRecord* createObjRecord() override;
+    ::poi::hssf::record::TextObjectRecord* createTextObjRecord() override;
+    ::poi::ddf::EscherContainerRecord* createSpContainer() override;
+    ::poi::hssf::record::ObjRecord* createObjRecord() override;
     void afterRemove(HSSFPatriarch* patriarch) override;
 
 public:
@@ -43,8 +43,8 @@ public:
     virtual int32_t getDrawAreaHeight();
 
     // Generated
-    HSSFPolygon(::org::apache::poi::ddf::EscherContainerRecord* spContainer, ::org::apache::poi::hssf::record::ObjRecord* objRecord, ::org::apache::poi::hssf::record::TextObjectRecord* _textObjectRecord);
-    HSSFPolygon(::org::apache::poi::ddf::EscherContainerRecord* spContainer, ::org::apache::poi::hssf::record::ObjRecord* objRecord);
+    HSSFPolygon(::poi::ddf::EscherContainerRecord* spContainer, ::poi::hssf::record::ObjRecord* objRecord, ::poi::hssf::record::TextObjectRecord* _textObjectRecord);
+    HSSFPolygon(::poi::ddf::EscherContainerRecord* spContainer, ::poi::hssf::record::ObjRecord* objRecord);
 
 public: /* package */
     HSSFPolygon(HSSFShape* parent, HSSFAnchor* anchor);
@@ -57,6 +57,6 @@ public:
     static void clinit();
 
 private:
-    static ::org::apache::poi::util::POILogger*& logger();
+    static ::poi::util::POILogger*& logger();
     virtual ::java::lang::Class* getClass0();
 };

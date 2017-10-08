@@ -9,9 +9,9 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::filesystem::DocumentInputStream
+class poi::poifs::filesystem::DocumentInputStream
     : public ::java::io::InputStream
-    , public virtual ::org::apache::poi::util::LittleEndianInput
+    , public virtual ::poi::util::LittleEndianInput
 {
 
 public:

@@ -8,7 +8,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::pivottable::ViewFieldsRecord_Axis final
+class poi::hssf::record::pivottable::ViewFieldsRecord_Axis final
     : public ::java::lang::Object
 {
 

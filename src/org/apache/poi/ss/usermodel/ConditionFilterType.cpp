@@ -25,58 +25,52 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace usermodel
         {
-            namespace ss
-            {
-                namespace usermodel
-                {
-typedef ::SubArray< ::org::apache::poi::ss::usermodel::ConditionFilterType, ::java::lang::EnumArray > ConditionFilterTypeArray;
-                } // usermodel
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::usermodel::ConditionFilterType, ::java::lang::EnumArray > ConditionFilterTypeArray;
+        } // usermodel
+    } // ss
+} // poi
 
-org::apache::poi::ss::usermodel::ConditionFilterType::ConditionFilterType(const ::default_init_tag&)
+poi::ss::usermodel::ConditionFilterType::ConditionFilterType(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::usermodel::ConditionFilterType::ConditionFilterType(::java::lang::String* name, int ordinal)
+poi::ss::usermodel::ConditionFilterType::ConditionFilterType(::java::lang::String* name, int ordinal)
     : ConditionFilterType(*static_cast< ::default_init_tag* >(0))
 {
     ctor(name, ordinal);
 }
 
-org::apache::poi::ss::usermodel::ConditionFilterType* org::apache::poi::ss::usermodel::ConditionFilterType::FILTER = new ::org::apache::poi::ss::usermodel::ConditionFilterType(u"FILTER"_j, 0);
-org::apache::poi::ss::usermodel::ConditionFilterType* org::apache::poi::ss::usermodel::ConditionFilterType::TOP_10 = new ::org::apache::poi::ss::usermodel::ConditionFilterType(u"TOP_10"_j, 1);
-org::apache::poi::ss::usermodel::ConditionFilterType* org::apache::poi::ss::usermodel::ConditionFilterType::UNIQUE_VALUES = new ::org::apache::poi::ss::usermodel::ConditionFilterType(u"UNIQUE_VALUES"_j, 2);
-org::apache::poi::ss::usermodel::ConditionFilterType* org::apache::poi::ss::usermodel::ConditionFilterType::DUPLICATE_VALUES = new ::org::apache::poi::ss::usermodel::ConditionFilterType(u"DUPLICATE_VALUES"_j, 3);
-org::apache::poi::ss::usermodel::ConditionFilterType* org::apache::poi::ss::usermodel::ConditionFilterType::CONTAINS_TEXT = new ::org::apache::poi::ss::usermodel::ConditionFilterType(u"CONTAINS_TEXT"_j, 4);
-org::apache::poi::ss::usermodel::ConditionFilterType* org::apache::poi::ss::usermodel::ConditionFilterType::NOT_CONTAINS_TEXT = new ::org::apache::poi::ss::usermodel::ConditionFilterType(u"NOT_CONTAINS_TEXT"_j, 5);
-org::apache::poi::ss::usermodel::ConditionFilterType* org::apache::poi::ss::usermodel::ConditionFilterType::BEGINS_WITH = new ::org::apache::poi::ss::usermodel::ConditionFilterType(u"BEGINS_WITH"_j, 6);
-org::apache::poi::ss::usermodel::ConditionFilterType* org::apache::poi::ss::usermodel::ConditionFilterType::ENDS_WITH = new ::org::apache::poi::ss::usermodel::ConditionFilterType(u"ENDS_WITH"_j, 7);
-org::apache::poi::ss::usermodel::ConditionFilterType* org::apache::poi::ss::usermodel::ConditionFilterType::CONTAINS_BLANKS = new ::org::apache::poi::ss::usermodel::ConditionFilterType(u"CONTAINS_BLANKS"_j, 8);
-org::apache::poi::ss::usermodel::ConditionFilterType* org::apache::poi::ss::usermodel::ConditionFilterType::NOT_CONTAINS_BLANKS = new ::org::apache::poi::ss::usermodel::ConditionFilterType(u"NOT_CONTAINS_BLANKS"_j, 9);
-org::apache::poi::ss::usermodel::ConditionFilterType* org::apache::poi::ss::usermodel::ConditionFilterType::CONTAINS_ERRORS = new ::org::apache::poi::ss::usermodel::ConditionFilterType(u"CONTAINS_ERRORS"_j, 10);
-org::apache::poi::ss::usermodel::ConditionFilterType* org::apache::poi::ss::usermodel::ConditionFilterType::NOT_CONTAINS_ERRORS = new ::org::apache::poi::ss::usermodel::ConditionFilterType(u"NOT_CONTAINS_ERRORS"_j, 11);
-org::apache::poi::ss::usermodel::ConditionFilterType* org::apache::poi::ss::usermodel::ConditionFilterType::TIME_PERIOD = new ::org::apache::poi::ss::usermodel::ConditionFilterType(u"TIME_PERIOD"_j, 12);
-org::apache::poi::ss::usermodel::ConditionFilterType* org::apache::poi::ss::usermodel::ConditionFilterType::ABOVE_AVERAGE = new ::org::apache::poi::ss::usermodel::ConditionFilterType(u"ABOVE_AVERAGE"_j, 13);
+poi::ss::usermodel::ConditionFilterType* poi::ss::usermodel::ConditionFilterType::FILTER = new ::poi::ss::usermodel::ConditionFilterType(u"FILTER"_j, 0);
+poi::ss::usermodel::ConditionFilterType* poi::ss::usermodel::ConditionFilterType::TOP_10 = new ::poi::ss::usermodel::ConditionFilterType(u"TOP_10"_j, 1);
+poi::ss::usermodel::ConditionFilterType* poi::ss::usermodel::ConditionFilterType::UNIQUE_VALUES = new ::poi::ss::usermodel::ConditionFilterType(u"UNIQUE_VALUES"_j, 2);
+poi::ss::usermodel::ConditionFilterType* poi::ss::usermodel::ConditionFilterType::DUPLICATE_VALUES = new ::poi::ss::usermodel::ConditionFilterType(u"DUPLICATE_VALUES"_j, 3);
+poi::ss::usermodel::ConditionFilterType* poi::ss::usermodel::ConditionFilterType::CONTAINS_TEXT = new ::poi::ss::usermodel::ConditionFilterType(u"CONTAINS_TEXT"_j, 4);
+poi::ss::usermodel::ConditionFilterType* poi::ss::usermodel::ConditionFilterType::NOT_CONTAINS_TEXT = new ::poi::ss::usermodel::ConditionFilterType(u"NOT_CONTAINS_TEXT"_j, 5);
+poi::ss::usermodel::ConditionFilterType* poi::ss::usermodel::ConditionFilterType::BEGINS_WITH = new ::poi::ss::usermodel::ConditionFilterType(u"BEGINS_WITH"_j, 6);
+poi::ss::usermodel::ConditionFilterType* poi::ss::usermodel::ConditionFilterType::ENDS_WITH = new ::poi::ss::usermodel::ConditionFilterType(u"ENDS_WITH"_j, 7);
+poi::ss::usermodel::ConditionFilterType* poi::ss::usermodel::ConditionFilterType::CONTAINS_BLANKS = new ::poi::ss::usermodel::ConditionFilterType(u"CONTAINS_BLANKS"_j, 8);
+poi::ss::usermodel::ConditionFilterType* poi::ss::usermodel::ConditionFilterType::NOT_CONTAINS_BLANKS = new ::poi::ss::usermodel::ConditionFilterType(u"NOT_CONTAINS_BLANKS"_j, 9);
+poi::ss::usermodel::ConditionFilterType* poi::ss::usermodel::ConditionFilterType::CONTAINS_ERRORS = new ::poi::ss::usermodel::ConditionFilterType(u"CONTAINS_ERRORS"_j, 10);
+poi::ss::usermodel::ConditionFilterType* poi::ss::usermodel::ConditionFilterType::NOT_CONTAINS_ERRORS = new ::poi::ss::usermodel::ConditionFilterType(u"NOT_CONTAINS_ERRORS"_j, 11);
+poi::ss::usermodel::ConditionFilterType* poi::ss::usermodel::ConditionFilterType::TIME_PERIOD = new ::poi::ss::usermodel::ConditionFilterType(u"TIME_PERIOD"_j, 12);
+poi::ss::usermodel::ConditionFilterType* poi::ss::usermodel::ConditionFilterType::ABOVE_AVERAGE = new ::poi::ss::usermodel::ConditionFilterType(u"ABOVE_AVERAGE"_j, 13);
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::usermodel::ConditionFilterType::class_()
+java::lang::Class* poi::ss::usermodel::ConditionFilterType::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.usermodel.ConditionFilterType", 47);
     return c;
 }
 
-org::apache::poi::ss::usermodel::ConditionFilterType* org::apache::poi::ss::usermodel::ConditionFilterType::valueOf(::java::lang::String* a0)
+poi::ss::usermodel::ConditionFilterType* poi::ss::usermodel::ConditionFilterType::valueOf(::java::lang::String* a0)
 {
     if(ABOVE_AVERAGE->toString()->equals(a0))
         return ABOVE_AVERAGE;
@@ -109,9 +103,9 @@ org::apache::poi::ss::usermodel::ConditionFilterType* org::apache::poi::ss::user
     throw new ::java::lang::IllegalArgumentException(a0);
 }
 
-org::apache::poi::ss::usermodel::ConditionFilterTypeArray* org::apache::poi::ss::usermodel::ConditionFilterType::values()
+poi::ss::usermodel::ConditionFilterTypeArray* poi::ss::usermodel::ConditionFilterType::values()
 {
-    return new org::apache::poi::ss::usermodel::ConditionFilterTypeArray({
+    return new poi::ss::usermodel::ConditionFilterTypeArray({
         ABOVE_AVERAGE,
         BEGINS_WITH,
         CONTAINS_BLANKS,
@@ -129,7 +123,7 @@ org::apache::poi::ss::usermodel::ConditionFilterTypeArray* org::apache::poi::ss:
     });
 }
 
-java::lang::Class* org::apache::poi::ss::usermodel::ConditionFilterType::getClass0()
+java::lang::Class* poi::ss::usermodel::ConditionFilterType::getClass0()
 {
     return class_();
 }

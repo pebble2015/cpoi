@@ -14,9 +14,9 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::usermodel::HSSFPatternFormatting
+class poi::hssf::usermodel::HSSFPatternFormatting
     : public virtual ::java::lang::Object
-    , public virtual ::org::apache::poi::ss::usermodel::PatternFormatting
+    , public virtual ::poi::ss::usermodel::PatternFormatting
 {
 
 public:
@@ -24,22 +24,22 @@ public:
 
 private:
     HSSFWorkbook* workbook {  };
-    ::org::apache::poi::hssf::record::CFRuleBase* cfRuleRecord {  };
-    ::org::apache::poi::hssf::record::cf::PatternFormatting* patternFormatting {  };
+    ::poi::hssf::record::CFRuleBase* cfRuleRecord {  };
+    ::poi::hssf::record::cf::PatternFormatting* patternFormatting {  };
 protected:
-    void ctor(::org::apache::poi::hssf::record::CFRuleBase* cfRuleRecord, HSSFWorkbook* workbook);
+    void ctor(::poi::hssf::record::CFRuleBase* cfRuleRecord, HSSFWorkbook* workbook);
 
 public: /* protected */
-    virtual ::org::apache::poi::hssf::record::cf::PatternFormatting* getPatternFormattingBlock();
+    virtual ::poi::hssf::record::cf::PatternFormatting* getPatternFormattingBlock();
 
 public:
-    ::org::apache::poi::hssf::util::HSSFColor* getFillBackgroundColorColor() override;
-    ::org::apache::poi::hssf::util::HSSFColor* getFillForegroundColorColor() override;
+    ::poi::hssf::util::HSSFColor* getFillBackgroundColorColor() override;
+    ::poi::hssf::util::HSSFColor* getFillForegroundColorColor() override;
     int16_t getFillBackgroundColor() override;
     int16_t getFillForegroundColor() override;
     int16_t getFillPattern() override;
-    void setFillBackgroundColor(::org::apache::poi::ss::usermodel::Color* bg) override;
-    void setFillForegroundColor(::org::apache::poi::ss::usermodel::Color* fg) override;
+    void setFillBackgroundColor(::poi::ss::usermodel::Color* bg) override;
+    void setFillForegroundColor(::poi::ss::usermodel::Color* fg) override;
     void setFillBackgroundColor(int16_t bg) override;
     void setFillForegroundColor(int16_t fg) override;
     void setFillPattern(int16_t fp) override;
@@ -47,7 +47,7 @@ public:
     // Generated
 
 public: /* protected */
-    HSSFPatternFormatting(::org::apache::poi::hssf::record::CFRuleBase* cfRuleRecord, HSSFWorkbook* workbook);
+    HSSFPatternFormatting(::poi::hssf::record::CFRuleBase* cfRuleRecord, HSSFWorkbook* workbook);
 protected:
     HSSFPatternFormatting(const ::default_init_tag&);
 

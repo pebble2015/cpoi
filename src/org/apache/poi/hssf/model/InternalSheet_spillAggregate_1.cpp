@@ -13,7 +13,7 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::model::InternalSheet_spillAggregate_1::InternalSheet_spillAggregate_1(::java::util::List* recs)
+poi::hssf::model::InternalSheet_spillAggregate_1::InternalSheet_spillAggregate_1(::java::util::List* recs)
     : super(*static_cast< ::default_init_tag* >(0))
     , recs(recs)
 {
@@ -21,20 +21,20 @@ org::apache::poi::hssf::model::InternalSheet_spillAggregate_1::InternalSheet_spi
     ctor();
 }
 
-void org::apache::poi::hssf::model::InternalSheet_spillAggregate_1::visitRecord(::org::apache::poi::hssf::record::Record* r)
+void poi::hssf::model::InternalSheet_spillAggregate_1::visitRecord(::poi::hssf::record::Record* r)
 {
     npc(recs)->add(static_cast< ::java::lang::Object* >(r));
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::model::InternalSheet_spillAggregate_1::class_()
+java::lang::Class* poi::hssf::model::InternalSheet_spillAggregate_1::class_()
 {
     static ::java::lang::Class* c = ::class_(u"", 0);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::model::InternalSheet_spillAggregate_1::getClass0()
+java::lang::Class* poi::hssf::model::InternalSheet_spillAggregate_1::getClass0()
 {
     return class_();
 }

@@ -12,19 +12,13 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace hpsf
     {
-        namespace poi
-        {
-            namespace hpsf
-            {
-typedef ::SubArray< ::org::apache::poi::hpsf::Array__ArrayDimension, ::java::lang::ObjectArray > Array__ArrayDimensionArray;
-            } // hpsf
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::hpsf::Array__ArrayDimension, ::java::lang::ObjectArray > Array__ArrayDimensionArray;
+    } // hpsf
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -33,19 +27,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hpsf::Array__ArrayHeader::Array__ArrayHeader(const ::default_init_tag&)
+poi::hpsf::Array__ArrayHeader::Array__ArrayHeader(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hpsf::Array__ArrayHeader::Array__ArrayHeader()
+poi::hpsf::Array__ArrayHeader::Array__ArrayHeader()
     : Array__ArrayHeader(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::hpsf::Array__ArrayHeader::read(::org::apache::poi::util::LittleEndianByteArrayInputStream* lei)
+void poi::hpsf::Array__ArrayHeader::read(::poi::util::LittleEndianByteArrayInputStream* lei)
 {
     _type = npc(lei)->readInt();
     auto numDimensionsUnsigned = npc(lei)->readUInt();
@@ -63,7 +57,7 @@ void org::apache::poi::hpsf::Array__ArrayHeader::read(::org::apache::poi::util::
     }
 }
 
-int64_t org::apache::poi::hpsf::Array__ArrayHeader::getNumberOfScalarValues()
+int64_t poi::hpsf::Array__ArrayHeader::getNumberOfScalarValues()
 {
     int64_t result = int32_t(1);
     for(auto dimension : *npc(_dimensions)) {
@@ -72,20 +66,20 @@ int64_t org::apache::poi::hpsf::Array__ArrayHeader::getNumberOfScalarValues()
     return result;
 }
 
-int32_t org::apache::poi::hpsf::Array__ArrayHeader::getType()
+int32_t poi::hpsf::Array__ArrayHeader::getType()
 {
     return _type;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hpsf::Array__ArrayHeader::class_()
+java::lang::Class* poi::hpsf::Array__ArrayHeader::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hpsf.Array.ArrayHeader", 37);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hpsf::Array__ArrayHeader::getClass0()
+java::lang::Class* poi::hpsf::Array__ArrayHeader::getClass0()
 {
     return class_();
 }

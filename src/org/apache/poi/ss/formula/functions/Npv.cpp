@@ -16,25 +16,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -43,46 +37,46 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::Npv::Npv(const ::default_init_tag&)
+poi::ss::formula::functions::Npv::Npv(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::Npv::Npv()
+poi::ss::formula::functions::Npv::Npv()
     : Npv(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Npv::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Npv::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
 {
     auto nArgs = npc(args)->length;
     if(nArgs < 2) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
     try {
         auto rate = NumericFunction::singleOperandEvaluate((*args)[int32_t(0)], srcRowIndex, srcColumnIndex);
-        auto vargs = new ::org::apache::poi::ss::formula::eval::ValueEvalArray(npc(args)->length - int32_t(1));
+        auto vargs = new ::poi::ss::formula::eval::ValueEvalArray(npc(args)->length - int32_t(1));
         ::java::lang::System::arraycopy(args, 1, vargs, 0, npc(vargs)->length);
         auto values = AggregateFunction_ValueCollector::collectValues(vargs);
         auto result = FinanceLib::npv(rate, values);
         NumericFunction::checkValue(result);
-        return new ::org::apache::poi::ss::formula::eval::NumberEval(result);
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+        return new ::poi::ss::formula::eval::NumberEval(result);
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
         return npc(e)->getErrorEval();
     }
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Npv::class_()
+java::lang::Class* poi::ss::formula::functions::Npv::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.Npv", 39);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Npv::getClass0()
+java::lang::Class* poi::ss::formula::functions::Npv::getClass0()
 {
     return class_();
 }

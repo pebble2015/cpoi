@@ -6,7 +6,7 @@
 #include <org/apache/poi/hssf/record/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::hssf::record::BiffHeaderInput
+struct poi::hssf::record::BiffHeaderInput
     : public virtual ::java::lang::Object
 {
     virtual int32_t readRecordSID() = 0;

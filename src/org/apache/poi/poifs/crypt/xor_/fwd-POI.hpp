@@ -2,28 +2,22 @@
 #pragma once
 
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace poifs
     {
-        namespace poi
+        namespace crypt
         {
-            namespace poifs
+            namespace xor_
             {
-                namespace crypt
-                {
-                    namespace xor_
-                    {
-                        class XORDecryptor;
-                        class XORDecryptor_XORCipherInputStream;
-                        class XOREncryptionHeader;
-                        class XOREncryptionInfoBuilder;
-                        class XOREncryptionVerifier;
-                        class XOREncryptor;
-                        class XOREncryptor_XORCipherOutputStream;
-                    } // xor_
-                } // crypt
-            } // poifs
-        } // poi
-    } // apache
-} // org
+                class XORDecryptor;
+                class XORDecryptor_XORCipherInputStream;
+                class XOREncryptionHeader;
+                class XOREncryptionInfoBuilder;
+                class XOREncryptionVerifier;
+                class XOREncryptor;
+                class XOREncryptor_XORCipherOutputStream;
+            } // xor_
+        } // crypt
+    } // poifs
+} // poi

@@ -6,7 +6,7 @@
 #include <org/apache/poi/util/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::util::LittleEndianInput
+struct poi::util::LittleEndianInput
     : public virtual ::java::lang::Object
 {
     virtual int32_t available() = 0;

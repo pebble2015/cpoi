@@ -21,19 +21,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::sl::draw::geom::ArcToCommand::ArcToCommand(const ::default_init_tag&)
+poi::sl::draw::geom::ArcToCommand::ArcToCommand(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::draw::geom::ArcToCommand::ArcToCommand(::org::apache::poi::sl::draw::binding::CTPath2DArcTo* arc) 
+poi::sl::draw::geom::ArcToCommand::ArcToCommand(::poi::sl::draw::binding::CTPath2DArcTo* arc) 
     : ArcToCommand(*static_cast< ::default_init_tag* >(0))
 {
     ctor(arc);
 }
 
-void org::apache::poi::sl::draw::geom::ArcToCommand::ctor(::org::apache::poi::sl::draw::binding::CTPath2DArcTo* arc)
+void poi::sl::draw::geom::ArcToCommand::ctor(::poi::sl::draw::binding::CTPath2DArcTo* arc)
 {
     super::ctor();
     hr = npc(arc)->getHR();
@@ -42,7 +42,7 @@ void org::apache::poi::sl::draw::geom::ArcToCommand::ctor(::org::apache::poi::sl
     swAng = npc(arc)->getSwAng();
 }
 
-void org::apache::poi::sl::draw::geom::ArcToCommand::execute(::java::awt::geom::Path2D_Double* path, Context* ctx)
+void poi::sl::draw::geom::ArcToCommand::execute(::java::awt::geom::Path2D_Double* path, Context* ctx)
 {
     auto rx = npc(ctx)->getValue(wr);
     auto ry = npc(ctx)->getValue(hr);
@@ -59,7 +59,7 @@ void org::apache::poi::sl::draw::geom::ArcToCommand::execute(::java::awt::geom::
     npc(path)->append(static_cast< ::java::awt::Shape* >(arc), true);
 }
 
-double org::apache::poi::sl::draw::geom::ArcToCommand::convertOoxml2AwtAngle(double ooAngle, double width, double height)
+double poi::sl::draw::geom::ArcToCommand::convertOoxml2AwtAngle(double ooAngle, double width, double height)
 {
     auto aspect = (height / width);
     auto awtAngle = -ooAngle;
@@ -95,13 +95,13 @@ double org::apache::poi::sl::draw::geom::ArcToCommand::convertOoxml2AwtAngle(dou
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::draw::geom::ArcToCommand::class_()
+java::lang::Class* poi::sl::draw::geom::ArcToCommand::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.draw.geom.ArcToCommand", 40);
     return c;
 }
 
-java::lang::Class* org::apache::poi::sl::draw::geom::ArcToCommand::getClass0()
+java::lang::Class* poi::sl::draw::geom::ArcToCommand::getClass0()
 {
     return class_();
 }

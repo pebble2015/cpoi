@@ -31,24 +31,24 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::sl::draw::DrawGroupShape::DrawGroupShape(const ::default_init_tag&)
+poi::sl::draw::DrawGroupShape::DrawGroupShape(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::sl::draw::DrawGroupShape::DrawGroupShape(::org::apache::poi::sl::usermodel::GroupShape* shape) 
+poi::sl::draw::DrawGroupShape::DrawGroupShape(::poi::sl::usermodel::GroupShape* shape) 
     : DrawGroupShape(*static_cast< ::default_init_tag* >(0))
 {
     ctor(shape);
 }
 
-void org::apache::poi::sl::draw::DrawGroupShape::ctor(::org::apache::poi::sl::usermodel::GroupShape* shape)
+void poi::sl::draw::DrawGroupShape::ctor(::poi::sl::usermodel::GroupShape* shape)
 {
     super::ctor(shape);
 }
 
-void org::apache::poi::sl::draw::DrawGroupShape::draw(::java::awt::Graphics2D* graphics)
+void poi::sl::draw::DrawGroupShape::draw(::java::awt::Graphics2D* graphics)
 {
     auto interior = npc(getShape())->getInteriorAnchor();
     auto exterior = npc(getShape())->getAnchor();
@@ -62,11 +62,11 @@ void org::apache::poi::sl::draw::DrawGroupShape::draw(::java::awt::Graphics2D* g
     auto drawFact = DrawFactory::getInstance(graphics);
     auto at2 = npc(graphics)->getTransform();
     for (auto _i = npc(getShape())->iterator(); _i->hasNext(); ) {
-        ::org::apache::poi::sl::usermodel::Shape* child = java_cast< ::org::apache::poi::sl::usermodel::Shape* >(_i->next());
+        ::poi::sl::usermodel::Shape* child = java_cast< ::poi::sl::usermodel::Shape* >(_i->next());
         {
             auto at = npc(graphics)->getTransform();
             npc(graphics)->setRenderingHint(Drawable::GSAVE(), ::java::lang::Boolean::valueOf(true));
-            auto draw = npc(drawFact)->getDrawable(static_cast< ::org::apache::poi::sl::usermodel::Shape* >(child));
+            auto draw = npc(drawFact)->getDrawable(static_cast< ::poi::sl::usermodel::Shape* >(child));
             npc(draw)->applyTransform(graphics);
             npc(draw)->draw(graphics);
             npc(graphics)->setTransform(at);
@@ -77,20 +77,20 @@ void org::apache::poi::sl::draw::DrawGroupShape::draw(::java::awt::Graphics2D* g
     npc(graphics)->setRenderingHint(Drawable::GROUP_TRANSFORM(), tx0);
 }
 
-org::apache::poi::sl::usermodel::GroupShape* org::apache::poi::sl::draw::DrawGroupShape::getShape()
+poi::sl::usermodel::GroupShape* poi::sl::draw::DrawGroupShape::getShape()
 {
-    return java_cast< ::org::apache::poi::sl::usermodel::GroupShape* >(shape);
+    return java_cast< ::poi::sl::usermodel::GroupShape* >(shape);
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::sl::draw::DrawGroupShape::class_()
+java::lang::Class* poi::sl::draw::DrawGroupShape::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.sl.draw.DrawGroupShape", 37);
     return c;
 }
 
-java::lang::Class* org::apache::poi::sl::draw::DrawGroupShape::getClass0()
+java::lang::Class* poi::sl::draw::DrawGroupShape::getClass0()
 {
     return class_();
 }

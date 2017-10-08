@@ -65,19 +65,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::dev::RecordGenerator::RecordGenerator(const ::default_init_tag&)
+poi::dev::RecordGenerator::RecordGenerator(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::dev::RecordGenerator::RecordGenerator()
+poi::dev::RecordGenerator::RecordGenerator()
     : RecordGenerator(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::dev::RecordGenerator::main(::java::lang::StringArray* args) /* throws(Exception) */
+void poi::dev::RecordGenerator::main(::java::lang::StringArray* args) /* throws(Exception) */
 {
     clinit();
     ::java::lang::Class::forName(u"org.apache.poi.generator.FieldIterator"_j);
@@ -89,7 +89,7 @@ void org::apache::poi::dev::RecordGenerator::main(::java::lang::StringArray* arg
     }
 }
 
-void org::apache::poi::dev::RecordGenerator::generateRecords(::java::lang::String* defintionsDir, ::java::lang::String* recordStyleDir, ::java::lang::String* destSrcPathDir, ::java::lang::String* testSrcPathDir) /* throws(Exception) */
+void poi::dev::RecordGenerator::generateRecords(::java::lang::String* defintionsDir, ::java::lang::String* recordStyleDir, ::java::lang::String* destSrcPathDir, ::java::lang::String* testSrcPathDir) /* throws(Exception) */
 {
     clinit();
     auto definitionsFiles = (new ::java::io::File(defintionsDir))->listFiles();
@@ -99,7 +99,7 @@ void org::apache::poi::dev::RecordGenerator::generateRecords(::java::lang::Strin
     }
     for(auto file : *npc(definitionsFiles)) {
         if(npc(file)->isFile() && (npc(npc(file)->getName())->endsWith(u"_record.xml"_j) || npc(npc(file)->getName())->endsWith(u"_type.xml"_j))) {
-            auto factory = ::org::apache::poi::util::XMLHelper::getDocumentBuilderFactory();
+            auto factory = ::poi::util::XMLHelper::getDocumentBuilderFactory();
             auto builder = npc(factory)->newDocumentBuilder();
             auto document = npc(builder)->parse(file);
             auto record = npc(document)->getDocumentElement();
@@ -151,7 +151,7 @@ void org::apache::poi::dev::RecordGenerator::generateRecords(::java::lang::Strin
     }
 }
 
-void org::apache::poi::dev::RecordGenerator::transform(::java::io::File* in, ::java::io::File* out, ::java::io::File* xslt) /* throws(FileNotFoundException, TransformerException) */
+void poi::dev::RecordGenerator::transform(::java::io::File* in, ::java::io::File* out, ::java::io::File* xslt) /* throws(FileNotFoundException, TransformerException) */
 {
     clinit();
     auto const ss = new ::javax::xml::transform::stream::StreamSource(xslt);
@@ -172,13 +172,13 @@ void org::apache::poi::dev::RecordGenerator::transform(::java::io::File* in, ::j
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::dev::RecordGenerator::class_()
+java::lang::Class* poi::dev::RecordGenerator::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.dev.RecordGenerator", 34);
     return c;
 }
 
-java::lang::Class* org::apache::poi::dev::RecordGenerator::getClass0()
+java::lang::Class* poi::dev::RecordGenerator::getClass0()
 {
     return class_();
 }

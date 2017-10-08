@@ -11,29 +11,23 @@
 #include <org/apache/poi/hssf/record/StandardRecord.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace ptg
             {
-                namespace formula
-                {
-                    namespace ptg
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
-                    } // ptg
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::ptg::Ptg, ::java::lang::ObjectArray > PtgArray;
+            } // ptg
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::ExternalNameRecord final
+class poi::hssf::record::ExternalNameRecord final
     : public StandardRecord
 {
 
@@ -52,7 +46,7 @@ private:
     int16_t field_2_ixals {  };
     int16_t field_3_not_used {  };
     ::java::lang::String* field_4_name {  };
-    ::org::apache::poi::ss::formula::Formula* field_5_name_definition {  };
+    ::poi::ss::formula::Formula* field_5_name_definition {  };
     ::java::lang::ObjectArray* _ddeValues {  };
     int32_t _nColumns {  };
     int32_t _nRows {  };
@@ -68,14 +62,14 @@ public:
     void setText(::java::lang::String* str);
     int16_t getIx();
     void setIx(int16_t ix);
-    ::org::apache::poi::ss::formula::ptg::PtgArray* getParsedExpression();
-    void setParsedExpression(::org::apache::poi::ss::formula::ptg::PtgArray* ptgs);
+    ::poi::ss::formula::ptg::PtgArray* getParsedExpression();
+    void setParsedExpression(::poi::ss::formula::ptg::PtgArray* ptgs);
 
 public: /* protected */
     int32_t getDataSize() override;
 
 public:
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 protected:
     void ctor();
     void ctor(RecordInputStream* in);

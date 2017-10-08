@@ -60,40 +60,40 @@ namespace
 
     template<typename F> finally_<F> finally(F f) { return finally_<F>(f); }
 }
-org::apache::poi::hssf::eventusermodel::HSSFEventFactory::HSSFEventFactory(const ::default_init_tag&)
+poi::hssf::eventusermodel::HSSFEventFactory::HSSFEventFactory(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::eventusermodel::HSSFEventFactory::HSSFEventFactory() 
+poi::hssf::eventusermodel::HSSFEventFactory::HSSFEventFactory() 
     : HSSFEventFactory(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::hssf::eventusermodel::HSSFEventFactory::ctor()
+void poi::hssf::eventusermodel::HSSFEventFactory::ctor()
 {
     super::ctor();
 }
 
-void org::apache::poi::hssf::eventusermodel::HSSFEventFactory::processWorkbookEvents(HSSFRequest* req, ::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs) /* throws(IOException) */
+void poi::hssf::eventusermodel::HSSFEventFactory::processWorkbookEvents(HSSFRequest* req, ::poi::poifs::filesystem::POIFSFileSystem* fs) /* throws(IOException) */
 {
     processWorkbookEvents(req, npc(fs)->getRoot());
 }
 
-void org::apache::poi::hssf::eventusermodel::HSSFEventFactory::processWorkbookEvents(HSSFRequest* req, ::org::apache::poi::poifs::filesystem::DirectoryNode* dir) /* throws(IOException) */
+void poi::hssf::eventusermodel::HSSFEventFactory::processWorkbookEvents(HSSFRequest* req, ::poi::poifs::filesystem::DirectoryNode* dir) /* throws(IOException) */
 {
     ::java::lang::String* name = nullptr;
     auto entryNames = npc(dir)->getEntryNames();
-    for(auto potentialName : *npc(::org::apache::poi::hssf::model::InternalWorkbook::WORKBOOK_DIR_ENTRY_NAMES())) {
+    for(auto potentialName : *npc(::poi::hssf::model::InternalWorkbook::WORKBOOK_DIR_ENTRY_NAMES())) {
         if(npc(entryNames)->contains(static_cast< ::java::lang::Object* >(potentialName))) {
             name = potentialName;
             break;
         }
     }
     if(name == nullptr) {
-        name = (*::org::apache::poi::hssf::model::InternalWorkbook::WORKBOOK_DIR_ENTRY_NAMES())[int32_t(0)];
+        name = (*::poi::hssf::model::InternalWorkbook::WORKBOOK_DIR_ENTRY_NAMES())[int32_t(0)];
     }
     ::java::io::InputStream* in = npc(dir)->createDocumentInputStream(name);
     {
@@ -107,12 +107,12 @@ void org::apache::poi::hssf::eventusermodel::HSSFEventFactory::processWorkbookEv
 
 }
 
-int16_t org::apache::poi::hssf::eventusermodel::HSSFEventFactory::abortableProcessWorkbookEvents(HSSFRequest* req, ::org::apache::poi::poifs::filesystem::POIFSFileSystem* fs) /* throws(IOException, HSSFUserException) */
+int16_t poi::hssf::eventusermodel::HSSFEventFactory::abortableProcessWorkbookEvents(HSSFRequest* req, ::poi::poifs::filesystem::POIFSFileSystem* fs) /* throws(IOException, HSSFUserException) */
 {
     return abortableProcessWorkbookEvents(req, npc(fs)->getRoot());
 }
 
-int16_t org::apache::poi::hssf::eventusermodel::HSSFEventFactory::abortableProcessWorkbookEvents(HSSFRequest* req, ::org::apache::poi::poifs::filesystem::DirectoryNode* dir) /* throws(IOException, HSSFUserException) */
+int16_t poi::hssf::eventusermodel::HSSFEventFactory::abortableProcessWorkbookEvents(HSSFRequest* req, ::poi::poifs::filesystem::DirectoryNode* dir) /* throws(IOException, HSSFUserException) */
 {
     ::java::io::InputStream* in = npc(dir)->createDocumentInputStream(u"Workbook"_j);
     {
@@ -126,7 +126,7 @@ int16_t org::apache::poi::hssf::eventusermodel::HSSFEventFactory::abortableProce
 
 }
 
-void org::apache::poi::hssf::eventusermodel::HSSFEventFactory::processEvents(HSSFRequest* req, ::java::io::InputStream* in)
+void poi::hssf::eventusermodel::HSSFEventFactory::processEvents(HSSFRequest* req, ::java::io::InputStream* in)
 {
     try {
         genericProcessEvents(req, in);
@@ -134,15 +134,15 @@ void org::apache::poi::hssf::eventusermodel::HSSFEventFactory::processEvents(HSS
     }
 }
 
-int16_t org::apache::poi::hssf::eventusermodel::HSSFEventFactory::abortableProcessEvents(HSSFRequest* req, ::java::io::InputStream* in) /* throws(HSSFUserException) */
+int16_t poi::hssf::eventusermodel::HSSFEventFactory::abortableProcessEvents(HSSFRequest* req, ::java::io::InputStream* in) /* throws(HSSFUserException) */
 {
     return genericProcessEvents(req, in);
 }
 
-int16_t org::apache::poi::hssf::eventusermodel::HSSFEventFactory::genericProcessEvents(HSSFRequest* req, ::java::io::InputStream* in) /* throws(HSSFUserException) */
+int16_t poi::hssf::eventusermodel::HSSFEventFactory::genericProcessEvents(HSSFRequest* req, ::java::io::InputStream* in) /* throws(HSSFUserException) */
 {
     int16_t userCode = int32_t(0);
-    auto recordStream = new ::org::apache::poi::hssf::record::RecordFactoryInputStream(in, false);
+    auto recordStream = new ::poi::hssf::record::RecordFactoryInputStream(in, false);
     while (true) {
         auto r = npc(recordStream)->nextRecord();
         if(r == nullptr) {
@@ -158,13 +158,13 @@ int16_t org::apache::poi::hssf::eventusermodel::HSSFEventFactory::genericProcess
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::eventusermodel::HSSFEventFactory::class_()
+java::lang::Class* poi::hssf::eventusermodel::HSSFEventFactory::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.eventusermodel.HSSFEventFactory", 51);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::eventusermodel::HSSFEventFactory::getClass0()
+java::lang::Class* poi::hssf::eventusermodel::HSSFEventFactory::getClass0()
 {
     return class_();
 }

@@ -6,7 +6,7 @@
 #include <org/apache/poi/ss/usermodel/fwd-POI.hpp>
 #include <java/lang/Object.hpp>
 
-struct org::apache::poi::ss::usermodel::DifferentialStyleProvider
+struct poi::ss::usermodel::DifferentialStyleProvider
     : public virtual ::java::lang::Object
 {
     virtual BorderFormatting* getBorderFormatting() = 0;

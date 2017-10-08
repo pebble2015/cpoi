@@ -19,25 +19,19 @@
 #include <SubArray.hpp>
 
 template<typename ComponentType, typename... Bases> struct SubArray;
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
+            namespace eval
             {
-                namespace formula
-                {
-                    namespace eval
-                    {
-typedef ::SubArray< ::org::apache::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
-                    } // eval
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::eval::ValueEval, ::java::lang::ObjectArray > ValueEvalArray;
+            } // eval
+        } // formula
+    } // ss
+} // poi
 
 template<typename T>
 static T* npc(T* t)
@@ -46,79 +40,79 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::Complex::Complex(const ::default_init_tag&)
+poi::ss::formula::functions::Complex::Complex(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::Complex::Complex()
+poi::ss::formula::functions::Complex::Complex()
     : Complex(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-org::apache::poi::ss::formula::functions::FreeRefFunction*& org::apache::poi::ss::formula::functions::Complex::instance()
+poi::ss::formula::functions::FreeRefFunction*& poi::ss::formula::functions::Complex::instance()
 {
     clinit();
     return instance_;
 }
-org::apache::poi::ss::formula::functions::FreeRefFunction* org::apache::poi::ss::formula::functions::Complex::instance_;
+poi::ss::formula::functions::FreeRefFunction* poi::ss::formula::functions::Complex::instance_;
 
-java::lang::String*& org::apache::poi::ss::formula::functions::Complex::DEFAULT_SUFFIX()
+java::lang::String*& poi::ss::formula::functions::Complex::DEFAULT_SUFFIX()
 {
     clinit();
     return DEFAULT_SUFFIX_;
 }
-java::lang::String* org::apache::poi::ss::formula::functions::Complex::DEFAULT_SUFFIX_;
+java::lang::String* poi::ss::formula::functions::Complex::DEFAULT_SUFFIX_;
 
-java::lang::String*& org::apache::poi::ss::formula::functions::Complex::SUPPORTED_SUFFIX()
+java::lang::String*& poi::ss::formula::functions::Complex::SUPPORTED_SUFFIX()
 {
     clinit();
     return SUPPORTED_SUFFIX_;
 }
-java::lang::String* org::apache::poi::ss::formula::functions::Complex::SUPPORTED_SUFFIX_;
+java::lang::String* poi::ss::formula::functions::Complex::SUPPORTED_SUFFIX_;
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Complex::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* real_num, ::org::apache::poi::ss::formula::eval::ValueEval* i_num)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Complex::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::poi::ss::formula::eval::ValueEval* real_num, ::poi::ss::formula::eval::ValueEval* i_num)
 {
-    return this->evaluate(srcRowIndex, srcColumnIndex, real_num, i_num, static_cast< ::org::apache::poi::ss::formula::eval::ValueEval* >(new ::org::apache::poi::ss::formula::eval::StringEval(DEFAULT_SUFFIX_)));
+    return this->evaluate(srcRowIndex, srcColumnIndex, real_num, i_num, static_cast< ::poi::ss::formula::eval::ValueEval* >(new ::poi::ss::formula::eval::StringEval(DEFAULT_SUFFIX_)));
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Complex::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::org::apache::poi::ss::formula::eval::ValueEval* real_num, ::org::apache::poi::ss::formula::eval::ValueEval* i_num, ::org::apache::poi::ss::formula::eval::ValueEval* suffix)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Complex::evaluate(int32_t srcRowIndex, int32_t srcColumnIndex, ::poi::ss::formula::eval::ValueEval* real_num, ::poi::ss::formula::eval::ValueEval* i_num, ::poi::ss::formula::eval::ValueEval* suffix)
 {
-    ::org::apache::poi::ss::formula::eval::ValueEval* veText1;
+    ::poi::ss::formula::eval::ValueEval* veText1;
     try {
-        veText1 = ::org::apache::poi::ss::formula::eval::OperandResolver::getSingleValue(real_num, srcRowIndex, srcColumnIndex);
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+        veText1 = ::poi::ss::formula::eval::OperandResolver::getSingleValue(real_num, srcRowIndex, srcColumnIndex);
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
         return npc(e)->getErrorEval();
     }
     double realNum = int32_t(0);
     try {
-        realNum = ::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToDouble(veText1);
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        realNum = ::poi::ss::formula::eval::OperandResolver::coerceValueToDouble(veText1);
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
-    ::org::apache::poi::ss::formula::eval::ValueEval* veINum;
+    ::poi::ss::formula::eval::ValueEval* veINum;
     try {
-        veINum = ::org::apache::poi::ss::formula::eval::OperandResolver::getSingleValue(i_num, srcRowIndex, srcColumnIndex);
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+        veINum = ::poi::ss::formula::eval::OperandResolver::getSingleValue(i_num, srcRowIndex, srcColumnIndex);
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
         return npc(e)->getErrorEval();
     }
     double realINum = int32_t(0);
     try {
-        realINum = ::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToDouble(veINum);
-    } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        realINum = ::poi::ss::formula::eval::OperandResolver::coerceValueToDouble(veINum);
+    } catch (::poi::ss::formula::eval::EvaluationException* e) {
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
-    auto suffixValue = ::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToString(suffix);
+    auto suffixValue = ::poi::ss::formula::eval::OperandResolver::coerceValueToString(suffix);
     if(npc(suffixValue)->length() == 0) {
         suffixValue = DEFAULT_SUFFIX_;
     }
     if(npc(suffixValue)->equals(static_cast< ::java::lang::Object* >(npc(DEFAULT_SUFFIX_)->toUpperCase(::java::util::Locale::ROOT()))) || npc(suffixValue)->equals(static_cast< ::java::lang::Object* >(npc(SUPPORTED_SUFFIX_)->toUpperCase(::java::util::Locale::ROOT())))) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
     if(!(npc(suffixValue)->equals(static_cast< ::java::lang::Object* >(DEFAULT_SUFFIX_)) || npc(suffixValue)->equals(static_cast< ::java::lang::Object* >(SUPPORTED_SUFFIX_)))) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     }
     auto strb = new ::java::lang::StringBuffer(u""_j);
     if(realNum != 0) {
@@ -143,15 +137,15 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::f
         }
         npc(strb)->append(suffixValue);
     }
-    return new ::org::apache::poi::ss::formula::eval::StringEval(npc(strb)->toString());
+    return new ::poi::ss::formula::eval::StringEval(npc(strb)->toString());
 }
 
-bool org::apache::poi::ss::formula::functions::Complex::isDoubleAnInt(double number)
+bool poi::ss::formula::functions::Complex::isDoubleAnInt(double number)
 {
     return (number == ::java::lang::Math::floor(number)) && !::java::lang::Double::isInfinite(number);
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Complex::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, ::org::apache::poi::ss::formula::OperationEvaluationContext* ec)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Complex::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, ::poi::ss::formula::OperationEvaluationContext* ec)
 {
     if(npc(args)->length == 2) {
         return evaluate(npc(ec)->getRowIndex(), npc(ec)->getColumnIndex(), (*args)[int32_t(0)], (*args)[int32_t(1)]);
@@ -159,18 +153,18 @@ org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::f
     if(npc(args)->length == 3) {
         return evaluate(npc(ec)->getRowIndex(), npc(ec)->getColumnIndex(), (*args)[int32_t(0)], (*args)[int32_t(1)], (*args)[int32_t(2)]);
     }
-    return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+    return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Complex::class_()
+java::lang::Class* poi::ss::formula::functions::Complex::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.Complex", 43);
     return c;
 }
 
-void org::apache::poi::ss::formula::functions::Complex::clinit()
+void poi::ss::formula::functions::Complex::clinit()
 {
 struct string_init_ {
     string_init_() {
@@ -195,12 +189,12 @@ struct clinit_ {
     }
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::Complex::evaluate(::org::apache::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::Complex::evaluate(::poi::ss::formula::eval::ValueEvalArray* args, int32_t srcRowIndex, int32_t srcColumnIndex)
 {
     return super::evaluate(args, srcRowIndex, srcColumnIndex);
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::Complex::getClass0()
+java::lang::Class* poi::ss::formula::functions::Complex::getClass0()
 {
     return class_();
 }

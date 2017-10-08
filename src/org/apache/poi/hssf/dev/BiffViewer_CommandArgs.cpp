@@ -38,19 +38,19 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::dev::BiffViewer_CommandArgs::BiffViewer_CommandArgs(const ::default_init_tag&)
+poi::hssf::dev::BiffViewer_CommandArgs::BiffViewer_CommandArgs(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::dev::BiffViewer_CommandArgs::BiffViewer_CommandArgs(bool biffhex, bool noint, bool out, bool rawhex, bool noHeader, ::java::io::File* file) 
+poi::hssf::dev::BiffViewer_CommandArgs::BiffViewer_CommandArgs(bool biffhex, bool noint, bool out, bool rawhex, bool noHeader, ::java::io::File* file) 
     : BiffViewer_CommandArgs(*static_cast< ::default_init_tag* >(0))
 {
     ctor(biffhex,noint,out,rawhex,noHeader,file);
 }
 
-void org::apache::poi::hssf::dev::BiffViewer_CommandArgs::ctor(bool biffhex, bool noint, bool out, bool rawhex, bool noHeader, ::java::io::File* file)
+void poi::hssf::dev::BiffViewer_CommandArgs::ctor(bool biffhex, bool noint, bool out, bool rawhex, bool noHeader, ::java::io::File* file)
 {
     super::ctor();
     _biffhex = biffhex;
@@ -61,7 +61,7 @@ void org::apache::poi::hssf::dev::BiffViewer_CommandArgs::ctor(bool biffhex, boo
     _noHeader = noHeader;
 }
 
-org::apache::poi::hssf::dev::BiffViewer_CommandArgs* org::apache::poi::hssf::dev::BiffViewer_CommandArgs::parse(::java::lang::StringArray* args) /* throws(CommandParseException) */
+poi::hssf::dev::BiffViewer_CommandArgs* poi::hssf::dev::BiffViewer_CommandArgs::parse(::java::lang::StringArray* args) /* throws(CommandParseException) */
 {
     clinit();
     auto nArgs = npc(args)->length;
@@ -107,45 +107,45 @@ org::apache::poi::hssf::dev::BiffViewer_CommandArgs* org::apache::poi::hssf::dev
     return new BiffViewer_CommandArgs(biffhex, noint, out, rawhex, noheader, file);
 }
 
-bool org::apache::poi::hssf::dev::BiffViewer_CommandArgs::shouldDumpBiffHex()
+bool poi::hssf::dev::BiffViewer_CommandArgs::shouldDumpBiffHex()
 {
     return _biffhex;
 }
 
-bool org::apache::poi::hssf::dev::BiffViewer_CommandArgs::shouldDumpRecordInterpretations()
+bool poi::hssf::dev::BiffViewer_CommandArgs::shouldDumpRecordInterpretations()
 {
     return !_noint;
 }
 
-bool org::apache::poi::hssf::dev::BiffViewer_CommandArgs::shouldOutputToFile()
+bool poi::hssf::dev::BiffViewer_CommandArgs::shouldOutputToFile()
 {
     return _out;
 }
 
-bool org::apache::poi::hssf::dev::BiffViewer_CommandArgs::shouldOutputRawHexOnly()
+bool poi::hssf::dev::BiffViewer_CommandArgs::shouldOutputRawHexOnly()
 {
     return _rawhex;
 }
 
-bool org::apache::poi::hssf::dev::BiffViewer_CommandArgs::suppressHeader()
+bool poi::hssf::dev::BiffViewer_CommandArgs::suppressHeader()
 {
     return _noHeader;
 }
 
-java::io::File* org::apache::poi::hssf::dev::BiffViewer_CommandArgs::getFile()
+java::io::File* poi::hssf::dev::BiffViewer_CommandArgs::getFile()
 {
     return _file;
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::dev::BiffViewer_CommandArgs::class_()
+java::lang::Class* poi::hssf::dev::BiffViewer_CommandArgs::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.dev.BiffViewer.CommandArgs", 46);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::dev::BiffViewer_CommandArgs::getClass0()
+java::lang::Class* poi::hssf::dev::BiffViewer_CommandArgs::getClass0()
 {
     return class_();
 }

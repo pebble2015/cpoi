@@ -15,7 +15,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::poifs::macros::VBAMacroReader
+class poi::poifs::macros::VBAMacroReader
     : public virtual ::java::lang::Object
     , public virtual ::java::io::Closeable
 {
@@ -27,11 +27,11 @@ private:
     static ::java::lang::String* VBA_PROJECT_OOXML_;
     static ::java::lang::String* VBA_PROJECT_POIFS_;
     static ::java::nio::charset::Charset* UTF_16LE_;
-    ::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs {  };
+    ::poi::poifs::filesystem::NPOIFSFileSystem* fs {  };
 protected:
     void ctor(::java::io::InputStream* rstream) /* throws(IOException) */;
     void ctor(::java::io::File* file) /* throws(IOException) */;
-    void ctor(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs);
+    void ctor(::poi::poifs::filesystem::NPOIFSFileSystem* fs);
 
 private:
     void openOOXML(::java::io::InputStream* zipFile) /* throws(IOException) */;
@@ -41,12 +41,12 @@ public:
     virtual ::java::util::Map* readMacros() /* throws(IOException) */;
 
 public: /* protected */
-    virtual void findMacros(::org::apache::poi::poifs::filesystem::DirectoryNode* dir, VBAMacroReader_ModuleMap* modules) /* throws(IOException) */;
+    virtual void findMacros(::poi::poifs::filesystem::DirectoryNode* dir, VBAMacroReader_ModuleMap* modules) /* throws(IOException) */;
 
 private:
     static ::java::lang::String* readString(::java::io::InputStream* stream, int32_t length, ::java::nio::charset::Charset* charset) /* throws(IOException) */;
-    static void readModule(::org::apache::poi::util::RLEDecompressingInputStream* in, ::java::lang::String* streamName, VBAMacroReader_ModuleMap* modules) /* throws(IOException) */;
-    static void readModule(::org::apache::poi::poifs::filesystem::DocumentInputStream* dis, ::java::lang::String* name, VBAMacroReader_ModuleMap* modules) /* throws(IOException) */;
+    static void readModule(::poi::util::RLEDecompressingInputStream* in, ::java::lang::String* streamName, VBAMacroReader_ModuleMap* modules) /* throws(IOException) */;
+    static void readModule(::poi::poifs::filesystem::DocumentInputStream* dis, ::java::lang::String* name, VBAMacroReader_ModuleMap* modules) /* throws(IOException) */;
     static void trySkip(::java::io::InputStream* in, int64_t n) /* throws(IOException) */;
     static constexpr int32_t EOF_ { int32_t(-1) };
     static constexpr int32_t VERSION_INDEPENDENT_TERMINATOR { int32_t(16) };
@@ -64,17 +64,17 @@ private:
     static constexpr int32_t STREAMNAME_RESERVED { int32_t(50) };
 
 public: /* protected */
-    virtual void readMacros(::org::apache::poi::poifs::filesystem::DirectoryNode* macroDir, VBAMacroReader_ModuleMap* modules) /* throws(IOException) */;
+    virtual void readMacros(::poi::poifs::filesystem::DirectoryNode* macroDir, VBAMacroReader_ModuleMap* modules) /* throws(IOException) */;
 
 private:
-    ::java::lang::String* readUnicodeString(::org::apache::poi::util::RLEDecompressingInputStream* in, int32_t unicodeNameRecordLength) /* throws(IOException) */;
+    ::java::lang::String* readUnicodeString(::poi::util::RLEDecompressingInputStream* in, int32_t unicodeNameRecordLength) /* throws(IOException) */;
 
     // Generated
 
 public:
     VBAMacroReader(::java::io::InputStream* rstream);
     VBAMacroReader(::java::io::File* file);
-    VBAMacroReader(::org::apache::poi::poifs::filesystem::NPOIFSFileSystem* fs);
+    VBAMacroReader(::poi::poifs::filesystem::NPOIFSFileSystem* fs);
 protected:
     VBAMacroReader(const ::default_init_tag&);
 

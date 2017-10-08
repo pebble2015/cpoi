@@ -38,37 +38,37 @@ namespace
 
     template<typename F> finally_<F> finally(F f) { return finally_<F>(f); }
 }
-org::apache::poi::hpsf::ClipboardData::ClipboardData(const ::default_init_tag&)
+poi::hpsf::ClipboardData::ClipboardData(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hpsf::ClipboardData::ClipboardData() 
+poi::hpsf::ClipboardData::ClipboardData() 
     : ClipboardData(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-void org::apache::poi::hpsf::ClipboardData::init()
+void poi::hpsf::ClipboardData::init()
 {
     _format = int32_t(0);
 }
 
-org::apache::poi::util::POILogger*& org::apache::poi::hpsf::ClipboardData::LOG()
+poi::util::POILogger*& poi::hpsf::ClipboardData::LOG()
 {
     clinit();
     return LOG_;
 }
-org::apache::poi::util::POILogger* org::apache::poi::hpsf::ClipboardData::LOG_;
+poi::util::POILogger* poi::hpsf::ClipboardData::LOG_;
 
-void org::apache::poi::hpsf::ClipboardData::ctor()
+void poi::hpsf::ClipboardData::ctor()
 {
     super::ctor();
     init();
 }
 
-void org::apache::poi::hpsf::ClipboardData::read(::org::apache::poi::util::LittleEndianByteArrayInputStream* lei)
+void poi::hpsf::ClipboardData::read(::poi::util::LittleEndianByteArrayInputStream* lei)
 {
     auto offset = npc(lei)->getReadIndex();
     auto size = npc(lei)->readInt();
@@ -76,31 +76,31 @@ void org::apache::poi::hpsf::ClipboardData::read(::org::apache::poi::util::Littl
         auto msg = ::java::lang::StringBuilder().append(u"ClipboardData at offset "_j)->append(offset)
             ->append(u" size less than 4 bytes "_j)
             ->append(u"(doesn't even have format field!). Setting to format == 0 and hope for the best"_j)->toString();
-        npc(LOG_)->log(::org::apache::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(msg)}));
+        npc(LOG_)->log(::poi::util::POILogger::WARN, new ::java::lang::ObjectArray({static_cast< ::java::lang::Object* >(msg)}));
         _format = 0;
         _value = new ::int8_tArray(int32_t(0));
         return;
     }
     _format = npc(lei)->readInt();
-    _value = new ::int8_tArray(size - ::org::apache::poi::util::LittleEndianConsts::INT_SIZE);
+    _value = new ::int8_tArray(size - ::poi::util::LittleEndianConsts::INT_SIZE);
     npc(lei)->readFully(_value);
 }
 
-int8_tArray* org::apache::poi::hpsf::ClipboardData::getValue()
+int8_tArray* poi::hpsf::ClipboardData::getValue()
 {
     return _value;
 }
 
-int8_tArray* org::apache::poi::hpsf::ClipboardData::toByteArray_()
+int8_tArray* poi::hpsf::ClipboardData::toByteArray_()
 {
-    auto result = new ::int8_tArray(::org::apache::poi::util::LittleEndianConsts::INT_SIZE * int32_t(2) + npc(_value)->length);
-    auto bos = new ::org::apache::poi::util::LittleEndianByteArrayOutputStream(result, int32_t(0));
+    auto result = new ::int8_tArray(::poi::util::LittleEndianConsts::INT_SIZE * int32_t(2) + npc(_value)->length);
+    auto bos = new ::poi::util::LittleEndianByteArrayOutputStream(result, int32_t(0));
     {
         auto finally0 = finally([&] {
-            ::org::apache::poi::util::IOUtils::closeQuietly(bos);
+            ::poi::util::IOUtils::closeQuietly(bos);
         });
         {
-            npc(bos)->writeInt(::org::apache::poi::util::LittleEndianConsts::INT_SIZE + npc(_value)->length);
+            npc(bos)->writeInt(::poi::util::LittleEndianConsts::INT_SIZE + npc(_value)->length);
             npc(bos)->writeInt(_format);
             npc(bos)->write(_value);
             return result;
@@ -109,27 +109,27 @@ int8_tArray* org::apache::poi::hpsf::ClipboardData::toByteArray_()
 
 }
 
-void org::apache::poi::hpsf::ClipboardData::setValue(::int8_tArray* value)
+void poi::hpsf::ClipboardData::setValue(::int8_tArray* value)
 {
     _value = npc(value)->clone();
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hpsf::ClipboardData::class_()
+java::lang::Class* poi::hpsf::ClipboardData::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hpsf.ClipboardData", 33);
     return c;
 }
 
-void org::apache::poi::hpsf::ClipboardData::clinit()
+void poi::hpsf::ClipboardData::clinit()
 {
     super::clinit();
     static bool in_cl_init = false;
 struct clinit_ {
     clinit_() {
         in_cl_init = true;
-        LOG_ = ::org::apache::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(ClipboardData::class_()));
+        LOG_ = ::poi::util::POILogFactory::getLogger(static_cast< ::java::lang::Class* >(ClipboardData::class_()));
     }
 };
 
@@ -138,7 +138,7 @@ struct clinit_ {
     }
 }
 
-java::lang::Class* org::apache::poi::hpsf::ClipboardData::getClass0()
+java::lang::Class* poi::hpsf::ClipboardData::getClass0()
 {
     return class_();
 }

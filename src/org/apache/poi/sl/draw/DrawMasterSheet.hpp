@@ -10,22 +10,22 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::DrawMasterSheet
+class poi::sl::draw::DrawMasterSheet
     : public DrawSheet
 {
 
 public:
     typedef DrawSheet super;
 protected:
-    void ctor(::org::apache::poi::sl::usermodel::MasterSheet* sheet);
+    void ctor(::poi::sl::usermodel::MasterSheet* sheet);
 
 public: /* protected */
-    bool canDraw(::java::awt::Graphics2D* graphics, ::org::apache::poi::sl::usermodel::Shape* shape) override;
+    bool canDraw(::java::awt::Graphics2D* graphics, ::poi::sl::usermodel::Shape* shape) override;
 
     // Generated
 
 public:
-    DrawMasterSheet(::org::apache::poi::sl::usermodel::MasterSheet* sheet);
+    DrawMasterSheet(::poi::sl::usermodel::MasterSheet* sheet);
 protected:
     DrawMasterSheet(const ::default_init_tag&);
 

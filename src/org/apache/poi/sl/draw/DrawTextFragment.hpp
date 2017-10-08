@@ -13,7 +13,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::sl::draw::DrawTextFragment
+class poi::sl::draw::DrawTextFragment
     : public virtual ::java::lang::Object
     , public virtual Drawable
 {

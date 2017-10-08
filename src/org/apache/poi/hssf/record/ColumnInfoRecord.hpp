@@ -11,7 +11,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::ColumnInfoRecord final
+class poi::hssf::record::ColumnInfoRecord final
     : public StandardRecord
     , public ::java::lang::Cloneable
 {
@@ -26,9 +26,9 @@ private:
     int32_t _colWidth {  };
     int32_t _xfIndex {  };
     int32_t _options {  };
-    static ::org::apache::poi::util::BitField* hidden_;
-    static ::org::apache::poi::util::BitField* outlevel_;
-    static ::org::apache::poi::util::BitField* collapsed_;
+    static ::poi::util::BitField* hidden_;
+    static ::poi::util::BitField* outlevel_;
+    static ::poi::util::BitField* collapsed_;
     int32_t field_6_reserved {  };
 protected:
     void ctor();
@@ -53,7 +53,7 @@ public:
     bool isAdjacentBefore(ColumnInfoRecord* other);
     bool formatMatches(ColumnInfoRecord* other);
     int16_t getSid() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
 public: /* protected */
     int32_t getDataSize() override;
@@ -76,8 +76,8 @@ public:
     ::int8_tArray* serialize();
 
 private:
-    static ::org::apache::poi::util::BitField*& hidden();
-    static ::org::apache::poi::util::BitField*& outlevel();
-    static ::org::apache::poi::util::BitField*& collapsed();
+    static ::poi::util::BitField*& hidden();
+    static ::poi::util::BitField*& outlevel();
+    static ::poi::util::BitField*& collapsed();
     virtual ::java::lang::Class* getClass0();
 };

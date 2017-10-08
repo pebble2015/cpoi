@@ -36,28 +36,28 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::hssf::record::aggregates::ChartSubstreamRecordAggregate::ChartSubstreamRecordAggregate(const ::default_init_tag&)
+poi::hssf::record::aggregates::ChartSubstreamRecordAggregate::ChartSubstreamRecordAggregate(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::hssf::record::aggregates::ChartSubstreamRecordAggregate::ChartSubstreamRecordAggregate(::org::apache::poi::hssf::model::RecordStream* rs) 
+poi::hssf::record::aggregates::ChartSubstreamRecordAggregate::ChartSubstreamRecordAggregate(::poi::hssf::model::RecordStream* rs) 
     : ChartSubstreamRecordAggregate(*static_cast< ::default_init_tag* >(0))
 {
     ctor(rs);
 }
 
-void org::apache::poi::hssf::record::aggregates::ChartSubstreamRecordAggregate::ctor(::org::apache::poi::hssf::model::RecordStream* rs)
+void poi::hssf::record::aggregates::ChartSubstreamRecordAggregate::ctor(::poi::hssf::model::RecordStream* rs)
 {
     super::ctor();
-    _bofRec = java_cast< ::org::apache::poi::hssf::record::BOFRecord* >(npc(rs)->getNext());
+    _bofRec = java_cast< ::poi::hssf::record::BOFRecord* >(npc(rs)->getNext());
     ::java::util::List* temp = new ::java::util::ArrayList();
-    while (static_cast< ::java::lang::Object* >(npc(rs)->peekNextClass()) != static_cast< ::java::lang::Object* >(::org::apache::poi::hssf::record::EOFRecord::class_())) {
+    while (static_cast< ::java::lang::Object* >(npc(rs)->peekNextClass()) != static_cast< ::java::lang::Object* >(::poi::hssf::record::EOFRecord::class_())) {
         if(PageSettingsBlock::isComponentRecord(npc(rs)->peekNextSid())) {
             if(_psBlock != nullptr) {
-                if(npc(rs)->peekNextSid() == ::org::apache::poi::hssf::record::HeaderFooterRecord::sid) {
-                    npc(_psBlock)->addLateHeaderFooter(java_cast< ::org::apache::poi::hssf::record::HeaderFooterRecord* >(npc(rs)->getNext()));
+                if(npc(rs)->peekNextSid() == ::poi::hssf::record::HeaderFooterRecord::sid) {
+                    npc(_psBlock)->addLateHeaderFooter(java_cast< ::poi::hssf::record::HeaderFooterRecord* >(npc(rs)->getNext()));
                     continue;
                 }
                 throw new ::java::lang::IllegalStateException(::java::lang::StringBuilder().append(u"Found more than one PageSettingsBlock in chart sub-stream, had sid: "_j)->append(npc(rs)->peekNextSid())->toString());
@@ -70,37 +70,37 @@ void org::apache::poi::hssf::record::aggregates::ChartSubstreamRecordAggregate::
     }
     _recs = temp;
     auto eof = npc(rs)->getNext();
-    if(!(dynamic_cast< ::org::apache::poi::hssf::record::EOFRecord* >(eof) != nullptr)) {
+    if(!(dynamic_cast< ::poi::hssf::record::EOFRecord* >(eof) != nullptr)) {
         throw new ::java::lang::IllegalStateException(u"Bad chart EOF"_j);
     }
 }
 
-void org::apache::poi::hssf::record::aggregates::ChartSubstreamRecordAggregate::visitContainedRecords(RecordAggregate_RecordVisitor* rv)
+void poi::hssf::record::aggregates::ChartSubstreamRecordAggregate::visitContainedRecords(RecordAggregate_RecordVisitor* rv)
 {
     if(npc(_recs)->isEmpty()) {
         return;
     }
     npc(rv)->visitRecord(_bofRec);
     for (auto i = int32_t(0); i < npc(_recs)->size(); i++) {
-        auto rb = java_cast< ::org::apache::poi::hssf::record::RecordBase* >(npc(_recs)->get(i));
+        auto rb = java_cast< ::poi::hssf::record::RecordBase* >(npc(_recs)->get(i));
         if(dynamic_cast< RecordAggregate* >(rb) != nullptr) {
             npc((java_cast< RecordAggregate* >(rb)))->visitContainedRecords(rv);
         } else {
-            npc(rv)->visitRecord(java_cast< ::org::apache::poi::hssf::record::Record* >(rb));
+            npc(rv)->visitRecord(java_cast< ::poi::hssf::record::Record* >(rb));
         }
     }
-    npc(rv)->visitRecord(::org::apache::poi::hssf::record::EOFRecord::instance());
+    npc(rv)->visitRecord(::poi::hssf::record::EOFRecord::instance());
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::hssf::record::aggregates::ChartSubstreamRecordAggregate::class_()
+java::lang::Class* poi::hssf::record::aggregates::ChartSubstreamRecordAggregate::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.hssf.record.aggregates.ChartSubstreamRecordAggregate", 67);
     return c;
 }
 
-java::lang::Class* org::apache::poi::hssf::record::aggregates::ChartSubstreamRecordAggregate::getClass0()
+java::lang::Class* poi::hssf::record::aggregates::ChartSubstreamRecordAggregate::getClass0()
 {
     return class_();
 }

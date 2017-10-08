@@ -9,7 +9,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::util::NumberToTextConverter final
+class poi::ss::util::NumberToTextConverter final
     : public ::java::lang::Object
 {
 

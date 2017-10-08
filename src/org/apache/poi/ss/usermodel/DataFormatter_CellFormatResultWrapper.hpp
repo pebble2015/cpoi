@@ -10,7 +10,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::ss::usermodel::DataFormatter_CellFormatResultWrapper final
+class poi::ss::usermodel::DataFormatter_CellFormatResultWrapper final
     : public ::java::text::Format
 {
 
@@ -18,9 +18,9 @@ public:
     typedef ::java::text::Format super;
 
 private:
-    ::org::apache::poi::ss::format::CellFormatResult* result {  };
+    ::poi::ss::format::CellFormatResult* result {  };
 protected:
-    void ctor(::org::apache::poi::ss::format::CellFormatResult* result);
+    void ctor(::poi::ss::format::CellFormatResult* result);
 
 public:
     ::java::lang::StringBuffer* format(::java::lang::Object* obj, ::java::lang::StringBuffer* toAppendTo, ::java::text::FieldPosition* pos) override;
@@ -29,7 +29,7 @@ public:
     // Generated
 
 private:
-    DataFormatter_CellFormatResultWrapper(DataFormatter *DataFormatter_this, ::org::apache::poi::ss::format::CellFormatResult* result);
+    DataFormatter_CellFormatResultWrapper(DataFormatter *DataFormatter_this, ::poi::ss::format::CellFormatResult* result);
 protected:
     DataFormatter_CellFormatResultWrapper(DataFormatter *DataFormatter_this, const ::default_init_tag&);
 

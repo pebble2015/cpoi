@@ -22,26 +22,20 @@ typedef ::SubArray< ::java::lang::Enum, ObjectArray, ComparableArray, ::java::io
     } // lang
 } // java
 
-namespace org
+namespace poi
 {
-    namespace apache
+    namespace ss
     {
-        namespace poi
+        namespace formula
         {
-            namespace ss
-            {
-                namespace formula
-                {
-typedef ::SubArray< ::org::apache::poi::ss::formula::FormulaShifter_ShiftMode, ::java::lang::EnumArray > FormulaShifter_ShiftModeArray;
-                } // formula
-            } // ss
-        } // poi
-    } // apache
-} // org
+typedef ::SubArray< ::poi::ss::formula::FormulaShifter_ShiftMode, ::java::lang::EnumArray > FormulaShifter_ShiftModeArray;
+        } // formula
+    } // ss
+} // poi
 
 struct default_init_tag;
 
-class org::apache::poi::ss::formula::FormulaShifter_ShiftMode final
+class poi::ss::formula::FormulaShifter_ShiftMode final
     : public ::java::lang::Enum
 {
 

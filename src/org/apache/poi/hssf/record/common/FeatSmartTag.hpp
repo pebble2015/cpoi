@@ -12,7 +12,7 @@
 
 struct default_init_tag;
 
-class org::apache::poi::hssf::record::common::FeatSmartTag final
+class poi::hssf::record::common::FeatSmartTag final
     : public virtual ::java::lang::Object
     , public SharedFeature
 {
@@ -24,16 +24,16 @@ private:
     ::int8_tArray* data {  };
 protected:
     void ctor();
-    void ctor(::org::apache::poi::hssf::record::RecordInputStream* in);
+    void ctor(::poi::hssf::record::RecordInputStream* in);
 
 public:
     ::java::lang::String* toString() override;
     int32_t getDataSize() override;
-    void serialize(::org::apache::poi::util::LittleEndianOutput* out) override;
+    void serialize(::poi::util::LittleEndianOutput* out) override;
 
     // Generated
     FeatSmartTag();
-    FeatSmartTag(::org::apache::poi::hssf::record::RecordInputStream* in);
+    FeatSmartTag(::poi::hssf::record::RecordInputStream* in);
 protected:
     FeatSmartTag(const ::default_init_tag&);
 

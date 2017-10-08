@@ -17,28 +17,28 @@ static T* npc(T* t)
     return t;
 }
 
-org::apache::poi::ss::formula::functions::DGet::DGet(const ::default_init_tag&)
+poi::ss::formula::functions::DGet::DGet(const ::default_init_tag&)
     : super(*static_cast< ::default_init_tag* >(0))
 {
     clinit();
 }
 
-org::apache::poi::ss::formula::functions::DGet::DGet()
+poi::ss::formula::functions::DGet::DGet()
     : DGet(*static_cast< ::default_init_tag* >(0))
 {
     ctor();
 }
 
-bool org::apache::poi::ss::formula::functions::DGet::processMatch(::org::apache::poi::ss::formula::eval::ValueEval* eval)
+bool poi::ss::formula::functions::DGet::processMatch(::poi::ss::formula::eval::ValueEval* eval)
 {
     if(result == nullptr) {
         result = eval;
     } else {
-        if(dynamic_cast< ::org::apache::poi::ss::formula::eval::BlankEval* >(result) != nullptr) {
+        if(dynamic_cast< ::poi::ss::formula::eval::BlankEval* >(result) != nullptr) {
             result = eval;
         } else {
-            if(!(dynamic_cast< ::org::apache::poi::ss::formula::eval::BlankEval* >(eval) != nullptr)) {
-                result = ::org::apache::poi::ss::formula::eval::ErrorEval::NUM_ERROR();
+            if(!(dynamic_cast< ::poi::ss::formula::eval::BlankEval* >(eval) != nullptr)) {
+                result = ::poi::ss::formula::eval::ErrorEval::NUM_ERROR();
                 return false;
             }
         }
@@ -46,33 +46,33 @@ bool org::apache::poi::ss::formula::functions::DGet::processMatch(::org::apache:
     return true;
 }
 
-org::apache::poi::ss::formula::eval::ValueEval* org::apache::poi::ss::formula::functions::DGet::getResult()
+poi::ss::formula::eval::ValueEval* poi::ss::formula::functions::DGet::getResult()
 {
     if(result == nullptr) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
-    } else if(dynamic_cast< ::org::apache::poi::ss::formula::eval::BlankEval* >(result) != nullptr) {
-        return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+    } else if(dynamic_cast< ::poi::ss::formula::eval::BlankEval* >(result) != nullptr) {
+        return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
     } else
         try {
-            if(npc(::org::apache::poi::ss::formula::eval::OperandResolver::coerceValueToString(::org::apache::poi::ss::formula::eval::OperandResolver::getSingleValue(result, 0, 0)))->equals(static_cast< ::java::lang::Object* >(u""_j))) {
-                return ::org::apache::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
+            if(npc(::poi::ss::formula::eval::OperandResolver::coerceValueToString(::poi::ss::formula::eval::OperandResolver::getSingleValue(result, 0, 0)))->equals(static_cast< ::java::lang::Object* >(u""_j))) {
+                return ::poi::ss::formula::eval::ErrorEval::VALUE_INVALID();
             } else {
                 return result;
             }
-        } catch (::org::apache::poi::ss::formula::eval::EvaluationException* e) {
+        } catch (::poi::ss::formula::eval::EvaluationException* e) {
             return npc(e)->getErrorEval();
         }
 }
 
 extern java::lang::Class *class_(const char16_t *c, int n);
 
-java::lang::Class* org::apache::poi::ss::formula::functions::DGet::class_()
+java::lang::Class* poi::ss::formula::functions::DGet::class_()
 {
     static ::java::lang::Class* c = ::class_(u"org.apache.poi.ss.formula.functions.DGet", 40);
     return c;
 }
 
-java::lang::Class* org::apache::poi::ss::formula::functions::DGet::getClass0()
+java::lang::Class* poi::ss::formula::functions::DGet::getClass0()
 {
     return class_();
 }
