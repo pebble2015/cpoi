@@ -1,4 +1,4 @@
-INCLUDES := $(INCLUDES) -Isrc -Iext/src
+INCLUDES := $(INCLUDES) -Isrc -Iext/src -Iinclude
 EXTRA_LIBS ?= -l$(NAME)-ext
 
 CPPFLAGS := $(CPPFLAGS) $(INCLUDES)
